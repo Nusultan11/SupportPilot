@@ -39,13 +39,13 @@ uv run pre-commit install     # once per clone
 - Configuration: `configs/base.yaml`. Override with env vars `SUPPORTPILOT_<SECTION>__<KEY>`,
   or a file via `--config` / `SUPPORTPILOT_CONFIG`. Secrets go in `.env` (git-ignored).
 
-## 3. Quality checks (verified Stage 1)
+## 3. Quality checks (verified Stage 2)
 
 ```bash
 uv run ruff check . && uv run ruff format --check .
 uv run mypy                   # strict; src + tests
-uv run pytest -q              # full suite: 108 tests, ~15 s (with the Qdrant server up)
-uv run pytest -q -m "not slow and not gpu and not qdrant_server"   # fast subset, ~6 s
+uv run pytest -q              # full suite: 173 tests, ~16 s (with the Qdrant server up)
+uv run pytest -q -m "not slow and not gpu and not qdrant_server"   # fast subset (170 tests), ~8 s
 uv run pre-commit run --all-files                                  # all hooks
 ```
 
@@ -131,7 +131,49 @@ Measured on 1 GiB, including ~0.8 s CLI start:
 | verify (quick) | 1.6 s |
 | restore | 3.8 s, byte-identical |
 
-## 7. Diagnostics
+## 7. Source data (verified Stage 2)
+
+The registry is `configs/sources.yaml` (DATA_CONTRACTS §2). Data lives in `data/` and is git-ignored.
+
+```bash
+uv run supportpilot data sources [--status selected]   # registry + acquired/converted state
+uv run supportpilot data acquire --all                 # all status=selected; or name ids
+uv run supportpilot data convert --all [--force]       # raw -> data/interim/records
+uv run supportpilot data verify --all                  # deep sha256 check of raw + records; exit 1 on mismatch
+```
+
+Behaviour:
+- **Re-runs:** acquisition skips verified revisions without any network call. Conversion skips
+  outputs that are still current. `--force` rebuilds and produced byte-identical Parquet in the test.
+- **Interrupted downloads:** run the same command again. Files already complete in
+  `data/raw/<id>/.partial-<rev>/` are re-verified and kept, and incomplete ones resume.
+  Verified with a real `kill -9` during a 70 MB download.
+- **Corrupt raw revision:** `acquire` and `convert` stop with "immutable". Restore that source
+  from its pinned snapshot (below). Never edit files under `data/raw`.
+- **Gated sources** (`kazparc`, `flores_plus`, `kazqad`):
+  1. Accept the terms on huggingface.co.
+  2. Put `HF_TOKEN=...` in `.env` or the environment.
+  3. Set the entry's `status: selected`.
+  4. Add a converter for it.
+
+  The token is never written to the registry or the logs. This path has not been tried (no account).
+
+Timings (2026-11-11): first acquisition of the 5 sources took 31 s (151.5 MB). Conversion of
+99,882 records took 9 s.
+
+Backup after a new acquisition, one pinned snapshot per source:
+```bash
+uv run supportpilot backup create data/raw/<source_id> --name <source_id>_raw --kind data --pin
+uv run supportpilot backup create data/interim/records --name raw_records --kind data
+```
+
+Restore a raw source:
+```bash
+uv run supportpilot backup restore data/<source_id>_raw/<snapshot_id> --target <empty-dir>
+# then move <empty-dir>/<revision> to data/raw/<source_id>/<revision> and run `data verify`
+```
+
+## 8. Diagnostics
 
 | Symptom | Check |
 |---|---|
@@ -142,3 +184,7 @@ Measured on 1 GiB, including ~0.8 s CLI start:
 | Embedded Qdrant dir cannot be deleted | Windows keeps `storage.sqlite` locked while the process lives. Exit the process first |
 | `config error: ...` from the CLI | Unknown key or bad value in YAML/env. `extra="forbid"` names the field |
 | pre-commit "mixed line ending" | A tool wrote CRLF. The hook fixes it, so re-stage and commit again |
+| `data acquire`: "is gated" | Needs `HF_TOKEN` from an account that accepted the dataset's terms |
+| `data acquire`: "fails verification ... immutable" | A raw file changed on disk. Restore from the pinned snapshot (§7) |
+| `data convert`: "rows rejected (> 1.00%)" | Upstream format changed. Inspect `rejected` reasons, then fix the converter and bump its version |
+| Console shows `?` instead of Kazakh letters | Windows code page. Set `PYTHONIOENCODING=utf-8` for ad-hoc scripts |

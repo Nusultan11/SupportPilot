@@ -9,6 +9,11 @@ paths:
   artifacts_dir: artifacts
   reports_dir: artifacts/reports
 
+data:
+  registry: configs/sources.yaml   # source registry (DATA_CONTRACTS §2)
+  max_reject_ratio: 0.01           # conversion fails if more rows than this are rejected
+  download_retries: 3              # per file; partial downloads resume
+
 logging:
   level: INFO
   format: json        # json | console

@@ -44,6 +44,14 @@ class PathsSettings(_Section):
     reports_dir: Path = Path("artifacts/reports")
 
 
+class DataSettings(_Section):
+    registry: Path = Path("configs/sources.yaml")
+    max_reject_ratio: float = Field(
+        default=0.01, ge=0.0, le=1.0, description="conversion fails above this share of bad rows"
+    )
+    download_retries: int = Field(default=3, ge=1)
+
+
 class LoggingSettings(_Section):
     level: Literal["DEBUG", "INFO", "WARNING", "ERROR"] = "INFO"
     format: Literal["json", "console"] = "json"
@@ -84,6 +92,7 @@ class Settings(BaseSettings):
     env: Literal["dev", "test", "prod"] = "dev"
     root: Path = Field(default_factory=find_project_root)
     paths: PathsSettings = PathsSettings()
+    data: DataSettings = DataSettings()
     logging: LoggingSettings = LoggingSettings()
     backup: BackupSettings = BackupSettings()
     mlflow: MLflowSettings = MLflowSettings()

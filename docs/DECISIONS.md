@@ -44,6 +44,18 @@ Format: context → decision → alternatives → risks → revisit when. Status
 - **Licence obligation:** CDLA-Sharing-1.0 → any *published* derived dataset must carry the same licence. Model weights are not "data" under CDLA, but this is recorded for review.
 - **Risks:** MT errors in KK; RU-isms in KK; templated style → low naturalness. Mitigated by QE, back-translation, human spot checks, and gold built separately.
 - **Revisit:** a licensed native KK/RU support dataset appears; MT quality fails Stage 4 gates.
+- **Stage 2 outcome (2026-11-11):** 16 sources reviewed and recorded in `configs/sources.yaml`.
+  - **Acquired:**
+    - `train`: Bitext retail and Bitext customer support (backbone); while-ai e-commerce intent (CC-BY-4.0, naturalistic EN dialogues; inclusion decided by Stage 3 quality).
+    - `eval_only`: Belebele kk/ru/en.
+    - `reference_only`: support-json-ru (CC-BY-4.0, RU policy-conditioned decisions, SaaS domain).
+  - **Gated, so unavailable without an HF account:** KazParC, FLORES+, KazQAD.
+  - **Rejected, with reasons:**
+    - kazakh-instruction-v2: licence conflict (says MIT, is translated Alpaca, which is CC-BY-NC);
+    - wb-questions: scraped real-user content, so it stays a candidate and is not acquired;
+    - the rest: off-domain, unverifiable provenance, or NC.
+  - No usable native KK customer-support data exists among public sources. The plan above (MT + localisation + generation) stands.
+  - Not dataset sources, so not in the registry: NLLB-200 (CC-BY-NC-4.0), Tilmash (CC BY 4.0 per paper) and KazLLM (CC-BY-NC). They are MT/LLM options for Stage 4.
 
 ### ADR-007 Vector store: Qdrant; FAISS only as a comparison baseline — provisional (Stage 6)
 - **Why:** payload filters (lang, doc_type, effective dates), named dense + sparse vectors with server-side fusion (RRF), point-id upserts/deletes for incremental updates, local embedded mode for tests, Docker for dev, a clear scale-out path.
@@ -107,6 +119,7 @@ Format: context → decision → alternatives → risks → revisit when. Status
   - `gpu` group: torch, from the explicit `pytorch-cu126` index (resolved 2.14.1+cu126).
   - Both groups install by default. CI can skip `gpu`.
   - Polars/PyArrow, Transformers and FastAPI are added in the stage that first uses them.
+  - Stage 2 added `huggingface-hub` 2.4 (pinned downloads, upstream hashes), `polars` 2.1 (lazy reading of records) and `pyarrow` 26 (streaming Parquet writer). pyarrow was previously only transitive.
 - **Why cu126:** it is verified on driver 566.07 (CUDA 12.7 runtime). Newer CUDA builds need a newer driver. Updating the driver is the owner's call.
 - **Alternatives:** torch as a main dependency (forces a ~2.5 GB CUDA wheel on every install); `uv pip install` outside the lock (not reproducible).
 - **Revisit:** driver update → consider a newer CUDA index; training libraries that need a specific torch.
@@ -128,6 +141,37 @@ Format: context → decision → alternatives → risks → revisit when. Status
 - **Why no compression:** parquet and safetensors are already dense, and gzip would make 1 GiB snapshots CPU-bound (measured uncompressed: 3.8 s create, 2.6 s deep verify per GiB).
 - **Alternatives:** restic or borg (deduplication and encryption, but an external tool and opaque format); DVC (ADR-004, later); plain copies (no integrity check).
 - **Revisit:** snapshots need to go off-machine or be encrypted, or total size exceeds disk budget → restic to an external disk or cloud bucket.
+
+### ADR-018 Licence and usage policy enforced in code — accepted (2026-11-11)
+- **Decision:**
+  - `LICENCE_MAX_USE` (in `common/schemas.py`) caps `allowed_use` per licence:
+    - `train`: CDLA-Sharing, CC-BY, CC-BY-SA, CC0, MIT, Apache;
+    - `eval_only`: CC-BY-NC(-SA);
+    - `blocked`: `unknown` and `conflicting`.
+  - A licence missing from the list fails validation, so new licences are a deliberate choice.
+  - `supportpilot.data.policy` sets the minimum level per step: acquire, convert and analysis need ≥ reference_only; evaluation needs ≥ eval_only; training needs train.
+  - The step that loads records (`scan_records`) checks every requested source. A rejected source is never downloaded.
+- **Why NC is eval-only:** the owner may use the project commercially (portfolio); evaluation use is conservative, training use is not.
+- **Alternatives:** a licence note in docs only (not enforced); per-file licence tags (overkill for whole-dataset licences).
+- **Revisit:** the owner fixes a commercial or non-commercial status for the project; a source has row-level licences.
+
+### ADR-019 Acquisition and raw-record pipeline — accepted (2026-11-11)
+- **Decision:**
+  - **Download:** `huggingface_hub.hf_hub_download` into a stable `.partial-{revision}` directory, which gives resume; it uses `HF_TOKEN` for gated repos.
+  - **Integrity:** our own check against the upstream LFS sha256 or git blob sha1. An atomic rename makes the revision final, and a finished revision is never modified.
+  - **Conversion:** per-source converters (`data/converters.py`) stream rows (csv module, JSONL lines, Parquet batches) into one `RawRecord` contract.
+  - **Output:** Parquet via pyarrow `ParquetWriter`, with a content hash. Rejected rows are logged, the reject-ratio gate applies, and the result is swapped in atomically.
+- **Verified:**
+  - All 5 selected sources downloaded (151.5 MB) and matched upstream hashes.
+  - Re-runs skip without network.
+  - A real `kill -9` during a 70 MB download resumed, re-verifying and keeping the completed files.
+  - A forced re-conversion reproduced identical Parquet bytes and content hashes.
+- **Alternatives:**
+  - `datasets.load_dataset`: converts to Arrow cache, the original files are not kept as-is, and it adds a heavy dependency.
+  - `snapshot_download`: no per-file upstream verification of our own, and it is harder to restrict to verified-and-renamed.
+  - DVC `import-url`: extra tooling, see ADR-004.
+  - Converting into the canonical schema directly: that would mix lineage with labelling decisions that belong to Stages 3–4.
+- **Revisit:** a non-HF source appears (add a `url` fetch type with expected sha256); a source exceeds about 10 GB (shard-level resume, subset include patterns).
 
 ---
 
@@ -151,3 +195,6 @@ Format: context → decision → alternatives → risks → revisit when. Status
 - Qdrant troubleshooting (Windows bind mounts → named volumes): https://qdrant.tech/documentation/common-errors/
 - Qdrant 1.20 release: https://qdrant.tech/blog/qdrant-1.20.x/
 - PyTorch CUDA wheel indexes: https://download.pytorch.org/whl/cu126
+- Dataset cards reviewed in Stage 2: URLs and revisions in `configs/sources.yaml`
+- Stanford Alpaca data licence (CC BY-NC 4.0): https://github.com/tatsu-lab/stanford_alpaca
+- FLORES+ (evaluation only): https://huggingface.co/datasets/openlanguagedata/flores_plus

@@ -29,21 +29,75 @@ and an entry in DECISIONS.md.
 |---|---|---|
 | source_id | str | unique slug |
 | url | str | canonical page |
-| revision | str | HF commit sha / release tag / file sha256 |
-| licence | str | SPDX id or exact text id; `unknown` blocks use |
-| allowed_use | enum | `train`, `eval_only`, `reference_only`, `blocked` |
+| revision | str | full 40-char commit sha for HF sources (enforced) |
+| licence | str | id from the licence policy (ADR-018). `unknown` / `conflicting` force `blocked`. Unlisted ids are rejected |
+| licence_evidence | str | where the licence was checked, and when |
+| allowed_use | enum | `train` > `eval_only` > `reference_only` > `blocked`, capped by the licence policy |
+| status | enum | `selected` (acquired), `candidate`, `rejected`, `unavailable` (e.g. gated) |
+| access | enum | `public` (default) or `gated` (needs `HF_TOKEN` with accepted terms) |
 | languages | list[str] | |
 | size | object | rows / files / bytes, as published |
-| retrieved_at | datetime | |
+| reviewed_at | date | date of the licence/content review |
 | purpose | str | what it is used for |
+| decision | str | why it is selected or rejected |
 | notes | str | quality, overlaps, caveats |
+| fetch | object? | `{type: hf_dataset, repo_id, include: [fnmatch patterns]}`. Required when `status=selected` |
+
+Which pipeline step may use which level is defined in `supportpilot.data.policy`:
+
+| Step | Minimum `allowed_use` |
+|---|---|
+| acquire | `reference_only`, and status not `rejected` |
+| convert | `reference_only` |
+| analysis | `reference_only` |
+| evaluation | `eval_only` |
+| training | `train` |
 
 ## 3. Raw storage
 
 `data/raw/{source_id}/{revision}/` holds the original files exactly as downloaded, plus
 `manifest.json` = `{schema_version: "raw_manifest/1", source_id, revision, url, retrieved_at
-(timezone-aware), files:[{path, bytes, sha256}]}`.
-Raw files are never modified. A re-download with a different hash creates a new revision directory.
+(timezone-aware), licence, repo_id, files:[{path, bytes, sha256}]}`. The manifest does not list itself.
+
+- Every file is checked against the upstream hash before it is accepted: the LFS sha256, or
+  the git blob sha1 for files stored in git.
+- Raw files are never modified. A revision that fails verification stops the pipeline; restore
+  it from backup.
+- A new upstream revision gets a new directory.
+- Downloads in progress live in `data/raw/{source_id}/.partial-{revision}/` and are resumed.
+
+## 4a. Raw record (`data/interim/records/{source_id}/{revision}/`)
+
+This is Stage 2 output: one source row in a uniform shape, with values copied exactly
+(no normalisation, no inferred labels). The directory holds:
+
+- `records.parquet` (zstd, streamed in batches of 5000);
+- `rejected.jsonl` (`{source_file, source_row, reason, snippet}`), only when rows were rejected;
+- `manifest.json` (`records_manifest/1`).
+
+| Field | Type | Notes |
+|---|---|---|
+| schema_version | str | `raw_record/1` |
+| record_id | str | `{source_id}:{file_key}.{row}`, where row is the 0-based data row at the pinned revision |
+| source_id, revision | str | lineage |
+| source_file, source_row | str, int | file path inside the raw revision, row index |
+| source_split | str? | split as named by the source (`train`, `eval`, `test`, ...), else null |
+| record_type | enum | `single_turn`, `dialogue`, `reading_comprehension`, `policy_decision` |
+| lang | str | language **declared** by the source (detection happens in Stage 3) |
+| text | str | primary customer message / question, verbatim |
+| response | str? | agent response if the source has one |
+| source_intent, source_category, source_tags | str? | original labels, null when absent |
+| extra_json | str | every other source field, JSON with sorted keys (e.g. full dialogue turns, MCQ options) |
+| text_sha256 | str | sha256 of `text` (exact-duplicate key) |
+
+The records manifest holds: `source_id`, `revision`, `allowed_use` at conversion time,
+`converter` + `converter_version`, `raw_manifest_sha256` (lineage to the raw revision),
+`code_commit`, `row_count`, `rejected_count`, `rejected_reasons`, `counts` (by lang / type /
+split), `content_sha256` (over canonical JSON of all rows, in order) and `files`.
+
+A conversion is skipped when the raw manifest hash, the converter version and the files all
+still match. It fails when no rows are produced or when rejected rows exceed
+`data.max_reject_ratio` (default 1%).
 
 ## 4. Canonical example (`data/interim/`, Parquet, partitioned by `lang`)
 

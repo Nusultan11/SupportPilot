@@ -1,0 +1,279 @@
+# Source registry (DATA_CONTRACTS §2, ADR-006, ADR-018). Validated by `SourceRegistry`.
+# Every source that was investigated is listed, including rejected ones and the reason.
+# status:      selected | candidate | rejected | unavailable
+# allowed_use: train | eval_only | reference_only | blocked  (capped by the licence policy)
+# Revisions are full HF commit shas; `include` limits which repo files are downloaded.
+schema_version: sources/1
+sources:
+
+  # ------------------------------------------------------------------ selected (acquired)
+  - source_id: bitext_retail_ecom
+    url: https://huggingface.co/datasets/bitext/Bitext-retail-ecommerce-llm-chatbot-training-dataset
+    revision: 12dd624ddcd3057382b2faad661bcda1fa869491
+    licence: cdla-sharing-1.0
+    licence_evidence: "HF card metadata `license: cdla-sharing-1.0` (checked 2026-11-11)"
+    allowed_use: train
+    status: selected
+    languages: [en]
+    size: {rows: 44884, files: 2, bytes: 42634113}
+    reviewed_at: 2026-11-11
+    purpose: EN scenario backbone for retail/e-commerce intents (46 intents, 13 categories)
+    decision: >-
+      Closest licensed match to the product scope (orders, delivery, returns, payment,
+      products, store). Hybrid-synthetic and templated: rows are paraphrase families of few
+      scenarios, so unique-scenario count is measured in Stage 3.
+    notes: >-
+      Responses contain {{Placeholder}} slots. Tags column = Bitext register/style codes.
+      CDLA-Sharing: published derived data must keep the same licence.
+    fetch:
+      repo_id: bitext/Bitext-retail-ecommerce-llm-chatbot-training-dataset
+      include: ["*.csv", "README.md"]
+
+  - source_id: bitext_customer_support
+    url: https://huggingface.co/datasets/bitext/Bitext-customer-support-llm-chatbot-training-dataset
+    revision: 430d1a89bd93bd1fa23c16f29dd53e73f0087443
+    licence: cdla-sharing-1.0
+    licence_evidence: "HF card metadata `license: cdla-sharing-1.0` (checked 2026-11-11)"
+    allowed_use: train
+    status: selected
+    languages: [en]
+    size: {rows: 26872, files: 2, bytes: 19214423}
+    reviewed_at: 2026-11-11
+    purpose: EN generic customer-support intents (orders, refunds, invoices, shipping address, account)
+    decision: >-
+      Complements the retail set with invoice, shipping-address, complaint and account flows.
+      Overlaps with retail on cancel/change order and refunds (overlap measured in Stage 3).
+    notes: Card text lists fewer intents than the data contains; trust the data (Stage 3).
+    fetch:
+      repo_id: bitext/Bitext-customer-support-llm-chatbot-training-dataset
+      include: ["*.csv", "README.md"]
+
+  - source_id: whileai_ecommerce_intent
+    url: https://huggingface.co/datasets/while-ai/ecommerce-intent
+    revision: d763946298622bef7ee1900f2aec326803769f81
+    licence: cc-by-4.0
+    licence_evidence: "HF card metadata `license: cc-by-4.0`; README \"machine-generated\" (checked 2026-11-11)"
+    allowed_use: train
+    status: selected
+    languages: [en]
+    size: {files: 3, bytes: 77603737}
+    reviewed_at: 2026-11-11
+    purpose: >-
+      Naturalistic (non-templated) EN multi-turn e-commerce payment/refund/billing conversations
+      to counter Bitext's template style; intent labels over 7 payment types.
+    decision: >-
+      Selected for Stage 3 EDA; inclusion in SFT depends on measured quality. LLM role-play
+      simulation, generator models not named, so it is never used as a source of facts.
+    notes: Label set (spend/send/exchange/recur/bill/reverse/none) differs from ours; map in Stage 4.
+    fetch:
+      repo_id: while-ai/ecommerce-intent
+      include: ["train.jsonl", "eval.jsonl", "README.md"]
+
+  - source_id: support_json_ru
+    url: https://huggingface.co/datasets/A11Sunday/support-json-ru
+    revision: 280ce3631b7962c3bcb31df9e61d344f2a691111
+    licence: cc-by-4.0
+    licence_evidence: LICENSE.txt "Licensed under Creative Commons Attribution 4.0" + card metadata (checked 2026-11-11)
+    allowed_use: reference_only
+    status: selected
+    languages: [ru]
+    size: {rows: 716, files: 6, bytes: 4275284}
+    reviewed_at: 2026-11-11
+    purpose: >-
+      RU reference for policy-conditioned support decisions (message + policies + facts ->
+      category, action, reply, escalation): informs our grounded SFT design and RU phrasing.
+    decision: >-
+      SaaS domain, not e-commerce, and synthetic; licence would allow training but we keep it
+      reference_only until Stage 4 shows a use. Only the `selected` config is fetched: the
+      other configs overlap it (card warning).
+    notes: Attribution required (A11Sunday, Support-JSON-RU, 2026); indicate changes when sharing.
+    fetch:
+      repo_id: A11Sunday/support-json-ru
+      include: ["data/selected/*.parquet", "LICENSE.txt", "README.md", "documentation/DATASET.md"]
+
+  - source_id: belebele
+    url: https://huggingface.co/datasets/facebook/belebele
+    revision: 7899cdfa4e1e0d733fd77c848e2c273cb1d32be2
+    licence: cc-by-sa-4.0
+    licence_evidence: "HF card metadata `license: cc-by-sa-4.0` (checked 2026-11-11)"
+    allowed_use: eval_only
+    status: selected
+    languages: [kk, ru, en]
+    size: {rows: 2700, files: 4, bytes: 7803342}
+    reviewed_at: 2026-11-11
+    purpose: Parallel reading-comprehension benchmark to measure base-model KK/RU/EN competence (Stage 7)
+    decision: >-
+      Public, parallel across our three languages, standard for KK model comparison. The card
+      says test-only, so eval_only (never training or tuning).
+    fetch:
+      repo_id: facebook/belebele
+      include: ["data/kaz_Cyrl.jsonl", "data/rus_Cyrl.jsonl", "data/eng_Latn.jsonl", "README.md"]
+
+  # ------------------------------------------------------------------ unavailable (gated)
+  - source_id: kazparc
+    url: https://huggingface.co/datasets/issai/kazparc
+    revision: 41df65bd299ae0b5f2222d86f3db2f4fdd44e8e6
+    licence: cc-by-4.0
+    licence_evidence: >-
+      Paper arXiv:2403.19399 states CC BY 4.0; the HF card has no licence field or text
+      (checked 2026-11-11). Re-confirm on access.
+    allowed_use: eval_only
+    status: unavailable
+    access: gated
+    languages: [kk, ru, en]
+    size: {bytes: 6117836753}
+    reviewed_at: 2026-11-11
+    purpose: Human/curated KK-RU-EN parallel test sets for comparing MT systems (Stage 4)
+    decision: >-
+      Gated (accept terms with an HF account). Only the test files would be fetched. Part of
+      the corpus is machine-translated web text, so only the curated test split is useful.
+    fetch:
+      repo_id: issai/kazparc
+      include: ["kazparc/*test*", "README.md"]
+
+  - source_id: flores_plus
+    url: https://huggingface.co/datasets/openlanguagedata/flores_plus
+    revision: 1147e2dc59f37fbb5c22fd8478770de02cd399f9
+    licence: cc-by-sa-4.0
+    licence_evidence: README "released under CC BY-SA 4.0"; "should not be used as training data" (checked 2026-11-11)
+    allowed_use: eval_only
+    status: unavailable
+    access: gated
+    languages: [kk, ru, en]
+    size: {bytes: 230403778}
+    reviewed_at: 2026-11-11
+    purpose: Expert-translated MT benchmark (kaz_Cyrl / rus_Cyrl / eng_Latn) for Stage 4 MT comparison
+    decision: Gated (accept terms with an HF account). Best MT test set for KK; needed in Stage 4.
+    fetch:
+      repo_id: openlanguagedata/flores_plus
+      include: ["*/kaz_Cyrl*", "*/rus_Cyrl*", "*/eng_Latn*", "README.md"]
+
+  - source_id: kazqad
+    url: https://huggingface.co/datasets/issai/KazQAD
+    revision: 2e43ff9596a8e075c3cd0ba3ab7584a74afca6bc
+    licence: cc-by-sa-4.0
+    licence_evidence: "HF card metadata `license: cc-by-sa-4.0` (checked 2026-11-11)"
+    allowed_use: eval_only
+    status: unavailable
+    access: gated
+    languages: [kk]
+    size: {bytes: 51781291}
+    reviewed_at: 2026-11-11
+    purpose: KK question answering over passages; possible sanity check for KK retrieval (Stage 6)
+    decision: Gated; low priority (Wikipedia domain). Fetch only if Stage 6 needs extra KK retrieval data.
+    fetch:
+      repo_id: issai/KazQAD
+      include: ["kazqad/*", "README.md"]
+
+  # ------------------------------------------------------------------ candidates (not acquired)
+  - source_id: kz_multidomain
+    url: https://huggingface.co/datasets/kz-transformers/multidomain-kazakh-dataset
+    revision: 7a1fcdf9830b1c34b44b3038aafb672447f41890
+    licence: apache-2.0
+    licence_evidence: "HF card metadata `license: apache-2.0` (checked 2026-11-11)"
+    allowed_use: reference_only
+    status: candidate
+    languages: [kk, ru]
+    size: {bytes: 24692458976}
+    reviewed_at: 2026-11-11
+    purpose: Monolingual KK text for KK language-quality checks (character/LID statistics) in Stage 3-4
+    decision: 24.7 GB; acquire a subset only if the KK quality checks need it.
+
+  - source_id: wb_questions
+    url: https://huggingface.co/datasets/nyuuzyou/wb-questions
+    revision: 9986f96eef682dc39aee8d9cccf4cd481a8aef26
+    licence: cc0-1.0
+    licence_evidence: README "dedicated to the public domain under CC0" (checked 2026-11-11)
+    allowed_use: reference_only
+    status: candidate
+    languages: [ru]
+    size: {rows: 7410007, bytes: 560369029}
+    reviewed_at: 2026-11-11
+    purpose: Real RU marketplace product questions/answers (style reference for product_info/availability)
+    decision: >-
+      Not acquired: scraped real-user content from a marketplace (curator's CC0 does not settle
+      the users' or platform's rights; may contain personal data). Revisit only with a PII
+      filter and an explicit owner decision.
+
+  # ------------------------------------------------------------------ rejected
+  - source_id: kazakh_instruction_v2
+    url: https://huggingface.co/datasets/AmanMussa/kazakh-instruction-v2
+    revision: c641407ee50723c84a43ea2ec867b464d3893c12
+    licence: conflicting
+    licence_evidence: >-
+      Card says MIT, but README states it is Stanford Alpaca translated with Google Translate;
+      Alpaca data is CC BY-NC 4.0 (checked 2026-11-11).
+    allowed_use: blocked
+    status: rejected
+    languages: [kk]
+    size: {bytes: 35559327}
+    reviewed_at: 2026-11-11
+    purpose: General KK instruction data
+    decision: Licence conflict with the upstream data; also off-domain.
+
+  - source_id: powerful_kazakh_dialogue
+    url: https://huggingface.co/datasets/DarkyMan/powerful-kazakh-dialogue
+    revision: 21767906afc85a701fc55d9405d5bf8ddd4baa48
+    licence: apache-2.0
+    licence_evidence: "HF card metadata `license: apache-2.0`; file name says generated with Grok (checked 2026-11-11)"
+    allowed_use: reference_only
+    status: rejected
+    languages: [kk]
+    size: {rows: 10000, bytes: 94876543}
+    reviewed_at: 2026-11-11
+    purpose: Synthetic KK long-form assistant dialogues
+    decision: Off-domain (general knowledge essays), LLM-generated with unclear output terms.
+
+  - source_id: lakshan_banking_support
+    url: https://huggingface.co/datasets/Lakshan2003/customer-support-client-agent-conversations
+    revision: df83cc5c2a321796f4cf9f472a500e4ccca5dea0
+    licence: mit
+    licence_evidence: "HF card metadata `license: mit` (checked 2026-11-11)"
+    allowed_use: reference_only
+    status: rejected
+    languages: [en]
+    size: {rows: 183337, bytes: 211841991}
+    reviewed_at: 2026-11-11
+    purpose: EN multi-turn customer service
+    decision: Banking domain; GPT-4o-mini/GPT-4.1 rewrites of a third-party corpus.
+
+  - source_id: synthdata_ecom_dialogues
+    url: https://huggingface.co/datasets/synthdataq9x260918/synthetic-ecommerce-customer-service-dialogues-100k
+    revision: 1cea96c2751c15c74d1b3b5e2662288dc5ef8716
+    licence: cc-by-4.0
+    licence_evidence: dataset-metadata.json `CC-BY-4.0` (checked 2026-11-11)
+    allowed_use: reference_only
+    status: rejected
+    languages: [en]
+    size: {rows: 100000, bytes: 42516427}
+    reviewed_at: 2026-11-11
+    purpose: EN single-turn e-commerce support
+    decision: >-
+      Provenance unverifiable (metadata still contains the template id
+      "YOUR_KAGGLE_USERNAME", generator undocumented, viewer broken).
+
+  - source_id: runlu_intent
+    url: https://huggingface.co/datasets/mteb/RuNLUIntentClassification
+    revision: 16ad21af1c03e8bd3219c1f795cf1e60f47f410e
+    licence: cc-by-4.0
+    licence_evidence: "HF card metadata `license: cc-by-4.0` (checked 2026-11-11)"
+    allowed_use: eval_only
+    status: rejected
+    languages: [ru]
+    size: {bytes: 748683}
+    reviewed_at: 2026-11-11
+    purpose: RU intent classification
+    decision: Home-robot / virtual-assistant intents (weather, stocks), no overlap with store support.
+
+  - source_id: support_tickets_multilang
+    url: https://huggingface.co/datasets/Tobi-Bueck/customer-support-tickets
+    revision: ddf1c81a5475992c4fa6752bf1e8b4e31f07bbeb
+    licence: cc-by-nc-4.0
+    licence_evidence: "HF card metadata `license: cc-by-nc-4.0` (checked 2026-11-11)"
+    allowed_use: eval_only
+    status: rejected
+    languages: [en]
+    size: {bytes: 53133950}
+    reviewed_at: 2026-11-11
+    purpose: Labelled support e-mails (queues, priorities)
+    decision: IT help-desk domain, EN/DE only, non-commercial licence.

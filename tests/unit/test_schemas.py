@@ -15,9 +15,9 @@ from supportpilot.common.schemas import (
     DatasetManifest,
     FileEntry,
     RawManifest,
-    SourceEntry,
     SourceRegistry,
 )
+from tests.data_helpers import entry
 
 SHA = "a" * 64
 
@@ -38,20 +38,6 @@ def _example(**overrides: Any) -> dict[str, Any]:
         "escalate": False,
         "origin": "original",
         "quality": {"lid_conf": 0.97},
-    }
-    base.update(overrides)
-    return base
-
-
-def _source(**overrides: Any) -> dict[str, Any]:
-    base: dict[str, Any] = {
-        "source_id": "bitext_retail_ecom",
-        "url": "https://huggingface.co/datasets/bitext/x",
-        "revision": "abc123",
-        "licence": "CDLA-Sharing-1.0",
-        "allowed_use": "train",
-        "languages": ["en"],
-        "purpose": "scenario backbone",
     }
     base.update(overrides)
     return base
@@ -110,29 +96,38 @@ def test_canonical_example_is_frozen() -> None:
 
 
 def test_source_entry_rules() -> None:
-    assert SourceEntry.model_validate(_source()).allowed_use is AllowedUse.TRAIN
-    SourceEntry.model_validate(_source(licence="unknown", allowed_use="blocked"))
-    with pytest.raises(ValidationError, match="unknown"):
-        SourceEntry.model_validate(_source(licence="unknown"))
+    assert entry().allowed_use is AllowedUse.TRAIN
+    assert entry(licence="CC-BY-4.0").licence == "CC-BY-4.0"  # policy lookup is case-insensitive
+    entry(licence="unknown", allowed_use="blocked", status="rejected", fetch=None)
     with pytest.raises(ValidationError):
-        SourceEntry.model_validate(_source(languages=[]))
+        entry(languages=[])
     with pytest.raises(ValidationError):
-        SourceEntry.model_validate(_source(source_id="Bitext Retail"))
+        entry(source_id="Bitext Retail")
     with pytest.raises(ValidationError):
-        SourceEntry.model_validate(_source(retrieved_at=datetime(2026, 11, 11)))  # naive
+        entry(reviewed_at="not a date")
 
 
 def test_registry_duplicates_and_lookup(tmp_path: Path) -> None:
     with pytest.raises(ValidationError, match="duplicate"):
-        SourceRegistry.model_validate({"sources": [_source(), _source()]})
+        SourceRegistry(sources=[entry(), entry()])
     p = tmp_path / "sources.yaml"
-    p.write_text(
-        "schema_version: sources/1\nsources:\n"
-        "  - source_id: kazparc\n    url: https://huggingface.co/datasets/issai/kazparc\n"
-        "    revision: deadbeef\n    licence: CC-BY-4.0\n    allowed_use: eval_only\n"
-        "    languages: [kk, ru, en]\n    purpose: MT evaluation\n",
-        encoding="utf-8",
-    )
+    lines = [
+        "schema_version: sources/1",
+        "sources:",
+        "  - source_id: kazparc",
+        "    url: https://huggingface.co/datasets/issai/kazparc",
+        "    revision: 41df65bd299ae0b5f2222d86f3db2f4fdd44e8e6",
+        "    licence: cc-by-4.0",
+        "    licence_evidence: paper",
+        "    allowed_use: eval_only",
+        "    status: unavailable",
+        "    access: gated",
+        "    languages: [kk, ru, en]",
+        "    reviewed_at: 2026-11-11",
+        "    purpose: MT evaluation",
+        "    decision: gated",
+    ]
+    p.write_text("\n".join(lines), encoding="utf-8")
     reg = load_source_registry(p)
     assert reg.get("kazparc").languages == ["kk", "ru", "en"]
     with pytest.raises(KeyError):

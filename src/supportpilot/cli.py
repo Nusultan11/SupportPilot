@@ -17,8 +17,9 @@ from pydantic import BaseModel
 
 from supportpilot.common.config import Settings, load_settings
 from supportpilot.common.logging import configure_logging, get_logger
-from supportpilot.common.manifest import write_model_json
+from supportpilot.common.manifest import load_source_registry, write_model_json
 from supportpilot.common.provenance import code_commit
+from supportpilot.common.schemas import SourceEntry, SourceStatus
 from supportpilot.ops import backup
 
 log = get_logger("supportpilot.cli")
@@ -129,6 +130,95 @@ def cmd_backup(args: argparse.Namespace, settings: Settings) -> int:
     raise AssertionError(args.action)  # pragma: no cover
 
 
+def _selected_entries(args: argparse.Namespace, settings: Settings) -> list[SourceEntry]:
+    registry = load_source_registry(settings.resolve(settings.data.registry))
+    if args.all:
+        return [s for s in registry.sources if s.status is SourceStatus.SELECTED]
+    if not args.sources:
+        raise ValueError("name one or more source ids, or pass --all (all selected sources)")
+    unknown = [sid for sid in args.sources if sid not in {s.source_id for s in registry.sources}]
+    if unknown:
+        raise ValueError(f"unknown source id(s): {unknown}")
+    return [registry.get(sid) for sid in args.sources]
+
+
+def cmd_data(args: argparse.Namespace, settings: Settings) -> int:
+    from supportpilot.data.acquire import HfDatasetRemote, acquire_source, raw_dir, verify_raw
+    from supportpilot.data.convert import convert_source, records_dir, verify_records
+
+    data_dir = settings.resolve(settings.paths.data_dir)
+    if args.action == "sources":
+        registry = load_source_registry(settings.resolve(settings.data.registry))
+        rows = []
+        for s in registry.sources:
+            if args.status and s.status.value != args.status:
+                continue
+            rows.append(
+                {
+                    "source_id": s.source_id,
+                    "status": s.status.value,
+                    "allowed_use": s.allowed_use.value,
+                    "licence": s.licence,
+                    "languages": s.languages,
+                    "acquired": (raw_dir(data_dir, s) / "manifest.json").is_file(),
+                    "converted": (records_dir(data_dir, s) / "manifest.json").is_file(),
+                }
+            )
+        _emit({"sources": rows})
+        return 0
+
+    entries = _selected_entries(args, settings)
+    if args.action == "acquire":
+        results = []
+        for e in entries:
+            if e.fetch is None:
+                raise ValueError(f"{e.source_id}: registry entry has no fetch spec")
+            remote = HfDatasetRemote(e.fetch.repo_id, e.revision)
+            r = acquire_source(e, data_dir, remote, retries=settings.data.download_retries)
+            results.append(r.model_dump())
+        _emit({"acquired": results})
+        return 0
+    if args.action == "convert":
+        commit = code_commit(settings.root)
+        results = [
+            convert_source(
+                e,
+                data_dir,
+                max_reject_ratio=settings.data.max_reject_ratio,
+                code_commit=commit,
+                force=args.force,
+            ).model_dump()
+            for e in entries
+        ]
+        _emit({"converted": results})
+        return 0
+    # verify
+    report = []
+    failed = False
+    for e in entries:
+        raw, rec = raw_dir(data_dir, e), records_dir(data_dir, e)
+        item: dict[str, Any] = {"source_id": e.source_id, "raw": None, "records": None}
+        if raw.exists():
+            raw_problems = verify_raw(raw)
+            item["raw"] = {
+                "ok": not raw_problems,
+                "problems": [p.model_dump() for p in raw_problems],
+            }
+            failed |= bool(raw_problems)
+        if rec.exists():
+            rec_problems = verify_records(rec)
+            item["records"] = {
+                "ok": not rec_problems,
+                "problems": [p.model_dump() for p in rec_problems],
+            }
+            failed |= bool(rec_problems)
+        if item["raw"] is None:
+            item["raw"] = "not acquired"
+        report.append(item)
+    _emit({"verify": report})
+    return 1 if failed else 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="supportpilot", description=__doc__)
     p.add_argument("--config", type=Path, help="YAML config (default: configs/base.yaml)")
@@ -168,6 +258,22 @@ def build_parser() -> argparse.ArgumentParser:
     pr.add_argument("--keep", type=int)
     pr.add_argument("--yes", action="store_true", help="actually delete")
     bk.set_defaults(func=cmd_backup)
+
+    dt = sub.add_parser("data", help="source registry, acquisition, conversion")
+    dsub = dt.add_subparsers(dest="action", required=True)
+    src = dsub.add_parser("sources", help="registry with local acquisition/conversion state")
+    src.add_argument("--status", choices=[s.value for s in SourceStatus])
+    for name, helptext in (
+        ("acquire", "download pinned revisions into data/raw (skips verified ones)"),
+        ("verify", "deep-check raw data and records against their manifests"),
+        ("convert", "raw files -> data/interim/records (skips up-to-date ones)"),
+    ):
+        a = dsub.add_parser(name, help=helptext)
+        a.add_argument("sources", nargs="*", help="source ids (see `data sources`)")
+        a.add_argument("--all", action="store_true", help="all sources with status=selected")
+        if name == "convert":
+            a.add_argument("--force", action="store_true", help="rebuild even if up to date")
+    dt.set_defaults(func=cmd_data)
     return p
 
 
@@ -180,8 +286,19 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 2
     configure_logging(settings.logging)
     log.debug("start", extra={"command": args.command, "at": datetime.now(UTC).isoformat()})
+    from supportpilot.data.acquire import AcquireError
+    from supportpilot.data.converters import ConversionError
+    from supportpilot.data.policy import PolicyError
+
     try:
         return int(args.func(args, settings))
-    except (backup.BackupError, FileNotFoundError, ValueError) as exc:
+    except (
+        backup.BackupError,
+        AcquireError,
+        ConversionError,
+        PolicyError,
+        FileNotFoundError,
+        ValueError,
+    ) as exc:
         log.error("command failed", extra={"error": str(exc)})
         return 2

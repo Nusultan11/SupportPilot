@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import re
-from datetime import datetime
+from datetime import date, datetime
 from enum import StrEnum
 from pathlib import PurePosixPath
 from typing import Annotated, Literal, Self
@@ -51,6 +51,8 @@ DatasetVersion = Annotated[str, _pattern("dataset_version", DATASET_VERSION_RE)]
 RelPath = Annotated[str, AfterValidator(_rel_posix)]
 NonEmptyStr = Annotated[str, Field(min_length=1)]
 
+_GIT_SHA_RE = re.compile(r"^[0-9a-f]{40}$")
+
 LanguageCode = Literal["en", "ru", "kk"]
 LANGUAGES: tuple[LanguageCode, ...] = ("en", "ru", "kk")
 
@@ -63,10 +65,53 @@ class _Contract(BaseModel):
 
 
 class AllowedUse(StrEnum):
+    """Ordered from most to least permissive (see `USE_RANK`)."""
+
     TRAIN = "train"
     EVAL_ONLY = "eval_only"
     REFERENCE_ONLY = "reference_only"
     BLOCKED = "blocked"
+
+
+USE_RANK: dict[AllowedUse, int] = {
+    AllowedUse.TRAIN: 3,
+    AllowedUse.EVAL_ONLY: 2,
+    AllowedUse.REFERENCE_ONLY: 1,
+    AllowedUse.BLOCKED: 0,
+}
+
+# Licence policy (ADR-018): the most permissive use each licence allows in this project.
+# A licence not listed here is rejected by validation, so new licences are a conscious choice.
+LICENCE_MAX_USE: dict[str, AllowedUse] = {
+    "cdla-sharing-1.0": AllowedUse.TRAIN,  # share-alike for published derived data
+    "cc-by-4.0": AllowedUse.TRAIN,
+    "cc-by-sa-4.0": AllowedUse.TRAIN,  # share-alike
+    "cc0-1.0": AllowedUse.TRAIN,
+    "mit": AllowedUse.TRAIN,
+    "apache-2.0": AllowedUse.TRAIN,
+    "cc-by-nc-4.0": AllowedUse.EVAL_ONLY,
+    "cc-by-nc-sa-4.0": AllowedUse.EVAL_ONLY,
+    "unknown": AllowedUse.BLOCKED,
+    "conflicting": AllowedUse.BLOCKED,  # declared licence contradicts the upstream data's licence
+}
+
+
+class SourceStatus(StrEnum):
+    SELECTED = "selected"  # acquired and converted in Stage 2
+    CANDIDATE = "candidate"  # usable, not acquired yet (reason in `decision`)
+    REJECTED = "rejected"  # researched and not used (reason in `decision`)
+    UNAVAILABLE = "unavailable"  # wanted, but access is blocked (e.g. gated without token)
+
+
+class Access(StrEnum):
+    PUBLIC = "public"
+    GATED = "gated"  # needs an HF account that accepted the terms (HF_TOKEN)
+
+
+class FetchSpec(_Contract):
+    type: Literal["hf_dataset"] = "hf_dataset"
+    repo_id: Annotated[str, Field(pattern=r"^[\w.-]+/[\w.-]+$")]
+    include: list[NonEmptyStr] = Field(min_length=1, description="fnmatch patterns of repo files")
 
 
 class SourceSize(_Contract):
@@ -80,17 +125,39 @@ class SourceEntry(_Contract):
     url: NonEmptyStr
     revision: NonEmptyStr
     licence: NonEmptyStr
+    licence_evidence: NonEmptyStr
     allowed_use: AllowedUse
+    status: SourceStatus
+    access: Access = Access.PUBLIC
     languages: list[LanguageCode] = Field(min_length=1)
     size: SourceSize = SourceSize()
-    retrieved_at: AwareDatetime | None = None
+    reviewed_at: date
     purpose: NonEmptyStr
+    decision: NonEmptyStr
     notes: str = ""
+    fetch: FetchSpec | None = None
 
     @model_validator(mode="after")
-    def _unknown_licence_blocks_use(self) -> Self:
-        if self.licence.strip().lower() == "unknown" and self.allowed_use is not AllowedUse.BLOCKED:
-            raise ValueError("licence 'unknown' requires allowed_use='blocked'")
+    def _policy(self) -> Self:
+        lic = self.licence.strip().lower()
+        if lic not in LICENCE_MAX_USE:
+            raise ValueError(f"licence {self.licence!r} is not in the licence policy (ADR-018)")
+        if USE_RANK[self.allowed_use] > USE_RANK[LICENCE_MAX_USE[lic]]:
+            raise ValueError(
+                f"allowed_use={self.allowed_use.value} exceeds what licence {lic} permits "
+                f"({LICENCE_MAX_USE[lic].value})"
+            )
+        if self.status is SourceStatus.SELECTED:
+            if self.allowed_use is AllowedUse.BLOCKED:
+                raise ValueError("a blocked source cannot be selected")
+            if self.fetch is None:
+                raise ValueError("a selected source needs a fetch spec")
+        if (
+            self.fetch is not None
+            and self.fetch.type == "hf_dataset"
+            and not _GIT_SHA_RE.fullmatch(self.revision)
+        ):
+            raise ValueError("HF sources must pin `revision` to a full 40-char commit sha")
         return self
 
 
@@ -128,6 +195,62 @@ class RawManifest(_Contract):
     revision: NonEmptyStr
     url: NonEmptyStr
     retrieved_at: AwareDatetime
+    licence: str | None = None
+    repo_id: str | None = None
+    files: list[FileEntry] = Field(min_length=1)
+
+
+class RecordType(StrEnum):
+    SINGLE_TURN = "single_turn"  # one customer message (+ optional agent response)
+    DIALOGUE = "dialogue"  # multi-turn; full turns in `extra_json["messages"]`
+    READING_COMPREHENSION = "reading_comprehension"  # passage + question + options
+    POLICY_DECISION = "policy_decision"  # message + policies/facts -> structured decision
+
+
+class RawRecord(_Contract):
+    """Stage 2 output: one source row in a uniform shape, values exactly as in the source."""
+
+    schema_version: Literal["raw_record/1"] = "raw_record/1"
+    record_id: RecordId
+    source_id: Slug
+    revision: NonEmptyStr
+    source_file: RelPath
+    source_row: NonNegativeInt
+    source_split: str | None
+    record_type: RecordType
+    lang: LanguageCode
+    text: NonEmptyStr
+    response: str | None
+    source_intent: str | None
+    source_category: str | None
+    source_tags: str | None
+    extra_json: str
+    text_sha256: Sha256
+
+    @model_validator(mode="after")
+    def _lineage(self) -> Self:
+        if not self.record_id.startswith(f"{self.source_id}:"):
+            raise ValueError("record_id must start with '{source_id}:'")
+        return self
+
+
+class RecordsManifest(_Contract):
+    """Manifest of `data/interim/records/{source_id}/{revision}/`."""
+
+    schema_version: Literal["records_manifest/1"] = "records_manifest/1"
+    source_id: Slug
+    revision: NonEmptyStr
+    allowed_use: AllowedUse
+    converter: NonEmptyStr
+    converter_version: NonNegativeInt
+    raw_manifest_sha256: Sha256
+    code_commit: str | None
+    created_at: AwareDatetime
+    row_count: NonNegativeInt
+    rejected_count: NonNegativeInt
+    rejected_reasons: dict[str, NonNegativeInt]
+    counts: dict[str, NonNegativeInt]
+    content_sha256: Sha256
     files: list[FileEntry] = Field(min_length=1)
 
 

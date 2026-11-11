@@ -5,8 +5,11 @@ description = "Multilingual (RU/KK/EN) grounded customer-support assistant for a
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = [
+    "huggingface-hub>=2.4.0",
     "mlflow>=3.18.0",
+    "polars>=2.1.0",
     "psutil>=7.2.2",
+    "pyarrow>=26.0.1",
     "pydantic>=2.14.3",
     "pydantic-settings>=2.16.2",
     "pyyaml>=6.0.3",
@@ -67,7 +70,7 @@ mypy_path = "src"
 files = ["src", "tests"]
 
 [[tool.mypy.overrides]]
-module = ["mlflow.*", "qdrant_client.*"]
+module = ["mlflow.*", "qdrant_client.*", "pyarrow.*"]
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]

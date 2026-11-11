@@ -10,7 +10,7 @@ Logical components share one Python package. They are not separate microservices
 |---|---|---|---|
 | Common | `supportpilot.common` | config, logging (redaction), schemas (DATA_CONTRACTS), IDs, hashing, manifests, atomic IO, provenance, MLflow run helper | library |
 | Ops | `supportpilot.ops` | environment/GPU report, data/model snapshots, MLflow and Qdrant round-trip checks | `supportpilot` CLI |
-| Data pipeline | `supportpilot.data` | acquire → validate → clean → dedup → language adaptation → label → build SFT → split → version | batch CLI, CPU |
+| Data pipeline | `supportpilot.data` | registry policy → acquire → convert to raw records (Stage 2) → validate → clean → dedup → language adaptation → label → build SFT → split → version | `supportpilot data ...`, CPU |
 | Knowledge ingestion | `supportpilot.kb` | parse PDF/DOCX/XLSX/CSV/JSON/TXT → structured docs → chunks + metadata | batch CLI, CPU |
 | Retrieval | `supportpilot.retrieval` | embeddings, Qdrant index, sparse/BM25, fusion, reranking, context assembly | library + index CLI |
 | LLM | `supportpilot.llm` | prompts, inference backend, structured decoding, LoRA/QLoRA training | library; training on Kaggle/Colab |
@@ -60,8 +60,10 @@ Rules:
 ## 3. Offline flows
 
 ```
-Data:      sources.yaml → data/raw/<source>/<rev>/ (immutable, sha256)
-           → data/interim/*.parquet (canonical, cleaned, dedup, lang-adapted, labelled)
+Data:      configs/sources.yaml (registry + licence policy)
+           → data/raw/<source>/<rev>/ (immutable, upstream-verified, RawManifest)      [Stage 2]
+           → data/interim/records/<source>/<rev>/records.parquet (RawRecord, lineage) [Stage 2]
+           → data/interim/*.parquet (canonical, cleaned, dedup, lang-adapted, labelled) [Stage 3–4]
            → data/processed/sft/<dataset_version>/{train,validation,test}.parquet + manifest.json
            → data/gold/<benchmark_version>/ (never used for training/tuning)
 

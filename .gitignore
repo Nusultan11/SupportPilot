@@ -15,12 +15,12 @@ htmlcov/
 !.env.example
 
 # Data, models, artifacts (never in git; see docs/RUNBOOK.md for backups)
-data/
-artifacts/
-mlruns/
-mlflow.db
-outputs/
-checkpoints/
+/data/
+/artifacts/
+/mlruns/
+/mlflow.db
+/outputs/
+/checkpoints/
 *.safetensors
 *.bin
 *.gguf

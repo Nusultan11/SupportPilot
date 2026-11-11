@@ -66,7 +66,7 @@ docker compose up -d qdrant                        # Qdrant server for qdrant_se
 
 A stage is not done while any of these fail. A *skipped* `qdrant_server` or `gpu` test means
 the check did not run, so report it as unverified. Operational CLI: `uv run supportpilot --help`
-(`env`, `backup`, `check`).
+(`env`, `backup`, `check`, `data`).
 
 ## 6. Code and data standards
 

@@ -4,92 +4,129 @@ Last updated: 2026-11-11
 
 ## Current stage
 
-**Stage 1: Architecture and engineering foundation. Status: COMPLETED.** Waiting for owner
-confirmation to start Stage 2 (data acquisition and source registry).
+**Stage 2: Data acquisition and source registry. Status: COMPLETED.** Waiting for owner
+confirmation to start Stage 3 (EDA and data quality engineering).
 
 | Stage | Status | Commits |
 |---|---|---|
 | 0 Audit and research | COMPLETED | `699dc23`, `cd50a6c`, `ced287e` |
-| 1 Engineering foundation | COMPLETED | `6b17404` (code), plus the docs/progress commit after it |
+| 1 Engineering foundation | COMPLETED | `6b17404`, `7b6bc4c` |
+| 2 Data acquisition and source registry | COMPLETED | Stage 2 commit on `main` (see `git log`; hash in the Stage 2 report) |
 
-## Stage 1: what exists now
+## What exists (cumulative)
 
 | Component | Path | Notes |
 |---|---|---|
-| uv project | `pyproject.toml`, `uv.lock`, `.python-version` | Python 3.12. Groups: `dev`, `gpu` (torch 2.14.1+cu126) (ADR-015) |
-| Settings | `common/config.py`, `configs/base.yaml` | defaults < YAML < .env < env < overrides; frozen; unknown keys rejected; `SecretStr` |
-| Logging | `common/logging.py` | JSON/console; redacts secrets and PII; customer text hashed unless `log_text` (ADR-016) |
-| IDs, hashing, IO | `common/ids.py`, `hashing.py`, `io.py`, `provenance.py` | DATA_CONTRACTS §1; streaming sha256; atomic writes; `code_commit` with `-dirty` |
-| Contracts | `common/schemas.py`, `common/manifest.py` | §2 registry, §3 raw manifest, §4 canonical example, §9 dataset manifest; scan/verify |
-| Tracking | `common/tracking.py` | MLflow on local SQLite; `RunSpec` enforces hypothesis, dataset_version and seed tags |
-| Ops CLI | `cli.py`, `ops/{envcheck,backup,health}.py` | `supportpilot env`, `backup create/list/verify/restore/pin/prune`, `check mlflow/qdrant` |
-| Services | `compose.yaml` | Qdrant v1.20.0, named volume, ports bound to 127.0.0.1 (ADR-014) |
-| Quality gates | `.pre-commit-config.yaml`, `[tool.ruff/mypy/pytest]` | ruff, mypy `--strict` on src + tests, fast pytest subset, file hygiene, 5 MB limit |
+| Foundation (Stage 1) | `src/supportpilot/common/`, `ops/`, `cli.py`, `configs/base.yaml`, `compose.yaml` | config, logging/redaction, IDs, hashing, manifests, contracts, MLflow, backups, checks |
+| Source registry | `configs/sources.yaml` | 16 sources reviewed; licence policy enforced by the schema (ADR-018) |
+| Usage policy | `data/policy.py` | acquire/convert/analysis ≥ reference_only, evaluation ≥ eval_only, training = train |
+| Acquisition | `data/acquire.py` | pinned HF commits, upstream hash check, resumable `.partial-<rev>`, immutable raw (ADR-019) |
+| Converters | `data/converters.py`, `data/convert.py` | 4 converters → `RawRecord` Parquet + `rejected.jsonl` + `RecordsManifest`; idempotent, atomic |
+| Loader | `data/records.py` | `scan_records(registry, data_dir, ids, purpose)`, the only sanctioned way to load records |
+| CLI | `supportpilot data sources/acquire/convert/verify` | RUNBOOK §7 |
 
-Not created yet, on purpose: `supportpilot.data` and the other domain packages (from
-Stage 2), Polars and PyArrow (from Stage 2–3), `configs/sources.yaml` (Stage 2).
+## Source inventory (acquired 2026-11-11)
+
+| source_id | revision | allowed_use | licence | raw files / bytes | records | rejected | records content_sha256 |
+|---|---|---|---|---|---|---|---|
+| bitext_retail_ecom | `12dd624d…` | train | CDLA-Sharing-1.0 | 2 / 42,634,113 | 44,884 | 0 | `1ec560bf027f7385…` |
+| bitext_customer_support | `430d1a89…` | train | CDLA-Sharing-1.0 | 2 / 19,214,423 | 26,872 | 0 | `92d20a0f123649e8…` |
+| whileai_ecommerce_intent | `d7639462…` | train | CC-BY-4.0 | 3 / 77,603,737 | 24,710 (train 22,733 + eval 1,977) | 0 | `0330b803efb5a3c5…` |
+| support_json_ru | `280ce363…` | reference_only | CC-BY-4.0 | 6 / 4,275,284 | 716 (train 512 / val 96 / test 108) | 0 | `0a3b7b0a0f300c07…` |
+| belebele | `7899cdfa…` | eval_only | CC-BY-SA-4.0 | 4 / 7,803,342 | 2,700 (900 each kk/ru/en) | 0 | `c3bd7288dadf519a…` |
+| **total** | | | | **17 / 151,530,899** | **99,882** | **0** | |
+
+- Training-eligible records (loader with `Purpose.TRAINING`): 96,466, all **EN**.
+- **RU/KK training data does not exist yet.** It is the main job of Stage 4 (ADR-006).
+- Not acquired:
+  - gated (need an HF account): `kazparc`, `flores_plus`, `kazqad`;
+  - candidates: `kz_multidomain` (24.7 GB), `wb_questions` (real-user content, legal basis unclear);
+  - rejected (6, reasons in the registry): `kazakh_instruction_v2` (licence conflict),
+    `powerful_kazakh_dialogue`, `lakshan_banking_support`, `synthdata_ecom_dialogues`,
+    `runlu_intent`, `support_tickets_multilang`.
+
+First observations for Stage 3 (counts only; EDA not done yet):
+- **Exact duplicate texts:**
+  - Bitext customer support: 24,635 unique of 26,872 (8.3% duplicates);
+  - while-ai first user turns: 23,814 unique of 24,710;
+  - support_json_ru messages: 353 unique of 716.
+  - Bitext retail: 44,884 unique.
+- **Labels in the data:** Bitext customer support has 27 intents and 11 categories (its card
+  lists fewer); Bitext retail has 46 and 13.
+- **Missing labels are null, not invented:** `source_intent` is null exactly for Belebele and
+  support_json_ru (3,416 rows). `response` is null for Belebele and for 2 while-ai dialogues
+  with no assistant reply.
+- **Templating:** Bitext texts and responses contain `{{Placeholder}}` slots. while-ai has 3
+  conversations that start with the assistant; `text` is the first user turn.
 
 ## Verification evidence (2026-11-11)
 
-- **Tests:** 108 passed, 0 skipped (`uv run pytest -q`, 15 s, with the Qdrant server up).
-  Fast subset: 105 passed in 6 s. Coverage:
-  - contracts, including invalid inputs (bad language, unknown intent, escalation without a
-    reason, MT without lineage, unsafe paths, naive datetimes, duplicate sources, unknown licence);
-  - config precedence and rejection of bad input; redaction;
-  - the backup cycle, including corruption, tampering, non-empty targets, dedup, prune and pin;
-  - CLI exit codes; MLflow; Qdrant in memory, embedded and server modes; the GPU matmul.
-- **Lint and types:** `ruff check`, `ruff format --check`, `mypy --strict` (26 files) are all
-  clean. `pre-commit run --all-files` passes, and the hook also ran on commit `6b17404`.
-- **Clean clone:** `git clone` → `uv sync --locked` (20 s, warm uv cache) → ruff, mypy and
-  108 tests passed; torch CUDA available inside the clone.
-- **GPU:** `supportpilot env --save` → RTX 3050 Laptop, compute 8.6, 4.0 GiB (3.23 GiB free),
-  bf16 supported, fp16 matmul correct at 7.64 TFLOPS. Report saved as
-  `artifacts/reports/env/env-20261111T113143Z.json` (local). Values are in RUNBOOK §1.
-- **Backup round trip with the real CLI and the real root:** snapshot
-  `data/env_reports/20261111T113155Z-92ddf171` → deep verify ok → restore → `diff -r`
-  identical → re-create reused the snapshot (dedup).
-  - 1 GiB test in a scratch root: create 3.8 s, deep verify 2.6 s, restore 3.8 s,
-    byte-identical (`cmp`).
-- **MLflow:** `supportpilot check mlflow` → run written to `mlruns/mlflow.db` and read back
-  (params, 3-step metric history, tags); `mlflow ui` served the experiment list (HTTP 200).
-- **Qdrant:**
-  - the round trip passed in all three modes;
-  - benchmark at 50k × 1024-dim: server 1276 pts/s and p50 11 ms, embedded 198 pts/s and
-    p50 604 ms;
-  - the named volume survived `compose down/up`. Decision in ADR-014.
+- **Tests:** 173 passed, 0 skipped (`uv run pytest -q`, with the Qdrant server up). New in
+  Stage 2: 65 tests across `test_registry_policy`, `test_acquire`, `test_convert` and
+  `test_cli_data`. They cover:
+  - registry and licence-policy validation; the full allowed_use × purpose matrix;
+  - upstream hash checks (LFS sha256, git blob sha1); retries; corrupted downloads;
+  - resume after an interruption, with completed files kept; immutability of finished revisions;
+  - exact value copying, rejection logging and the reject-ratio gate;
+  - converter-version rebuilds; a crash mid-conversion that keeps the previous output;
+  - tampered raw data blocking conversion; the policy-checked loader; CLI exit codes.
+- **Lint and types:** ruff, ruff format, `mypy --strict` (40 files) and `pre-commit run --all-files` are clean.
+- **Real acquisition:** all 5 selected sources matched the upstream hashes.
+  - A re-run of `data acquire --all` skipped all 5 without network.
+  - `data verify --all`: raw and records OK.
+- **Real interruption:** `kill -9` 6 s into the while-ai download. The re-run kept the verified
+  `README.md` and `eval.jsonl`, finished `train.jsonl`, and the result was identical to the
+  first acquisition (`diff -r`). This ran in a fresh scratch data dir, rebuilt from the registry alone.
+- **Determinism:** `data convert --all --force` reproduced identical `content_sha256` and
+  identical Parquet file sha256 for all 5 sources.
+- **Policy:** loading `belebele` for training and `support_json_ru` for evaluation or training
+  raised `PolicyError`.
+- **Backups:** pinned snapshots of each raw source plus a records snapshot, all deep-verified.
+  A restore of `whileai_ecommerce_intent_raw` passed `RawManifest` verification and matched
+  live data, manifest included.
 
 ## Known limitations and open items
 
-1. `uv sync --no-group gpu` (CPU-only/CI path) has not been run. It is planned for CI in Stage 10.
-2. A cold-cache install downloads about 3 GB, and the venv is 4.6 GB. Only the warm-cache
-   clean clone was measured.
-3. RAM is the tightest resource: 15.4 GiB total, about 6.4 GiB free with the desktop plus
-   Docker's VM (about 6 GB assigned). Stop Qdrant (`docker compose down`) during local GPU work.
-4. Embedded Qdrant keeps its SQLite file locked on Windows until the process exits.
-5. No CUDA toolkit (`nvcc`): source-built kernels still need Docker/WSL2 or the cloud (ADR-003).
-6. The public repository has **no LICENSE file**. Choosing one is the owner's decision.
-7. Still open from Stage 0: paid-API budget for KK/RU work, fluent KK/RU reviewers for the
-   gold benchmark, Kaggle/Colab accounts from Stage 6–7.
+1. Gated sources are untested: the code path exists but there is no HF account. FLORES+ is
+   needed for Stage 4 MT evaluation, so the owner's HF account is the blocker for that step.
+2. All training-eligible data is English. KK/RU must be created in Stage 4 (MT budget and
+   reviewers are still open decisions).
+3. "Clean machine" reproducibility was shown with a fresh data directory on this machine, not
+   on another computer.
+4. Still open from Stage 1:
+   - `uv sync --no-group gpu` has not been run;
+   - the public repo has no LICENSE file. Note CDLA-Sharing obligations if derived data is ever published;
+   - RAM is tight with Docker running.
+5. Still open from Stage 0: paid-API budget, fluent KK/RU reviewers, Kaggle/Colab accounts.
 
 ## Git and backups
 
-- Remote: `origin` = https://github.com/Nusultan11/SupportPilot (public). `main` is pushed after each stage.
-- Code bundles in `C:\Users\nurs\SupportPilot-backups\code\`. Stage-end snapshots:
-  - Stage 0: `supportpilot-20261111T104345Z.bundle`.
-  - Stage 1: the newest bundle created after the Stage 1 docs commit (named in the Stage 1 report).
-- Data snapshots in `C:\Users\nurs\SupportPilot-backups\data\`:
-  `env_reports/20261111T113155Z-92ddf171` (the round-trip evidence).
+- Remote: `origin` = https://github.com/Nusultan11/SupportPilot (public); `main` is pushed after each stage.
+- Code bundles in `C:\Users\nurs\SupportPilot-backups\code\`:
+  - Stage 0: `supportpilot-20261111T104345Z.bundle`;
+  - Stage 1: `supportpilot-20261111T115429Z.bundle`;
+  - Stage 2: the bundle created after the Stage 2 commit (named in the report).
+- Data snapshots in `C:\Users\nurs\SupportPilot-backups\data\`. The raw ones are pinned:
+  - `bitext_retail_ecom_raw/20261111T133457Z-7b3a9867`
+  - `bitext_customer_support_raw/20261111T133459Z-890f7689`
+  - `whileai_ecommerce_intent_raw/20261111T133500Z-50f1b129`
+  - `support_json_ru_raw/20261111T133501Z-cc4f6661`
+  - `belebele_raw/20261111T133502Z-d1f467f9`
+  - `raw_records/20261111T134036Z-ee0f165b` (latest, not pinned; reproducible from raw. The earlier `...133503Z-76b840f7` has the same records and an older manifest timestamp)
+  - `env_reports/20261111T113155Z-92ddf171` (Stage 1)
 
-## Notes for the next stage (Stage 2)
+## Notes for the next stage (Stage 3)
 
-- Put the source registry in `configs/sources.yaml` and load it with
-  `common.manifest.load_source_registry`. A source with licence `unknown` must be `blocked`
-  (enforced by the schema).
-- Write raw manifests with `RawManifest` + `scan_files`. Snapshot raw data after download:
-  `supportpilot backup create data/raw/<source> --name <source>_raw --kind data --pin`.
-- Pin HF downloads by commit sha (`revision=`). Add `huggingface_hub`/`datasets`, `polars` and
-  `pyarrow` only in Stage 2, and record them in ADR-015.
+- Load data only through `scan_records(..., Purpose.ANALYSIS)`, and use `Purpose.TRAINING`
+  when building training sets.
+- Start EDA from `data/interim/records/*/*/records.parquet`. `extra_json` holds the full
+  dialogues (while-ai) and the policies/facts (support_json_ru).
+- Write EDA reports to `artifacts/reports/eda/`, not to notebooks.
+- Planned checks: language ID on `text` (all sources declare their language, nothing has been
+  detected yet), near-duplicates and paraphrase families (Bitext), placeholder inventory,
+  register tags, and token lengths with the Qwen tokenizer (adds `transformers`/`tokenizers`,
+  record it in ADR-015).
 
 ## Next recommended action
 
-Start Stage 2 (ROADMAP §Stage 2) after owner confirmation.
+Start Stage 3 (ROADMAP §Stage 3) after owner confirmation.
