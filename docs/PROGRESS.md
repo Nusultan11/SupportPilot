@@ -11,7 +11,7 @@ confirmation to start Stage 3 (EDA and data quality engineering).
 |---|---|---|
 | 0 Audit and research | COMPLETED | `699dc23`, `cd50a6c`, `ced287e` |
 | 1 Engineering foundation | COMPLETED | `6b17404`, `7b6bc4c` |
-| 2 Data acquisition and source registry | COMPLETED | Stage 2 commit on `main` (see `git log`; hash in the Stage 2 report) |
+| 2 Data acquisition and source registry | COMPLETED | `a7bcc05` (code + docs), plus a follow-up progress commit |
 
 ## What exists (cumulative)
 
@@ -61,15 +61,23 @@ First observations for Stage 3 (counts only; EDA not done yet):
 
 ## Verification evidence (2026-11-11)
 
-- **Tests:** 173 passed, 0 skipped (`uv run pytest -q`, with the Qdrant server up). New in
-  Stage 2: 65 tests across `test_registry_policy`, `test_acquire`, `test_convert` and
-  `test_cli_data`. They cover:
+- **Tests:** 174 passed, 0 skipped (`uv run pytest -q`, with the Qdrant server up). New in
+  Stage 2: 66 tests across `test_registry_policy`, `test_acquire`, `test_convert`,
+  `test_cli_data` and `test_repo_hygiene`. They cover:
   - registry and licence-policy validation; the full allowed_use × purpose matrix;
   - upstream hash checks (LFS sha256, git blob sha1); retries; corrupted downloads;
   - resume after an interruption, with completed files kept; immutability of finished revisions;
   - exact value copying, rejection logging and the reject-ratio gate;
   - converter-version rebuilds; a crash mid-conversion that keeps the previous output;
-  - tampered raw data blocking conversion; the policy-checked loader; CLI exit codes.
+  - tampered raw data blocking conversion; the policy-checked loader; CLI exit codes;
+  - a guard that no file under src/tests/configs is git-ignored.
+- **Bug found by the clean-clone check, before push:** the unanchored `.gitignore` pattern
+  `data/` also hid `src/supportpilot/data/`. As a side effect, ruff never linted it. The
+  patterns are now anchored (`/data/` etc.), the guard test exists, and the 4 lint findings
+  that surfaced are fixed. A rebuild after the fixes produced byte-identical records.
+- **Clean clone (commit `a7bcc05`):** `git clone` → `uv sync --locked` → ruff, mypy, 174
+  tests passed → `data acquire --all` (fresh download) → `data convert --all`. All raw files
+  and all record Parquet bytes and content hashes were identical to the working copy.
 - **Lint and types:** ruff, ruff format, `mypy --strict` (40 files) and `pre-commit run --all-files` are clean.
 - **Real acquisition:** all 5 selected sources matched the upstream hashes.
   - A re-run of `data acquire --all` skipped all 5 without network.
@@ -91,8 +99,8 @@ First observations for Stage 3 (counts only; EDA not done yet):
    needed for Stage 4 MT evaluation, so the owner's HF account is the blocker for that step.
 2. All training-eligible data is English. KK/RU must be created in Stage 4 (MT budget and
    reviewers are still open decisions).
-3. "Clean machine" reproducibility was shown with a fresh data directory on this machine, not
-   on another computer.
+3. Reproducibility was shown with a clean clone and a fresh download on this machine, not on
+   another computer or OS.
 4. Still open from Stage 1:
    - `uv sync --no-group gpu` has not been run;
    - the public repo has no LICENSE file. Note CDLA-Sharing obligations if derived data is ever published;
