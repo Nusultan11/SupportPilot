@@ -38,7 +38,7 @@ Verified checks:
 
 1. Paid LLM API budget for KK/RU translation, generation and judging? (DECISIONS §Open decisions)
 2. Fluent KK and RU reviewers for the gold benchmark? Without them, gold is `llm_reviewed`, not "independently verified" (EVALUATION §1).
-3. GitHub remote for off-machine backup and CI?
+3. ~~GitHub remote~~ resolved on 2026-11-11: `origin` = https://github.com/Nusultan11/SupportPilot (public), `main` pushed. CI is added in Stage 10.
 4. Kaggle/Colab accounts: needed from Stage 6–7 for GPU runs. Quotas are not guaranteed.
 
 ## Notes for the next stage (Stage 1)

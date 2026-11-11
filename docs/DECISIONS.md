@@ -80,14 +80,13 @@ Format: context → decision → alternatives → risks → revisit when. Status
 
 ### ADR-013 Git on `main` only; backups outside the work tree — accepted (2026-11-11)
 - **Decision:** project rule set by the owner. Code/docs backups are `git bundle` snapshots; data/model snapshots are tar + sha256 manifests (Stage 1 tool). Both go to `C:\Users\nurs\SupportPilot-backups\`, with retention: last 10 code bundles, last 3 snapshots per dataset/model, plus all stage-end snapshots.
-- **Revisit:** a remote repository (GitHub) is added → push also becomes an off-machine copy.
+- **Remote:** `origin` = https://github.com/Nusultan11/SupportPilot (public, added 2026-11-11). Pushing `main` after each stage gives an off-machine code copy. Data and model snapshots stay local, because the repo is public.
 
 ---
 
 ## Open decisions (owner input needed; see PROGRESS.md)
 1. Budget for a paid LLM API (MT for KK/RU, data generation, LLM judge). Without it: open MT + local models, with lower expected KK quality.
 2. Availability of fluent KK and RU reviewers for the gold benchmark and translation audits.
-3. GitHub remote (private/public) for off-machine code backup and CI.
 
 ## References
 - Qwen3 blog / tech report: https://qwenlm.github.io/blog/qwen3/ , https://arxiv.org/abs/2505.09388

@@ -86,6 +86,7 @@ Hard-to-reverse choices go to DECISIONS.md. Do not reopen a closed ADR without n
 - Commit after each stage; verified intermediate commits allowed. Conventional prefixes:
   `docs:`, `data:`, `kb:`, `rag:`, `ml:`, `eval:`, `api:`, `ui:`, `ops:`, `test:`. No `fix`/`update` one-word messages.
 - Before committing: review `git diff`, run checks, confirm no secrets, datasets, weights or files > 5 MB.
+- Remote `origin` (https://github.com/Nusultan11/SupportPilot) is **public**. Push `main` after each stage, and never push data, models or anything private.
 
 ## 9. Experiments and backups
 
