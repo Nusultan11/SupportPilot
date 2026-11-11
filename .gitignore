@@ -16,6 +16,7 @@ htmlcov/
 
 # Data, models, artifacts (never in git; see docs/RUNBOOK.md for backups)
 /data/
+/backups/
 /artifacts/
 /mlruns/
 /mlflow.db

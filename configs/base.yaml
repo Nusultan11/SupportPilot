@@ -20,7 +20,7 @@ logging:
   log_text: false     # true only for local debugging: logs customer text verbatim
 
 backup:
-  root: ../SupportPilot-backups   # must be outside the repository
+  root: backups                   # <project>/backups; must stay git-ignored (.gitignore)
   keep_per_name: 3                # newest N per snapshot name, plus all pinned ones
 
 mlflow:

@@ -23,7 +23,7 @@ Format: context → decision → alternatives → risks → revisit when. Status
 - **Revisit:** a required training dependency with no Windows build → move training env to WSL2.
 
 ### ADR-004 Data versioning via manifests + content hashes — accepted (2026-11-11)
-- **Decision:** immutable raw revisions, a `manifest.json` per dataset/index (DATA_CONTRACTS §9), snapshots backed up outside the repo.
+- **Decision:** immutable raw revisions, a `manifest.json` per dataset/index (DATA_CONTRACTS §9), snapshots backed up in the git-ignored `backups/` dir (ADR-013).
 - **Alternatives:** DVC (remote storage, extra tooling; useful later for sharing); LakeFS (overkill).
 - **Revisit:** when data must be shared between machines or collaborators → adopt DVC with the same layout.
 
@@ -90,8 +90,16 @@ Format: context → decision → alternatives → risks → revisit when. Status
   Candidate skills once the processes exist: `data-quality-audit` (Stage 3), `rag-eval` (Stage 6), `experiment-review` (Stage 7), `release-readiness` (Stage 10).
 - **Revisit:** at the end of each of those stages, if the process was run ≥ 2 times by hand.
 
-### ADR-013 Git on `main` only; backups outside the work tree — accepted (2026-11-11)
-- **Decision:** project rule set by the owner. Code/docs backups are `git bundle` snapshots; data/model snapshots are tar + sha256 manifests (Stage 1 tool). Both go to `C:\Users\nurs\SupportPilot-backups\`, with retention: last 10 code bundles, last 3 snapshots per dataset/model, plus all stage-end snapshots.
+### ADR-013 Git on `main` only; backups in the git-ignored `backups/` dir — accepted (2026-11-11, location changed the same day)
+- **Decision:** project rule set by the owner.
+  - Code/docs backups are `git bundle` snapshots. Data/model snapshots are tar + sha256 manifests (Stage 1 tool).
+  - Both go to `<project>/backups/` (`code/`, `data/`). That directory is in `.gitignore`
+    (`/backups/`), and the backup tool refuses any root inside the repo that git does not ignore.
+  - Retention: last 10 code bundles, last 3 snapshots per dataset/model, plus all stage-end snapshots.
+- **Change (2026-11-11, owner request):** the location moved from `C:\Users\nurs\SupportPilot-backups\` (outside the work tree) to the project root.
+  - All 4 bundles and 8 snapshots were moved and re-verified: sha256, `git bundle verify`, deep snapshot verify, and a test restore.
+- **Accepted risk:** backups now share a folder with the project. Deleting or losing the project directory, or the disk, also loses the data snapshots. Code is still also on GitHub. Ruff and pre-commit ignore the directory through `.gitignore`, and pytest/mypy only scan `src/` and `tests/`.
+- **Revisit:** before any destructive operation on the project directory, or when data snapshots become expensive to recreate (e.g. trained adapters). Then also copy `backups/` to an external disk.
 - **Remote:** `origin` = https://github.com/Nusultan11/SupportPilot (public, added 2026-11-11). Pushing `main` after each stage gives an off-machine code copy. Data and model snapshots stay local, because the repo is public.
 
 ### ADR-014 Qdrant dev mode: Docker server; in-memory for tests — accepted (2026-11-11)

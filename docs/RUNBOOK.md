@@ -80,13 +80,13 @@ uv run mlflow ui --backend-store-uri sqlite:///mlruns/mlflow.db --host 127.0.0.1
 Experiments are named `supportpilot/<name>`. The database is `mlruns/mlflow.db` and
 artifacts are in `mlruns/artifacts/`. Both are git-ignored, so back them up with §6.
 
-## 5. Code backup (git bundle): verified Stage 0
+## 5. Code backup (git bundle): verified Stage 0, new location verified Stage 2
 
-Location: `C:\Users\nurs\SupportPilot-backups\code\`, outside the work tree.
+Location: `backups/code/` in the project root (git-ignored, ADR-013).
 
 Create:
 ```bash
-BK=/c/Users/nurs/SupportPilot-backups/code; mkdir -p "$BK"
+BK=/c/Users/nurs/SupportPilot/backups/code; mkdir -p "$BK"
 TS=$(date -u +%Y%m%dT%H%M%SZ); F="$BK/supportpilot-$TS.bundle"
 git -C /c/Users/nurs/SupportPilot bundle create "$F" --all
 git bundle verify "$F" && (cd "$BK" && sha256sum "$(basename "$F")" > "$(basename "$F").sha256")
@@ -94,7 +94,7 @@ git bundle verify "$F" && (cd "$BK" && sha256sum "$(basename "$F")" > "$(basenam
 
 Restore into a new directory, never over the live repo:
 ```bash
-cd /c/Users/nurs/SupportPilot-backups/code && sha256sum -c supportpilot-<TS>.bundle.sha256
+cd /c/Users/nurs/SupportPilot/backups/code && sha256sum -c supportpilot-<TS>.bundle.sha256
 git clone -b main supportpilot-<TS>.bundle /c/Users/nurs/SupportPilot-restore
 ```
 
@@ -103,7 +103,8 @@ delete others by hand. `main` is also pushed to GitHub, which is an off-machine 
 
 ## 6. Data and model snapshots (verified Stage 1)
 
-Root: `backup.root` = `../SupportPilot-backups` (refused if inside the repo).
+Root: `backup.root` = `backups` (= `<project>/backups/`). A root inside the repo is refused
+unless git confirms it is ignored, so snapshots can never be committed to the public remote.
 Layout: `<root>/<data|model>/<name>/<snapshot_id>/{archive.tar, manifest.json}`.
 
 ```bash

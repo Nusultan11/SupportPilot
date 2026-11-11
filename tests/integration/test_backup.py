@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import json
+import shutil
+import subprocess
 import tarfile
 from pathlib import Path
 
@@ -146,11 +148,29 @@ def test_archive_has_no_absolute_or_parent_paths(source: Path, root: Path, proje
     assert all(not n.startswith(("/", "..")) and ".." not in n.split("/") for n in names)
 
 
-def test_backup_root_inside_repo_rejected(source: Path, project: Path) -> None:
-    with pytest.raises(BackupError, match="outside the repository"):
-        backup.create_snapshot(
-            source, name="x", kind="data", root=project / "backups", project_root=project
-        )
+def _git(project: Path, *args: str) -> None:
+    git = shutil.which("git")
+    assert git is not None
+    subprocess.run([git, "-C", str(project), *args], check=True, capture_output=True)
+
+
+def test_backup_root_inside_repo_needs_gitignore(source: Path, project: Path) -> None:
+    if shutil.which("git") is None:
+        pytest.skip("git not installed")
+    inside = project / "backups"
+    with pytest.raises(BackupError, match="not git-ignored"):  # not even a git repo
+        backup.create_snapshot(source, name="x", kind="data", root=inside, project_root=project)
+    _git(project, "init", "-q")
+    with pytest.raises(BackupError, match="not git-ignored"):  # repo, but not ignored
+        backup.create_snapshot(source, name="x", kind="data", root=inside, project_root=project)
+    (project / ".gitignore").write_text("/backups/\n", encoding="utf-8")
+    m, created = backup.create_snapshot(
+        source, name="x", kind="data", root=inside, project_root=project
+    )
+    assert created
+    assert (inside / "data" / "x" / m.snapshot_id / "manifest.json").is_file()
+    with pytest.raises(BackupError, match="repository root itself"):
+        backup.ensure_backup_root(project, project)
 
 
 def test_invalid_inputs(source: Path, root: Path, project: Path, tmp_path: Path) -> None:

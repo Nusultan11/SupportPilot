@@ -21,6 +21,7 @@ def test_base_yaml_loads_and_matches_defaults() -> None:
     assert s.qdrant.mode == "server"
     assert s.logging.log_text is False
     assert s.backup.keep_per_name == 3
+    assert s.resolve(s.backup.root) == REPO / "backups"
     assert s.root == REPO
 
 

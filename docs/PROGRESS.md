@@ -110,11 +110,15 @@ First observations for Stage 3 (counts only; EDA not done yet):
 ## Git and backups
 
 - Remote: `origin` = https://github.com/Nusultan11/SupportPilot (public); `main` is pushed after each stage.
-- Code bundles in `C:\Users\nurs\SupportPilot-backups\code\`:
+- **Location:** all backups now live in `backups/` in the project root (git-ignored). They
+  were moved from `C:\Users\nurs\SupportPilot-backups\` on 2026-11-11 at the owner's request
+  and re-verified: 4 bundles (sha256 + `git bundle verify`), 8 snapshots (deep verify), and
+  a test restore (ADR-013).
+- Code bundles in `backups/code/`:
   - Stage 0: `supportpilot-20261111T104345Z.bundle`;
   - Stage 1: `supportpilot-20261111T115429Z.bundle`;
-  - Stage 2: the bundle created after the Stage 2 commit (named in the report).
-- Data snapshots in `C:\Users\nurs\SupportPilot-backups\data\`. The raw ones are pinned:
+  - Stage 2: `supportpilot-20261111T134356Z.bundle`.
+- Data snapshots in `backups/data/`. The raw ones are pinned:
   - `bitext_retail_ecom_raw/20261111T133457Z-7b3a9867`
   - `bitext_customer_support_raw/20261111T133459Z-890f7689`
   - `whileai_ecommerce_intent_raw/20261111T133500Z-50f1b129`

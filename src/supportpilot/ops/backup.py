@@ -1,4 +1,4 @@
-"""Data / model snapshots outside the repository (RUNBOOK §4, ADR-013).
+"""Data / model snapshots in the git-ignored backup root (RUNBOOK §6, ADR-013).
 
 Layout: `<root>/<kind>/<name>/<snapshot_id>/{archive.tar, manifest.json}`
 - `snapshot_id` = `<UTC yyyymmddTHHMMSSZ>-<content_sha256[:8]>`.
@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import json
 import shutil
+import subprocess
 import tarfile
 import uuid
 from datetime import UTC, datetime
@@ -71,10 +72,30 @@ def _is_within(child: Path, parent: Path) -> bool:
     return True
 
 
+def _git_ignored(path: Path, project_root: Path) -> bool:
+    """True if git confirms `path` (a directory) is ignored in the repo at `project_root`."""
+    git = shutil.which("git")
+    if git is None:
+        return False
+    rel = path.resolve().relative_to(project_root.resolve()).as_posix() + "/"
+    result = subprocess.run(  # noqa: S603 - fixed argv, no shell
+        [git, "-C", str(project_root), "check-ignore", "-q", "--no-index", rel],
+        capture_output=True,
+        check=False,
+    )
+    return result.returncode == 0
+
+
 def ensure_backup_root(root: Path, project_root: Path) -> Path:
+    """The backup root may live inside the repository only if git ignores it (public remote)."""
     root = root.resolve()
-    if _is_within(root, project_root):
-        raise BackupError(f"backup root {root} must be outside the repository {project_root}")
+    if root == project_root.resolve():
+        raise BackupError("backup root must not be the repository root itself")
+    if _is_within(root, project_root) and not _git_ignored(root, project_root):
+        raise BackupError(
+            f"backup root {root} is inside the repository but not git-ignored; "
+            "add it to .gitignore so snapshots can never be committed"
+        )
     root.mkdir(parents=True, exist_ok=True)
     return root
 

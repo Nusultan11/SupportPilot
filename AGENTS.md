@@ -97,7 +97,7 @@ Hard-to-reverse choices go to DECISIONS.md. Do not reopen a closed ADR without n
 ## 9. Experiments and backups
 
 - Every experiment is logged in MLflow with: hypothesis, control, changed params, data version, model, seed, env, metrics per language, cost, conclusion. Protocol: EVALUATION.md.
-- Backups live **outside** the repo in `C:\Users\nurs\SupportPilot-backups\` with sha256 manifests and bounded retention (RUNBOOK). Back up before destructive operations, after each stage, after expensive datasets/models.
+- Backups live in `backups/` at the project root (`code/` bundles, `data/` snapshots). It is git-ignored and must stay so: never commit or push it, and never delete it without the owner's OK. They have sha256 manifests and bounded retention (RUNBOOK §5–6, ADR-013). Back up before destructive operations, after each stage, and after expensive datasets/models.
 
 ## 10. Definition of done for a stage
 

@@ -234,7 +234,7 @@ def build_parser() -> argparse.ArgumentParser:
     chk.add_argument("--mode", choices=["server", "embedded", "memory"], help="qdrant mode")
     chk.set_defaults(func=cmd_check)
 
-    bk = sub.add_parser("backup", help="data/model snapshots outside the repo")
+    bk = sub.add_parser("backup", help="data/model snapshots (git-ignored backups/ dir)")
     bsub = bk.add_subparsers(dest="action", required=True)
     c = bsub.add_parser("create", help="snapshot a file or directory")
     c.add_argument("source")

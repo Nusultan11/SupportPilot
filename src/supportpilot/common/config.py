@@ -62,7 +62,7 @@ class LoggingSettings(_Section):
 
 
 class BackupSettings(_Section):
-    root: Path = Path("../SupportPilot-backups")
+    root: Path = Path("backups")  # project root; must be git-ignored
     keep_per_name: int = Field(default=3, ge=1)
 
 
