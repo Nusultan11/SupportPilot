@@ -8,7 +8,8 @@ Logical components share one Python package. They are not separate microservices
 
 | Component | Package | Responsibility | Runs |
 |---|---|---|---|
-| Common | `supportpilot.common` | config, logging, schemas (DATA_CONTRACTS), IDs, manifests, IO helpers | library |
+| Common | `supportpilot.common` | config, logging (redaction), schemas (DATA_CONTRACTS), IDs, hashing, manifests, atomic IO, provenance, MLflow run helper | library |
+| Ops | `supportpilot.ops` | environment/GPU report, data/model snapshots, MLflow and Qdrant round-trip checks | `supportpilot` CLI |
 | Data pipeline | `supportpilot.data` | acquire → validate → clean → dedup → language adaptation → label → build SFT → split → version | batch CLI, CPU |
 | Knowledge ingestion | `supportpilot.kb` | parse PDF/DOCX/XLSX/CSV/JSON/TXT → structured docs → chunks + metadata | batch CLI, CPU |
 | Retrieval | `supportpilot.retrieval` | embeddings, Qdrant index, sparse/BM25, fusion, reranking, context assembly | library + index CLI |
@@ -101,7 +102,7 @@ and a typed error that maps to a fallback response.
 |---|---|---|
 | ETL | Polars lazy/streaming over partitioned Parquet (`lang=`, `source=`) | same code on a bigger machine. Parquet in object storage |
 | Embeddings | batched GPU inference with checkpointed shards | Kaggle/Colab or dedicated GPU, same shard format |
-| Vector store | Qdrant (Docker) or local embedded mode for tests | Qdrant server/cluster, on-disk vectors, quantisation |
+| Vector store | Qdrant server in Docker (`compose.yaml`); in-memory mode for tests (ADR-014) | Qdrant server/cluster, on-disk vectors, quantisation |
 | Inference | 4-bit or GGUF compact model on a 4 GB GPU | vLLM or llama.cpp server on a larger GPU |
 | API | single uvicorn process | horizontal replicas behind a load balancer. Sessions in Redis (only when needed) |
 

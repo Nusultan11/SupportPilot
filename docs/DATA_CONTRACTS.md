@@ -1,7 +1,8 @@
 # DATA_CONTRACTS — schemas, identifiers, versioning, validation
 
-Schemas are implemented as Pydantic models and Polars schemas in `supportpilot.common.schemas`
-(from Stage 1). This doc is the specification. Any breaking change needs a new `schema_version`
+Schemas are implemented as Pydantic models in `supportpilot.common.schemas` and ID helpers in
+`supportpilot.common.ids`. §2–4 and §9 have been implemented since Stage 1. Polars schemas
+are added with the first Parquet pipeline (Stage 2–3). This doc is the specification. Any breaking change needs a new `schema_version`
 and an entry in DECISIONS.md.
 
 ## 1. Conventions
@@ -10,9 +11,10 @@ and an entry in DECISIONS.md.
   and `code_switch: true`, plus `langs: list[str]`.
   Kazakh is Cyrillic script (`kk-Cyrl`). Latin-script Kazakh is accepted as input, flagged
   `script: Latn`, and not generated.
-- **IDs**: lowercase, deterministic, no PII.
-  - `source_id`: slug, e.g. `bitext_retail_ecom`.
-  - `record_id` = `{source_id}:{source_row_key}` (the source's own key or row index at a pinned revision).
+- **IDs**: deterministic, no PII. All are lowercase except `source_row_key`.
+  - `source_id`: slug `^[a-z0-9]+([_-][a-z0-9]+)*$`, e.g. `bitext_retail_ecom`.
+  - `record_id` = `{source_id}:{source_row_key}`. The key is the source's own key or the row
+    index at a pinned revision, in its original case, using characters `[A-Za-z0-9._-]`.
   - `example_id` = first 16 hex chars of `sha256(source_id|record_id|lang|origin|text_normalised)`.
   - `scenario_id`: a group of examples that express the same request and response logic. Splits
     are by `scenario_id`.
@@ -39,7 +41,8 @@ and an entry in DECISIONS.md.
 ## 3. Raw storage
 
 `data/raw/{source_id}/{revision}/` holds the original files exactly as downloaded, plus
-`manifest.json` = `{source_id, revision, url, retrieved_at, files:[{path, bytes, sha256}]}`.
+`manifest.json` = `{schema_version: "raw_manifest/1", source_id, revision, url, retrieved_at
+(timezone-aware), files:[{path, bytes, sha256}]}`.
 Raw files are never modified. A re-download with a different hash creates a new revision directory.
 
 ## 4. Canonical example (`data/interim/`, Parquet, partitioned by `lang`)
@@ -146,10 +149,19 @@ row key. A FAQ chunk is one Q+A pair. Small FAQ items are not split further.
 
 ## 9. Dataset version manifest
 
-Each processed dataset or index has a `manifest.json` with these fields: `dataset_version`
-(`{name}-{yyyymmdd}-{hash8}`), `schema_version`, `code_commit`, `inputs` (source_id@revision
-or parent dataset_version), `params`, `row_counts` (by split × lang × task), `sha256` per file,
-`created_at`, and `quality_report` (path).
+Each processed dataset or index has a `manifest.json` with these fields: `schema_version`
+(`dataset_manifest/1`), `dataset_version` (`{name}-{yyyymmdd}-{hash8}`), `data_schema_version`
+(schema of the rows, e.g. `sft/1`), `code_commit`, `inputs` (source_id@revision
+or parent dataset_version), `params`, `row_counts` (by split × lang × task), `files`
+(`{path, bytes, sha256}` each), `created_at`, and `quality_report` (path).
+
+**Snapshot manifest** (`snapshot/1`, written by `supportpilot backup`, ADR-017):
+`snapshot_id` (`{yyyymmddTHHMMSSZ}-{content_sha256[:8]}`), `name`, `kind` (`data`|`model`),
+`created_at`, `source_path`, `code_commit`, `note`, `pinned`, `content_sha256` (hash of the
+sorted file list), `archive_sha256`, `archive_bytes`, `total_bytes`, and `files`.
+
+File paths in every manifest are relative POSIX paths without `..`. This is enforced by
+`FileEntry`.
 
 ## 10. Validation gates (enforced in code)
 

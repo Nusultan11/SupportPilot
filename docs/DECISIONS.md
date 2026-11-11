@@ -17,7 +17,7 @@ Format: context → decision → alternatives → risks → revisit when. Status
 - **Revisit:** if the owner prefers Russian docs.
 
 ### ADR-003 Runtime: Python 3.12 + uv, Windows-native first — accepted (2026-11-11)
-- **Context:** Python 3.12.3 and 3.13 installed; torch 2.12.0+cu126 works in the global 3.12 install; uv 0.12.1; Docker 29.8 on WSL2.
+- **Context:** Python 3.12.3 and 3.13 installed; torch 2.12.0+cu126 works in the global 3.12 install; uv 0.12.1; Docker 29.8 on WSL2. Stage 1: the project venv uses torch 2.14.1+cu126 (ADR-015).
 - **Decision:** project venv managed by `uv` (lockfile), Python 3.12 (best wheel coverage for torch/bitsandbytes/flash-linear-attention). Linux-only pieces (Qdrant server; possibly Qwen3.5 kernels such as causal-conv1d) run in Docker/WSL2 or on Kaggle/Colab.
 - **Alternatives:** conda (heavier, slower); WSL2 for everything (doubles the environment; Windows GPU works already).
 - **Revisit:** a required training dependency with no Windows build → move training env to WSL2.
@@ -82,6 +82,53 @@ Format: context → decision → alternatives → risks → revisit when. Status
 - **Decision:** project rule set by the owner. Code/docs backups are `git bundle` snapshots; data/model snapshots are tar + sha256 manifests (Stage 1 tool). Both go to `C:\Users\nurs\SupportPilot-backups\`, with retention: last 10 code bundles, last 3 snapshots per dataset/model, plus all stage-end snapshots.
 - **Remote:** `origin` = https://github.com/Nusultan11/SupportPilot (public, added 2026-11-11). Pushing `main` after each stage gives an off-machine code copy. Data and model snapshots stay local, because the repo is public.
 
+### ADR-014 Qdrant dev mode: Docker server; in-memory for tests — accepted (2026-11-11)
+- **Context:** ADR-007 named Qdrant. Stage 1 had to choose how it runs locally on Windows. All three modes passed the same round trip (named dense + IDF sparse vectors, payload filter, prefetch + RRF, delete-by-filter). Benchmark: 1024-dim cosine, filtered top-10, 50 queries.
+
+  | Mode | Upsert, 5k | Query p50 / p95, 5k | Upsert, 50k | Query p50 / p95, 50k |
+  |---|---|---|---|---|
+  | embedded (`path=`) | 364 pts/s | 71 / 83 ms | 198 pts/s (253 s total) | 604 / 716 ms |
+  | server v1.20.0 (Docker) | 1950 pts/s | 6 / 27 ms | 1276 pts/s | 11 / 61 ms |
+
+  The server container used 277 MiB at 50k points. The embedded client keeps `storage.sqlite` locked on Windows until the process exits.
+- **Decision:**
+  - **Server** (`compose.yaml`, `qdrant/qdrant:v1.20.0` matching qdrant-client 1.20.0) for development, indexing, Stage 6 experiments and e2e.
+  - **memory** mode for unit and integration tests (no Docker).
+  - **embedded** only for quick experiments under about 5k points.
+  - Storage uses a *named* Docker volume, because Qdrant warns that Windows bind mounts are not POSIX-compatible. Persistence across `compose down/up` was verified.
+  - Ports are bound to 127.0.0.1. The client URL is `http://127.0.0.1:6333`, because `localhost` cost about 2 s per call (IPv6 first).
+- **Alternatives:** embedded only (no Docker, but 50× slower queries at 50k, brute force, and file locks); Qdrant Cloud free tier (data leaves the machine, needs an account).
+- **Revisit:** Docker Desktop's ~6 GB VM becomes a RAM problem together with training/inference on the 15 GB laptop.
+
+### ADR-015 Dependency layout and CUDA torch — accepted (2026-11-11)
+- **Decision:**
+  - Runtime deps in `[project]`: pydantic, pydantic-settings, pyyaml, mlflow, qdrant-client, psutil.
+  - `dev` group: ruff, mypy, pytest, pre-commit, stubs.
+  - `gpu` group: torch, from the explicit `pytorch-cu126` index (resolved 2.14.1+cu126).
+  - Both groups install by default. CI can skip `gpu`.
+  - Polars/PyArrow, Transformers and FastAPI are added in the stage that first uses them.
+- **Why cu126:** it is verified on driver 566.07 (CUDA 12.7 runtime). Newer CUDA builds need a newer driver. Updating the driver is the owner's call.
+- **Alternatives:** torch as a main dependency (forces a ~2.5 GB CUDA wheel on every install); `uv pip install` outside the lock (not reproducible).
+- **Revisit:** driver update → consider a newer CUDA index; training libraries that need a specific torch.
+
+### ADR-016 Logging: stdlib + own JSON formatter with redaction — accepted (2026-11-11)
+- **Decision:**
+  - Logging uses stdlib `logging` with JSON (default) and console formatters.
+  - Every record passes a redaction step: sensitive keys become `***`; tokens, e-mails, KZ/RU phone numbers and 12–19-digit runs (cards, IIN) are masked; customer text under `text`/`prompt`/`answer`/... is replaced by `{len, sha256_8}` unless `logging.log_text=true`.
+  - Third-party HTTP loggers are kept at WARNING.
+- **Alternatives:** structlog (nicer API, extra dependency, same redaction work); loguru (global state, weaker stdlib interop with mlflow/httpx).
+- **Revisit:** a log pipeline (Stage 10) needs OpenTelemetry fields.
+
+### ADR-017 Data/model snapshots: tar + sha256 manifest — accepted (2026-11-11)
+- **Decision:**
+  - One uncompressed tar plus a `manifest.json` per snapshot. The manifest holds per-file sha256 values, the archive sha256 and a content hash. Files are hashed in the same pass that writes the archive.
+  - Snapshots are created atomically. Identical content is deduplicated.
+  - Restore is verified before files appear and never overwrites existing data.
+  - Retention: N newest per name plus pinned snapshots.
+- **Why no compression:** parquet and safetensors are already dense, and gzip would make 1 GiB snapshots CPU-bound (measured uncompressed: 3.8 s create, 2.6 s deep verify per GiB).
+- **Alternatives:** restic or borg (deduplication and encryption, but an external tool and opaque format); DVC (ADR-004, later); plain copies (no integrity check).
+- **Revisit:** snapshots need to go off-machine or be encrypted, or total size exceeds disk budget → restic to an external disk or cloud bucket.
+
 ---
 
 ## Open decisions (owner input needed; see PROGRESS.md)
@@ -101,3 +148,6 @@ Format: context → decision → alternatives → risks → revisit when. Status
 - Qwen3 Embedding / Reranker: https://arxiv.org/abs/2506.05176
 - MMTEB: https://arxiv.org/abs/2502.13595
 - Qdrant hybrid search: https://qdrant.tech/course/beginners/module-3/hybrid-search-in-qdrant/
+- Qdrant troubleshooting (Windows bind mounts → named volumes): https://qdrant.tech/documentation/common-errors/
+- Qdrant 1.20 release: https://qdrant.tech/blog/qdrant-1.20.x/
+- PyTorch CUDA wheel indexes: https://download.pytorch.org/whl/cu126

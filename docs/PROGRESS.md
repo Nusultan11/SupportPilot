@@ -1,52 +1,95 @@
-# PROGRESS — current state (single source of truth for status)
+# PROGRESS: current state (single source of truth for status)
 
 Last updated: 2026-11-11
 
 ## Current stage
 
-**Stage 0: Project audit and research. Status: COMPLETED.** Waiting for owner confirmation to start Stage 1.
+**Stage 1: Architecture and engineering foundation. Status: COMPLETED.** Waiting for owner
+confirmation to start Stage 2 (data acquisition and source registry).
 
-## Stage 0 results
+| Stage | Status | Commits |
+|---|---|---|
+| 0 Audit and research | COMPLETED | `699dc23`, `cd50a6c`, `ced287e` |
+| 1 Engineering foundation | COMPLETED | `6b17404` (code), plus the docs/progress commit after it |
 
-Audit:
-- On 2026-11-11 `C:\Users\nurs\SupportPilot` was **empty** (no files, no git). There was nothing to keep, fix or delete, and no prior data needed a backup.
-- Hardware and software facts are in RUNBOOK §1. Key constraint: 4 GB VRAM. No CUDA toolkit (`nvcc`) is installed, so kernels that build from source (causal-conv1d) are unlikely to build natively → use Docker/WSL2 or cloud (ADR-003).
+## Stage 1: what exists now
 
-Delivered:
-- `AGENTS.md` (canonical rules), `CLAUDE.md` (pointer), `README.md`, `.gitignore`, `.gitattributes`.
-- `docs/`: PROJECT, ARCHITECTURE, ROADMAP, DATA_CONTRACTS, EVALUATION, DECISIONS (ADR-001…013), PROGRESS, RUNBOOK.
-- Git repo initialised on `main`.
+| Component | Path | Notes |
+|---|---|---|
+| uv project | `pyproject.toml`, `uv.lock`, `.python-version` | Python 3.12. Groups: `dev`, `gpu` (torch 2.14.1+cu126) (ADR-015) |
+| Settings | `common/config.py`, `configs/base.yaml` | defaults < YAML < .env < env < overrides; frozen; unknown keys rejected; `SecretStr` |
+| Logging | `common/logging.py` | JSON/console; redacts secrets and PII; customer text hashed unless `log_text` (ADR-016) |
+| IDs, hashing, IO | `common/ids.py`, `hashing.py`, `io.py`, `provenance.py` | DATA_CONTRACTS §1; streaming sha256; atomic writes; `code_commit` with `-dirty` |
+| Contracts | `common/schemas.py`, `common/manifest.py` | §2 registry, §3 raw manifest, §4 canonical example, §9 dataset manifest; scan/verify |
+| Tracking | `common/tracking.py` | MLflow on local SQLite; `RunSpec` enforces hypothesis, dataset_version and seed tags |
+| Ops CLI | `cli.py`, `ops/{envcheck,backup,health}.py` | `supportpilot env`, `backup create/list/verify/restore/pin/prune`, `check mlflow/qdrant` |
+| Services | `compose.yaml` | Qdrant v1.20.0, named volume, ports bound to 127.0.0.1 (ADR-014) |
+| Quality gates | `.pre-commit-config.yaml`, `[tool.ruff/mypy/pytest]` | ruff, mypy `--strict` on src + tests, fast pytest subset, file hygiene, 5 MB limit |
 
-Research findings (sources in DECISIONS §References):
-- No open Kazakh or Russian e-commerce support dataset with a usable licence was found. EN backbone: Bitext retail (44,884 rows, 46 intents) + Bitext customer support (26,872 rows, 27 intents), both CDLA-Sharing-1.0 (ADR-006).
-- Bitext rows are paraphrase families of few scenarios. The realistic count of *distinct* quality examples is unknown until Stage 3 EDA; reaching 100k needs substantial RU/KK adaptation and new generation.
-- Model shortlist: Qwen3-0.6B/1.7B, Qwen3.5-0.8B/2B, Gemma 4 E2B. None explicitly lists Kazakh, so KK zero-shot quality must be measured (ADR-008). Unsloth advises against QLoRA for Qwen3.5.
-- Embeddings to compare: multilingual-e5, BGE-M3, Qwen3-Embedding-0.6B. Rerankers: bge-reranker-v2-m3, Qwen3-Reranker-0.6B. Published benchmarks disagree and none covers KK e-commerce, so our own retrieval set decides (Stage 6).
+Not created yet, on purpose: `supportpilot.data` and the other domain packages (from
+Stage 2), Polars and PyArrow (from Stage 2–3), `configs/sources.yaml` (Stage 2).
 
-Verified checks:
-- Backup and restore round trip PASSED on 2026-11-11 with the RUNBOOK §3 procedure: bundle verified, sha256 OK, clone HEAD = `699dc23`, `diff -r` showed an identical tree. The restore directory was removed afterwards.
-- No code exists yet, so there are no tests, lint or type checks. They start in Stage 1.
+## Verification evidence (2026-11-11)
+
+- **Tests:** 108 passed, 0 skipped (`uv run pytest -q`, 15 s, with the Qdrant server up).
+  Fast subset: 105 passed in 6 s. Coverage:
+  - contracts, including invalid inputs (bad language, unknown intent, escalation without a
+    reason, MT without lineage, unsafe paths, naive datetimes, duplicate sources, unknown licence);
+  - config precedence and rejection of bad input; redaction;
+  - the backup cycle, including corruption, tampering, non-empty targets, dedup, prune and pin;
+  - CLI exit codes; MLflow; Qdrant in memory, embedded and server modes; the GPU matmul.
+- **Lint and types:** `ruff check`, `ruff format --check`, `mypy --strict` (26 files) are all
+  clean. `pre-commit run --all-files` passes, and the hook also ran on commit `6b17404`.
+- **Clean clone:** `git clone` → `uv sync --locked` (20 s, warm uv cache) → ruff, mypy and
+  108 tests passed; torch CUDA available inside the clone.
+- **GPU:** `supportpilot env --save` → RTX 3050 Laptop, compute 8.6, 4.0 GiB (3.23 GiB free),
+  bf16 supported, fp16 matmul correct at 7.64 TFLOPS. Report saved as
+  `artifacts/reports/env/env-20261111T113143Z.json` (local). Values are in RUNBOOK §1.
+- **Backup round trip with the real CLI and the real root:** snapshot
+  `data/env_reports/20261111T113155Z-92ddf171` → deep verify ok → restore → `diff -r`
+  identical → re-create reused the snapshot (dedup).
+  - 1 GiB test in a scratch root: create 3.8 s, deep verify 2.6 s, restore 3.8 s,
+    byte-identical (`cmp`).
+- **MLflow:** `supportpilot check mlflow` → run written to `mlruns/mlflow.db` and read back
+  (params, 3-step metric history, tags); `mlflow ui` served the experiment list (HTTP 200).
+- **Qdrant:**
+  - the round trip passed in all three modes;
+  - benchmark at 50k × 1024-dim: server 1276 pts/s and p50 11 ms, embedded 198 pts/s and
+    p50 604 ms;
+  - the named volume survived `compose down/up`. Decision in ADR-014.
+
+## Known limitations and open items
+
+1. `uv sync --no-group gpu` (CPU-only/CI path) has not been run. It is planned for CI in Stage 10.
+2. A cold-cache install downloads about 3 GB, and the venv is 4.6 GB. Only the warm-cache
+   clean clone was measured.
+3. RAM is the tightest resource: 15.4 GiB total, about 6.4 GiB free with the desktop plus
+   Docker's VM (about 6 GB assigned). Stop Qdrant (`docker compose down`) during local GPU work.
+4. Embedded Qdrant keeps its SQLite file locked on Windows until the process exits.
+5. No CUDA toolkit (`nvcc`): source-built kernels still need Docker/WSL2 or the cloud (ADR-003).
+6. The public repository has **no LICENSE file**. Choosing one is the owner's decision.
+7. Still open from Stage 0: paid-API budget for KK/RU work, fluent KK/RU reviewers for the
+   gold benchmark, Kaggle/Colab accounts from Stage 6–7.
 
 ## Git and backups
 
-- Commits: `699dc23` docs: establish project instructions, architecture and roadmap. The follow-up commit records this progress entry.
-- Backups (`C:\Users\nurs\SupportPilot-backups\code\`):
-  - `supportpilot-20261111T104335Z.bundle` (sha256 `1ad543f0…8205`): the restore-tested snapshot of `699dc23`.
-  - Stage-end snapshot: the newest `supportpilot-*.bundle` created after the progress commit. Keep it under the retention rule.
+- Remote: `origin` = https://github.com/Nusultan11/SupportPilot (public). `main` is pushed after each stage.
+- Code bundles in `C:\Users\nurs\SupportPilot-backups\code\`. Stage-end snapshots:
+  - Stage 0: `supportpilot-20261111T104345Z.bundle`.
+  - Stage 1: the newest bundle created after the Stage 1 docs commit (named in the Stage 1 report).
+- Data snapshots in `C:\Users\nurs\SupportPilot-backups\data\`:
+  `env_reports/20261111T113155Z-92ddf171` (the round-trip evidence).
 
-## Open issues and owner decisions
+## Notes for the next stage (Stage 2)
 
-1. Paid LLM API budget for KK/RU translation, generation and judging? (DECISIONS §Open decisions)
-2. Fluent KK and RU reviewers for the gold benchmark? Without them, gold is `llm_reviewed`, not "independently verified" (EVALUATION §1).
-3. ~~GitHub remote~~ resolved on 2026-11-11: `origin` = https://github.com/Nusultan11/SupportPilot (public), `main` pushed. CI is added in Stage 10.
-4. Kaggle/Colab accounts: needed from Stage 6–7 for GPU runs. Quotas are not guaranteed.
-
-## Notes for the next stage (Stage 1)
-
-- Create the uv project with Python 3.12. Install torch from the CUDA 12.x index (cu126 wheels are known to work with driver 566.07).
-- Keep the package skeleton minimal: only `common/` and `data/` are needed in Stages 1–3.
-- The data snapshot tool must write outside the repo (RUNBOOK §4) and have a restore test.
+- Put the source registry in `configs/sources.yaml` and load it with
+  `common.manifest.load_source_registry`. A source with licence `unknown` must be `blocked`
+  (enforced by the schema).
+- Write raw manifests with `RawManifest` + `scan_files`. Snapshot raw data after download:
+  `supportpilot backup create data/raw/<source> --name <source>_raw --kind data --pin`.
+- Pin HF downloads by commit sha (`revision=`). Add `huggingface_hub`/`datasets`, `polars` and
+  `pyarrow` only in Stage 2, and record them in ADR-015.
 
 ## Next recommended action
 
-Start Stage 1 (ROADMAP §Stage 1) after owner confirmation.
+Start Stage 2 (ROADMAP §Stage 2) after owner confirmation.

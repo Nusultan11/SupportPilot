@@ -5,7 +5,8 @@ It combines retrieval-augmented generation over store documents, tool calls to o
 inventory / payment APIs, and a compact LoRA/QLoRA-tuned LLM. It is built to answer only
 from evidence, cite its sources, and hand hard cases to a human operator.
 
-> **Status:** Stage 0 (audit, research, documentation) is done. There is no runnable code yet.
+> **Status:** Stage 1 (engineering foundation) is done: environment, config, logging, data
+> contracts, backups and service checks. The assistant itself is not built yet.
 > Current state: [docs/PROGRESS.md](docs/PROGRESS.md).
 
 ## What it will do
@@ -38,7 +39,18 @@ The rationale is in [docs/DECISIONS.md](docs/DECISIONS.md).
 
 ## Install and run
 
-Added in Stage 1 (environment) and Stage 8 (end-to-end demo). See [RUNBOOK](docs/RUNBOOK.md).
+Requirements: Windows or Linux, Python 3.12 (installed by `uv` if missing), an NVIDIA GPU
+with a CUDA 12.6-capable driver (optional for most tasks), and Docker for Qdrant.
+
+```bash
+uv sync --locked              # locked environment incl. CUDA torch
+uv run pre-commit install
+docker compose up -d qdrant   # local vector database
+uv run supportpilot env       # hardware / CUDA report
+uv run pytest -q              # test suite
+```
+
+The end-to-end demo arrives in Stage 8. All commands are in [RUNBOOK](docs/RUNBOOK.md).
 
 ## Data and licences
 

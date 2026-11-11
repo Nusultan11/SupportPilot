@@ -33,8 +33,11 @@ JSON, grounding, abstention, escalation), never facts. Details: [docs/PROJECT.md
 | `docs/EVALUATION.md` | Datasets, metrics, experiment protocol |
 | `docs/DECISIONS.md` | ADRs: chosen option, alternatives, revisit conditions |
 | `docs/RUNBOOK.md` | Verified commands: setup, run, backup, restore, diagnostics |
-| `src/supportpilot/` | Python package (from Stage 1) |
-| `configs/`, `tests/`, `apps/` | Configs, tests, UI (created when first needed) |
+| `src/supportpilot/` | Python package: `common/` (foundation), `ops/` (env, backup, checks), `cli.py` |
+| `configs/base.yaml` | Default settings; override via `SUPPORTPILOT_<SECTION>__<KEY>` |
+| `tests/unit`, `tests/integration` | pytest suites (markers: `slow`, `gpu`, `qdrant_server`) |
+| `compose.yaml` | Local services (Qdrant) |
+| `apps/` | UI (created in Stage 8) |
 | `data/`, `artifacts/`, `mlruns/` | Local only, git-ignored |
 
 ## 4. Task procedure (one large stage per work cycle)
@@ -50,17 +53,20 @@ Ask the user only for: costs, external accounts/credentials, irreversible deleti
 
 ## 5. Commands
 
-Stage 0 contains documentation only. From Stage 1 the standard checks are
-(see RUNBOOK for the authoritative, verified list):
+Standard checks. RUNBOOK §2–4 is the authoritative, verified list.
 
 ```bash
-uv sync                      # install locked environment
+uv sync --locked                                   # reproduce the locked env (incl. CUDA torch)
+uv run pre-commit install                          # once per clone
 uv run ruff check . && uv run ruff format --check .
-uv run mypy src
-uv run pytest -q
+uv run mypy                                        # strict, src + tests
+uv run pytest -q                                   # full suite; start Qdrant first (below)
+docker compose up -d qdrant                        # Qdrant server for qdrant_server tests
 ```
 
-A stage is not done while any of these fail.
+A stage is not done while any of these fail. A *skipped* `qdrant_server` or `gpu` test means
+the check did not run, so report it as unverified. Operational CLI: `uv run supportpilot --help`
+(`env`, `backup`, `check`).
 
 ## 6. Code and data standards
 
