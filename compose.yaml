@@ -1,0 +1,25 @@
+# Local development services. Start: `docker compose up -d qdrant`
+# Qdrant storage uses a *named* volume: Windows bind mounts are not POSIX-compatible and
+# Qdrant warns they can corrupt data (ADR-014). Version pinned to match qdrant-client.
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.20.0
+    container_name: supportpilot-qdrant
+    ports:
+      - "127.0.0.1:6333:6333"   # REST (bound to localhost only)
+      - "127.0.0.1:6334:6334"   # gRPC
+    volumes:
+      - qdrant_storage:/qdrant/storage
+    environment:
+      QDRANT__TELEMETRY_DISABLED: "true"
+    mem_limit: 2g
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/6333 && printf \"GET /readyz HTTP/1.0\\r\\n\\r\\n\" >&3 && grep -q 200 <&3'"]
+      interval: 10s
+      timeout: 3s
+      retries: 6
+
+volumes:
+  qdrant_storage:
+    name: supportpilot_qdrant_storage

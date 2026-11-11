@@ -1,0 +1,30 @@
+# Base configuration. Every key can be overridden by env vars:
+#   SUPPORTPILOT_<SECTION>__<KEY>, e.g. SUPPORTPILOT_QDRANT__MODE=memory
+# Secrets (e.g. SUPPORTPILOT_QDRANT__API_KEY) belong in .env or the environment, never here.
+# Relative paths are resolved against the project root.
+env: dev
+
+paths:
+  data_dir: data
+  artifacts_dir: artifacts
+  reports_dir: artifacts/reports
+
+logging:
+  level: INFO
+  format: json        # json | console
+  log_text: false     # true only for local debugging: logs customer text verbatim
+
+backup:
+  root: ../SupportPilot-backups   # must be outside the repository
+  keep_per_name: 3                # newest N per snapshot name, plus all pinned ones
+
+mlflow:
+  db_path: mlruns/mlflow.db
+  artifact_root: mlruns/artifacts
+  experiment_prefix: supportpilot
+
+qdrant:
+  mode: server        # server (Docker, dev/indexing) | embedded (on-disk, no server) | memory (tests)
+  url: http://127.0.0.1:6333   # not "localhost": IPv6-first lookup adds ~2 s per call on Windows
+  path: data/qdrant_embedded
+  timeout_s: 10
