@@ -12,7 +12,7 @@ confirmation to start Stage 4 (multilingual dataset engineering).
 | 0 Audit and research | COMPLETED | `699dc23`, `cd50a6c`, `ced287e` |
 | 1 Engineering foundation | COMPLETED | `6b17404`, `7b6bc4c` |
 | 2 Data acquisition and source registry | COMPLETED | `a7bcc05`, `4384d13`, `f43dec0` |
-| 3 EDA and data quality engineering | COMPLETED | see "Git and backups" |
+| 3 EDA and data quality engineering | COMPLETED | `b2f5d86`, plus a follow-up progress commit |
 
 ## What exists (cumulative)
 
@@ -177,15 +177,15 @@ WEAK_TEXT, OFF_DOMAIN, LANG_OTHER, LID_ERROR and RESPONSE_DEFECT.
   after each stage.
 - Backups live in `backups/` at the project root (git-ignored, ADR-013).
 - Code bundles (`backups/code/`): Stage 0 `…T104345Z`, Stage 1 `…T115429Z`, Stage 2
-  `…T134356Z`, Stage 3 see below.
+  `…T134356Z`, Stage 3 `…1T154236Z`.
 - Data snapshots (`backups/data/`): pinned raw snapshots per source from Stage 2, plus
   `raw_records/20261111T134036Z-ee0f165b` and `env_reports/20261111T113155Z-92ddf171`.
 - **Stage 3 data snapshots** (pinned, deep-verified):
   - `clean_records/20261111T154052Z-5d85c3cb` (85.0 MB);
   - `canonical/20261111T154055Z-c62f57ae` (51.1 MB, build `canonical-20261111-8fe01586`);
   - `eda_report/20261111T154057Z-9fe64e24` (1.2 MB, report, figures, review samples).
-- **Stage 3 code:** commit `ops:`/`data:` on `main` (hash in the git log), plus the bundle
-  `backups/code/` created after the commit.
+- **Stage 3 code:** commit `b2f5d86` on `main`; bundle `backups/code/supportpilot-20261111T154236Z.bundle`
+  (verified, sha256 file next to it).
 
 ## Notes for the next stage (Stage 4)
 
