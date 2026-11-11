@@ -24,13 +24,15 @@ Research findings (sources in DECISIONS §References):
 - Embeddings to compare: multilingual-e5, BGE-M3, Qwen3-Embedding-0.6B. Rerankers: bge-reranker-v2-m3, Qwen3-Reranker-0.6B. Published benchmarks disagree and none covers KK e-commerce, so our own retrieval set decides (Stage 6).
 
 Verified checks:
-- Backup and restore round trip (git bundle → sha256 check → clone → identical tree): see "Git and backups" below.
+- Backup and restore round trip PASSED on 2026-11-11 with the RUNBOOK §3 procedure: bundle verified, sha256 OK, clone HEAD = `699dc23`, `diff -r` showed an identical tree. The restore directory was removed afterwards.
 - No code exists yet, so there are no tests, lint or type checks. They start in Stage 1.
 
 ## Git and backups
 
-- Commits: see `git log` (Stage 0: `docs: establish project instructions, architecture and roadmap`).
-- Backups: `C:\Users\nurs\SupportPilot-backups\code\`. The stage-end snapshot is the bundle created right after the Stage 0 commits (its name is recorded in the Stage 0 report).
+- Commits: `699dc23` docs: establish project instructions, architecture and roadmap. The follow-up commit records this progress entry.
+- Backups (`C:\Users\nurs\SupportPilot-backups\code\`):
+  - `supportpilot-20261111T104335Z.bundle` (sha256 `1ad543f0…8205`): the restore-tested snapshot of `699dc23`.
+  - Stage-end snapshot: the newest `supportpilot-*.bundle` created after the progress commit. Keep it under the retention rule.
 
 ## Open issues and owner decisions
 
