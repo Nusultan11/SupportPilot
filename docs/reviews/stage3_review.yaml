@@ -1,0 +1,4245 @@
+# Stage 3 qualitative review (hand-written; rendered into artifacts/reports/eda/report.md).
+# Validated by supportpilot.data.review.Review. Record texts are not copied here.
+schema_version: review/1
+reviewer: Claude (claude-opus-5-5), LLM agent; not an independent human review
+reviewed_at: '2026-11-11'
+method: 'Per source: 100 uniformly random records and up to 100 records with a problem signal (seed 20261111,
+  `supportpilot data eda` writes the samples to artifacts/reports/eda/review/). Every listed record was
+  read in its cleaned form (text up to 170 chars, response up to 100 chars, dialogues: first 3 turns and
+  the source target) and given one or more codes. `OK` means usable for the source''s intended purpose
+  as is.'
+codes:
+  OK: usable as is
+  LABEL_WRONG: (hard) source label does not match the text
+  LABEL_AMBIGUOUS: (soft) text fits two labels or needs a taxonomy decision
+  GARBLED: (hard) incoherent / token-soup text from a failed generation
+  WEAK_TEXT: (hard as a standalone message) no actionable request in the text
+  OFF_DOMAIN: (hard for store support) outside online-store customer support
+  LANG_OTHER: (hard) not en/ru/kk, or heavily mixed with another language
+  LID_ERROR: (hard) language detector chose the wrong language
+  RESPONSE_DEFECT: (hard for responses) response refuses, misreads or invents context
+  TRANSLATION_ISSUE: (soft) calque, typo or untranslated fragment in a translation
+  PROFANITY_INSERTED: (soft) swear word inserted mechanically into a template
+  UNNATURAL: (soft) phrasing or style a real customer/agent would not use
+  RESPONSE_TEMPLATE: (soft) response keeps a placeholder or template instruction
+  CONTEXT_DEPENDENT: (soft) meaning or decision depends on context outside the text
+  PII_LIKE: (soft) realistic personal data (masked unless noted)
+  DUPLICATE: (soft) exact duplicate, removed by dedup
+  ARTIFACT: (soft) formatting artefact such as doubled CSV quotes
+  LID_FALSE_ALARM: (none) low LID confidence, language is correct
+hard_codes:
+- LABEL_WRONG
+- GARBLED
+- WEAK_TEXT
+- OFF_DOMAIN
+- LANG_OTHER
+- LID_ERROR
+- RESPONSE_DEFECT
+sources:
+  belebele:
+    summary: 'Professionally translated reading-comprehension items (FLORES passages) in kk/ru/en, 900
+      per language, aligned by passage link and question number. Language labels are reliable: LID agrees
+      on 2,699 of 2,700 questions and on all passages. The KK side has visible translation issues in about
+      6 of 33 reviewed KK items (calques such as "консепт", typos, untranslated "190th"). Passages carry
+      doubled CSV quotes from the source export. Not customer-support text.'
+    verdict: Evaluation only, as registered. Reliable for LID calibration and KK/RU/EN language competence
+      checks of candidate models.
+    recommendation: Use in Stage 7 for zero-shot KK/RU competence (accuracy per language) and keep it
+      as the LID calibration set. Never use for training or tuning.
+    annotations:
+    - id: R001
+      record_id: belebele:eng_Latn.859
+      codes:
+      - OK
+    - id: R002
+      record_id: belebele:rus_Cyrl.29
+      codes:
+      - OK
+    - id: R003
+      record_id: belebele:kaz_Cyrl.143
+      codes:
+      - TRANSLATION_ISSUE
+      note: KK "консептін" (Russian calque for 'concept')
+    - id: R004
+      record_id: belebele:kaz_Cyrl.874
+      codes:
+      - OK
+    - id: R005
+      record_id: belebele:kaz_Cyrl.587
+      codes:
+      - OK
+    - id: R006
+      record_id: belebele:rus_Cyrl.272
+      codes:
+      - OK
+    - id: R007
+      record_id: belebele:eng_Latn.140
+      codes:
+      - ARTIFACT
+      note: passage starts with doubled CSV quotes
+    - id: R008
+      record_id: belebele:eng_Latn.795
+      codes:
+      - ARTIFACT
+    - id: R009
+      record_id: belebele:eng_Latn.156
+      codes:
+      - OK
+    - id: R010
+      record_id: belebele:rus_Cyrl.15
+      codes:
+      - OK
+    - id: R011
+      record_id: belebele:kaz_Cyrl.123
+      codes:
+      - TRANSLATION_ISSUE
+      note: KK option "Поленизиялық" misspelt (Полинезиялық)
+    - id: R012
+      record_id: belebele:eng_Latn.665
+      codes:
+      - OK
+    - id: R013
+      record_id: belebele:eng_Latn.287
+      codes:
+      - OK
+    - id: R014
+      record_id: belebele:eng_Latn.673
+      codes:
+      - OK
+    - id: R015
+      record_id: belebele:eng_Latn.487
+      codes:
+      - OK
+    - id: R016
+      record_id: belebele:kaz_Cyrl.298
+      codes:
+      - OK
+    - id: R017
+      record_id: belebele:rus_Cyrl.364
+      codes:
+      - OK
+    - id: R018
+      record_id: belebele:rus_Cyrl.677
+      codes:
+      - OK
+    - id: R019
+      record_id: belebele:eng_Latn.703
+      codes:
+      - OK
+    - id: R020
+      record_id: belebele:eng_Latn.835
+      codes:
+      - OK
+    - id: R021
+      record_id: belebele:rus_Cyrl.219
+      codes:
+      - ARTIFACT
+    - id: R022
+      record_id: belebele:kaz_Cyrl.805
+      codes:
+      - OK
+    - id: R023
+      record_id: belebele:eng_Latn.2
+      codes:
+      - OK
+    - id: R024
+      record_id: belebele:eng_Latn.261
+      codes:
+      - OK
+    - id: R025
+      record_id: belebele:kaz_Cyrl.873
+      codes:
+      - OK
+    - id: R026
+      record_id: belebele:eng_Latn.113
+      codes:
+      - OK
+    - id: R027
+      record_id: belebele:kaz_Cyrl.716
+      codes:
+      - OK
+    - id: R028
+      record_id: belebele:kaz_Cyrl.776
+      codes:
+      - OK
+    - id: R029
+      record_id: belebele:eng_Latn.197
+      codes:
+      - OK
+    - id: R030
+      record_id: belebele:rus_Cyrl.218
+      codes:
+      - OK
+    - id: R031
+      record_id: belebele:eng_Latn.776
+      codes:
+      - OK
+    - id: R032
+      record_id: belebele:eng_Latn.199
+      codes:
+      - OK
+    - id: R033
+      record_id: belebele:kaz_Cyrl.653
+      codes:
+      - OK
+    - id: R034
+      record_id: belebele:kaz_Cyrl.63
+      codes:
+      - OK
+    - id: R035
+      record_id: belebele:eng_Latn.241
+      codes:
+      - ARTIFACT
+    - id: R036
+      record_id: belebele:kaz_Cyrl.357
+      codes:
+      - OK
+    - id: R037
+      record_id: belebele:rus_Cyrl.802
+      codes:
+      - OK
+    - id: R038
+      record_id: belebele:eng_Latn.538
+      codes:
+      - ARTIFACT
+      note: passage starts with tripled quotes
+    - id: R039
+      record_id: belebele:rus_Cyrl.666
+      codes:
+      - OK
+    - id: R040
+      record_id: belebele:kaz_Cyrl.364
+      codes:
+      - OK
+    - id: R041
+      record_id: belebele:rus_Cyrl.827
+      codes:
+      - ARTIFACT
+    - id: R042
+      record_id: belebele:rus_Cyrl.546
+      codes:
+      - ARTIFACT
+    - id: R043
+      record_id: belebele:rus_Cyrl.467
+      codes:
+      - OK
+    - id: R044
+      record_id: belebele:eng_Latn.204
+      codes:
+      - OK
+    - id: R045
+      record_id: belebele:kaz_Cyrl.553
+      codes:
+      - OK
+    - id: R046
+      record_id: belebele:kaz_Cyrl.394
+      codes:
+      - OK
+    - id: R047
+      record_id: belebele:rus_Cyrl.432
+      codes:
+      - ARTIFACT
+    - id: R048
+      record_id: belebele:kaz_Cyrl.132
+      codes:
+      - OK
+    - id: R049
+      record_id: belebele:kaz_Cyrl.867
+      codes:
+      - OK
+    - id: R050
+      record_id: belebele:kaz_Cyrl.81
+      codes:
+      - OK
+    - id: R051
+      record_id: belebele:eng_Latn.885
+      codes:
+      - OK
+    - id: R052
+      record_id: belebele:eng_Latn.757
+      codes:
+      - OK
+    - id: R053
+      record_id: belebele:eng_Latn.875
+      codes:
+      - OK
+    - id: R054
+      record_id: belebele:rus_Cyrl.386
+      codes:
+      - OK
+    - id: R055
+      record_id: belebele:eng_Latn.57
+      codes:
+      - OK
+    - id: R056
+      record_id: belebele:eng_Latn.60
+      codes:
+      - OK
+    - id: R057
+      record_id: belebele:eng_Latn.173
+      codes:
+      - OK
+    - id: R058
+      record_id: belebele:eng_Latn.175
+      codes:
+      - OK
+    - id: R059
+      record_id: belebele:eng_Latn.203
+      codes:
+      - OK
+    - id: R060
+      record_id: belebele:kaz_Cyrl.413
+      codes:
+      - TRANSLATION_ISSUE
+      note: KK passage typo "сонымен қатап" (қатар)
+    - id: R061
+      record_id: belebele:kaz_Cyrl.869
+      codes:
+      - OK
+    - id: R062
+      record_id: belebele:rus_Cyrl.623
+      codes:
+      - OK
+    - id: R063
+      record_id: belebele:rus_Cyrl.634
+      codes:
+      - OK
+    - id: R064
+      record_id: belebele:kaz_Cyrl.898
+      codes:
+      - OK
+    - id: R065
+      record_id: belebele:eng_Latn.68
+      codes:
+      - OK
+    - id: R066
+      record_id: belebele:kaz_Cyrl.585
+      codes:
+      - TRANSLATION_ISSUE
+      note: KK option keeps English "190th"
+    - id: R067
+      record_id: belebele:rus_Cyrl.854
+      codes:
+      - OK
+    - id: R068
+      record_id: belebele:rus_Cyrl.797
+      codes:
+      - OK
+    - id: R069
+      record_id: belebele:rus_Cyrl.858
+      codes:
+      - ARTIFACT
+    - id: R070
+      record_id: belebele:kaz_Cyrl.162
+      codes:
+      - ARTIFACT
+    - id: R071
+      record_id: belebele:kaz_Cyrl.721
+      codes:
+      - OK
+    - id: R072
+      record_id: belebele:kaz_Cyrl.61
+      codes:
+      - OK
+    - id: R073
+      record_id: belebele:rus_Cyrl.756
+      codes:
+      - ARTIFACT
+    - id: R074
+      record_id: belebele:rus_Cyrl.598
+      codes:
+      - OK
+    - id: R075
+      record_id: belebele:eng_Latn.564
+      codes:
+      - OK
+    - id: R076
+      record_id: belebele:kaz_Cyrl.139
+      codes:
+      - TRANSLATION_ISSUE
+      note: KK "Гуру консепті" (calque)
+    - id: R077
+      record_id: belebele:eng_Latn.343
+      codes:
+      - OK
+    - id: R078
+      record_id: belebele:rus_Cyrl.237
+      codes:
+      - OK
+    - id: R079
+      record_id: belebele:eng_Latn.509
+      codes:
+      - OK
+    - id: R080
+      record_id: belebele:rus_Cyrl.83
+      codes:
+      - OK
+    - id: R081
+      record_id: belebele:eng_Latn.735
+      codes:
+      - OK
+    - id: R082
+      record_id: belebele:kaz_Cyrl.483
+      codes:
+      - OK
+    - id: R083
+      record_id: belebele:eng_Latn.106
+      codes:
+      - OK
+    - id: R084
+      record_id: belebele:rus_Cyrl.587
+      codes:
+      - OK
+    - id: R085
+      record_id: belebele:kaz_Cyrl.425
+      codes:
+      - OK
+    - id: R086
+      record_id: belebele:rus_Cyrl.570
+      codes:
+      - OK
+    - id: R087
+      record_id: belebele:rus_Cyrl.374
+      codes:
+      - OK
+    - id: R088
+      record_id: belebele:kaz_Cyrl.19
+      codes:
+      - OK
+    - id: R089
+      record_id: belebele:kaz_Cyrl.345
+      codes:
+      - OK
+    - id: R090
+      record_id: belebele:kaz_Cyrl.255
+      codes:
+      - OK
+    - id: R091
+      record_id: belebele:kaz_Cyrl.680
+      codes:
+      - OK
+    - id: R092
+      record_id: belebele:rus_Cyrl.824
+      codes:
+      - OK
+    - id: R093
+      record_id: belebele:kaz_Cyrl.629
+      codes:
+      - OK
+    - id: R094
+      record_id: belebele:rus_Cyrl.817
+      codes:
+      - ARTIFACT
+    - id: R095
+      record_id: belebele:kaz_Cyrl.121
+      codes:
+      - TRANSLATION_ISSUE
+      note: KK typo "Мистицизнің"
+    - id: R096
+      record_id: belebele:eng_Latn.714
+      codes:
+      - OK
+    - id: R097
+      record_id: belebele:rus_Cyrl.741
+      codes:
+      - OK
+    - id: R098
+      record_id: belebele:kaz_Cyrl.358
+      codes:
+      - OK
+    - id: R099
+      record_id: belebele:rus_Cyrl.381
+      codes:
+      - OK
+    - id: R100
+      record_id: belebele:rus_Cyrl.247
+      codes:
+      - OK
+    - id: F001
+      record_id: belebele:kaz_Cyrl.326
+      codes:
+      - LID_FALSE_ALARM
+      note: Latin place name inside KK text; language is right, code_switch flag is a false alarm
+    - id: F002
+      record_id: belebele:kaz_Cyrl.512
+      codes:
+      - LID_ERROR
+      note: Kazakh question without KK-specific letters detected as ru (conf 0.38); declared kk kept
+    - id: F003
+      record_id: belebele:eng_Latn.533
+      codes:
+      - LID_FALSE_ALARM
+    - id: F004
+      record_id: belebele:eng_Latn.279
+      codes:
+      - LID_FALSE_ALARM
+    - id: F005
+      record_id: belebele:eng_Latn.258
+      codes:
+      - LID_FALSE_ALARM
+    - id: F006
+      record_id: belebele:eng_Latn.682
+      codes:
+      - LID_FALSE_ALARM
+    - id: F007
+      record_id: belebele:eng_Latn.626
+      codes:
+      - LID_FALSE_ALARM
+    - id: F008
+      record_id: belebele:rus_Cyrl.211
+      codes:
+      - LID_FALSE_ALARM
+      note: short RU question that is mostly a brand name
+    - id: F009
+      record_id: belebele:eng_Latn.468
+      codes:
+      - LID_FALSE_ALARM
+    - id: F010
+      record_id: belebele:eng_Latn.625
+      codes:
+      - LID_FALSE_ALARM
+    - id: F011
+      record_id: belebele:eng_Latn.273
+      codes:
+      - LID_FALSE_ALARM
+    - id: F012
+      record_id: belebele:rus_Cyrl.308
+      codes:
+      - LID_FALSE_ALARM
+    - id: F013
+      record_id: belebele:eng_Latn.447
+      codes:
+      - LID_FALSE_ALARM
+    - id: F014
+      record_id: belebele:eng_Latn.870
+      codes:
+      - LID_FALSE_ALARM
+    - id: F015
+      record_id: belebele:eng_Latn.578
+      codes:
+      - LID_FALSE_ALARM
+    - id: F016
+      record_id: belebele:eng_Latn.294
+      codes:
+      - LID_FALSE_ALARM
+    - id: F017
+      record_id: belebele:eng_Latn.149
+      codes:
+      - LID_FALSE_ALARM
+    - id: F018
+      record_id: belebele:eng_Latn.219
+      codes:
+      - LID_FALSE_ALARM
+    - id: F019
+      record_id: belebele:eng_Latn.308
+      codes:
+      - LID_FALSE_ALARM
+    - id: F020
+      record_id: belebele:rus_Cyrl.770
+      codes:
+      - LID_FALSE_ALARM
+    - id: F021
+      record_id: belebele:eng_Latn.341
+      codes:
+      - LID_FALSE_ALARM
+    - id: F022
+      record_id: belebele:rus_Cyrl.586
+      codes:
+      - LID_FALSE_ALARM
+    - id: F023
+      record_id: belebele:eng_Latn.355
+      codes:
+      - LID_FALSE_ALARM
+    - id: F024
+      record_id: belebele:eng_Latn.565
+      codes:
+      - LID_FALSE_ALARM
+  bitext_customer_support:
+    summary: 'Same generator as the retail set with a wider generic-support scope. Texts are shorter (keyword-mode
+      rows such as "create account"), 25% contain entity placeholders, now filled with synthetic values.
+      12.5% of rows are exact duplicates (removed). Several literal entities are glued to words ("purchase732201349959"),
+      and when the text uses a literal value the response keeps the placeholder ({{Account Type}}, #{{Invoice
+      Number}}), so text and response disagree. Some intents are outside the store domain (contract cancellation
+      fees) or ambiguous (contact_customer_service). Responses for account intents have an exaggerated
+      style ("embark on the magnificent adventure of editing your data"). The review found one currency
+      mismatch introduced by Stage 3 filling (text in tenge, response in dollars); the catalogue now keeps
+      "$" and the rows are consistent.'
+    verdict: 'Usable for the 23 mapped source intents, mainly for slot-bearing requests (order, invoice,
+      refund amount) that the retail set lacks. Low real diversity: 32 scenarios (28 in the canonical
+      set).'
+    recommendation: Use texts with their slot values for call_tool vs clarify behaviour. Exclude reference
+      responses from training targets. Decide contact_customer_service vs human_agent and the shipping-address
+      intents in the v1 taxonomy; localise money to KZT during Stage 4 translation, together with the
+      response.
+    annotations:
+    - id: R001
+      record_id: bitext_customer_support:csv.10068
+      codes:
+      - PROFANITY_INSERTED
+    - id: R002
+      record_id: bitext_customer_support:csv.23963
+      codes:
+      - OK
+    - id: R003
+      record_id: bitext_customer_support:csv.13182
+      codes:
+      - OK
+    - id: R004
+      record_id: bitext_customer_support:csv.26657
+      codes:
+      - DUPLICATE
+      - RESPONSE_TEMPLATE
+      note: response keeps "{{Money Amount}}"
+    - id: R005
+      record_id: bitext_customer_support:csv.6201
+      codes:
+      - OK
+    - id: R006
+      record_id: bitext_customer_support:csv.14752
+      codes:
+      - DUPLICATE
+    - id: R007
+      record_id: bitext_customer_support:csv.21645
+      codes:
+      - OK
+    - id: R008
+      record_id: bitext_customer_support:csv.7814
+      codes:
+      - OK
+    - id: R009
+      record_id: bitext_customer_support:csv.23317
+      codes:
+      - OK
+    - id: R010
+      record_id: bitext_customer_support:csv.15443
+      codes:
+      - RESPONSE_TEMPLATE
+      note: text has literal "#85632", response keeps "#{{Invoice Number}}"
+    - id: R011
+      record_id: bitext_customer_support:csv.10164
+      codes:
+      - OK
+    - id: R012
+      record_id: bitext_customer_support:csv.16553
+      codes:
+      - PROFANITY_INSERTED
+    - id: R013
+      record_id: bitext_customer_support:csv.11264
+      codes:
+      - OK
+    - id: R014
+      record_id: bitext_customer_support:csv.18262
+      codes:
+      - OK
+    - id: R015
+      record_id: bitext_customer_support:csv.3709
+      codes:
+      - OFF_DOMAIN
+      note: contract cancellation fee (telecom/SaaS), pending
+    - id: R016
+      record_id: bitext_customer_support:csv.22701
+      codes:
+      - OK
+    - id: R017
+      record_id: bitext_customer_support:csv.6843
+      codes:
+      - OK
+    - id: R018
+      record_id: bitext_customer_support:csv.18911
+      codes:
+      - UNNATURAL
+      note: '"assistance earning several products" (Bitext lexical variant of ''buy'')'
+    - id: R019
+      record_id: bitext_customer_support:csv.1325
+      codes:
+      - OK
+    - id: R020
+      record_id: bitext_customer_support:csv.21652
+      codes:
+      - PROFANITY_INSERTED
+    - id: R021
+      record_id: bitext_customer_support:csv.21613
+      codes:
+      - OK
+    - id: R022
+      record_id: bitext_customer_support:csv.3633
+      codes:
+      - OFF_DOMAIN
+    - id: R023
+      record_id: bitext_customer_support:csv.1141
+      codes:
+      - OK
+    - id: R024
+      record_id: bitext_customer_support:csv.18722
+      codes:
+      - OK
+    - id: R025
+      record_id: bitext_customer_support:csv.16713
+      codes:
+      - DUPLICATE
+      note: before the review fix the response said "$16800" while the text said "₸16800"; Currency Symbol
+        is now "$"
+    - id: R026
+      record_id: bitext_customer_support:csv.246
+      codes:
+      - DUPLICATE
+    - id: R027
+      record_id: bitext_customer_support:csv.22357
+      codes:
+      - OK
+    - id: R028
+      record_id: bitext_customer_support:csv.5574
+      codes:
+      - OK
+    - id: R029
+      record_id: bitext_customer_support:csv.18189
+      codes:
+      - OK
+    - id: R030
+      record_id: bitext_customer_support:csv.12715
+      codes:
+      - UNNATURAL
+      note: response style "How fantastic! ... exquisite array of shipping methods"
+    - id: R031
+      record_id: bitext_customer_support:csv.14104
+      codes:
+      - DUPLICATE
+      - UNNATURAL
+      note: response "embark on the empowering journey"
+    - id: R032
+      record_id: bitext_customer_support:csv.3980
+      codes:
+      - OK
+    - id: R033
+      record_id: bitext_customer_support:csv.16514
+      codes:
+      - OK
+    - id: R034
+      record_id: bitext_customer_support:csv.5459
+      codes:
+      - OK
+    - id: R035
+      record_id: bitext_customer_support:csv.26164
+      codes:
+      - OK
+    - id: R036
+      record_id: bitext_customer_support:csv.11764
+      codes:
+      - RESPONSE_TEMPLATE
+      note: text says "gold account", response keeps "{{Account Type}}"
+    - id: R037
+      record_id: bitext_customer_support:csv.12816
+      codes:
+      - DUPLICATE
+    - id: R038
+      record_id: bitext_customer_support:csv.1531
+      codes:
+      - OK
+    - id: R039
+      record_id: bitext_customer_support:csv.4654
+      codes:
+      - RESPONSE_TEMPLATE
+      note: response keeps "{{Salutation}} {{Client Last Name}}"
+    - id: R040
+      record_id: bitext_customer_support:csv.16630
+      codes:
+      - OK
+    - id: R041
+      record_id: bitext_customer_support:csv.6688
+      codes:
+      - DUPLICATE
+    - id: R042
+      record_id: bitext_customer_support:csv.2761
+      codes:
+      - OK
+    - id: R043
+      record_id: bitext_customer_support:csv.17522
+      codes:
+      - OK
+    - id: R044
+      record_id: bitext_customer_support:csv.16847
+      codes:
+      - OK
+    - id: R045
+      record_id: bitext_customer_support:csv.13407
+      codes:
+      - OK
+    - id: R046
+      record_id: bitext_customer_support:csv.14737
+      codes:
+      - UNNATURAL
+      note: response "How marvelous it is to witness your dedication"
+    - id: R047
+      record_id: bitext_customer_support:csv.10892
+      codes:
+      - DUPLICATE
+      - RESPONSE_TEMPLATE
+    - id: R048
+      record_id: bitext_customer_support:csv.3202
+      codes:
+      - OFF_DOMAIN
+    - id: R049
+      record_id: bitext_customer_support:csv.2624
+      codes:
+      - OK
+    - id: R050
+      record_id: bitext_customer_support:csv.2392
+      codes:
+      - OK
+    - id: R051
+      record_id: bitext_customer_support:csv.11944
+      codes:
+      - UNNATURAL
+      note: response "Ah, an explorer of knowledge!"
+    - id: R052
+      record_id: bitext_customer_support:csv.8685
+      codes:
+      - OK
+    - id: R053
+      record_id: bitext_customer_support:csv.1461
+      codes:
+      - OK
+    - id: R054
+      record_id: bitext_customer_support:csv.7148
+      codes:
+      - OK
+    - id: R055
+      record_id: bitext_customer_support:csv.5753
+      codes:
+      - OK
+    - id: R056
+      record_id: bitext_customer_support:csv.13134
+      codes:
+      - OK
+    - id: R057
+      record_id: bitext_customer_support:csv.6774
+      codes:
+      - OK
+    - id: R058
+      record_id: bitext_customer_support:csv.24482
+      codes:
+      - DUPLICATE
+      - RESPONSE_TEMPLATE
+    - id: R059
+      record_id: bitext_customer_support:csv.6638
+      codes:
+      - OK
+    - id: R060
+      record_id: bitext_customer_support:csv.22594
+      codes:
+      - OK
+    - id: R061
+      record_id: bitext_customer_support:csv.4816
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: R062
+      record_id: bitext_customer_support:csv.7205
+      codes:
+      - OK
+    - id: R063
+      record_id: bitext_customer_support:csv.15189
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: R064
+      record_id: bitext_customer_support:csv.26432
+      codes:
+      - DUPLICATE
+    - id: R065
+      record_id: bitext_customer_support:csv.665
+      codes:
+      - DUPLICATE
+      - LABEL_WRONG
+      note: '"I can''t pay for purchase 418653" labelled cancel_order (payment problem)'
+    - id: R066
+      record_id: bitext_customer_support:csv.1313
+      codes:
+      - OK
+    - id: R067
+      record_id: bitext_customer_support:csv.6769
+      codes:
+      - OK
+    - id: R068
+      record_id: bitext_customer_support:csv.26369
+      codes:
+      - DUPLICATE
+    - id: R069
+      record_id: bitext_customer_support:csv.3790
+      codes:
+      - OFF_DOMAIN
+    - id: R070
+      record_id: bitext_customer_support:csv.8830
+      codes:
+      - OK
+    - id: R071
+      record_id: bitext_customer_support:csv.15569
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: R072
+      record_id: bitext_customer_support:csv.9646
+      codes:
+      - OK
+    - id: R073
+      record_id: bitext_customer_support:csv.1299
+      codes:
+      - DUPLICATE
+    - id: R074
+      record_id: bitext_customer_support:csv.14181
+      codes:
+      - DUPLICATE
+      - UNNATURAL
+    - id: R075
+      record_id: bitext_customer_support:csv.14371
+      codes:
+      - DUPLICATE
+    - id: R076
+      record_id: bitext_customer_support:csv.8061
+      codes:
+      - OK
+    - id: R077
+      record_id: bitext_customer_support:csv.25977
+      codes:
+      - OK
+    - id: R078
+      record_id: bitext_customer_support:csv.19197
+      codes:
+      - OK
+    - id: R079
+      record_id: bitext_customer_support:csv.18924
+      codes:
+      - OK
+    - id: R080
+      record_id: bitext_customer_support:csv.17028
+      codes:
+      - OK
+    - id: R081
+      record_id: bitext_customer_support:csv.19200
+      codes:
+      - OK
+    - id: R082
+      record_id: bitext_customer_support:csv.16965
+      codes:
+      - OK
+    - id: R083
+      record_id: bitext_customer_support:csv.15679
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: R084
+      record_id: bitext_customer_support:csv.2684
+      codes:
+      - OK
+    - id: R085
+      record_id: bitext_customer_support:csv.12916
+      codes:
+      - OK
+    - id: R086
+      record_id: bitext_customer_support:csv.16483
+      codes:
+      - OK
+    - id: R087
+      record_id: bitext_customer_support:csv.7217
+      codes:
+      - OK
+    - id: R088
+      record_id: bitext_customer_support:csv.12046
+      codes:
+      - DUPLICATE
+    - id: R089
+      record_id: bitext_customer_support:csv.25329
+      codes:
+      - OK
+    - id: R090
+      record_id: bitext_customer_support:csv.11323
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: R091
+      record_id: bitext_customer_support:csv.11018
+      codes:
+      - DUPLICATE
+      - RESPONSE_TEMPLATE
+    - id: R092
+      record_id: bitext_customer_support:csv.5470
+      codes:
+      - PROFANITY_INSERTED
+    - id: R093
+      record_id: bitext_customer_support:csv.10377
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: R094
+      record_id: bitext_customer_support:csv.3040
+      codes:
+      - OFF_DOMAIN
+    - id: R095
+      record_id: bitext_customer_support:csv.21892
+      codes:
+      - OK
+    - id: R096
+      record_id: bitext_customer_support:csv.7607
+      codes:
+      - OK
+    - id: R097
+      record_id: bitext_customer_support:csv.26761
+      codes:
+      - DUPLICATE
+    - id: R098
+      record_id: bitext_customer_support:csv.22663
+      codes:
+      - OK
+    - id: R099
+      record_id: bitext_customer_support:csv.15507
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: R100
+      record_id: bitext_customer_support:csv.1774
+      codes:
+      - OK
+    - id: F001
+      record_id: bitext_customer_support:csv.9666
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F002
+      record_id: bitext_customer_support:csv.8359
+      codes:
+      - LABEL_AMBIGUOUS
+      note: 'contact_customer_service: store_info vs human_agent'
+    - id: F003
+      record_id: bitext_customer_support:csv.906
+      codes:
+      - DUPLICATE
+      - RESPONSE_TEMPLATE
+    - id: F004
+      record_id: bitext_customer_support:csv.8797
+      codes:
+      - LABEL_AMBIGUOUS
+      note: identical text in retail customer_service
+    - id: F005
+      record_id: bitext_customer_support:csv.370
+      codes:
+      - RESPONSE_TEMPLATE
+      note: run-on "purchase732201349959"; response keeps "{{Order Number}}"
+    - id: F006
+      record_id: bitext_customer_support:csv.6544
+      codes:
+      - PROFANITY_INSERTED
+    - id: F007
+      record_id: bitext_customer_support:csv.17164
+      codes:
+      - LID_FALSE_ALARM
+    - id: F008
+      record_id: bitext_customer_support:csv.9338
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F009
+      record_id: bitext_customer_support:csv.8397
+      codes:
+      - LABEL_AMBIGUOUS
+      - PROFANITY_INSERTED
+    - id: F010
+      record_id: bitext_customer_support:csv.24792
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F011
+      record_id: bitext_customer_support:csv.8055
+      codes:
+      - LABEL_AMBIGUOUS
+      - PROFANITY_INSERTED
+    - id: F012
+      record_id: bitext_customer_support:csv.22335
+      codes:
+      - LID_FALSE_ALARM
+    - id: F013
+      record_id: bitext_customer_support:csv.10721
+      codes:
+      - PROFANITY_INSERTED
+    - id: F014
+      record_id: bitext_customer_support:csv.25368
+      codes:
+      - DUPLICATE
+      - LID_FALSE_ALARM
+    - id: F015
+      record_id: bitext_customer_support:csv.8515
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F016
+      record_id: bitext_customer_support:csv.24651
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F017
+      record_id: bitext_customer_support:csv.8689
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F018
+      record_id: bitext_customer_support:csv.18093
+      codes:
+      - OK
+    - id: F019
+      record_id: bitext_customer_support:csv.5672
+      codes:
+      - PROFANITY_INSERTED
+    - id: F020
+      record_id: bitext_customer_support:csv.9209
+      codes:
+      - LID_FALSE_ALARM
+    - id: F021
+      record_id: bitext_customer_support:csv.8216
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F022
+      record_id: bitext_customer_support:csv.24323
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F023
+      record_id: bitext_customer_support:csv.8708
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F024
+      record_id: bitext_customer_support:csv.22716
+      codes:
+      - OK
+    - id: F025
+      record_id: bitext_customer_support:csv.11290
+      codes:
+      - PROFANITY_INSERTED
+    - id: F026
+      record_id: bitext_customer_support:csv.14482
+      codes:
+      - LID_FALSE_ALARM
+      - UNNATURAL
+    - id: F027
+      record_id: bitext_customer_support:csv.24523
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F028
+      record_id: bitext_customer_support:csv.8756
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F029
+      record_id: bitext_customer_support:csv.1223
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F030
+      record_id: bitext_customer_support:csv.2929
+      codes:
+      - PROFANITY_INSERTED
+    - id: F031
+      record_id: bitext_customer_support:csv.782
+      codes:
+      - DUPLICATE
+      - LID_FALSE_ALARM
+    - id: F032
+      record_id: bitext_customer_support:csv.24821
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F033
+      record_id: bitext_customer_support:csv.8858
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F034
+      record_id: bitext_customer_support:csv.16442
+      codes:
+      - LID_FALSE_ALARM
+    - id: F035
+      record_id: bitext_customer_support:csv.26612
+      codes:
+      - PROFANITY_INSERTED
+    - id: F036
+      record_id: bitext_customer_support:csv.20635
+      codes:
+      - LID_FALSE_ALARM
+    - id: F037
+      record_id: bitext_customer_support:csv.24387
+      codes:
+      - DUPLICATE
+      - RESPONSE_TEMPLATE
+    - id: F038
+      record_id: bitext_customer_support:csv.8605
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F039
+      record_id: bitext_customer_support:csv.8481
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F040
+      record_id: bitext_customer_support:csv.5343
+      codes:
+      - PROFANITY_INSERTED
+    - id: F041
+      record_id: bitext_customer_support:csv.16159
+      codes:
+      - LID_FALSE_ALARM
+    - id: F042
+      record_id: bitext_customer_support:csv.24588
+      codes:
+      - DUPLICATE
+      - RESPONSE_TEMPLATE
+    - id: F043
+      record_id: bitext_customer_support:csv.8033
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F044
+      record_id: bitext_customer_support:csv.1076
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F045
+      record_id: bitext_customer_support:csv.1617
+      codes:
+      - PROFANITY_INSERTED
+    - id: F046
+      record_id: bitext_customer_support:csv.15753
+      codes:
+      - LID_FALSE_ALARM
+      - RESPONSE_TEMPLATE
+    - id: F047
+      record_id: bitext_customer_support:csv.24696
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F048
+      record_id: bitext_customer_support:csv.7924
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F049
+      record_id: bitext_customer_support:csv.20455
+      codes:
+      - OK
+    - id: F050
+      record_id: bitext_customer_support:csv.10424
+      codes:
+      - PROFANITY_INSERTED
+      - RESPONSE_DEFECT
+      note: 'response repeats the profanity: "creating a new bloody family account"'
+    - id: F051
+      record_id: bitext_customer_support:csv.14428
+      codes:
+      - LID_FALSE_ALARM
+      - UNNATURAL
+    - id: F052
+      record_id: bitext_customer_support:csv.24346
+      codes:
+      - DUPLICATE
+      - RESPONSE_TEMPLATE
+    - id: F053
+      record_id: bitext_customer_support:csv.8760
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F054
+      record_id: bitext_customer_support:csv.952
+      codes:
+      - LID_FALSE_ALARM
+    - id: F055
+      record_id: bitext_customer_support:csv.20079
+      codes:
+      - PROFANITY_INSERTED
+    - id: F056
+      record_id: bitext_customer_support:csv.15411
+      codes:
+      - DUPLICATE
+      - LID_FALSE_ALARM
+      - RESPONSE_TEMPLATE
+    - id: F057
+      record_id: bitext_customer_support:csv.8427
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F058
+      record_id: bitext_customer_support:csv.7449
+      codes:
+      - LID_FALSE_ALARM
+    - id: F059
+      record_id: bitext_customer_support:csv.12331
+      codes:
+      - PROFANITY_INSERTED
+      - UNNATURAL
+    - id: F060
+      record_id: bitext_customer_support:csv.3944
+      codes:
+      - LID_FALSE_ALARM
+      - RESPONSE_TEMPLATE
+    - id: F061
+      record_id: bitext_customer_support:csv.8379
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F062
+      record_id: bitext_customer_support:csv.9534
+      codes:
+      - LID_FALSE_ALARM
+    - id: F063
+      record_id: bitext_customer_support:csv.11225
+      codes:
+      - PROFANITY_INSERTED
+    - id: F064
+      record_id: bitext_customer_support:csv.19916
+      codes:
+      - LID_FALSE_ALARM
+    - id: F065
+      record_id: bitext_customer_support:csv.7992
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F066
+      record_id: bitext_customer_support:csv.4197
+      codes:
+      - OK
+    - id: F067
+      record_id: bitext_customer_support:csv.15696
+      codes:
+      - DUPLICATE
+      - PROFANITY_INSERTED
+      - RESPONSE_TEMPLATE
+    - id: F068
+      record_id: bitext_customer_support:csv.21041
+      codes:
+      - LID_FALSE_ALARM
+    - id: F069
+      record_id: bitext_customer_support:csv.8454
+      codes:
+      - LABEL_AMBIGUOUS
+      - PROFANITY_INSERTED
+    - id: F070
+      record_id: bitext_customer_support:csv.9743
+      codes:
+      - LABEL_AMBIGUOUS
+      - LID_FALSE_ALARM
+      note: '"contact person": a named person or a human agent'
+    - id: F071
+      record_id: bitext_customer_support:csv.8941
+      codes:
+      - PROFANITY_INSERTED
+    - id: F072
+      record_id: bitext_customer_support:csv.495
+      codes:
+      - LID_FALSE_ALARM
+    - id: F073
+      record_id: bitext_customer_support:csv.8186
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F074
+      record_id: bitext_customer_support:csv.11565
+      codes:
+      - LID_FALSE_ALARM
+    - id: F075
+      record_id: bitext_customer_support:csv.16297
+      codes:
+      - PROFANITY_INSERTED
+    - id: F076
+      record_id: bitext_customer_support:csv.21404
+      codes:
+      - LID_FALSE_ALARM
+    - id: F077
+      record_id: bitext_customer_support:csv.8697
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F078
+      record_id: bitext_customer_support:csv.779
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F079
+      record_id: bitext_customer_support:csv.19861
+      codes:
+      - PROFANITY_INSERTED
+    - id: F080
+      record_id: bitext_customer_support:csv.20080
+      codes:
+      - LID_FALSE_ALARM
+    - id: F081
+      record_id: bitext_customer_support:csv.8469
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F082
+      record_id: bitext_customer_support:csv.10410
+      codes:
+      - OK
+    - id: F083
+      record_id: bitext_customer_support:csv.3297
+      codes:
+      - OFF_DOMAIN
+      - PROFANITY_INSERTED
+    - id: F084
+      record_id: bitext_customer_support:csv.16259
+      codes:
+      - LID_FALSE_ALARM
+    - id: F085
+      record_id: bitext_customer_support:csv.19575
+      codes:
+      - LID_FALSE_ALARM
+    - id: F086
+      record_id: bitext_customer_support:csv.13597
+      codes:
+      - PROFANITY_INSERTED
+    - id: F087
+      record_id: bitext_customer_support:csv.15357
+      codes:
+      - LID_FALSE_ALARM
+      - RESPONSE_TEMPLATE
+    - id: F088
+      record_id: bitext_customer_support:csv.19581
+      codes:
+      - UNNATURAL
+      note: '"earning product"'
+    - id: F089
+      record_id: bitext_customer_support:csv.25076
+      codes:
+      - PROFANITY_INSERTED
+    - id: F090
+      record_id: bitext_customer_support:csv.14573
+      codes:
+      - LID_FALSE_ALARM
+      - UNNATURAL
+    - id: F091
+      record_id: bitext_customer_support:csv.19692
+      codes:
+      - OK
+    - id: F092
+      record_id: bitext_customer_support:csv.17745
+      codes:
+      - PROFANITY_INSERTED
+    - id: F093
+      record_id: bitext_customer_support:csv.14811
+      codes:
+      - LID_FALSE_ALARM
+      - UNNATURAL
+    - id: F094
+      record_id: bitext_customer_support:csv.1241
+      codes:
+      - LID_FALSE_ALARM
+      - RESPONSE_TEMPLATE
+    - id: F095
+      record_id: bitext_customer_support:csv.23720
+      codes:
+      - PROFANITY_INSERTED
+    - id: F096
+      record_id: bitext_customer_support:csv.14158
+      codes:
+      - LID_FALSE_ALARM
+      - UNNATURAL
+    - id: F097
+      record_id: bitext_customer_support:csv.18362
+      codes:
+      - OK
+    - id: F098
+      record_id: bitext_customer_support:csv.20350
+      codes:
+      - PROFANITY_INSERTED
+    - id: F099
+      record_id: bitext_customer_support:csv.4709
+      codes:
+      - LID_FALSE_ALARM
+      - RESPONSE_TEMPLATE
+    - id: F100
+      record_id: bitext_customer_support:csv.16568
+      codes:
+      - OK
+  bitext_retail_ecom:
+    summary: 'Requests are short, on-topic retail support messages and the intent label matches the text
+      in most rows. The variety is synthetic: about half of the rows have a swear word inserted mechanically
+      into an otherwise neutral template ("report a fucking damaged product"), and typos are injected
+      on purpose (tag Z). Label noise is systematic, not random: 265 of 994 return_product_in_store rows
+      are product-information requests with no return wording (now pending as label_suspect), and in-store
+      / online / policy variants of returns and track_order / track_delivery share identical texts. Responses
+      are long generic how-to texts with unresolved store facts ({{Customer Support Phone Number}}) and,
+      in profane variants, prompt leaks such as "offensive language used in your instruction" or apologies
+      for a "previous response" that does not exist.'
+    verdict: Usable as the EN intent backbone for the 38 mapped source intents after the Stage 3 cleaning.
+      Not usable as a source of response text or facts. Real diversity is 46 scenarios (37 in the canonical
+      set); the 44,884 rows are paraphrase variation of them.
+    recommendation: Use customer texts and labels (canonical set), cap rows per paraphrase family, and
+      keep a controlled share of the profane variants (they are 49% of rows, far above a realistic rate).
+      Do not train on reference responses; build targets from the training KB variant. Resolve the open
+      taxonomy decisions (customer_service, technical_issue, cart, pay) and review the conflicting return
+      / tracking variants before freezing the v1 map.
+    annotations:
+    - id: R001
+      record_id: bitext_retail_ecom:csv.40408
+      codes:
+      - PROFANITY_INSERTED
+    - id: R002
+      record_id: bitext_retail_ecom:csv.9310
+      codes:
+      - PROFANITY_INSERTED
+    - id: R003
+      record_id: bitext_retail_ecom:csv.22279
+      codes:
+      - OK
+    - id: R004
+      record_id: bitext_retail_ecom:csv.946
+      codes:
+      - OK
+    - id: R005
+      record_id: bitext_retail_ecom:csv.16498
+      codes:
+      - PROFANITY_INSERTED
+    - id: R006
+      record_id: bitext_retail_ecom:csv.9157
+      codes:
+      - PROFANITY_INSERTED
+    - id: R007
+      record_id: bitext_retail_ecom:csv.13803
+      codes:
+      - OK
+    - id: R008
+      record_id: bitext_retail_ecom:csv.34231
+      codes:
+      - OK
+    - id: R009
+      record_id: bitext_retail_ecom:csv.30930
+      codes:
+      - RESPONSE_TEMPLATE
+      note: response step is an unfilled template instruction "{{Verify the return eligibility...}}"
+    - id: R010
+      record_id: bitext_retail_ecom:csv.34639
+      codes:
+      - PROFANITY_INSERTED
+      - RESPONSE_DEFECT
+      note: response claims it cannot assist / suspects a typo for a clear shipping-cost question
+    - id: R011
+      record_id: bitext_retail_ecom:csv.9973
+      codes:
+      - OK
+    - id: R012
+      record_id: bitext_retail_ecom:csv.40085
+      codes:
+      - OK
+    - id: R013
+      record_id: bitext_retail_ecom:csv.36917
+      codes:
+      - OK
+    - id: R014
+      record_id: bitext_retail_ecom:csv.37602
+      codes:
+      - LABEL_AMBIGUOUS
+      note: '"send a complaint about ur company" labelled submit_feedback (complaint -> escalate in our
+        taxonomy)'
+    - id: R015
+      record_id: bitext_retail_ecom:csv.41426
+      codes:
+      - PROFANITY_INSERTED
+    - id: R016
+      record_id: bitext_retail_ecom:csv.31233
+      codes:
+      - PROFANITY_INSERTED
+    - id: R017
+      record_id: bitext_retail_ecom:csv.2539
+      codes:
+      - PROFANITY_INSERTED
+      - RESPONSE_DEFECT
+      note: response apologises for "offensive language used in your instruction" (prompt leak)
+    - id: R018
+      record_id: bitext_retail_ecom:csv.595
+      codes:
+      - OK
+    - id: R019
+      record_id: bitext_retail_ecom:csv.39800
+      codes:
+      - PROFANITY_INSERTED
+      - RESPONSE_DEFECT
+      note: same "your instruction" prompt leak
+    - id: R020
+      record_id: bitext_retail_ecom:csv.17976
+      codes:
+      - DUPLICATE
+      note: exact duplicate, removed
+    - id: R021
+      record_id: bitext_retail_ecom:csv.13357
+      codes:
+      - OK
+    - id: R022
+      record_id: bitext_retail_ecom:csv.33965
+      codes:
+      - DUPLICATE
+      note: exact duplicate, removed
+    - id: R023
+      record_id: bitext_retail_ecom:csv.9173
+      codes:
+      - PROFANITY_INSERTED
+    - id: R024
+      record_id: bitext_retail_ecom:csv.34903
+      codes:
+      - OK
+    - id: R025
+      record_id: bitext_retail_ecom:csv.3491
+      codes:
+      - PROFANITY_INSERTED
+    - id: R026
+      record_id: bitext_retail_ecom:csv.39310
+      codes:
+      - OK
+    - id: R027
+      record_id: bitext_retail_ecom:csv.24343
+      codes:
+      - OK
+    - id: R028
+      record_id: bitext_retail_ecom:csv.39948
+      codes:
+      - PROFANITY_INSERTED
+    - id: R029
+      record_id: bitext_retail_ecom:csv.3690
+      codes:
+      - PROFANITY_INSERTED
+    - id: R030
+      record_id: bitext_retail_ecom:csv.28313
+      codes:
+      - PROFANITY_INSERTED
+    - id: R031
+      record_id: bitext_retail_ecom:csv.20443
+      codes:
+      - OK
+    - id: R032
+      record_id: bitext_retail_ecom:csv.6472
+      codes:
+      - PROFANITY_INSERTED
+    - id: R033
+      record_id: bitext_retail_ecom:csv.22428
+      codes:
+      - PROFANITY_INSERTED
+    - id: R034
+      record_id: bitext_retail_ecom:csv.20967
+      codes:
+      - OK
+    - id: R035
+      record_id: bitext_retail_ecom:csv.11203
+      codes:
+      - OK
+    - id: R036
+      record_id: bitext_retail_ecom:csv.37364
+      codes:
+      - LABEL_AMBIGUOUS
+      - PROFANITY_INSERTED
+      note: complaint about the brand under submit_feedback
+    - id: R037
+      record_id: bitext_retail_ecom:csv.25246
+      codes:
+      - OK
+    - id: R038
+      record_id: bitext_retail_ecom:csv.34039
+      codes:
+      - OK
+    - id: R039
+      record_id: bitext_retail_ecom:csv.34574
+      codes:
+      - PROFANITY_INSERTED
+      - RESPONSE_DEFECT
+      note: apologises for "the previous response" that does not exist
+    - id: R040
+      record_id: bitext_retail_ecom:csv.10743
+      codes:
+      - PROFANITY_INSERTED
+      - RESPONSE_DEFECT
+      note: apologises for "the previous response"
+    - id: R041
+      record_id: bitext_retail_ecom:csv.26908
+      codes:
+      - PROFANITY_INSERTED
+    - id: R042
+      record_id: bitext_retail_ecom:csv.30049
+      codes:
+      - PROFANITY_INSERTED
+    - id: R043
+      record_id: bitext_retail_ecom:csv.40747
+      codes:
+      - PROFANITY_INSERTED
+    - id: R044
+      record_id: bitext_retail_ecom:csv.38259
+      codes:
+      - PROFANITY_INSERTED
+    - id: R045
+      record_id: bitext_retail_ecom:csv.26375
+      codes:
+      - PROFANITY_INSERTED
+    - id: R046
+      record_id: bitext_retail_ecom:csv.892
+      codes:
+      - PROFANITY_INSERTED
+    - id: R047
+      record_id: bitext_retail_ecom:csv.17371
+      codes:
+      - OFF_DOMAIN
+      - PROFANITY_INSERTED
+      note: 'money transfers under PAYMENT/pay: banking, not store support'
+    - id: R048
+      record_id: bitext_retail_ecom:csv.4549
+      codes:
+      - PROFANITY_INSERTED
+    - id: R049
+      record_id: bitext_retail_ecom:csv.26519
+      codes:
+      - PROFANITY_INSERTED
+    - id: R050
+      record_id: bitext_retail_ecom:csv.21316
+      codes:
+      - PROFANITY_INSERTED
+    - id: R051
+      record_id: bitext_retail_ecom:csv.16890
+      codes:
+      - OK
+    - id: R052
+      record_id: bitext_retail_ecom:csv.34904
+      codes:
+      - PROFANITY_INSERTED
+    - id: R053
+      record_id: bitext_retail_ecom:csv.29902
+      codes:
+      - PROFANITY_INSERTED
+    - id: R054
+      record_id: bitext_retail_ecom:csv.35639
+      codes:
+      - PROFANITY_INSERTED
+      - RESPONSE_DEFECT
+      note: '"offensive language used in your instruction"'
+    - id: R055
+      record_id: bitext_retail_ecom:csv.5829
+      codes:
+      - PROFANITY_INSERTED
+    - id: R056
+      record_id: bitext_retail_ecom:csv.11260
+      codes:
+      - OK
+    - id: R057
+      record_id: bitext_retail_ecom:csv.11595
+      codes:
+      - PROFANITY_INSERTED
+    - id: R058
+      record_id: bitext_retail_ecom:csv.30584
+      codes:
+      - OK
+    - id: R059
+      record_id: bitext_retail_ecom:csv.29960
+      codes:
+      - OK
+    - id: R060
+      record_id: bitext_retail_ecom:csv.17693
+      codes:
+      - OK
+    - id: R061
+      record_id: bitext_retail_ecom:csv.19078
+      codes:
+      - PROFANITY_INSERTED
+    - id: R062
+      record_id: bitext_retail_ecom:csv.19265
+      codes:
+      - PROFANITY_INSERTED
+      - RESPONSE_DEFECT
+      note: '"confusion caused by your previous message"'
+    - id: R063
+      record_id: bitext_retail_ecom:csv.42480
+      codes:
+      - OK
+    - id: R064
+      record_id: bitext_retail_ecom:csv.44071
+      codes:
+      - PROFANITY_INSERTED
+    - id: R065
+      record_id: bitext_retail_ecom:csv.4414
+      codes:
+      - PROFANITY_INSERTED
+    - id: R066
+      record_id: bitext_retail_ecom:csv.15185
+      codes:
+      - OK
+    - id: R067
+      record_id: bitext_retail_ecom:csv.2925
+      codes:
+      - PROFANITY_INSERTED
+    - id: R068
+      record_id: bitext_retail_ecom:csv.25104
+      codes:
+      - PROFANITY_INSERTED
+    - id: R069
+      record_id: bitext_retail_ecom:csv.35096
+      codes:
+      - OK
+    - id: R070
+      record_id: bitext_retail_ecom:csv.13342
+      codes:
+      - OK
+    - id: R071
+      record_id: bitext_retail_ecom:csv.13542
+      codes:
+      - PROFANITY_INSERTED
+    - id: R072
+      record_id: bitext_retail_ecom:csv.42631
+      codes:
+      - PROFANITY_INSERTED
+    - id: R073
+      record_id: bitext_retail_ecom:csv.27385
+      codes:
+      - OK
+    - id: R074
+      record_id: bitext_retail_ecom:csv.4731
+      codes:
+      - PROFANITY_INSERTED
+    - id: R075
+      record_id: bitext_retail_ecom:csv.10794
+      codes:
+      - OK
+    - id: R076
+      record_id: bitext_retail_ecom:csv.3185
+      codes:
+      - PROFANITY_INSERTED
+    - id: R077
+      record_id: bitext_retail_ecom:csv.17894
+      codes:
+      - OK
+    - id: R078
+      record_id: bitext_retail_ecom:csv.7634
+      codes:
+      - PROFANITY_INSERTED
+    - id: R079
+      record_id: bitext_retail_ecom:csv.22017
+      codes:
+      - OK
+    - id: R080
+      record_id: bitext_retail_ecom:csv.767
+      codes:
+      - OK
+    - id: R081
+      record_id: bitext_retail_ecom:csv.43017
+      codes:
+      - OK
+    - id: R082
+      record_id: bitext_retail_ecom:csv.6303
+      codes:
+      - PROFANITY_INSERTED
+    - id: R083
+      record_id: bitext_retail_ecom:csv.29569
+      codes:
+      - OK
+    - id: R084
+      record_id: bitext_retail_ecom:csv.17191
+      codes:
+      - OK
+    - id: R085
+      record_id: bitext_retail_ecom:csv.36753
+      codes:
+      - OK
+    - id: R086
+      record_id: bitext_retail_ecom:csv.5159
+      codes:
+      - OK
+    - id: R087
+      record_id: bitext_retail_ecom:csv.35684
+      codes:
+      - OK
+    - id: R088
+      record_id: bitext_retail_ecom:csv.37832
+      codes:
+      - PROFANITY_INSERTED
+    - id: R089
+      record_id: bitext_retail_ecom:csv.27097
+      codes:
+      - PROFANITY_INSERTED
+    - id: R090
+      record_id: bitext_retail_ecom:csv.17200
+      codes:
+      - OFF_DOMAIN
+      note: money transfers
+    - id: R091
+      record_id: bitext_retail_ecom:csv.38317
+      codes:
+      - LABEL_AMBIGUOUS
+      - PROFANITY_INSERTED
+      note: '"complaints about products" under submit_product_feedback'
+    - id: R092
+      record_id: bitext_retail_ecom:csv.14002
+      codes:
+      - PROFANITY_INSERTED
+    - id: R093
+      record_id: bitext_retail_ecom:csv.30002
+      codes:
+      - PROFANITY_INSERTED
+    - id: R094
+      record_id: bitext_retail_ecom:csv.7270
+      codes:
+      - PROFANITY_INSERTED
+    - id: R095
+      record_id: bitext_retail_ecom:csv.44476
+      codes:
+      - OK
+    - id: R096
+      record_id: bitext_retail_ecom:csv.39348
+      codes:
+      - OK
+    - id: R097
+      record_id: bitext_retail_ecom:csv.6266
+      codes:
+      - PROFANITY_INSERTED
+    - id: R098
+      record_id: bitext_retail_ecom:csv.29922
+      codes:
+      - OK
+    - id: R099
+      record_id: bitext_retail_ecom:csv.6786
+      codes:
+      - OK
+    - id: R100
+      record_id: bitext_retail_ecom:csv.13557
+      codes:
+      - OK
+    - id: F001
+      record_id: bitext_retail_ecom:csv.32784
+      codes:
+      - PROFANITY_INSERTED
+      - RESPONSE_TEMPLATE
+      note: malformed placeholder in the response
+    - id: F002
+      record_id: bitext_retail_ecom:csv.15681
+      codes:
+      - DUPLICATE
+    - id: F003
+      record_id: bitext_retail_ecom:csv.31931
+      codes:
+      - LABEL_AMBIGUOUS
+      note: identical text labelled return_policy and return_product_in_store
+    - id: F004
+      record_id: bitext_retail_ecom:csv.24037
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F005
+      record_id: bitext_retail_ecom:csv.8069
+      codes:
+      - LABEL_AMBIGUOUS
+      note: customer_service (retail) vs contact_customer_service (CS)
+    - id: F006
+      record_id: bitext_retail_ecom:csv.26154
+      codes:
+      - LID_FALSE_ALARM
+    - id: F007
+      record_id: bitext_retail_ecom:csv.5260
+      codes:
+      - PROFANITY_INSERTED
+    - id: F008
+      record_id: bitext_retail_ecom:csv.23191
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F009
+      record_id: bitext_retail_ecom:csv.17794
+      codes:
+      - RESPONSE_DEFECT
+      - WEAK_TEXT
+      note: '"check oit" (check out) labelled pay; response does not understand it'
+    - id: F010
+      record_id: bitext_retail_ecom:csv.32357
+      codes:
+      - LABEL_AMBIGUOUS
+      note: return_policy vs return_product_online for the same text
+    - id: F011
+      record_id: bitext_retail_ecom:csv.23640
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F012
+      record_id: bitext_retail_ecom:csv.1400
+      codes:
+      - OK
+      note: minimal pair with availability_online, labels correct
+    - id: F013
+      record_id: bitext_retail_ecom:csv.28189
+      codes:
+      - LID_FALSE_ALARM
+    - id: F014
+      record_id: bitext_retail_ecom:csv.32622
+      codes:
+      - PROFANITY_INSERTED
+    - id: F015
+      record_id: bitext_retail_ecom:csv.17661
+      codes:
+      - OFF_DOMAIN
+      note: '"make transfers"'
+    - id: F016
+      record_id: bitext_retail_ecom:csv.7862
+      codes:
+      - LABEL_AMBIGUOUS
+      note: customer_service (retail) vs contact_customer_service (CS); store_info vs human_agent
+    - id: F017
+      record_id: bitext_retail_ecom:csv.24008
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F018
+      record_id: bitext_retail_ecom:csv.41979
+      codes:
+      - PROFANITY_INSERTED
+    - id: F019
+      record_id: bitext_retail_ecom:csv.27464
+      codes:
+      - LID_FALSE_ALARM
+    - id: F020
+      record_id: bitext_retail_ecom:csv.7622
+      codes:
+      - PROFANITY_INSERTED
+    - id: F021
+      record_id: bitext_retail_ecom:csv.42803
+      codes:
+      - LID_FALSE_ALARM
+    - id: F022
+      record_id: bitext_retail_ecom:csv.8201
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F023
+      record_id: bitext_retail_ecom:csv.29377
+      codes:
+      - PROFANITY_INSERTED
+      - RESPONSE_TEMPLATE
+    - id: F024
+      record_id: bitext_retail_ecom:csv.1509
+      codes:
+      - PROFANITY_INSERTED
+    - id: F025
+      record_id: bitext_retail_ecom:csv.19863
+      codes:
+      - LID_FALSE_ALARM
+    - id: F026
+      record_id: bitext_retail_ecom:csv.12447
+      codes:
+      - PROFANITY_INSERTED
+    - id: F027
+      record_id: bitext_retail_ecom:csv.15217
+      codes:
+      - LID_FALSE_ALARM
+    - id: F028
+      record_id: bitext_retail_ecom:csv.8123
+      codes:
+      - LABEL_AMBIGUOUS
+      - PROFANITY_INSERTED
+    - id: F029
+      record_id: bitext_retail_ecom:csv.29827
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F030
+      record_id: bitext_retail_ecom:csv.29575
+      codes:
+      - LABEL_AMBIGUOUS
+      - PROFANITY_INSERTED
+      note: 'return in store: return_policy vs return_product_in_store'
+    - id: F031
+      record_id: bitext_retail_ecom:csv.4051
+      codes:
+      - LID_FALSE_ALARM
+    - id: F032
+      record_id: bitext_retail_ecom:csv.37927
+      codes:
+      - PROFANITY_INSERTED
+    - id: F033
+      record_id: bitext_retail_ecom:csv.17378
+      codes:
+      - LID_FALSE_ALARM
+      note: '"apy" (pay), keyword-mode typo'
+    - id: F034
+      record_id: bitext_retail_ecom:csv.42647
+      codes:
+      - LABEL_AMBIGUOUS
+      note: track_order vs track_delivery for the same request
+    - id: F035
+      record_id: bitext_retail_ecom:csv.29876
+      codes:
+      - PROFANITY_INSERTED
+      - RESPONSE_TEMPLATE
+    - id: F036
+      record_id: bitext_retail_ecom:csv.24118
+      codes:
+      - OK
+    - id: F037
+      record_id: bitext_retail_ecom:csv.26382
+      codes:
+      - LID_FALSE_ALARM
+    - id: F038
+      record_id: bitext_retail_ecom:csv.43790
+      codes:
+      - PROFANITY_INSERTED
+    - id: F039
+      record_id: bitext_retail_ecom:csv.14683
+      codes:
+      - LID_FALSE_ALARM
+    - id: F040
+      record_id: bitext_retail_ecom:csv.8550
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F041
+      record_id: bitext_retail_ecom:csv.44575
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F042
+      record_id: bitext_retail_ecom:csv.34458
+      codes:
+      - OK
+    - id: F043
+      record_id: bitext_retail_ecom:csv.43348
+      codes:
+      - LID_FALSE_ALARM
+      - PROFANITY_INSERTED
+    - id: F044
+      record_id: bitext_retail_ecom:csv.4774
+      codes:
+      - PROFANITY_INSERTED
+    - id: F045
+      record_id: bitext_retail_ecom:csv.29588
+      codes:
+      - LABEL_AMBIGUOUS
+      - PROFANITY_INSERTED
+    - id: F046
+      record_id: bitext_retail_ecom:csv.23673
+      codes:
+      - PROFANITY_INSERTED
+      - RESPONSE_TEMPLATE
+    - id: F047
+      record_id: bitext_retail_ecom:csv.2166
+      codes:
+      - OK
+    - id: F048
+      record_id: bitext_retail_ecom:csv.330
+      codes:
+      - LID_FALSE_ALARM
+    - id: F049
+      record_id: bitext_retail_ecom:csv.935
+      codes:
+      - PROFANITY_INSERTED
+    - id: F050
+      record_id: bitext_retail_ecom:csv.8320
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F051
+      record_id: bitext_retail_ecom:csv.29435
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F052
+      record_id: bitext_retail_ecom:csv.1967
+      codes:
+      - PROFANITY_INSERTED
+    - id: F053
+      record_id: bitext_retail_ecom:csv.37805
+      codes:
+      - LID_FALSE_ALARM
+      - PROFANITY_INSERTED
+    - id: F054
+      record_id: bitext_retail_ecom:csv.10534
+      codes:
+      - PROFANITY_INSERTED
+    - id: F055
+      record_id: bitext_retail_ecom:csv.42280
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F056
+      record_id: bitext_retail_ecom:csv.29795
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F057
+      record_id: bitext_retail_ecom:csv.3587
+      codes:
+      - OK
+    - id: F058
+      record_id: bitext_retail_ecom:csv.4281
+      codes:
+      - LID_FALSE_ALARM
+      - PROFANITY_INSERTED
+    - id: F059
+      record_id: bitext_retail_ecom:csv.6986
+      codes:
+      - LID_FALSE_ALARM
+      - PROFANITY_INSERTED
+    - id: F060
+      record_id: bitext_retail_ecom:csv.8608
+      codes:
+      - LABEL_AMBIGUOUS
+      - PROFANITY_INSERTED
+    - id: F061
+      record_id: bitext_retail_ecom:csv.24531
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F062
+      record_id: bitext_retail_ecom:csv.31716
+      codes:
+      - OK
+    - id: F063
+      record_id: bitext_retail_ecom:csv.43289
+      codes:
+      - LID_FALSE_ALARM
+    - id: F064
+      record_id: bitext_retail_ecom:csv.16808
+      codes:
+      - PROFANITY_INSERTED
+    - id: F065
+      record_id: bitext_retail_ecom:csv.41692
+      codes:
+      - LABEL_AMBIGUOUS
+      - PROFANITY_INSERTED
+    - id: F066
+      record_id: bitext_retail_ecom:csv.23870
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F067
+      record_id: bitext_retail_ecom:csv.10623
+      codes:
+      - OK
+    - id: F068
+      record_id: bitext_retail_ecom:csv.28064
+      codes:
+      - LID_FALSE_ALARM
+      - PROFANITY_INSERTED
+    - id: F069
+      record_id: bitext_retail_ecom:csv.9593
+      codes:
+      - PROFANITY_INSERTED
+    - id: F070
+      record_id: bitext_retail_ecom:csv.29233
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F071
+      record_id: bitext_retail_ecom:csv.8283
+      codes:
+      - LABEL_AMBIGUOUS
+      - PROFANITY_INSERTED
+      - RESPONSE_TEMPLATE
+    - id: F072
+      record_id: bitext_retail_ecom:csv.31868
+      codes:
+      - LABEL_WRONG
+      note: product information labelled return_product_in_store; now pending as label_suspect
+    - id: F073
+      record_id: bitext_retail_ecom:csv.42974
+      codes:
+      - LID_FALSE_ALARM
+      - PROFANITY_INSERTED
+      - RESPONSE_DEFECT
+      note: response lectures about language instead of answering
+    - id: F074
+      record_id: bitext_retail_ecom:csv.31542
+      codes:
+      - LABEL_WRONG
+      - PROFANITY_INSERTED
+      note: product information in store labelled return_product_in_store
+    - id: F075
+      record_id: bitext_retail_ecom:csv.42606
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F076
+      record_id: bitext_retail_ecom:csv.23328
+      codes:
+      - PROFANITY_INSERTED
+      - RESPONSE_TEMPLATE
+    - id: F077
+      record_id: bitext_retail_ecom:csv.2986
+      codes:
+      - OK
+    - id: F078
+      record_id: bitext_retail_ecom:csv.23056
+      codes:
+      - LID_FALSE_ALARM
+    - id: F079
+      record_id: bitext_retail_ecom:csv.25917
+      codes:
+      - PROFANITY_INSERTED
+    - id: F080
+      record_id: bitext_retail_ecom:csv.7942
+      codes:
+      - LABEL_AMBIGUOUS
+      - PROFANITY_INSERTED
+    - id: F081
+      record_id: bitext_retail_ecom:csv.23776
+      codes:
+      - PROFANITY_INSERTED
+      - RESPONSE_TEMPLATE
+    - id: F082
+      record_id: bitext_retail_ecom:csv.19718
+      codes:
+      - LID_FALSE_ALARM
+      - PROFANITY_INSERTED
+      - RESPONSE_DEFECT
+      note: '"offensive language you may have used in your input"'
+    - id: F083
+      record_id: bitext_retail_ecom:csv.19431
+      codes:
+      - LID_FALSE_ALARM
+    - id: F084
+      record_id: bitext_retail_ecom:csv.34417
+      codes:
+      - PROFANITY_INSERTED
+    - id: F085
+      record_id: bitext_retail_ecom:csv.7832
+      codes:
+      - LABEL_AMBIGUOUS
+    - id: F086
+      record_id: bitext_retail_ecom:csv.6391
+      codes:
+      - RESPONSE_TEMPLATE
+    - id: F087
+      record_id: bitext_retail_ecom:csv.1091
+      codes:
+      - PROFANITY_INSERTED
+    - id: F088
+      record_id: bitext_retail_ecom:csv.15849
+      codes:
+      - LID_FALSE_ALARM
+      - PROFANITY_INSERTED
+    - id: F089
+      record_id: bitext_retail_ecom:csv.6812
+      codes:
+      - PROFANITY_INSERTED
+    - id: F090
+      record_id: bitext_retail_ecom:csv.8368
+      codes:
+      - LABEL_AMBIGUOUS
+      - PROFANITY_INSERTED
+    - id: F091
+      record_id: bitext_retail_ecom:csv.44219
+      codes:
+      - PROFANITY_INSERTED
+      - RESPONSE_TEMPLATE
+    - id: F092
+      record_id: bitext_retail_ecom:csv.20202
+      codes:
+      - OK
+    - id: F093
+      record_id: bitext_retail_ecom:csv.4597
+      codes:
+      - LID_FALSE_ALARM
+    - id: F094
+      record_id: bitext_retail_ecom:csv.16173
+      codes:
+      - PROFANITY_INSERTED
+    - id: F095
+      record_id: bitext_retail_ecom:csv.7679
+      codes:
+      - LABEL_AMBIGUOUS
+      - PROFANITY_INSERTED
+    - id: F096
+      record_id: bitext_retail_ecom:csv.23707
+      codes:
+      - PROFANITY_INSERTED
+      - RESPONSE_TEMPLATE
+    - id: F097
+      record_id: bitext_retail_ecom:csv.2968
+      codes:
+      - OK
+    - id: F098
+      record_id: bitext_retail_ecom:csv.866
+      codes:
+      - LID_FALSE_ALARM
+    - id: F099
+      record_id: bitext_retail_ecom:csv.1596
+      codes:
+      - PROFANITY_INSERTED
+    - id: F100
+      record_id: bitext_retail_ecom:csv.8408
+      codes:
+      - LABEL_AMBIGUOUS
+      - PROFANITY_INSERTED
+  support_json_ru:
+    summary: 'Small RU synthetic SaaS-support set: three tone prefixes x a few request templates x policy/fact
+      combinations at the threshold boundary (24 vs 25 users, 7 vs 8 days). The decision (answer / ask_details
+      / propose_action / escalate) follows the given policies and facts in every reviewed row; the same
+      message gets different decisions in different contexts by design. Template grammar is wrong in 89
+      of 716 messages (number agreement: "осталось 1 дней", "21 рабочих мест"). Source metadata says human_reviewed=false
+      and source_license=not_assigned next to the CC-BY-4.0 publication licence.'
+    verdict: Reference only (registry) and off-domain (SaaS subscriptions). Good evidence that policy-conditioned
+      decisions can be encoded cleanly, not a source of RU store data.
+    recommendation: Use as a design reference for grounded decisions, abstention and escalation tasks
+      (DATA_CONTRACTS §5) and for RU phrasing of policy answers; do not copy texts. Its scenario groups
+      show how splits stay leak-free (no scenario crosses train/validation/test).
+    annotations:
+    - id: R001
+      record_id: support_json_ru:train.18
+      codes:
+      - OFF_DOMAIN
+    - id: R002
+      record_id: support_json_ru:train.471
+      codes:
+      - OFF_DOMAIN
+    - id: R003
+      record_id: support_json_ru:validation.69
+      codes:
+      - OFF_DOMAIN
+    - id: R004
+      record_id: support_json_ru:train.286
+      codes:
+      - OFF_DOMAIN
+    - id: R005
+      record_id: support_json_ru:train.151
+      codes:
+      - OFF_DOMAIN
+    - id: R006
+      record_id: support_json_ru:train.75
+      codes:
+      - OFF_DOMAIN
+    - id: R007
+      record_id: support_json_ru:test.9
+      codes:
+      - OFF_DOMAIN
+    - id: R008
+      record_id: support_json_ru:train.10
+      codes:
+      - OFF_DOMAIN
+    - id: R009
+      record_id: support_json_ru:train.114
+      codes:
+      - OFF_DOMAIN
+    - id: R010
+      record_id: support_json_ru:train.24
+      codes:
+      - OFF_DOMAIN
+    - id: R011
+      record_id: support_json_ru:train.376
+      codes:
+      - OFF_DOMAIN
+    - id: R012
+      record_id: support_json_ru:train.391
+      codes:
+      - OFF_DOMAIN
+    - id: R013
+      record_id: support_json_ru:validation.77
+      codes:
+      - OFF_DOMAIN
+    - id: R014
+      record_id: support_json_ru:train.22
+      codes:
+      - OFF_DOMAIN
+      - UNNATURAL
+      note: number agreement error in the template
+    - id: R015
+      record_id: support_json_ru:train.97
+      codes:
+      - OFF_DOMAIN
+    - id: R016
+      record_id: support_json_ru:train.51
+      codes:
+      - OFF_DOMAIN
+    - id: R017
+      record_id: support_json_ru:train.126
+      codes:
+      - OFF_DOMAIN
+    - id: R018
+      record_id: support_json_ru:validation.95
+      codes:
+      - OFF_DOMAIN
+    - id: R019
+      record_id: support_json_ru:test.95
+      codes:
+      - OFF_DOMAIN
+    - id: R020
+      record_id: support_json_ru:train.184
+      codes:
+      - OFF_DOMAIN
+      - UNNATURAL
+      note: number agreement error in the template
+    - id: R021
+      record_id: support_json_ru:train.317
+      codes:
+      - OFF_DOMAIN
+    - id: R022
+      record_id: support_json_ru:train.397
+      codes:
+      - OFF_DOMAIN
+    - id: R023
+      record_id: support_json_ru:train.372
+      codes:
+      - OFF_DOMAIN
+    - id: R024
+      record_id: support_json_ru:test.46
+      codes:
+      - OFF_DOMAIN
+    - id: R025
+      record_id: support_json_ru:test.44
+      codes:
+      - OFF_DOMAIN
+    - id: R026
+      record_id: support_json_ru:test.76
+      codes:
+      - OFF_DOMAIN
+    - id: R027
+      record_id: support_json_ru:test.68
+      codes:
+      - OFF_DOMAIN
+    - id: R028
+      record_id: support_json_ru:train.511
+      codes:
+      - OFF_DOMAIN
+    - id: R029
+      record_id: support_json_ru:test.49
+      codes:
+      - OFF_DOMAIN
+    - id: R030
+      record_id: support_json_ru:validation.26
+      codes:
+      - OFF_DOMAIN
+    - id: R031
+      record_id: support_json_ru:train.435
+      codes:
+      - OFF_DOMAIN
+    - id: R032
+      record_id: support_json_ru:validation.66
+      codes:
+      - OFF_DOMAIN
+    - id: R033
+      record_id: support_json_ru:train.205
+      codes:
+      - OFF_DOMAIN
+    - id: R034
+      record_id: support_json_ru:test.69
+      codes:
+      - OFF_DOMAIN
+    - id: R035
+      record_id: support_json_ru:train.166
+      codes:
+      - OFF_DOMAIN
+    - id: R036
+      record_id: support_json_ru:train.503
+      codes:
+      - OFF_DOMAIN
+    - id: R037
+      record_id: support_json_ru:validation.25
+      codes:
+      - OFF_DOMAIN
+    - id: R038
+      record_id: support_json_ru:train.415
+      codes:
+      - OFF_DOMAIN
+    - id: R039
+      record_id: support_json_ru:test.80
+      codes:
+      - OFF_DOMAIN
+    - id: R040
+      record_id: support_json_ru:validation.53
+      codes:
+      - OFF_DOMAIN
+    - id: R041
+      record_id: support_json_ru:train.198
+      codes:
+      - OFF_DOMAIN
+      - UNNATURAL
+      note: number agreement error in the template
+    - id: R042
+      record_id: support_json_ru:train.76
+      codes:
+      - OFF_DOMAIN
+    - id: R043
+      record_id: support_json_ru:train.255
+      codes:
+      - OFF_DOMAIN
+    - id: R044
+      record_id: support_json_ru:validation.48
+      codes:
+      - OFF_DOMAIN
+    - id: R045
+      record_id: support_json_ru:validation.15
+      codes:
+      - OFF_DOMAIN
+      - UNNATURAL
+      note: number agreement error in the template
+    - id: R046
+      record_id: support_json_ru:train.332
+      codes:
+      - OFF_DOMAIN
+    - id: R047
+      record_id: support_json_ru:test.94
+      codes:
+      - OFF_DOMAIN
+    - id: R048
+      record_id: support_json_ru:train.349
+      codes:
+      - OFF_DOMAIN
+    - id: R049
+      record_id: support_json_ru:test.10
+      codes:
+      - OFF_DOMAIN
+    - id: R050
+      record_id: support_json_ru:train.181
+      codes:
+      - OFF_DOMAIN
+    - id: R051
+      record_id: support_json_ru:train.102
+      codes:
+      - OFF_DOMAIN
+    - id: R052
+      record_id: support_json_ru:train.73
+      codes:
+      - OFF_DOMAIN
+    - id: R053
+      record_id: support_json_ru:train.358
+      codes:
+      - OFF_DOMAIN
+    - id: R054
+      record_id: support_json_ru:train.104
+      codes:
+      - OFF_DOMAIN
+    - id: R055
+      record_id: support_json_ru:train.509
+      codes:
+      - OFF_DOMAIN
+    - id: R056
+      record_id: support_json_ru:train.77
+      codes:
+      - OFF_DOMAIN
+    - id: R057
+      record_id: support_json_ru:validation.24
+      codes:
+      - OFF_DOMAIN
+    - id: R058
+      record_id: support_json_ru:validation.86
+      codes:
+      - OFF_DOMAIN
+    - id: R059
+      record_id: support_json_ru:train.242
+      codes:
+      - OFF_DOMAIN
+    - id: R060
+      record_id: support_json_ru:validation.62
+      codes:
+      - OFF_DOMAIN
+    - id: R061
+      record_id: support_json_ru:validation.42
+      codes:
+      - OFF_DOMAIN
+    - id: R062
+      record_id: support_json_ru:train.285
+      codes:
+      - OFF_DOMAIN
+    - id: R063
+      record_id: support_json_ru:validation.85
+      codes:
+      - OFF_DOMAIN
+    - id: R064
+      record_id: support_json_ru:train.58
+      codes:
+      - OFF_DOMAIN
+    - id: R065
+      record_id: support_json_ru:test.59
+      codes:
+      - OFF_DOMAIN
+    - id: R066
+      record_id: support_json_ru:train.473
+      codes:
+      - OFF_DOMAIN
+    - id: R067
+      record_id: support_json_ru:train.26
+      codes:
+      - OFF_DOMAIN
+    - id: R068
+      record_id: support_json_ru:train.335
+      codes:
+      - OFF_DOMAIN
+    - id: R069
+      record_id: support_json_ru:train.109
+      codes:
+      - OFF_DOMAIN
+      - UNNATURAL
+      note: number agreement error in the template
+    - id: R070
+      record_id: support_json_ru:test.81
+      codes:
+      - OFF_DOMAIN
+    - id: R071
+      record_id: support_json_ru:train.256
+      codes:
+      - OFF_DOMAIN
+    - id: R072
+      record_id: support_json_ru:train.143
+      codes:
+      - OFF_DOMAIN
+    - id: R073
+      record_id: support_json_ru:test.14
+      codes:
+      - OFF_DOMAIN
+      - UNNATURAL
+      note: number agreement error in the template
+    - id: R074
+      record_id: support_json_ru:train.426
+      codes:
+      - OFF_DOMAIN
+    - id: R075
+      record_id: support_json_ru:train.30
+      codes:
+      - OFF_DOMAIN
+    - id: R076
+      record_id: support_json_ru:train.8
+      codes:
+      - OFF_DOMAIN
+    - id: R077
+      record_id: support_json_ru:train.469
+      codes:
+      - OFF_DOMAIN
+    - id: R078
+      record_id: support_json_ru:train.301
+      codes:
+      - OFF_DOMAIN
+    - id: R079
+      record_id: support_json_ru:train.494
+      codes:
+      - OFF_DOMAIN
+    - id: R080
+      record_id: support_json_ru:train.308
+      codes:
+      - OFF_DOMAIN
+    - id: R081
+      record_id: support_json_ru:train.309
+      codes:
+      - OFF_DOMAIN
+    - id: R082
+      record_id: support_json_ru:train.307
+      codes:
+      - OFF_DOMAIN
+    - id: R083
+      record_id: support_json_ru:train.135
+      codes:
+      - OFF_DOMAIN
+    - id: R084
+      record_id: support_json_ru:train.20
+      codes:
+      - OFF_DOMAIN
+    - id: R085
+      record_id: support_json_ru:train.472
+      codes:
+      - OFF_DOMAIN
+    - id: R086
+      record_id: support_json_ru:train.211
+      codes:
+      - OFF_DOMAIN
+    - id: R087
+      record_id: support_json_ru:train.79
+      codes:
+      - OFF_DOMAIN
+    - id: R088
+      record_id: support_json_ru:test.87
+      codes:
+      - OFF_DOMAIN
+    - id: R089
+      record_id: support_json_ru:validation.41
+      codes:
+      - OFF_DOMAIN
+    - id: R090
+      record_id: support_json_ru:train.305
+      codes:
+      - OFF_DOMAIN
+    - id: R091
+      record_id: support_json_ru:train.306
+      codes:
+      - OFF_DOMAIN
+    - id: R092
+      record_id: support_json_ru:train.430
+      codes:
+      - OFF_DOMAIN
+    - id: R093
+      record_id: support_json_ru:train.11
+      codes:
+      - OFF_DOMAIN
+    - id: R094
+      record_id: support_json_ru:test.43
+      codes:
+      - OFF_DOMAIN
+    - id: R095
+      record_id: support_json_ru:train.403
+      codes:
+      - OFF_DOMAIN
+    - id: R096
+      record_id: support_json_ru:train.355
+      codes:
+      - OFF_DOMAIN
+    - id: R097
+      record_id: support_json_ru:train.84
+      codes:
+      - OFF_DOMAIN
+    - id: R098
+      record_id: support_json_ru:train.312
+      codes:
+      - OFF_DOMAIN
+    - id: R099
+      record_id: support_json_ru:validation.58
+      codes:
+      - OFF_DOMAIN
+    - id: R100
+      record_id: support_json_ru:train.222
+      codes:
+      - OFF_DOMAIN
+    - id: F001
+      record_id: support_json_ru:train.244
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F002
+      record_id: support_json_ru:test.40
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F003
+      record_id: support_json_ru:train.422
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F004
+      record_id: support_json_ru:train.125
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+      - UNNATURAL
+      note: number agreement error in the template
+    - id: F005
+      record_id: support_json_ru:train.507
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F006
+      record_id: support_json_ru:train.169
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F007
+      record_id: support_json_ru:test.33
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F008
+      record_id: support_json_ru:train.366
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F009
+      record_id: support_json_ru:train.283
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F010
+      record_id: support_json_ru:train.80
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F011
+      record_id: support_json_ru:train.281
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F012
+      record_id: support_json_ru:validation.52
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F013
+      record_id: support_json_ru:train.41
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F014
+      record_id: support_json_ru:train.40
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F015
+      record_id: support_json_ru:train.340
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F016
+      record_id: support_json_ru:train.53
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F017
+      record_id: support_json_ru:train.21
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+      - UNNATURAL
+      note: number agreement error in the template
+    - id: F018
+      record_id: support_json_ru:train.292
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+      - UNNATURAL
+      note: number agreement error in the template
+    - id: F019
+      record_id: support_json_ru:test.56
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F020
+      record_id: support_json_ru:train.0
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F021
+      record_id: support_json_ru:validation.34
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F022
+      record_id: support_json_ru:train.38
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F023
+      record_id: support_json_ru:train.478
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F024
+      record_id: support_json_ru:train.233
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F025
+      record_id: support_json_ru:train.208
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F026
+      record_id: support_json_ru:train.133
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F027
+      record_id: support_json_ru:train.412
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F028
+      record_id: support_json_ru:train.389
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F029
+      record_id: support_json_ru:train.209
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F030
+      record_id: support_json_ru:train.19
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F031
+      record_id: support_json_ru:test.79
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F032
+      record_id: support_json_ru:train.476
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F033
+      record_id: support_json_ru:train.474
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F034
+      record_id: support_json_ru:train.101
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F035
+      record_id: support_json_ru:test.53
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F036
+      record_id: support_json_ru:train.498
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F037
+      record_id: support_json_ru:train.304
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F038
+      record_id: support_json_ru:train.343
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F039
+      record_id: support_json_ru:train.495
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F040
+      record_id: support_json_ru:train.220
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F041
+      record_id: support_json_ru:test.11
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F042
+      record_id: support_json_ru:train.297
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F043
+      record_id: support_json_ru:train.245
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F044
+      record_id: support_json_ru:test.74
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F045
+      record_id: support_json_ru:test.37
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F046
+      record_id: support_json_ru:train.496
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F047
+      record_id: support_json_ru:validation.55
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F048
+      record_id: support_json_ru:test.96
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F049
+      record_id: support_json_ru:train.313
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F050
+      record_id: support_json_ru:test.17
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+      - UNNATURAL
+      note: number agreement error in the template
+    - id: F051
+      record_id: support_json_ru:train.89
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F052
+      record_id: support_json_ru:validation.92
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F053
+      record_id: support_json_ru:train.96
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F054
+      record_id: support_json_ru:train.365
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F055
+      record_id: support_json_ru:test.75
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F056
+      record_id: support_json_ru:train.120
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F057
+      record_id: support_json_ru:train.55
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F058
+      record_id: support_json_ru:train.159
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F059
+      record_id: support_json_ru:train.9
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F060
+      record_id: support_json_ru:test.26
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F061
+      record_id: support_json_ru:train.342
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F062
+      record_id: support_json_ru:train.328
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F063
+      record_id: support_json_ru:validation.33
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F064
+      record_id: support_json_ru:train.29
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F065
+      record_id: support_json_ru:train.82
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F066
+      record_id: support_json_ru:train.115
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F067
+      record_id: support_json_ru:validation.75
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F068
+      record_id: support_json_ru:train.158
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F069
+      record_id: support_json_ru:validation.70
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F070
+      record_id: support_json_ru:train.183
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+      - UNNATURAL
+      note: number agreement error in the template
+    - id: F071
+      record_id: support_json_ru:test.36
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F072
+      record_id: support_json_ru:train.188
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F073
+      record_id: support_json_ru:train.107
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F074
+      record_id: support_json_ru:train.269
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+      - UNNATURAL
+      note: number agreement error in the template
+    - id: F075
+      record_id: support_json_ru:train.98
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F076
+      record_id: support_json_ru:test.51
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F077
+      record_id: support_json_ru:train.347
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F078
+      record_id: support_json_ru:train.449
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+      - UNNATURAL
+      note: number agreement error in the template
+    - id: F079
+      record_id: support_json_ru:train.314
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F080
+      record_id: support_json_ru:validation.67
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F081
+      record_id: support_json_ru:train.69
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F082
+      record_id: support_json_ru:validation.56
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F083
+      record_id: support_json_ru:train.57
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F084
+      record_id: support_json_ru:train.85
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F085
+      record_id: support_json_ru:test.38
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F086
+      record_id: support_json_ru:test.91
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F087
+      record_id: support_json_ru:validation.94
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F088
+      record_id: support_json_ru:train.428
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F089
+      record_id: support_json_ru:test.107
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F090
+      record_id: support_json_ru:test.57
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F091
+      record_id: support_json_ru:train.280
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F092
+      record_id: support_json_ru:train.440
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F093
+      record_id: support_json_ru:validation.11
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F094
+      record_id: support_json_ru:test.102
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F095
+      record_id: support_json_ru:test.45
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F096
+      record_id: support_json_ru:train.461
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F097
+      record_id: support_json_ru:train.443
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F098
+      record_id: support_json_ru:validation.84
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F099
+      record_id: support_json_ru:train.95
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+    - id: F100
+      record_id: support_json_ru:train.17
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+  whileai_ecommerce_intent:
+    summary: 'LLM-generated payment-agent dialogues (OpenAI/Anthropic batch ids in conv_id), 2-60 turns.
+      Labels describe the outcome of the whole dialogue (committed payment action or none), not the first
+      message: the first turn is often a greeting, small talk or another topic. In the random sample about
+      half of the dialogues are outside an online store (crypto, P2P transfers, utility bills, investing,
+      homework, travel). Generation defects: 147 dialogues with token-soup turns were rejected; the detector
+      misses single-script word salad (3 of the reviewed flagged rows). Realistic-looking e-mail addresses
+      and phone numbers appear in 7% of dialogues (masked with synthetic values); obfuscated forms such
+      as "name dot surname at gmail" are not caught.'
+    verdict: 'Not usable as canonical single-message examples. Valuable as a style and multi-turn reference:
+      informal register, emoji, late intent disclosure, clarification turns.'
+    recommendation: Keep pending. In Stage 4 take only in-domain dialogues (orders, returns, subscriptions,
+      store payments) for multi-turn and clarification tasks, relabel them with the v1 taxonomy at dialogue
+      level, and run an LLM-judge or human pass for coherence before use.
+    annotations:
+    - id: R001
+      record_id: whileai_ecommerce_intent:train.4582
+      codes:
+      - OK
+    - id: R002
+      record_id: whileai_ecommerce_intent:train.6508
+      codes:
+      - OFF_DOMAIN
+      - UNNATURAL
+      note: splitting film tickets via a payment provider; persona-heavy text
+    - id: R003
+      record_id: whileai_ecommerce_intent:train.7194
+      codes:
+      - OK
+    - id: R004
+      record_id: whileai_ecommerce_intent:eval.1462
+      codes:
+      - OK
+    - id: R005
+      record_id: whileai_ecommerce_intent:train.11159
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+      note: opens with "is the S&P 500 up today", label 'send' comes from turn 3
+    - id: R006
+      record_id: whileai_ecommerce_intent:train.10402
+      codes:
+      - OFF_DOMAIN
+      note: ETF recurring investment
+    - id: R007
+      record_id: whileai_ecommerce_intent:train.12398
+      codes:
+      - OFF_DOMAIN
+      note: utility bill
+    - id: R008
+      record_id: whileai_ecommerce_intent:train.11870
+      codes:
+      - OK
+    - id: R009
+      record_id: whileai_ecommerce_intent:train.18598
+      codes:
+      - OFF_DOMAIN
+      note: history homework
+    - id: R010
+      record_id: whileai_ecommerce_intent:train.19484
+      codes:
+      - OFF_DOMAIN
+      note: overdraft fees
+    - id: R011
+      record_id: whileai_ecommerce_intent:train.12622
+      codes:
+      - OFF_DOMAIN
+      note: bank transfer
+    - id: R012
+      record_id: whileai_ecommerce_intent:train.472
+      codes:
+      - OFF_DOMAIN
+      note: crypto holdings
+    - id: R013
+      record_id: whileai_ecommerce_intent:train.11609
+      codes:
+      - OFF_DOMAIN
+      note: cash for a plumber
+    - id: R014
+      record_id: whileai_ecommerce_intent:train.10357
+      codes:
+      - OFF_DOMAIN
+      note: ATM limits, haircut booking
+    - id: R015
+      record_id: whileai_ecommerce_intent:train.19836
+      codes:
+      - OFF_DOMAIN
+      note: wallet address check
+    - id: R016
+      record_id: whileai_ecommerce_intent:train.20974
+      codes:
+      - CONTEXT_DEPENDENT
+      - UNNATURAL
+      note: cat meme + charity, real intent (double charge) appears later
+    - id: R017
+      record_id: whileai_ecommerce_intent:eval.1426
+      codes:
+      - OK
+    - id: R018
+      record_id: whileai_ecommerce_intent:train.14488
+      codes:
+      - OFF_DOMAIN
+      note: HOA dues
+    - id: R019
+      record_id: whileai_ecommerce_intent:train.2529
+      codes:
+      - UNNATURAL
+      note: joke opener before the request
+    - id: R020
+      record_id: whileai_ecommerce_intent:train.3136
+      codes:
+      - OK
+    - id: R021
+      record_id: whileai_ecommerce_intent:train.4553
+      codes:
+      - PII_LIKE
+      note: '"[email protected]" scraping artefact in a later turn'
+    - id: R022
+      record_id: whileai_ecommerce_intent:train.17230
+      codes:
+      - OK
+    - id: R023
+      record_id: whileai_ecommerce_intent:train.22132
+      codes:
+      - OFF_DOMAIN
+      note: P2P transfer
+    - id: R024
+      record_id: whileai_ecommerce_intent:train.5548
+      codes:
+      - OK
+    - id: R025
+      record_id: whileai_ecommerce_intent:train.11936
+      codes:
+      - WEAK_TEXT
+      note: '"when''s it actually due" without context'
+    - id: R026
+      record_id: whileai_ecommerce_intent:train.4174
+      codes:
+      - OK
+    - id: R027
+      record_id: whileai_ecommerce_intent:train.8990
+      codes:
+      - OK
+    - id: R028
+      record_id: whileai_ecommerce_intent:train.13840
+      codes:
+      - OK
+    - id: R029
+      record_id: whileai_ecommerce_intent:train.18345
+      codes:
+      - OK
+    - id: R030
+      record_id: whileai_ecommerce_intent:train.11025
+      codes:
+      - OK
+    - id: R031
+      record_id: whileai_ecommerce_intent:train.20332
+      codes:
+      - OFF_DOMAIN
+      note: rental car
+    - id: R032
+      record_id: whileai_ecommerce_intent:train.12092
+      codes:
+      - OFF_DOMAIN
+      note: flights
+    - id: R033
+      record_id: whileai_ecommerce_intent:train.19623
+      codes:
+      - CONTEXT_DEPENDENT
+      note: weather question first, order shipping later
+    - id: R034
+      record_id: whileai_ecommerce_intent:train.21261
+      codes:
+      - OK
+    - id: R035
+      record_id: whileai_ecommerce_intent:train.18788
+      codes:
+      - OFF_DOMAIN
+      note: bank ACH debit
+    - id: R036
+      record_id: whileai_ecommerce_intent:train.14256
+      codes:
+      - OK
+    - id: R037
+      record_id: whileai_ecommerce_intent:train.15984
+      codes:
+      - OFF_DOMAIN
+      note: crypto transfer
+    - id: R038
+      record_id: whileai_ecommerce_intent:train.17423
+      codes:
+      - OFF_DOMAIN
+      note: gym classes
+    - id: R039
+      record_id: whileai_ecommerce_intent:train.6628
+      codes:
+      - OK
+    - id: R040
+      record_id: whileai_ecommerce_intent:train.10336
+      codes:
+      - OFF_DOMAIN
+      note: HOA fee
+    - id: R041
+      record_id: whileai_ecommerce_intent:train.14570
+      codes:
+      - OFF_DOMAIN
+      note: donation / bank balance
+    - id: R042
+      record_id: whileai_ecommerce_intent:train.3811
+      codes:
+      - OK
+    - id: R043
+      record_id: whileai_ecommerce_intent:train.12813
+      codes:
+      - OK
+    - id: R044
+      record_id: whileai_ecommerce_intent:train.11812
+      codes:
+      - OK
+    - id: R045
+      record_id: whileai_ecommerce_intent:train.668
+      codes:
+      - OFF_DOMAIN
+      note: utility bill
+    - id: R046
+      record_id: whileai_ecommerce_intent:train.14205
+      codes:
+      - OK
+    - id: R047
+      record_id: whileai_ecommerce_intent:train.2607
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+      note: flights first, blender order later
+    - id: R048
+      record_id: whileai_ecommerce_intent:train.20538
+      codes:
+      - OFF_DOMAIN
+      note: gym
+    - id: R049
+      record_id: whileai_ecommerce_intent:eval.1949
+      codes:
+      - OFF_DOMAIN
+      note: dentist invoice
+    - id: R050
+      record_id: whileai_ecommerce_intent:train.10051
+      codes:
+      - OK
+    - id: R051
+      record_id: whileai_ecommerce_intent:train.15777
+      codes:
+      - OK
+    - id: R052
+      record_id: whileai_ecommerce_intent:train.21587
+      codes:
+      - OFF_DOMAIN
+      note: bill splitting
+    - id: R053
+      record_id: whileai_ecommerce_intent:train.20167
+      codes:
+      - OK
+    - id: R054
+      record_id: whileai_ecommerce_intent:train.19103
+      codes:
+      - OFF_DOMAIN
+      note: homework
+    - id: R055
+      record_id: whileai_ecommerce_intent:train.13811
+      codes:
+      - OFF_DOMAIN
+      note: crypto
+    - id: R056
+      record_id: whileai_ecommerce_intent:train.21753
+      codes:
+      - OFF_DOMAIN
+      note: crypto
+    - id: R057
+      record_id: whileai_ecommerce_intent:train.22077
+      codes:
+      - OFF_DOMAIN
+      note: marketplace pickup
+    - id: R058
+      record_id: whileai_ecommerce_intent:train.13017
+      codes:
+      - OFF_DOMAIN
+      note: babysitter payment
+    - id: R059
+      record_id: whileai_ecommerce_intent:train.19947
+      codes:
+      - OFF_DOMAIN
+      note: token swap
+    - id: R060
+      record_id: whileai_ecommerce_intent:train.2701
+      codes:
+      - OK
+    - id: R061
+      record_id: whileai_ecommerce_intent:train.13698
+      codes:
+      - OK
+    - id: R062
+      record_id: whileai_ecommerce_intent:train.20112
+      codes:
+      - OK
+    - id: R063
+      record_id: whileai_ecommerce_intent:train.19120
+      codes:
+      - OK
+    - id: R064
+      record_id: whileai_ecommerce_intent:train.15414
+      codes:
+      - OFF_DOMAIN
+      note: dentist bill
+    - id: R065
+      record_id: whileai_ecommerce_intent:train.5112
+      codes:
+      - OFF_DOMAIN
+      note: car dealership card question
+    - id: R066
+      record_id: whileai_ecommerce_intent:train.838
+      codes:
+      - OK
+    - id: R067
+      record_id: whileai_ecommerce_intent:train.7027
+      codes:
+      - OK
+    - id: R068
+      record_id: whileai_ecommerce_intent:train.10392
+      codes:
+      - OFF_DOMAIN
+      note: small talk about work
+    - id: R069
+      record_id: whileai_ecommerce_intent:train.14307
+      codes:
+      - OFF_DOMAIN
+      note: bill due date
+    - id: R070
+      record_id: whileai_ecommerce_intent:train.9691
+      codes:
+      - OFF_DOMAIN
+      note: crypto bridge
+    - id: R071
+      record_id: whileai_ecommerce_intent:train.4431
+      codes:
+      - OK
+    - id: R072
+      record_id: whileai_ecommerce_intent:train.8035
+      codes:
+      - OK
+    - id: R073
+      record_id: whileai_ecommerce_intent:train.9150
+      codes:
+      - OK
+    - id: R074
+      record_id: whileai_ecommerce_intent:train.8954
+      codes:
+      - OFF_DOMAIN
+      note: tuition payment
+    - id: R075
+      record_id: whileai_ecommerce_intent:train.8190
+      codes:
+      - OK
+    - id: R076
+      record_id: whileai_ecommerce_intent:train.22437
+      codes:
+      - OK
+    - id: R077
+      record_id: whileai_ecommerce_intent:train.16269
+      codes:
+      - OFF_DOMAIN
+      note: bill splitting
+    - id: R078
+      record_id: whileai_ecommerce_intent:eval.232
+      codes:
+      - OFF_DOMAIN
+      note: export transactions for taxes
+    - id: R079
+      record_id: whileai_ecommerce_intent:train.14606
+      codes:
+      - OK
+    - id: R080
+      record_id: whileai_ecommerce_intent:train.21080
+      codes:
+      - OK
+    - id: R081
+      record_id: whileai_ecommerce_intent:train.21670
+      codes:
+      - OFF_DOMAIN
+      note: marketplace bike
+    - id: R082
+      record_id: whileai_ecommerce_intent:train.2359
+      codes:
+      - OK
+    - id: R083
+      record_id: whileai_ecommerce_intent:train.6420
+      codes:
+      - OK
+    - id: R084
+      record_id: whileai_ecommerce_intent:train.22510
+      codes:
+      - OFF_DOMAIN
+      note: babysitter payment
+    - id: R085
+      record_id: whileai_ecommerce_intent:train.15166
+      codes:
+      - OK
+    - id: R086
+      record_id: whileai_ecommerce_intent:train.20177
+      codes:
+      - OK
+    - id: R087
+      record_id: whileai_ecommerce_intent:train.7557
+      codes:
+      - PII_LIKE
+      note: '"sarah dot mitchell at gmail" not caught by the e-mail mask'
+    - id: R088
+      record_id: whileai_ecommerce_intent:train.795
+      codes:
+      - OFF_DOMAIN
+      note: electric bill
+    - id: R089
+      record_id: whileai_ecommerce_intent:train.9194
+      codes:
+      - OFF_DOMAIN
+      note: crypto cash-out
+    - id: R090
+      record_id: whileai_ecommerce_intent:train.12682
+      codes:
+      - OK
+    - id: R091
+      record_id: whileai_ecommerce_intent:train.4032
+      codes:
+      - GARBLED
+      note: incoherent dialect text, not caught by the garbled detector
+    - id: R092
+      record_id: whileai_ecommerce_intent:train.20928
+      codes:
+      - OFF_DOMAIN
+      note: limit orders
+    - id: R093
+      record_id: whileai_ecommerce_intent:train.10179
+      codes:
+      - OFF_DOMAIN
+      - WEAK_TEXT
+      note: greeting-only first turn, group contribution
+    - id: R094
+      record_id: whileai_ecommerce_intent:train.16384
+      codes:
+      - OK
+    - id: R095
+      record_id: whileai_ecommerce_intent:train.17162
+      codes:
+      - OK
+    - id: R096
+      record_id: whileai_ecommerce_intent:train.18360
+      codes:
+      - WEAK_TEXT
+      note: greeting-only first turn
+    - id: R097
+      record_id: whileai_ecommerce_intent:eval.697
+      codes:
+      - OFF_DOMAIN
+      note: crypto swap
+    - id: R098
+      record_id: whileai_ecommerce_intent:train.20904
+      codes:
+      - OFF_DOMAIN
+      note: photographer deposit
+    - id: R099
+      record_id: whileai_ecommerce_intent:train.14393
+      codes:
+      - OFF_DOMAIN
+      note: send money
+    - id: R100
+      record_id: whileai_ecommerce_intent:train.21747
+      codes:
+      - OFF_DOMAIN
+      note: ETF investment
+    - id: F001
+      record_id: whileai_ecommerce_intent:train.2725
+      codes:
+      - OK
+      note: html_tag/code_switch flags are false alarms
+    - id: F002
+      record_id: whileai_ecommerce_intent:train.8111
+      codes:
+      - GARBLED
+      note: rejected encoding_damage, correct
+    - id: F003
+      record_id: whileai_ecommerce_intent:train.4480
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F004
+      record_id: whileai_ecommerce_intent:train.12146
+      codes:
+      - CONTEXT_DEPENDENT
+      - WEAK_TEXT
+      note: fragment "code is 883219, finish the order"; turn order broken
+    - id: F005
+      record_id: whileai_ecommerce_intent:train.12929
+      codes:
+      - CONTEXT_DEPENDENT
+      - OFF_DOMAIN
+      note: conversation starts mid-way, no reply
+    - id: F006
+      record_id: whileai_ecommerce_intent:train.15233
+      codes:
+      - PII_LIKE
+      note: gift card number masked
+    - id: F007
+      record_id: whileai_ecommerce_intent:train.7388
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F008
+      record_id: whileai_ecommerce_intent:train.5946
+      codes:
+      - OK
+    - id: F009
+      record_id: whileai_ecommerce_intent:train.4033
+      codes:
+      - WEAK_TEXT
+      note: '"👋"'
+    - id: F010
+      record_id: whileai_ecommerce_intent:train.4906
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F011
+      record_id: whileai_ecommerce_intent:train.8318
+      codes:
+      - LANG_OTHER
+      note: Spanish, rejected, correct
+    - id: F012
+      record_id: whileai_ecommerce_intent:train.8705
+      codes:
+      - UNNATURAL
+      note: all-caps persona
+    - id: F013
+      record_id: whileai_ecommerce_intent:train.13890
+      codes:
+      - OFF_DOMAIN
+    - id: F014
+      record_id: whileai_ecommerce_intent:train.2410
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F015
+      record_id: whileai_ecommerce_intent:train.8897
+      codes:
+      - OK
+    - id: F016
+      record_id: whileai_ecommerce_intent:train.6918
+      codes:
+      - OFF_DOMAIN
+      note: broadband bill
+    - id: F017
+      record_id: whileai_ecommerce_intent:train.8309
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F018
+      record_id: whileai_ecommerce_intent:train.5123
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F019
+      record_id: whileai_ecommerce_intent:train.2418
+      codes:
+      - GARBLED
+      - LANG_OTHER
+      note: rejected, correct
+    - id: F020
+      record_id: whileai_ecommerce_intent:train.16209
+      codes:
+      - OFF_DOMAIN
+      - PII_LIKE
+      note: restaurant booking
+    - id: F021
+      record_id: whileai_ecommerce_intent:train.3578
+      codes:
+      - WEAK_TEXT
+    - id: F022
+      record_id: whileai_ecommerce_intent:train.1979
+      codes:
+      - WEAK_TEXT
+    - id: F023
+      record_id: whileai_ecommerce_intent:train.887
+      codes:
+      - PII_LIKE
+    - id: F024
+      record_id: whileai_ecommerce_intent:train.17838
+      codes:
+      - CONTEXT_DEPENDENT
+      note: starts with an order edit, no opening
+    - id: F025
+      record_id: whileai_ecommerce_intent:train.4724
+      codes:
+      - PII_LIKE
+    - id: F026
+      record_id: whileai_ecommerce_intent:train.3357
+      codes:
+      - GARBLED
+      note: incoherent text that the detector missed (single script)
+    - id: F027
+      record_id: whileai_ecommerce_intent:train.1273
+      codes:
+      - OFF_DOMAIN
+    - id: F028
+      record_id: whileai_ecommerce_intent:train.6974
+      codes:
+      - WEAK_TEXT
+    - id: F029
+      record_id: whileai_ecommerce_intent:train.6021
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F030
+      record_id: whileai_ecommerce_intent:train.6942
+      codes:
+      - LANG_OTHER
+      note: rejected, correct
+    - id: F031
+      record_id: whileai_ecommerce_intent:train.6612
+      codes:
+      - OK
+    - id: F032
+      record_id: whileai_ecommerce_intent:train.16393
+      codes:
+      - OFF_DOMAIN
+    - id: F033
+      record_id: whileai_ecommerce_intent:train.9408
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F034
+      record_id: whileai_ecommerce_intent:train.1994
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F035
+      record_id: whileai_ecommerce_intent:train.5051
+      codes:
+      - OK
+    - id: F036
+      record_id: whileai_ecommerce_intent:train.1688
+      codes:
+      - GARBLED
+      - OFF_DOMAIN
+      note: rejected, correct
+    - id: F037
+      record_id: whileai_ecommerce_intent:train.2498
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F038
+      record_id: whileai_ecommerce_intent:train.2656
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F039
+      record_id: whileai_ecommerce_intent:train.2291
+      codes:
+      - OFF_DOMAIN
+      - PII_LIKE
+    - id: F040
+      record_id: whileai_ecommerce_intent:train.461
+      codes:
+      - WEAK_TEXT
+    - id: F041
+      record_id: whileai_ecommerce_intent:train.5602
+      codes:
+      - WEAK_TEXT
+    - id: F042
+      record_id: whileai_ecommerce_intent:train.3372
+      codes:
+      - PII_LIKE
+    - id: F043
+      record_id: whileai_ecommerce_intent:train.9041
+      codes:
+      - PII_LIKE
+    - id: F044
+      record_id: whileai_ecommerce_intent:train.4224
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F045
+      record_id: whileai_ecommerce_intent:train.7147
+      codes:
+      - OK
+    - id: F046
+      record_id: whileai_ecommerce_intent:train.5836
+      codes:
+      - WEAK_TEXT
+    - id: F047
+      record_id: whileai_ecommerce_intent:train.9445
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F048
+      record_id: whileai_ecommerce_intent:train.3214
+      codes:
+      - LANG_OTHER
+      note: rejected, correct
+    - id: F049
+      record_id: whileai_ecommerce_intent:train.9211
+      codes:
+      - OK
+    - id: F050
+      record_id: whileai_ecommerce_intent:train.4887
+      codes:
+      - WEAK_TEXT
+    - id: F051
+      record_id: whileai_ecommerce_intent:train.7969
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F052
+      record_id: whileai_ecommerce_intent:train.8938
+      codes:
+      - OFF_DOMAIN
+      - UNNATURAL
+      note: medical bill
+    - id: F053
+      record_id: whileai_ecommerce_intent:train.4206
+      codes:
+      - OFF_DOMAIN
+      note: haircut booking
+    - id: F054
+      record_id: whileai_ecommerce_intent:train.6188
+      codes:
+      - OFF_DOMAIN
+      note: flights
+    - id: F055
+      record_id: whileai_ecommerce_intent:train.4373
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F056
+      record_id: whileai_ecommerce_intent:train.1640
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F057
+      record_id: whileai_ecommerce_intent:train.7755
+      codes:
+      - OFF_DOMAIN
+      - PII_LIKE
+    - id: F058
+      record_id: whileai_ecommerce_intent:train.7901
+      codes:
+      - WEAK_TEXT
+    - id: F059
+      record_id: whileai_ecommerce_intent:train.4113
+      codes:
+      - WEAK_TEXT
+    - id: F060
+      record_id: whileai_ecommerce_intent:eval.809
+      codes:
+      - PII_LIKE
+    - id: F061
+      record_id: whileai_ecommerce_intent:train.2401
+      codes:
+      - PII_LIKE
+    - id: F062
+      record_id: whileai_ecommerce_intent:train.2922
+      codes:
+      - GARBLED
+      note: word salad the detector missed
+    - id: F063
+      record_id: whileai_ecommerce_intent:train.2746
+      codes:
+      - OK
+    - id: F064
+      record_id: whileai_ecommerce_intent:train.6430
+      codes:
+      - WEAK_TEXT
+    - id: F065
+      record_id: whileai_ecommerce_intent:train.3449
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F066
+      record_id: whileai_ecommerce_intent:eval.1261
+      codes:
+      - LANG_OTHER
+      note: rejected, correct
+    - id: F067
+      record_id: whileai_ecommerce_intent:train.10781
+      codes:
+      - PII_LIKE
+      - UNNATURAL
+    - id: F068
+      record_id: whileai_ecommerce_intent:train.20920
+      codes:
+      - OFF_DOMAIN
+    - id: F069
+      record_id: whileai_ecommerce_intent:train.8097
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F070
+      record_id: whileai_ecommerce_intent:train.6672
+      codes:
+      - OK
+    - id: F071
+      record_id: whileai_ecommerce_intent:train.5908
+      codes:
+      - OFF_DOMAIN
+      note: tax payment
+    - id: F072
+      record_id: whileai_ecommerce_intent:train.5733
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F073
+      record_id: whileai_ecommerce_intent:train.7279
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F074
+      record_id: whileai_ecommerce_intent:train.7551
+      codes:
+      - GARBLED
+      - LANG_OTHER
+      note: rejected, correct
+    - id: F075
+      record_id: whileai_ecommerce_intent:eval.1778
+      codes:
+      - PII_LIKE
+    - id: F076
+      record_id: whileai_ecommerce_intent:train.2690
+      codes:
+      - WEAK_TEXT
+    - id: F077
+      record_id: whileai_ecommerce_intent:train.1350
+      codes:
+      - OFF_DOMAIN
+      - WEAK_TEXT
+    - id: F078
+      record_id: whileai_ecommerce_intent:train.2504
+      codes:
+      - PII_LIKE
+    - id: F079
+      record_id: whileai_ecommerce_intent:train.5516
+      codes:
+      - GARBLED
+      note: word salad the detector missed
+    - id: F080
+      record_id: whileai_ecommerce_intent:train.1523
+      codes:
+      - OK
+    - id: F081
+      record_id: whileai_ecommerce_intent:train.5752
+      codes:
+      - WEAK_TEXT
+    - id: F082
+      record_id: whileai_ecommerce_intent:train.7562
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F083
+      record_id: whileai_ecommerce_intent:train.2782
+      codes:
+      - LANG_OTHER
+      note: rejected, correct
+    - id: F084
+      record_id: whileai_ecommerce_intent:train.2708
+      codes:
+      - UNNATURAL
+    - id: F085
+      record_id: whileai_ecommerce_intent:train.6384
+      codes:
+      - WEAK_TEXT
+    - id: F086
+      record_id: whileai_ecommerce_intent:train.8155
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F087
+      record_id: whileai_ecommerce_intent:train.1542
+      codes:
+      - OK
+    - id: F088
+      record_id: whileai_ecommerce_intent:train.1960
+      codes:
+      - OK
+    - id: F089
+      record_id: whileai_ecommerce_intent:train.1165
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F090
+      record_id: whileai_ecommerce_intent:train.8844
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F091
+      record_id: whileai_ecommerce_intent:train.8179
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F092
+      record_id: whileai_ecommerce_intent:train.3123
+      codes:
+      - OFF_DOMAIN
+    - id: F093
+      record_id: whileai_ecommerce_intent:train.3221
+      codes:
+      - WEAK_TEXT
+    - id: F094
+      record_id: whileai_ecommerce_intent:train.8468
+      codes:
+      - WEAK_TEXT
+    - id: F095
+      record_id: whileai_ecommerce_intent:train.5427
+      codes:
+      - PII_LIKE
+    - id: F096
+      record_id: whileai_ecommerce_intent:train.5676
+      codes:
+      - WEAK_TEXT
+    - id: F097
+      record_id: whileai_ecommerce_intent:train.8729
+      codes:
+      - WEAK_TEXT
+    - id: F098
+      record_id: whileai_ecommerce_intent:train.2503
+      codes:
+      - GARBLED
+      note: rejected, correct
+    - id: F099
+      record_id: whileai_ecommerce_intent:train.1794
+      codes:
+      - LANG_OTHER
+      note: rejected, correct
+    - id: F100
+      record_id: whileai_ecommerce_intent:train.8208
+      codes:
+      - WEAK_TEXT
+conclusions: '**Volume vs diversity.** The 99,882 records hold 95,000+ distinct texts, but the two
+
+  Bitext sources (71,756 rows) reduce to 68 scenarios (same request and required action),
+
+  and the canonical set of 55,648 rows to 55 scenarios across 23 v0 intents.
+
+  support-json-ru has 26 policy situations and Belebele 789 passage groups (not support).
+
+  while-ai is lexically diverse (24,520 near-unique dialogues) but about half off-domain and
+
+  labelled per dialogue, so it adds no canonical scenarios yet.
+
+
+  **What Stage 4 can rely on.** The canonical set (EN, Bitext, mapped draft-v0 labels) is
+
+  clean by every automatic gate, but it is a paraphrase-heavy set of a few dozen scenarios.
+
+  Paraphrase families (J ≥ 0.8) are compact, yet lower thresholds chain whole intents
+
+  together. A validation/test split drawn from Bitext therefore measures robustness to
+
+  paraphrase, not generalisation to new requests. Generalisation must be measured on the
+
+  independently authored gold benchmark and on scenario-disjoint data.
+
+
+  **Main risks.** (1) No RU/KK support data; Stage 4 must create it, and Kazakh translation
+
+  quality needs human review (Belebele KK already shows calques and typos). (2) Templated,
+
+  over-profane EN register. (3) Draft-v0 labels: 11 source intents remain unmapped and
+
+  several Bitext labels conflict; actions come from rules (needs_reference) and are draft.
+
+  (4) Reference responses contain unresolved store facts and generation artefacts and must
+
+  not become training targets.
+
+
+  **Limitations of this review.** One reviewer, an LLM agent, read 100 random and up to 100
+
+  flagged records per source (Belebele had only 24 flagged). This is not an independent
+
+  human review; codes are judgments on truncated displays (text ≤ 170 chars, response
+
+  ≤ 100 chars). Kazakh and Russian quality needs a fluent human reviewer.
+
+  '

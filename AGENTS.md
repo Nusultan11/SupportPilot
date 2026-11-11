@@ -35,6 +35,8 @@ JSON, grounding, abstention, escalation), never facts. Details: [docs/PROJECT.md
 | `docs/RUNBOOK.md` | Verified commands: setup, run, backup, restore, diagnostics |
 | `src/supportpilot/` | Python package: `common/` (foundation), `ops/` (env, backup, checks), `cli.py` |
 | `configs/base.yaml` | Default settings; override via `SUPPORTPILOT_<SECTION>__<KEY>` |
+| `configs/intent_map.yaml`, `configs/placeholders.yaml` | Draft v0 label map (ADR-021), synthetic slot catalogue (ADR-020) |
+| `docs/reviews/` | Hand-written qualitative reviews (Stage 3: `stage3_review.yaml`), rendered into the EDA report |
 | `tests/unit`, `tests/integration` | pytest suites (markers: `slow`, `gpu`, `qdrant_server`) |
 | `compose.yaml` | Local services (Qdrant) |
 | `apps/` | UI (created in Stage 8) |
@@ -66,7 +68,7 @@ docker compose up -d qdrant                        # Qdrant server for qdrant_se
 
 A stage is not done while any of these fail. A *skipped* `qdrant_server` or `gpu` test means
 the check did not run, so report it as unverified. Operational CLI: `uv run supportpilot --help`
-(`env`, `backup`, `check`, `data`).
+(`env`, `backup`, `check`, `data`; Stage 3: `data clean --all`, `data gates`, `data eda`).
 
 ## 6. Code and data standards
 

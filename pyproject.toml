@@ -6,7 +6,10 @@ readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = [
     "huggingface-hub>=2.4.0",
+    "lingua-language-detector>=2.2.0",
+    "matplotlib>=3.11.2",
     "mlflow>=3.18.0",
+    "numpy>=2.5.4",
     "polars>=2.1.0",
     "psutil>=7.2.2",
     "pyarrow>=26.0.1",
@@ -14,6 +17,8 @@ dependencies = [
     "pydantic-settings>=2.16.2",
     "pyyaml>=6.0.3",
     "qdrant-client>=1.20.0",
+    "scipy>=1.18.1",
+    "tokenizers>=0.23.3",
 ]
 
 [project.scripts]
@@ -60,7 +65,7 @@ select = ["E", "W", "F", "I", "B", "UP", "SIM", "N", "RUF", "S", "PTH", "C4", "P
 ignore = ["S101"]  # assert is fine in tests (and only used there)
 
 [tool.ruff.lint.per-file-ignores]
-"tests/**" = ["S", "PLR2004"]
+"tests/**" = ["S", "PLR2004", "RUF001", "RUF003"]  # tests hold RU/KK text and unicode on purpose
 
 [tool.mypy]
 python_version = "3.12"
@@ -70,7 +75,7 @@ mypy_path = "src"
 files = ["src", "tests"]
 
 [[tool.mypy.overrides]]
-module = ["mlflow.*", "qdrant_client.*", "pyarrow.*"]
+module = ["mlflow.*", "qdrant_client.*", "pyarrow.*", "scipy.*"]
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]

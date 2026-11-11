@@ -39,13 +39,13 @@ uv run pre-commit install     # once per clone
 - Configuration: `configs/base.yaml`. Override with env vars `SUPPORTPILOT_<SECTION>__<KEY>`,
   or a file via `--config` / `SUPPORTPILOT_CONFIG`. Secrets go in `.env` (git-ignored).
 
-## 3. Quality checks (verified Stage 2)
+## 3. Quality checks (verified Stage 3)
 
 ```bash
 uv run ruff check . && uv run ruff format --check .
 uv run mypy                   # strict; src + tests
-uv run pytest -q              # full suite: 173 tests, ~16 s (with the Qdrant server up)
-uv run pytest -q -m "not slow and not gpu and not qdrant_server"   # fast subset (170 tests), ~8 s
+uv run pytest -q              # full suite: 233 tests, ~25 s (with the Qdrant server up)
+uv run pytest -q -m "not slow and not gpu and not qdrant_server"   # fast subset (230 tests)
 uv run pre-commit run --all-files                                  # all hooks
 ```
 
@@ -174,6 +174,64 @@ uv run supportpilot backup restore data/<source_id>_raw/<snapshot_id> --target <
 # then move <empty-dir>/<revision> to data/raw/<source_id>/<revision> and run `data verify`
 ```
 
+## 7b. Stage 3: cleaning, dedup, gates, EDA (verified Stage 3)
+
+```bash
+uv run supportpilot data clean --all          # clean every selected source, build data/interim/canonical, run gates
+uv run supportpilot data clean --all --force  # rebuild everything (same input -> byte-identical Parquet)
+uv run supportpilot data clean bitext_retail_ecom   # only the per-source clean checkpoint, no build
+uv run supportpilot data gates                # re-run the quality gates on the current build; exit 1 on failure
+uv run supportpilot data eda                  # profile + report -> artifacts/reports/eda/ (downloads 2 Qwen tokenizer.json once)
+uv run supportpilot data eda --no-tokens      # offline: skip token counts
+```
+
+Outputs and their meaning are in DATA_CONTRACTS §4–4d. The configuration lives in
+`configs/base.yaml`:
+- `clean:` has the thresholds (ADR-020/022);
+- `eda:` has the review sample sizes and the pinned tokenizers;
+- `configs/intent_map.yaml` is the draft v0 label map;
+- `configs/placeholders.yaml` is the synthetic slot catalogue.
+
+Behaviour:
+- **Re-runs.** A step is skipped when its inputs, parameters and file hashes are unchanged:
+  clean per source (input records hash + params), build (all clean hashes + params,
+  including the intent-map sha). After a change in `clean.py` / `build.py` logic, bump
+  `CLEAN_VERSION` / `BUILD_VERSION`, or run with `--force`.
+- **Interruption.** Outputs are written to `.partial-*` and swapped in at the end.
+  - Verified with `taskkill /F` twice: once during grouping and once while the partial
+    canonical directory was being written.
+  - Both times the previous build stayed intact, and `data verify --all` and `data gates`
+    passed. A plain re-run skipped everything in 2.8 s.
+  - Any leftover partial is removed on the next run.
+- **Failed gates.** The new build is not swapped in. It is kept at
+  `data/interim/canonical.failed/` (see its `quality_report.json`), the previous build stays
+  in place, and the exit code is 1.
+- **RAM.** The full forced build peaked at 2.84 GiB RSS. `data clean --all` warns when less
+  than 3 GiB is free. Stop Docker/IDE first if RAM is low.
+
+Timings (2026-11-11, full `--force`, 99,882 records):
+
+| Step | Time |
+|---|---|
+| clean bitext_retail / bitext_cs / while-ai / support_json_ru / belebele | 23 / 11 / 78 / 0.7 / 2 s |
+| build (dedup, 7.6M LSH candidates, groups, gates) | ~104 s |
+| eda (incl. two tokenizers over all texts) | ~63 s |
+
+Qualitative review:
+- `data eda` writes deterministic samples to `artifacts/reports/eda/review/<source>.md`
+  (100 random + up to 100 flagged, seed 20261111).
+- The hand-written annotations live in `docs/reviews/stage3_review.yaml` and are rendered
+  into the report.
+- After a change that alters the samples (`review/samples.json`), re-check the annotations;
+  the report shows them by sample id.
+
+Backup after a rebuild:
+```bash
+uv run supportpilot backup create data/interim/clean --name clean_records --kind data
+uv run supportpilot backup create data/interim/canonical --name canonical --kind data --pin --note "stage end"
+uv run supportpilot backup create artifacts/reports/eda --name eda_report --kind data --pin
+```
+
 ## 8. Diagnostics
 
 | Symptom | Check |
@@ -189,3 +247,9 @@ uv run supportpilot backup restore data/<source_id>_raw/<snapshot_id> --target <
 | `data acquire`: "fails verification ... immutable" | A raw file changed on disk. Restore from the pinned snapshot (§7) |
 | `data convert`: "rows rejected (> 1.00%)" | Upstream format changed. Inspect `rejected` reasons, then fix the converter and bump its version |
 | Console shows `?` instead of Kazakh letters | Windows code page. Set `PYTHONIOENCODING=utf-8` for ad-hoc scripts |
+| `data clean --all`: "quality gates failed" | Open `data/interim/canonical.failed/quality_report.json`, fix the cause, re-run. The previous build is untouched |
+| `data clean`: "not cleaned yet" / "fails verification" | Run `data clean --all` (rebuilds checkpoints); for records problems run `data verify --all` and re-convert |
+| `data clean` re-runs although nothing changed | `configs/placeholders.yaml`, `intent_map.yaml`, `clean:` params or the lingua version changed. This is expected |
+| `data eda`: tokenizer download fails or sha256 mismatch | Offline or upstream changed: use `--no-tokens`, or re-pin `eda.tokenizers` after checking the new revision |
+| HF warning "cache-system uses symlinks" | Harmless on Windows. Set `HF_HUB_DISABLE_SYMLINKS_WARNING=1` |
+| `data/interim/.partial-*` directories exist | A run was killed. The next run of the same step removes them |

@@ -52,6 +52,48 @@ class DataSettings(_Section):
     download_retries: int = Field(default=3, ge=1)
 
 
+class CleanSettings(_Section):
+    """Stage 3 cleaning, language ID, dedup and quality gates (ADR-020..022)."""
+
+    intent_map: Path = Path("configs/intent_map.yaml")
+    placeholders: Path = Path("configs/placeholders.yaml")
+    # Language ID: a non-supported language wins only when lingua is this confident.
+    lid_other_min_conf: float = Field(default=0.9, gt=0.0, le=1.0)
+    lid_low_conf: float = Field(default=0.5, ge=0.0, le=1.0, description="flag below this")
+    lid_relabel_min_conf: float = Field(
+        default=0.8, ge=0.0, le=1.0, description="detected != declared overrides only above this"
+    )
+    lid_min_letters: int = Field(default=3, ge=1, description="fewer letters -> undetermined")
+    # Near-duplicate detection: char shingles + MinHash/LSH, verified by exact Jaccard.
+    shingle_size: int = Field(default=5, ge=2)
+    minhash_perms: int = Field(default=128, ge=16)
+    lsh_bands: int = Field(default=32, ge=1)
+    family_threshold: float = Field(default=0.8, gt=0.0, le=1.0)
+    pair_report_min: float = Field(
+        default=0.5, gt=0.0, le=1.0, description="verified pairs >= this are kept for EDA"
+    )
+    sim_text_max_chars: int = Field(default=4000, ge=100)
+    seed: int = 20261111
+    # Gates (DATA_CONTRACTS §10)
+    min_validity: float = Field(default=0.995, ge=0.0, le=1.0)
+    min_lid_agreement: float = Field(default=0.99, ge=0.0, le=1.0)
+
+
+class TokenizerSpec(_Section):
+    name: str
+    repo_id: str
+    revision: str = Field(pattern=r"^[0-9a-f]{40}$")
+    sha256: str = Field(pattern=r"^[0-9a-f]{64}$", description="of tokenizer.json")
+
+
+class EdaSettings(_Section):
+    review_random: int = Field(default=100, ge=0)
+    review_flagged: int = Field(default=100, ge=0)
+    seed: int = 20261111
+    review_annotations: Path = Path("docs/reviews/stage3_review.yaml")
+    tokenizers: list[TokenizerSpec] = Field(default_factory=list)
+
+
 class LoggingSettings(_Section):
     level: Literal["DEBUG", "INFO", "WARNING", "ERROR"] = "INFO"
     format: Literal["json", "console"] = "json"
@@ -93,6 +135,8 @@ class Settings(BaseSettings):
     root: Path = Field(default_factory=find_project_root)
     paths: PathsSettings = PathsSettings()
     data: DataSettings = DataSettings()
+    clean: CleanSettings = CleanSettings()
+    eda: EdaSettings = EdaSettings()
     logging: LoggingSettings = LoggingSettings()
     backup: BackupSettings = BackupSettings()
     mlflow: MLflowSettings = MLflowSettings()

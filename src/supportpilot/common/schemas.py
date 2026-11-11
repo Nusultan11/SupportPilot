@@ -254,6 +254,89 @@ class RecordsManifest(_Contract):
     files: list[FileEntry] = Field(min_length=1)
 
 
+class PendingExample(_Contract):
+    """§4c: a cleaned, deduplicated example that cannot be made canonical yet (reason given)."""
+
+    schema_version: Literal["pending/1"] = "pending/1"
+    example_id: ExampleId
+    record_id: RecordId
+    source_id: Slug
+    revision: NonEmptyStr
+    record_type: RecordType
+    source_split: str | None = None
+    scenario_id: NonEmptyStr
+    family_id: NonEmptyStr
+    lang: LanguageCode
+    code_switch: bool
+    langs: list[str]
+    text: NonEmptyStr
+    reference_response: str | None = None
+    slots: dict[str, str] = Field(default_factory=dict)
+    source_intent: str | None = None
+    source_category: str | None = None
+    source_tags: str | None = None
+    candidate_intent: str | None = None  # v0 intent if the label maps, else None
+    candidate_action: str | None = None
+    context_json: str | None = None
+    allowed_use: AllowedUse
+    reason: NonEmptyStr
+    reason_detail: str | None = None
+    quality: Quality
+
+    @model_validator(mode="after")
+    def _lineage(self) -> Self:
+        if not self.record_id.startswith(f"{self.source_id}:"):
+            raise ValueError("record_id must start with '{source_id}:'")
+        if "{{" in self.text:
+            raise ValueError("unresolved {{placeholder}} in text")
+        return self
+
+
+class RejectedRecord(_Contract):
+    """§4d: an input record excluded in Stage 3, with the stage and reason."""
+
+    schema_version: Literal["rejected/1"] = "rejected/1"
+    record_id: RecordId
+    source_id: Slug
+    revision: NonEmptyStr
+    example_id: ExampleId | None = None
+    stage: Literal["clean", "dedup", "validate"]
+    reason: NonEmptyStr
+    detail: str | None = None
+    duplicate_of: ExampleId | None = None
+    family_id: str | None = None
+    allowed_use: AllowedUse
+    text_sha256: Sha256
+
+    @model_validator(mode="after")
+    def _dup(self) -> Self:
+        if (self.reason == "exact_duplicate") != (self.duplicate_of is not None):
+            raise ValueError("duplicate_of is set exactly for reason=exact_duplicate")
+        return self
+
+
+class CleanManifest(_Contract):
+    """Manifest of `data/interim/clean/{source_id}/{revision}/` (Stage 3 checkpoint)."""
+
+    schema_version: Literal["clean_manifest/1"] = "clean_manifest/1"
+    source_id: Slug
+    revision: NonEmptyStr
+    allowed_use: AllowedUse
+    records_content_sha256: Sha256  # lineage: the RawRecord content this was built from
+    clean_version: NonNegativeInt
+    params: dict[str, object]
+    params_sha256: Sha256
+    code_commit: str | None
+    created_at: AwareDatetime
+    row_count: NonNegativeInt
+    rejected_count: NonNegativeInt
+    reject_reasons: dict[str, NonNegativeInt]
+    flag_counts: dict[str, NonNegativeInt]
+    counts: dict[str, NonNegativeInt]
+    content_sha256: Sha256
+    files: list[FileEntry] = Field(min_length=1)
+
+
 class DatasetManifest(_Contract):
     """§9: one per processed dataset or index."""
 

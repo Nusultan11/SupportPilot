@@ -167,6 +167,8 @@ def cmd_data(args: argparse.Namespace, settings: Settings) -> int:
         _emit({"sources": rows})
         return 0
 
+    if args.action in ("clean", "gates", "eda"):
+        return _cmd_stage3(args, settings)
     entries = _selected_entries(args, settings)
     if args.action == "acquire":
         results = []
@@ -217,6 +219,38 @@ def cmd_data(args: argparse.Namespace, settings: Settings) -> int:
         report.append(item)
     _emit({"verify": report})
     return 1 if failed else 0
+
+
+def _cmd_stage3(args: argparse.Namespace, settings: Settings) -> int:
+    from supportpilot.data import pipeline
+    from supportpilot.data.build import BuildError
+
+    registry = load_source_registry(settings.resolve(settings.data.registry))
+    selected = [s for s in registry.sources if s.status is SourceStatus.SELECTED]
+    if args.action == "gates":
+        report = pipeline.regate(settings, selected)
+        _emit(report)
+        return 0 if report.passed else 1
+    if args.action == "eda":
+        from supportpilot.data.eda import run_eda
+
+        summary = run_eda(settings, selected, tokens=not args.no_tokens)
+        _emit(summary)
+        return 0
+    entries = selected if args.all else _selected_entries(args, settings)
+    try:
+        result = pipeline.prepare(
+            settings,
+            entries,
+            build=args.all,
+            force=args.force,
+            code_commit=code_commit(settings.root),
+        )
+    except BuildError as exc:
+        log.error("build failed", extra={"error": str(exc)})
+        return 1
+    _emit(result)
+    return 0 if result.gates is None or result.gates.passed else 1
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -273,6 +307,17 @@ def build_parser() -> argparse.ArgumentParser:
         a.add_argument("--all", action="store_true", help="all sources with status=selected")
         if name == "convert":
             a.add_argument("--force", action="store_true", help="rebuild even if up to date")
+    cl = dsub.add_parser(
+        "clean",
+        help="Stage 3: records -> data/interim/clean; with --all also build "
+        "data/interim/canonical (dedup, groups, canonical/pending/rejected) and run the gates",
+    )
+    cl.add_argument("sources", nargs="*", help="clean only these sources (no build)")
+    cl.add_argument("--all", action="store_true", help="all selected sources + build + gates")
+    cl.add_argument("--force", action="store_true", help="rebuild even if up to date")
+    dsub.add_parser("gates", help="re-run the quality gates on data/interim/canonical")
+    ed = dsub.add_parser("eda", help="EDA report -> artifacts/reports/eda/")
+    ed.add_argument("--no-tokens", action="store_true", help="skip Qwen token counts (offline)")
     dt.set_defaults(func=cmd_data)
     return p
 
@@ -287,6 +332,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     configure_logging(settings.logging)
     log.debug("start", extra={"command": args.command, "at": datetime.now(UTC).isoformat()})
     from supportpilot.data.acquire import AcquireError
+    from supportpilot.data.build import BuildError
     from supportpilot.data.converters import ConversionError
     from supportpilot.data.policy import PolicyError
 
@@ -295,6 +341,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     except (
         backup.BackupError,
         AcquireError,
+        BuildError,
         ConversionError,
         PolicyError,
         FileNotFoundError,

@@ -16,9 +16,14 @@ and an entry in DECISIONS.md.
   - `record_id` = `{source_id}:{source_row_key}`. The key is the source's own key or the row
     index at a pinned revision, in its original case, using characters `[A-Za-z0-9._-]`.
   - `example_id` = first 16 hex chars of `sha256(source_id|record_id|lang|origin|text_normalised)`.
-  - `scenario_id`: a group of examples that express the same request and response logic. Splits
-    are by `scenario_id`.
-  - `family_id`: a paraphrase family inside a scenario. All translations of an example share its `family_id`.
+  - `scenario_id`: a group of examples that express the same request and require the same
+    action: the same source label and action, or a source-provided scenario id. It is joined
+    across sources only through identical or near-identical texts with the same v0 intent and
+    action (ADR-022). Format `scn_<16 hex>`. Splits are by `scenario_id`. **Open (Stage 4):**
+    Bitext has only 68 scenarios, so see ADR-022 before choosing the split unit.
+  - `family_id`: a paraphrase family inside a scenario. These are near-duplicates (char-5-gram
+    Jaccard ≥ 0.8) with compatible labels, plus source alignments. All translations of an
+    example share its `family_id`. Format `fam_<16 hex>`.
   - `doc_id`: slug of the KB document. `chunk_id` = `{doc_id}:{version[:8]}:{position:04d}`.
 - **Timestamps**: UTC ISO-8601. **Money**: integer minor units + `currency` (ISO 4217, `KZT`).
 - **Text**: UTF-8, NFC normalised, `\n` newlines. Original text is preserved in raw storage.
@@ -99,7 +104,28 @@ A conversion is skipped when the raw manifest hash, the converter version and th
 still match. It fails when no rows are produced or when rejected rows exceed
 `data.max_reject_ratio` (default 1%).
 
-## 4. Canonical example (`data/interim/`, Parquet, partitioned by `lang`)
+## 4b. Clean record (`data/interim/clean/{source_id}/{revision}/clean.parquet`)
+
+This is the Stage 3 checkpoint (`clean_record/1`, manifest `clean_manifest/1`). There is one
+row per raw record, so rejected rows are included with `reject_reason` (`empty_text`,
+`no_letters`, `malformed_placeholder`, `unknown_placeholder`, `encoding_damage`,
+`garbled_text`, `unsupported_language`).
+
+Each row carries the cleaned and PII-masked `text` with slots filled, plus:
+- `text_template` (placeholders kept) and `reference_response`;
+- `slots` and `slot_signature`;
+- `response_placeholders` (`{class: [names]}`);
+- language fields: `lang`, `lang_declared`, `lang_detected`, `lid_conf`, `script`,
+  `code_switch`, `langs`;
+- `context_json`: dialogue turns, policies/facts or passage, cleaned;
+- dedup keys `exact_key` and `sim_text`, and source hints `family_hint` and `scenario_hint`;
+- `flags`, `fixes`, and `text_sha256` (lineage to the raw text).
+
+The manifest records the input `records_content_sha256`, `clean_version`, `params` (with
+`params_sha256`, including the placeholder catalogue hash and the lingua version), counts,
+and the content hash.
+
+## 4. Canonical example (`data/interim/canonical/examples/lang=<xx>/part-00000.parquet`)
 
 | Field | Type | Req | Notes |
 |---|---|---|---|
@@ -116,12 +142,40 @@ still match. It fails when no rows are produced or when rejected rows exceed
 | action | enum | ✓ | `answer_kb`, `call_tool`, `clarify`, `escalate`, `refuse_oos` |
 | escalate | bool | ✓ | |
 | escalation_reason | str? | – | required if `escalate` |
-| slots | map<str,str> | – | e.g. `order_id`. Placeholders replaced with synthetic values |
+| slots | map<str,str> | – | e.g. `order_id`. Placeholders replaced with synthetic values; values are the surface strings shown in the text (money: amount as written + `currency` ISO code) |
 | origin | enum | ✓ | `original`, `machine_translated`, `llm_generated`, `post_edited`, `human_written` |
 | translation_of | str? | – | `example_id` of the source example |
 | translation_system | str? | – | model/version |
 | quality | struct | ✓ | `{lid_conf, mt_qe?, intent_agree?, dup_cluster?, flags: list[str]}` |
 | split | enum? | – | assigned in Stage 4 only |
+
+Stage 3 status: canonical rows exist only for train-allowed sources with a mapped draft-v0
+label. Each such row carries the flag `labels:intent_map_draft_v0` (ADR-021).
+`quality.dup_cluster` is the exact-duplicate group (`dup_<16 hex>`) when the text had duplicates.
+
+## 4c. Pending example (`data/interim/canonical/pending.parquet`, `pending/1`)
+
+A valid, cleaned and deduplicated example that cannot be canonical yet. It carries the same
+lineage and grouping fields as canonical/1, plus `record_type`, `source_split`, `langs`,
+`source_tags`, `candidate_intent`/`candidate_action` (when the label maps), `context_json`,
+`allowed_use`, `reason` and `reason_detail`.
+
+Reasons, checked in this order:
+- `label_conflict`;
+- `allowed_use:<level>`;
+- `record_type:<type>`;
+- `intent_unmapped`, `label_suspect`, `no_source_label` or `intent_not_in_map`.
+
+## 4d. Rejected record (`data/interim/canonical/rejected.parquet`, `rejected/1`)
+
+Fields: `record_id`, `source_id`, `revision`, `example_id`, `stage` (`clean` | `dedup` |
+`validate`), `reason`, `detail`, `duplicate_of` (set exactly for `exact_duplicate`),
+`family_id`, `allowed_use`, `text_sha256`.
+
+Every input record appears exactly once in examples, pending or rejected. This is the
+`accounting` gate. `groups.parquet` maps every kept row to its exact group, family and
+scenario. `pairs.parquet` lists the verified near-duplicate pairs (J ≥ 0.5) with their
+label compatibility.
 
 ## 5. SFT example (`data/processed/sft/{dataset_version}/`)
 
@@ -218,6 +272,16 @@ File paths in every manifest are relative POSIX paths without `..`. This is enfo
 `FileEntry`.
 
 ## 10. Validation gates (enforced in code)
+
+They are implemented in `supportpilot.data.gates` (Stage 3) and run on every build. The
+results go to `quality_report.json`, and `supportpilot data gates` re-runs them. Stage 3 also
+checks:
+- `accounting`: every record exactly once;
+- `ids`: example ids are unique and recomputable, and each family sits in one scenario;
+- `pii`: no unmasked e-mail, phone or card in the text;
+- `labels`: only v0 intents, and escalation always has a reason.
+
+The leakage and split rows below are `not_applicable` until Stage 4.
 
 | Gate | Rule |
 |---|---|

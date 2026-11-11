@@ -88,6 +88,9 @@ Format: context → decision → alternatives → risks → revisit when. Status
 - **Decision:** no project skills or MCP servers yet. There is no repeated process to capture.
   HF access via `huggingface_hub`; research via built-in web tools.
   Candidate skills once the processes exist: `data-quality-audit` (Stage 3), `rag-eval` (Stage 6), `experiment-review` (Stage 7), `release-readiness` (Stage 10).
+- **Stage 3 check (2026-11-11):** the data-quality audit ran once, and it is now code
+  (`data clean`, `data gates`, `data eda`), not a manual process. So no skill yet. Revisit
+  when Stage 4 repeats the review on translated data.
 - **Revisit:** at the end of each of those stages, if the process was run ≥ 2 times by hand.
 
 ### ADR-013 Git on `main` only; backups in the git-ignored `backups/` dir — accepted (2026-11-11, location changed the same day)
@@ -128,6 +131,10 @@ Format: context → decision → alternatives → risks → revisit when. Status
   - Both groups install by default. CI can skip `gpu`.
   - Polars/PyArrow, Transformers and FastAPI are added in the stage that first uses them.
   - Stage 2 added `huggingface-hub` 2.4 (pinned downloads, upstream hashes), `polars` 2.1 (lazy reading of records) and `pyarrow` 26 (streaming Parquet writer). pyarrow was previously only transitive.
+  - Stage 3 added `lingua-language-detector` 2.2 (LID, ADR-020), `tokenizers` 0.23 (Qwen token
+    lengths from the pinned `tokenizer.json`, without the heavy `transformers`), and `numpy`,
+    `scipy`, `matplotlib`. Those three were already transitive (via mlflow) and are now
+    explicit, because MinHash, sparse Jaccard and the EDA charts import them.
 - **Why cu126:** it is verified on driver 566.07 (CUDA 12.7 runtime). Newer CUDA builds need a newer driver. Updating the driver is the owner's call.
 - **Alternatives:** torch as a main dependency (forces a ~2.5 GB CUDA wheel on every install); `uv pip install` outside the lock (not reproducible).
 - **Revisit:** driver update → consider a newer CUDA index; training libraries that need a specific torch.
@@ -180,6 +187,110 @@ Format: context → decision → alternatives → risks → revisit when. Status
   - DVC `import-url`: extra tooling, see ADR-004.
   - Converting into the canonical schema directly: that would mix lineage with labelling decisions that belong to Stages 3–4.
 - **Revisit:** a non-HF source appears (add a `url` fetch type with expected sha256); a source exceeds about 10 GB (shard-level resume, subset include patterns).
+
+### ADR-020 Stage 3 cleaning, language ID and outputs — accepted (2026-11-11)
+- **Decision:**
+  - **Two checkpoints.** `data/interim/clean/<source>/<rev>/` holds one cleaned row per input
+    record (`clean_record/1`, rejected rows included with `reject_reason`). Then
+    `data/interim/canonical/` holds the build: `examples/lang=*/` (canonical/1), `pending.parquet`,
+    `rejected.parquet`, `groups.parquet`, `pairs.parquet`, `quality_report.json`, `manifest.json`
+    (dataset_manifest/1). Every record lands in exactly one of examples / pending / rejected.
+  - **Pending, not invented.** Rows that cannot get canonical labels yet (no v0 intent,
+    label conflict, suspect label, dialogue, eval-only or reference-only source) are kept
+    valid in `pending` with the reason. Labels and actions are never guessed.
+  - **Conservative repair.** NFC, control/zero-width/odd spaces, HTML entities, whitespace.
+    Typos, case, emoji and profanity are kept (they are the register) and flagged.
+  - **PII.** E-mails, phone numbers and Luhn-valid card numbers are replaced by reserved
+    synthetic values (`customerNNNN@example.com`, `+1 202 555 01NN`, `4000 0000 0000 0002`).
+  - **Placeholders.** Text placeholders get synthetic slot values (deterministic per record).
+    The same placeholder in the row's response gets the same value. Other response
+    placeholders stay unchanged and are classified (`kb_fact`, `ui_label`,
+    `template_instruction`), so no store fact is invented. The currency symbol stays `$`
+    because the source responses write `$<amount>`; KZT localisation is part of Stage 4.
+  - **Language ID: lingua 2.2** (Apache-2.0, offline models) over en/ru/kk plus 20 other
+    languages. A non-supported language wins only at confidence ≥ 0.9 (else the supported
+    language that fits the script). A detected language replaces the declared one only at
+    confidence ≥ 0.8. Code-switch needs ≥ 2 lower-case words in each script, so Latin brand
+    names in Kazakh or Russian text do not count. Belebele calibration: 2,699/2,700
+    questions and 2,700/2,700 passages correct.
+  - **Generation failures.** Texts with ≥ 3 scripts each ≥ 3% of ≥ 20 letters (token soup)
+    are rejected as `garbled_text`. Single-script word salad is not detected (known gap).
+  - **Gates** (`data/gates.py`) re-read the written files and re-check them independently:
+    accounting, schema (validity ≥ 99.5%), ids, language (LID re-run, ≥ 99%), duplicates,
+    placeholders, PII, licence, labels. Splits/leakage are `not_applicable` until Stage 4. A
+    failing build is not swapped in; it is kept as `canonical.failed/`.
+- **Alternatives:** fastText lid.176 / GlotLID (good, but a fastText wheel on Windows with
+  numpy 2 is fragile, plus 126 MB+ model files); langid.py (weaker on short texts); a single
+  canonical file with nullable labels (breaks the canonical contract); relabelling while-ai
+  by heuristics (would invent labels).
+- **Risks:** typo-heavy short EN gets low LID confidence (8–10% of Bitext rows are flagged
+  `lid_low_conf`, all reviewed ones are English); Latin-script Kazakh is not detected.
+- **Revisit:** RU/KK data arrives in Stage 4. Then measure LID on real KK/RU support text and
+  add a GlotLID comparison if KK–RU confusions appear.
+
+### ADR-021 Draft intent map v0 and rule-based actions — provisional (Stage 4 freezes v1)
+- **Context:** canonical/1 requires `intent` and `action`. The taxonomy is frozen in Stage 4.
+- **Decision:** `configs/intent_map.yaml` maps each source label to one v0 intent or to
+  `null` with a reason. It is validated by `IntentMap`.
+  - Bitext retail: 38 of 46 labels mapped. Bitext CS: 23 of 27. while-ai: none (payment-agent
+    labels for whole dialogues).
+  - **Actions.** Most labels use one fixed action. `needs_reference` gives `call_tool` when
+    the text contains an order/invoice reference (filled slot or literal `#12345`), else
+    `clarify` (F1, F7). Escalation is used only for explicit human requests and complaints (F8).
+  - **Label noise.** `suspect_unless` sends rows without the label's expected wording to
+    pending. It is used once: retail `return_product_in_store`, where 265 of 994 rows are
+    product-information requests (237 after dedup).
+  - Every canonical row carries the flag `labels:intent_map_draft_v0`.
+- **Alternatives:** leave canonical empty until Stage 4 (fails the Stage 3 DoD and delays
+  the gates); infer intents with a classifier (invents labels).
+- **Revisit:** Stage 4 freezes v1. The open items are customer_service vs human_agent,
+  technical support, cart, `pay`, GDPR requests, shipping-address changes and the
+  return/tracking conflicts listed in the EDA report.
+
+### ADR-022 Deduplication, paraphrase families and scenarios — accepted (2026-11-11)
+- **Decision:**
+  1. **Exact duplicates.** Two rows are duplicates if they share the normalised template key
+     (NFKC, casefold, no punctuation, slots as `<slot>`) or, for single messages, the
+     normalised final text. Dialogues compare all turns, and policy decisions compare text
+     plus facts and policies. In a label-compatible group the most permissive source is kept,
+     then registry order, then row order. The others are rejected with `duplicate_of`.
+     Incompatible labels make the group `label_conflict`. Texts that differ only in case,
+     punctuation or inserted profanity (equal similarity key) with incompatible labels are
+     conflicts too.
+  2. **Near-duplicates.** Character 5-grams of the similarity key (profanity removed) →
+     MinHash (128 perms, seeded PCG64, 31-bit universal hashing) → LSH (32 bands × 4 rows).
+     Every candidate is verified by exact Jaccard (sparse intersection, chunked for RAM).
+     LSH recall against brute force: 95% at J ≥ 0.5, 100% at J ≥ 0.6, 0.7 and 0.8.
+  3. **Family** = connected components of pairs with J ≥ 0.8 **and** compatible labels, plus
+     source alignments (Belebele translations, support-json-ru `scenario_group_id`). Labels
+     are compatible within a source if the source label and action are equal, and across
+     sources if the mapped v0 intent and action are equal.
+  4. **Scenario** = families with the same scenario key, which is the source label plus the
+     required action, or a source scenario id. Exact duplicates across sources join their
+     keys. Lexical similarity alone never merges different labels.
+  5. **Ids.** `fam_`/`scn_` + sha256 of the smallest member example_id or key. This keeps ids
+     stable when new members join.
+- **Calibration (real data):**
+  - At J ≥ 0.6–0.8, 7–12% of same-source near-duplicate pairs carry different labels. They
+    are minimal edits that change meaning ("modify" vs "close my account", "in store" vs
+    "online"), so the label guard is required.
+  - Without it, at J 0.5 / 0.6 / 0.7, 93% / 68% / 19% of Bitext texts chain into families of
+    ≥ 100 (one per intent). At 0.8 the largest family has 109 texts and 0.3% are in families
+    of ≥ 100, so 0.8 was chosen.
+- **Consequence for Stage 4:** Bitext has 68 scenarios, and the canonical set has 55.
+  - A scenario-disjoint split cannot keep most intents in both train and test.
+  - A family-disjoint split only removes near-copies (J ≥ 0.8); test items stay paraphrases
+    of training items (J 0.5–0.8).
+  - So in-distribution validation/test from Bitext measures paraphrase robustness, and
+    generalisation must be measured on the independent gold set.
+  - DATA_CONTRACTS still says "splits by scenario_id". Stage 4 must decide the split unit
+    with this evidence. This is an open item, and the contract is not changed silently.
+- **Alternatives:** `datasketch` (pure Python, slower, same algorithm); all-pairs inside
+  label blocks (misses cross-source duplicates and does not scale to 1M); embedding
+  clustering (multilingual-e5 or BGE-M3: needs a model download and GPU, and inside a
+  homogeneous paraphrase set its clusters are arbitrary). It is the candidate for Stage 4
+  cross-lingual or semantic dedup, once translations exist.
+- **Revisit:** Stage 4 decides the split unit, or generated or translated data needs semantic dedup.
 
 ---
 

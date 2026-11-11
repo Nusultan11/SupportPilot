@@ -1,0 +1,119 @@
+# Source intent -> SupportPilot intent (DATA_CONTRACTS §7, taxonomy draft v0), ADR-021.
+# Validated by `supportpilot.data.labels.IntentMap`. Status: DRAFT. Stage 4 freezes v1.
+#
+# Each source label maps to exactly one entry:
+#   intent: a v0 intent, or null when no v0 intent fits reliably (`reason` is then required;
+#           such rows go to data/interim/canonical/pending with reason `intent_unmapped`).
+#   action: answer_kb | call_tool | clarify | escalate | refuse_oos | needs_reference
+#           `needs_reference` = the request is about one specific order/payment/invoice:
+#           call_tool when the message contains an order/invoice reference, else clarify
+#           (ask once for it, F7). This is decided per row from the text, never guessed.
+#   escalate / escalation_reason: only for explicit human requests and complaints (F8).
+#   suspect_unless: regex of the wording a row of this label must contain; rows without it
+#           are measured label noise and go to pending (`label_suspect`), never relabelled.
+# Product requirement ids (F1..F11) refer to docs/PROJECT.md.
+schema_version: intent_map/1
+status: draft-v0
+
+sources:
+  bitext_retail_ecom:
+    # ACCOUNT: how-to procedures answered from the KB
+    change_account: {intent: account_help, action: answer_kb}
+    close_account: {intent: account_help, action: answer_kb}
+    open_account: {intent: account_help, action: answer_kb}
+    recover_password: {intent: account_help, action: answer_kb}
+    order_history: {intent: order_history, action: answer_kb, note: "texts ask how to view the history; no list-orders tool is planned"}
+    request_right_to_rectification: {intent: null, reason: "personal-data (GDPR) rights request: legal topic, account_help vs escalation is a Stage 4 policy decision"}
+    # APP_WEBSITE / CART: no v0 intent and no tool
+    technical_issue: {intent: null, reason: "app/website technical support is not in the v0 taxonomy"}
+    use_app: {intent: null, reason: "app usage questions are not in the v0 taxonomy (policy_faq candidate)"}
+    add_product: {intent: null, reason: "cart management is not in the v0 taxonomy and has no tool"}
+    remove_product: {intent: null, reason: "cart management is not in the v0 taxonomy and has no tool"}
+    # CONTACT
+    customer_service: {intent: null, reason: "ambiguous between store_info (contact channels) and human_agent (F8 explicit request)"}
+    human_agent: {intent: human_agent, action: escalate, escalate: true, escalation_reason: customer_requested_human}
+    # DELIVERY
+    damaged_delivery: {intent: delivery_problem, action: needs_reference}
+    delivery_issue: {intent: delivery_problem, action: needs_reference}
+    missing_item: {intent: delivery_problem, action: needs_reference}
+    wrong_item: {intent: delivery_problem, action: needs_reference}
+    delivery_time: {intent: delivery_time, action: answer_kb}
+    shipping_costs: {intent: delivery_options_cost, action: answer_kb}
+    track_delivery: {intent: track_order, action: needs_reference}
+    # FEEDBACK
+    submit_feedback: {intent: feedback, action: answer_kb, note: "some texts are complaints about the brand; reviewed in Stage 3"}
+    submit_product_feedback: {intent: feedback, action: answer_kb}
+    submit_product_idea: {intent: feedback, action: answer_kb}
+    # ORDER
+    cancel_order: {intent: cancel_order, action: needs_reference}
+    change_order: {intent: change_order, action: needs_reference}
+    request_invoice: {intent: invoice, action: needs_reference}
+    track_order: {intent: track_order, action: needs_reference}
+    # PAYMENT
+    pay: {intent: null, reason: "mixes 'how to pay' with money transfers; no single v0 intent"}
+    payment_issue: {intent: payment_problem, action: clarify, note: "failed card/checkout; details are needed first"}
+    payment_methods: {intent: payment_methods, action: answer_kb}
+    # PRODUCT: no product is ever named in the source texts, so the product must be asked for
+    availability: {intent: availability, action: clarify}
+    availability_in_store: {intent: availability, action: clarify}
+    availability_online: {intent: availability, action: clarify}
+    product_information: {intent: product_info, action: clarify}
+    product_issue: {intent: null, reason: "defective product: return, exchange or complaint; no single v0 intent"}
+    exchange_product: {intent: exchange_product, action: answer_kb}
+    exchange_product_in_store: {intent: exchange_product, action: answer_kb}
+    # RETURNS
+    refund_policy: {intent: return_policy, action: answer_kb}
+    return_policy: {intent: return_policy, action: answer_kb}
+    return_product: {intent: return_product, action: answer_kb}
+    return_product_in_store:
+      intent: return_product
+      action: answer_kb
+      # Stage 3 review: 265 of 994 rows are product-information requests ("information
+      # about a product in store") with no return wording -> label noise, sent to pending.
+      suspect_unless: '\b(?:ret|rte|rtu)\w*|\b(?:send|bring|take)\b.{0,25}\bback\b|exchange|refund'
+    return_product_online: {intent: return_product, action: answer_kb}
+    refund_status: {intent: refund_status, action: needs_reference}
+    request_refund: {intent: request_refund, action: needs_reference}
+    # SALES / STORE (store_info covers location, hours, sales periods)
+    sales_period: {intent: store_info, action: answer_kb}
+    store_location: {intent: store_info, action: answer_kb}
+    store_opening_hours: {intent: store_info, action: answer_kb}
+
+  bitext_customer_support:
+    create_account: {intent: account_help, action: answer_kb}
+    delete_account: {intent: account_help, action: answer_kb}
+    edit_account: {intent: account_help, action: answer_kb}
+    recover_password: {intent: account_help, action: answer_kb}
+    switch_account: {intent: account_help, action: answer_kb}
+    registration_problems: {intent: account_help, action: clarify, note: "reports a sign-up error; details are needed first"}
+    check_cancellation_fee: {intent: null, reason: "contract termination fees (telecom/SaaS style); not an e-commerce concept in v0"}
+    contact_customer_service: {intent: null, reason: "ambiguous between store_info (contact channels/hours) and human_agent"}
+    contact_human_agent: {intent: human_agent, action: escalate, escalate: true, escalation_reason: customer_requested_human}
+    delivery_options: {intent: delivery_options_cost, action: answer_kb}
+    delivery_period: {intent: delivery_time, action: answer_kb}
+    complaint: {intent: complaint, action: escalate, escalate: true, escalation_reason: complaint}
+    review: {intent: feedback, action: answer_kb}
+    check_invoice: {intent: invoice, action: needs_reference}
+    get_invoice: {intent: invoice, action: needs_reference}
+    cancel_order: {intent: cancel_order, action: needs_reference}
+    change_order: {intent: change_order, action: needs_reference}
+    place_order: {intent: place_order, action: answer_kb}
+    track_order: {intent: track_order, action: needs_reference}
+    check_payment_methods: {intent: payment_methods, action: answer_kb}
+    payment_issue: {intent: payment_problem, action: clarify}
+    check_refund_policy: {intent: return_policy, action: answer_kb}
+    get_refund: {intent: request_refund, action: needs_reference}
+    track_refund: {intent: refund_status, action: needs_reference}
+    change_shipping_address: {intent: null, reason: "ambiguous: profile address (account_help) vs address of a placed order (change_order)"}
+    set_up_shipping_address: {intent: account_help, action: answer_kb}
+    newsletter_subscription: {intent: null, reason: "newsletters are not in the v0 taxonomy"}
+
+  whileai_ecommerce_intent:
+    # Payment-agent taxonomy, labelled per whole dialogue (not per first message).
+    bill: {intent: null, reason: "payment-agent label (bill pay); dialogue-level, no 1:1 v0 intent"}
+    exchange: {intent: null, reason: "payment-agent label (currency/crypto exchange); out of store scope or unclear"}
+    none: {intent: null, reason: "payment-agent label 'no payment intent'; heterogeneous content"}
+    recur: {intent: null, reason: "payment-agent label (subscriptions); dialogue-level, no 1:1 v0 intent"}
+    reverse: {intent: null, reason: "payment-agent label mixing cancel, refund and dispute"}
+    send: {intent: null, reason: "payment-agent label (P2P money transfer); out of store scope, refuse_oos is a Stage 4 decision"}
+    spend: {intent: null, reason: "payment-agent label (purchase/payment); dialogue-level, no 1:1 v0 intent"}

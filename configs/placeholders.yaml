@@ -1,0 +1,103 @@
+# Template placeholders ({{Name}}) in source texts -> synthetic slot values (ADR-020).
+# Validated by `supportpilot.data.placeholders.PlaceholderCatalog`.
+#
+# - Only placeholders that occur in customer *texts* are filled. Values are synthetic and
+#   chosen deterministically from sha256(record_id|placeholder), so every run gives the same
+#   value. They are never real customer data.
+# - The same placeholder in the same row's reference response gets the same value.
+# - Every other placeholder in a reference response is kept verbatim and classified:
+#   `kb_fact` (store facts: phone, URL, hours, policy terms -> must come from the KB in
+#   Stage 4, never from invented values) or `template_instruction` (generation artefact);
+#   all others are `ui_label` (names of site sections/buttons).
+# - A text placeholder that is not listed here rejects the row (`unknown_placeholder`).
+schema_version: placeholders/1
+
+slots:
+  Order Number: {slot: order_id, kind: digits, length: 6}
+  Invoice Number: {slot: invoice_id, kind: template, template: "INV-{digits6}"}
+  Refund Amount: {slot: refund_amount, kind: integer, min: 1000, max: 250000, step: 50}
+  # The source responses write the amount as "$<amount>", so the symbol stays "$" (USD) to
+  # keep text and response consistent. KZT localisation is a Stage 4 step (ROADMAP).
+  Currency Symbol: {slot: currency, kind: fixed, text: "$", value: USD}
+  Account Type:
+    slot: account_type
+    kind: choice
+    values: [premium, standard, basic, business, gold, platinum, pro, freemium, family]
+  Account Category:
+    slot: account_category
+    kind: choice
+    values: [premium, standard, basic, business, gold, platinum, pro, freemium, family]
+  Person Name:
+    slot: person_name
+    kind: choice
+    values:
+      - Aigerim Sadykova
+      - Daniyar Bekov
+      - Madina Omarova
+      - Yerlan Tulegenov
+      - Asel Nurlanova
+      - Timur Akhmetov
+      - Dana Seitkali
+      - Arman Zhumabayev
+      - Zarina Iskakova
+      - Ruslan Kim
+      - Kamila Abenova
+      - Olzhas Dauletov
+      - Elena Petrova
+      - Sergey Ivanov
+      - Maria Lopez
+      - David Miller
+  Delivery City:
+    slot: delivery_city
+    kind: choice
+    values: [Almaty, Astana, Shymkent, Karaganda, Aktobe, Taraz, Pavlodar, Oskemen, Semey, Atyrau, Kostanay, Kyzylorda, Oral, Petropavl, Aktau, Turkistan]
+  Delivery Country:
+    slot: delivery_country
+    kind: choice
+    values: [Kazakhstan, Kyrgyzstan, Uzbekistan, Georgia, Turkey, Germany, Poland, United Arab Emirates]
+
+# Response placeholder classes: case-insensitive regexes searched in the placeholder name.
+# `template_instruction` is checked first, then `kb_fact`; everything else is `ui_label`.
+instruction_patterns:
+  - '\be\.g\.'
+  - 'fill in'
+  - '\binsert\b'
+  - '\bspecif(?:y|ic)\b'
+  - 'if available'
+  - '^\S+(?:\s+\S+){6,}$'   # 7+ words: a sentence, not a label
+kb_fact_patterns:
+  - 'phone'
+  - 'e-?mail'
+  - '\burl\b'
+  - 'web ?site'
+  - '\blink\b'
+  - '\bhours?\b'
+  - '\btimes?\b'
+  - '\bdays?\b'
+  - '\bdates?\b'
+  - 'schedule'
+  - 'address'
+  - 'location'
+  - '\bfees?\b'
+  - 'cost'
+  - 'price'
+  - 'charge'
+  - '\bamount\b'
+  - 'percent'
+  - 'period'
+  - 'time ?frame'
+  - 'window'
+  - 'duration'
+  - 'deadline'
+  - 'polic(?:y|ies)'
+  - 'company'
+  - 'store name'
+  - 'app name'
+  - 'brand'
+  - 'channel'
+  - '\bteam\b'
+  - '\bdesk\b'
+  - '\bsupport\b'
+  - 'service'
+  - 'carrier'
+  - '\bnumber\b'   # phone/account/tracking numbers that only the KB or a tool can know
