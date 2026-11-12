@@ -273,7 +273,97 @@ def convert_support_json_ru(raw: Path, entry: SourceEntry) -> Iterator[Row]:
                 row += 1
 
 
+# ---------------------------------------------------------------- mangi KK support QA (JSONL)
+
+_MANGI_REQUIRED = {"id", "domain", "subdomain", "question"}
+
+
+def convert_mangi(raw: Path, entry: SourceEntry) -> Iterator[Row]:
+    """`source_intent` = `<domain>.<subdomain>` (the record `intent` is unique per row, so it
+    is no label; it is kept in extra_json)."""
+    for path in _files(raw, "*.jsonl"):
+        rel = path.relative_to(raw).as_posix()
+        with path.open(encoding="utf-8") as fh:
+            for row, line in enumerate(fh):
+                try:
+                    rec = json.loads(line)
+                except json.JSONDecodeError:
+                    yield Rejected(rel, row, "invalid_json", line[:80])
+                    continue
+                if missing := _MANGI_REQUIRED - set(rec):
+                    raise ConversionError(f"{rel}:{row}: missing fields {sorted(missing)}")
+                if _blank(rec["question"]):
+                    yield Rejected(rel, row, "empty_text")
+                    continue
+                yield _record(
+                    entry,
+                    rel=rel,
+                    key=path.stem,
+                    row=row,
+                    split=None,
+                    record_type=RecordType.SINGLE_TURN,
+                    lang="kk",
+                    text=str(rec["question"]),
+                    response=_empty_to_none(rec.get("answer")),
+                    intent=f"{rec['domain']}.{rec['subdomain']}",
+                    category=str(rec["domain"]),
+                    extra={k: v for k, v in rec.items() if k not in ("question", "answer")},
+                )
+
+
+# ---------------------------------------------------------------- MASSIVE (Hub parquet branch)
+
+_MASSIVE_LANG: dict[str, LanguageCode] = {"en-US": "en", "ru-RU": "ru"}
+_MASSIVE_REQUIRED = {"id", "locale", "partition", "scenario", "intent", "utt"}
+
+
+def _class_names(pf: pq.ParquetFile, column: str) -> list[str]:
+    """ClassLabel names from the `huggingface` schema metadata of a Hub parquet file."""
+    meta = (pf.schema_arrow.metadata or {}).get(b"huggingface")
+    if meta is None:
+        raise ConversionError("no huggingface metadata: class names unknown")
+    feats = json.loads(meta)["info"]["features"]
+    names = feats.get(column, {}).get("names")
+    if not names:
+        raise ConversionError(f"column {column!r} is not a ClassLabel")
+    return [str(n) for n in names]
+
+
+def convert_massive(raw: Path, entry: SourceEntry) -> Iterator[Row]:
+    for path in _files(raw, "*/*/0000.parquet"):
+        rel = path.relative_to(raw).as_posix()
+        locale, split = path.parts[-3], path.parts[-2]
+        if locale not in _MASSIVE_LANG:
+            continue
+        pf = pq.ParquetFile(path)
+        if missing := _MASSIVE_REQUIRED - set(pf.schema_arrow.names):
+            raise ConversionError(f"{rel}: missing columns {sorted(missing)}")
+        intents, scenarios = _class_names(pf, "intent"), _class_names(pf, "scenario")
+        row = 0
+        for batch in pf.iter_batches(batch_size=2000, columns=sorted(_MASSIVE_REQUIRED)):
+            for rec in batch.to_pylist():
+                if _blank(rec["utt"]):
+                    yield Rejected(rel, row, "empty_text")
+                else:
+                    yield _record(
+                        entry,
+                        rel=rel,
+                        key=f"{locale}.{split}",
+                        row=row,
+                        split=str(rec["partition"]),
+                        record_type=RecordType.SINGLE_TURN,
+                        lang=_MASSIVE_LANG[locale],
+                        text=str(rec["utt"]),
+                        intent=intents[int(rec["intent"])],
+                        category=scenarios[int(rec["scenario"])],
+                        extra={"id": rec["id"], "locale": locale},
+                    )
+                row += 1
+
+
 CONVERTERS: dict[str, Converter] = {
+    "mangi_kk_support_qa": Converter("mangi_jsonl", 1, convert_mangi),
+    "massive_en_ru": Converter("massive_parquet", 1, convert_massive),
     "bitext_retail_ecom": Converter("bitext_csv", 1, convert_bitext),
     "bitext_customer_support": Converter("bitext_csv", 1, convert_bitext),
     "whileai_ecommerce_intent": Converter("whileai_jsonl", 1, convert_whileai),

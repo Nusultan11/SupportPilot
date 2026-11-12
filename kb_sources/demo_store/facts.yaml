@@ -45,3 +45,15 @@ sale: {en: Winter sale, ru: зимняя распродажа, kk: қысқы ж
 sms_retry_seconds: 60
 cart_days: 30
 payment_retry_minutes: 15
+# Stage 5b (2026-11-12, ADR-029): values of the new delivery FAQ, bonus FAQ and warranty
+# service documents. No existing value changed; none of these answers a gold `abstain` item.
+pickup_keep_days: 5
+delivery_attempts: 2
+reschedule_max_days: 7
+pickup_max_weight_kg: 20
+points_credit_days: 7
+promo_min_order: 10000
+gift_card_min: 5000
+gift_card_max: 100000
+warranty_repair_days: 30
+diagnostic_cost: 3000

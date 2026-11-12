@@ -553,6 +553,60 @@ Format: context → decision → alternatives → risks → revisit when. Status
 
 ---
 
+### ADR-028 Native-language external data — accepted (2026-11-12)
+
+- **Need:** the existing SFT was dominated by Bitext paraphrases/MT; native KK and OOS
+  examples were scarce. Reuse two pinned CC-BY-4.0 sources already acquired through the
+  registry: the 406-question public mangi KK support sample and MASSIVE EN/RU. The commercial
+  full mangi corpus is not used. Attribution, revisions and licence evidence are in
+  `configs/sources.yaml`; questions alone are used, never upstream reference answers.
+- **Choice:** a checkpointed `data native` step, alongside the English MT backbone. It
+  maps only reliable OOS/greeting labels using the existing taxonomy rules, keeps one row
+  per family, caps per label/language and preserves provenance. Banking/telecom questions
+  must contain the needed domain cue in their text; source-domain metadata alone cannot
+  justify a refusal. Generic payment, phone-feature and router questions are excluded.
+  Native means no pipeline MT; it does not assert human authorship of mangi questions.
+- **Alternatives:** MT expansion would repeat the same few scenarios and retain the
+  documented KK semantic-error risk; including whole banking/telecom labels produced false
+  OOS labels for ambiguous questions. Rejected both; original synthetic situations cover
+  the store-specific behavioural gaps.
+- **Cache correctness:** source registry content joins canonical version, taxonomy hash,
+  sampling caps and seed in the input identity. Changed language/usage policies cannot
+  silently reuse a previous selection.
+
+### ADR-029 Independent evaluation coverage and retrieval data — accepted (2026-11-12)
+
+- **Need/evidence:** action-only splitting covered just 14/12 intents in validation/test.
+  The first expanded build still lost 10 language/intent cells when the semantic filter
+  deleted all corresponding test questions. A new external greeting also matched one gold
+  question. Demo KB coverage and answer lexical diversity were limited.
+- **Choice:** expand to 300 authored situations; stratify trilingual situations by intent
+  with actions interleaved. Keep scenarios/families disjoint. Preserve the assigned held-out
+  questions and remove training copies at the existing exact/lexical/13-gram/semantic
+  thresholds (amends ADR-026). Gold questions are a decontamination exclusion list only:
+  reject copied SFT inputs without changing gold questions or expected answers. Check final
+  coverage after filtering, including train and every language. The second city in a move
+  scenario must differ from the destination. Answer-variant RNG is separate from evidence
+  and tool-state RNG, so wording choices cannot silently change the facts.
+- **KB:** four additional trilingual documents (pickup/delivery FAQ, sizes, repair service,
+  bonus/gift-card FAQ) and six deliberately similar catalogue products; preserve existing
+  demo facts and gold abstention assumptions. Training policy values remain a different
+  fictional-store variant. Existing deterministic render/parse/version gates remain in use.
+- **Retrieval:** original question triples with explicitly authored graded section
+  judgements resolve to the active KB's real chunk IDs. Include table lookups, similar
+  products, multi-section needs, ambiguous scopes, unanswerable live-tool/unlisted facts,
+  cross-language and code-switch queries. Build a manifest and standard qrels without
+  training an encoder, creating an index or running a RAG system.
+- **Alternatives:** keyword-based automatic qrels would make a BM25 benchmark circular;
+  gold paraphrases would compromise independence; more slot fillings would inflate volume
+  without increasing scenario coverage. Rejected. For retrieval semantic similarity is a
+  diagnostic flag, consistent with gold: independently authored requests can share intent.
+  Exact/lexical/13-gram copies block publication; no benchmark questions are silently removed.
+- **Limits:** a single LLM authored/re-read content. RU/KK fluent human review and independent
+  relevance assessment remain open. Existing MT quality estimates cannot be interpreted
+  as measurements of the new authored questions. No authored-data redistribution licence
+  or real customer data was introduced.
+
 ## Open decisions (owner input needed; see PROGRESS.md)
 1. Budget for a paid LLM API (MT for KK/RU, data generation, LLM judge). Without it: open MT + local models, with lower expected KK quality.
 2. Availability of fluent KK and RU reviewers for the gold benchmark and translation audits.

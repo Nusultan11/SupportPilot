@@ -71,6 +71,16 @@ docs:
         en: "Tracking. The current status of an order is shown in \"My orders\". Support can check an order by its six-digit order number."
         ru: "Отслеживание. Текущий статус заказа виден в разделе «Мои заказы». Поддержка может проверить заказ по шестизначному номеру заказа."
         kk: "Бақылау. Тапсырыстың ағымдағы күйі «Менің тапсырыстарым» бөлімінде көрінеді. Қолдау қызметі тапсырысты алты таңбалы тапсырыс нөмірі бойынша тексере алады."
+      - id: pickup_storage
+        facts: [pickup_keep_days]
+        en: "Pickup point storage. An order is kept at the pickup point for {pickup_keep_days:days} after the arrival SMS. An order nobody collects goes back to the warehouse and is cancelled; a prepayment is refunded."
+        ru: "Хранение в пункте выдачи. Заказ хранится в пункте выдачи {pickup_keep_days:days} после SMS о поступлении. Невостребованный заказ возвращается на склад и отменяется, предоплата возвращается."
+        kk: "Беру пунктінде сақтау. Тапсырыс келгені туралы SMS-тен кейін беру пунктінде {pickup_keep_days:days} сақталады. Ешкім алмаған тапсырыс қоймаға қайтарылып, жойылады, алдын ала төлем қайтарылады."
+      - id: missed_courier
+        facts: [delivery_attempts]
+        en: "If you miss the courier. The courier calls before arriving. Up to {delivery_attempts} delivery attempts are free; after that the order is sent to the nearest pickup point."
+        ru: "Если вы не застали курьера. Курьер звонит перед приездом. Бесплатных попыток доставки — до {delivery_attempts}; после этого заказ отправляется в ближайший пункт выдачи."
+        kk: "Курьерді күтіп ала алмасаңыз. Курьер келер алдында қоңырау шалады. Жеткізуге {delivery_attempts} әрекетке дейін тегін; одан кейін тапсырыс ең жақын беру пунктіне жіберіледі."
 
   payment_policy:
     doc_type: policy
@@ -138,6 +148,11 @@ docs:
         en: "Defects. If an item is faulty, report it within {defect_report_days:days_gen} of noticing the defect. We check the item at a service centre and repair, replace or refund it. Stop using an item that overheats, sparks or smells of burning."
         ru: "Брак. Если товар оказался неисправным, сообщите об этом в течение {defect_report_days:days_gen} с момента обнаружения дефекта. Мы проверим товар в сервисном центре и отремонтируем, заменим его или вернём деньги. Не пользуйтесь товаром, если он перегревается, искрит или пахнет гарью."
         kk: "Ақау. Тауар ақаулы болып шықса, ақауды байқаған күннен бастап {defect_report_days:days_gen} ішінде хабарлаңыз. Біз тауарды сервис орталығында тексеріп, жөндейміз, ауыстырамыз немесе ақшасын қайтарамыз. Тауар қызып кетсе, ұшқын шашса немесе күйік иісі шықса, оны пайдаланбаңыз."
+      - id: repair
+        facts: [warranty_repair_days, diagnostic_cost]
+        en: "Warranty repair. A warranty repair takes at most {warranty_repair_days:days}; if it takes longer, the item is replaced or refunded. If the fault turns out not to be covered, diagnostics cost {diagnostic_cost:kzt}."
+        ru: "Гарантийный ремонт. Гарантийный ремонт занимает не более {warranty_repair_days:days_gen}; если дольше, товар заменяют или возвращают деньги. Если случай оказался не гарантийным, диагностика стоит {diagnostic_cost:kzt}."
+        kk: "Кепілдік жөндеу. Кепілдік жөндеу {warranty_repair_days:days@abl} аспайды; ұзаққа созылса, тауар ауыстырылады немесе ақшасы қайтарылады. Жағдай кепілдікке жатпаса, диагностика {diagnostic_cost:kzt} тұрады."
 
   store_info:
     doc_type: faq
@@ -168,6 +183,21 @@ docs:
         en: "Reviews and suggestions. You can rate a product in \"My orders\" after delivery, and send suggestions about the store through the \"Feedback\" form in the app."
         ru: "Отзывы и предложения. Оценить товар можно в «Моих заказах» после получения, а предложения о работе магазина отправляются через форму «Обратная связь» в приложении."
         kk: "Пікірлер мен ұсыныстар. Тауарды алғаннан кейін «Менің тапсырыстарым» бөлімінде бағалауға болады, ал дүкен жұмысы туралы ұсыныстарды қосымшадағы «Кері байланыс» формасы арқылы жіберуге болады."
+      - id: promo
+        facts: [promo_min_order]
+        en: "Promo codes. A promo code works for orders from {promo_min_order:kzt} and gives a discount on items, not on delivery. A code from a cancelled order can be used again."
+        ru: "Промокоды. Промокод действует для заказов от {promo_min_order:kzt} и даёт скидку на товары, а не на доставку. Код из отменённого заказа можно использовать снова."
+        kk: "Промокодтар. Промокод {promo_min_order:kzt@abl} бастап тапсырыстарға жарамды және жеткізуге емес, тауарларға жеңілдік береді. Жойылған тапсырыстағы кодты қайта қолдануға болады."
+      - id: gift_cards
+        facts: [gift_card_min, gift_card_max]
+        en: "Gift cards. Electronic gift cards are sold for {gift_card_min:kzt} to {gift_card_max:kzt}. The unspent balance stays on the card for later orders; a gift card cannot be exchanged for cash."
+        ru: "Подарочные карты. Электронные подарочные карты продаются номиналом от {gift_card_min:kzt} до {gift_card_max:kzt}. Неизрасходованный остаток сохраняется на карте для следующих заказов; обменять карту на наличные нельзя."
+        kk: "Сыйлық карталары. Электрондық сыйлық карталары {gift_card_min:kzt@abl} бастап {gift_card_max:kzt@dat} дейінгі номиналмен сатылады. Жұмсалмаған қалдық келесі тапсырыстар үшін картада сақталады; картаны қолма-қол ақшаға айырбастауға болмайды."
+      - id: points
+        facts: [points_credit_days]
+        en: "When bonuses arrive. Bonus points for an order are credited {points_credit_days:days} after delivery; returned items earn no points."
+        ru: "Когда приходят бонусы. Бонусы за заказ зачисляются через {points_credit_days:days} после получения; за возвращённые товары бонусы не начисляются."
+        kk: "Бонустар қашан түседі. Тапсырыс үшін бонустар алғаннан кейін {points_credit_days:days} өткен соң түседі; қайтарылған тауарларға бонус берілмейді."
 
   account_faq:
     doc_type: faq

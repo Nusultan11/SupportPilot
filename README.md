@@ -5,9 +5,8 @@ It combines retrieval-augmented generation over store documents, tool calls to o
 inventory / payment APIs, and a compact LoRA/QLoRA-tuned LLM. It is built to answer only
 from evidence, cite its sources, and hand hard cases to a human operator.
 
-> **Status:** Stage 2 (data acquisition and source registry) is done: 16 sources reviewed,
-> 5 acquired at pinned revisions and converted to 99,882 raw records with lineage. The
-> assistant itself is not built yet.
+> **Status:** the data and knowledge-base pipelines are implemented, including a multilingual
+> data expansion and an independent retrieval query set. The assistant itself is not built yet.
 > Current state: [docs/PROGRESS.md](docs/PROGRESS.md).
 
 ## What it will do

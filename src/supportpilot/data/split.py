@@ -4,8 +4,8 @@ Split unit: `scenario_id` (the contract). Bitext has only 55 scenarios (one per 
 and action), so a scenario-disjoint split of Bitext would remove whole intents from test.
 Decision (ADR-026): every Bitext-derived example (EN originals and their RU/KK translations,
 which share the family and scenario) goes to train; validation and test are built from the
-authored scenarios, assigned by scenario_id, stratified by action. Generalisation to new
-phrasings is measured on the independent gold benchmark.
+authored scenarios, assigned by scenario_id, stratified by intent and action (ADR-029).
+Generalisation to new phrasings is measured on the independent gold benchmark.
 
 Leakage checks between train and every held-out set (validation, test, gold):
 - shared scenario_id / family_id;
@@ -13,8 +13,8 @@ Leakage checks between train and every held-out set (validation, test, gold):
 - lexical near-copy: char-5-gram Jaccard >= `leak_jaccard` (MinHash/LSH + exact Jaccard);
 - word n-gram overlap (n = `leak_ngram`);
 - semantic near-copy: multilingual-e5 cosine >= `leak_cosine`.
-A held-out user text that trips a check is removed from its set (counted); the gates then
-re-check that the remaining overlap is zero.
+Training texts that overlap assigned held-out scenarios are removed and counted, so
+evaluation coverage survives filtering; the gates re-check that overlap is zero.
 """
 
 from __future__ import annotations
@@ -35,21 +35,38 @@ _WORD_RE = re.compile(r"\w+", re.UNICODE)
 
 
 def assign_authored(
-    scenarios: Sequence[tuple[str, str]], ratios: Mapping[str, float], seed: int
+    scenarios: Sequence[tuple[str, str, str, bool]], ratios: Mapping[str, float], seed: int
 ) -> dict[str, Split]:
-    """(scenario_id, action) -> split; stratified per action, sha256 order (no RNG state)."""
-    by_action: dict[str, list[str]] = defaultdict(list)
-    for sid, action in sorted(set(scenarios)):
-        by_action[action].append(sid)
+    """(scenario_id, intent, action, trilingual) -> split (ADR-026, amended by ADR-029).
+
+    Stratified per intent so that validation and test cover every intent: within an intent the
+    scenarios that have en, ru and kk templates are ordered round-robin over their actions
+    (sha256 order inside each action, no RNG state); the first ones go to test, the next to
+    validation. An intent with >= 3 trilingual scenarios gets at least one of each. Scenarios
+    without all three languages (code-switching only, single language) stay in train."""
+    by_intent: dict[str, dict[str, list[str]]] = defaultdict(lambda: defaultdict(list))
     out: dict[str, Split] = {}
-    for _action, ids in sorted(by_action.items()):
-        ids.sort(key=lambda s: sha256_text(f"{seed}|split|{s}"))
-        n = len(ids)
+    for sid, intent, action, trilingual in sorted(set(scenarios)):
+        if trilingual:
+            by_intent[intent][action].append(sid)
+        else:
+            out[sid] = Split.TRAIN
+    for _intent, actions in sorted(by_intent.items()):
+        queues = []
+        for _action, ids in sorted(actions.items()):
+            queues.append(sorted(ids, key=lambda s: sha256_text(f"{seed}|split|{s}")))
+        queues.sort(key=lambda q: sha256_text(f"{seed}|action|{q[0]}"))
+        order: list[str] = []
+        while any(queues):
+            for q in queues:
+                if q:
+                    order.append(q.pop(0))
+        n = len(order)
         n_val = round(n * ratios.get("validation", 0.0))
         n_test = round(n * ratios.get("test", 0.0))
-        if n >= 3:  # every action gets at least one held-out scenario per set
+        if n >= 3:
             n_val, n_test = max(1, n_val), max(1, n_test)
-        for i, sid in enumerate(ids):
+        for i, sid in enumerate(order):
             if i < n_test:
                 out[sid] = Split.TEST
             elif i < n_test + n_val:

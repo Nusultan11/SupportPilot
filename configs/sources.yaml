@@ -109,6 +109,65 @@ sources:
       repo_id: facebook/belebele
       include: ["data/kaz_Cyrl.jsonl", "data/rus_Cyrl.jsonl", "data/eng_Latn.jsonl", "README.md"]
 
+  - source_id: mangi_kk_support_qa
+    url: https://huggingface.co/datasets/mangi-llm/kazakh-customer-support-qa
+    revision: c687381ed78d59de46eb9f4640dfb8e85c90a69a
+    licence: cc-by-4.0
+    licence_evidence: >-
+      HF card metadata `license: cc-by-4.0`; README "free to use ... including commercial use
+      ... provided the original author is credited" for this 406-row public sample (the full
+      ~10K set is a separate paid licence and is not used) (checked 2026-11-12).
+    allowed_use: train
+    status: selected
+    languages: [kk]
+    size: {rows: 406, files: 2, bytes: 278101}
+    reviewed_at: 2026-11-12
+    purpose: >-
+      Native Kazakh customer questions from other industries (banking, telecom, billing): the
+      out-of-scope (refuse_oos) task in Kazakh, which otherwise exists only as authored text.
+    decision: >-
+      The only licensed native-KK support data found. Its domains are not the store's, so
+      only the off-domain subdomains are mapped to out_of_scope (taxonomy `sources:`); the
+      in-domain-looking subdomains (service_center, sales, support) are excluded rather than
+      guessed. Answers are generic bank/telecom advice and are never used as targets.
+    notes: >-
+      Attribution required: "Mäñgi ÜTM (mangi-llm), kazakh-customer-support-qa, CC BY 4.0".
+      Curated by a community; the card says answers "appear to be manually written/templated";
+      generation method of the questions is not documented. Questions are short (2-12 words).
+    fetch:
+      repo_id: mangi-llm/kazakh-customer-support-qa
+      include: ["*.jsonl", "README.md"]
+
+  - source_id: massive_en_ru
+    url: https://huggingface.co/datasets/AmazonScience/massive
+    revision: ed58ac423a2f4121720918bf5301577edce4ffd3
+    licence: cc-by-4.0
+    licence_evidence: >-
+      HF card metadata `license: cc-by-4.0` and LICENSE file (main revision
+      ff6bd8e4b27c3543e4f8fe2108f32bb95a6f8740); the pinned revision is the Hub's parquet
+      conversion branch `refs/convert/parquet` of the same data (checked 2026-11-12).
+    allowed_use: train
+    status: selected
+    languages: [en, ru]
+    size: {rows: 33042, files: 6, bytes: 2497776}
+    reviewed_at: 2026-11-12
+    purpose: >-
+      Human-written EN and human-localised RU virtual-assistant requests (weather, alarms,
+      music, news, ...): the out-of-scope task with natural phrasing in EN and RU, plus
+      greetings.
+    decision: >-
+      Selected for out_of_scope / greeting only. Intents that touch shopping (lists_*,
+      takeaway_*), e-mail and the catch-all general_quirky are excluded; rows with the
+      assistant wake word (Olly / Олли) are dropped. RU is localised by professional
+      translators from the EN utterances, so EN and RU rows share content.
+    notes: >-
+      Attribution: FitzGerald et al. 2022, "MASSIVE: A 1M-Example Multilingual Natural
+      Language Understanding Dataset", arXiv:2204.08582, CC BY 4.0. Lower-case, unpunctuated
+      utterances (spoken-assistant style).
+    fetch:
+      repo_id: AmazonScience/massive
+      include: ["en-US/*/0000.parquet", "ru-RU/*/0000.parquet"]
+
   # ------------------------------------------------------------------ unavailable (gated)
   - source_id: kazparc
     url: https://huggingface.co/datasets/issai/kazparc
@@ -194,6 +253,22 @@ sources:
       Not acquired: scraped real-user content from a marketplace (curator's CC0 does not settle
       the users' or platform's rights; may contain personal data). Revisit only with a PII
       filter and an explicit owner decision.
+
+  - source_id: kk_codeswitch_asr
+    url: https://huggingface.co/datasets/Tim2190/kazakh-codeswitch-asr
+    revision: 753d6640b4b02daf6bb73307a8572c2a710c203e
+    licence: cc-by-4.0
+    licence_evidence: "HF card metadata `license: cc-by-4.0` (checked 2026-11-12)"
+    allowed_use: reference_only
+    status: candidate
+    languages: [kk, ru]
+    size: {rows: 1000}
+    reviewed_at: 2026-11-12
+    purpose: Natural KK-RU code-switched speech transcripts (stand-up / talk style)
+    decision: >-
+      Not acquired: speech corpus (audio), entertainment domain, < 1K transcripts. Useful only
+      as a style reference for authored RU-KK code-switching; revisit if a CS LID test set is
+      needed.
 
   # ------------------------------------------------------------------ rejected
   - source_id: kazakh_instruction_v2

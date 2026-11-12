@@ -391,6 +391,53 @@ SUPPORTPILOT_PATHS__DATA_DIR=<empty-dir> uv run supportpilot kb validate   # gat
 A version directory is self-contained (its own copy of the sources), so a restored version
 validates without re-rendering.
 
+## 7e. Multilingual data expansion and retrieval queries (2026-11-12)
+
+The new sources use the same pinned acquire/convert/clean pipeline; source licence evidence
+and attribution are in `configs/sources.yaml`. Existing raw data and MT caches can be reused.
+
+```bash
+uv run supportpilot data acquire mangi_kk_support_qa massive_en_ru
+uv run supportpilot data convert mangi_kk_support_qa massive_en_ru
+uv run supportpilot data clean --all
+uv run supportpilot data verify --all
+uv run supportpilot data native
+uv run supportpilot kb build
+uv run supportpilot data sft
+uv run supportpilot data gold
+uv run supportpilot data retrieval-set
+```
+
+`data sft` refreshes selection/native/training-KB/QE inputs, preserves assigned evaluation
+coverage and excludes copied training inputs, including copies of gold questions. It does
+not silently fill a missing MT cache: resume `data translate --lang ru|kk` as in §7c.
+`--no-semantic` is available for offline diagnostics; it leaves the semantic check
+unverified and is not the evidence for the completed data build.
+
+Retrieval output: `data/benchmarks/retrieval/current.json` identifies the immutable directory
+containing `queries.jsonl`, `qrels.tsv`, `stats.json`, `quality_report.json`, `manifest.json`.
+Each query states its corpus language and KB version. Evaluate with that KB, not with
+arbitrary latest chunks. After KB/SFT changes, rebuild: stale section references, corrupt
+inputs or prohibited overlaps fail without changing the current pointer. No encoder/index
+or RAG experiment is run by this command. Evaluation details: EVALUATION §2.
+
+Snapshot the significant outputs after completion, using §6 verification and restore:
+
+```bash
+uv run supportpilot backup create data/interim/stage4 --name stage4_interim --kind data --pin
+uv run supportpilot backup create data/processed/kb_train --name kb_train --kind data --pin
+uv run supportpilot backup create data/processed/sft/<dataset_version> --name sft --kind data --pin
+uv run supportpilot backup create data/kb/demo_store --name kb_demo_store --kind data --pin
+uv run supportpilot backup create data/benchmarks/retrieval --name retrieval --kind data --pin
+uv run supportpilot backup create data/gold/<benchmark_version> --name gold --kind data --pin
+```
+
+Processed datasets and backups stay git-ignored. Authored YAML sources are versioned in Git;
+do not publish processed datasets under an invented project-wide licence. Review status is
+`draft` for gold/retrieval; fluent human review remains pending. Input-language sample
+evidence and the distinction from historical MT error estimates are in
+`docs/reviews/data_expansion_review.yaml`.
+
 ## 8. Diagnostics
 
 | Symptom | Check |
@@ -414,4 +461,4 @@ validates without re-rendering.
 | `data/interim/.partial-*` directories exist | A run was killed. The next run of the same step removes them |
 | `data translate` very slow, `nvidia-smi` near 4 GB | VRAM spills into shared memory. Close GPU apps; keep MADLAD `batch_size` at 8 in `stage4.mt_systems` |
 | `data sft`: "translations missing" | Run `data translate --lang <ru|kk>` until it reports `translated: 0` |
-| `data gold` fails `leakage` | `current.failed/quality_report.json` lists the gold ids; rewrite those items in `authored/gold/` |
+| `data gold` fails `leakage` | Keep gold unchanged. Rebuild SFT with copy exclusion; diagnose remaining SFT inputs using `current.failed/quality_report.json` |

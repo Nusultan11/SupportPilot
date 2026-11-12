@@ -1,0 +1,51 @@
+# Demo-store document spec (kb_doc/1). See returns_policy.yaml for the conventions.
+# Stage 5b (ADR-029): what happens after a warranty claim. It does not restate the warranty
+# period or the defect-report period (warranty_policy, cited by gold), and says nothing about
+# installation, extended insurance or warranty abroad (gold `abstain` items).
+# Written natively per language by the agent (LLM); review pending.
+schema_version: kb_doc/1
+doc_id: warranty_service
+doc_type: policy
+format: docx
+title:
+  en: Warranty repair and service
+  ru: Гарантийный ремонт и обслуживание
+  kk: Кепілдік жөндеу және қызмет көрсету
+intro:
+  - en: "This document explains how {store_name:store} handles an item after a warranty claim: diagnostics, repair, replacement and costs."
+    ru: "В этом документе описано, что {store_name:store} делает с товаром после гарантийного обращения: диагностика, ремонт, замена и расходы."
+    kk: "Бұл құжатта {store_name:store} кепілдік өтінішінен кейін тауармен не істейтіні сипатталады: диагностика, жөндеу, ауыстыру және шығындар."
+sections:
+  - id: repair_period
+    heading: {en: "Repair period", ru: "Срок ремонта", kk: "Жөндеу мерзімі"}
+    paragraphs:
+      - en: "A warranty repair takes at most {warranty_repair_days:days} from the day the service centre receives the item. If the repair takes longer or the item cannot be repaired, we replace it with the same model or refund its price."
+        ru: "Гарантийный ремонт занимает не более {warranty_repair_days:days_gen} со дня, когда сервисный центр получил товар. Если ремонт затягивается или товар нельзя отремонтировать, мы заменим его на такую же модель или вернём его стоимость."
+        kk: "Кепілдік жөндеу сервис орталығы тауарды алған күннен бастап {warranty_repair_days:days@abl} аспайды. Жөндеу ұзаққа созылса немесе тауарды жөндеу мүмкін болмаса, біз оны дәл сондай үлгіге ауыстырамыз немесе құнын қайтарамыз."
+  - id: diagnostics
+    heading: {en: "Diagnostics", ru: "Диагностика", kk: "Диагностика"}
+    paragraphs:
+      - en: "The service centre first checks whether the fault is covered. If it is covered, diagnostics and repair are free. If the fault is not covered, for example after a drop or liquid damage, diagnostics cost {diagnostic_cost:kzt} and you decide whether to pay for the repair."
+        ru: "Сначала сервисный центр проверяет, является ли неисправность гарантийной. Если да, диагностика и ремонт бесплатны. Если случай не гарантийный, например после падения или попадания жидкости, диагностика стоит {diagnostic_cost:kzt}, и вы решаете, оплачивать ли ремонт."
+        kk: "Алдымен сервис орталығы ақаудың кепілдікке жататынын тексереді. Жатса, диагностика мен жөндеу тегін. Кепілдікке жатпаса, мысалы құлағаннан немесе сұйықтық тигеннен кейін, диагностика {diagnostic_cost:kzt} тұрады, ал жөндеуге төлеу-төлемеуді өзіңіз шешесіз."
+  - id: large_items
+    heading: {en: "Large appliances", ru: "Крупная техника", kk: "Ірі техника"}
+    paragraphs:
+      - en: "Washing machines and other large appliances are not taken to a pickup point: a technician of the service centre inspects them at your home. Under warranty the visit is free."
+        ru: "Стиральные машины и другую крупную технику не нужно везти в пункт выдачи: мастер сервисного центра осматривает её у вас дома. По гарантии выезд мастера бесплатный."
+        kk: "Кір жуғыш машиналар мен басқа ірі техниканы беру пунктіне апарудың қажеті жоқ: сервис орталығының шебері оны үйіңізде тексереді. Кепілдік бойынша шебердің келуі тегін."
+  - id: summary_table
+    heading: {en: "Costs at a glance", ru: "Расходы кратко", kk: "Шығындар қысқаша"}
+    paragraphs:
+      - en: "The table shows who pays in the usual cases."
+        ru: "В таблице указано, кто платит в типичных случаях."
+        kk: "Кестеде әдеттегі жағдайларда кім төлейтіні көрсетілген."
+    table:
+      columns:
+        - {en: "Case", ru: "Случай", kk: "Жағдай"}
+        - {en: "Cost for the customer", ru: "Стоимость для покупателя", kk: "Сатып алушыға құны"}
+      rows:
+        - [{en: "Warranty repair", ru: "Гарантийный ремонт", kk: "Кепілдік жөндеу"}, {en: "free", ru: "бесплатно", kk: "тегін"}]
+        - [{en: "Diagnostics, fault not covered", ru: "Диагностика, случай не гарантийный", kk: "Диагностика, кепілдікке жатпайтын жағдай"}, "{diagnostic_cost:kzt}"]
+        - [{en: "Pickup of the item for repair", ru: "Забор товара в ремонт", kk: "Тауарды жөндеуге алып кету"}, {en: "free", ru: "бесплатно", kk: "тегін"}]
+        - [{en: "Repair not finished in {warranty_repair_days:days}", ru: "Ремонт не завершён за {warranty_repair_days:days}", kk: "Жөндеу {warranty_repair_days:days} ішінде аяқталмады"}, {en: "replacement or refund", ru: "замена или возврат денег", kk: "ауыстыру немесе ақшаны қайтару"}]

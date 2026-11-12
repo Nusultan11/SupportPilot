@@ -109,6 +109,9 @@ def fill_values(locale: LocaleCatalog, lang: str, *seed: object) -> dict[str, An
     )
     city_to = {"en": city.en, "ru": city.ru.to, "kk": city.kk.dat}[lang]
     city_in = {"en": city.en, "ru": city.ru.in_, "kk": city.kk.loc}[lang]
+    previous_city = rng_for(*seed, "previous_city").choice(
+        [candidate for candidate in locale.cities if candidate.en != city.en]
+    )
     pname = product.get(lang)
     return {
         "order_id": str(rng.randrange(100000, 1000000)),
@@ -120,6 +123,16 @@ def fill_values(locale: LocaleCatalog, lang: str, *seed: object) -> dict[str, An
         "city": {"en": city.en, "ru": city.ru.nom, "kk": city.kk.nom}[lang],
         "city_to": city_to,
         "city_in": city_in,
+        "city_from": {
+            "en": previous_city.en,
+            "ru": previous_city.ru.nom,
+            "kk": previous_city.kk.nom,
+        }[lang],
+        "city_from_in": {
+            "en": previous_city.en,
+            "ru": previous_city.ru.in_,
+            "kk": previous_city.kk.loc,
+        }[lang],
         "_city_en": city.en,
         "name": name.get(lang),
         "amount": kzt(amount, lang) if lang != "en" else f"{amount:,} tenge",

@@ -2,7 +2,8 @@
 
 schema, ids, language (user text and answer), provenance and licence, grounding (re-run
 from the stored messages), evidence completeness per task, duplicates, leakage (ids, exact,
-lexical; semantic from the build report), placeholders, PII, training-KB distinctness.
+lexical; semantic from the build report), placeholders, PII, training-KB distinctness and
+held-out coverage (every intent in validation and test in en, ru and kk; ADR-029).
 The language mix and per-language Kazakh indicators are reported, not gated.
 """
 
@@ -20,14 +21,20 @@ import yaml
 
 from supportpilot.common.config import Settings
 from supportpilot.common.grounding import Evidence, check_response
-from supportpilot.common.schemas import AssistantResponse, SFTExample, SourceEntry, Task
+from supportpilot.common.schemas import (
+    INTENTS,
+    AssistantResponse,
+    SFTExample,
+    SourceEntry,
+    Task,
+)
 from supportpilot.data.kbtrain import distinct_violations, load_variants
 from supportpilot.data.langid import KK_LETTERS, LanguageIdentifier
 from supportpilot.data.mtrun import systems
 from supportpilot.data.policy import Purpose, check_use
 from supportpilot.data.qe import kk_report
 from supportpilot.data.scenarios import AUTHORED_SOURCE
-from supportpilot.data.split import exact_leaks, lexical_leaks
+from supportpilot.data.split import exact_leaks, lexical_leaks, ngram_leaks
 from supportpilot.data.textnorm import EMAIL_RE, PHONE_RE
 
 _TEMPLATE_RE = re.compile(r"\{\{|\{[a-z_][a-z0-9_.]*(?::[a-z_@]+)?\}")
@@ -219,6 +226,13 @@ def run_sft_gates(
     val_s = {r["scenario_id"] for r in rows if r["split"] == "validation"}
     test_s = {r["scenario_id"] for r in rows if r["split"] == "test"}
     cross["test-validation"] = len(val_s & test_s)
+    validation = sorted({r["user_text"] for r in rows if r["split"] == "validation"})
+    test = sorted({r["user_text"] for r in rows if r["split"] == "test"})
+    cross["test-validation-exact"] = len(exact_leaks(validation, test))
+    cross["test-validation-lexical"] = len(
+        lexical_leaks(validation, test, threshold=cfg.leak_jaccard, seed=cfg.seed)
+    )
+    cross["test-validation-ngram"] = len(ngram_leaks(validation, test, cfg.leak_ngram))
     tt = sorted({r["user_text"] for r in train})
     ht = sorted({r["user_text"] for r in held})
     ex_leak = len(exact_leaks(tt, ht))
@@ -262,6 +276,27 @@ def run_sft_gates(
     demo = yaml.safe_load(settings.resolve(cfg.demo_facts).read_text(encoding="utf-8"))
     viol = distinct_violations(load_variants(authored / "kb_train" / "variants.yaml"), demo)
     gates.append(_gate("kb_variant_distinct", not viol, len(viol), 0, violations=viol[:10]))
+
+    # held-out coverage (ADR-029): every intent in validation and test, in every language
+    intents = sorted(INTENTS)
+    have = {(r["split"], r["lang"], r["intent"]) for r in rows}
+    gaps = [
+        f"{split}|{lang}|{intent}"
+        for split in SPLITS
+        for lang in ("en", "ru", "kk")
+        for intent in intents
+        if (split, lang, intent) not in have
+    ]
+    gates.append(
+        _gate(
+            "heldout_coverage",
+            not gaps,
+            len(gaps),
+            0,
+            intents=len(intents),
+            missing=gaps[:40],
+        )
+    )
 
     # report: language mix and Kazakh indicators (not gated)
     kk_rows = [(r, ans) for r, ans in zip(rows, answers, strict=True) if r["lang"] == "kk"]

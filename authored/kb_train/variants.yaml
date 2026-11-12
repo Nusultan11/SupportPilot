@@ -31,6 +31,14 @@ distinct_facts:
   - support_hours
   - support_phone
   - store_name
+  - pickup_keep_days
+  - delivery_attempts
+  - points_credit_days
+  - promo_min_order
+  - gift_card_min
+  - gift_card_max
+  - warranty_repair_days
+  - diagnostic_cost
 
 variants:
   - id: dala
@@ -61,6 +69,14 @@ variants:
     defect_report_days: 14
     loyalty_percent: 3
     gift_card_months: 12
+    pickup_keep_days: 7
+    delivery_attempts: 3
+    points_credit_days: 10
+    promo_min_order: 5000
+    gift_card_min: 3000
+    gift_card_max: 150000
+    warranty_repair_days: 20
+    diagnostic_cost: 2500
     account_delete_days: 30
     sale: {en: Black Friday, ru: Чёрная пятница, kk: Қара жұма, from: '2026-11-25', to: '2026-11-30'}
     outdated: {effective_to: '2026-08-31', return_window_days: 15, courier_cost: 1290, free_delivery_from: 30000, refund_days: 8, warranty_months: 20}
@@ -93,6 +109,14 @@ variants:
     defect_report_days: 7
     loyalty_percent: 1
     gift_card_months: 6
+    pickup_keep_days: 3
+    delivery_attempts: 1
+    points_credit_days: 14
+    promo_min_order: 15000
+    gift_card_min: 2000
+    gift_card_max: 50000
+    warranty_repair_days: 45
+    diagnostic_cost: 4000
     account_delete_days: 7
     sale: {en: 11.11 sale, ru: распродажа 11.11, kk: 11.11 жеңілдік науқаны, from: '2026-11-11', to: '2026-11-13'}
     outdated: {effective_to: '2026-09-30', return_window_days: 10, courier_cost: 990, free_delivery_from: 35000, refund_days: 7, warranty_months: 15}
@@ -125,6 +149,14 @@ variants:
     defect_report_days: 30
     loyalty_percent: 5
     gift_card_months: 24
+    pickup_keep_days: 10
+    delivery_attempts: 3
+    points_credit_days: 3
+    promo_min_order: 7000
+    gift_card_min: 1000
+    gift_card_max: 200000
+    warranty_repair_days: 25
+    diagnostic_cost: 2000
     account_delete_days: 14
     sale: {en: New Year sale, ru: новогодняя распродажа, kk: Жаңа жылдық жеңілдік, from: '2026-12-20', to: '2027-01-05'}
     outdated: {effective_to: '2026-08-14', return_window_days: 30, courier_cost: 1490, free_delivery_from: 40000, refund_days: 5, warranty_months: 24}
@@ -157,6 +189,14 @@ variants:
     defect_report_days: 21
     loyalty_percent: 4
     gift_card_months: 36
+    pickup_keep_days: 4
+    delivery_attempts: 1
+    points_credit_days: 5
+    promo_min_order: 8000
+    gift_card_min: 10000
+    gift_card_max: 300000
+    warranty_repair_days: 40
+    diagnostic_cost: 5000
     account_delete_days: 3
     sale: {en: Nauryz sale, ru: распродажа к Наурызу, kk: Наурыз жеңілдіктері, from: '2027-03-18', to: '2027-03-23'}
     outdated: {effective_to: '2026-06-30', return_window_days: 7, courier_cost: 1990, free_delivery_from: 20000, refund_days: 3, warranty_months: 6}
@@ -189,6 +229,14 @@ variants:
     defect_report_days: 3
     loyalty_percent: 7
     gift_card_months: 12
+    pickup_keep_days: 6
+    delivery_attempts: 3
+    points_credit_days: 21
+    promo_min_order: 12000
+    gift_card_min: 4000
+    gift_card_max: 80000
+    warranty_repair_days: 21
+    diagnostic_cost: 3500
     account_delete_days: 60
     sale: {en: Back to School sale, ru: распродажа «Снова в школу», kk: «Мектепке қайта» жеңілдігі, from: '2027-08-15', to: '2027-08-31'}
     outdated: {effective_to: '2026-10-14', return_window_days: 21, courier_cost: 1490, free_delivery_from: 15000, refund_days: 5, warranty_months: 24}
@@ -221,6 +269,14 @@ variants:
     defect_report_days: 60
     loyalty_percent: 10
     gift_card_months: 3
+    pickup_keep_days: 14
+    delivery_attempts: 1
+    points_credit_days: 30
+    promo_min_order: 20000
+    gift_card_min: 2500
+    gift_card_max: 120000
+    warranty_repair_days: 35
+    diagnostic_cost: 1500
     account_delete_days: 1
     sale: {en: Summer clearance, ru: летняя распродажа, kk: жазғы жеңілдік, from: '2027-07-01', to: '2027-07-15'}
     outdated: {effective_to: '2026-05-31', return_window_days: 30, courier_cost: 990, free_delivery_from: 50000, refund_days: 14, warranty_months: 18}

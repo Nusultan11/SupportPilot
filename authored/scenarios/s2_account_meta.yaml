@@ -1,0 +1,879 @@
+# LLM-authored independent situations; human review pending.
+schema_version: scenarios/1
+scenarios:
+- id: account_shared_tablet
+  intent: account_help
+  fills: 1
+  en:
+  - My sister used this tablet before me; how do I get into my own store profile?
+  ru:
+  - Раньше этим планшетом пользовалась сестра. Как войти именно в мой профиль магазина?
+  kk:
+  - Бұл планшетті бұрын әпкем қолданған. Дүкендегі өз профиліме қалай кіремін?
+  action: answer_kb
+  sections:
+  - account_faq.switch
+- id: account_password_manager
+  intent: account_help
+  fills: 1
+  en:
+  - The saved password belongs to my old login. Where can I set another one?
+  ru:
+  - Сохранённый пароль от старого входа. Где задать новый?
+  kk:
+  - Сақталған құпиясөз ескі тіркелгіме тиесілі. Жаңасын қайдан қоямын?
+  action: answer_kb
+  sections:
+  - account_faq.password
+- id: account_registration_first
+  intent: account_help
+  fills: 1
+  en:
+  - I've only bought at the showroom before and don't have an online profile. How do I register?
+  ru:
+  - Раньше покупал только в шоуруме, профиля на сайте нет. Как зарегистрироваться?
+  kk:
+  - Бұрын тек көрме залынан сатып алатынмын, сайтта профилім жоқ. Қалай тіркелемін?
+  action: answer_kb
+  sections:
+  - account_faq.create
+- id: account_profile_move
+  intent: account_help
+  fills: 1
+  en:
+  - I moved house; where do I edit the address saved in my profile for future purchases?
+  ru:
+  - Переехала. Где изменить адрес в профиле для будущих покупок?
+  kk:
+  - Көшіп кеттім. Кейінгі сатып алулар үшін профильде сақталған мекенжайды қайдан өзгертемін?
+  action: answer_kb
+  sections:
+  - account_faq.profile
+- id: account_closed_shop_login
+  intent: account_help
+  fills: 1
+  en:
+  - I no longer shop here. Where is the option to close my store account?
+  ru:
+  - Больше здесь не покупаю. Где в настройках закрыть учётную запись магазина?
+  kk:
+  - Енді бұл жерден сауда жасамаймын. Дүкендегі тіркелгіні жабу баптауы қайда?
+  action: answer_kb
+  sections:
+  - account_faq.delete
+- id: cart_save_for_evening
+  intent: cart_help
+  fills: 1
+  en:
+  - I am choosing things on my lunch break but will pay this evening. Will my basket be saved?
+  ru:
+  - Выбираю в обед, а оплачу вечером. Сохранится ли корзина?
+  kk:
+  - Түскі үзілісте таңдап жатырмын, кешке төлеймін. Себет сақтала ма?
+  action: answer_kb
+  sections:
+  - account_faq.cart
+- id: cart_accidental_pair
+  intent: cart_help
+  fills: 1
+  en:
+  - I tapped twice and now there are two identical items in my basket. How do I reduce that to one?
+  ru:
+  - Дважды нажала, в корзине две одинаковые вещи. Как оставить одну?
+  kk:
+  - Екі рет басып қалыппын, себетте бірдей екі тауар тұр. Біреуін қалай қалдырамын?
+  action: answer_kb
+  sections:
+  - account_faq.cart
+  mix_kk:
+  - корзинада екі бірдей тауар тұр, біреуін алып тастау керек
+- id: cart_before_trip
+  intent: cart_help
+  fills: 1
+  en:
+  - I'm leaving for a trip and won't order yet. How long are unpurchased items kept in the cart?
+  ru:
+  - Уезжаю, пока не буду заказывать. Сколько хранятся некупленные товары в корзине?
+  kk:
+  - Сапарға кетемін, әзірге тапсырыс бермеймін. Алынбаған тауарлар себетте қанша уақыт тұрады?
+  action: answer_kb
+  sections:
+  - account_faq.cart
+- id: cart_remove_gift
+  intent: cart_help
+  fills: 1
+  en:
+  - The gift is no longer needed; how do I remove just that item without clearing everything else?
+  ru:
+  - Подарок уже не нужен. Как удалить только его, не очищая всю корзину?
+  kk:
+  - Сыйлық енді қажет емес. Себетті түгел босатпай, тек сол тауарды қалай өшіремін?
+  action: answer_kb
+  sections:
+  - account_faq.cart
+- id: cart_add_from_page
+  intent: cart_help
+  fills: 1
+  en:
+  - I opened a product page but haven't checked out. How do I put it in the basket?
+  ru:
+  - Открыла карточку товара, заказ ещё не оформляла. Как положить его в корзину?
+  kk:
+  - Тауардың бетін аштым, әлі тапсырыс бермедім. Оны себетке қалай қосамын?
+  action: answer_kb
+  sections:
+  - account_faq.cart
+- id: cart_reconsider_size
+  intent: cart_help
+  fills: 1
+  en:
+  - Before paying I decided against the shirt. Can I take it out of the current cart?
+  ru:
+  - До оплаты передумал брать рубашку. Можно убрать её из текущей корзины?
+  kk:
+  - Төлем жасамай тұрып жейдені алмауға шештім. Оны қазіргі себеттен алып тастай аламын ба?
+  action: answer_kb
+  sections:
+  - account_faq.cart
+- id: cart_remove_one_group
+  intent: cart_help
+  fills: 1
+  en:
+  - I put a shirt and shoes in the basket but only want the shoes now. How do I remove the shirt?
+  ru:
+  - В корзине рубашка и обувь, но теперь нужна только обувь. Как убрать рубашку?
+  kk:
+  - Себетте жейде мен аяқ киім бар, енді тек аяқ киім керек. Жейдені қалай алып тастаймын?
+  action: answer_kb
+  sections:
+  - account_faq.cart
+- id: newsletter_unwanted_evening
+  intent: newsletter
+  fills: 1
+  en:
+  - Promotional messages keep arriving while I'm working nights. Where can I turn them off?
+  ru:
+  - Работаю в ночную смену, рекламные сообщения мешают. Где их отключить?
+  kk:
+  - Түнгі ауысымда жұмыс істеймін, жарнамалық хабарламалар кедергі жасайды. Оларды қайдан өшіремін?
+  action: answer_kb
+  sections:
+  - account_faq.newsletter
+- id: newsletter_subscribe_sales
+  intent: newsletter
+  fills: 1
+  en:
+  - I'd like to hear about store promotions again. How do I subscribe after opting out?
+  ru:
+  - Хочу снова получать новости об акциях магазина. Как подписаться после отказа?
+  kk:
+  - Дүкеннің акциялары туралы қайтадан хабар алғым келеді. Жазылымнан шыққаннан кейін қалай қайта жазыламын?
+  action: answer_kb
+  sections:
+  - account_faq.newsletter
+- id: newsletter_email_settings
+  intent: newsletter
+  fills: 1
+  en:
+  - Which profile setting controls marketing emails? I cannot find the subscription switch.
+  ru:
+  - Какая настройка профиля отвечает за рекламные письма? Не нахожу переключатель подписки.
+  kk:
+  - Профильдің қай баптауы жарнамалық хаттарға жауап береді? Жазылым қосқышын таба алмай тұрмын.
+  action: answer_kb
+  sections:
+  - account_faq.newsletter
+- id: newsletter_only_orders
+  intent: newsletter
+  fills: 1
+  en:
+  - I still want order updates but don't want the offers mailing list. Where do I manage that?
+  ru:
+  - Уведомления о заказах нужны, а рассылка предложений нет. Где этим управлять?
+  kk:
+  - Тапсырыс туралы хабарламалар керек, ал жарнамалық ұсыныстар қажет емес. Оны қайдан реттеймін?
+  action: answer_kb
+  sections:
+  - account_faq.newsletter
+  mix_ru:
+  - тапсырыс туралы хабарламалар нужны, а рекламу отключить хочу
+- id: newsletter_new_profile
+  intent: newsletter
+  fills: 1
+  en:
+  - I've just registered and want to decide whether to receive your news. Where is that choice?
+  ru:
+  - Только зарегистрировалась и хочу выбрать, получать ли новости. Где это настраивается?
+  kk:
+  - Жаңа ғана тіркелдім, жаңалықтарды алу-алмауды таңдағым келеді. Ол қайдан реттеледі?
+  action: answer_kb
+  sections:
+  - account_faq.newsletter
+- id: newsletter_mobile_switch
+  intent: newsletter
+  fills: 1
+  en:
+  - Can I disable the shop newsletter from my phone without deleting the account?
+  ru:
+  - Можно отключить рассылку магазина с телефона, не удаляя аккаунт?
+  kk:
+  - Тіркелгіні өшірмей, дүкеннің жаңалықтар таратылымын телефоннан тоқтатуға бола ма?
+  action: answer_kb
+  sections:
+  - account_faq.newsletter
+- id: newsletter_changed_mind
+  intent: newsletter
+  fills: 1
+  en:
+  - I agreed to advertising when signing up but have changed my mind. How do I withdraw that choice?
+  ru:
+  - При регистрации согласился на рекламу, теперь передумал. Как изменить выбор?
+  kk:
+  - Тіркелгенде жарнама алуға келіскен едім, енді ойым өзгерді. Таңдауымды қалай өзгертемін?
+  action: answer_kb
+  sections:
+  - account_faq.newsletter
+- id: app_phone_platforms
+  intent: app_help
+  fills: 1
+  en:
+  - My family uses both Android and iPhone. Where do we get the store's mobile app?
+  ru:
+  - У нас в семье Android и iPhone. Где скачать мобильное приложение магазина?
+  kk:
+  - Отбасымызда Android та, iPhone да бар. Дүкеннің мобильді қолданбасын қайдан жүктейміз?
+  action: answer_kb
+  sections:
+  - account_faq.app
+- id: app_first_install
+  intent: app_help
+  fills: 1
+  en:
+  - I'm setting up a new phone and want to install your shopping app for the first time.
+  ru:
+  - Настраиваю новый телефон и хочу впервые установить ваше приложение для покупок.
+  kk:
+  - Жаңа телефонымды баптап жатырмын, сатып алуға арналған қолданбаңызды алғаш рет орнатқым келеді.
+  action: answer_kb
+  sections:
+  - account_faq.app
+- id: app_official_download
+  intent: app_help
+  fills: 1
+  en:
+  - A friend sent an installation file. Where should I get the official shop app instead?
+  ru:
+  - Знакомый прислал установочный файл. Откуда взять официальное приложение магазина?
+  kk:
+  - Танысым орнату файлын жіберді. Дүкеннің ресми қолданбасын қайдан алған дұрыс?
+  action: answer_kb
+  sections:
+  - account_faq.app
+- id: app_return_navigation
+  intent: app_help
+  fills: 1
+  en:
+  - I've always used the website; how do I find the mobile app to shop on the go?
+  ru:
+  - Всегда пользовался сайтом. Как найти мобильное приложение для покупок в дороге?
+  kk:
+  - Бұған дейін сайтты қолданатынмын. Жолда сауда жасауға арналған мобильді қолданбаны қалай табамын?
+  action: answer_kb
+  sections:
+  - account_faq.app
+- id: app_store_listing
+  intent: app_help
+  fills: 1
+  en:
+  - What should I look for in the app store to download your mobile shop?
+  ru:
+  - Что искать в магазине приложений, чтобы скачать ваше приложение для покупок?
+  kk:
+  - Дүкеннің мобильді қолданбасын жүктеу үшін қолданбалар дүкенінен нені іздеуім керек?
+  action: answer_kb
+  sections:
+  - account_faq.app
+- id: app_device_change
+  intent: app_help
+  fills: 1
+  en:
+  - I switched from a computer to a smartphone. Is there an official app I can install?
+  ru:
+  - Перешла с компьютера на смартфон. Есть официальное приложение для установки?
+  kk:
+  - Компьютердің орнына смартфон қолдана бастадым. Орнатуға болатын ресми қолданба бар ма?
+  action: answer_kb
+  sections:
+  - account_faq.app
+- id: app_help_installation
+  intent: app_help
+  fills: 1
+  en:
+  - Please point me to the normal app download page; I don't want to install from an unknown link.
+  ru:
+  - Подскажите обычную страницу загрузки приложения, не хочу ставить по неизвестной ссылке.
+  kk:
+  - Қолданбаны жүктейтін қалыпты бетті көрсетіңізші, белгісіз сілтемеден орнатқым келмейді.
+  action: answer_kb
+  sections:
+  - account_faq.app
+- id: tech_blank_checkout
+  intent: technical_issue
+  fills: 1
+  en:
+  - The checkout page turns completely white after I choose delivery. Refreshing doesn't help.
+  ru:
+  - После выбора доставки страница оформления становится белой. Обновление не помогает.
+  kk:
+  - Жеткізуді таңдаған соң тапсырыс рәсімдеу беті ағарып кетеді. Жаңарту көмектеспейді.
+  action: escalate
+  reason: technical_issue
+- id: tech_screenreader
+  intent: technical_issue
+  fills: 1
+  en:
+  - My screen reader cannot reach the checkout button, although the rest of the site is readable.
+  ru:
+  - Экранный диктор не добирается до кнопки оформления, хотя остальной сайт читает.
+  kk:
+  - Экраннан оқу бағдарламасы рәсімдеу батырмасына жетпейді, бірақ сайттың қалған бөлігін оқиды.
+  action: escalate
+  reason: technical_issue
+- id: tech_filter_crash
+  intent: technical_issue
+  fills: 1
+  en:
+  - Every time I select the size filter the app closes, even after restarting my phone.
+  ru:
+  - Каждый раз при выборе фильтра размера приложение закрывается, даже после перезапуска телефона.
+  kk:
+  - Өлшем сүзгісін таңдаған сайын қолданба жабылып қалады, телефонды қайта қосу да көмектеспеді.
+  action: escalate
+  reason: technical_issue
+  mix_kk:
+  - размерді таңдасам приложение жабылып қалады, қайта қосып көрдім
+- id: tech_captcha_loop
+  intent: technical_issue
+  fills: 1
+  en:
+  - I complete the captcha and it immediately starts again. I'm stuck in a loop on your site.
+  ru:
+  - Прохожу капчу, она тут же появляется снова. На вашем сайте бесконечный круг.
+  kk:
+  - Капчадан өтсем, бірден қайта шығады. Сайтыңызда осыдан әрі өте алмай тұрмын.
+  action: escalate
+  reason: technical_issue
+- id: tech_keyboard_form
+  intent: technical_issue
+  fills: 1
+  en:
+  - The on-screen keyboard hides the confirmation field and I can't scroll to it in the app.
+  ru:
+  - Клавиатура перекрывает поле подтверждения, а прокрутка в приложении не работает.
+  kk:
+  - Қолданбада пернетақта растау өрісін жауып тұр, бетті айналдыру мүмкін емес.
+  action: escalate
+  reason: technical_issue
+- id: tech_wrong_encoding
+  intent: technical_issue
+  fills: 1
+  en:
+  - Product names on the website have become squares instead of letters on two different browsers.
+  ru:
+  - В двух разных браузерах названия товаров на сайте отображаются квадратиками.
+  kk:
+  - Екі түрлі браузерде сайттағы тауар атаулары әріптердің орнына шаршылар болып көрінеді.
+  action: escalate
+  reason: technical_issue
+- id: tech_upload_receipt
+  intent: technical_issue
+  fills: 1
+  en:
+  - Your support form freezes when I attach a receipt image. The file is small and opens elsewhere.
+  ru:
+  - Форма поддержки зависает при добавлении фото чека. Файл маленький и открывается в других местах.
+  kk:
+  - Қолдау нысанына чектің суретін қосқанда қатып қалады. Файл шағын, басқа жерде ашылады.
+  action: escalate
+  reason: technical_issue
+- id: privacy_export_history
+  intent: personal_data
+  fills: 1
+  en:
+  - I need a copy of the personal information your shop has stored about me, not just order receipts.
+  ru:
+  - Нужна копия персональной информации, которую хранит магазин обо мне, а не только чеки.
+  kk:
+  - Дүкенде мен туралы сақталған жеке мәліметтердің көшірмесі керек, тек чектер емес.
+  action: escalate
+  reason: privacy_request
+- id: privacy_wrong_person
+  intent: personal_data
+  fills: 1
+  en:
+  - My profile contains someone else's name. I want a formal correction of my personal records.
+  ru:
+  - В моём профиле чужое имя. Хочу официально исправить мои персональные данные.
+  kk:
+  - Профилімде басқа адамның аты тұр. Жеке деректерімді ресми түрде түзеткім келеді.
+  action: escalate
+  reason: privacy_request
+- id: privacy_erase_records
+  intent: personal_data
+  fills: 1
+  en:
+  - Please register a request to erase my personal data, including records outside the visible profile.
+  ru:
+  - Зарегистрируйте запрос на удаление моих персональных данных, включая записи вне видимого профиля.
+  kk:
+  - Жеке деректерімді, соның ішінде профильде көрінбейтін жазбаларды өшіру туралы өтінішімді тіркеңіз.
+  action: escalate
+  reason: privacy_request
+  mix_kk:
+  - жеке деректерімді өшіруге заявка тіркеңізші, тек профиль емес
+- id: privacy_marketing_consent
+  intent: personal_data
+  fills: 1
+  en:
+  - I want a record of the consent you rely on to process my personal information for marketing.
+  ru:
+  - Хочу получить запись согласия, на основании которого вы обрабатываете мои данные для рекламы.
+  kk:
+  - Деректерімді жарнама үшін өңдеуге негіз болған келісімнің жазбасын алғым келеді.
+  action: escalate
+  reason: privacy_request
+- id: privacy_data_recipients
+  intent: personal_data
+  fills: 1
+  en:
+  - 'I am making a personal-data request: tell me which parties received my information from this shop.'
+  ru:
+  - 'Это запрос о персональных данных: кому магазин передавал сведения обо мне?'
+  kk:
+  - 'Бұл жеке деректер туралы өтініш: дүкен мен туралы мәліметті кімге бергенін білгім келеді.'
+  action: escalate
+  reason: privacy_request
+- id: privacy_incorrect_birthdate
+  intent: personal_data
+  fills: 1
+  en:
+  - The birth date in your customer records is incorrect; I want to exercise my right to correct it.
+  ru:
+  - В клиентских записях неверная дата рождения. Хочу воспользоваться правом на исправление.
+  kk:
+  - Клиенттік жазбадағы туған күнім қате. Оны түзету құқығымды пайдаланғым келеді.
+  action: escalate
+  reason: privacy_request
+- id: privacy_processing_stop
+  intent: personal_data
+  fills: 1
+  en:
+  - I object to further processing of my personal information and need this request registered.
+  ru:
+  - Возражаю против дальнейшей обработки моих персональных данных, зарегистрируйте обращение.
+  kk:
+  - Жеке деректерімді әрі қарай өңдеуге қарсымын, өтінішімді тіркеңіз.
+  action: escalate
+  reason: privacy_request
+- id: feedback_accessible_labels
+  intent: feedback
+  fills: 1
+  en:
+  - I'd like to suggest larger size labels in the product photos. Where can I send that idea?
+  ru:
+  - Хочу предложить более крупные подписи размеров на фото товаров. Куда отправить идею?
+  kk:
+  - Тауар суреттеріндегі өлшем жазуын үлкейтуді ұсынғым келеді. Бұл ойды қайда жіберемін?
+  action: answer_kb
+  sections:
+  - store_info.feedback
+- id: feedback_courier_praise
+  intent: feedback
+  fills: 1
+  en:
+  - The courier waited while I checked the box and was very patient. How can I leave positive feedback?
+  ru:
+  - Курьер спокойно подождал, пока проверю коробку. Как оставить положительный отзыв?
+  kk:
+  - Курьер қорапты тексеріп болғанша сабырмен күтті. Жақсы пікірді қалай қалдырамын?
+  action: answer_kb
+  sections:
+  - store_info.feedback
+- id: feedback_product_idea
+  intent: feedback
+  fills: 1
+  en:
+  - Could I send a suggestion for a product category I'd love you to carry?
+  ru:
+  - Хотел бы предложить категорию товаров для вашего ассортимента. Куда написать?
+  kk:
+  - Сатылымға қоссаңыздар деп бір тауар санатын ұсынғым келеді. Қайда жазамын?
+  action: answer_kb
+  sections:
+  - store_info.feedback
+- id: feedback_review_edit
+  intent: feedback
+  fills: 1
+  en:
+  - I want to share my experience after using the backpack for a month. Where are reviews submitted?
+  ru:
+  - Хочу поделиться впечатлениями после месяца с рюкзаком. Где оставить отзыв?
+  kk:
+  - Рюкзакты бір ай қолданғаннан кейін әсеріммен бөліскім келеді. Пікірді қайда қалдырамын?
+  action: answer_kb
+  sections:
+  - store_info.feedback
+- id: feedback_packaging_suggestion
+  intent: feedback
+  fills: 1
+  en:
+  - I have an idea about making your packaging easier to open. Which channel accepts suggestions?
+  ru:
+  - Есть идея, как сделать вашу упаковку удобнее для открывания. Куда принимают предложения?
+  kk:
+  - Қаптаманы ашуды жеңілдету туралы ойым бар. Ұсыныстарды қай арна қабылдайды?
+  action: answer_kb
+  sections:
+  - store_info.feedback
+- id: feedback_staff_thanks
+  intent: feedback
+  fills: 1
+  en:
+  - A showroom assistant explained the materials really clearly. I'd like management to hear my thanks.
+  ru:
+  - Сотрудница шоурума понятно объяснила состав тканей. Хочу передать благодарность руководству.
+  kk:
+  - Көрме залының қызметкері маталардың құрамын түсінікті түсіндірді. Басшылыққа алғысымды жеткізгім келеді.
+  action: answer_kb
+  sections:
+  - store_info.feedback
+  mix_kk:
+  - шоурумдағы қызметкерге благодарность қалдырғым келеді
+- id: feedback_search_suggestion
+  intent: feedback
+  fills: 1
+  en:
+  - It would help to search products by fabric. Where can I submit a website suggestion?
+  ru:
+  - Было бы удобно искать товары по ткани. Куда отправить предложение по сайту?
+  kk:
+  - Тауарларды матасына қарай іздеу ыңғайлы болар еді. Сайтқа қатысты ұсынысты қайда жіберемін?
+  action: answer_kb
+  sections:
+  - store_info.feedback
+- id: human_accessibility_preference
+  intent: human_agent
+  fills: 1
+  en:
+  - I find it difficult to explain this in writing to an automated assistant. Please connect a staff member.
+  ru:
+  - Мне трудно объяснить это письменно автоматическому помощнику. Подключите сотрудника.
+  kk:
+  - Мұны автоматты көмекшіге жазбаша түсіндіру қиын. Қызметкерге қосыңызшы.
+  action: escalate
+  reason: customer_requested_human
+- id: human_keep_conversation
+  intent: human_agent
+  fills: 1
+  en:
+  - I want a person to continue this same conversation so I don't have to repeat everything.
+  ru:
+  - Хочу продолжить этот же разговор с человеком, чтобы не повторять всё заново.
+  kk:
+  - Бәрін қайта айтпау үшін осы әңгімені адаммен жалғастырғым келеді.
+  action: escalate
+  reason: customer_requested_human
+- id: human_unusual_case
+  intent: human_agent
+  fills: 1
+  en:
+  - My situation doesn't fit the automatic options. Could a real support employee take over?
+  ru:
+  - Моя ситуация не подходит под автоматические варианты. Пусть подключится живой сотрудник.
+  kk:
+  - Менің жағдайым автоматты нұсқаларға сәйкес келмейді. Нақты қолдау қызметкері қосылсыншы.
+  action: escalate
+  reason: customer_requested_human
+- id: human_phone_difficulty
+  intent: human_agent
+  fills: 1
+  en:
+  - I cannot use the phone right now. I need a human operator here in the chat.
+  ru:
+  - Сейчас не могу говорить по телефону. Нужен человек-оператор здесь, в чате.
+  kk:
+  - Қазір телефонмен сөйлесе алмаймын. Осы чатта адам-оператор керек.
+  action: escalate
+  reason: customer_requested_human
+  mix_ru:
+  - сейчас сөйлесе алмаймын, нужен сотрудник в чате
+- id: human_manager_insist
+  intent: human_agent
+  fills: 1
+  en:
+  - Please stop the automated replies and transfer me to an employee authorised to discuss my case.
+  ru:
+  - Остановите автоматические ответы и переведите к сотруднику, который может обсудить моё обращение.
+  kk:
+  - Автоматты жауаптарды тоқтатып, өтінішімді талқылай алатын қызметкерге ауыстырыңыз.
+  action: escalate
+  reason: customer_requested_human
+- id: human_patient_wait
+  intent: human_agent
+  fills: 1
+  en:
+  - I don't mind waiting in a queue, but I'd like my next reply to come from a person.
+  ru:
+  - Готов подождать в очереди, но следующий ответ хочу получить от человека.
+  kk:
+  - Кезекте күтуге дайынмын, бірақ келесі жауапты адамнан алғым келеді.
+  action: escalate
+  reason: customer_requested_human
+- id: human_language_preference
+  intent: human_agent
+  fills: 1
+  en:
+  - Please invite a support colleague who can speak Kazakh; I want to discuss this with a person.
+  ru:
+  - Позовите сотрудника поддержки, говорящего по-казахски. Хочу обсудить вопрос с человеком.
+  kk:
+  - Қазақша сөйлейтін қолдау қызметкерін шақырыңызшы. Мәселені адаммен талқылағым келеді.
+  action: escalate
+  reason: customer_requested_human
+- id: complaint_access_denied
+  intent: complaint
+  fills: 1
+  en:
+  - The showroom employee refused to let me explain and shut the door during opening hours. I want to
+    complain.
+  ru:
+  - Сотрудник шоурума не дал объяснить вопрос и закрыл дверь в рабочее время. Хочу пожаловаться.
+  kk:
+  - Көрме залының қызметкері мәселені түсіндіртпей, жұмыс уақытында есікті жауып алды. Шағымданғым келеді.
+  action: escalate
+  reason: complaint
+- id: complaint_broken_promise
+  intent: complaint
+  fills: 1
+  en:
+  - Three support agents promised a callback, and none called. I want this complaint handled by someone
+    responsible.
+  ru:
+  - Трое сотрудников обещали перезвонить, никто не позвонил. Хочу, чтобы жалобой занялся ответственный.
+  kk:
+  - Үш қызметкер қайта хабарласуға уәде берді, ешкім хабарласпады. Шағымымды жауапты адам қарасын.
+  action: escalate
+  reason: repeated_failure
+- id: complaint_public_mockery
+  intent: complaint
+  fills: 1
+  en:
+  - Your employee mocked my accent in front of other customers. Please register a service complaint.
+  ru:
+  - Ваш сотрудник высмеял мой акцент при других покупателях. Зарегистрируйте жалобу на обслуживание.
+  kk:
+  - Қызметкеріңіз басқа сатып алушылардың алдында менің сөйлеу мәнерімді мазақ етті. Қызмет көрсетуге
+    шағымымды тіркеңіз.
+  action: escalate
+  reason: complaint
+- id: complaint_no_case_number
+  intent: complaint
+  fills: 1
+  en:
+  - I lodged a complaint last week but was never given a case number. I need an employee to deal with
+    it.
+  ru:
+  - На прошлой неделе подал жалобу, номер обращения так и не дали. Нужен ответственный сотрудник.
+  kk:
+  - Өткен аптада шағым бердім, өтініш нөмірін әлі бермеді. Жауапты қызметкер керек.
+  action: escalate
+  reason: complaint
+- id: complaint_delivery_attitude
+  intent: complaint
+  fills: 1
+  en:
+  - The courier demanded I come outside despite our agreed door delivery and shouted at me. This is a
+    complaint.
+  ru:
+  - Курьер требовал выйти на улицу вопреки согласованной доставке до двери и кричал. Это жалоба.
+  kk:
+  - Курьер есікке дейін жеткізу туралы келісімге қарамастан сыртқа шығуды талап етіп, айқайлады. Бұл —
+    шағым.
+  action: escalate
+  reason: complaint
+- id: complaint_legal_letter
+  intent: complaint
+  fills: 1
+  en:
+  - My lawyer will send a formal claim about your service. Please route this to the person responsible.
+  ru:
+  - Мой юрист направит официальную претензию по вашему обслуживанию. Передайте ответственному.
+  kk:
+  - Заңгерім қызмет көрсетуіңізге қатысты ресми талап жолдайды. Жауапты адамға жеткізіңіз.
+  action: escalate
+  reason: legal_threat
+- id: unclear_photo_missing
+  intent: unclear
+  fills: 1
+  en:
+  - I thought the attachment went through. Anyway, that's the one I mean, can you help with it?
+  ru:
+  - Думала, вложение отправилось. В общем, я про вот это, поможете?
+  kk:
+  - Тіркеме жіберілді деп ойлаппын. Жалпы, мен осыны айтып тұрмын, көмектесесіз бе?
+  action: clarify
+  ask: unclear
+- id: unclear_pronoun_reference
+  intent: unclear
+  fills: 1
+  en:
+  - They told me it should be different, but yours is still like that. What do I do?
+  ru:
+  - Мне сказали, что должно быть иначе, а у вас всё ещё вот так. Что делать?
+  kk:
+  - Маған басқаша болуы керек деді, ал сіздерде әлі солай. Не істеймін?
+  action: clarify
+  ask: unclear
+- id: unclear_fragment_voice
+  intent: unclear
+  fills: 1
+  en:
+  - 'Sorry, voice typing cut off my message: the thing from before, with the other one.'
+  ru:
+  - 'Извините, голосовой ввод обрезал сообщение: то самое, которое раньше, с другим.'
+  kk:
+  - 'Кешіріңіз, дауыспен теру хабарламамды қиып тастапты: бұрынғы сол нәрсе, екіншісімен бірге.'
+  action: clarify
+  ask: unclear
+- id: unclear_two_possible_objects
+  intent: unclear
+  fills: 1
+  en:
+  - I need to change it, but I'm not sure which option applies to my situation.
+  ru:
+  - Нужно это изменить, но не понимаю, какой вариант подходит к моей ситуации.
+  kk:
+  - Мұны өзгерту керек, бірақ жағдайыма қай нұсқа сәйкес келетінін түсінбеймін.
+  action: clarify
+  ask: unclear
+- id: unclear_partial_message
+  intent: unclear
+  fills: 1
+  en:
+  - The one on the right. No, actually the previous one. Can you sort this out?
+  ru:
+  - Тот, что справа. Нет, всё-таки предыдущий. Можете разобраться?
+  kk:
+  - Оң жақтағысы. Жоқ, алдыңғысы екен. Осыны реттей аласыз ба?
+  action: clarify
+  ask: unclear
+- id: unclear_unspecified_failure
+  intent: unclear
+  fills: 1
+  en:
+  - It happened again, exactly as before. I don't know what to call the problem.
+  ru:
+  - Та же история повторилась. Даже не знаю, как назвать проблему.
+  kk:
+  - Бұрынғы жағдай тағы қайталанды. Мәселенің атауын да білмеймін.
+  action: clarify
+  ask: unclear
+- id: unclear_forwarded_context
+  intent: unclear
+  fills: 1
+  en:
+  - I've been forwarded here from another chat. Can we continue with that issue?
+  ru:
+  - Меня переслали сюда из другого чата. Продолжим с тем вопросом?
+  kk:
+  - Мені басқа чаттан осында жіберді. Сол мәселені жалғастыра аламыз ба?
+  action: clarify
+  ask: unclear
+- id: greeting_open_channel
+  intent: greeting
+  fills: 1
+  en:
+  - Good afternoon, I am opening this chat for the first time and wanted to say hello.
+  ru:
+  - Добрый день, впервые открыла этот чат и хотела поздороваться.
+  kk:
+  - Қайырлы күн, бұл чатты алғаш рет ашып, сәлемдесейін дедім.
+  action: clarify
+  ask: greeting
+- id: greeting_after_work
+  intent: greeting
+  fills: 1
+  en:
+  - Evening! I've finally finished work and have a moment to write to you.
+  ru:
+  - Добрый вечер! Наконец закончила работу и появилась минутка вам написать.
+  kk:
+  - Қайырлы кеш! Жұмысымды енді аяқтап, сіздерге жазуға уақыт таптым.
+  action: clarify
+  ask: greeting
+- id: greeting_check_connection
+  intent: greeting
+  fills: 1
+  en:
+  - Hello there, just checking whether my message is getting through to the shop.
+  ru:
+  - Здравствуйте, просто проверяю, доходят ли мои сообщения до магазина.
+  kk:
+  - Сәлеметсіз бе, хабарламаларым дүкенге жетіп жатқанын тексеріп отырмын.
+  action: clarify
+  ask: greeting
+- id: greeting_courtesy_thanks
+  intent: greeting
+  fills: 1
+  en:
+  - Thank you for the earlier explanation. That's all for now, have a pleasant day.
+  ru:
+  - Спасибо за предыдущее объяснение. Пока всё, хорошего вам дня.
+  kk:
+  - Алдыңғы түсіндірмеңізге рақмет. Әзірге осы, күніңіз жақсы өтсін.
+  action: clarify
+  ask: greeting
+- id: greeting_morning_return
+  intent: greeting
+  fills: 1
+  en:
+  - Morning, I'm back in your chat after a while. Hope the team is doing well.
+  ru:
+  - Доброе утро, давно не заходил в ваш чат. Надеюсь, у команды всё хорошо.
+  kk:
+  - Қайырлы таң, чаттарыңызға көптен кірмеппін. Ұжымдарыңыз аман-есен деп үміттенемін.
+  action: clarify
+  ask: greeting
+- id: greeting_new_customer
+  intent: greeting
+  fills: 1
+  en:
+  - Hi, I'm new here and still looking around. Greetings to your support team.
+  ru:
+  - Привет, я тут впервые и пока осматриваюсь. Здравствуйте всей команде поддержки.
+  kk:
+  - Сәлем, мұнда алғаш рет кірдім, әзірге қарап жүрмін. Қолдау ұжымына сәлем жолдаймын.
+  action: clarify
+  ask: greeting
+- id: greeting_weekend
+  intent: greeting
+  fills: 1
+  en:
+  - Hello and happy weekend to whoever is reading this message.
+  ru:
+  - Здравствуйте и хороших выходных тому, кто читает это сообщение.
+  kk:
+  - Сәлеметсіз бе, осы хабарламаны оқып отырған адамға демалысы жақсы өтсін деймін.
+  action: clarify
+  ask: greeting
+- id: greeting_back_online
+  intent: greeting
+  fills: 1
+  en:
+  - Hi again, my internet is working now and I can finally join the chat.
+  ru:
+  - Ещё раз здравствуйте, интернет заработал и я наконец могу зайти в чат.
+  kk:
+  - Қайтадан сәлеметсіз бе, интернетім қосылып, ақыры чатқа кіре алдым.
+  action: clarify
+  ask: greeting

@@ -62,7 +62,7 @@ def built(tmp_path_factory: pytest.TempPathFactory) -> tuple[KBConfig, dict[str,
 def test_full_build_passes_every_gate(built: tuple[KBConfig, dict[str, Any]]) -> None:
     cfg, report = built
     assert report["status"] == "built"
-    assert report["documents"] == {"added": 30, "changed": 0, "unchanged": 0, "removed": 0}
+    assert report["documents"] == {"added": 42, "changed": 0, "unchanged": 0, "removed": 0}
     assert all(report["gates"].values()), report["gates"]
     cur = current_version(cfg)
     assert cur is not None
@@ -91,10 +91,76 @@ def test_rerun_is_unchanged_and_forced_rebuild_identical(
     assert build(cfg, count, code_commit="test")["status"] == "unchanged"
     forced = build(cfg, count, code_commit="test", force=True)
     assert forced["status"] == "unchanged"
-    assert forced["reparsed"] == 30
+    assert forced["reparsed"] == 42
     assert forced["kb_version"] == report["kb_version"]
     assert status(cfg)["sources_match_current"] is True
     assert validate(cfg)["passed"]
+
+
+def test_retrieval_build_binds_real_ids_and_preserves_previous_version_on_failure(
+    built: tuple[KBConfig, dict[str, Any]],
+    tmp_path: Path,
+) -> None:
+    import polars as pl
+
+    from supportpilot.common.config import PathsSettings, Settings
+    from supportpilot.common.manifest import scan_files, write_model_json
+    from supportpilot.common.schemas import DatasetManifest
+    from supportpilot.data.retrievalset import build_retrieval_set
+
+    cfg, _ = built
+    data = tmp_path / "data"
+    shutil.copytree(cfg.kb_dir, data / "kb/demo_store")
+    authored = tmp_path / "authored/retrieval"
+    shutil.copytree(ROOT / "authored/retrieval", authored)
+    sft = data / "processed/sft/sft-20261112-00000000"
+    sft.mkdir(parents=True)
+    for split in ("train", "validation", "test"):
+        pl.DataFrame(
+            [
+                {
+                    "user_text": "Synthetic unrelated event for pipeline testing",
+                    "scenario_id": f"{split}_scenario",
+                    "family_id": f"{split}_family",
+                    "messages_json": '[{"role":"user","content":"Unrelated fixture event"}]',
+                }
+            ]
+        ).write_parquet(sft / f"{split}.parquet")
+    from datetime import UTC, datetime
+
+    write_model_json(
+        sft / "manifest.json",
+        DatasetManifest(
+            dataset_version="sft-20261112-00000000",
+            data_schema_version="sft/1",
+            code_commit="test",
+            inputs=["test"],
+            row_counts={"examples": 3},
+            files=scan_files(sft),
+            created_at=datetime.now(UTC),
+        ),
+    )
+    settings = Settings(root=tmp_path, paths=PathsSettings(data_dir=data))
+    first = build_retrieval_set(settings, code_commit="test", semantic=False)
+    assert first["passed"]
+    out = Path(first["path"])
+    contents = {p.name: p.read_bytes() for p in out.iterdir() if p.is_file()}
+    second = build_retrieval_set(settings, code_commit="test", semantic=False)
+    assert second["benchmark_version"] == first["benchmark_version"]
+    assert contents == {p.name: p.read_bytes() for p in out.iterdir() if p.is_file()}
+    rows = [json.loads(line) for line in contents["queries.jsonl"].decode().splitlines()]
+    assert sum(not r["cross_lingual"] and not r["code_switch"] for r in rows) >= 450
+    assert all(r["relevant"] == [] for r in rows if not r["answerable"])
+    assert all(r["review_status"] == "draft" for r in rows)
+    pointer = (out.parent / "current.json").read_bytes()
+    path = authored / "queries.yaml"
+    document = yaml.safe_load(path.read_text("utf8"))
+    document["items"][0]["relevant"][0]["section"] = "missing.section"
+    path.write_text(yaml.safe_dump(document, allow_unicode=True), encoding="utf8")
+    with pytest.raises(StepError, match="missing KB section"):
+        build_retrieval_set(settings, code_commit="test", semantic=False)
+    assert (out.parent / "current.json").read_bytes() == pointer
+    assert contents == {p.name: p.read_bytes() for p in out.iterdir() if p.is_file()}
 
 
 def test_changed_fact_updates_only_its_documents(tmp_path: Path) -> None:
@@ -116,7 +182,7 @@ def test_changed_fact_updates_only_its_documents(tmp_path: Path) -> None:
     second = build(cfg, count, code_commit="test")
     assert second["status"] == "built"
     assert second["parent"] == first["kb_version"]
-    assert second["documents"] == {"added": 0, "changed": 3, "unchanged": 27, "removed": 0}
+    assert second["documents"] == {"added": 0, "changed": 3, "unchanged": 39, "removed": 0}
     cur = current_version(cfg)
     assert cur is not None
     assert cur != parent
@@ -156,7 +222,7 @@ def test_removed_and_added_documents(tmp_path: Path) -> None:
     assert sorted(r["removed"]) == ["en/terms.docx", "kk/terms.docx", "ru/terms.docx"]
     rep = build(cfg, count, code_commit="test")
     assert rep["documents"]["removed"] == 3
-    assert rep["documents"]["unchanged"] == 27
+    assert rep["documents"]["unchanged"] == 39
     assert not [c for c in chunks_of(cfg) if c["doc_id"] == "terms"]
 
     spec["doc_id"] = "sale_terms"
@@ -166,7 +232,7 @@ def test_removed_and_added_documents(tmp_path: Path) -> None:
     )
     render(cfg)
     rep = build(cfg, count, code_commit="test")
-    assert rep["documents"] == {"added": 3, "changed": 0, "unchanged": 27, "removed": 0}
+    assert rep["documents"] == {"added": 3, "changed": 0, "unchanged": 39, "removed": 0}
     assert all(rep["gates"].values())
     assert {c["lang"] for c in chunks_of(cfg) if c["doc_id"] == "sale_terms"} == {"en", "ru", "kk"}
 

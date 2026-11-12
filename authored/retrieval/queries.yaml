@@ -1,0 +1,1874 @@
+schema_version: retrieval_source/1
+source_id: supportpilot_authored_retrieval
+origin: llm_generated
+review_status: draft
+author: Codex (LLM), 2026-11-12
+allowed_use: eval_only
+licence_note: Original project-authored synthetic content; internal evaluation. No dataset redistribution licence
+  has been granted.
+items:
+- id: return_weekends
+  category: hard
+  en: Does a weekend pause the return clock, or is Saturday counted too?
+  ru: Выходные останавливают отсчёт срока возврата или суббота тоже считается?
+  kk: Демалыс күндері қайтару мерзімін есептеу тоқтай ма, әлде сенбі де есептеле ме?
+  relevant:
+  - section: returns_policy.window
+    grade: 3
+  - section: returns_policy.periods_table
+    grade: 1
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+  mix_kk: қайтару мерзімін санағанда выходные де есептеле ме?
+- id: return_missing_tags
+  category: hard
+  en: I cut off the tags before trying the jacket at home. What condition rule applies to a return?
+  ru: До домашней примерки срезала ярлыки с куртки. Какое условие возврата здесь действует?
+  kk: Күртені үйде киіп көрмей тұрып жапсырмаларын қиып тастадым. Қайтарудың қай шарты қолданылады?
+  relevant:
+  - section: returns_policy.window
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: return_start_clock
+  category: simple
+  en: Is my return deadline measured from payment, dispatch, or the day the parcel reached me?
+  ru: Срок возврата отсчитывается от оплаты, отправки или дня получения посылки?
+  kk: Қайтару мерзімі төлемнен, жөнелтуден әлде сәлемдемені алған күннен есептеле ме?
+  relevant:
+  - section: returns_policy.window
+    grade: 3
+  - section: returns_policy.periods_table
+    grade: 1
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: return_evidence_needed
+  category: simple
+  en: What proof of purchase and packaging do I need to keep for an unused-item return?
+  ru: Какое подтверждение покупки и упаковку сохранить для возврата неиспользованного товара?
+  kk: Пайдаланылмаған тауарды қайтару үшін сатып алу дәлелі мен қаптаманың қайсысын сақтау керек?
+  relevant:
+  - section: returns_policy.window
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: return_good_cosmetics
+  category: hard
+  en: Is there a category list of perfectly working goods that still cannot be returned?
+  ru: Есть список категорий исправных товаров, которые всё равно не подлежат возврату?
+  kk: Мінсіз жұмыс істесе де қайтарылмайтын тауар санаттарының тізімі бар ма?
+  relevant:
+  - section: returns_policy.non_returnable
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: return_defective_exception
+  category: multi_fragment
+  en: If an excluded-from-return item is actually faulty, which exception and defect procedure apply?
+  ru: Если товар из исключённой категории оказался неисправным, какое исключение и порядок обращения действуют?
+  kk: Қайтарылмайтын санаттағы тауар ақаулы болып шықса, қандай ерекшелік пен өтініш тәртібі қолданылады?
+  relevant:
+  - section: returns_policy.non_returnable
+    grade: 3
+  - section: warranty_policy.defect
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: return_courier_route
+  category: simple
+  en: After pressing Return in the order page, where can I physically hand the item over?
+  ru: Нажав «Вернуть» в заказе, куда физически передать вещь?
+  kk: Тапсырыста «Қайтару» батырмасын басқаннан кейін тауарды қай жерге тапсырамын?
+  relevant:
+  - section: returns_policy.how_to_return
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: return_wrong_free
+  category: multi_fragment
+  en: 'You sent the wrong item: who pays return transport and what evidence must accompany the report?'
+  ru: 'Прислали не тот товар: кто платит за обратную перевозку и какие доказательства приложить?'
+  kk: 'Басқа тауар жіберілген: кері тасымалды кім төлейді және өтінішке қандай дәлел қосылады?'
+  relevant:
+  - section: returns_policy.how_to_return
+    grade: 3
+  - section: returns_policy.damaged_wrong
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: return_customer_transport
+  category: simple
+  en: What is the return-shipping charge when the item has no defect and I simply reconsidered?
+  ru: Какова стоимость обратной доставки, если брака нет и я просто передумал?
+  kk: Ақауы жоқ тауарды алудан жай ғана бас тартсам, кері жеткізу ақысы қанша?
+  relevant:
+  - section: returns_policy.how_to_return
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: refund_bank_extra
+  category: hard
+  en: Can the bank statement update later than the store's stated refund-processing period?
+  ru: Банковская выписка может обновиться позже указанного магазином срока обработки возврата?
+  kk: Банк көшірмесі дүкен көрсеткен ақшаны қайтару мерзімінен кейін жаңаруы мүмкін бе?
+  relevant:
+  - section: returns_policy.refund
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: refund_cash_route
+  category: hard
+  en: I paid cash to the courier. To which destination would an approved refund be sent?
+  ru: Я платила курьеру наличными. Куда направят одобренный возврат денег?
+  kk: Курьерге қолма-қол төледім. Мақұлданған қайтарым қайда жіберіледі?
+  relevant:
+  - section: returns_policy.refund
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: refund_instalment_route
+  category: hard
+  en: When an instalment purchase is returned, what happens to the unpaid Kaspi Red instalments?
+  ru: При возврате покупки в рассрочку что происходит с неоплаченными взносами Kaspi Red?
+  kk: Бөліп төленген сатып алуды қайтарғанда Kaspi Red бойынша қалған төлемдерге не болады?
+  relevant:
+  - section: returns_policy.refund
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: refund_inspection_clock
+  category: simple
+  en: Does the refund period begin when I post the parcel back or once the returned goods pass inspection?
+  ru: Возврат денег отсчитывается от отправки посылки обратно или после проверки возвращённой вещи?
+  kk: Ақшаны қайтару мерзімі кері жөнелтуден бастала ма, әлде қайтқан тауар тексерілгеннен кейін бе?
+  relevant:
+  - section: returns_policy.refund
+    grade: 3
+  - section: returns_policy.periods_table
+    grade: 1
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: exchange_price_difference
+  category: simple
+  en: How is the price difference settled when an exchange model is more expensive or cheaper?
+  ru: Как рассчитывается разница при обмене на более дорогую или дешёвую модель?
+  kk: Қымбатырақ не арзанырақ үлгіге айырбастағанда баға айырмасы қалай есептеледі?
+  relevant:
+  - section: returns_policy.exchange
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: exchange_stock_condition
+  category: hard
+  en: Can an exchange proceed if the size I want is not available in stock?
+  ru: Обмен возможен, если нужного мне размера нет в наличии?
+  kk: Маған керекті өлшем қоймада болмаса, айырбастауға бола ма?
+  relevant:
+  - section: returns_policy.exchange
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: damage_reporting_scope
+  category: simple
+  en: Which deadline and photographs apply if I discover transport damage after receiving the parcel?
+  ru: Какие сроки и фотографии нужны, если после получения обнаружено повреждение при перевозке?
+  kk: Сәлемдемені алғаннан кейін тасымалдау зақымы анықталса, қандай мерзім мен фотосуреттер қажет?
+  relevant:
+  - section: returns_policy.damaged_wrong
+    grade: 3
+  - section: delivery_policy.receiving
+    grade: 2
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: return_period_comparison
+  category: multi_fragment
+  en: Compare the unused-item return window, exchange window and refund-processing period in the store rules.
+  ru: Сравните сроки возврата исправной вещи, обмена и обработки возврата денег по правилам магазина.
+  kk: Дүкен ережелеріндегі жарамды тауарды қайтару, айырбастау және ақшаны қайтару мерзімдерін салыстырыңыз.
+  relevant:
+  - section: returns_policy.window
+    grade: 3
+  - section: returns_policy.exchange
+    grade: 3
+  - section: returns_policy.refund
+    grade: 3
+  - section: returns_policy.periods_table
+    grade: 2
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: delivery_clock_origin
+  category: simple
+  en: For delivery estimates, do you start counting when I place the order or when you dispatch it?
+  ru: Для срока доставки начальный момент — оформление заказа или его отправка?
+  kk: Жеткізу мерзімін тапсырыс берілген кезден бе, әлде жөнелтілген кезден есептейсіздер ме?
+  relevant:
+  - section: delivery_policy.periods
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: delivery_free_threshold
+  category: simple
+  en: At what purchase value does the courier fee disappear, and what is the fee below that value?
+  ru: При какой сумме покупки курьерская доставка становится бесплатной и сколько стоит ниже порога?
+  kk: Сатып алу сомасы қаншаға жеткенде курьер ақысы алынбайды, ал оған дейінгі ақы қанша?
+  relevant:
+  - section: delivery_policy.cost
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: delivery_pickup_fee
+  category: simple
+  en: Is collecting at a pickup point charged the same as home courier delivery?
+  ru: Выдача в пункте стоит столько же, сколько доставка курьером домой?
+  kk: Беру пунктінен алу ақысы үйге курьермен жеткізу ақысымен бірдей ме?
+  relevant:
+  - section: delivery_policy.cost
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: delivery_carrier_selection
+  category: simple
+  en: Which delivery services can be selected during checkout, and when is their tracking number sent?
+  ru: Какие службы доставки выбираются при оформлении и когда присылают трек-номер?
+  kk: Рәсімдеу кезінде қандай жеткізу қызметін таңдауға болады және бақылау нөмірі қашан жіберіледі?
+  relevant:
+  - section: delivery_policy.methods
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: delivery_status_access
+  category: simple
+  en: Where do customers view shipment progress, and what identifier does support need to check it?
+  ru: Где покупателю посмотреть движение отправления и какой идентификатор нужен поддержке для проверки?
+  kk: Сатып алушы жөнелтім барысын қайдан көреді және тексеру үшін қолдауға қандай нөмір қажет?
+  relevant:
+  - section: delivery_policy.tracking
+    grade: 3
+  - section: orders_policy.statuses
+    grade: 2
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: pickup_expiry_refund
+  category: hard
+  en: If nobody collects a prepaid parcel before storage expires, what becomes of the goods and money?
+  ru: Если предоплаченную посылку никто не забрал до конца хранения, что станет с вещью и деньгами?
+  kk: Алдын ала төленген сәлемдемені сақтау мерзімі біткенше ешкім алмаса, тауар мен ақшаға не болады?
+  relevant:
+  - section: delivery_faq.pickup_storage
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: pickup_clock_sms
+  category: simple
+  en: Is pickup storage counted from the arrival SMS or from the day I read that SMS?
+  ru: Хранение в пункте считают от SMS о поступлении или со дня, когда я прочитаю сообщение?
+  kk: Беру пунктіндегі сақтау мерзімі келгені туралы SMS жіберілген күннен бе, әлде оны оқыған күннен бе?
+  relevant:
+  - section: delivery_faq.pickup_storage
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: pickup_friend_code
+  category: simple
+  en: I want a relative to receive the parcel. Which two pieces of information must I give them?
+  ru: Хочу поручить родственнику получить посылку. Какие два вида данных ему передать?
+  kk: Сәлемдемені туысым алсын деймін. Оған қандай екі мәліметті беруім керек?
+  relevant:
+  - section: delivery_faq.someone_else
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  mix_ru: посылканы туысым алса, какой код и номер ему передать?
+- id: pickup_code_recipient
+  category: hard
+  en: Can the collection code be sent directly to the alternate recipient's number?
+  ru: Код выдачи могут отправить сразу на номер другого получателя?
+  kk: Алу кодын бірден басқа алушының нөміріне жібере аласыздар ма?
+  relevant:
+  - section: delivery_faq.someone_else
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: courier_retry_rule
+  category: simple
+  en: After an unanswered courier call, is the next attempt on the same evening or the next working day?
+  ru: Если на звонок курьера не ответили, повторная попытка вечером или на следующий рабочий день?
+  kk: Курьер қоңырауына жауап болмаса, қайта жеткізу сол кеште ме, келесі жұмыс күні ме?
+  relevant:
+  - section: delivery_faq.missed_courier
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: courier_last_attempt
+  category: hard
+  en: Where is the parcel taken after the included courier attempts have all failed?
+  ru: Куда увезут посылку после всех включённых попыток курьерской доставки?
+  kk: Курьердің қарастырылған барлық жеткізу әрекеті сәтсіз болса, сәлемдеме қайда апарылады?
+  relevant:
+  - section: delivery_faq.missed_courier
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: reschedule_limit
+  category: simple
+  en: How far beyond the original delivery date may I move it, and is the date change charged?
+  ru: Насколько позже первоначальной даты можно перенести доставку и платно ли это?
+  kk: Жеткізуді бастапқы күннен қаншалықты кейінге ауыстыруға болады және бұл ақылы ма?
+  relevant:
+  - section: delivery_faq.reschedule
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: reschedule_channels
+  category: simple
+  en: Can a delivery-date change be arranged with the calling courier as well as in the order page?
+  ru: Дату доставки можно согласовать с позвонившим курьером или только на странице заказа?
+  kk: Жеткізу күнін қоңырау шалған курьермен келісуге бола ма, әлде тек тапсырыс бетінде ме?
+  relevant:
+  - section: delivery_faq.reschedule
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: pickup_heavy_limit
+  category: hard
+  en: Why might checkout omit parcel-locker delivery for a bulky appliance, and what weight limit applies?
+  ru: Почему для крупной техники оформление не предлагает постамат и какое ограничение по весу действует?
+  kk: Ірі техникаға рәсімдеу кезінде неге постамат ұсынылмауы мүмкін және салмақ шегі қандай?
+  relevant:
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: inspection_before_sign
+  category: simple
+  en: Am I allowed to open the shipment in the courier's presence before signing the handover?
+  ru: Можно вскрыть отправление при курьере до подписи о получении?
+  kk: Алуға қол қоймай тұрып жөнелтімді курьердің көзінше ашуға рұқсат па?
+  relevant:
+  - section: delivery_faq.inspect
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: inspection_partial_refusal
+  category: hard
+  en: One item in a multi-item parcel is wrong. Can I refuse only that item and keep the rest?
+  ru: В посылке из нескольких вещей одна не та. Можно отказаться только от неё, оставив остальные?
+  kk: Бірнеше тауардың біреуі қате келген. Тек содан бас тартып, қалғандарын алуға бола ма?
+  relevant:
+  - section: delivery_faq.inspect
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: order_minimum
+  category: simple
+  en: What is the smallest basket value you accept when I confirm a new purchase?
+  ru: Какую минимальную стоимость корзины вы принимаете при подтверждении покупки?
+  kk: Жаңа сатып алуды растағанда себеттің ең аз сомасы қанша болуы керек?
+  relevant:
+  - section: orders_policy.place
+    grade: 3
+  - section: terms.prices
+    grade: 2
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: order_confirmation_sms
+  category: simple
+  en: What confirmation do I receive after checkout, and how many digits identify the order?
+  ru: Какое подтверждение придёт после оформления и сколько цифр в идентификаторе заказа?
+  kk: Рәсімдеуден кейін қандай растау келеді және тапсырыс нөмірі неше таңбалы?
+  relevant:
+  - section: orders_policy.place
+    grade: 3
+  - section: terms.general
+    grade: 2
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: cancel_both_conditions
+  category: hard
+  en: Must both the cancellation time limit and the not-yet-shipped condition be satisfied?
+  ru: Для отмены должны одновременно выполняться срок и условие «ещё не отправлен»?
+  kk: Жою үшін мерзім шегі мен «әлі жөнелтілмеген» шарты қатар орындалуы керек пе?
+  relevant:
+  - section: orders_policy.cancel
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: cancel_after_dispatch
+  category: simple
+  en: What options remain under the policy once a parcel has already left the warehouse?
+  ru: По правилам какие варианты остаются, когда посылка уже покинула склад?
+  kk: Сәлемдеме қоймадан шығып кеткеннен кейін ереже бойынша қандай мүмкіндік қалады?
+  relevant:
+  - section: orders_policy.cancel
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: edit_processing_items
+  category: simple
+  en: While an order is processing, which of its contents, quantity and address can still be edited?
+  ru: 'Пока заказ обрабатывается, что можно править: состав, количество, адрес?'
+  kk: Тапсырыс өңделіп жатқанда құрамын, санын, мекенжайын өзгертуге бола ма?
+  relevant:
+  - section: orders_policy.change
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: edit_access_path
+  category: simple
+  en: Where is the Edit control for a placed order, and can support arrange the same change?
+  ru: Где находится редактирование оформленного заказа и можно ли внести изменение через поддержку?
+  kk: Рәсімделген тапсырысты өңдеу батырмасы қайда және өзгерісті қолдау арқылы енгізуге бола ма?
+  relevant:
+  - section: orders_policy.change
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: payment_transfer_exclusion
+  category: hard
+  en: Does a transfer from my personal bank account count as an accepted store payment method?
+  ru: Перевод с моего личного банковского счёта считается допустимым способом оплаты магазина?
+  kk: Жеке банк шотымнан аудару дүкен қабылдайтын төлем тәсіліне жата ма?
+  relevant:
+  - section: payment_policy.methods
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: payment_instalment_duration
+  category: simple
+  en: What is the longest Kaspi Red repayment period offered, and is there an overpayment?
+  ru: Каков максимальный срок Kaspi Red у вас и есть ли переплата?
+  kk: Сіздердегі Kaspi Red төлемінің ең ұзақ мерзімі қандай және артық төлем бар ма?
+  relevant:
+  - section: payment_policy.instalments
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: payment_cod_ceiling
+  category: simple
+  en: At which order value does payment to the courier stop being available?
+  ru: При какой стоимости заказа перестаёт быть доступной оплата курьеру?
+  kk: Тапсырыс сомасы қанша болғанда курьерге төлеу мүмкіндігі болмайды?
+  relevant:
+  - section: payment_policy.cod
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: payment_cod_card
+  category: simple
+  en: For an eligible pay-on-delivery order, must I use cash or may I use a card?
+  ru: Для допустимого заказа с оплатой при получении нужны наличные или можно картой?
+  kk: Алу кезінде төленетін жарамды тапсырысқа міндетті түрде қолма-қол керек пе, картамен де бола ма?
+  relevant:
+  - section: payment_policy.cod
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: payment_retry_checks
+  category: simple
+  en: Before retrying a declined payment, which card checks and waiting interval are recommended?
+  ru: Перед повтором отклонённой оплаты что проверить у карты и сколько подождать?
+  kk: Қабылданбаған төлемді қайталамас бұрын картадан нені тексеріп, қанша күту ұсынылады?
+  relevant:
+  - section: payment_policy.failed_payment
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: payment_hold_rule
+  category: hard
+  en: If a bank debit appears but the shop still marks the order unpaid, what does the policy say about the hold?
+  ru: Если списание в банке видно, а магазин считает заказ неоплаченным, что сказано о блокировке суммы?
+  kk: Банкте ақша алынғаны көрініп, дүкенде тапсырыс төленбеген тұрса, бұғатталған сома туралы ереже не дейді?
+  relevant:
+  - section: payment_policy.failed_payment
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: receipt_delivery_channels
+  category: simple
+  en: After payment, through which channels is the fiscal receipt delivered and where can it be reopened?
+  ru: После оплаты по каким каналам приходит фискальный чек и где его открыть повторно?
+  kk: Төлемнен кейін фискалдық чек қай арналармен келеді және оны қайтадан қайдан ашамын?
+  relevant:
+  - section: payment_policy.receipts
+    grade: 3
+  - section: account_faq.history
+    grade: 2
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: invoice_company_request
+  category: simple
+  en: What reference must a company provide when requesting an invoice for a purchase?
+  ru: Какой идентификатор компания должна сообщить для запроса счёта по покупке?
+  kk: Сатып алу шотын сұрау үшін компания қандай нөмірді беруі керек?
+  relevant:
+  - section: payment_policy.receipts
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: warranty_clock_receipt
+  category: simple
+  en: For electronics, does warranty start on delivery and which purchase reference should be kept?
+  ru: Для электроники гарантия начинается с получения и какое подтверждение покупки сохранить?
+  kk: Электроника кепілдігі жеткізілген күннен бастала ма және сатып алудың қандай дәлелін сақтау керек?
+  relevant:
+  - section: warranty_policy.period
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: warranty_liquid_exclusion
+  category: hard
+  en: Does liquid damage or repair by an outside technician fall under the warranty exclusions?
+  ru: Попадание жидкости или ремонт сторонним мастером входят в исключения гарантии?
+  kk: Сұйықтық тиюі не бөгде шебердің жөндеуі кепілдік ерекшеліктеріне кіре ме?
+  relevant:
+  - section: warranty_policy.exclusions
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: warranty_battery_wear
+  category: hard
+  en: Is normal battery wear treated the same as a covered manufacturing fault?
+  ru: Обычный износ аккумулятора приравнивается к гарантийному производственному дефекту?
+  kk: Батареяның қалыпты тозуы кепілдікке жататын өндірістік ақаумен бірдей ме?
+  relevant:
+  - section: warranty_policy.exclusions
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: warranty_overheat_safety
+  category: simple
+  en: The device smells of burning. What immediate safety instruction is stated in the warranty document?
+  ru: От устройства пахнет гарью. Какая немедленная мера безопасности указана в гарантийном документе?
+  kk: Құрылғыдан күйік иісі шығады. Кепілдік құжатында қандай шұғыл қауіпсіздік шарасы жазылған?
+  relevant:
+  - section: warranty_policy.defect
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: warranty_pickup_cost
+  category: simple
+  en: Who pays for collecting an item for warranty service, and how should I request collection?
+  ru: Кто оплачивает забор вещи на гарантийное обслуживание и как его запросить?
+  kk: Кепілдік қызметіне тауарды алып кетуді кім төлейді және оны қалай сұраймын?
+  relevant:
+  - section: warranty_policy.service
+    grade: 3
+  - section: warranty_service.summary_table
+    grade: 2
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: repair_clock_service
+  category: hard
+  en: Does the maximum repair period run from my message or from receipt at the service centre?
+  ru: Максимальный срок ремонта идёт от моего сообщения или от поступления в сервисный центр?
+  kk: Жөндеудің ең ұзақ мерзімі менің хабарламамнан ба, әлде сервис орталығына түскеннен бе?
+  relevant:
+  - section: warranty_service.repair_period
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  mix_kk: ремонттың мерзімі сервиске түскен күннен санала ма, әлде заявкадан ба?
+- id: repair_expired_remedy
+  category: simple
+  en: If the repair exceeds the promised maximum, what replacement or refund remedy applies?
+  ru: Если ремонт превысил обещанный максимум, какая замена или возврат предусмотрены?
+  kk: Жөндеу уәде етілген шектен асып кетсе, қандай ауыстыру не қайтарым қарастырылған?
+  relevant:
+  - section: warranty_service.repair_period
+    grade: 3
+  - section: warranty_service.summary_table
+    grade: 2
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: diagnostic_nonwarranty_cost
+  category: simple
+  en: What diagnostic fee applies after a non-covered fault is established, and who decides on paid repair?
+  ru: Сколько стоит диагностика негарантийного случая и кто решает, оплачивать ли ремонт?
+  kk: Кепілдікке жатпайтын ақау анықталса, диагностика ақысы қанша және ақылы жөндеуді кім шешеді?
+  relevant:
+  - section: warranty_service.diagnostics
+    grade: 3
+  - section: warranty_service.summary_table
+    grade: 2
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: large_machine_visit
+  category: simple
+  en: Must I carry a large washing machine to a pickup point for a warranty inspection?
+  ru: Нужно везти большую стиральную машину в пункт выдачи для гарантийного осмотра?
+  kk: Кепілдік тексеруі үшін үлкен кір жуғыш машинаны беру пунктіне апаруым керек пе?
+  relevant:
+  - section: warranty_service.large_items
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: signup_sms_only
+  category: simple
+  en: Can a first-time customer create a profile using only a phone number and the SMS code?
+  ru: Новый покупатель может создать профиль только по номеру телефона и коду SMS?
+  kk: Жаңа сатып алушы тек телефон нөмірі мен SMS коды арқылы профиль аша ала ма?
+  relevant:
+  - section: account_faq.create
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: signin_no_password
+  category: hard
+  en: I'm searching for password recovery, but does this shop actually use a permanent password?
+  ru: Ищу восстановление пароля, но есть ли вообще постоянный пароль у этого магазина?
+  kk: Құпиясөзді қалпына келтіруді іздеп жүрмін, бұл дүкенде тұрақты құпиясөз бар ма өзі?
+  relevant:
+  - section: account_faq.password
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: sms_retry_delay
+  category: simple
+  en: How long must I wait before requesting another one-time code after checking my phone number?
+  ru: Проверив номер телефона, через какое время можно повторно запросить одноразовый код?
+  kk: Телефон нөмірін тексергеннен кейін бір реттік кодты қайта сұрау үшін қанша күтемін?
+  relevant:
+  - section: account_faq.password
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: profile_future_only
+  category: hard
+  en: Will editing a saved profile address automatically redirect an order I have already placed?
+  ru: Изменение сохранённого адреса профиля автоматически перенаправит уже оформленный заказ?
+  kk: Профильдегі сақталған мекенжайды өзгерту бұрын берілген тапсырысты автоматты түрде басқа жаққа жібере ме?
+  relevant:
+  - section: account_faq.profile
+    grade: 3
+  - section: orders_policy.change
+    grade: 1
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: switch_bonus_owner
+  category: hard
+  en: If I sign in with another phone number on the same device, do my orders and points move with me?
+  ru: При входе с другим номером на том же устройстве заказы и бонусы переносятся?
+  kk: Сол құрылғыда басқа нөмірмен кірсем, тапсырыстарым мен бонустарым бірге ауыса ма?
+  relevant:
+  - section: account_faq.switch
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: delete_unused_points
+  category: simple
+  en: When I close the profile, how long does deletion take and what happens to unused points?
+  ru: При закрытии профиля сколько занимает удаление и что будет с неиспользованными бонусами?
+  kk: Профильді жапқанда өшіру қанша уақыт алады және пайдаланылмаған бонустарға не болады?
+  relevant:
+  - section: account_faq.delete
+    grade: 3
+  - section: terms.data_deletion
+    grade: 1
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: newsletter_footer_path
+  category: simple
+  en: Can I stop promotional email using its footer without going into the app settings?
+  ru: Можно прекратить рекламные письма по ссылке внизу письма без входа в настройки приложения?
+  kk: Қолданба баптауларына кірмей, хаттың төменгі сілтемесі арқылы жарнамалық хаттарды тоқтатуға бола ма?
+  relevant:
+  - section: account_faq.newsletter
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: app_huawei_store
+  category: simple
+  en: Is your app distributed through AppGallery as well as the usual Android and Apple stores?
+  ru: Приложение распространяется через AppGallery наряду с обычными магазинами Android и Apple?
+  kk: Қолданбаңыз Android пен Apple дүкендерімен қатар AppGallery арқылы да таратыла ма?
+  relevant:
+  - section: account_faq.app
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: cart_retention_period
+  category: simple
+  en: What is the retention period of a basket that has not yet become an order?
+  ru: Каков срок хранения корзины, которая ещё не стала заказом?
+  kk: Әлі тапсырысқа айналмаған себет қанша уақыт сақталады?
+  relevant:
+  - section: account_faq.cart
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  mix_ru: корзина ещё заказ емес, сколько дней она сохраняется?
+- id: price_lock_moment
+  category: simple
+  en: If a catalogue price changes later, at what moment was my order's price fixed?
+  ru: Если цена каталога потом поменялась, в какой момент зафиксировалась цена моего заказа?
+  kk: Каталог бағасы кейін өзгерсе, менің тапсырысымның бағасы қай сәтте бекітілген?
+  relevant:
+  - section: terms.prices
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: contract_sms_moment
+  category: simple
+  en: 'Which event marks the conclusion of the sale contract: adding to cart or receiving confirmation SMS?'
+  ru: 'Что означает заключение договора покупки: добавление в корзину или получение SMS-подтверждения?'
+  kk: 'Сатып алу шарты қай кезде жасалды деп есептеледі: себетке қосқанда ма, растау SMS-і келгенде ме?'
+  relevant:
+  - section: terms.general
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: ownership_handover
+  category: simple
+  en: When do ownership and the risk of damage pass from the shop to the buyer?
+  ru: Когда право собственности и риск повреждения переходят от магазина покупателю?
+  kk: Меншік құқығы мен зақымдану тәуекелі дүкеннен сатып алушыға қашан өтеді?
+  relevant:
+  - section: terms.delivery_terms
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: data_card_storage
+  category: hard
+  en: Does the shop retain bank-card details alongside my name and delivery address?
+  ru: Магазин хранит банковские реквизиты карты вместе с именем и адресом доставки?
+  kk: Дүкен атым мен жеткізу мекенжайыммен бірге банк картасының деректерін сақтай ма?
+  relevant:
+  - section: terms.data_stored
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: data_fiscal_exception
+  category: hard
+  en: Can fiscal receipts remain stored after an account-deletion request, and what exception permits that?
+  ru: Фискальные чеки могут остаться после запроса удаления аккаунта и какое исключение это допускает?
+  kk: Тіркелгіні өшіру сұрауынан кейін фискалдық чектер сақтала ала ма және қандай ерекшелік бұған жол береді?
+  relevant:
+  - section: terms.data_deletion
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: data_processing_purpose
+  category: simple
+  en: For what stated purposes does the fictional shop process customer personal information?
+  ru: Для каких заявленных целей магазин обрабатывает персональные сведения покупателя?
+  kk: Дүкен сатып алушының жеке мәліметін қандай көрсетілген мақсаттарда өңдейді?
+  relevant:
+  - section: terms.personal_data
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: wrong_address_liability
+  category: hard
+  en: Who bears responsibility for a delay caused by the buyer providing an incorrect phone number?
+  ru: Кто отвечает за задержку, вызванную неверным номером телефона, указанным покупателем?
+  kk: Сатып алушы берген қате телефон нөмірінен болған кешігуге кім жауап береді?
+  relevant:
+  - section: terms.liability
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: dispute_negotiation
+  category: simple
+  en: What dispute route comes before legal proceedings, and where is a complaint initially sent?
+  ru: Какой способ урегулирования предшествует суду и куда первоначально направить претензию?
+  kk: Сотқа дейін дауды реттеудің қандай жолы бар және талапты алдымен қайда жіберу керек?
+  relevant:
+  - section: terms.disputes
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: points_credit_delay
+  category: simple
+  en: Why do loyalty points not appear immediately after delivery, and how long is their waiting period?
+  ru: Почему бонусы не появляются сразу после доставки и сколько длится ожидание начисления?
+  kk: Бонустар неге жеткізген бойда түспейді және оларды күту мерзімі қанша?
+  relevant:
+  - section: bonus_faq.points_credit
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: points_returned_item
+  category: hard
+  en: Are bonus points credited for an item that I send back during the return period?
+  ru: Начислят бонусы за вещь, которую я верну в течение срока возврата?
+  kk: Қайтару мерзімі ішінде кері жіберген тауар үшін бонус есептеле ме?
+  relevant:
+  - section: bonus_faq.points_credit
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: promo_discounted_minimum
+  category: hard
+  en: Is the promo-code minimum calculated before discounts or on the already discounted basket?
+  ru: Минимум для промокода считают до скидок или по уже уменьшенной сумме корзины?
+  kk: Промокодтың ең аз сомасы жеңілдіктен бұрын ба, әлде жеңілдік жасалған себеттен бе есептеледі?
+  relevant:
+  - section: bonus_faq.promo_min
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: promo_delivery_exclusion
+  category: hard
+  en: Can a promo code reduce delivery charges, or does its discount cover products only?
+  ru: Промокод уменьшает стоимость доставки или его скидка распространяется только на вещи?
+  kk: Промокод жеткізу ақысын азайта ма, әлде жеңілдігі тек тауарларға қолданыла ма?
+  relevant:
+  - section: bonus_faq.promo_min
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: promo_cancelled_reuse
+  category: hard
+  en: If a one-use code was applied to a cancelled purchase, can that code become usable again?
+  ru: Если одноразовый код применили в отменённом заказе, он снова может стать доступным?
+  kk: Бір реттік код жойылған тапсырыста қолданылса, оны қайта пайдалануға бола ма?
+  relevant:
+  - section: bonus_faq.promo_problem
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: promo_spaces_expiry
+  category: simple
+  en: Which typing, expiry and basket checks explain why a promotional code is rejected?
+  ru: Какие проверки ввода, срока и суммы корзины объясняют отказ промокода?
+  kk: Промокодтың қабылданбауын түсіндіру үшін енгізілуін, мерзімін және себет сомасын қалай тексеру керек?
+  relevant:
+  - section: bonus_faq.promo_problem
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: gift_card_denominations
+  category: simple
+  en: What minimum and maximum values can I choose for an electronic gift card?
+  ru: Какие минимальный и максимальный номиналы можно выбрать у электронной подарочной карты?
+  kk: Электрондық сыйлық картасының ең аз және ең көп сомасы қандай?
+  relevant:
+  - section: bonus_faq.gift_card_buy
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: gift_card_recipient_delivery
+  category: simple
+  en: If I buy a gift card for another person, how does its number reach that person?
+  ru: При покупке подарочной карты другому человеку как он получит её номер?
+  kk: Басқа адамға сыйлық картасын алсам, оның нөмірі сол адамға қалай жетеді?
+  relevant:
+  - section: bonus_faq.gift_card_buy
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: gift_card_split_spending
+  category: hard
+  en: Must an entire gift-card balance be spent at once, and where is the remaining balance shown?
+  ru: Нужно потратить всю подарочную карту сразу и где виден оставшийся баланс?
+  kk: Сыйлық картасындағы соманы бірден түгел жұмсау керек пе және қалған сома қайда көрінеді?
+  relevant:
+  - section: bonus_faq.gift_card_balance
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  mix_ru: сыйлық картасын бірнеше заказға тратить можно, остаток где смотреть?
+- id: gift_card_lost_number
+  category: hard
+  en: Can a lost gift-card number be resent to someone other than its original recipient?
+  ru: Потерянный номер подарочной карты могут выслать не первоначальному получателю?
+  kk: Жоғалған сыйлық картасының нөмірін алғашқы алушыдан басқа адамға қайта жібере ме?
+  relevant:
+  - section: bonus_faq.gift_card_balance
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: gift_card_cash
+  category: simple
+  en: May I cash out an unused gift card instead of buying products with it?
+  ru: Можно получить наличными неиспользованную подарочную карту вместо покупки товаров?
+  kk: Қолданылмаған сыйлық картасын тауар алудың орнына қолма-қол ақшаға айырбастауға бола ма?
+  relevant:
+  - section: bonus_faq.gift_card_balance
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: size_evening_measure
+  category: simple
+  en: How does the guide tell me to mark and measure my foot on paper in the evening?
+  ru: Как по инструкции вечером отметить длину стопы на бумаге?
+  kk: Нұсқаулық бойынша кешке қағазға табан ұзындығын қалай белгілеймін?
+  relevant:
+  - section: size_guide.measure
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: size_warm_socks
+  category: hard
+  en: What extra allowance does the guide recommend when measuring for boots worn with warm socks?
+  ru: Какую прибавку рекомендует инструкция при выборе ботинок под тёплый носок?
+  kk: Жылы шұлықпен киетін етікке өлшегенде нұсқаулық қандай қосымша ұзындық ұсынады?
+  relevant:
+  - section: size_guide.measure
+    grade: 3
+  - section: size_guide.shoes
+    grade: 1
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: size_between_rows
+  category: simple
+  en: If a measurement falls between two listed sizes, does the guide recommend the smaller or larger?
+  ru: Если мерка между двумя размерами, инструкция советует меньший или больший?
+  kk: Өлшемім екі қатардың арасында болса, нұсқаулық кішісін бе, үлкенін бе ұсынады?
+  relevant:
+  - section: size_guide.measure
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: size_shoe_263
+  category: hard
+  en: Which EU shoe size corresponds to a foot length of 26.3 centimetres in your table?
+  ru: Какому размеру EU соответствует стопа 26.3 сантиметра по вашей таблице?
+  kk: Кестеңізде табан ұзындығы 26.3 сантиметр болса, EU өлшемі қандай?
+  relevant:
+  - section: size_guide.shoes
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: size_shoe_283
+  category: hard
+  en: Read the shoe-table row for a foot measuring 28.3 cm; what EU size is listed?
+  ru: 'Прочитайте строку обувной таблицы для стопы 28.3 см: какой там EU?'
+  kk: Аяқ киім кестесінің 28.3 см табанға арналған жолында қандай EU өлшемі көрсетілген?
+  relevant:
+  - section: size_guide.shoes
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: size_clothing_m
+  category: hard
+  en: For clothing marked M, what chest and waist ranges and Russian size are in the table?
+  ru: Какие обхваты груди, талии и российский размер указаны в строке M?
+  kk: Киім кестесінің M жолында кеуде, бел ауқымы және Ресей өлшемі қандай?
+  relevant:
+  - section: size_guide.clothing
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: size_jeans_measure
+  category: simple
+  en: Should I select jeans by chest measurement or waist measurement under the size guide?
+  ru: По руководству джинсы выбирают по обхвату груди или талии?
+  kk: Өлшем нұсқаулығы бойынша джинсы кеуде көлеміне қарай ма, белге қарай ма таңдалады?
+  relevant:
+  - section: size_guide.clothing
+    grade: 3
+  - section: size_guide.measure
+    grade: 2
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: size_child_weight
+  category: multi_fragment
+  en: Which measurement determines the car-seat choice, and what weight range is listed for your seat?
+  ru: По какой мерке выбирают автокресло и какой вес указан у вашей модели?
+  kk: Автокреслоны қандай өлшемге қарап таңдайды және үлгіңізге қандай салмақ ауқымы көрсетілген?
+  relevant:
+  - section: size_guide.kids
+    grade: 3
+  - section: catalog.ch-1002
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: size_stroller_age
+  category: multi_fragment
+  en: Which age range applies to the stroller, and should I use clothing sizes to choose it?
+  ru: Какой возраст указан для коляски и нужно ли подбирать её по размеру одежды?
+  kk: Арбаға қандай жас ауқымы көрсетілген және оны киім өлшеміне қарай таңдау керек пе?
+  relevant:
+  - section: size_guide.kids
+    grade: 3
+  - section: catalog.st-3105
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: showroom_collection
+  category: simple
+  en: Can the physical showroom hand over orders placed online as well as display products?
+  ru: В физическом шоуруме выдают интернет-заказы или только показывают товары?
+  kk: Көрме залында тек тауарларды көрсете ме, әлде интернет тапсырыстарды да бере ме?
+  relevant:
+  - section: store_info.showroom
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: support_timezone
+  category: simple
+  en: Which time zone defines support opening hours, and what contact channels are listed?
+  ru: В каком часовом поясе указаны часы поддержки и какие каналы связи перечислены?
+  kk: Қолдау уақыты қай уақыт белдеуімен берілген және қандай байланыс арналары көрсетілген?
+  relevant:
+  - section: store_info.contact
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: sale_window
+  category: simple
+  en: What are the start and end dates of the next advertised major sale?
+  ru: Каковы даты начала и окончания ближайшей объявленной большой распродажи?
+  kk: Келесі жарияланған үлкен жеңілдік науқанының басталу және аяқталу күндері қандай?
+  relevant:
+  - section: store_info.sales
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: loyalty_combination
+  category: hard
+  en: May two promotional codes be combined on one order, and can a code stack with other discounts?
+  ru: Можно совместить два промокода в одном заказе и прибавить другие скидки?
+  kk: Бір тапсырысқа екі промокодты біріктіріп, басқа жеңілдіктерді қосуға бола ма?
+  relevant:
+  - section: store_info.loyalty
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: gift_card_expiry
+  category: simple
+  en: How many months does the gift card remain valid before an unspent balance expires?
+  ru: Сколько месяцев действует подарочная карта до сгорания остатка?
+  kk: Сыйлық картасының жұмсалмаған қалдығы жойылғанға дейін ол неше ай жарамды?
+  relevant:
+  - section: store_info.loyalty
+    grade: 3
+  - section: bonus_faq.gift_card_balance
+    grade: 1
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: review_after_delivery
+  category: simple
+  en: At what point can I rate a purchased product, and which form accepts suggestions about the store?
+  ru: Когда можно оценить купленный товар и какая форма принимает предложения о магазине?
+  kk: Сатып алған тауарды қашан бағалауға болады және дүкен туралы ұсынысты қай нысан қабылдайды?
+  relevant:
+  - section: store_info.feedback
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: delivery_repair_comparison
+  category: multi_fragment
+  en: Compare how a large appliance is initially delivered and how it is inspected later under warranty.
+  ru: Сравните доставку крупной техники при покупке и её последующий гарантийный осмотр.
+  kk: Ірі техниканы сатып алғанда жеткізуі мен кейін кепілдік бойынша тексеруін салыстырыңыз.
+  relevant:
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  - section: warranty_service.large_items
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: delivery_friend_expiry
+  category: multi_fragment
+  en: 'I''m away when a parcel arrives: what does a friend need to collect it, and how long can it wait?'
+  ru: 'Меня нет при поступлении посылки: что нужно другу для получения и сколько она может ждать?'
+  kk: 'Сәлемдеме келгенде мен жоқпын: досым алу үшін не қажет және ол қанша уақыт күте алады?'
+  relevant:
+  - section: delivery_faq.someone_else
+    grade: 3
+  - section: delivery_faq.pickup_storage
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: returns_fault_costs
+  category: multi_fragment
+  en: Compare return transport for a faulty item with diagnostics after the service centre finds liquid damage.
+  ru: Сравните обратную доставку бракованной вещи и диагностику при установленном попадании жидкости.
+  kk: Ақаулы тауардың кері жеткізуі мен сервис сұйықтық тигенін анықтағандағы диагностика ақысын салыстырыңыз.
+  relevant:
+  - section: returns_policy.how_to_return
+    grade: 3
+  - section: warranty_service.diagnostics
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: account_delete_two_effects
+  category: multi_fragment
+  en: What happens to bonus points when I delete my account, and which records can still be retained?
+  ru: Что будет с бонусами при удалении аккаунта и какие записи всё же могут сохраниться?
+  kk: Тіркелгімді өшірсем, бонустарға не болады және қандай жазбалар сақталуы мүмкін?
+  relevant:
+  - section: account_faq.delete
+    grade: 3
+  - section: terms.data_deletion
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: promo_points_distinction
+  category: multi_fragment
+  en: Distinguish the loyalty percentage, the delay before points arrive and the minimum for applying a promo code.
+  ru: Разделите процент бонусов, задержку их начисления и минимальную сумму для промокода.
+  kk: Бонус пайызын, оның түсуін күту мерзімін және промокодқа қажет ең аз соманы ажыратыңыз.
+  relevant:
+  - section: store_info.loyalty
+    grade: 3
+  - section: bonus_faq.points_credit
+    grade: 3
+  - section: bonus_faq.promo_min
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: address_two_scopes
+  category: ambiguous
+  en: I need a different address; show the rules for a saved profile address and for an already placed order.
+  ru: 'Нужен другой адрес: покажите правила для сохранённого профиля и уже оформленного заказа.'
+  kk: 'Басқа мекенжай керек: сақталған профиль мен берілген тапсырысқа қатысты ережелерді көрсетіңіз.'
+  relevant:
+  - section: account_faq.profile
+    grade: 2
+  - section: orders_policy.change
+    grade: 2
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: return_or_repair
+  category: ambiguous
+  en: I say I want to send a product back, but have not said whether it is faulty or simply unwanted.
+  ru: Хочу отправить товар назад, но пока не уточнила, он неисправен или просто не подошёл.
+  kk: Тауарды кері жібергім келеді, бірақ оның ақаулы не жай ұнамағанын әлі айтпадым.
+  relevant:
+  - section: returns_policy.window
+    grade: 2
+  - section: warranty_policy.defect
+    grade: 2
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: app_or_profile_sms
+  category: ambiguous
+  en: I can't work out whether app access and website sign-in use different credentials; which rules clarify this?
+  ru: Не понимаю, разные ли данные нужны для приложения и сайта. Какие правила это объясняют?
+  kk: Қолданба мен сайтқа кіру деректері бөлек пе, түсінбедім. Мұны қай ережелер түсіндіреді?
+  relevant:
+  - section: account_faq.password
+    grade: 2
+  - section: account_faq.app
+    grade: 2
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: deadline_unspecified
+  category: ambiguous
+  en: I need the product deadline but haven't specified whether I mean return, exchange or warranty.
+  ru: 'Мне нужен срок по товару, но я ещё не уточнил: возврат, обмен или гарантия.'
+  kk: Тауарға қатысты мерзім керек, бірақ қайтару, айырбастау әлде кепілдік екенін нақтыламадым.
+  relevant:
+  - section: returns_policy.window
+    grade: 2
+  - section: returns_policy.exchange
+    grade: 2
+  - section: warranty_policy.period
+    grade: 2
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: fee_unspecified
+  category: ambiguous
+  en: Which document should I consult for a charge when I haven't said delivery, return transport or diagnostics?
+  ru: 'Где искать сумму, если я не уточнил: доставка, обратная перевозка или диагностика?'
+  kk: Жеткізу, кері тасымал әлде диагностика екенін айтпасам, ақы туралы қай құжатты қарау керек?
+  relevant:
+  - section: delivery_policy.cost
+    grade: 2
+  - section: returns_policy.how_to_return
+    grade: 2
+  - section: warranty_service.diagnostics
+    grade: 2
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: oos_live_stock
+  category: unanswerable
+  en: What is the real-time quantity of smartphone PH-2569 in the warehouse this minute?
+  ru: Какое реальное количество смартфонов PH-2569 на складе прямо в эту минуту?
+  kk: Дәл осы минутта қоймада PH-2569 смартфонының нақты саны қанша?
+  relevant: []
+  rationale: 'No sufficient answer in static KB: needs live authorised tool state, an unlisted specification or
+    an undocumented policy.'
+- id: oos_order_state
+  category: unanswerable
+  en: Has my order 842716 actually been packed today? I need its current live status.
+  ru: Мой заказ 842716 действительно упаковали сегодня? Нужен текущий статус.
+  kk: Менің 842716 тапсырысымды бүгін шынымен қаптады ма? Қазіргі күйі керек.
+  relevant: []
+  rationale: 'No sufficient answer in static KB: needs live authorised tool state, an unlisted specification or
+    an undocumented policy.'
+- id: oos_live_payment
+  category: unanswerable
+  en: Was the card debit for order 753184 captured or is it still pending at the bank?
+  ru: По заказу 753184 списание с карты завершено или ещё ожидается в банке?
+  kk: 753184 тапсырысының карта төлемі аяқталды ма, әлде банкте әлі күтілуде ме?
+  relevant: []
+  rationale: 'No sufficient answer in static KB: needs live authorised tool state, an unlisted specification or
+    an undocumented policy.'
+- id: oos_actual_refund
+  category: unanswerable
+  en: At what exact time did my bank receive the refund for order 691482?
+  ru: В какое точное время мой банк получил возврат по заказу 691482?
+  kk: Банкім 691482 тапсырысының қайтарымын нақты қай уақытта алды?
+  relevant: []
+  rationale: 'No sufficient answer in static KB: needs live authorised tool state, an unlisted specification or
+    an undocumented policy.'
+  cross_lingual: true
+- id: oos_driver_location
+  category: unanswerable
+  en: Give me the courier's live GPS position and personal mobile number for today's parcel.
+  ru: Дайте текущие GPS-координаты курьера и его личный мобильный номер для сегодняшней посылки.
+  kk: Бүгінгі сәлемдеме курьерінің қазіргі GPS орнын және жеке ұялы нөмірін беріңіз.
+  relevant: []
+  rationale: 'No sufficient answer in static KB: needs live authorised tool state, an unlisted specification or
+    an undocumented policy.'
+- id: oos_unlisted_voltage
+  category: unanswerable
+  en: Does kettle KT-0125 support a 110 V electrical supply? I need a documented specification.
+  ru: Чайник KT-0125 поддерживает электросеть 110 В? Нужна документированная характеристика.
+  kk: KT-0125 шәйнегі 110 В желісін қолдай ма? Құжатта көрсетілген сипаттама керек.
+  relevant: []
+  rationale: 'No sufficient answer in static KB: needs live authorised tool state, an unlisted specification or
+    an undocumented policy.'
+- id: oos_unlisted_phone_colour
+  category: unanswerable
+  en: Which colours can I choose for smartphone PH-2569 according to the catalogue?
+  ru: Какие цвета смартфона PH-2569 доступны по каталогу?
+  kk: Каталог бойынша PH-2569 смартфонының қандай түстерін таңдауға болады?
+  relevant: []
+  rationale: 'No sufficient answer in static KB: needs live authorised tool state, an unlisted specification or
+    an undocumented policy.'
+- id: oos_unlisted_shipping_country
+  category: unanswerable
+  en: Quote the documented delivery fee and customs procedure for sending your goods to Japan.
+  ru: Укажите документированную стоимость доставки и таможенный порядок отправки ваших вещей в Японию.
+  kk: Тауарларыңызды Жапонияға жіберудің құжатталған жеткізу ақысын және кеден тәртібін көрсетіңіз.
+  relevant: []
+  rationale: 'No sufficient answer in static KB: needs live authorised tool state, an unlisted specification or
+    an undocumented policy.'
+- id: oos_bank_approval
+  category: unanswerable
+  en: Am I personally approved for a Kaspi Red credit limit, and how much credit is available to me?
+  ru: Мне лично одобрен лимит Kaspi Red и какая сумма кредита мне доступна?
+  kk: Маған жеке Kaspi Red лимиті мақұлданған ба және қанша несие қолжетімді?
+  relevant: []
+  rationale: 'No sufficient answer in static KB: needs live authorised tool state, an unlisted specification or
+    an undocumented policy.'
+- id: oos_repair_live
+  category: unanswerable
+  en: Has the technician already replaced the board in my own device at the service centre?
+  ru: Мастер уже заменил плату именно в моём устройстве в сервисном центре?
+  kk: Сервис орталығында менің құрылғымның тақтасын шебер ауыстырып қойды ма?
+  relevant: []
+  rationale: 'No sufficient answer in static KB: needs live authorised tool state, an unlisted specification or
+    an undocumented policy.'
+- id: oos_private_purchase
+  category: unanswerable
+  en: Show the purchase history belonging to the customer who used this phone before me.
+  ru: Покажите историю покупок клиента, пользовавшегося этим телефоном до меня.
+  kk: Бұл телефонды менен бұрын қолданған клиенттің сатып алу тарихын көрсетіңіз.
+  relevant: []
+  rationale: 'No sufficient answer in static KB: needs live authorised tool state, an unlisted specification or
+    an undocumented policy.'
+  cross_lingual: true
+- id: oos_future_sale_price
+  category: unanswerable
+  en: Guarantee the exact price of smartphone PH-1288 in a promotion six months from now.
+  ru: Гарантируйте точную цену смартфона PH-1288 на акции через полгода.
+  kk: Алты айдан кейінгі акцияда PH-1288 смартфонының нақты бағасына кепілдік беріңіз.
+  relevant: []
+  rationale: 'No sufficient answer in static KB: needs live authorised tool state, an unlisted specification or
+    an undocumented policy.'
+- id: zone_almaty
+  category: simple
+  en: 'Read the Almaty delivery row: what period and courier cost apply there?'
+  ru: 'Прочитайте строку доставки для Алматы: какие там срок и цена курьера?'
+  kk: 'Алматыға жеткізу жолын оқыңыз: мерзімі мен курьер ақысы қандай?'
+  relevant:
+  - section: delivery_zones.almaty
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: zone_astana
+  category: simple
+  en: In the city-specific table, which delivery times and pickup charges are listed for Astana?
+  ru: В городской таблице какие сроки и плата за пункт выдачи указаны для Астаны?
+  kk: Қалалар кестесінде Астана үшін қандай мерзім мен беру пунктінің ақысы көрсетілген?
+  relevant:
+  - section: delivery_zones.astana
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: zone_shymkent
+  category: simple
+  en: Which zone and transit window does the table assign to Shymkent?
+  ru: Таблица относит Шымкент к какой зоне и интервалу доставки?
+  kk: Кестеде Шымкент қай аймаққа және жеткізу аралығына жатқызылған?
+  relevant:
+  - section: delivery_zones.shymkent
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: zone_karaganda
+  category: simple
+  en: Find Karaganda's table entry and report its delivery period and courier tariff.
+  ru: Найдите строку Караганды и укажите срок доставки и курьерский тариф.
+  kk: Қарағанды жолын тауып, жеткізу мерзімі мен курьер тарифін көрсетіңіз.
+  relevant:
+  - section: delivery_zones.karaganda
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: zone_aktobe
+  category: simple
+  en: For Aktobe, what city-specific delivery window and free-delivery threshold are recorded?
+  ru: Для Актобе какой срок и порог бесплатной доставки записаны в городской строке?
+  kk: Ақтөбенің жеке жолында жеткізу мерзімі мен тегін жеткізу шегі қандай?
+  relevant:
+  - section: delivery_zones.aktobe
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: zone_taraz
+  category: simple
+  en: What does the Taraz row say about its zone and pickup-point fee?
+  ru: Что сказано в строке Тараза о зоне и плате за пункт выдачи?
+  kk: Тараз жолында аймақ пен беру пунктінің ақысы туралы не жазылған?
+  relevant:
+  - section: delivery_zones.taraz
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: zone_pavlodar
+  category: simple
+  en: Locate the Pavlodar record rather than the general capital-city estimate; what period is given?
+  ru: 'Найдите запись Павлодара вместо общего срока для столиц: какой интервал указан?'
+  kk: 'Елордаға арналған жалпы мерзім емес, Павлодар жазбасын табыңыз: қандай аралық берілген?'
+  relevant:
+  - section: delivery_zones.pavlodar
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: zone_oskemen
+  category: simple
+  en: 'The city is also called Ust-Kamenogorsk: find its delivery-zone record and courier charge.'
+  ru: 'Город также называется Өскемен: найдите его запись зоны доставки и курьерскую плату.'
+  kk: 'Қала Усть-Каменогорск деп те аталады: оның жеткізу аймағы мен курьер ақысын табыңыз.'
+  relevant:
+  - section: delivery_zones.oskemen
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: zone_semey
+  category: simple
+  en: Which delivery-zone category and timing belong to Semey's own record?
+  ru: Какая категория зоны и срок относятся именно к записи Семея?
+  kk: Семейдің жеке жазбасына қандай аймақ санаты мен мерзім тиесілі?
+  relevant:
+  - section: delivery_zones.semey
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: zone_atyrau
+  category: simple
+  en: For Atyrau, retrieve the delivery-table period and the pickup price rather than a product price.
+  ru: Для Атырау найдите срок из таблицы доставки и цену пункта выдачи, а не товара.
+  kk: Атырау үшін тауар бағасын емес, жеткізу кестесіндегі мерзім мен беру ақыcын табыңыз.
+  relevant:
+  - section: delivery_zones.atyrau
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: zone_kostanay
+  category: simple
+  en: Read the Kostanay row and identify its shipping interval and courier price.
+  ru: 'Прочитайте строку Костаная: какой интервал перевозки и цена курьера?'
+  kk: 'Қостанай жолын оқыңыз: жеткізу аралығы мен курьер бағасы қандай?'
+  relevant:
+  - section: delivery_zones.kostanay
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: zone_aktau
+  category: simple
+  en: Does Aktau's city record use the fast or regional zone, and which delivery period is attached?
+  ru: В записи Актау быстрая или региональная зона и какой ей соответствует срок?
+  kk: Ақтау жазбасы жылдам әлде өңірлік аймаққа жата ма және оған қандай мерзім сәйкес?
+  relevant:
+  - section: delivery_zones.aktau
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: compare_tv_connections
+  category: multi_fragment
+  en: Compare the HDMI counts and prices of the 43-inch and 55-inch 4K televisions.
+  ru: Сравните количество HDMI и цены телевизоров 4K на 43 и 55 дюймов.
+  kk: 43 және 55 дюймдік 4K теледидарлардың HDMI санын және бағасын салыстырыңыз.
+  relevant:
+  - section: catalog.tv-5501
+    grade: 3
+  - section: catalog.tv-4302
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: compare_phone_batteries
+  category: multi_fragment
+  en: Does the higher-storage phone also have the larger battery? Compare the two phone entries.
+  ru: У телефона с большей памятью также больше батарея? Сравните обе записи телефонов.
+  kk: Жады көбірек телефонның батареясы да үлкен бе? Екі телефон жазбасын салыстырыңыз.
+  relevant:
+  - section: catalog.ph-1288
+    grade: 3
+  - section: catalog.ph-2569
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: compare_powerbank_ports
+  category: multi_fragment
+  en: Compare the USB port types and charging wattages of the two power-bank capacities.
+  ru: Сравните типы USB-портов и мощность зарядки двух вариантов пауэрбанков.
+  kk: Екі сыйымдылықтағы пауэрбанктердің USB порт түрлері мен зарядтау қуатын салыстырыңыз.
+  relevant:
+  - section: catalog.pb-2010
+    grade: 3
+  - section: catalog.pb-1005
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: compare_kettle_modes
+  category: multi_fragment
+  en: Do both kettles have the same capacity and power, and which one lists temperature modes?
+  ru: Одинаковы ли объём и мощность двух чайников и у какого указаны температурные режимы?
+  kk: Екі шәйнектің көлемі мен қуаты бірдей ме және қайсысында температура режимдері көрсетілген?
+  relevant:
+  - section: catalog.kt-0117
+    grade: 3
+  - section: catalog.kt-0125
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: compare_shoe_weather
+  category: multi_fragment
+  en: Contrast the uppers, outsole description and price of road and trail running footwear.
+  ru: Сопоставьте верх, описание подошвы и цену дорожных и трейловых кроссовок.
+  kk: Жолға және трейлге арналған кроссовкалардың бетін, табан сипаттамасын және бағасын салыстырыңыз.
+  relevant:
+  - section: catalog.sn-4140
+    grade: 3
+  - section: catalog.sn-4155
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: compare_headphone_connections
+  category: multi_fragment
+  en: Which headphone model needs a cable and which uses Bluetooth, and how do their prices differ?
+  ru: Какая модель наушников требует кабеля, какая использует Bluetooth и как отличаются цены?
+  kk: Құлаққаптың қай үлгісіне кабель керек, қайсысы Bluetooth қолданады және бағалары қалай ерекшеленеді?
+  relevant:
+  - section: catalog.hp-0305
+    grade: 3
+  - section: catalog.hp-0312
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: tv_ports
+  category: hard
+  en: For the 55-inch television, how many HDMI connections are listed?
+  ru: Сколько HDMI-разъёмов указано именно у телевизора 55 дюймов?
+  kk: Дәл 55 дюймдік теледидарда неше HDMI қосылымы көрсетілген?
+  relevant:
+  - section: catalog.tv-5501
+    grade: 3
+  - section: catalog.tv-4302
+    grade: 0
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: tv_mount
+  category: hard
+  en: Is a wall mount explicitly included with the smaller 43-inch TV?
+  ru: У меньшего телевизора 43 дюйма настенное крепление явно входит в комплект?
+  kk: Кішірек 43 дюймдік теледидардың жинағына қабырға бекіткіші кіретіні көрсетілген бе?
+  relevant:
+  - section: catalog.tv-4302
+    grade: 3
+  - section: catalog.tv-5501
+    grade: 0
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: phone_two_physical_sims
+  category: hard
+  en: Which SIM arrangement and battery capacity are documented for the 128 GB phone?
+  ru: Какие SIM-карты и ёмкость батареи указаны для телефона на 128 ГБ?
+  kk: 128 ГБ телефонға қандай SIM құрылымы мен батарея сыйымдылығы көрсетілген?
+  relevant:
+  - section: catalog.ph-1288
+    grade: 3
+  - section: catalog.ph-2569
+    grade: 0
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: phone_esim
+  category: hard
+  en: Find the handset with eSIM and tell me its screen size and storage capacity.
+  ru: Найдите телефон с eSIM и укажите диагональ экрана и объём памяти.
+  kk: eSIM бар телефонды тауып, экран өлшемі мен жад көлемін көрсетіңіз.
+  relevant:
+  - section: catalog.ph-2569
+    grade: 3
+  - section: catalog.ph-1288
+    grade: 0
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  mix_kk: eSIM бар смартфонның экран размері мен жады қанша?
+- id: headphones_playback
+  category: hard
+  en: What maximum playback duration and Bluetooth version belong to the wireless headphones?
+  ru: Какое максимальное время работы и версия Bluetooth у беспроводных наушников?
+  kk: Сымсыз құлаққаптың ең ұзақ жұмыс уақыты мен Bluetooth нұсқасы қандай?
+  relevant:
+  - section: catalog.hp-0305
+    grade: 3
+  - section: catalog.hp-0312
+    grade: 0
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: earphones_cable
+  category: hard
+  en: Which wired earphones have volume buttons, and what plug and cable length do they use?
+  ru: У каких проводных наушников есть кнопки громкости, какой штекер и длина кабеля?
+  kk: Дыбыс түймелері бар сымды құлаққаптың ашасы қандай және кабелі қанша?
+  relevant:
+  - section: catalog.hp-0312
+    grade: 3
+  - section: catalog.hp-0305
+    grade: 0
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: laptop_weight
+  category: hard
+  en: How much does the 14-inch laptop weigh, and what RAM and SSD capacities are listed?
+  ru: Сколько весит ноутбук 14 дюймов и какие объёмы ОЗУ и SSD указаны?
+  kk: 14 дюймдік ноутбуктың салмағы, жедел жады және SSD көлемі қандай?
+  relevant:
+  - section: catalog.lp-1406
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: watch_water
+  category: hard
+  en: What water-resistance depth is specified for the smart watch with GPS?
+  ru: У смарт-часов с GPS какая глубина водозащиты указана?
+  kk: GPS бар смарт сағатқа суға төзімділіктің қандай тереңдігі көрсетілген?
+  relevant:
+  - section: catalog.sw-0921
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: powerbank_large_ports
+  category: hard
+  en: Which ports and charging power are specified on the 20000 mAh power bank?
+  ru: Какие порты и мощность зарядки указаны у пауэрбанка на 20000 мАч?
+  kk: 20000 мАсағ пауэрбанкке қандай порттар мен зарядтау қуаты көрсетілген?
+  relevant:
+  - section: catalog.pb-2010
+    grade: 3
+  - section: catalog.pb-1005
+    grade: 0
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: powerbank_small_weight
+  category: hard
+  en: Find the 10000 mAh power bank's weight and its combination of USB ports.
+  ru: Найдите вес пауэрбанка 10000 мАч и сочетание его USB-портов.
+  kk: 10000 мАсағ пауэрбанктің салмағын және USB порттарының түрлерін табыңыз.
+  relevant:
+  - section: catalog.pb-1005
+    grade: 3
+  - section: catalog.pb-2010
+    grade: 0
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: washing_programmes
+  category: hard
+  en: For the washing machine, what are the load capacity, spin speed and programme count?
+  ru: У стиральной машины какие загрузка, скорость отжима и число программ?
+  kk: Кір жуғыш машинаның жүктемесі, сығу жылдамдығы және бағдарлама саны қандай?
+  relevant:
+  - section: catalog.wm-0708
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: vacuum_cleaning_modes
+  category: hard
+  en: Does the robot vacuum support both wet and dry cleaning, and how long can it run per charge?
+  ru: Робот-пылесос делает сухую и влажную уборку и сколько работает от заряда?
+  kk: Робот шаңсорғыш құрғақ әрі ылғалды тазалай ма және бір зарядпен қанша жұмыс істейді?
+  relevant:
+  - section: catalog.vc-3302
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: kettle_shutoff
+  category: hard
+  en: Does the ordinary electric kettle list automatic shut-off and what is its rated power?
+  ru: У обычного электрочайника указано автоотключение и какова его мощность?
+  kk: Кәдімгі электр шәйнектің автоматты сөнуі көрсетілген бе және қуаты қандай?
+  relevant:
+  - section: catalog.kt-0117
+    grade: 3
+  - section: catalog.kt-0125
+    grade: 0
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: kettle_temperature
+  category: hard
+  en: How many temperature modes and what lighting are listed for the glass kettle?
+  ru: Сколько температурных режимов и какая подсветка указаны у стеклянного чайника?
+  kk: Шыны шәйнектің неше температура режимі және қандай жарығы көрсетілген?
+  relevant:
+  - section: catalog.kt-0125
+    grade: 3
+  - section: catalog.kt-0117
+    grade: 0
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: microwave_grill
+  category: hard
+  en: Find the microwave's cavity volume, power rating and whether a grill is listed.
+  ru: Найдите объём, мощность микроволновки и наличие гриля.
+  kk: Микротолқынды пештің көлемін, қуатын және гриль бар-жоғын табыңыз.
+  relevant:
+  - section: catalog.mw-2004
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: aircon_area
+  category: hard
+  en: For what maximum room area is the inverter air conditioner specified?
+  ru: Инверторный кондиционер рассчитан на какую максимальную площадь комнаты?
+  kk: Инверторлы кондиционер бөлменің ең көп қандай ауданына арналған?
+  relevant:
+  - section: catalog.ac-1209
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: road_shoe_mesh
+  category: hard
+  en: Which running shoe has a breathable mesh upper rather than a waterproof membrane?
+  ru: У каких беговых кроссовок верх из дышащей сетки, а не водонепроницаемой мембраны?
+  kk: Қай жүгіру кроссовкасының беті су өткізбейтін мембрана емес, ауа өткізетін тордан жасалған?
+  relevant:
+  - section: catalog.sn-4140
+    grade: 3
+  - section: catalog.sn-4155
+    grade: 0
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: trail_shoe_membrane
+  category: hard
+  en: Find the trail shoe with a waterproof membrane and a grippy outsole.
+  ru: Найдите трейловые кроссовки с водонепроницаемой мембраной и цепкой подошвой.
+  kk: Су өткізбейтін мембранасы және тайғанамайтын табаны бар трейл кроссовкасын табыңыз.
+  relevant:
+  - section: catalog.sn-4155
+    grade: 3
+  - section: catalog.sn-4140
+    grade: 0
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: boots_temperature
+  category: hard
+  en: What lining and lowest stated outdoor temperature apply to the winter boots?
+  ru: Какая подкладка и минимальная заявленная температура у зимних ботинок?
+  kk: Қысқы етіктің астары қандай және көрсетілген ең төменгі температура қанша?
+  relevant:
+  - section: catalog.bt-3802
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: jacket_down
+  category: hard
+  en: What percentage of down and which size range are stated for the hooded jacket?
+  ru: Какой процент пуха и размерный ряд указаны у куртки с капюшоном?
+  kk: Күләпарасы бар күртенің мамық пайызы және өлшем ауқымы қандай?
+  relevant:
+  - section: catalog.jk-0560
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: dress_cotton
+  category: hard
+  en: Is the summer dress entirely cotton, and what is its largest listed size?
+  ru: Летнее платье полностью хлопковое и какой у него самый большой указанный размер?
+  kk: Жазғы көйлек түгел мақтадан ба және көрсетілген ең үлкен өлшемі қандай?
+  relevant:
+  - section: catalog.dr-1131
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: jeans_fit
+  category: hard
+  en: What cut and cotton percentage are documented for the jeans?
+  ru: Какой крой и процент хлопка указаны у джинсов?
+  kk: Джинсы шалбардың пішімі және мақта пайызы қандай?
+  relevant:
+  - section: catalog.jn-2232
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: shirt_sleeves
+  category: hard
+  en: Are the cotton shirt's sleeves long, and which sizes are listed?
+  ru: У хлопковой рубашки длинные рукава и какие размеры перечислены?
+  kk: Мақта жейденің жеңі ұзын ба және қандай өлшемдер көрсетілген?
+  relevant:
+  - section: catalog.sh-0410
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: backpack_laptop
+  category: hard
+  en: What laptop size fits the leather backpack's pocket, and what is its volume?
+  ru: Ноутбук какого размера помещается в кожаный рюкзак и каков его объём?
+  kk: Былғары рюкзак қалтасына қандай өлшемдегі ноутбук сыяды және көлемі қанша?
+  relevant:
+  - section: catalog.bg-0711
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: carseat_attachment
+  category: hard
+  en: Does the child car seat specify ISOFIX and what are its weight limits?
+  ru: У детского автокресла указан ISOFIX и каковы ограничения по весу?
+  kk: Балалар автокреслосында ISOFIX көрсетілген бе және салмақ шектері қандай?
+  relevant:
+  - section: catalog.ch-1002
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: stroller_fold
+  category: hard
+  en: Can the two-in-one stroller be folded one-handed, and until what child age is it listed?
+  ru: Коляска два в одном складывается одной рукой и до какого возраста указана?
+  kk: Екі қызметі бар арба бір қолмен жинала ма және баланың қай жасына дейін арналған?
+  relevant:
+  - section: catalog.st-3105
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: construction_age
+  category: hard
+  en: How many pieces are in the construction toy and what is the minimum recommended age?
+  ru: Сколько деталей у конструктора и каков минимальный рекомендуемый возраст?
+  kk: Құрастырмалы ойыншықта неше бөлшек бар және ұсынылған ең кіші жас қандай?
+  relevant:
+  - section: catalog.ty-0620
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: coffee_grinder
+  category: hard
+  en: Which coffee machine features include a built-in grinder and milk frother?
+  ru: У кофемашины предусмотрены встроенная кофемолка и капучинатор?
+  kk: Кофе машинасында кіріктірілген ұнтақтағыш пен сүт көпіршіктендіргіш қарастырылған ба?
+  relevant:
+  - section: catalog.cf-0812
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: blanket_wash
+  category: hard
+  en: At what temperature may the all-season 200 by 220 blanket be machine washed?
+  ru: При какой температуре можно стирать в машине всесезонное одеяло 200 на 220?
+  kk: 200-ге 220 барлық маусымдық көрпені машинада қандай температурада жууға болады?
+  relevant:
+  - section: catalog.bl-1515
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: pans_diameters
+  category: hard
+  en: What three pan diameters are included in the non-stick set?
+  ru: Какие три диаметра сковород входят в антипригарный набор?
+  kk: Күйіп қалмайтын таба жинағына қандай үш диаметр кіреді?
+  relevant:
+  - section: catalog.pn-0303
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+  cross_lingual: true
+- id: cream_spf
+  category: hard
+  en: What SPF and skin type are specified for the 50 ml face cream?
+  ru: Какой SPF и тип кожи указаны у крема для лица 50 мл?
+  kk: 50 мл бет кремінің SPF көрсеткіші мен арналған тері түрі қандай?
+  relevant:
+  - section: catalog.cr-7007
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: dryer_temperature
+  category: hard
+  en: How many heat modes and what power does the ionising hair dryer have?
+  ru: Сколько режимов температуры и какая мощность у фена с ионизацией?
+  kk: Иондайтын шаш кептіргіштің неше температура режимі бар және қуаты қандай?
+  relevant:
+  - section: catalog.hd-0909
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: dictionary_binding
+  category: hard
+  en: How many words and which binding are stated for the Kazakh-English dictionary?
+  ru: Сколько слов и какой переплёт указаны у казахско-английского словаря?
+  kk: Қазақша-ағылшынша сөздіктің сөз саны мен мұқабасы қандай?
+  relevant:
+  - section: catalog.bk-0101
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: yoga_thickness
+  category: hard
+  en: What thickness and dimensions distinguish the non-slip yoga mat?
+  ru: Какие толщина и габариты указаны у нескользящего коврика для йоги?
+  kk: Тайғанамайтын йога кілемшесінің қалыңдығы мен өлшемдері қандай?
+  relevant:
+  - section: catalog.tb-2626
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: bike_speeds
+  category: hard
+  en: What wheel diameter, frame material and number of speeds belong to the mountain bicycle?
+  ru: Какие диаметр колёс, материал рамы и число скоростей у горного велосипеда?
+  kk: Тау велосипедінің дөңгелек диаметрі, рама материалы және жылдамдық саны қандай?
+  relevant:
+  - section: catalog.bc-2900
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'
+- id: tyres_size
+  category: hard
+  en: What tyre size and studded-tyre count are supplied in the winter wheel set?
+  ru: Какой размер шин и сколько шипованных шин в зимнем комплекте?
+  kk: Қысқы жиынтықтағы шинаның өлшемі қандай және неше шипті шина бар?
+  relevant:
+  - section: catalog.tn-0412
+    grade: 3
+  rationale: 'Explicitly judged against the named KB sections: 3 direct support, 2 partial or alternative support,
+    1 background, 0 known non-relevant alternative.'

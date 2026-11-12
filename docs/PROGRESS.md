@@ -1,12 +1,11 @@
 # PROGRESS: current state (single source of truth for status)
 
-Last updated: 2026-11-12 (Stage 5; MCP dev tools)
+Last updated: 2026-11-12 (multilingual data expansion)
 
 ## Current stage
 
-**Stage 5: Knowledge base and document extraction. Status: COMPLETED.** Waiting for owner
-confirmation before Stage 6 (retrieval and RAG experiments). Stage 4 stays COMPLETED with
-documented gaps (see "Stage 4 open items").
+**Data expansion after Stages 4-5: COMPLETED.** Stage 6 has not started.
+The current datasets and follow-up results are below; older Stage 4/5 tables are historical.
 
 | Stage | Status | Commits |
 |---|---|---|
@@ -16,6 +15,81 @@ documented gaps (see "Stage 4 open items").
 | 3 EDA and data quality engineering | COMPLETED | `b2f5d86`, `809b47b` |
 | 4 Multilingual dataset engineering | COMPLETED (gaps documented) | `da28191`, `6e5c537` |
 | 5 Knowledge base and document extraction | COMPLETED | `c79d8af`, plus a follow-up progress commit |
+
+## Multilingual data expansion (2026-11-12; ADR-028, ADR-029)
+
+**Status: COMPLETED for the requested data preparation scope.** No retrieval model, vector
+index, RAG orchestration or fine-tuning was implemented. Human fluency/relevance verification
+remains pending; this is readiness for the planned experiments, not production validation.
+
+- Authoring: **300 situations**, up from 106; 194 new situations, not slot copies.
+  Six additional scenario files cover orders, delivery, payment, returns, products and
+  account/meta cases. All section answers have at least two wording variants per language.
+- External inputs: pinned mangi public sample and MASSIVE EN/RU (CC-BY-4.0, source registry
+  and attribution preserved). Native selection: 876 rows (EN 372 / RU 373 / KK 131), before
+  final SFT decontamination/balancing. Original generation method of mangi questions is unknown.
+- SFT **`sft-20261112-b0388c64`**: 17,456 examples; **16,857 train / 313 validation /
+  286 test**. Every one of 35 intents exists in every language in each split, after filters.
+  Train EN 4,857 / RU 6,333 / KK 5,667 (28.81% / 37.57% / 33.62% vs 30/35/35 target).
+  Authored/original/MT train counts: 1,810 / 4,774 / 10,273; MT share 60.94%.
+  Train scenario clusters: 350; held-out: 39 each. Counts include source clusters and must
+  not be confused with the 300 independent authored situations.
+- Train tasks: grounded 6,153; tool 1,559; clarify 4,782; escalate 1,258; abstain 1,024;
+  conflicting 244; injection 909; OOS 928 (previously 71). Code-switch: 114/22/16;
+  multi-turn: 180/6/24 (train/validation/test). Full per-language task statistics in `stats.json`.
+- Copies: 702 train examples excluded to protect held-out scenarios at the unchanged
+  thresholds; one external greeting excluded to reserve gold. No gold target was used in SFT.
+  Final exact/lexical/13-gram/id checks pass, including validation vs test.
+- Demo KB **`kb_demo_store-20261112-d58e3f93`**: 14 documents x 3 languages, **369 chunks**, 261 canonical facts,
+  1,059 fact placements/locators, all 13 gates pass. Four new documents and six similar
+  products; existing fact values preserved. Forced render/parse finds all 42 files unchanged.
+  Training KB: **1,950 chunks**, all variants distinct from demo facts.
+- Gold **`gold-20261112-306dfb08`**: all 936 items preserved, authored source YAML unchanged;
+  facts/evidence/language and prohibited overlaps all pass. Semantic-near-SFT flags remain
+  diagnostic, and all review statuses stay `draft`.
+- Retrieval **`retrieval-20261112-ecc28bf4`**: **175 questions per language + 150 cross-lingual + 6 RU-KK =
+  681 queries**, from 175 information needs. Graded active-KB chunk judgements and TREC
+  qrels; all categories, reference/manifest/language/PII/leakage checks pass. Six distinct
+  query texts are semantic-near-SFT (10 variants flagged); report that slice separately.
+  Gold was not an authoring input. Scores Recall@5/MRR@10/nDCG@10 are Stage 6 work.
+- RU/KK author self-check: 100 new independent inputs per language. Before repairs:
+  RU 0 major/2 minor; KK 1 major/5 minor. Distinct-city generation and language issues
+  repaired with a 100-seed x 3-language regression. Evidence:
+  `docs/reviews/data_expansion_review.yaml`; raw sample/annotations in local reports.
+  This is an LLM self-check, not human verification or a post-repair population error rate.
+  Historical MT estimates (RU 3/60; KK 11/55 major) retain their original scope and risk.
+
+**Checks and reproducibility:** Ruff lint/format and strict mypy pass; full pytest **343
+passed, 0 skipped**, including GPU and Docker Qdrant. Seven raw/converted sources deep-verify.
+Forced SFT rebuild: same version and byte-identical train/validation/test, statistics and
+quality report; unchanged rerun skips. KB forced parse: same version. Snapshot restore into
+empty paths reproduced SFT bytes, all 13 KB gates and valid retrieval references. No new
+dependencies; existing locked environment reused. A fresh dependency install was not repeated.
+
+**Local artifact paths:** `data/processed/sft/sft-20261112-b0388c64/`, `data/processed/kb_train/`,
+`data/kb/demo_store/`, `data/gold/gold-20261112-306dfb08/`, `data/benchmarks/retrieval/retrieval-20261112-ecc28bf4/`.
+Complete receipts and statistics: `artifacts/reports/data_expansion/summary.json`,
+`reproducibility.json`, `backups.json`, logs and the annotated language sample.
+Builds/snapshots precede the code commit and record a dirty parent; the completion Git
+commit contains their sources and verified pipeline code. The immutable KB's manifest is
+retained, rather than relabelled retroactively. Code-commit/bundle evidence is recorded below.
+
+**Pinned data backups** (`backups/data/`, originals in the earlier checkout preserved):
+- `mangi_kk_support_qa_raw/20261112T111114Z-5e6ca0f3` (3 files; deep-verified).
+- `massive_en_ru_raw/20261112T111114Z-c9bab9eb` (7 files; deep-verified).
+- `clean_records/20261112T111115Z-238129f8` (14 files; deep-verified).
+- `canonical/20261112T111115Z-d5d50397` (7 files; deep-verified).
+- `stage4_interim/20261112T111116Z-2b975042` (84 files; deep-verified).
+- `kb_train/20261112T111116Z-453adf00` (2 files; deep-verified).
+- `sft/20261112T111116Z-19991bcb` (6 files; deep-verified).
+- `gold/20261112T111116Z-d512ffb1` (3 files; deep-verified).
+- `kb_demo_store/20261112T111117Z-56a67b84` (133 files; deep-verified).
+- `retrieval/20261112T111656Z-38d447f2` (21 files; deep-verified).
+
+The completed checkout and data are synchronised to the original local SupportPilot
+directory after Git verification; no processed datasets, backups or weights are tracked.
+No authored-data redistribution licence has been invented. Independent human RU/KK and
+qrels review remain open, along with the historical MT-quality limitations.
 
 ## What exists (cumulative)
 
@@ -359,7 +433,7 @@ WEAK_TEXT, OFF_DOMAIN, LANG_OTHER, LID_ERROR and RESPONSE_DEFECT.
   - A CLI test resolved the real project root. The test is now pinned to `tmp`, and the
     real outputs were rebuilt identically.
 
-## Stage 4 open items and limitations
+## Stage 4 historical limitations (expansion updates above)
 
 1. **No fluent human review** of RU/KK. The MT error rates, the authored scenarios, the answer
    templates, the training KB texts and all gold items were written or judged by the LLM agent.
@@ -368,13 +442,17 @@ WEAK_TEXT, OFF_DOMAIN, LANG_OTHER, LID_ERROR and RESPONSE_DEFECT.
 2. **KK machine translation quality.** About 20% of accepted KK MT rows still carry a major
    error (LLM-judged, CI 11–32%). Options: a paid MT/LLM budget (open decision 1), Tilmash or
    KazParC access (HF account), human post-editing, or down-weighting `mt:` rows in Stage 7.
-3. **Volume.** 15,548 / 98 / 116 instead of 90k / 5k / 5k. Nothing was duplicated. Limits: one
+3. **Original volume.** 15,548 / 98 / 116 instead of 90k / 5k / 5k. Nothing was duplicated. Limits: one
    GPU (MT ≈ 2.5 rows/s), 55 Bitext scenarios, authored scenarios written by one agent.
-   Validation/test cover 14 / 12 intents only; use gold (936 items) for decisions.
-4. **Templated targets.** Answers come from authored templates (≈ 40 section answers,
-   ≈ 30 tool answers per language): correct and grounded, but low lexical variety.
+   Validation/test originally covered only 14 / 12 intents; the expansion closes this gap
+   with 35 intents in every language in both sets. Use validation for tuning and keep gold
+   for final evaluation.
+4. **Templated targets.** Original answers came from authored templates (≈ 40 section answers,
+   ≈ 30 tool answers per language). The expansion adds wording variants, but targets remain
+   template-based and are not independently human-validated.
 5. **Bitext register.** EN originals keep typos and 10% inserted profanity; RU/KK
-   translations of typo-heavy sources are literal. refuse_oos is rare in train (71).
+   translations of typo-heavy sources are literal. The original train had 71 refuse_oos
+   examples; the expanded train has 928.
 6. Still open from earlier stages: gated sources, `uv sync --no-group gpu` not run, no LICENSE
    file (authored content has no declared licence yet), paid-API budget, reviewers,
    Kaggle/Colab accounts. Detector gaps from Stage 3 (single-script word salad, obfuscated
@@ -446,5 +524,6 @@ WEAK_TEXT, OFF_DOMAIN, LANG_OTHER, LID_ERROR and RESPONSE_DEFECT.
 
 ## Next recommended action
 
-Owner review of the Stage 5 report, then Stage 6 (retrieval and RAG experiments). Open
-decisions 1-2 (paid API budget, fluent reviewers) still apply.
+Stage 6 (retrieval experiments) can use the expanded KB and independent retrieval set.
+Stage 7 can use the expanded SFT. Paid API budget and fluent human reviewers remain open;
+no next-stage experiment has been started by the data preparation task.

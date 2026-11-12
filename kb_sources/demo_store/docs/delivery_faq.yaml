@@ -1,0 +1,50 @@
+# Demo-store document spec (kb_doc/1). See returns_policy.yaml for the conventions.
+# Stage 5b (ADR-029): delivery questions that delivery_policy does not answer. It does not
+# restate periods or prices (those stay in delivery_policy, which the gold benchmark cites)
+# and says nothing about lifting to a floor, evening hours, same-day or foreign delivery
+# (gold `abstain` items). Written natively per language by the agent (LLM); review pending.
+schema_version: kb_doc/1
+doc_id: delivery_faq
+doc_type: faq
+format: txt
+title:
+  en: Delivery questions
+  ru: Вопросы о доставке
+  kk: Жеткізу туралы сұрақтар
+sections:
+  - id: pickup_storage
+    heading: {en: "How long does a pickup point keep my order?", ru: "Сколько заказ хранится в пункте выдачи?", kk: "Тапсырыс беру пунктінде қанша уақыт сақталады?"}
+    paragraphs:
+      - en: "An order waits at the pickup point for {pickup_keep_days:days} from the day the SMS about its arrival is sent. If nobody collects it, it goes back to the warehouse, the order is cancelled and a prepaid amount is refunded to the original payment method."
+        ru: "Заказ ждёт в пункте выдачи {pickup_keep_days:days} со дня, когда пришло SMS о его поступлении. Если его не забрали, он возвращается на склад, заказ отменяется, а предоплата возвращается тем же способом, которым вы платили."
+        kk: "Тапсырыс беру пунктінде оның келгені туралы SMS жіберілген күннен бастап {pickup_keep_days:days} күтеді. Ешкім алмаса, ол қоймаға қайтарылады, тапсырыс жойылады, ал алдын ала төленген сома төлем жасалған тәсілмен қайтарылады."
+  - id: someone_else
+    heading: {en: "Can someone else collect or receive my order?", ru: "Может ли заказ получить другой человек?", kk: "Тапсырысты басқа адам ала ма?"}
+    paragraphs:
+      - en: "Yes. Give that person the order number and the receipt code from the SMS: the courier or the pickup point hands the order over only after the code is named. The code is not sent to anyone except the phone number in the order."
+        ru: "Да. Передайте этому человеку номер заказа и код получения из SMS: курьер или пункт выдачи отдаёт заказ только после того, как назван код. Код приходит только на номер телефона, указанный в заказе."
+        kk: "Иә. Ол адамға тапсырыс нөмірі мен SMS-тегі алу кодын беріңіз: курьер немесе беру пункті тапсырысты код айтылғаннан кейін ғана береді. Код тек тапсырыста көрсетілген телефон нөміріне келеді."
+  - id: missed_courier
+    heading: {en: "What happens if I miss the courier?", ru: "Что будет, если я не застал курьера?", kk: "Курьерді күтіп ала алмасам не болады?"}
+    paragraphs:
+      - en: "The courier calls before arriving. If you cannot be reached, the courier tries again on the next working day; the store makes {delivery_attempts} delivery attempts free of charge. After that the order is taken to the nearest pickup point and waits there as usual."
+        ru: "Курьер звонит перед приездом. Если до вас не дозвониться, курьер приедет ещё раз на следующий рабочий день; магазин бесплатно делает {delivery_attempts} попытки доставки. После этого заказ передаётся в ближайший пункт выдачи и хранится там на обычных условиях."
+        kk: "Курьер келер алдында қоңырау шалады. Сізге хабарласа алмаса, курьер келесі жұмыс күні қайта келеді; дүкен жеткізуге {delivery_attempts} рет тегін әрекет жасайды. Одан кейін тапсырыс ең жақын беру пунктіне жеткізіліп, сонда әдеттегі шартпен сақталады."
+  - id: reschedule
+    heading: {en: "Can I move the delivery to another day?", ru: "Можно ли перенести доставку на другой день?", kk: "Жеткізуді басқа күнге ауыстыруға бола ма?"}
+    paragraphs:
+      - en: "Yes, in \"My orders\" → \"Delivery date\", or by telling the courier when they call. The new date can be at most {reschedule_max_days:days} later than the planned one. Moving the date is free."
+        ru: "Да, в разделе «Мои заказы» → «Дата доставки» или сказав курьеру во время звонка. Новая дата может быть не позже чем через {reschedule_max_days:days} после запланированной. Перенос бесплатный."
+        kk: "Иә, «Менің тапсырыстарым» → «Жеткізу күні» бөлімінде немесе курьер қоңырау шалғанда айтып. Жаңа күн жоспарланған күннен ең көп дегенде {reschedule_max_days:days@abl} кейін болуы мүмкін. Күнді ауыстыру тегін."
+  - id: pickup_weight
+    heading: {en: "Can a large item be sent to a pickup point?", ru: "Можно ли отправить крупный товар в пункт выдачи?", kk: "Ірі тауарды беру пунктіне жіберуге бола ма?"}
+    paragraphs:
+      - en: "Pickup points and parcel lockers accept parcels up to {pickup_max_weight_kg} kg. Heavier items, such as washing machines, air conditioners or bicycles, are delivered by courier only; the pickup option is not offered for them at checkout."
+        ru: "Пункты выдачи и постаматы принимают посылки весом до {pickup_max_weight_kg} кг. Более тяжёлые товары, например стиральные машины, кондиционеры или велосипеды, доставляются только курьером; при оформлении для них не предлагается самовывоз."
+        kk: "Беру пункттері мен постаматтар салмағы {pickup_max_weight_kg} кг-ға дейінгі сәлемдемелерді қабылдайды. Одан ауыр тауарлар, мысалы кір жуғыш машина, кондиционер немесе велосипед, тек курьермен жеткізіледі; рәсімдеу кезінде оларға өзі алып кету ұсынылмайды."
+  - id: inspect
+    heading: {en: "Can I open the parcel before I accept it?", ru: "Можно ли вскрыть посылку до получения?", kk: "Сәлемдемені алмай тұрып ашып көруге бола ма?"}
+    paragraphs:
+      - en: "Yes. Open the parcel in front of the courier or at the pickup point and check the items before you sign. If an item is broken or not what you ordered, refuse that item: you pay only for the rest, or the money for it is refunded."
+        ru: "Да. Вскройте посылку при курьере или в пункте выдачи и проверьте товары до подписи. Если товар повреждён или это не то, что вы заказывали, откажитесь от него: вы платите только за остальное, или деньги за него возвращаются."
+        kk: "Иә. Сәлемдемені курьердің көзінше немесе беру пунктінде ашып, қол қоймас бұрын тауарларды тексеріңіз. Тауар зақымдалса немесе сіз тапсырыс бергені болмаса, одан бас тартыңыз: тек қалғаны үшін төлейсіз немесе оның ақшасы қайтарылады."

@@ -67,11 +67,14 @@ Data:      configs/sources.yaml (registry + licence policy)
            → data/interim/canonical/ (examples/lang=*, pending, rejected, groups, pairs,
              quality_report, manifest; dedup + families + scenarios + gates)            [Stage 3]
            → data/interim/stage4/selected (labels v1, EN backbone, MT queue)             [Stage 4]
+           + data/interim/stage4/native (licensed native EN/RU/KK, train-only)          [ADR-028]
            → data/interim/stage4/mt (resumable MT cache) → translated (QE, glossary)      [Stage 4]
            + authored/ (native scenarios, answer templates, training KB, gold sources)    [Stage 4]
            → data/processed/kb_train (training KB variant chunks)                         [Stage 4]
            → data/processed/sft/<dataset_version>/{train,validation,test}.parquet + manifest.json
            → data/gold/<benchmark_version>/ (never used for training/tuning)
+           + authored/retrieval/ (independently authored question triples and judgements)
+           → data/benchmarks/retrieval/<benchmark_version>/ (active-KB chunk IDs + qrels)
 
 Knowledge: kb_sources/demo_store/ (facts.yaml, catalog.yaml, docs/<doc_id>.yaml specs)       [Stage 5]
            → render → data/kb/demo_store/sources/<lang>/<doc_id>.<pdf|docx|xlsx|csv|json|txt>

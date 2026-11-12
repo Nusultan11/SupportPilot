@@ -335,3 +335,147 @@ sources:
     reverse: {exclude: "mixes cancel, refund and dispute in one label"}
     send: {exclude: "P2P money transfer dialogues; label describes the dialogue, not a turn"}
     spend: {exclude: "purchase/payment dialogues; label describes the dialogue, not a turn"}
+  # Native-language sources (2026-11-12, ADR-028). Off-domain requests only: they become the
+  # out_of_scope task (refuse_oos) in natural KK / EN / RU. Labels that could be a store
+  # request are excluded, never guessed. Rules run in order; `.` is the catch-all.
+  mangi_kk_support_qa:
+    banking.cards:
+      rules:
+        - {pattern: 'төле|тапсырыс|кэшбэк|телефонға', exclude: "payment / ordering wording that a store customer could mean"}
+        - {pattern: 'PIN|CVV|банкомат|банк|дебеттік|кредиттік|виртуалды|лаунж|шетел', intent: out_of_scope}
+        - {pattern: '.', exclude: "card without a bank-specific cue could be a store gift card"}
+    banking.account:
+      rules:
+        - {pattern: '^Шотты қалай жабамын|Шот нөмірімді өзгерт|жауып тастаған', exclude: "'шот' without a bank cue reads as a store account"}
+        - {pattern: 'шот аш|шоттар|валют|банк|сот орындаушы|кәсіпкерлік|үзінді көшірме', intent: out_of_scope}
+        - {pattern: '.', exclude: "bank account meaning is not explicit in the question"}
+    banking.terminology:
+      rules:
+        - {pattern: 'Чарджбэк|3-D Secure|Токенизация|Эквайринг', exclude: "card-payment terms that come up in store payment problems"}
+        - {pattern: '.', intent: out_of_scope}
+    banking.loans:
+      rules:
+        - {pattern: 'несие|кепілгер|кепілзат', intent: out_of_scope}
+        - {pattern: '.', exclude: "generic payment or approval wording without a loan cue"}
+    banking.transfers: {intent: out_of_scope}
+    banking.deposits:
+      rules:
+        - {pattern: 'депозит|салым|пролонгация', intent: out_of_scope}
+        - {pattern: '.', exclude: "no explicit deposit cue"}
+    banking.exchange: {intent: out_of_scope}
+    banking.mortgage:
+      rules:
+        - {pattern: 'ипотек|тұрғын үй неси|үйдің бағасын банк', intent: out_of_scope}
+        - {pattern: '.', exclude: "no explicit mortgage cue"}
+    banking.investments: {intent: out_of_scope}
+    banking.payments: {exclude: "store refunds, disputes and QR payments"}
+    banking.security: {exclude: "account takeover reads as fraud_suspected in a store"}
+    banking.app: {exclude: "app login reads as a store technical issue"}
+    telecom.tariff:
+      rules:
+        - {pattern: 'Акциялық|бірнеге', exclude: "ambiguous promotion or malformed source wording"}
+        - {pattern: '.', intent: out_of_scope}
+    telecom.internet:
+      rules:
+        - {pattern: 'тариф|трафик|оператор|үйге интернет|үй интернет|IP мекенжай|интернет.*көшір|мобильді байланыс', intent: out_of_scope}
+        - {pattern: '.', exclude: "generic connectivity or router help could concern a store product"}
+    telecom.sim:
+      rules:
+        - {pattern: 'нөмір|SIM.*ауыстыру', intent: out_of_scope}
+        - {pattern: '.', exclude: "phone setup without an explicit network-service request"}
+    telecom.roaming: {intent: out_of_scope}
+    telecom.terminology:
+      rules:
+        - {pattern: 'Dual SIM|eSIM|VoLTE', exclude: "phone features overlap the shop product domain"}
+        - {pattern: '.', intent: out_of_scope}
+    telecom.tv: {intent: out_of_scope}
+    telecom.billing: {exclude: "charges, balances and invoices read as store payment questions"}
+    telecom.devices: {exclude: "buying, returning and repairing phones is store business"}
+    billing.general: {exclude: "generic billing questions read as store payment questions"}
+    billing.subscriptions: {exclude: "generic billing questions"}
+    service_center.repair: {exclude: "repairs read as product_defect"}
+    service_center.orders: {exclude: "orders are store business"}
+    service_center.returns: {exclude: "returns are store business"}
+    service_center.warranty: {exclude: "warranty is store business"}
+    service_center.installation: {exclude: "installation is a product question"}
+    service_center.loyalty: {exclude: "loyalty is store business"}
+    service_center.terminology: {exclude: "mixed service terms"}
+    sales.negotiation: {exclude: "seller-side sales scripts, not customer requests"}
+    sales.objection: {exclude: "seller-side sales scripts"}
+    sales.process: {exclude: "seller-side sales scripts"}
+    sales.onboarding: {exclude: "seller-side sales scripts"}
+    sales.upsell: {exclude: "seller-side sales scripts"}
+    support.general: {exclude: "generic support requests (complaints, operator, hours) are store intents with no reliable label"}
+    support.bot_policy: {exclude: "mixed: operator requests, legal advice, prompt-leak attempts"}
+    support.privacy: {exclude: "personal-data requests are a store intent"}
+    support.technical: {exclude: "app problems are a store intent"}
+    support.feedback: {exclude: "feedback is a store intent"}
+    support.accessibility: {exclude: "app accessibility is a store intent"}
+  massive_en_ru:
+    # The wake word of the voice assistant ("olly", "олли") is not chat text: such rows are excluded.
+    alarm_query: &massive_oos
+      rules:
+        - {pattern: '\bolly\b|олли', exclude: "voice-assistant wake word"}
+        - {pattern: '.', intent: out_of_scope}
+    alarm_remove: *massive_oos
+    alarm_set: *massive_oos
+    audio_volume_down: *massive_oos
+    audio_volume_mute: *massive_oos
+    audio_volume_other: *massive_oos
+    audio_volume_up: *massive_oos
+    calendar_query: *massive_oos
+    calendar_remove: *massive_oos
+    calendar_set: *massive_oos
+    cooking_query: *massive_oos
+    cooking_recipe: *massive_oos
+    datetime_convert: *massive_oos
+    datetime_query: *massive_oos
+    general_joke: *massive_oos
+    iot_cleaning: *massive_oos
+    iot_coffee: *massive_oos
+    iot_hue_lightchange: *massive_oos
+    iot_hue_lightdim: *massive_oos
+    iot_hue_lightoff: *massive_oos
+    iot_hue_lighton: *massive_oos
+    iot_hue_lightup: *massive_oos
+    iot_wemo_off: *massive_oos
+    iot_wemo_on: *massive_oos
+    music_dislikeness: *massive_oos
+    music_likeness: *massive_oos
+    music_query: *massive_oos
+    music_settings: *massive_oos
+    news_query: *massive_oos
+    play_audiobook: *massive_oos
+    play_game: *massive_oos
+    play_music: *massive_oos
+    play_podcasts: *massive_oos
+    play_radio: *massive_oos
+    qa_currency: *massive_oos
+    qa_definition: *massive_oos
+    qa_factoid: *massive_oos
+    qa_maths: *massive_oos
+    qa_stock: *massive_oos
+    recommendation_events: *massive_oos
+    recommendation_movies: *massive_oos
+    transport_query: *massive_oos
+    transport_taxi: *massive_oos
+    transport_ticket: *massive_oos
+    transport_traffic: *massive_oos
+    weather_query: *massive_oos
+    general_greet:
+      rules:
+        - {pattern: '\bolly\b|олли', exclude: "voice-assistant wake word"}
+        - {pattern: '.', intent: greeting}
+    general_quirky: {exclude: "catch-all chit-chat, some of it about shopping"}
+    lists_createoradd: {exclude: "shopping lists read as cart_help"}
+    lists_query: {exclude: "shopping lists read as cart_help"}
+    lists_remove: {exclude: "shopping lists read as cart_help"}
+    takeaway_order: {exclude: "ordering food reads as place_order"}
+    takeaway_query: {exclude: "order status wording reads as track_order"}
+    email_addcontact: {exclude: "e-mail contacts overlap contact_info wording"}
+    email_query: {exclude: "e-mail queries overlap notification questions"}
+    email_querycontact: {exclude: "e-mail contacts overlap contact_info wording"}
+    email_sendemail: {exclude: "sending an e-mail overlaps contacting support"}
+    recommendation_locations: {exclude: "nearby shops / places read as store_info"}
+    social_post: {exclude: "posting complaints to a company reads as complaint"}
+    social_query: {exclude: "social-media updates about companies"}

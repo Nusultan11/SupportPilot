@@ -1,4 +1,4 @@
-"""Stage 4 entry points used by the CLI (`supportpilot data select|kb-train|mt-compare|
+"""Stage 4 entry points used by the CLI (`supportpilot data select|native|kb-train|mt-compare|
 translate|qe-score|sft|gold|taxonomy`). Each step is checkpointed and skipped when current."""
 
 from __future__ import annotations
@@ -13,6 +13,7 @@ from supportpilot.common.config import Settings
 from supportpilot.common.schemas import SourceEntry
 from supportpilot.data.kbtrain import build_kb_train
 from supportpilot.data.locale import load_locale
+from supportpilot.data.native import build_native, native_params
 from supportpilot.data.select import BACKBONE, build_backbone, select_params, selected_dir
 from supportpilot.data.taxonomy import load_taxonomy
 
@@ -28,6 +29,22 @@ def run_select(
         cfg,
         load_taxonomy(tax_path),
         select_params(cfg, tax_path),
+        code_commit=code_commit,
+        force=force,
+    )
+
+
+def run_native(
+    settings: Settings, entries: Sequence[SourceEntry], *, code_commit: str | None, force: bool
+) -> dict[str, Any]:
+    cfg = settings.stage4
+    tax_path = settings.resolve(cfg.taxonomy)
+    return build_native(
+        entries,
+        settings.resolve(settings.paths.data_dir),
+        cfg,
+        load_taxonomy(tax_path),
+        native_params(cfg, tax_path),
         code_commit=code_commit,
         force=force,
     )

@@ -223,10 +223,18 @@ def _distractors(
     return rng.sample(pool, min(n, len(pool)))
 
 
+def pick(node: Any, rng: random.Random) -> str:
+    """A template is one string or a list of equivalent phrasings (same placeholders)."""
+    if isinstance(node, list):
+        return str(node[rng.randrange(len(node))])
+    return str(node)
+
+
 def _answer_for_section(
-    res: Resources, section: str, lang: LanguageCode, vals: Mapping[str, Any]
+    res: Resources, section: str, lang: LanguageCode, vals: Mapping[str, Any], rng: random.Random
 ) -> str:
-    return render(res.t("sections", section, lang), vals, lang, catalog=res.locale.lookup)
+    tpl = pick(res.t("sections", section, lang), rng)
+    return render(tpl, vals, lang, catalog=res.locale.lookup)
 
 
 def _resolve_sections(
@@ -273,6 +281,7 @@ def build_one(
     lang: LanguageCode = utt["lang"]
     key = utt["utterance_key"]
     rng = _rng(res, "example", key, task.value)
+    phrasing = _rng(res, "phrasing", key, task.value)  # own stream: other draws stay put
     variant = res.variant_ids[rng.randrange(len(res.variant_ids))]
     chunk_lang = lang if (lang == "en" or rng.random() >= 0.1) else "en"
     user_text = utt["text"]
@@ -302,7 +311,7 @@ def build_one(
         if not secs:
             return None, "no_kb_section"
         docs = {c["doc_id"] for _, c, _ in secs}
-        answer_parts = [_answer_for_section(res, k, lang, v) for k, _, v in secs]
+        answer_parts = [_answer_for_section(res, k, lang, v, phrasing) for k, _, v in secs]
         answer = " ".join(answer_parts)
         if task is Task.ABSTAIN_NO_EVIDENCE:
             distract = _distractors(res, variant, chunk_lang, docs, 3, key)
@@ -335,7 +344,7 @@ def build_one(
                     return None, "conflict_identical"
                 context = [main_chunk, other]
                 cited = [main_chunk["chunk_id"], other["chunk_id"]]
-                answer = res.t("escalate", "conflicting_policy", lang)
+                answer = pick(res.t("escalate", "conflicting_policy", lang), phrasing)
                 action, needs_human, reason = Action.ESCALATE.value, True, "conflicting_policy"
                 flags.append("conflict:contradiction")
             else:
@@ -366,14 +375,14 @@ def build_one(
                 else:
                     flags.append("injection:user")
                 if "injection:user" in flags:  # a planted passage is ignored silently
-                    answer = f"{res.t('injection_note', lang)} {answer}"
+                    answer = f"{pick(res.t('injection_note', lang), phrasing)} {answer}"
         shown = [*context, *distract]
         rng.shuffle(shown)
         if shown:
             tool_msgs.append(_kb_message(shown))
         ctx_map = {c["chunk_id"]: _evidence_text(c) for c in shown}
     elif task is Task.TOOL_ANSWER:
-        built = _tool_case(utt, res, variant, chunk_lang, lang, rng)
+        built = _tool_case(utt, res, variant, chunk_lang, lang, rng, phrasing)
         if built is None:
             return None, "no_tool_reference"
         answer, tool_name, result, facts, kb_chunks = built
@@ -410,7 +419,7 @@ def build_one(
         reason = utt.get("reason") or utt.get("escalation_reason")
         if not reason:
             return None, "escalate_without_reason"
-        answer = res.t("escalate", reason, lang)
+        answer = pick(res.t("escalate", reason, lang), phrasing)
         needs_human = True
         ctx_map = {}
     elif task is Task.REFUSE_OOS:
@@ -500,6 +509,7 @@ def _tool_case(
     chunk_lang: str,
     lang: LanguageCode,
     rng: Any,
+    phrasing: random.Random,
 ) -> tuple[str, str, dict[str, Any], list[str], list[dict[str, Any]]] | None:
     intent = utt["intent"]
     tool = TOOL_NAME.get(intent)
@@ -530,7 +540,12 @@ def _tool_case(
             vals |= {"restock": restock}
             facts = [f"sku {sku} in_stock=false", f"restock_expected={restock}"]
         vals["product"] = p.get(lang)
-        answer = render(res.t("tool", intent, status, lang), vals, lang, catalog=res.locale.lookup)
+        answer = render(
+            pick(res.t("tool", intent, status, lang), phrasing),
+            vals,
+            lang,
+            catalog=res.locale.lookup,
+        )
         return answer, tool, result, facts, []
     order_id = slots.get("order_id")
     if not order_id:
@@ -543,7 +558,7 @@ def _tool_case(
     vals["order_id"] = order_id
     if tool == "get_order" and rng.random() < ORDER_NOT_FOUND_SHARE:
         result = {"_args": {"order_id": order_id}, "order_id": order_id, "error": "not_found"}
-        answer = render(res.t("tool", "order_not_found", "any", lang), vals, lang)
+        answer = render(pick(res.t("tool", "order_not_found", "any", lang), phrasing), vals, lang)
         return answer, tool, result, [f"order {order_id} error=not_found"], []
     result = {"_args": {"order_id": order_id}, "order_id": order_id}
     kb: list[dict[str, Any]] = []
@@ -647,7 +662,12 @@ def _tool_case(
                 result["return_registered"] = True
                 vals["refund_started"] = started
                 facts = [f"order {order_id} refund status={refund_status}", f"started_at={started}"]
-    answer = render(res.t("tool", tpl_intent, status, lang), vals, lang, catalog=res.locale.lookup)
+    answer = render(
+        pick(res.t("tool", tpl_intent, status, lang), phrasing),
+        vals,
+        lang,
+        catalog=res.locale.lookup,
+    )
     return answer, tool, result, facts, kb
 
 

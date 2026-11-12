@@ -106,6 +106,8 @@ class Stage4Settings(_Section):
     max_per_label: int = Field(default=260, ge=1)
     max_profane_share: float = Field(default=0.1, ge=0.0, le=1.0)
     mt_per_label: int = Field(default=150, ge=0)
+    native_sources: list[str] = Field(default_factory=list)  # ADR-028: no MT, own languages
+    native_max_per_label: dict[str, int] = Field(default_factory=dict)  # per source; default 8
     mt_selected: dict[str, str] = Field(default_factory=dict)
     back_translation: dict[str, str] = Field(default_factory=dict)
     qe_min_bt_chrf: float = Field(default=0.3, ge=0.0, le=1.0)

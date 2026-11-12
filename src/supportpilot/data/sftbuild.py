@@ -2,6 +2,7 @@
 
 Steps (each checkpointed, see steps.py):
   select   -> data/interim/stage4/selected/        (select.py)
+  native   -> data/interim/stage4/native/          (native.py, ADR-028)
   kb       -> data/processed/kb_train/              (kbtrain.py)
   translate-> data/interim/stage4/mt/  (cache)       (mtrun.py, GPU, resumable)
   score    -> data/interim/stage4/translated/       (mtrun.py, QE)
@@ -35,6 +36,7 @@ from supportpilot.common.schemas import DatasetManifest, SourceEntry, Split
 from supportpilot.data.kbtrain import CHUNKS, kb_dir
 from supportpilot.data.locale import LocaleCatalog, load_locale, localize_en
 from supportpilot.data.mtrun import translated_dir
+from supportpilot.data.native import NATIVE, native_dir
 from supportpilot.data.scenarios import AUTHORED_SOURCE, expand, load_scenarios
 from supportpilot.data.select import BACKBONE, selected_dir
 from supportpilot.data.sft import Resources, build_all
@@ -56,7 +58,7 @@ from supportpilot.data.steps import (
 )
 
 log = get_logger(__name__)
-SFT_VERSION = 2
+SFT_VERSION = 5
 TARGET_MIX = {"en": 0.30, "ru": 0.35, "kk": 0.35}
 SFT_SCHEMA = pa.schema(
     [
@@ -157,6 +159,35 @@ def _translated_utterances(tr: pl.DataFrame, bb: pl.DataFrame) -> list[dict[str,
     return rows
 
 
+def _native_utterances(nat: pl.DataFrame) -> list[dict[str, Any]]:
+    """Native-language rows of licensed sources (ADR-028): no MT, lineage kept."""
+    rows = []
+    for r in nat.iter_rows(named=True):
+        flags = [f for f in (r["stage3_flags"] or []) if f in ("offensive", "lid_low_conf")]
+        rows.append(
+            {
+                "utterance_key": r["record_id"],
+                "source_id": r["source_id"],
+                "record_id": r["record_id"],
+                "scenario_id": r["scenario_id"],
+                "family_id": r["family_id"],
+                "lang": r["lang"],
+                "code_switch": bool(r["code_switch"]),
+                "text": r["text"],
+                "amounts_kzt": [],
+                "history": [],
+                "intent": r["intent"],
+                "action": r["action"],
+                "escalation_reason": r["escalation_reason"],
+                "source_intent": None,
+                "slots": {},
+                "origin": "original",
+                "quality_flags": [*flags, f"src:{r['source_id']}", "src:native"],
+            }
+        )
+    return rows
+
+
 def _authored_utterances(authored: Path, locale: LocaleCatalog, seed: int) -> list[dict[str, Any]]:
     rows = expand(load_scenarios(authored / "scenarios"), locale, seed)
     for r in rows:
@@ -173,7 +204,9 @@ def _attach_sections(utts: list[dict[str, Any]], templates: dict[str, Any]) -> N
 
 
 def _balance(examples: list[dict[str, Any]], seed: int) -> tuple[list[dict[str, Any]], int]:
-    """Down-sample English Bitext train rows toward the 30/35/35 plan (never up-sample)."""
+    """Down-sample English Bitext train rows toward the 30/35/35 plan (never up-sample).
+
+    Only Bitext rows are dropped: authored and native-source rows are rare, distinct data."""
     train = [e for e in examples if e["split"] == "train"]
     n = Counter(e["lang"] for e in train)
     other = min(n.get("ru", 0), n.get("kk", 0))
@@ -183,7 +216,7 @@ def _balance(examples: list[dict[str, Any]], seed: int) -> tuple[list[dict[str, 
     surplus = n.get("en", 0) - en_target
     if surplus <= 0:
         return examples, 0
-    pool = [e for e in train if e["lang"] == "en" and e["source_id"] != AUTHORED_SOURCE]
+    pool = [e for e in train if e["lang"] == "en" and "src:bitext" in e["quality_flags"]]
     # drop evenly across intents: rank within intent, drop the highest ranks first
     by_intent: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for e in pool:
@@ -204,36 +237,39 @@ def _leak_filter(
     cfg = settings.stage4
     train = [e for e in examples if e["split"] == "train"]
     held = [e for e in examples if e["split"] != "train"]
-    train_ids = {e["scenario_id"] for e in train} | {e["family_id"] for e in train}
     train_texts = sorted({e["user_text"] for e in train})
     held_texts = sorted({e["user_text"] for e in held})
-    exact = {held_texts[i] for i in exact_leaks(train_texts, held_texts)}
-    lex = lexical_leaks(train_texts, held_texts, threshold=cfg.leak_jaccard, seed=cfg.seed)
-    lex_t = {held_texts[i] for i in lex}
-    ngr = {held_texts[i] for i in ngram_leaks(train_texts, held_texts, cfg.leak_ngram)}
+    # Preserve the independently assigned evaluation sets. Removing evaluation rows
+    # erased entire language/intent cells; remove their near-copies from training instead.
+    exact = {train_texts[i] for i in exact_leaks(held_texts, train_texts)}
+    lex = lexical_leaks(held_texts, train_texts, threshold=cfg.leak_jaccard, seed=cfg.seed)
+    lex_t = {train_texts[i] for i in lex}
+    ngr = {train_texts[i] for i in ngram_leaks(held_texts, train_texts, cfg.leak_ngram)}
     sem_t: set[str] = set()
     sem_max: list[float] = []
     if embedder is not None and held_texts:
         mask = [_DIGITS.sub("0", t) for t in train_texts]
         hmask = [_DIGITS.sub("0", t) for t in held_texts]
         tv, hv = embedder.encode(mask), embedder.encode(hmask)
-        sem = semantic_leaks(tv, hv, cfg.leak_cosine)
-        sem_t = {held_texts[i] for i in sem}
+        sem = semantic_leaks(hv, tv, cfg.leak_cosine)
+        sem_t = {train_texts[i] for i in sem}
         from supportpilot.data.embed import max_cosine
 
-        best, _ = max_cosine(hv, tv)
+        best, _ = max_cosine(tv, hv)
         sem_max = [float(x) for x in best.tolist()]
     bad = exact | lex_t | ngr | sem_t
     kept, removed = [], Counter[str]()
+    held_ids = {e["scenario_id"] for e in held} | {e["family_id"] for e in held}
     for e in examples:
-        if e["split"] != "train" and (
-            e["user_text"] in bad or e["scenario_id"] in train_ids or e["family_id"] in train_ids
+        if e["split"] == "train" and (
+            e["user_text"] in bad or e["scenario_id"] in held_ids or e["family_id"] in held_ids
         ):
             removed[e["split"]] += 1
             continue
         kept.append(e)
     report = {
         "held_out_texts": len(held_texts),
+        "policy": "preserve_evaluation_remove_training_copies",
         "exact": len(exact),
         "lexical_jaccard": len(lex_t),
         "ngram": len(ngr),
@@ -286,6 +322,39 @@ def _row(e: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _gold_copy_filter(
+    examples: list[dict[str, Any]], settings: Settings
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Reserve gold questions for decontamination only; never read targets into SFT.
+
+    An external greeting happened to equal a gold question. Reject copied SFT inputs,
+    rather than changing gold, its expected outputs or the overlap thresholds.
+    """
+    from supportpilot.data.gold import load_gold_sources
+
+    cfg = settings.stage4
+    sources = load_gold_sources(settings.resolve(cfg.authored_dir) / "gold")
+    gold_last: list[str] = []
+    gold_all: list[str] = []
+    for source in sources:
+        for lang in ("en", "ru", "kk"):
+            turns = getattr(source, lang)
+            user_turns = [turns] if isinstance(turns, str) else turns[::2]
+            gold_last.append(user_turns[-1])
+            gold_all.append(" ".join(user_turns))
+    texts = sorted({e["user_text"] for e in examples})
+    bad = exact_leaks(gold_last, texts)
+    bad |= set(lexical_leaks(gold_last, texts, threshold=cfg.leak_jaccard, seed=cfg.seed))
+    bad |= ngram_leaks(gold_all, texts, cfg.leak_ngram)
+    bad_texts = {texts[i] for i in bad}
+    removed = Counter(e["split"] for e in examples if e["user_text"] in bad_texts)
+    return [e for e in examples if e["user_text"] not in bad_texts], {
+        "policy": "gold_questions_for_copy_exclusion_only",
+        "removed_examples": dict(removed),
+        "gold_targets_used": False,
+    }
+
+
 def _input_version(path: Path) -> str:
     return read_model_json(path / MANIFEST, DatasetManifest).dataset_version
 
@@ -315,11 +384,17 @@ def build_sft(
     data_dir = settings.resolve(settings.paths.data_dir)
     authored = settings.resolve(cfg.authored_dir)
     locale = load_locale(settings.resolve(cfg.locale))
-    for need in (selected_dir(data_dir), translated_dir(data_dir), kb_dir(data_dir)):
+    for need in (
+        selected_dir(data_dir),
+        native_dir(data_dir),
+        translated_dir(data_dir),
+        kb_dir(data_dir),
+    ):
         if not (need / MANIFEST).is_file():
             raise StepError(f"missing input step {need}; run the earlier steps first")
     inputs = [
         f"backbone@{_input_version(selected_dir(data_dir))}",
+        f"native@{_input_version(native_dir(data_dir))}",
         f"translated@{_input_version(translated_dir(data_dir))}",
         f"kbtrain@{_input_version(kb_dir(data_dir))}",
         "authored@"
@@ -331,6 +406,10 @@ def build_sft(
                     authored / "responses" / "templates.yaml",
                 ]
             )
+        )[:16],
+        "gold_decontamination@"
+        + sha256_text(
+            "".join(p.read_text("utf-8") for p in sorted((authored / "gold").glob("*.yaml")))
         )[:16],
     ]
     params = {
@@ -353,17 +432,30 @@ def build_sft(
 
     bb = pl.read_parquet(selected_dir(data_dir) / BACKBONE)
     tr = pl.read_parquet(translated_dir(data_dir) / "translations.parquet")
+    nat = pl.read_parquet(native_dir(data_dir) / NATIVE)
     chunks = pl.read_parquet(kb_dir(data_dir) / CHUNKS)
     variants = yaml.safe_load((authored / "kb_train" / "variants.yaml").read_text("utf-8"))
     res = Resources(authored, chunks, variants["variants"], locale, cfg.seed)
     utts = [
         *_bitext_utterances(bb, locale),
         *_translated_utterances(tr, bb),
+        *_native_utterances(nat),
         *_authored_utterances(authored, locale, cfg.seed),
     ]
     _attach_sections(utts, res.templates)
+    langs: dict[str, set[str]] = defaultdict(set)
+    for u in utts:
+        if u["source_id"] == AUTHORED_SOURCE and not u["code_switch"]:
+            langs[u["scenario_id"]].add(u["lang"])
     authored_scn = [
-        (u["scenario_id"], u["action"]) for u in utts if u["source_id"] == AUTHORED_SOURCE
+        (
+            u["scenario_id"],
+            u["intent"],
+            u["action"],
+            {"en", "ru", "kk"} <= langs[u["scenario_id"]],
+        )
+        for u in utts
+        if u["source_id"] == AUTHORED_SOURCE
     ]
     split_of: dict[str, Split] = {u["scenario_id"]: Split.TRAIN for u in utts}
     split_of.update(assign_authored(authored_scn, cfg.split_ratios, cfg.seed))
@@ -373,7 +465,9 @@ def build_sft(
         from supportpilot.data.embed import Embedder, EmbedderSpec
 
         embedder = Embedder(EmbedderSpec.model_validate(cfg.embedder))
-    examples, leak_report = _leak_filter(built.examples, settings, embedder)
+    clean_examples, gold_filter = _gold_copy_filter(built.examples, settings)
+    examples, leak_report = _leak_filter(clean_examples, settings, embedder)
+    leak_report["gold_decontamination"] = gold_filter
     examples, dropped_en = _balance(examples, cfg.seed)
     examples.sort(key=lambda e: (e["split"], e["lang"], e["source_id"], e["record_id"], e["task"]))
     rows = [_row(e) for e in examples]

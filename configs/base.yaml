@@ -78,6 +78,11 @@ stage4:                            # multilingual SFT dataset (ADR-023..026, DAT
   max_profane_share: 0.1           # inserted-profanity register capped (Stage 3: 49% in retail)
   mt_per_label: 100                # Bitext rows per source label and action translated to RU and KK (GPU time-bound, ADR-024)
   mt_selected: {ru: madlad400_3b, kk: madlad400_3b}
+  # Native-language sources (ADR-028): relabelled in their own language, never translated.
+  native_sources: [mangi_kk_support_qa, massive_en_ru]
+  # Cap per (source label, language). MASSIVE labels are paraphrase-rich (≈ 400 rows each);
+  # every mangi row is a different question, so the cap only bounds its subdomains.
+  native_max_per_label: {massive_en_ru: 8, mangi_kk_support_qa: 100}
   back_translation: {ru: opus_ru_en, kk: madlad400_3b}
   qe_min_bt_chrf: 0.30
   qe_min_emb_sim: 0.80

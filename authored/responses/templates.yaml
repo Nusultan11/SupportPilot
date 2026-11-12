@@ -5,151 +5,177 @@
 schema_version: responses/1
 
 # answer_kb: one answer per KB section (doc_id.section_id). The values are the cited chunk's.
+# A value is one string or a list of equivalent phrasings with the same placeholders (one is
+# drawn per example, ADR-029); this also holds for `tool`, `escalate` and `injection_note`.
 sections:
   returns_policy.window:
-    en: "You can return an item within {return_window_days:days_gen} of delivery. It has to be unused, with its tags and original packaging, and you will need the order number or the receipt."
-    ru: "Вернуть товар можно в течение {return_window_days:days_gen} после получения. Он должен быть без следов использования, с ярлыками и в оригинальной упаковке; понадобится номер заказа или чек."
-    kk: "Тауарды алған күннен бастап {return_window_days:days_gen} ішінде қайтаруға болады. Ол пайдаланылмаған, жапсырмалары мен түпнұсқа қаптамасы сақталған болуы керек, тапсырыс нөмірі немесе чек қажет."
+    en: ["You can return an item within {return_window_days:days_gen} of delivery. It has to be unused, with its tags and original packaging, and you will need the order number or the receipt.", "Returns are accepted for {return_window_days:days_gen} after you receive the order, as long as the item is unused and still has its tags and original packaging. Have the order number or the receipt ready."]
+    ru: ["Вернуть товар можно в течение {return_window_days:days_gen} после получения. Он должен быть без следов использования, с ярлыками и в оригинальной упаковке; понадобится номер заказа или чек.", "Вернуть товар можно в течение {return_window_days:days_gen} со дня получения заказа, если он не был в использовании и сохранил ярлыки и заводскую упаковку. Подготовьте номер заказа или чек."]
+    kk: ["Тауарды алған күннен бастап {return_window_days:days_gen} ішінде қайтаруға болады. Ол пайдаланылмаған, жапсырмалары мен түпнұсқа қаптамасы сақталған болуы керек, тапсырыс нөмірі немесе чек қажет.", "Тапсырысты алған күннен бастап {return_window_days:days_gen} ішінде тауарды қайтаруға болады, егер ол пайдаланылмаса және жапсырмалары мен зауыттық қаптамасы сақталса. Тапсырыс нөмірін немесе чекті дайындап қойыңыз."]
   returns_policy.non_returnable:
-    en: "These items cannot be returned: {non_returnable:non_returnable}. If one of them turns out to be faulty, the warranty rules apply."
-    ru: "Эти товары вернуть нельзя: {non_returnable:non_returnable}. Если такой товар оказался неисправным, действуют правила гарантии."
-    kk: "Мына тауарларды қайтаруға болмайды: {non_returnable:non_returnable}. Олардың бірі ақаулы болып шықса, кепілдік ережелері қолданылады."
+    en: ["These items cannot be returned: {non_returnable:non_returnable}. If one of them turns out to be faulty, the warranty rules apply.", "Unfortunately, {non_returnable:non_returnable} are not accepted back if they are in good condition. A faulty item of this kind is handled under the warranty instead."]
+    ru: ["Эти товары вернуть нельзя: {non_returnable:non_returnable}. Если такой товар оказался неисправным, действуют правила гарантии.", "К сожалению, {non_returnable:non_returnable} не принимаются обратно, если с ними всё в порядке. Если такой товар неисправен, вопрос решается по гарантии."]
+    kk: ["Мына тауарларды қайтаруға болмайды: {non_returnable:non_returnable}. Олардың бірі ақаулы болып шықса, кепілдік ережелері қолданылады.", "Өкінішке қарай, {non_returnable:non_returnable} ақаусыз болса, кері қабылданбайды. Мұндай тауар ақаулы болса, мәселе кепілдік бойынша шешіледі."]
   returns_policy.how_to_return:
-    en: "To return an item, open \"My orders\", choose the order and press \"Return\", then bring the item to a pickup point or hand it to the courier. Return shipping: {return_shipping_cost:kzt_free}."
-    ru: "Чтобы вернуть товар, откройте «Мои заказы», выберите заказ и нажмите «Вернуть», затем сдайте товар в пункт выдачи или передайте курьеру. Обратная доставка: {return_shipping_cost:kzt_free}."
-    kk: "Тауарды қайтару үшін «Менің тапсырыстарым» бөлімін ашып, тапсырысты таңдаңыз да, «Қайтару» батырмасын басыңыз, содан кейін тауарды беру пунктіне тапсырыңыз немесе курьерге беріңіз. Кері жеткізу: {return_shipping_cost:kzt_free}."
+    en: ["To return an item, open \"My orders\", choose the order and press \"Return\", then bring the item to a pickup point or hand it to the courier. Return shipping: {return_shipping_cost:kzt_free}.", "Start the return in the app: \"My orders\" → the order → \"Return\". Then drop the item at a pickup point or give it to the courier. The return shipping cost is {return_shipping_cost:kzt_free}."]
+    ru: ["Чтобы вернуть товар, откройте «Мои заказы», выберите заказ и нажмите «Вернуть», затем сдайте товар в пункт выдачи или передайте курьеру. Обратная доставка: {return_shipping_cost:kzt_free}.", "Возврат оформляется в приложении: «Мои заказы» → нужный заказ → «Вернуть». После этого отнесите товар в пункт выдачи или отдайте курьеру. Стоимость обратной доставки — {return_shipping_cost:kzt_free}."]
+    kk: ["Тауарды қайтару үшін «Менің тапсырыстарым» бөлімін ашып, тапсырысты таңдаңыз да, «Қайтару» батырмасын басыңыз, содан кейін тауарды беру пунктіне тапсырыңыз немесе курьерге беріңіз. Кері жеткізу: {return_shipping_cost:kzt_free}.", "Қайтаруды қосымшада рәсімдеңіз: «Менің тапсырыстарым» → керек тапсырыс → «Қайтару». Содан кейін тауарды беру пунктіне апарыңыз немесе курьерге беріңіз. Кері жеткізу құны — {return_shipping_cost:kzt_free}."]
   returns_policy.refund:
-    en: "Once the returned item has been checked, the money goes back to the card or account you paid with within {refund_days:wdays_gen}. Your bank may take a little longer to show it."
-    ru: "После проверки возвращённого товара деньги поступят тем же способом, которым вы платили, в течение {refund_days:wdays_gen}. Банку может понадобиться ещё немного времени, чтобы их отразить."
-    kk: "Қайтарылған тауар тексерілген соң, ақша сіз төлеген тәсілмен {refund_days:wdays_gen} ішінде қайтарылады. Банкке оны көрсету үшін тағы біраз уақыт керек болуы мүмкін."
+    en: ["Once the returned item has been checked, the money goes back to the card or account you paid with within {refund_days:wdays_gen}. Your bank may take a little longer to show it.", "The refund is made after the returned item is inspected: it reaches the same card or account you used within {refund_days:wdays_gen}, plus whatever time your bank needs to show it."]
+    ru: ["После проверки возвращённого товара деньги поступят тем же способом, которым вы платили, в течение {refund_days:wdays_gen}. Банку может понадобиться ещё немного времени, чтобы их отразить.", "Деньги возвращаются после проверки товара: они придут на ту же карту или счёт, с которых была оплата, в течение {refund_days:wdays_gen}; ещё немного времени может понадобиться банку."]
+    kk: ["Қайтарылған тауар тексерілген соң, ақша сіз төлеген тәсілмен {refund_days:wdays_gen} ішінде қайтарылады. Банкке оны көрсету үшін тағы біраз уақыт керек болуы мүмкін.", "Ақша тауар тексерілгеннен кейін қайтарылады: ол {refund_days:wdays_gen} ішінде төлем жасалған картаға немесе шотқа түседі; банкке тағы біраз уақыт қажет болуы мүмкін."]
   returns_policy.exchange:
-    en: "You can exchange an item for another size, colour or model within {exchange_window_days:days_gen} of delivery, as long as the new one is in stock. Start the exchange in \"My orders\" or at a pickup point."
-    ru: "Товар можно обменять на другой размер, цвет или модель в течение {exchange_window_days:days_gen} после получения, если нужный есть в наличии. Обмен оформляется в «Моих заказах» или в пункте выдачи."
-    kk: "Қажетті тауар қоймада болса, оны алған күннен бастап {exchange_window_days:days_gen} ішінде басқа өлшемге, түске немесе үлгіге айырбастай аласыз. Айырбастауды «Менің тапсырыстарым» бөлімінде немесе беру пунктінде рәсімдеңіз."
+    en: ["You can exchange an item for another size, colour or model within {exchange_window_days:days_gen} of delivery, as long as the new one is in stock. Start the exchange in \"My orders\" or at a pickup point.", "An exchange for a different size, colour or model is possible within {exchange_window_days:days_gen} of delivery if the item you want is in stock. You can arrange it in \"My orders\" or at a pickup point."]
+    ru: ["Товар можно обменять на другой размер, цвет или модель в течение {exchange_window_days:days_gen} после получения, если нужный есть в наличии. Обмен оформляется в «Моих заказах» или в пункте выдачи.", "Обменять товар на другой размер, цвет или модель можно в течение {exchange_window_days:days_gen} после получения, если нужный вариант есть на складе. Оформить обмен можно в «Моих заказах» или в пункте выдачи."]
+    kk: ["Қажетті тауар қоймада болса, оны алған күннен бастап {exchange_window_days:days_gen} ішінде басқа өлшемге, түске немесе үлгіге айырбастай аласыз. Айырбастауды «Менің тапсырыстарым» бөлімінде немесе беру пунктінде рәсімдеңіз.", "Тауарды алған соң {exchange_window_days:days_gen} ішінде, қажетті нұсқа қоймада болса, басқа өлшемге, түске немесе үлгіге ауыстыруға болады. Мұны «Менің тапсырыстарым» бөлімінде немесе беру пунктінде рәсімдейсіз."]
   returns_policy.damaged_wrong:
-    en: "Please report it within {defect_report_days:days_gen} of delivery with the order number and photos of the item and the packaging. The store then replaces the item or refunds it in full, delivery included."
-    ru: "Сообщите об этом в течение {defect_report_days:days_gen} после получения, указав номер заказа и приложив фото товара и упаковки. Тогда магазин заменит товар или полностью вернёт деньги вместе с доставкой."
-    kk: "Бұл туралы алған күннен бастап {defect_report_days:days_gen} ішінде тапсырыс нөмірін көрсетіп, тауар мен қаптаманың суретін тіркеп хабарлаңыз. Сонда дүкен тауарды ауыстырады немесе ақшаны жеткізу құнымен қоса толық қайтарады."
+    en: ["Please report it within {defect_report_days:days_gen} of delivery with the order number and photos of the item and the packaging. The store then replaces the item or refunds it in full, delivery included.", "Send the order number and photos of the item and its packaging within {defect_report_days:days_gen} of delivery. The store will then either replace the item or give a full refund including delivery."]
+    ru: ["Сообщите об этом в течение {defect_report_days:days_gen} после получения, указав номер заказа и приложив фото товара и упаковки. Тогда магазин заменит товар или полностью вернёт деньги вместе с доставкой.", "В течение {defect_report_days:days_gen} после получения пришлите номер заказа и фото товара и упаковки. После этого магазин либо заменит товар, либо вернёт всю сумму вместе с доставкой."]
+    kk: ["Бұл туралы алған күннен бастап {defect_report_days:days_gen} ішінде тапсырыс нөмірін көрсетіп, тауар мен қаптаманың суретін тіркеп хабарлаңыз. Сонда дүкен тауарды ауыстырады немесе ақшаны жеткізу құнымен қоса толық қайтарады.", "Тапсырысты алған соң {defect_report_days:days_gen} ішінде тапсырыс нөмірін, тауар мен қаптаманың суретін жіберіңіз. Сонда дүкен тауарды ауыстырады не жеткізуін қоса бүкіл соманы қайтарады."]
   delivery_policy.periods:
-    en: "Delivery to Almaty and Astana takes {fast_delivery_days:range_days}, to other cities of Kazakhstan {region_delivery_days:range_days}, counted from the day the order ships."
-    ru: "Доставка в Алматы и Астану занимает {fast_delivery_days:range_days}, в другие города Казахстана — {region_delivery_days:range_days} с момента отправки заказа."
-    kk: "Алматы мен Астанаға жеткізу {fast_delivery_days:range_days}, Қазақстанның басқа қалаларына {region_delivery_days:range_days} алады, мерзім тапсырыс жөнелтілген күннен басталады."
+    en: ["Delivery to Almaty and Astana takes {fast_delivery_days:range_days}, to other cities of Kazakhstan {region_delivery_days:range_days}, counted from the day the order ships.", "Counting from the day of shipment, delivery takes {fast_delivery_days:range_days} to Almaty and Astana and {region_delivery_days:range_days} to the other cities of Kazakhstan."]
+    ru: ["Доставка в Алматы и Астану занимает {fast_delivery_days:range_days}, в другие города Казахстана — {region_delivery_days:range_days} с момента отправки заказа.", "Если считать со дня отправки, доставка в Алматы и Астану занимает {fast_delivery_days:range_days}, а в остальные города Казахстана — {region_delivery_days:range_days}."]
+    kk: ["Алматы мен Астанаға жеткізу {fast_delivery_days:range_days}, Қазақстанның басқа қалаларына {region_delivery_days:range_days} алады, мерзім тапсырыс жөнелтілген күннен басталады.", "Жөнелтілген күннен бастап санағанда, Алматы мен Астанаға жеткізу {fast_delivery_days:range_days}, ал Қазақстанның қалған қалаларына {region_delivery_days:range_days} алады."]
   delivery_policy.cost:
-    en: "Courier delivery: {courier_cost:kzt_free}, and it is free for orders from {free_delivery_from:kzt}. Picking the order up at a pickup point: {pickup_cost:kzt_free}."
-    ru: "Курьерская доставка — {courier_cost:kzt_free}, для заказов от {free_delivery_from:kzt} она бесплатна. Самовывоз из пункта выдачи — {pickup_cost:kzt_free}."
-    kk: "Курьерлік жеткізу — {courier_cost:kzt_free}, ал {free_delivery_from:kzt@abl} бастап тапсырыстар үшін тегін. Беру пунктінен өзіңіз алсаңыз — {pickup_cost:kzt_free}."
+    en: ["Courier delivery: {courier_cost:kzt_free}, and it is free for orders from {free_delivery_from:kzt}. Picking the order up at a pickup point: {pickup_cost:kzt_free}.", "A courier costs {courier_cost:kzt_free}; for orders from {free_delivery_from:kzt} courier delivery is free. Collecting from a pickup point costs {pickup_cost:kzt_free}."]
+    ru: ["Курьерская доставка — {courier_cost:kzt_free}, для заказов от {free_delivery_from:kzt} она бесплатна. Самовывоз из пункта выдачи — {pickup_cost:kzt_free}.", "Курьер стоит {courier_cost:kzt_free}; при заказе от {free_delivery_from:kzt} курьерская доставка бесплатна. Получение в пункте выдачи — {pickup_cost:kzt_free}."]
+    kk: ["Курьерлік жеткізу — {courier_cost:kzt_free}, ал {free_delivery_from:kzt@abl} бастап тапсырыстар үшін тегін. Беру пунктінен өзіңіз алсаңыз — {pickup_cost:kzt_free}.", "Курьер құны — {courier_cost:kzt_free}; {free_delivery_from:kzt@abl} бастап тапсырыс берсеңіз, курьерлік жеткізу тегін. Беру пунктінен алу — {pickup_cost:kzt_free}."]
   delivery_policy.methods:
-    en: "You can choose between {carriers:carriers} at checkout. The tracking number comes by SMS once the order ships."
-    ru: "При оформлении можно выбрать: {carriers:carriers}. Трек-номер придёт в SMS, когда заказ отправят."
-    kk: "Тапсырысты рәсімдегенде мыналарды таңдауға болады: {carriers:carriers}. Тапсырыс жөнелтілгенде трек-нөмір SMS арқылы келеді."
+    en: ["You can choose between {carriers:carriers} at checkout. The tracking number comes by SMS once the order ships.", "The delivery options are {carriers:carriers}; you pick one at checkout, and an SMS with the tracking number follows when the parcel is sent."]
+    ru: ["При оформлении можно выбрать: {carriers:carriers}. Трек-номер придёт в SMS, когда заказ отправят.", "Варианты доставки: {carriers:carriers}. Вы выбираете способ при оформлении, а после отправки приходит SMS с трек-номером."]
+    kk: ["Тапсырысты рәсімдегенде мыналарды таңдауға болады: {carriers:carriers}. Тапсырыс жөнелтілгенде трек-нөмір SMS арқылы келеді.", "Жеткізу нұсқалары: {carriers:carriers}. Тәсілді рәсімдеу кезінде таңдайсыз, ал сәлемдеме жіберілгенде трек-нөмірі бар SMS келеді."]
   delivery_policy.tracking:
-    en: "You can see the current status of an order in \"My orders\". If you send me the six-digit order number, I can check it for you."
-    ru: "Текущий статус заказа виден в разделе «Мои заказы». Если пришлёте шестизначный номер заказа, я проверю его."
-    kk: "Тапсырыстың ағымдағы күйі «Менің тапсырыстарым» бөлімінде көрінеді. Алты таңбалы тапсырыс нөмірін жіберсеңіз, мен тексеріп беремін."
+    en: ["You can see the current status of an order in \"My orders\". If you send me the six-digit order number, I can check it for you.", "The status is always visible in \"My orders\". You can also give me the six-digit order number and I will look it up."]
+    ru: ["Текущий статус заказа виден в разделе «Мои заказы». Если пришлёте шестизначный номер заказа, я проверю его.", "Статус всегда видно в «Моих заказах». Можете также написать мне шестизначный номер заказа — я посмотрю."]
+    kk: ["Тапсырыстың ағымдағы күйі «Менің тапсырыстарым» бөлімінде көрінеді. Алты таңбалы тапсырыс нөмірін жіберсеңіз, мен тексеріп беремін.", "Күйі әрқашан «Менің тапсырыстарым» бөлімінде көрінеді. Алты таңбалы тапсырыс нөмірін маған жазсаңыз да болады — қарап беремін."]
   payment_policy.methods:
-    en: "{store_name:store} accepts {payment_methods:payment_methods}."
-    ru: "{store_name:store} принимает: {payment_methods:payment_methods}."
-    kk: "{store_name:store} дүкенінде төлеу тәсілдері: {payment_methods:payment_methods}."
+    en: ["{store_name:store} accepts {payment_methods:payment_methods}.", "At {store_name:store} you can pay with {payment_methods:payment_methods}."]
+    ru: ["{store_name:store} принимает: {payment_methods:payment_methods}.", "В {store_name:store} можно оплатить так: {payment_methods:payment_methods}."]
+    kk: ["{store_name:store} дүкенінде төлеу тәсілдері: {payment_methods:payment_methods}.", "{store_name:store} дүкенінде былай төлеуге болады: {payment_methods:payment_methods}."]
   payment_policy.instalments:
-    en: "Yes, with Kaspi Red you can pay in instalments over up to {instalment_months:months} with no overpayment; the option appears at checkout for eligible orders."
-    ru: "Да, с Kaspi Red можно оформить рассрочку на срок до {instalment_months:months_gen} без переплаты; вариант появляется при оформлении для подходящих заказов."
-    kk: "Иә, Kaspi Red арқылы артық төлемсіз {instalment_months:months@dat} дейін бөліп төлеуге болады; бұл мүмкіндік сәйкес тапсырыстарды рәсімдеу кезінде шығады."
+    en: ["Yes, with Kaspi Red you can pay in instalments over up to {instalment_months:months} with no overpayment; the option appears at checkout for eligible orders.", "Kaspi Red lets you split the payment over up to {instalment_months:months} without any overpayment. If your order qualifies, you will see the option at checkout."]
+    ru: ["Да, с Kaspi Red можно оформить рассрочку на срок до {instalment_months:months_gen} без переплаты; вариант появляется при оформлении для подходящих заказов.", "Через Kaspi Red платёж можно разбить на срок до {instalment_months:months_gen} без переплаты. Если заказ подходит, эта опция появится при оформлении."]
+    kk: ["Иә, Kaspi Red арқылы артық төлемсіз {instalment_months:months@dat} дейін бөліп төлеуге болады; бұл мүмкіндік сәйкес тапсырыстарды рәсімдеу кезінде шығады.", "Kaspi Red арқылы төлемді артық ақысыз {instalment_months:months@dat} дейін бөлуге болады. Тапсырыс сай келсе, бұл мүмкіндік рәсімдеу кезінде көрінеді."]
   payment_policy.cod:
-    en: "Yes, you can pay in cash or by card on delivery for orders up to {cod_max:kzt}."
-    ru: "Да, оплатить наличными или картой при получении можно заказы на сумму до {cod_max:kzt}."
-    kk: "Иә, {cod_max:kzt@dat} дейінгі тапсырыстарды алған кезде қолма-қол немесе картамен төлеуге болады."
+    en: ["Yes, you can pay in cash or by card on delivery for orders up to {cod_max:kzt}.", "Payment on delivery, in cash or by card, is available for orders of up to {cod_max:kzt}; more expensive orders are paid online."]
+    ru: ["Да, оплатить наличными или картой при получении можно заказы на сумму до {cod_max:kzt}.", "Оплата при получении, наличными или картой, доступна для заказов до {cod_max:kzt}; более дорогие заказы оплачиваются онлайн."]
+    kk: ["Иә, {cod_max:kzt@dat} дейінгі тапсырыстарды алған кезде қолма-қол немесе картамен төлеуге болады.", "Алған кезде қолма-қол немесе картамен төлеу {cod_max:kzt@dat} дейінгі тапсырыстарға қолжетімді; қымбатырақ тапсырыстар онлайн төленеді."]
   payment_policy.failed_payment:
-    en: "Please check the card limit and the 3-D Secure confirmation and try again in 15 minutes. If money was taken but the order is still unpaid, the bank releases the hold automatically; if it does not, send me the order number."
-    ru: "Проверьте лимит карты и подтверждение 3-D Secure и попробуйте снова через 15 минут. Если деньги списались, а заказ не оплачен, банк сам снимет блокировку; если этого не произошло, пришлите номер заказа."
-    kk: "Карта лимитін және 3-D Secure растауын тексеріп, 15 минуттан кейін қайталап көріңіз. Ақша шегеріліп, тапсырыс әлі төленбеген болса, банк бұғаттауды өзі алып тастайды; олай болмаса, тапсырыс нөмірін жіберіңіз."
+    en: ["Please check the card limit and the 3-D Secure confirmation and try again in 15 minutes. If money was taken but the order is still unpaid, the bank releases the hold automatically; if it does not, send me the order number.", "First check your card limit and that the 3-D Secure step was confirmed, then retry in 15 minutes. A hold on money for an unpaid order is released by the bank automatically; if it is not, send me the order number."]
+    ru: ["Проверьте лимит карты и подтверждение 3-D Secure и попробуйте снова через 15 минут. Если деньги списались, а заказ не оплачен, банк сам снимет блокировку; если этого не произошло, пришлите номер заказа.", "Сначала проверьте лимит карты и подтверждение 3-D Secure, затем повторите оплату через 15 минут. Заблокированную сумму по неоплаченному заказу банк снимает сам; если этого не случилось, пришлите номер заказа."]
+    kk: ["Карта лимитін және 3-D Secure растауын тексеріп, 15 минуттан кейін қайталап көріңіз. Ақша шегеріліп, тапсырыс әлі төленбеген болса, банк бұғаттауды өзі алып тастайды; олай болмаса, тапсырыс нөмірін жіберіңіз.", "Алдымен карта лимитін және 3-D Secure расталғанын тексеріп, 15 минуттан кейін қайта төлеп көріңіз. Төленбеген тапсырыс бойынша бұғатталған соманы банк өзі босатады; босатпаса, тапсырыс нөмірін жіберіңіз."]
   payment_policy.receipts:
-    en: "The electronic receipt is sent by e-mail and SMS after payment, and you can also find it in \"My orders\". Companies can ask for an invoice with the order number."
-    ru: "Электронный чек приходит на e-mail и в SMS после оплаты, а также есть в «Моих заказах». Юрлица могут запросить счёт по номеру заказа."
-    kk: "Электрондық чек төлемнен кейін e-mail мен SMS арқылы келеді, оны «Менің тапсырыстарым» бөлімінен де табуға болады. Заңды тұлғалар тапсырыс нөмірі бойынша шот сұрата алады."
+    en: ["The electronic receipt is sent by e-mail and SMS after payment, and you can also find it in \"My orders\". Companies can ask for an invoice with the order number.", "After payment the electronic receipt arrives by e-mail and SMS and is stored in \"My orders\". For a company invoice, send the order number."]
+    ru: ["Электронный чек приходит на e-mail и в SMS после оплаты, а также есть в «Моих заказах». Юрлица могут запросить счёт по номеру заказа.", "После оплаты электронный чек приходит на e-mail и в SMS и хранится в «Моих заказах». Для счёта на компанию пришлите номер заказа."]
+    kk: ["Электрондық чек төлемнен кейін e-mail мен SMS арқылы келеді, оны «Менің тапсырыстарым» бөлімінен де табуға болады. Заңды тұлғалар тапсырыс нөмірі бойынша шот сұрата алады.", "Төлемнен кейін электрондық чек e-mail мен SMS арқылы келеді және «Менің тапсырыстарым» бөлімінде сақталады. Компанияға шот керек болса, тапсырыс нөмірін жіберіңіз."]
   orders_policy.place:
-    en: "Add the items to the cart, press \"Checkout\", choose delivery and payment and confirm the order. The minimum order is {min_order:kzt}."
-    ru: "Добавьте товары в корзину, нажмите «Оформить», выберите доставку и оплату и подтвердите заказ. Минимальная сумма заказа — {min_order:kzt}."
-    kk: "Тауарларды себетке салып, «Рәсімдеу» батырмасын басыңыз, жеткізу мен төлем тәсілін таңдап, тапсырысты растаңыз. Ең аз тапсырыс сомасы — {min_order:kzt}."
+    en: ["Add the items to the cart, press \"Checkout\", choose delivery and payment and confirm the order. The minimum order is {min_order:kzt}.", "Put what you need in the cart, press \"Checkout\", pick delivery and payment, and confirm. Orders start from {min_order:kzt}."]
+    ru: ["Добавьте товары в корзину, нажмите «Оформить», выберите доставку и оплату и подтвердите заказ. Минимальная сумма заказа — {min_order:kzt}.", "Положите нужные товары в корзину, нажмите «Оформить», выберите доставку и оплату и подтвердите. Заказ оформляется от {min_order:kzt}."]
+    kk: ["Тауарларды себетке салып, «Рәсімдеу» батырмасын басыңыз, жеткізу мен төлем тәсілін таңдап, тапсырысты растаңыз. Ең аз тапсырыс сомасы — {min_order:kzt}.", "Керек тауарларды себетке салып, «Рәсімдеу» батырмасын басыңыз, жеткізу мен төлемді таңдап, растаңыз. Тапсырыс {min_order:kzt@abl} бастап рәсімделеді."]
   orders_policy.cancel:
-    en: "An order can be cancelled free of charge within {cancel_hours:hours_gen} of placing it, as long as it has not shipped. A shipped order can be refused on delivery or returned."
-    ru: "Заказ можно бесплатно отменить в течение {cancel_hours:hours_gen} после оформления, пока он не отправлен. От отправленного заказа можно отказаться при получении или вернуть его."
-    kk: "Тапсырысты рәсімдегеннен кейін {cancel_hours:hours_gen} ішінде, ол жөнелтілмей тұрғанда, тегін болдырмауға болады. Жөнелтілген тапсырысты алған кезде қабылдамауға немесе қайтаруға болады."
+    en: ["An order can be cancelled free of charge within {cancel_hours:hours_gen} of placing it, as long as it has not shipped. A shipped order can be refused on delivery or returned.", "Free cancellation is possible for {cancel_hours:hours_gen} after the order is placed, provided it has not been shipped. Once it has shipped, refuse it on delivery or return it."]
+    ru: ["Заказ можно бесплатно отменить в течение {cancel_hours:hours_gen} после оформления, пока он не отправлен. От отправленного заказа можно отказаться при получении или вернуть его.", "Бесплатно отменить заказ можно в течение {cancel_hours:hours_gen} после оформления, если он ещё не отправлен. После отправки от него можно отказаться при получении или вернуть."]
+    kk: ["Тапсырысты рәсімдегеннен кейін {cancel_hours:hours_gen} ішінде, ол жөнелтілмей тұрғанда, тегін болдырмауға болады. Жөнелтілген тапсырысты алған кезде қабылдамауға немесе қайтаруға болады.", "Тапсырыс әлі жөнелтілмесе, оны рәсімдегеннен кейін {cancel_hours:hours_gen} ішінде тегін болдырмауға болады. Жөнелтілген соң, алған кезде одан бас тартыңыз немесе қайтарыңыз."]
   orders_policy.change:
-    en: "Items, quantities and the delivery address can be changed while the order is still \"processing\"; once it has shipped, it can no longer be changed."
-    ru: "Товары, количество и адрес доставки можно изменить, пока заказ в статусе «в обработке»; после отправки изменить его уже нельзя."
-    kk: "Тапсырыс «өңделуде» күйінде тұрғанда тауарларды, санын және жеткізу мекенжайын өзгертуге болады; жөнелтілгеннен кейін өзгерту мүмкін емес."
+    en: ["Items, quantities and the delivery address can be changed while the order is still \"processing\"; once it has shipped, it can no longer be changed.", "While the order has the status \"processing\" you can still change the items, their number and the delivery address. After shipment no changes are possible."]
+    ru: ["Товары, количество и адрес доставки можно изменить, пока заказ в статусе «в обработке»; после отправки изменить его уже нельзя.", "Пока у заказа статус «в обработке», можно поменять товары, их количество и адрес доставки. После отправки изменения невозможны."]
+    kk: ["Тапсырыс «өңделуде» күйінде тұрғанда тауарларды, санын және жеткізу мекенжайын өзгертуге болады; жөнелтілгеннен кейін өзгерту мүмкін емес.", "Тапсырыс «өңделуде» күйінде тұрғанда тауарларды, олардың санын және жеткізу мекенжайын ауыстыруға болады. Жөнелтілгеннен кейін ештеңе өзгертілмейді."]
   warranty_policy.period:
-    en: "Electronics and home appliances come with a warranty of {warranty_months:months} from the delivery date. Keep the receipt or the order number."
-    ru: "На электронику и бытовую технику действует гарантия {warranty_months:months} с даты получения. Сохраните чек или номер заказа."
-    kk: "Электроника мен тұрмыстық техникаға алған күннен бастап {warranty_months:months} кепілдік беріледі. Чекті немесе тапсырыс нөмірін сақтаңыз."
+    en: ["Electronics and home appliances come with a warranty of {warranty_months:months} from the delivery date. Keep the receipt or the order number.", "The warranty on electronics and home appliances is {warranty_months:months}, counted from delivery. Please keep the receipt or the order number for it."]
+    ru: ["На электронику и бытовую технику действует гарантия {warranty_months:months} с даты получения. Сохраните чек или номер заказа.", "Гарантия на электронику и бытовую технику — {warranty_months:months}, считая с даты получения. Для неё сохраните чек или номер заказа."]
+    kk: ["Электроника мен тұрмыстық техникаға алған күннен бастап {warranty_months:months} кепілдік беріледі. Чекті немесе тапсырыс нөмірін сақтаңыз.", "Электроника мен тұрмыстық техникаға кепілдік — {warranty_months:months}, алған күннен бастап есептеледі. Ол үшін чекті немесе тапсырыс нөмірін сақтаңыз."]
   warranty_policy.defect:
-    en: "Report the defect within {defect_report_days:days_gen} of noticing it. The item is checked at a service centre and then repaired, replaced or refunded. If it overheats, sparks or smells of burning, stop using it."
-    ru: "Сообщите о дефекте в течение {defect_report_days:days_gen} с момента, как его заметили. Товар проверят в сервисном центре и отремонтируют, заменят или вернут деньги. Если он перегревается, искрит или пахнет гарью, не пользуйтесь им."
-    kk: "Ақауды байқаған күннен бастап {defect_report_days:days_gen} ішінде хабарлаңыз. Тауар сервис орталығында тексеріліп, жөнделеді, ауыстырылады немесе ақшасы қайтарылады. Ол қызып кетсе, ұшқын шашса немесе күйік иісі шықса, пайдаланбаңыз."
+    en: ["Report the defect within {defect_report_days:days_gen} of noticing it. The item is checked at a service centre and then repaired, replaced or refunded. If it overheats, sparks or smells of burning, stop using it.", "Let us know about the defect within {defect_report_days:days_gen} after you notice it. A service centre inspects the item and it is then repaired, replaced or refunded. Do not use it if it overheats, sparks or smells burnt."]
+    ru: ["Сообщите о дефекте в течение {defect_report_days:days_gen} с момента, как его заметили. Товар проверят в сервисном центре и отремонтируют, заменят или вернут деньги. Если он перегревается, искрит или пахнет гарью, не пользуйтесь им.", "Сообщите о неисправности в течение {defect_report_days:days_gen} после того, как её обнаружили. Сервисный центр проверит товар, после чего его отремонтируют, заменят или вернут деньги. Если он греется, искрит или пахнет гарью, не используйте его."]
+    kk: ["Ақауды байқаған күннен бастап {defect_report_days:days_gen} ішінде хабарлаңыз. Тауар сервис орталығында тексеріліп, жөнделеді, ауыстырылады немесе ақшасы қайтарылады. Ол қызып кетсе, ұшқын шашса немесе күйік иісі шықса, пайдаланбаңыз.", "Ақауды байқаған соң {defect_report_days:days_gen} ішінде бізге хабарлаңыз. Сервис орталығы тауарды тексереді, содан кейін ол жөнделеді, ауыстырылады немесе ақшасы қайтарылады. Қызып кетсе, ұшқын шашса немесе күйік иісі шықса, оны қолданбаңыз."]
   store_info.showroom:
-    en: "The showroom in {showroom:city} is at {showroom:address} and is open daily {showroom_hours:clock_range}."
-    ru: "Шоурум в городе {showroom:city} находится по адресу: {showroom:address}, работает ежедневно {showroom_hours:clock_range}."
-    kk: "{showroom:city} қаласындағы шоурум мына мекенжайда: {showroom:address}, күн сайын {showroom_hours:clock_range} жұмыс істейді."
+    en: ["The showroom in {showroom:city} is at {showroom:address} and is open daily {showroom_hours:clock_range}.", "You can visit the showroom at {showroom:address}, {showroom:city}, every day {showroom_hours:clock_range}."]
+    ru: ["Шоурум в городе {showroom:city} находится по адресу: {showroom:address}, работает ежедневно {showroom_hours:clock_range}.", "Шоурум находится в городе {showroom:city} по адресу: {showroom:address}; приходите в любой день {showroom_hours:clock_range}."]
+    kk: ["{showroom:city} қаласындағы шоурум мына мекенжайда: {showroom:address}, күн сайын {showroom_hours:clock_range} жұмыс істейді.", "Шоурум {showroom:city} қаласында, мекенжайы: {showroom:address}; кез келген күні {showroom_hours:clock_range} келе аласыз."]
   store_info.contact:
-    en: "You can reach support by phone at {support_phone}, by e-mail at {support_email} or in the app chat, daily {support_hours:clock_range} (Astana time)."
-    ru: "Связаться с поддержкой можно по телефону {support_phone}, по e-mail {support_email} или в чате приложения, ежедневно {support_hours:clock_range} (время Астаны)."
-    kk: "Қолдау қызметімен {support_phone} телефоны, {support_email} поштасы немесе қосымшадағы чат арқылы байланысуға болады, күн сайын {support_hours:clock_range} (Астана уақыты)."
+    en: ["You can reach support by phone at {support_phone}, by e-mail at {support_email} or in the app chat, daily {support_hours:clock_range} (Astana time).", "Support is available every day {support_hours:clock_range} (Astana time): call {support_phone}, write to {support_email} or use the chat in the app."]
+    ru: ["Связаться с поддержкой можно по телефону {support_phone}, по e-mail {support_email} или в чате приложения, ежедневно {support_hours:clock_range} (время Астаны).", "Поддержка работает каждый день {support_hours:clock_range} (время Астаны): звоните на {support_phone}, пишите на {support_email} или в чат приложения."]
+    kk: ["Қолдау қызметімен {support_phone} телефоны, {support_email} поштасы немесе қосымшадағы чат арқылы байланысуға болады, күн сайын {support_hours:clock_range} (Астана уақыты).", "Қолдау қызметі күн сайын {support_hours:clock_range} (Астана уақыты) жұмыс істейді: {support_phone} нөміріне қоңырау шалыңыз, {support_email} поштасына немесе қосымшадағы чатқа жазыңыз."]
   store_info.sales:
-    en: "The next big sale is {sale:sale_name}, from {sale:sale_from} to {sale:sale_to}; sale prices are shown in the catalogue."
-    ru: "Ближайшая большая акция — {sale:sale_name}, с {sale:sale_from} по {sale:sale_to}; цены со скидкой будут в каталоге."
-    kk: "Келесі ірі науқан — {sale:sale_name}, {sale:sale_from@abl} бастап {sale:sale_to@dat} дейін; жеңілдік бағалары каталогта көрсетіледі."
+    en: ["The next big sale is {sale:sale_name}, from {sale:sale_from} to {sale:sale_to}; sale prices are shown in the catalogue.", "Our next big sale, {sale:sale_name}, runs from {sale:sale_from} to {sale:sale_to}. The reduced prices will appear in the catalogue."]
+    ru: ["Ближайшая большая акция — {sale:sale_name}, с {sale:sale_from} по {sale:sale_to}; цены со скидкой будут в каталоге.", "Следующая большая распродажа — {sale:sale_name}, она пройдёт с {sale:sale_from} по {sale:sale_to}. Сниженные цены появятся в каталоге."]
+    kk: ["Келесі ірі науқан — {sale:sale_name}, {sale:sale_from@abl} бастап {sale:sale_to@dat} дейін; жеңілдік бағалары каталогта көрсетіледі.", "Келесі ірі жеңілдік науқаны — {sale:sale_name}, ол {sale:sale_from@abl} бастап {sale:sale_to@dat} дейін өтеді. Төмендетілген бағалар каталогта шығады."]
   store_info.loyalty:
-    en: "Every purchase returns {loyalty_percent:percent} as bonus points. You can use one promo code per order, and it does not combine with other discounts. Gift cards are valid for {gift_card_months:months}."
-    ru: "С каждой покупки возвращается {loyalty_percent:percent} бонусами. В заказе можно применить один промокод, он не суммируется с другими скидками. Подарочные карты действуют {gift_card_months:months}."
-    kk: "Әр сатып алудан {loyalty_percent:percent} бонус ретінде қайтарылады. Бір тапсырысқа бір промокод қолданылады, ол басқа жеңілдіктермен қосылмайды. Сыйлық карталары {gift_card_months:months} жарамды."
+    en: ["Every purchase returns {loyalty_percent:percent} as bonus points. You can use one promo code per order, and it does not combine with other discounts. Gift cards are valid for {gift_card_months:months}.", "You earn {loyalty_percent:percent} of every purchase in bonus points. Only one promo code fits in an order, and it is not added to other discounts. A gift card can be used for {gift_card_months:months}."]
+    ru: ["С каждой покупки возвращается {loyalty_percent:percent} бонусами. В заказе можно применить один промокод, он не суммируется с другими скидками. Подарочные карты действуют {gift_card_months:months}.", "За каждую покупку начисляется {loyalty_percent:percent} бонусами. В заказе действует только один промокод, и он не складывается с другими скидками. Подарочной картой можно пользоваться {gift_card_months:months}."]
+    kk: ["Әр сатып алудан {loyalty_percent:percent} бонус ретінде қайтарылады. Бір тапсырысқа бір промокод қолданылады, ол басқа жеңілдіктермен қосылмайды. Сыйлық карталары {gift_card_months:months} жарамды.", "Әр сатып алу үшін {loyalty_percent:percent} бонус есептеледі. Тапсырыста тек бір промокод жарамды, ол басқа жеңілдіктерге қосылмайды. Сыйлық картасын {gift_card_months:months} бойы пайдалануға болады."]
   store_info.feedback:
-    en: "Thank you for wanting to share it! You can rate a product in \"My orders\" after delivery, and send any suggestion about the store through the \"Feedback\" form in the app."
-    ru: "Спасибо, что хотите поделиться! Оценить товар можно в «Моих заказах» после получения, а предложения о работе магазина — отправить через форму «Обратная связь» в приложении."
-    kk: "Пікіріңізбен бөліскіңіз келгені үшін рақмет! Тауарды алғаннан кейін «Менің тапсырыстарым» бөлімінде бағалай аласыз, ал дүкен туралы ұсыныстарды қосымшадағы «Кері байланыс» формасы арқылы жіберіңіз."
+    en: ["Thank you for wanting to share it! You can rate a product in \"My orders\" after delivery, and send any suggestion about the store through the \"Feedback\" form in the app.", "We are glad to hear from you. After delivery you can rate the product in \"My orders\"; ideas about the store go through the \"Feedback\" form in the app."]
+    ru: ["Спасибо, что хотите поделиться! Оценить товар можно в «Моих заказах» после получения, а предложения о работе магазина — отправить через форму «Обратная связь» в приложении.", "Нам важно ваше мнение. После получения товар можно оценить в «Моих заказах», а идеи о работе магазина — отправить через форму «Обратная связь» в приложении."]
+    kk: ["Пікіріңізбен бөліскіңіз келгені үшін рақмет! Тауарды алғаннан кейін «Менің тапсырыстарым» бөлімінде бағалай аласыз, ал дүкен туралы ұсыныстарды қосымшадағы «Кері байланыс» формасы арқылы жіберіңіз.", "Пікіріңіз біз үшін маңызды. Тауарды алғаннан кейін оны «Менің тапсырыстарым» бөлімінде бағалай аласыз, ал дүкен жұмысы туралы идеяларды қосымшадағы «Кері байланыс» формасымен жіберіңіз."]
   account_faq.create:
-    en: "Press \"Sign in\", enter your phone number and the code from the SMS; the profile is created automatically."
-    ru: "Нажмите «Войти», введите номер телефона и код из SMS — профиль создастся автоматически."
-    kk: "«Кіру» батырмасын басып, телефон нөміріңізді және SMS-тегі кодты енгізіңіз — профиль автоматты түрде жасалады."
+    en: ["Press \"Sign in\", enter your phone number and the code from the SMS; the profile is created automatically.", "Registration takes a minute: press \"Sign in\", type your phone number and enter the SMS code. Your profile is then created automatically."]
+    ru: ["Нажмите «Войти», введите номер телефона и код из SMS — профиль создастся автоматически.", "Регистрация занимает минуту: нажмите «Войти», укажите номер телефона и введите код из SMS. Профиль после этого создаётся автоматически."]
+    kk: ["«Кіру» батырмасын басып, телефон нөміріңізді және SMS-тегі кодты енгізіңіз — профиль автоматты түрде жасалады.", "Тіркелу бір минут алады: «Кіру» батырмасын басып, телефон нөміріңізді жазыңыз да, SMS кодты енгізіңіз. Осыдан кейін профиль автоматты түрде ашылады."]
   account_faq.password:
-    en: "There is no password to recover: you sign in with a one-time SMS code. If the code does not arrive, check the number and request a new one after 60 seconds."
-    ru: "Пароль восстанавливать не нужно: вход выполняется по одноразовому коду из SMS. Если код не приходит, проверьте номер и запросите новый через 60 секунд."
-    kk: "Құпиясөзді қалпына келтірудің қажеті жоқ: кіру бір реттік SMS кодымен жүзеге асады. Код келмесе, нөмірді тексеріп, 60 секундтан кейін жаңасын сұратыңыз."
+    en: ["There is no password to recover: you sign in with a one-time SMS code. If the code does not arrive, check the number and request a new one after 60 seconds.", "You do not need a password: every sign-in uses a one-time code sent by SMS. If it does not come, check the phone number and ask for a new code after 60 seconds."]
+    ru: ["Пароль восстанавливать не нужно: вход выполняется по одноразовому коду из SMS. Если код не приходит, проверьте номер и запросите новый через 60 секунд.", "Пароль не нужен: каждый вход выполняется по одноразовому коду из SMS. Если код не пришёл, проверьте номер телефона и запросите новый через 60 секунд."]
+    kk: ["Құпиясөзді қалпына келтірудің қажеті жоқ: кіру бір реттік SMS кодымен жүзеге асады. Код келмесе, нөмірді тексеріп, 60 секундтан кейін жаңасын сұратыңыз.", "Құпиясөз қажет емес: әр кіру SMS арқылы келетін бір реттік кодпен жасалады. Код келмесе, телефон нөмірін тексеріп, 60 секундтан кейін жаңа кодты сұратыңыз."]
   account_faq.profile:
-    en: "You can change your name, e-mail and saved delivery addresses in \"Profile\" → \"Settings\". A new address is used for future orders only."
-    ru: "Имя, e-mail и сохранённые адреса доставки меняются в разделе «Профиль» → «Настройки». Новый адрес будет использоваться только для следующих заказов."
-    kk: "Аты-жөніңізді, e-mail-ді және сақталған жеткізу мекенжайларын «Профиль» → «Баптаулар» бөлімінде өзгерте аласыз. Жаңа мекенжай тек келесі тапсырыстарға қолданылады."
+    en: ["You can change your name, e-mail and saved delivery addresses in \"Profile\" → \"Settings\". A new address is used for future orders only.", "Open \"Profile\" → \"Settings\" to edit your name, e-mail and saved addresses. Changes to an address apply only to orders you place afterwards."]
+    ru: ["Имя, e-mail и сохранённые адреса доставки меняются в разделе «Профиль» → «Настройки». Новый адрес будет использоваться только для следующих заказов.", "Откройте «Профиль» → «Настройки», чтобы изменить имя, e-mail и сохранённые адреса. Изменённый адрес применяется только к заказам, оформленным после этого."]
+    kk: ["Аты-жөніңізді, e-mail-ді және сақталған жеткізу мекенжайларын «Профиль» → «Баптаулар» бөлімінде өзгерте аласыз. Жаңа мекенжай тек келесі тапсырыстарға қолданылады.", "Аты-жөнді, e-mail-ді және сақталған мекенжайларды өзгерту үшін «Профиль» → «Баптаулар» бөлімін ашыңыз. Өзгертілген мекенжай тек кейін рәсімделетін тапсырыстарға қолданылады."]
   account_faq.switch:
-    en: "Sign out in \"Profile\" → \"Settings\" → \"Sign out\" and sign in with the other phone number. Orders and bonuses stay in the account where they were made."
-    ru: "Выйдите через «Профиль» → «Настройки» → «Выйти» и войдите по другому номеру. Заказы и бонусы останутся в том аккаунте, где были оформлены."
-    kk: "«Профиль» → «Баптаулар» → «Шығу» арқылы шығып, басқа нөмірмен кіріңіз. Тапсырыстар мен бонустар рәсімделген аккаунтта қалады."
+    en: ["Sign out in \"Profile\" → \"Settings\" → \"Sign out\" and sign in with the other phone number. Orders and bonuses stay in the account where they were made.", "To switch, choose \"Profile\" → \"Settings\" → \"Sign out\", then sign in with the other number. Each account keeps its own orders and bonuses."]
+    ru: ["Выйдите через «Профиль» → «Настройки» → «Выйти» и войдите по другому номеру. Заказы и бонусы останутся в том аккаунте, где были оформлены.", "Чтобы сменить аккаунт, выберите «Профиль» → «Настройки» → «Выйти» и войдите по другому номеру. У каждого аккаунта остаются свои заказы и бонусы."]
+    kk: ["«Профиль» → «Баптаулар» → «Шығу» арқылы шығып, басқа нөмірмен кіріңіз. Тапсырыстар мен бонустар рәсімделген аккаунтта қалады.", "Аккаунтты ауыстыру үшін «Профиль» → «Баптаулар» → «Шығу» тармағын таңдап, басқа нөмірмен кіріңіз. Әр аккаунттың өз тапсырыстары мен бонустары сақталады."]
   account_faq.delete:
-    en: "You can request deletion in \"Profile\" → \"Settings\" → \"Delete account\". The account is deleted within {account_delete_days:days_gen}, and unused bonus points are lost."
-    ru: "Запрос на удаление подаётся в разделе «Профиль» → «Настройки» → «Удалить аккаунт». Аккаунт удаляется в течение {account_delete_days:days_gen}, неиспользованные бонусы сгорают."
-    kk: "Жою сұранысын «Профиль» → «Баптаулар» → «Аккаунтты жою» бөлімінде жіберуге болады. Аккаунт {account_delete_days:days_gen} ішінде жойылады, пайдаланылмаған бонустар күйіп кетеді."
+    en: ["You can request deletion in \"Profile\" → \"Settings\" → \"Delete account\". The account is deleted within {account_delete_days:days_gen}, and unused bonus points are lost.", "Go to \"Profile\" → \"Settings\" → \"Delete account\" to send the request. Deletion is completed within {account_delete_days:days_gen}; bonus points that are left are not kept."]
+    ru: ["Запрос на удаление подаётся в разделе «Профиль» → «Настройки» → «Удалить аккаунт». Аккаунт удаляется в течение {account_delete_days:days_gen}, неиспользованные бонусы сгорают.", "Отправьте запрос в разделе «Профиль» → «Настройки» → «Удалить аккаунт». Удаление завершается в течение {account_delete_days:days_gen}; оставшиеся бонусы не сохраняются."]
+    kk: ["Жою сұранысын «Профиль» → «Баптаулар» → «Аккаунтты жою» бөлімінде жіберуге болады. Аккаунт {account_delete_days:days_gen} ішінде жойылады, пайдаланылмаған бонустар күйіп кетеді.", "Сұранысты «Профиль» → «Баптаулар» → «Аккаунтты жою» бөлімінен жіберіңіз. Жою {account_delete_days:days_gen} ішінде аяқталады; қалған бонустар сақталмайды."]
   account_faq.history:
-    en: "All your orders, with receipts and statuses, are in \"Profile\" → \"My orders\"."
-    ru: "Все ваши заказы с чеками и статусами — в разделе «Профиль» → «Мои заказы»."
-    kk: "Барлық тапсырыстарыңыз чектерімен және күйлерімен «Профиль» → «Менің тапсырыстарым» бөлімінде тұр."
+    en: ["All your orders, with receipts and statuses, are in \"Profile\" → \"My orders\".", "Open \"Profile\" → \"My orders\": every order you have made is listed there with its status and receipt."]
+    ru: ["Все ваши заказы с чеками и статусами — в разделе «Профиль» → «Мои заказы».", "Откройте «Профиль» → «Мои заказы»: там собраны все ваши заказы со статусами и чеками."]
+    kk: ["Барлық тапсырыстарыңыз чектерімен және күйлерімен «Профиль» → «Менің тапсырыстарым» бөлімінде тұр.", "«Профиль» → «Менің тапсырыстарым» бөлімін ашыңыз: онда барлық тапсырыстарыңыз күйлері мен чектерімен жиналған."]
   account_faq.newsletter:
-    en: "You can subscribe or unsubscribe in \"Profile\" → \"Notifications\", or with the \"Unsubscribe\" link at the bottom of any of our e-mails."
-    ru: "Подписаться или отписаться можно в разделе «Профиль» → «Уведомления» или по ссылке «Отписаться» внизу любого нашего письма."
-    kk: "Жазылуға немесе бас тартуға «Профиль» → «Хабарламалар» бөлімінде немесе кез келген хатымыздың төменгі жағындағы «Жазылымнан бас тарту» сілтемесі арқылы болады."
+    en: ["You can subscribe or unsubscribe in \"Profile\" → \"Notifications\", or with the \"Unsubscribe\" link at the bottom of any of our e-mails.", "Notifications are managed in \"Profile\" → \"Notifications\". Each of our e-mails also has an \"Unsubscribe\" link at the bottom."]
+    ru: ["Подписаться или отписаться можно в разделе «Профиль» → «Уведомления» или по ссылке «Отписаться» внизу любого нашего письма.", "Рассылками управляют в разделе «Профиль» → «Уведомления». Кроме того, в конце каждого нашего письма есть ссылка «Отписаться»."]
+    kk: ["Жазылуға немесе бас тартуға «Профиль» → «Хабарламалар» бөлімінде немесе кез келген хатымыздың төменгі жағындағы «Жазылымнан бас тарту» сілтемесі арқылы болады.", "Хабарламалар «Профиль» → «Хабарламалар» бөлімінде басқарылады. Сонымен қатар әр хатымыздың соңында «Жазылымнан бас тарту» сілтемесі бар."]
   account_faq.app:
-    en: "The app is in the App Store, Google Play and AppGallery; sign in with the same phone number you use on the website."
-    ru: "Приложение есть в App Store, Google Play и AppGallery; входите по тому же номеру телефона, что и на сайте."
-    kk: "Қосымша App Store, Google Play және AppGallery дүкендерінде бар; сайттағы телефон нөміріңізбен кіріңіз."
+    en: ["The app is in the App Store, Google Play and AppGallery; sign in with the same phone number you use on the website.", "You can download the app from the App Store, Google Play or AppGallery and sign in with the phone number you use on the website."]
+    ru: ["Приложение есть в App Store, Google Play и AppGallery; входите по тому же номеру телефона, что и на сайте.", "Приложение можно скачать в App Store, Google Play или AppGallery и войти по номеру телефона, который вы используете на сайте."]
+    kk: ["Қосымша App Store, Google Play және AppGallery дүкендерінде бар; сайттағы телефон нөміріңізбен кіріңіз.", "Қосымшаны App Store, Google Play немесе AppGallery дүкенінен жүктеп, сайтта қолданатын телефон нөміріңізбен кіре аласыз."]
   account_faq.cart:
-    en: "Press \"Add to cart\" on the product page. To remove an item, open the cart and press the bin icon next to it; the cart is kept for 30 days."
-    ru: "Нажмите «В корзину» на странице товара. Чтобы убрать товар, откройте корзину и нажмите на значок корзины рядом с ним; корзина хранится 30 дней."
-    kk: "Тауар бетіндегі «Себетке» батырмасын басыңыз. Тауарды алып тастау үшін себетті ашып, жанындағы қоқыс жәшігі белгішесін басыңыз; себет 30 күн сақталады."
+    en: ["Press \"Add to cart\" on the product page. To remove an item, open the cart and press the bin icon next to it; the cart is kept for 30 days.", "Use \"Add to cart\" on a product page; to take something out, open the cart and tap the bin icon beside it. Items stay in the cart for 30 days."]
+    ru: ["Нажмите «В корзину» на странице товара. Чтобы убрать товар, откройте корзину и нажмите на значок корзины рядом с ним; корзина хранится 30 дней.", "Чтобы добавить товар, нажмите «В корзину» на его странице; чтобы убрать — откройте корзину и нажмите значок корзины рядом с ним. Товары хранятся в корзине 30 дней."]
+    kk: ["Тауар бетіндегі «Себетке» батырмасын басыңыз. Тауарды алып тастау үшін себетті ашып, жанындағы қоқыс жәшігі белгішесін басыңыз; себет 30 күн сақталады.", "Тауарды қосу үшін оның бетінде «Себетке» батырмасын басыңыз; алып тастау үшін себетті ашып, жанындағы қоқыс жәшігі белгішесін басыңыз. Тауарлар себетте 30 күн сақталады."]
+  delivery_policy.pickup_storage:
+    en: ["An order waits at the pickup point for {pickup_keep_days:days} after the arrival SMS. If it is not collected, it goes back to the warehouse and is cancelled, and any prepayment is refunded.", "The pickup point keeps your order for {pickup_keep_days:days} from the arrival SMS; after that it is returned to the warehouse, cancelled and any prepayment refunded."]
+    ru: ["Заказ ждёт в пункте выдачи {pickup_keep_days:days} после SMS о поступлении. Если его не забрать, он вернётся на склад и будет отменён, а предоплата вернётся.", "Пункт выдачи хранит заказ {pickup_keep_days:days} с момента SMS о поступлении; после этого его возвращают на склад, отменяют и возвращают предоплату."]
+    kk: ["Тапсырыс келгені туралы SMS-тен кейін беру пунктінде {pickup_keep_days:days} күтеді. Оны алмасаңыз, ол қоймаға қайтып, жойылады, ал алдын ала төлем қайтарылады.", "Беру пункті тапсырысты келгені туралы SMS-тен бастап {pickup_keep_days:days} сақтайды; одан кейін ол қоймаға қайтарылып, жойылады, алдын ала төлем қайтарылады."]
+  delivery_policy.missed_courier:
+    en: ["The courier phones before coming. Up to {delivery_attempts} delivery attempts are free; if they all fail, the order is sent to the nearest pickup point.", "Don't worry if you missed the courier: there are up to {delivery_attempts} free delivery attempts, and after that the order goes to the nearest pickup point."]
+    ru: ["Курьер звонит перед приездом. Бесплатно делается до {delivery_attempts} попыток доставки; если все неудачны, заказ отправляют в ближайший пункт выдачи.", "Не переживайте, если не застали курьера: бесплатных попыток доставки — до {delivery_attempts}, после этого заказ передают в ближайший пункт выдачи."]
+    kk: ["Курьер келер алдында қоңырау шалады. Жеткізуге {delivery_attempts} әрекетке дейін тегін жасалады; бәрі сәтсіз болса, тапсырыс ең жақын беру пунктіне жіберіледі.", "Курьерді күтіп ала алмасаңыз, уайымдамаңыз: жеткізуге {delivery_attempts} тегін әрекетке дейін бар, одан кейін тапсырыс ең жақын беру пунктіне беріледі."]
+  warranty_policy.repair:
+    en: ["A warranty repair takes no more than {warranty_repair_days:days}; if it takes longer, the item is replaced or refunded. If the fault is not covered by the warranty, diagnostics cost {diagnostic_cost:kzt}.", "Under the warranty, the repair is finished within {warranty_repair_days:days}, or you get a replacement or a refund. Diagnostics are charged ({diagnostic_cost:kzt}) only when the fault turns out not to be covered."]
+    ru: ["Гарантийный ремонт длится не дольше {warranty_repair_days:days_gen}; если дольше, товар заменят или вернут деньги. Если случай не гарантийный, диагностика стоит {diagnostic_cost:kzt}.", "По гарантии ремонт завершают за {warranty_repair_days:days}, иначе вы получите замену или деньги. Диагностика платная ({diagnostic_cost:kzt}) только если случай оказался не гарантийным."]
+    kk: ["Кепілдік жөндеу {warranty_repair_days:days@abl} аспайды; ұзаққа созылса, тауар ауыстырылады немесе ақшасы қайтарылады. Жағдай кепілдікке жатпаса, диагностика {diagnostic_cost:kzt} тұрады.", "Кепілдік бойынша жөндеу {warranty_repair_days:days} ішінде аяқталады, әйтпесе тауар ауыстырылады немесе ақша қайтарылады. Диагностика ({diagnostic_cost:kzt}) тек жағдай кепілдікке жатпаса ғана ақылы."]
+  store_info.promo:
+    en: ["A promo code applies to orders from {promo_min_order:kzt}, and the discount covers the items, not delivery. If the order with the code was cancelled, the code can be used again.", "Promo codes need an order of at least {promo_min_order:kzt}; the discount is taken off the items only, never off delivery."]
+    ru: ["Промокод действует для заказов от {promo_min_order:kzt}, скидка распространяется на товары, а не на доставку. Если заказ с кодом отменили, код можно использовать снова.", "Для промокода нужен заказ минимум на {promo_min_order:kzt}; скидка вычитается только из стоимости товаров, не из доставки."]
+    kk: ["Промокод {promo_min_order:kzt@abl} бастап тапсырыстарға жарамды, жеңілдік жеткізуге емес, тауарларға беріледі. Код қолданылған тапсырыс жойылса, кодты қайта пайдалануға болады.", "Промокод үшін тапсырыс кемінде {promo_min_order:kzt} болуы керек; жеңілдік жеткізуден емес, тек тауар құнынан шегеріледі."]
+  store_info.gift_cards:
+    en: ["Electronic gift cards are available for {gift_card_min:kzt} to {gift_card_max:kzt}. What you do not spend stays on the card for later orders, but a gift card cannot be turned into cash.", "You can buy an e-gift card worth between {gift_card_min:kzt} and {gift_card_max:kzt}; its balance can be spent over several orders but not withdrawn as cash."]
+    ru: ["Электронные подарочные карты бывают номиналом от {gift_card_min:kzt} до {gift_card_max:kzt}. Неистраченный остаток сохраняется для следующих заказов, но обменять карту на наличные нельзя.", "Можно купить электронную подарочную карту номиналом от {gift_card_min:kzt} до {gift_card_max:kzt}; её баланс можно тратить за несколько заказов, но не обналичить."]
+    kk: ["Электрондық сыйлық карталарының номиналы {gift_card_min:kzt@abl} бастап {gift_card_max:kzt@dat} дейін. Жұмсалмаған қалдық келесі тапсырыстарға сақталады, бірақ картаны қолма-қол ақшаға айырбастауға болмайды.", "Номиналы {gift_card_min:kzt@abl} бастап {gift_card_max:kzt@dat} дейінгі электрондық сыйлық картасын сатып алуға болады; оның қалдығын бірнеше тапсырысқа жұмсауға болады, бірақ қолма-қол ақшаға шешуге болмайды."]
+  store_info.points:
+    en: ["Bonus points for an order arrive {points_credit_days:days} after delivery. Items you return do not earn points.", "The points are credited {points_credit_days:days} after you receive the order, and nothing is credited for returned items."]
+    ru: ["Бонусы за заказ приходят через {points_credit_days:days} после получения. За возвращённые товары бонусы не начисляются.", "Бонусы зачисляются через {points_credit_days:days} после получения заказа; за возвращённые товары ничего не начисляется."]
+    kk: ["Тапсырыс үшін бонустар алғаннан кейін {points_credit_days:days} өткен соң түседі. Қайтарылған тауарларға бонус берілмейді.", "Бонустар тапсырысты алғаннан кейін {points_credit_days:days} өткен соң есептеледі; қайтарылған тауарлар үшін ештеңе есептелмейді."]
   catalog.product:
-    en: "The {product} (SKU {sku}) costs {price:kzt}."
-    ru: "{product}, артикул {sku}, стоит {price:kzt}."
-    kk: "{product} (артикулы {sku}) бағасы — {price:kzt}."
+    en: ["The {product} (SKU {sku}) costs {price:kzt}.", "The price of the {product} (SKU {sku}) is {price:kzt}."]
+    ru: ["{product}, артикул {sku}, стоит {price:kzt}.", "Цена товара «{product}» (артикул {sku}) — {price:kzt}."]
+    kk: ["{product} (артикулы {sku}) бағасы — {price:kzt}.", "«{product}» тауарының (артикулы {sku}) бағасы {price:kzt}."]
   catalog.product_warranty:
-    en: "The {product} (SKU {sku}) costs {price:kzt} and comes with a warranty of {warranty_months:months}."
-    ru: "{product}, артикул {sku}, стоит {price:kzt}, гарантия — {warranty_months:months}."
-    kk: "{product} (артикулы {sku}) бағасы — {price:kzt}, кепілдік мерзімі — {warranty_months:months}."
+    en: ["The {product} (SKU {sku}) costs {price:kzt} and comes with a warranty of {warranty_months:months}.", "The {product} (SKU {sku}) is {price:kzt}, with a {warranty_months:months} warranty."]
+    ru: ["{product}, артикул {sku}, стоит {price:kzt}, гарантия — {warranty_months:months}.", "Товар «{product}» (артикул {sku}) стоит {price:kzt}, на него даётся гарантия {warranty_months:months}."]
+    kk: ["{product} (артикулы {sku}) бағасы — {price:kzt}, кепілдік мерзімі — {warranty_months:months}.", "«{product}» тауары (артикулы {sku}) {price:kzt} тұрады, оған {warranty_months:months} кепілдік беріледі."]
 
 # Source label -> the KB sections that answer it (first = main). Used for Bitext rows.
 label_sections:
@@ -197,102 +223,102 @@ label_sections:
 tool:
   track_order:
     processing:
-      en: "Order {order_id} is being prepared and has not shipped yet. You will get an SMS with the tracking number when it does."
-      ru: "Заказ {order_id} собирается и ещё не отправлен. Когда его отправят, придёт SMS с трек-номером."
-      kk: "{order_id} тапсырысы жиналып жатыр, әлі жөнелтілген жоқ. Жөнелтілгенде трек-нөмірі бар SMS келеді."
+      en: ["Order {order_id} is being prepared and has not shipped yet. You will get an SMS with the tracking number when it does.", "Order {order_id} has not left the warehouse yet: it is still being packed. An SMS with the tracking number will follow once it ships."]
+      ru: ["Заказ {order_id} собирается и ещё не отправлен. Когда его отправят, придёт SMS с трек-номером.", "Заказ {order_id} пока не покинул склад: его ещё комплектуют. После отправки придёт SMS с трек-номером."]
+      kk: ["{order_id} тапсырысы жиналып жатыр, әлі жөнелтілген жоқ. Жөнелтілгенде трек-нөмірі бар SMS келеді.", "{order_id} тапсырысы әлі қоймадан шыққан жоқ: оны жинақтап жатыр. Жөнелтілгеннен кейін трек-нөмірі бар SMS келеді."]
     shipped:
-      en: "Order {order_id} is on its way with {carrier}. The expected delivery date is {eta:date}."
-      ru: "Заказ {order_id} в пути, доставляет {carrier}. Ожидаемая дата доставки — {eta:date}."
-      kk: "{order_id} тапсырысы жолда, оны {carrier} жеткізіп жатыр. Күтілетін жеткізу күні — {eta:date}."
+      en: ["Order {order_id} is on its way with {carrier}. The expected delivery date is {eta:date}.", "Good news: order {order_id} has shipped with {carrier} and should arrive on {eta:date}."]
+      ru: ["Заказ {order_id} в пути, доставляет {carrier}. Ожидаемая дата доставки — {eta:date}.", "Заказ {order_id} уже отправлен, его везёт {carrier}; ожидаемая дата доставки — {eta:date}."]
+      kk: ["{order_id} тапсырысы жолда, оны {carrier} жеткізіп жатыр. Күтілетін жеткізу күні — {eta:date}.", "{order_id} тапсырысы жөнелтілді, оны {carrier} жеткізеді; ол {eta:date@loc} келуі керек."]
     at_pickup_point:
-      en: "Order {order_id} is waiting for you at the pickup point and will be kept there until {keep_until:date}."
-      ru: "Заказ {order_id} ждёт вас в пункте выдачи, он будет храниться там до {keep_until:date}."
-      kk: "{order_id} тапсырысы беру пунктінде сізді күтіп тұр, ол жерде {keep_until:date@dat} дейін сақталады."
+      en: ["Order {order_id} is waiting for you at the pickup point and will be kept there until {keep_until:date}.", "Order {order_id} has arrived at the pickup point. You can collect it until {keep_until:date}."]
+      ru: ["Заказ {order_id} ждёт вас в пункте выдачи, он будет храниться там до {keep_until:date}.", "Заказ {order_id} уже в пункте выдачи. Забрать его можно до {keep_until:date}."]
+      kk: ["{order_id} тапсырысы беру пунктінде сізді күтіп тұр, ол жерде {keep_until:date@dat} дейін сақталады.", "{order_id} тапсырысы беру пунктіне келді. Оны {keep_until:date@dat} дейін алуға болады."]
     delivered:
-      en: "According to the order data, order {order_id} was delivered on {delivered_at:date}. If you did not receive it, tell me and I will pass it to an operator."
-      ru: "По данным заказа, заказ {order_id} доставлен {delivered_at:date}. Если вы его не получали, напишите, и я передам вопрос оператору."
-      kk: "Тапсырыс деректері бойынша {order_id} тапсырысы {delivered_at:date@loc} жеткізілген. Егер сіз оны алмасаңыз, жазыңыз, мен мәселені операторға жіберемін."
+      en: ["According to the order data, order {order_id} was delivered on {delivered_at:date}. If you did not receive it, tell me and I will pass it to an operator.", "The order data shows order {order_id} as delivered on {delivered_at:date}. If it did not reach you, let me know and I will hand the case to an operator."]
+      ru: ["По данным заказа, заказ {order_id} доставлен {delivered_at:date}. Если вы его не получали, напишите, и я передам вопрос оператору.", "В данных заказа {order_id} отмечен как доставленный {delivered_at:date}. Если он до вас не дошёл, сообщите мне, и я передам случай оператору."]
+      kk: ["Тапсырыс деректері бойынша {order_id} тапсырысы {delivered_at:date@loc} жеткізілген. Егер сіз оны алмасаңыз, жазыңыз, мен мәселені операторға жіберемін.", "Деректерде {order_id} тапсырысы {delivered_at:date@loc} жеткізілді деп белгіленген. Ол сізге жетпесе, хабарлаңыз, мен оны операторға беремін."]
     delayed:
-      en: "Order {order_id} is delayed: it was due on {eta:date}, and {carrier} now expects to deliver it on {new_eta:date}. I am sorry for the wait."
-      ru: "Заказ {order_id} задерживается: он ожидался {eta:date}, теперь {carrier} планирует доставить его {new_eta:date}. Приносим извинения за ожидание."
-      kk: "{order_id} тапсырысы кешігіп жатыр: ол {eta:date@loc} күтілген еді, енді {carrier} оны {new_eta:date@loc} жеткізуді жоспарлап отыр. Күттіргеніміз үшін кешірім сұраймыз."
+      en: ["Order {order_id} is delayed: it was due on {eta:date}, and {carrier} now expects to deliver it on {new_eta:date}. I am sorry for the wait.", "I am sorry, order {order_id} is running late. It was expected on {eta:date}; {carrier} now plans to deliver it on {new_eta:date}."]
+      ru: ["Заказ {order_id} задерживается: он ожидался {eta:date}, теперь {carrier} планирует доставить его {new_eta:date}. Приносим извинения за ожидание.", "Простите, заказ {order_id} опаздывает. Его ждали {eta:date}, теперь {carrier} планирует доставку на {new_eta:date}."]
+      kk: ["{order_id} тапсырысы кешігіп жатыр: ол {eta:date@loc} күтілген еді, енді {carrier} оны {new_eta:date@loc} жеткізуді жоспарлап отыр. Күттіргеніміз үшін кешірім сұраймыз.", "Кешіріңіз, {order_id} тапсырысы кешігіп келеді. Ол {eta:date@loc} күтілген, енді {carrier} оны {new_eta:date@loc} жеткізбек."]
     cancelled:
-      en: "Order {order_id} was cancelled on {cancelled_at:date}, so it will not be delivered."
-      ru: "Заказ {order_id} был отменён {cancelled_at:date}, поэтому доставки не будет."
-      kk: "{order_id} тапсырысы {cancelled_at:date@loc} болдырылмаған, сондықтан ол жеткізілмейді."
+      en: ["Order {order_id} was cancelled on {cancelled_at:date}, so it will not be delivered.", "Order {order_id} will not arrive because it was cancelled on {cancelled_at:date}."]
+      ru: ["Заказ {order_id} был отменён {cancelled_at:date}, поэтому доставки не будет.", "Заказ {order_id} не приедет: он был отменён {cancelled_at:date}."]
+      kk: ["{order_id} тапсырысы {cancelled_at:date@loc} болдырылмаған, сондықтан ол жеткізілмейді.", "{order_id} тапсырысы келмейді: ол {cancelled_at:date@loc} болдырылмаған."]
   cancel_order:
     accepted:
-      en: "Done: the cancellation of order {order_id} has been requested (ticket {ticket_id}). The order had not shipped yet, so it will not be sent."
-      ru: "Готово: заявка на отмену заказа {order_id} создана (номер {ticket_id}). Заказ ещё не был отправлен, поэтому его не отправят."
-      kk: "Дайын: {order_id} тапсырысынан бас тарту өтінімі жасалды (нөмірі {ticket_id}). Тапсырыс әлі жөнелтілмеген, сондықтан ол жіберілмейді."
+      en: ["Done: the cancellation of order {order_id} has been requested (ticket {ticket_id}). The order had not shipped yet, so it will not be sent.", "Order {order_id} had not shipped, so I have requested its cancellation; the request number is {ticket_id}."]
+      ru: ["Готово: заявка на отмену заказа {order_id} создана (номер {ticket_id}). Заказ ещё не был отправлен, поэтому его не отправят.", "Заказ {order_id} ещё не был отправлен, поэтому я оформил его отмену; номер заявки — {ticket_id}."]
+      kk: ["Дайын: {order_id} тапсырысынан бас тарту өтінімі жасалды (нөмірі {ticket_id}). Тапсырыс әлі жөнелтілмеген, сондықтан ол жіберілмейді.", "{order_id} тапсырысы әлі жөнелтілмеген еді, сондықтан оның күшін жою өтінімін жасадым; өтінім нөмірі — {ticket_id}."]
     rejected_shipped:
-      en: "Order {order_id} has already shipped, so it can no longer be cancelled. You can refuse it on delivery or return it after you receive it."
-      ru: "Заказ {order_id} уже отправлен, поэтому отменить его нельзя. От него можно отказаться при получении или вернуть после получения."
-      kk: "{order_id} тапсырысы жөнелтіліп кеткен, сондықтан оны болдырмау мүмкін емес. Оны алған кезде қабылдамауға немесе алғаннан кейін қайтаруға болады."
+      en: ["Order {order_id} has already shipped, so it can no longer be cancelled. You can refuse it on delivery or return it after you receive it.", "It is too late to cancel order {order_id}: it has already been shipped. You can still refuse it when it arrives or return it afterwards."]
+      ru: ["Заказ {order_id} уже отправлен, поэтому отменить его нельзя. От него можно отказаться при получении или вернуть после получения.", "Отменить заказ {order_id} уже не получится: он отправлен. Но от него можно отказаться при доставке или вернуть позже."]
+      kk: ["{order_id} тапсырысы жөнелтіліп кеткен, сондықтан оны болдырмау мүмкін емес. Оны алған кезде қабылдамауға немесе алғаннан кейін қайтаруға болады.", "{order_id} тапсырысын енді болдырмау мүмкін емес: ол жөнелтіліп қойған. Бірақ оны жеткізгенде қабылдамауға немесе кейін қайтаруға болады."]
   change_order:
     processing:
-      en: "Order {order_id} is still being processed, so items, quantities and the delivery address can still be changed. What would you like to change?"
-      ru: "Заказ {order_id} ещё в обработке, поэтому товары, количество и адрес доставки пока можно изменить. Что именно вы хотите поменять?"
-      kk: "{order_id} тапсырысы әлі өңделуде, сондықтан тауарларды, олардың санын және жеткізу мекенжайын әзірге өзгертуге болады. Нақты нені өзгерткіңіз келеді?"
+      en: ["Order {order_id} is still being processed, so items, quantities and the delivery address can still be changed. What would you like to change?", "Good timing: order {order_id} is still in processing, so the items, quantities and delivery address can be changed. Tell me what to change."]
+      ru: ["Заказ {order_id} ещё в обработке, поэтому товары, количество и адрес доставки пока можно изменить. Что именно вы хотите поменять?", "Вы успели: заказ {order_id} ещё в обработке, поэтому товары, количество и адрес доставки можно изменить. Напишите, что поменять."]
+      kk: ["{order_id} тапсырысы әлі өңделуде, сондықтан тауарларды, олардың санын және жеткізу мекенжайын әзірге өзгертуге болады. Нақты нені өзгерткіңіз келеді?", "Үлгердіңіз: {order_id} тапсырысы әлі өңделуде, сондықтан тауарларды, санын және жеткізу мекенжайын өзгертуге болады. Нені ауыстыру керегін жазыңыз."]
     shipped:
-      en: "Order {order_id} has already shipped with {carrier}, so it can no longer be changed."
-      ru: "Заказ {order_id} уже отправлен через {carrier}, поэтому изменить его больше нельзя."
-      kk: "{order_id} тапсырысы {carrier} арқылы жөнелтіліп кеткен, сондықтан оны енді өзгерту мүмкін емес."
+      en: ["Order {order_id} has already shipped with {carrier}, so it can no longer be changed.", "Unfortunately order {order_id} is already with {carrier}, and a shipped order cannot be changed."]
+      ru: ["Заказ {order_id} уже отправлен через {carrier}, поэтому изменить его больше нельзя.", "К сожалению, заказ {order_id} уже передан {carrier}, а отправленный заказ изменить нельзя."]
+      kk: ["{order_id} тапсырысы {carrier} арқылы жөнелтіліп кеткен, сондықтан оны енді өзгерту мүмкін емес.", "Өкінішке қарай, {order_id} тапсырысы {carrier} арқылы жіберіліп қойған, ал жөнелтілген тапсырысты өзгертуге болмайды."]
   invoice:
     paid:
-      en: "The receipt for order {order_id} (payment of {amount:kzt} on {paid_at:date}) was sent to your e-mail and is also in \"My orders\". Receipt number: {receipt_id}."
-      ru: "Чек по заказу {order_id} (оплата {amount:kzt} от {paid_at:date}) отправлен на ваш e-mail и есть в «Моих заказах». Номер чека: {receipt_id}."
-      kk: "{order_id} тапсырысының чегі ({paid_at:date@loc} төленген {amount:kzt}) e-mail-іңізге жіберілген және «Менің тапсырыстарым» бөлімінде бар. Чек нөмірі: {receipt_id}."
+      en: ["The receipt for order {order_id} (payment of {amount:kzt} on {paid_at:date}) was sent to your e-mail and is also in \"My orders\". Receipt number: {receipt_id}.", "Order {order_id} was paid on {paid_at:date} ({amount:kzt}). The receipt {receipt_id} is in your e-mail and in \"My orders\"."]
+      ru: ["Чек по заказу {order_id} (оплата {amount:kzt} от {paid_at:date}) отправлен на ваш e-mail и есть в «Моих заказах». Номер чека: {receipt_id}.", "Заказ {order_id} оплачен {paid_at:date} на сумму {amount:kzt}. Чек {receipt_id} есть в вашей почте и в «Моих заказах»."]
+      kk: ["{order_id} тапсырысының чегі ({paid_at:date@loc} төленген {amount:kzt}) e-mail-іңізге жіберілген және «Менің тапсырыстарым» бөлімінде бар. Чек нөмірі: {receipt_id}.", "{order_id} тапсырысы {paid_at:date@loc} {amount:kzt} сомаға төленген. {receipt_id} чегі поштаңызда және «Менің тапсырыстарым» бөлімінде бар."]
     unpaid:
-      en: "Order {order_id} has not been paid yet, so there is no receipt for it. The receipt is issued right after payment."
-      ru: "Заказ {order_id} ещё не оплачен, поэтому чека по нему пока нет. Чек формируется сразу после оплаты."
-      kk: "{order_id} тапсырысы әлі төленбеген, сондықтан оның чегі жоқ. Чек төлемнен кейін бірден жасалады."
+      en: ["Order {order_id} has not been paid yet, so there is no receipt for it. The receipt is issued right after payment.", "There is no receipt for order {order_id} yet because it is still unpaid; the receipt is created as soon as the payment goes through."]
+      ru: ["Заказ {order_id} ещё не оплачен, поэтому чека по нему пока нет. Чек формируется сразу после оплаты.", "Чека по заказу {order_id} пока нет, потому что он не оплачен; чек появится сразу после оплаты."]
+      kk: ["{order_id} тапсырысы әлі төленбеген, сондықтан оның чегі жоқ. Чек төлемнен кейін бірден жасалады.", "{order_id} тапсырысы төленбегендіктен, оның чегі әлі жоқ; чек төлем өткен бойда жасалады."]
   request_refund:
     return_received:
-      en: "The returned item from order {order_id} has been received, and the refund of {amount:kzt} was started on {refund_started:date}. It is usually credited by {refund_expected:date}."
-      ru: "Возврат по заказу {order_id} получен, возврат {amount:kzt} оформлен {refund_started:date}. Обычно деньги поступают до {refund_expected:date}."
-      kk: "{order_id} тапсырысы бойынша қайтарылған тауар алынды, {amount:kzt} қайтару {refund_started:date@loc} рәсімделді. Әдетте ақша {refund_expected:date@dat} дейін түседі."
+      en: ["The returned item from order {order_id} has been received, and the refund of {amount:kzt} was started on {refund_started:date}. It is usually credited by {refund_expected:date}.", "We have received the item you returned from order {order_id}. The refund of {amount:kzt} started on {refund_started:date} and normally arrives by {refund_expected:date}."]
+      ru: ["Возврат по заказу {order_id} получен, возврат {amount:kzt} оформлен {refund_started:date}. Обычно деньги поступают до {refund_expected:date}.", "Товар из заказа {order_id} к нам вернулся. Возврат {amount:kzt} запущен {refund_started:date}, обычно деньги приходят до {refund_expected:date}."]
+      kk: ["{order_id} тапсырысы бойынша қайтарылған тауар алынды, {amount:kzt} қайтару {refund_started:date@loc} рәсімделді. Әдетте ақша {refund_expected:date@dat} дейін түседі.", "{order_id} тапсырысындағы тауар бізге қайтып келді. {amount:kzt} қайтару {refund_started:date@loc} басталды, әдетте ақша {refund_expected:date@dat} дейін түседі."]
     no_return:
-      en: "Order {order_id} was paid ({amount:kzt}) and no return has been registered yet. To get a refund, start a return in \"My orders\" first; the money is sent back after the item is checked."
-      ru: "Заказ {order_id} оплачен ({amount:kzt}), возврат по нему ещё не оформлен. Чтобы получить деньги, сначала оформите возврат в «Моих заказах»; деньги вернут после проверки товара."
-      kk: "{order_id} тапсырысы төленген ({amount:kzt}), бірақ қайтару әлі рәсімделмеген. Ақшаны алу үшін алдымен «Менің тапсырыстарым» бөлімінде қайтаруды рәсімдеңіз; тауар тексерілгеннен кейін ақша қайтарылады."
+      en: ["Order {order_id} was paid ({amount:kzt}) and no return has been registered yet. To get a refund, start a return in \"My orders\" first; the money is sent back after the item is checked.", "Order {order_id} is paid ({amount:kzt}), but there is no return for it yet. Please register the return in \"My orders\"; the money comes back once the item has been checked."]
+      ru: ["Заказ {order_id} оплачен ({amount:kzt}), возврат по нему ещё не оформлен. Чтобы получить деньги, сначала оформите возврат в «Моих заказах»; деньги вернут после проверки товара.", "Заказ {order_id} оплачен ({amount:kzt}), но возврат по нему пока не оформлен. Оформите его в «Моих заказах»: деньги вернутся после проверки товара."]
+      kk: ["{order_id} тапсырысы төленген ({amount:kzt}), бірақ қайтару әлі рәсімделмеген. Ақшаны алу үшін алдымен «Менің тапсырыстарым» бөлімінде қайтаруды рәсімдеңіз; тауар тексерілгеннен кейін ақша қайтарылады.", "{order_id} тапсырысы төленген ({amount:kzt}), бірақ ол бойынша қайтару әлі рәсімделмеген. Оны «Менің тапсырыстарым» бөлімінде рәсімдеңіз: ақша тауар тексерілген соң қайтады."]
   refund_status:
     processing:
-      en: "The refund of {amount:kzt} for order {order_id} was started on {refund_started:date} and is being processed. It should arrive by {refund_expected:date}."
-      ru: "Возврат {amount:kzt} по заказу {order_id} оформлен {refund_started:date} и сейчас обрабатывается. Деньги должны поступить до {refund_expected:date}."
-      kk: "{order_id} тапсырысы бойынша {amount:kzt} қайтару {refund_started:date@loc} рәсімделген, қазір өңделіп жатыр. Ақша {refund_expected:date@dat} дейін түсуі керек."
+      en: ["The refund of {amount:kzt} for order {order_id} was started on {refund_started:date} and is being processed. It should arrive by {refund_expected:date}.", "Your refund for order {order_id} ({amount:kzt}) is in progress: it was started on {refund_started:date} and is expected by {refund_expected:date}."]
+      ru: ["Возврат {amount:kzt} по заказу {order_id} оформлен {refund_started:date} и сейчас обрабатывается. Деньги должны поступить до {refund_expected:date}.", "Возврат по заказу {order_id} ({amount:kzt}) в процессе: он оформлен {refund_started:date}, деньги ожидаются до {refund_expected:date}."]
+      kk: ["{order_id} тапсырысы бойынша {amount:kzt} қайтару {refund_started:date@loc} рәсімделген, қазір өңделіп жатыр. Ақша {refund_expected:date@dat} дейін түсуі керек.", "{order_id} тапсырысы бойынша қайтару ({amount:kzt}) жүріп жатыр: ол {refund_started:date@loc} рәсімделген, ақша {refund_expected:date@dat} дейін күтіледі."]
     completed:
-      en: "The refund of {amount:kzt} for order {order_id} was completed on {refund_done:date}. If you do not see it yet, your bank may need a little more time."
-      ru: "Возврат {amount:kzt} по заказу {order_id} выполнен {refund_done:date}. Если вы его ещё не видите, банку может понадобиться немного времени."
-      kk: "{order_id} тапсырысы бойынша {amount:kzt} қайтару {refund_done:date@loc} орындалды. Егер оны әлі көрмесеңіз, банкке біраз уақыт керек болуы мүмкін."
+      en: ["The refund of {amount:kzt} for order {order_id} was completed on {refund_done:date}. If you do not see it yet, your bank may need a little more time.", "The refund for order {order_id} is done: {amount:kzt} was sent on {refund_done:date}. Banks sometimes need a few more days to show it."]
+      ru: ["Возврат {amount:kzt} по заказу {order_id} выполнен {refund_done:date}. Если вы его ещё не видите, банку может понадобиться немного времени.", "Возврат по заказу {order_id} завершён: {amount:kzt} отправлены {refund_done:date}. Иногда банку нужно ещё несколько дней, чтобы показать их."]
+      kk: ["{order_id} тапсырысы бойынша {amount:kzt} қайтару {refund_done:date@loc} орындалды. Егер оны әлі көрмесеңіз, банкке біраз уақыт керек болуы мүмкін.", "{order_id} тапсырысы бойынша қайтару аяқталды: {amount:kzt} {refund_done:date@loc} жіберілді. Кейде банкке оны көрсету үшін тағы бірнеше күн керек."]
     none:
-      en: "I do not see a refund for order {order_id}: no return has been registered for it. You can start a return in \"My orders\"."
-      ru: "По заказу {order_id} возврата денег нет: возврат товара по нему не оформлялся. Оформить возврат можно в «Моих заказах»."
-      kk: "{order_id} тапсырысы бойынша ақша қайтарылмаған: ол бойынша тауар қайтару рәсімделмеген. Қайтаруды «Менің тапсырыстарым» бөлімінде рәсімдеуге болады."
+      en: ["I do not see a refund for order {order_id}: no return has been registered for it. You can start a return in \"My orders\".", "There is no refund on order {order_id} because no return was registered for it. If you want to return something, start it in \"My orders\"."]
+      ru: ["По заказу {order_id} возврата денег нет: возврат товара по нему не оформлялся. Оформить возврат можно в «Моих заказах».", "По заказу {order_id} возврата денег нет, так как возврат товара не оформлялся. Если хотите что-то вернуть, начните в «Моих заказах»."]
+      kk: ["{order_id} тапсырысы бойынша ақша қайтарылмаған: ол бойынша тауар қайтару рәсімделмеген. Қайтаруды «Менің тапсырыстарым» бөлімінде рәсімдеуге болады.", "{order_id} тапсырысы бойынша тауар қайтару рәсімделмегендіктен, ақша қайтарылмаған. Бірдеңе қайтарғыңыз келсе, «Менің тапсырыстарым» бөлімінен бастаңыз."]
   delivery_problem:
     delivered:
-      en: "I am sorry about that. Order {order_id} was delivered on {delivered_at:date}. Please report the problem within {defect_report_days:days_gen} of delivery with photos of the item and the packaging; the store will replace the item or refund it in full."
-      ru: "Очень жаль, что так вышло. Заказ {order_id} доставлен {delivered_at:date}. Сообщите о проблеме в течение {defect_report_days:days_gen} после получения и приложите фото товара и упаковки — магазин заменит товар или полностью вернёт деньги."
-      kk: "Солай болғаны үшін кешірім сұраймыз. {order_id} тапсырысы {delivered_at:date@loc} жеткізілген. Алған күннен бастап {defect_report_days:days_gen} ішінде тауар мен қаптаманың суретін тіркеп хабарлаңыз — дүкен тауарды ауыстырады немесе ақшаны толық қайтарады."
+      en: ["I am sorry about that. Order {order_id} was delivered on {delivered_at:date}. Please report the problem within {defect_report_days:days_gen} of delivery with photos of the item and the packaging; the store will replace the item or refund it in full.", "I am sorry the order arrived like this. Order {order_id} was delivered on {delivered_at:date}: send photos of the item and the box within {defect_report_days:days_gen} of delivery, and the store will replace it or refund it in full."]
+      ru: ["Очень жаль, что так вышло. Заказ {order_id} доставлен {delivered_at:date}. Сообщите о проблеме в течение {defect_report_days:days_gen} после получения и приложите фото товара и упаковки — магазин заменит товар или полностью вернёт деньги.", "Простите, что заказ пришёл в таком виде. Заказ {order_id} доставлен {delivered_at:date}: пришлите фото товара и коробки в течение {defect_report_days:days_gen} после получения, и магазин заменит товар или вернёт всю сумму."]
+      kk: ["Солай болғаны үшін кешірім сұраймыз. {order_id} тапсырысы {delivered_at:date@loc} жеткізілген. Алған күннен бастап {defect_report_days:days_gen} ішінде тауар мен қаптаманың суретін тіркеп хабарлаңыз — дүкен тауарды ауыстырады немесе ақшаны толық қайтарады.", "Тапсырыс осындай күйде келгені үшін кешіріңіз. {order_id} тапсырысы {delivered_at:date@loc} жеткізілген: алған соң {defect_report_days:days_gen} ішінде тауар мен қораптың суретін жіберіңіз, дүкен тауарды ауыстырады немесе бүкіл соманы қайтарады."]
   product_defect:
     delivered:
-      en: "I am sorry the item is faulty. Order {order_id} was delivered on {delivered_at:date}, and the warranty is {warranty_months:months}. Report the defect within {defect_report_days:days_gen} of noticing it; the item is checked at a service centre and repaired, replaced or refunded."
-      ru: "Жаль, что товар оказался неисправным. Заказ {order_id} доставлен {delivered_at:date}, гарантия — {warranty_months:months}. Сообщите о дефекте в течение {defect_report_days:days_gen} с момента обнаружения: товар проверят в сервисном центре и отремонтируют, заменят или вернут деньги."
-      kk: "Тауардың ақаулы болып шыққанына өкінеміз. {order_id} тапсырысы {delivered_at:date@loc} жеткізілген, кепілдік мерзімі — {warranty_months:months}. Ақауды байқаған күннен бастап {defect_report_days:days_gen} ішінде хабарлаңыз: тауар сервис орталығында тексеріліп, жөнделеді, ауыстырылады немесе ақшасы қайтарылады."
+      en: ["I am sorry the item is faulty. Order {order_id} was delivered on {delivered_at:date}, and the warranty is {warranty_months:months}. Report the defect within {defect_report_days:days_gen} of noticing it; the item is checked at a service centre and repaired, replaced or refunded.", "Sorry to hear the item broke. Order {order_id} was delivered on {delivered_at:date} and is covered by a {warranty_months:months} warranty. Report the defect within {defect_report_days:days_gen} of noticing it: a service centre will check it and it will be repaired, replaced or refunded."]
+      ru: ["Жаль, что товар оказался неисправным. Заказ {order_id} доставлен {delivered_at:date}, гарантия — {warranty_months:months}. Сообщите о дефекте в течение {defect_report_days:days_gen} с момента обнаружения: товар проверят в сервисном центре и отремонтируют, заменят или вернут деньги.", "Жаль, что товар сломался. Заказ {order_id} доставлен {delivered_at:date}, на него действует гарантия {warranty_months:months}. Сообщите о дефекте в течение {defect_report_days:days_gen} после обнаружения: сервисный центр проверит товар, его отремонтируют, заменят или вернут деньги."]
+      kk: ["Тауардың ақаулы болып шыққанына өкінеміз. {order_id} тапсырысы {delivered_at:date@loc} жеткізілген, кепілдік мерзімі — {warranty_months:months}. Ақауды байқаған күннен бастап {defect_report_days:days_gen} ішінде хабарлаңыз: тауар сервис орталығында тексеріліп, жөнделеді, ауыстырылады немесе ақшасы қайтарылады.", "Тауардың бұзылғанына өкінеміз. {order_id} тапсырысы {delivered_at:date@loc} жеткізілген, оған {warranty_months:months} кепілдік беріледі. Ақауды байқаған соң {defect_report_days:days_gen} ішінде хабарлаңыз: сервис орталығы тексереді, тауар жөнделеді, ауыстырылады немесе ақшасы қайтарылады."]
   availability:
     in_stock:
-      en: "Yes, the {product} is in stock: {qty} pcs available, delivery from the warehouse in {city:city}."
-      ru: "Да, {product} есть в наличии: {qty} шт., отправка со склада в городе {city:city}."
-      kk: "Иә, {product} қоймада бар: {qty} дана, {city:city} қаласындағы қоймадан жөнелтіледі."
+      en: ["Yes, the {product} is in stock: {qty} pcs available, delivery from the warehouse in {city:city}.", "The {product} is available: {qty} pcs in stock at the warehouse in {city:city}."]
+      ru: ["Да, {product} есть в наличии: {qty} шт., отправка со склада в городе {city:city}.", "{product} в наличии: на складе в городе {city:city} {qty} шт."]
+      kk: ["Иә, {product} қоймада бар: {qty} дана, {city:city} қаласындағы қоймадан жөнелтіледі.", "{product} бар: {city:city} қаласындағы қоймада {qty} дана."]
     out_of_stock:
-      en: "Sorry, the {product} is out of stock right now; the next delivery to the warehouse is expected on {restock:date}."
-      ru: "К сожалению, сейчас {product} нет в наличии; следующая поставка на склад ожидается {restock:date}."
-      kk: "Өкінішке қарай, қазір {product} қоймада жоқ; келесі жеткізілім {restock:date@loc} күтіледі."
+      en: ["Sorry, the {product} is out of stock right now; the next delivery to the warehouse is expected on {restock:date}.", "The {product} is sold out at the moment. A new delivery to the warehouse is expected on {restock:date}."]
+      ru: ["К сожалению, сейчас {product} нет в наличии; следующая поставка на склад ожидается {restock:date}.", "{product} сейчас закончился. Новая поставка на склад ожидается {restock:date}."]
+      kk: ["Өкінішке қарай, қазір {product} қоймада жоқ; келесі жеткізілім {restock:date@loc} күтіледі.", "{product} қазір таусылып қалды. Қоймаға жаңа жеткізілім {restock:date@loc} күтіледі."]
   order_not_found:
     any:
-      en: "I could not find order {order_id} in your account. Please check the number: it has six digits and is shown in the SMS and in \"My orders\"."
-      ru: "Я не нашёл заказ {order_id} в вашем аккаунте. Проверьте, пожалуйста, номер: он шестизначный и указан в SMS и в «Моих заказах»."
-      kk: "Аккаунтыңыздан {order_id} тапсырысын таба алмадым. Нөмірді тексеріңізші: ол алты таңбалы, SMS-те және «Менің тапсырыстарым» бөлімінде көрсетілген."
+      en: ["I could not find order {order_id} in your account. Please check the number: it has six digits and is shown in the SMS and in \"My orders\".", "Order {order_id} does not show up in your account. Could you double-check the number? It is six digits long and appears in the SMS and in \"My orders\"."]
+      ru: ["Я не нашёл заказ {order_id} в вашем аккаунте. Проверьте, пожалуйста, номер: он шестизначный и указан в SMS и в «Моих заказах».", "Заказ {order_id} не находится в вашем аккаунте. Проверьте, пожалуйста, номер ещё раз: в нём шесть цифр, он есть в SMS и в «Моих заказах»."]
+      kk: ["Аккаунтыңыздан {order_id} тапсырысын таба алмадым. Нөмірді тексеріңізші: ол алты таңбалы, SMS-те және «Менің тапсырыстарым» бөлімінде көрсетілген.", "{order_id} тапсырысы аккаунтыңызда табылмады. Нөмірді қайта тексеріңізші: ол алты цифрдан тұрады, SMS-те және «Менің тапсырыстарым» бөлімінде бар."]
 
 clarify:
   order_number:
@@ -326,45 +352,45 @@ clarify:
 
 escalate:
   customer_requested_human:
-    en: "Of course, I am passing the conversation to an operator. They will see our messages, so you will not have to repeat yourself."
-    ru: "Конечно, передаю диалог оператору. Он увидит нашу переписку, повторять ничего не придётся."
-    kk: "Әрине, әңгімені операторға жіберемін. Ол хат алмасуымызды көреді, ештеңені қайталаудың қажеті жоқ."
+    en: ["Of course, I am passing the conversation to an operator. They will see our messages, so you will not have to repeat yourself.", "Sure, I am connecting you with an operator now. They will see this conversation, so there is no need to explain everything again."]
+    ru: ["Конечно, передаю диалог оператору. Он увидит нашу переписку, повторять ничего не придётся.", "Хорошо, соединяю вас с оператором. Он увидит этот диалог, так что объяснять всё заново не нужно."]
+    kk: ["Әрине, әңгімені операторға жіберемін. Ол хат алмасуымызды көреді, ештеңені қайталаудың қажеті жоқ.", "Жақсы, сізді операторға қосамын. Ол осы әңгімені көреді, сондықтан бәрін қайта түсіндірудің қажеті жоқ."]
   complaint:
-    en: "I am sorry this happened, and I understand your frustration. I am passing your complaint to an operator, who will look into it and get back to you."
-    ru: "Мне жаль, что так произошло, и я понимаю ваше недовольство. Передаю вашу жалобу оператору — он разберётся и свяжется с вами."
-    kk: "Бұлай болғанына өкінемін, наразылығыңызды түсінемін. Шағымыңызды операторға жіберемін — ол мән-жайды анықтап, сізбен хабарласады."
+    en: ["I am sorry this happened, and I understand your frustration. I am passing your complaint to an operator, who will look into it and get back to you.", "Thank you for telling us, and I am sorry for the experience. Your complaint is going to an operator, who will review it and contact you."]
+    ru: ["Мне жаль, что так произошло, и я понимаю ваше недовольство. Передаю вашу жалобу оператору — он разберётся и свяжется с вами.", "Спасибо, что сообщили, и простите за неприятный опыт. Ваша жалоба уходит оператору: он её рассмотрит и свяжется с вами."]
+    kk: ["Бұлай болғанына өкінемін, наразылығыңызды түсінемін. Шағымыңызды операторға жіберемін — ол мән-жайды анықтап, сізбен хабарласады.", "Хабарлағаныңызға рақмет, жағымсыз жағдай үшін кешірім сұраймыз. Шағымыңыз операторға жіберіледі: ол оны қарап, сізбен байланысады."]
   legal_threat:
-    en: "I understand. Questions involving legal action are handled by our staff, so I am passing your message to an operator now."
-    ru: "Понимаю. Вопросы, связанные с юридическими претензиями, решают наши сотрудники, поэтому передаю ваше обращение оператору."
-    kk: "Түсінемін. Заңды талаптарға қатысты мәселелерді қызметкерлеріміз шешеді, сондықтан өтінішіңізді операторға жіберемін."
+    en: ["I understand. Questions involving legal action are handled by our staff, so I am passing your message to an operator now.", "Thank you, I have noted this. Legal claims are reviewed by our staff, not in this chat, so I am forwarding your message to an operator."]
+    ru: ["Понимаю. Вопросы, связанные с юридическими претензиями, решают наши сотрудники, поэтому передаю ваше обращение оператору.", "Спасибо, я это зафиксировал. Юридические претензии рассматривают наши сотрудники, а не этот чат, поэтому пересылаю ваше сообщение оператору."]
+    kk: ["Түсінемін. Заңды талаптарға қатысты мәселелерді қызметкерлеріміз шешеді, сондықтан өтінішіңізді операторға жіберемін.", "Рақмет, мұны тіркедім. Заңды талаптарды бұл чат емес, қызметкерлеріміз қарайды, сондықтан хабарламаңызды операторға жіберемін."]
   safety_risk:
-    en: "Please stop using the item and keep it away from power and children. I am passing this to an operator as a priority."
-    ru: "Пожалуйста, прекратите пользоваться товаром, отключите его от сети и уберите от детей. Передаю обращение оператору в приоритетном порядке."
-    kk: "Тауарды пайдалануды тоқтатып, оны желіден ажыратыңыз және балалардан алыс ұстаңыз. Өтінішіңізді операторға бірінші кезекте жіберемін."
+    en: ["Please stop using the item and keep it away from power and children. I am passing this to an operator as a priority.", "Your safety comes first: unplug the item, stop using it and keep children away from it. I am handing this to an operator right away."]
+    ru: ["Пожалуйста, прекратите пользоваться товаром, отключите его от сети и уберите от детей. Передаю обращение оператору в приоритетном порядке.", "Главное — безопасность: отключите товар от сети, не пользуйтесь им и не подпускайте к нему детей. Сразу передаю обращение оператору."]
+    kk: ["Тауарды пайдалануды тоқтатып, оны желіден ажыратыңыз және балалардан алыс ұстаңыз. Өтінішіңізді операторға бірінші кезекте жіберемін.", "Ең бастысы — қауіпсіздік: тауарды желіден ажыратып, оны пайдаланбаңыз және балаларды жақындатпаңыз. Өтінішті операторға бірден жіберемін."]
   privacy_request:
-    en: "Requests about personal data are handled by a staff member, so I am passing yours to an operator. For your security, please do not send passport or card details in the chat."
-    ru: "Запросы о персональных данных обрабатывает сотрудник, поэтому передаю ваш запрос оператору. В целях безопасности не отправляйте в чат паспортные данные и данные карты."
-    kk: "Жеке деректерге қатысты сұраныстарды қызметкер қарайды, сондықтан сұранысыңызды операторға жіберемін. Қауіпсіздік үшін чатқа төлқұжат пен карта деректерін жібермеңіз."
+    en: ["Requests about personal data are handled by a staff member, so I am passing yours to an operator. For your security, please do not send passport or card details in the chat.", "A staff member processes personal-data requests, so I am forwarding yours to an operator. Please do not post passport or card numbers here."]
+    ru: ["Запросы о персональных данных обрабатывает сотрудник, поэтому передаю ваш запрос оператору. В целях безопасности не отправляйте в чат паспортные данные и данные карты.", "Запросы о персональных данных выполняет сотрудник, поэтому пересылаю ваш запрос оператору. Пожалуйста, не пишите здесь номера паспорта или карты."]
+    kk: ["Жеке деректерге қатысты сұраныстарды қызметкер қарайды, сондықтан сұранысыңызды операторға жіберемін. Қауіпсіздік үшін чатқа төлқұжат пен карта деректерін жібермеңіз.", "Жеке деректер бойынша сұраныстарды қызметкер орындайды, сондықтан сұранысыңызды операторға жіберемін. Мұнда төлқұжат немесе карта нөмірін жазбаңызшы."]
   technical_issue:
-    en: "Sorry the app or the website is not working for you. I am creating a request for our technical support through an operator; it helps if you tell them your device and what you see on the screen."
-    ru: "Жаль, что приложение или сайт у вас не работает. Передаю обращение в техническую поддержку через оператора; укажите, пожалуйста, устройство и что вы видите на экране."
-    kk: "Қосымша немесе сайт жұмыс істемей тұрғанына өкінеміз. Өтінішті оператор арқылы техникалық қолдауға жіберемін; құрылғыңызды және экранда не көріп тұрғаныңызды жазыңызшы."
+    en: ["Sorry the app or the website is not working for you. I am creating a request for our technical support through an operator; it helps if you tell them your device and what you see on the screen.", "I am sorry for the trouble with the app or the site. I am passing this to technical support through an operator; please mention your device and what the screen shows."]
+    ru: ["Жаль, что приложение или сайт у вас не работает. Передаю обращение в техническую поддержку через оператора; укажите, пожалуйста, устройство и что вы видите на экране.", "Простите за неудобства с приложением или сайтом. Передаю проблему в техподдержку через оператора; укажите, пожалуйста, ваше устройство и что показывает экран."]
+    kk: ["Қосымша немесе сайт жұмыс істемей тұрғанына өкінеміз. Өтінішті оператор арқылы техникалық қолдауға жіберемін; құрылғыңызды және экранда не көріп тұрғаныңызды жазыңызшы.", "Қосымша немесе сайттағы ақаулық үшін кешірім сұраймын. Мәселені оператор арқылы техникалық қолдауға жіберемін; құрылғыңызды және экранда не көрсетіп тұрғанын жазыңызшы."]
   payment_dispute:
-    en: "I see, money being taken twice or without an order needs a manual check. I am passing this to an operator who can see the payment details."
-    ru: "Понимаю, двойное списание или списание без заказа нужно проверить вручную. Передаю вопрос оператору, который видит детали платежа."
-    kk: "Түсінемін, ақшаның екі рет немесе тапсырыссыз шегерілуін қолмен тексеру керек. Мәселені төлем мәліметтерін көре алатын операторға жіберемін."
+    en: ["I see, money being taken twice or without an order needs a manual check. I am passing this to an operator who can see the payment details.", "A double charge or a charge without an order has to be checked by a person. I am forwarding it to an operator who has access to the payment records."]
+    ru: ["Понимаю, двойное списание или списание без заказа нужно проверить вручную. Передаю вопрос оператору, который видит детали платежа.", "Двойное списание или списание без заказа должен проверить сотрудник. Передаю вопрос оператору с доступом к данным о платежах."]
+    kk: ["Түсінемін, ақшаның екі рет немесе тапсырыссыз шегерілуін қолмен тексеру керек. Мәселені төлем мәліметтерін көре алатын операторға жіберемін.", "Екі рет шегерілген немесе тапсырыссыз шегерілген ақшаны қызметкер тексеруі керек. Мәселені төлем деректеріне қолжетімі бар операторға жіберемін."]
   conflicting_policy:
-    en: "The store documents I have give different information on this, so I cannot give you a reliable answer. I am passing the question to an operator to confirm."
-    ru: "В документах магазина, которые у меня есть, по этому вопросу указаны разные сведения, поэтому я не могу дать точный ответ. Передаю вопрос оператору для уточнения."
-    kk: "Менде бар дүкен құжаттарында бұл мәселе бойынша әртүрлі мәлімет көрсетілген, сондықтан нақты жауап бере алмаймын. Сұрақты нақтылау үшін операторға жіберемін."
+    en: ["The store documents I have give different information on this, so I cannot give you a reliable answer. I am passing the question to an operator to confirm.", "The documents I can see disagree on this point, so I would rather not guess. I am asking an operator to confirm the correct rule."]
+    ru: ["В документах магазина, которые у меня есть, по этому вопросу указаны разные сведения, поэтому я не могу дать точный ответ. Передаю вопрос оператору для уточнения.", "Документы, которые я вижу, расходятся в этом вопросе, поэтому я не буду гадать. Прошу оператора подтвердить правильное правило."]
+    kk: ["Менде бар дүкен құжаттарында бұл мәселе бойынша әртүрлі мәлімет көрсетілген, сондықтан нақты жауап бере алмаймын. Сұрақты нақтылау үшін операторға жіберемін.", "Мен көріп отырған құжаттар бұл мәселеде бір-біріне сәйкес келмейді, сондықтан болжам айтпаймын. Дұрыс ережені растауды операторға тапсырамын."]
   repeated_failure:
-    en: "I am sorry this is still not solved. I am passing the conversation to an operator so a person can take it from here."
-    ru: "Жаль, что вопрос до сих пор не решён. Передаю диалог оператору, чтобы им занялся сотрудник."
-    kk: "Мәселе әлі шешілмегеніне өкінемін. Әңгімені операторға жіберемін, оны қызметкер қарайды."
+    en: ["I am sorry this is still not solved. I am passing the conversation to an operator so a person can take it from here.", "I can see this has not been resolved yet, and I am sorry. I am handing the conversation to an operator so a person can sort it out."]
+    ru: ["Жаль, что вопрос до сих пор не решён. Передаю диалог оператору, чтобы им занялся сотрудник.", "Вижу, что проблема всё ещё не решена, простите. Передаю разговор оператору, чтобы с ней разобрался сотрудник."]
+    kk: ["Мәселе әлі шешілмегеніне өкінемін. Әңгімені операторға жіберемін, оны қызметкер қарайды.", "Мәселенің әлі шешілмегенін көріп тұрмын, кешіріңіз. Әңгімені операторға беремін, оны қызметкер шешеді."]
   fraud_suspected:
-    en: "That sounds like someone else may have access to your account. Please do not share SMS codes with anyone. I am passing this to an operator urgently."
-    ru: "Похоже, к вашему аккаунту мог получить доступ кто-то другой. Никому не сообщайте коды из SMS. Срочно передаю обращение оператору."
-    kk: "Аккаунтыңызға басқа біреу кіруі мүмкін сияқты. SMS кодтарын ешкімге айтпаңыз. Өтінішті операторға шұғыл жіберемін."
+    en: ["That sounds like someone else may have access to your account. Please do not share SMS codes with anyone. I am passing this to an operator urgently.", "This may mean someone else has got into your account. Do not give SMS codes to anyone. I am escalating it to an operator as urgent."]
+    ru: ["Похоже, к вашему аккаунту мог получить доступ кто-то другой. Никому не сообщайте коды из SMS. Срочно передаю обращение оператору.", "Возможно, в ваш аккаунт вошёл кто-то посторонний. Не сообщайте коды из SMS никому. Срочно передаю обращение оператору."]
+    kk: ["Аккаунтыңызға басқа біреу кіруі мүмкін сияқты. SMS кодтарын ешкімге айтпаңыз. Өтінішті операторға шұғыл жіберемін.", "Аккаунтыңызға бөгде адам кірген болуы мүмкін. SMS кодтарын ешкімге бермеңіз. Өтінішті операторға шұғыл түрде жіберемін."]
 
 abstain:
   en: ["I do not have information about this in the store documents, so I would rather not guess. I can pass the question to an operator if you like.", "I could not find this in the store's rules. An operator can give you an exact answer; shall I pass the question on?"]
@@ -379,9 +405,9 @@ refuse:
 # Prepended to a normal answer when the message or a context passage carries an injected
 # instruction (discount, fake approval, "ignore the rules").
 injection_note:
-  en: "I can only follow the store's actual rules, so I cannot do that."
-  ru: "Я могу действовать только по реальным правилам магазина, поэтому так сделать не могу."
-  kk: "Мен тек дүкеннің нақты ережелері бойынша әрекет ете аламын, сондықтан олай істей алмаймын."
+  en: ["I can only follow the store's actual rules, so I cannot do that.", "I have to stick to the store's real rules, so that part I cannot do."]
+  ru: ["Я могу действовать только по реальным правилам магазина, поэтому так сделать не могу.", "Я должен придерживаться настоящих правил магазина, поэтому эту часть выполнить не могу."]
+  kk: ["Мен тек дүкеннің нақты ережелері бойынша әрекет ете аламын, сондықтан олай істей алмаймын.", "Мен дүкеннің шын ережелерін ұстануым керек, сондықтан бұл бөлігін орындай алмаймын."]
 # Prepended when an outdated policy version is in the context next to the current one.
 outdated_note:
   en: "Under the current rules (in force since {effective_from:date}):"

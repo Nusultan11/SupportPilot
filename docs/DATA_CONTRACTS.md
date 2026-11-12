@@ -388,3 +388,48 @@ Review status: `draft` (authored, automatic checks passed), `llm_reviewed` (re-r
 never "independently verified"), `human_reviewed` (one fluent human), `verified` (author +
 independent fluent human; requires a named reviewer). Source: `authored/gold/*.yaml`; every
 scenario is written natively in en, ru and kk.
+
+## 14. Independent retrieval set (data expansion, ADR-029)
+
+Sources: `authored/retrieval/*.yaml`, validated as `retrieval_source/1` by
+`data/retrievalset.py`. The source header is the registry for this internal authored source:
+`source_id=supportpilot_authored_retrieval`, `origin=llm_generated`, `allowed_use=eval_only`,
+author, review status and licence note. Source file SHA256s enter the manifest. The external
+source registry remains `configs/sources.yaml`; no fake Hub downloader is attached to authored
+content. No redistribution licence for project-authored datasets is declared by this change.
+
+Each information need has one stable ID, category (`simple`, `hard`, `ambiguous`,
+`multi_fragment`, `unanswerable`), separately written `en/ru/kk` questions, explicit section
+judgements `{section: doc_id.section_id, grade: 0..3}`, rationale and optional `mix_ru`,
+`mix_kk` and `cross_lingual`. Grade 3 = direct support, 2 = partial/alternative support,
+1 = useful background, 0 = explicitly judged non-relevant alternative. Multi-fragment
+needs have at least two positive sections. Unanswerable needs have no positive judgement.
+
+Output `retrieval_query/1`: `query_id`, `scenario_id`, `query`, `lang`, `corpus_lang`,
+`code_switch`, `cross_lingual`, `category`, `answerable`, `relevant` (real `chunk_id`,
+`doc_id`, `section_id`, grade), rationale, `kb_version`, source/author/review metadata and
+`quality_flags`. Source selectors resolve against the active KB; a missing section fails
+the build. Cross-lingual variants have a different corpus language from the question and
+only target-language qrels. Variants share a scenario ID and do not increase independent
+scenario or monolingual-query counts.
+
+Storage: `data/benchmarks/retrieval/<benchmark_version>/` contains `queries.jsonl`,
+standard TREC `qrels.tsv` (`query_id`, `0`, `chunk_id`, grade), `stats.json`,
+`quality_report.json`, `manifest.json`. `current.json` points to the published local version
+and its KB version. Version identity includes query content, source hashes, KB/SFT versions
+and validation parameters. Existing versions are immutable; a failed build leaves the
+current pointer intact. Rebuild after KB or SFT changes.
+
+Gates: source/query schemas, unique IDs and monolingual questions, at least 150 monolingual
+queries per language, all five categories per language, cross-lingual/code-switch presence,
+language, placeholders/PII, KB references, input file hashes, exact/lexical/13-gram leakage
+against every SFT split (including user history). Gold is never a query source. Semantic
+near-SFT questions are flagged and reported separately, as for gold; a high embedding
+similarity alone is not proof of a copied question.
+
+SFT expansion amendment: source-native rows keep their upstream lineage and are train-only.
+Authored scenarios are stratified by intent/action with trilingual scenarios reserved for
+validation/test. Training near-copies of those held-out scenarios are excluded, without
+lowering thresholds. Gold question text is used only to reject copied SFT inputs, never as
+training examples or target text. Final gates require every intent in each split/language,
+and check exact/lexical/13-gram overlap between validation and test.

@@ -1,0 +1,45 @@
+# Demo-store document spec (kb_doc/1). See returns_policy.yaml for the conventions.
+# Stage 5b (ADR-029): promo codes, gift cards and bonus points beyond store_info.loyalty.
+# It does not restate the bonus percentage, the gift-card validity or the "one promo code,
+# no combining" rule (store_info.loyalty, cited by gold), and says nothing about points
+# expiry or paying part of an order with points (gold `abstain` items).
+# Written natively per language by the agent (LLM); review pending.
+schema_version: kb_doc/1
+doc_id: bonus_faq
+doc_type: faq
+format: json
+title:
+  en: Promo codes, gift cards and bonuses
+  ru: Промокоды, подарочные карты и бонусы
+  kk: Промокодтар, сыйлық карталары және бонустар
+sections:
+  - id: points_credit
+    heading: {en: "When do bonus points appear on my account?", ru: "Когда бонусы зачисляются на счёт?", kk: "Бонустар шотқа қашан түседі?"}
+    paragraphs:
+      - en: "Bonus points for an order are credited {points_credit_days:days} after you receive it, so that returns can be settled first. Points for items you return are not credited."
+        ru: "Бонусы за заказ зачисляются через {points_credit_days:days} после его получения, чтобы сначала можно было оформить возврат. За возвращённые товары бонусы не начисляются."
+        kk: "Тапсырыс үшін бонустар оны алғаннан кейін {points_credit_days:days} өткен соң түседі, алдымен қайтару рәсімделуі үшін. Қайтарылған тауарлар үшін бонус есептелмейді."
+  - id: promo_min
+    heading: {en: "Is there a minimum order amount for a promo code?", ru: "Есть ли минимальная сумма заказа для промокода?", kk: "Промокод үшін тапсырыстың ең аз сомасы бар ма?"}
+    paragraphs:
+      - en: "Yes: a promo code works for orders from {promo_min_order:kzt} after discounts. The discount applies to the items only, not to the delivery cost."
+        ru: "Да: промокод действует для заказов от {promo_min_order:kzt} с учётом скидок. Скидка применяется только к товарам, а не к стоимости доставки."
+        kk: "Иә: промокод жеңілдіктерді есептегеннен кейін {promo_min_order:kzt@abl} бастап тапсырыстарға жарамды. Жеңілдік тек тауарларға қолданылады, жеткізу құнына емес."
+  - id: promo_problem
+    heading: {en: "Why is my promo code not accepted?", ru: "Почему не принимается промокод?", kk: "Промокод неге қабылданбайды?"}
+    paragraphs:
+      - en: "Check that the code is typed without spaces, that it has not expired and that the order reaches the minimum amount. Most codes can be used once per account; a code already used in a cancelled order becomes active again after the cancellation."
+        ru: "Проверьте, что код введён без пробелов, что срок его действия не истёк и что сумма заказа не меньше минимальной. Большинство кодов можно использовать один раз на аккаунт; код из отменённого заказа снова становится активным после отмены."
+        kk: "Кодтың бос орынсыз терілгенін, мерзімі өтпегенін және тапсырыс сомасы ең аз сомадан кем емес екенін тексеріңіз. Көп кодты бір аккаунтқа бір рет қолдануға болады; жойылған тапсырыста қолданылған код жойылғаннан кейін қайта белсенді болады."
+  - id: gift_card_buy
+    heading: {en: "How do I buy a gift card and for what amount?", ru: "Как купить подарочную карту и на какую сумму?", kk: "Сыйлық картасын қалай сатып алуға болады және қандай сомаға?"}
+    paragraphs:
+      - en: "Electronic gift cards are sold in the app and on the website for any amount from {gift_card_min:kzt} to {gift_card_max:kzt}. The card number arrives by SMS or e-mail to the recipient you name."
+        ru: "Электронные подарочные карты продаются в приложении и на сайте на любую сумму от {gift_card_min:kzt} до {gift_card_max:kzt}. Номер карты приходит по SMS или e-mail получателю, которого вы укажете."
+        kk: "Электрондық сыйлық карталары қосымшада және сайтта {gift_card_min:kzt@abl} бастап {gift_card_max:kzt@dat} дейінгі кез келген сомаға сатылады. Карта нөмірі сіз көрсеткен алушыға SMS немесе e-mail арқылы келеді."
+  - id: gift_card_balance
+    heading: {en: "Can I spend a gift card over several orders?", ru: "Можно ли потратить подарочную карту за несколько заказов?", kk: "Сыйлық картасын бірнеше тапсырысқа жұмсауға бола ма?"}
+    paragraphs:
+      - en: "Yes. Whatever is not spent stays on the card until it expires, and the balance is shown at checkout. A gift card cannot be exchanged for cash, and a lost card number can be resent only to the original recipient."
+        ru: "Да. Неизрасходованная сумма остаётся на карте до окончания срока действия, а остаток виден при оформлении заказа. Подарочную карту нельзя обменять на наличные, а потерянный номер карты можно повторно отправить только первоначальному получателю."
+        kk: "Иә. Жұмсалмаған сома мерзімі біткенше картада қалады, ал қалдығы тапсырысты рәсімдеу кезінде көрінеді. Сыйлық картасын қолма-қол ақшаға айырбастауға болмайды, ал жоғалған карта нөмірін тек алғашқы алушыға қайта жіберуге болады."

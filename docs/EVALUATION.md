@@ -19,6 +19,25 @@ Gold benchmark rules:
 
 ## 2. Metrics
 
+The independent retrieval set is now authored under `authored/retrieval/` and built with
+`supportpilot data retrieval-set` (DATA_CONTRACTS §14). It contains 175 original information
+needs in each language, plus 150 cross-lingual and 6 code-switched query variants. All review
+statuses remain `draft`; automated checks and an author self-check are not human verification.
+
+Retrieval protocol: filter the candidate corpus to each query's `corpus_lang`; compute
+Recall@5, MRR@10 and nDCG@10 for answerable queries, by query language and corpus language.
+For binary Recall/MRR use grade > 0; for nDCG use gain `2**grade - 1`. Report the grade >= 2
+slice as a sensitivity check. Multi-fragment recall counts all positively judged chunks.
+Unjudged chunks count as non-relevant, but qrels are a finite LLM-authored judgement set,
+not exhaustive human assessment. Inspect judgements when a new KB version changes content.
+Unanswerable questions have empty qrels: report their abstention/false-positive results
+separately, never include them in Recall/MRR/nDCG denominators. Report code-switch and
+cross-lingual slices separately and the semantic-near-SFT subset separately. Bootstrap by
+`scenario_id` so translations and cross-language variants are not independent observations.
+
+The data preparation task does not measure retrieval scores or select a model. That is
+Stage 6 work. Keep gold reserved for final evaluation as specified below.
+
 **Decision metrics.** These choose between options. Each is reported per language plus macro-average across languages.
 
 | Area | Primary metric | Target (goal, not guarantee) |

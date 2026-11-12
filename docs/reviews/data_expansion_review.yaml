@@ -1,0 +1,98 @@
+schema_version: data_expansion_review/1
+date: '2026-11-12'
+reviewer: Codex (LLM; author self-check)
+human_reviewed: false
+independent_review: false
+scope: >-
+  New authored input-language quality, source-domain validity and automatically enforced
+  contracts. This is not a human fluency estimate or a calibrated semantic answer judge.
+sample:
+  seed: 20261112
+  selection: >-
+    SHA256 rank of new scenario keys; first surviving non-code-switched input per scenario
+    per language, then 100 per language. Stored in the git-ignored expansion report.
+  sft_version_at_inspection: sft-20261112-1f33003e
+  ru:
+    independent_scenarios: 100
+    major_input_errors: 0
+    minor_input_errors: 2
+    major_rate: 0.0
+    minor_rate: 0.02
+  kk:
+    independent_scenarios: 100
+    major_input_errors: 1
+    minor_input_errors: 5
+    major_rate: 0.01
+    minor_rate: 0.05
+  intentional_typos_and_conversation_fragments: not counted as defects
+  notes: >-
+    Rates describe the inspected inputs before the listed repairs, not a population or
+    post-repair error estimate. Sampling per surviving scenario differs slightly by language.
+    No independent reviewer or post-repair human evaluation was available.
+repairs:
+  - scenario: change_address_city_change
+    languages: [en, ru, kk]
+    severity: major_semantic_for_kk_sample
+    problem: >-
+      A hardcoded old city could equal the sampled new city (sample: Almaty to Almaty).
+      RU destination case was also awkward.
+    resolution: >-
+      Distinct source/destination cities with native case surfaces; independent RNG keeps
+      other slot values stable. Regression checks 100 seeds in every language.
+  - scenario: app_store_listing
+    languages: [ru, kk]
+    severity: minor
+    problem: The app was called a mobile shop rather than a shopping application.
+    resolution: Explicit application wording in both languages.
+  - scenario: refund_request_return_sent
+    languages: [kk]
+    severity: minor
+    problem: Awkward use of refund/return noun for the physical goods handed to a courier.
+    resolution: Explicitly state that the item was handed back.
+  - scenario: payment_problem_double_charge
+    languages: [kk]
+    severity: minor
+    problem: Missing per-payment agreement around the amount.
+    resolution: State that each of the two charges has the given amount.
+  - scenario: exchange_colour_dress
+    languages: [kk]
+    severity: minor
+    problem: Literal expression about colour in real life.
+    resolution: Compare the colour to the photograph in natural wording.
+  - scenario: delivery_time_kazpost_slow
+    languages: [kk]
+    severity: minor
+    problem: Possessive agreement for the courier comparison.
+    resolution: >-
+      Corrected agreement. Task also fixed to abstain: per-carrier speeds are absent.
+source_selection:
+  mangi:
+    inspected: all 169 initially selected KK questions
+    findings: >-
+      Banking/telecom metadata did not always identify the domain in the question itself.
+      Generic payment approvals, gift-card-like questions, router setup and phone features
+      must not teach false out-of-scope refusals. One malformed tariff phrase was excluded.
+    resolution: Explicit positive cues/exclusions in taxonomy; source-native selection rebuilt.
+    authorship: Question-generation method is unknown; native never means human-verified.
+  massive:
+    findings: >-
+      Virtual-assistant wake words and shopping-adjacent intents are excluded. One external
+      greeting exactly matched a gold item; SFT copy exclusion reserves gold unchanged.
+mt:
+  new_full_quality_estimate: not measured
+  existing_evidence: docs/reviews/stage4_mt_review.yaml
+  historical_post_qe_ru: {major: 3, reviewed: 60, rate: 0.05}
+  historical_post_qe_kk: {major: 11, reviewed: 55, rate: 0.20}
+  limitation: >-
+    Historical estimates are LLM judgements and are not relabelled as current or human
+    measurements. Two missing KK translations were generated from the pinned local cache;
+    QE and existing language/grounding gates apply to them as to all other MT rows.
+retrieval:
+  origin: llm_generated
+  review_status: draft
+  independently_human_judged: false
+  gold_questions_used_for_authorship: false
+  qrels: Explicit section-level judgements, resolved to active KB chunk IDs.
+  limitation: >-
+    Automated integrity checks do not prove exhaustive relevance judgements. Semantic-near-SFT
+    queries are flagged, not represented as copied data or independent human validation.

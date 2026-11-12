@@ -32,7 +32,7 @@ from supportpilot.data.gold import build_gold
 from supportpilot.data.locale import load_locale, localize_en
 from supportpilot.data.scenarios import AUTHORED_SOURCE
 from supportpilot.data.sftbuild import build_sft, sft_root
-from supportpilot.data.stage4 import run_kb, run_select
+from supportpilot.data.stage4 import run_kb, run_native, run_select
 from tests.data_helpers import entry
 
 ROOT = find_project_root(Path(__file__).parent)
@@ -256,6 +256,7 @@ def s4(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Settings:
     base = yaml.safe_load((ROOT / "configs" / "base.yaml").read_text(encoding="utf-8"))["stage4"]
     for key in ("taxonomy", "locale", "authored_dir", "demo_facts"):
         base[key] = ROOT / base[key]
+    base["native_sources"] = []  # This fixture deliberately contains only Bitext.
     data_dir = tmp_path / "data"
     _make_canonical(data_dir)
     return Settings(
@@ -286,6 +287,7 @@ def test_stage4_end_to_end(s4: Settings) -> None:
     assert run_select(s4, entries, code_commit="t", force=False)["status"] == "skipped"
 
     assert run_kb(s4, code_commit="t", force=False)["status"] == "built"
+    assert run_native(s4, entries, code_commit="t", force=False)["status"] == "built"
 
     # translation is resumable: a limited run, then the rest from the cache
     first = mtrun.run_translate(s4, "kk", limit=4, back=False)
@@ -358,3 +360,40 @@ def test_cli_taxonomy_report(capsys: pytest.CaptureFixture[str]) -> None:
     assert main(["data", "taxonomy"]) == 0
     out = json.loads(capsys.readouterr().out)
     assert out["intents"] == 35
+
+
+def test_native_cache_tracks_source_language_policy(s4: Settings) -> None:
+    from supportpilot.data.native import native_dir
+    from supportpilot.data.policy import PolicyError
+
+    cfg = s4.stage4.model_copy(
+        update={
+            "native_sources": ["bitext_retail_ecom"],
+            "native_max_per_label": {"bitext_retail_ecom": 1},
+        }
+    )
+    settings = s4.model_copy(update={"stage4": cfg})
+    entries = _entries()
+    first = run_native(settings, entries, code_commit="t", force=False)
+    assert first["rows"]["kept"] == 1
+    assert run_native(settings, entries, code_commit="t", force=False)["status"] == "skipped"
+    changed = [
+        e.model_copy(update={"languages": ["ru"]}) if e.source_id == "bitext_retail_ecom" else e
+        for e in entries
+    ]
+    second = run_native(settings, changed, code_commit="t", force=False)
+    assert second["status"] == "built"
+    assert second["rows"]["kept"] == 0
+    assert second["dataset_version"] != first["dataset_version"]
+    out = native_dir(settings.resolve(settings.paths.data_dir))
+    assert pl.read_parquet(out / "excluded.parquet")["reason"].to_list() == ["language"] * 2
+    from supportpilot.common.schemas import AllowedUse
+
+    blocked = [
+        e.model_copy(update={"allowed_use": AllowedUse.EVAL_ONLY})
+        if e.source_id == "bitext_retail_ecom"
+        else e
+        for e in entries
+    ]
+    with pytest.raises(PolicyError):
+        run_native(settings, blocked, code_commit="t", force=False)

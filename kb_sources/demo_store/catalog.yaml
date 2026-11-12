@@ -173,6 +173,39 @@ products:
     name: {en: "Winter tyres set", ru: "Комплект зимних шин", kk: "Қысқы дөңгелек жиынтығы"}
     desc: {en: "4 studded tyres, size 205/55 R16", ru: "4 шипованные шины, размер 205/55 R16", kk: "4 шипті дөңгелек, өлшемі 205/55 R16"}
 
+  # Stage 5b (ADR-029): near-duplicates of existing products (same category, close names) so
+  # that retrieval has hard negatives: a 43-inch TV next to the 55-inch one, two phones, two
+  # power banks, two headphones, two kettles, two running shoes.
+  - sku: TV-4302
+    cat: electronics
+    price: 159000
+    name: {en: "43-inch 4K TV", ru: "Телевизор 4K 43 дюйма", kk: "43 дюймдік 4K теледидар"}
+    desc: {en: "4K UHD screen, HDR10, Smart TV, 2 HDMI ports, wall mount included", ru: "экран 4K UHD, HDR10, Smart TV, 2 порта HDMI, настенное крепление в комплекте", kk: "4K UHD экран, HDR10, Smart TV, 2 HDMI порты, қабырғаға бекіткіш жинақта бар"}
+  - sku: PH-2569
+    cat: electronics
+    price: 189000
+    name: {en: "Smartphone 256 GB", ru: "Смартфон на 256 ГБ", kk: "256 ГБ смартфон"}
+    desc: {en: "6.7-inch screen, 256 GB memory, eSIM and 1 SIM card, 4800 mAh battery", ru: "экран 6.7 дюйма, память 256 ГБ, eSIM и 1 SIM-карта, аккумулятор 4800 мАч", kk: "6.7 дюймдік экран, 256 ГБ жад, eSIM және 1 SIM-карта, 4800 мАсағ аккумулятор"}
+  - sku: PB-1005
+    cat: electronics
+    price: 7900
+    name: {en: "Power bank 10000 mAh", ru: "Пауэрбанк на 10000 мАч", kk: "10000 мАсағ пауэрбанк"}
+    desc: {en: "1 USB-C and 1 USB-A port, charging 18 W, weight 210 g", ru: "1 порт USB-C и 1 порт USB-A, зарядка 18 Вт, вес 210 г", kk: "1 USB-C және 1 USB-A порты, 18 Вт зарядтау, салмағы 210 г"}
+  - sku: HP-0312
+    cat: electronics
+    price: 9900
+    name: {en: "Wired earphones", ru: "Проводные наушники", kk: "Сымды құлаққап"}
+    desc: {en: "USB-C plug, microphone and volume buttons, cable 1.2 m", ru: "штекер USB-C, микрофон и кнопки громкости, кабель 1.2 м", kk: "USB-C ашасы, микрофон және дыбыс түймелері, кабелі 1.2 м"}
+  - sku: KT-0125
+    cat: appliances
+    price: 18900
+    name: {en: "Glass electric kettle", ru: "Стеклянный электрочайник", kk: "Шыны электр шәйнек"}
+    desc: {en: "volume 1.7 l, 2200 W, 5 temperature modes, LED lighting", ru: "объём 1.7 л, 2200 Вт, 5 режимов температуры, LED-подсветка", kk: "көлемі 1.7 л, 2200 Вт, 5 температура режимі, LED жарығы"}
+  - sku: SN-4155
+    cat: shoes
+    price: 41900
+    name: {en: "Trail running shoes", ru: "Кроссовки для трейлраннинга", kk: "Трейлраннингке арналған кроссовка"}
+    desc: {en: "waterproof membrane, grippy outsole, sizes 36-46", ru: "водонепроницаемая мембрана, цепкая подошва, размеры 36-46", kk: "су өткізбейтін мембрана, тайғанамайтын табан, өлшемдері 36-46"}
 # Delivery zones (delivery_zones.csv). `fast` = facts.fast_delivery_days, `region` =
 # facts.region_delivery_days; courier and pickup costs come from facts.yaml as well.
 zones:

@@ -1,0 +1,74 @@
+# Demo-store document spec (kb_doc/1). See returns_policy.yaml for the conventions.
+# Stage 5b (ADR-029): size tables for shoes and clothing (table retrieval, number matching).
+# The sizes and centimetres are the same in every language (cross_lingual gate). Exchange
+# rules stay in returns_policy.exchange (cited by gold); this guide only points to them.
+# Written natively per language by the agent (LLM); review pending.
+schema_version: kb_doc/1
+doc_id: size_guide
+doc_type: policy
+format: pdf
+title:
+  en: Size guide
+  ru: Таблица размеров
+  kk: Өлшемдер кестесі
+intro:
+  - en: "How to choose the size of shoes and clothing sold by {store_name:store}. Sizes of a particular model are also listed on its product page."
+    ru: "Как подобрать размер обуви и одежды, которые продаёт {store_name:store}. Размеры конкретной модели также указаны на странице товара."
+    kk: "{store_name:store} сататын аяқ киім мен киімнің өлшемін қалай таңдауға болады. Нақты үлгінің өлшемдері тауар бетінде де көрсетілген."
+sections:
+  - id: measure
+    heading: {en: "How to measure", ru: "Как снять мерки", kk: "Өлшемді қалай алуға болады"}
+    paragraphs:
+      - en: "For shoes, stand on a sheet of paper in the evening, mark the heel and the longest toe and measure the distance in centimetres. For clothing, measure the chest at its widest point and the waist at its narrowest, without pulling the tape tight."
+        ru: "Для обуви встаньте вечером на лист бумаги, отметьте пятку и самый длинный палец и измерьте расстояние в сантиметрах. Для одежды измерьте обхват груди по самой широкой части и талию по самой узкой, не затягивая ленту."
+        kk: "Аяқ киім үшін кешке қағаз парағына тұрып, өкше мен ең ұзын саусақты белгілеп, арасын сантиметрмен өлшеңіз. Киім үшін кеуде көлемін ең кең жерінен, белді ең жіңішке жерінен таспаны қатты тартпай өлшеңіз."
+      - en: "If you are between two sizes, choose the larger one. Winter boots are worn with warm socks, so add 0.5 cm to the foot length."
+        ru: "Если вы между двумя размерами, выбирайте больший. Зимние сапоги носят с тёплыми носками, поэтому прибавьте к длине стопы 0.5 см."
+        kk: "Екі өлшемнің арасында болсаңыз, үлкенін таңдаңыз. Қысқы етік жылы шұлықпен киіледі, сондықтан табан ұзындығына 0.5 см қосыңыз."
+  - id: shoes
+    heading: {en: "Shoe sizes", ru: "Размеры обуви", kk: "Аяқ киім өлшемдері"}
+    paragraphs:
+      - en: "The table applies to running sneakers, trail running shoes and winter boots. Find your foot length and take the size in the same row."
+        ru: "Таблица подходит для беговых кроссовок, кроссовок для трейлраннинга и зимних сапог. Найдите длину стопы и возьмите размер из той же строки."
+        kk: "Кесте жүгіруге арналған кроссовкаға, трейлраннинг кроссовкасына және қысқы етікке қолданылады. Табан ұзындығын тауып, сол жолдағы өлшемді алыңыз."
+    table:
+      columns:
+        - {en: "Foot length, cm", ru: "Длина стопы, см", kk: "Табан ұзындығы, см"}
+        - {en: "EU size", ru: "Размер EU", kk: "EU өлшемі"}
+      rows:
+        - ["23.0", "36"]
+        - ["23.7", "37"]
+        - ["24.3", "38"]
+        - ["25.0", "39"]
+        - ["25.7", "40"]
+        - ["26.3", "41"]
+        - ["27.0", "42"]
+        - ["27.7", "43"]
+        - ["28.3", "44"]
+        - ["29.0", "45"]
+        - ["29.7", "46"]
+  - id: clothing
+    heading: {en: "Clothing sizes", ru: "Размеры одежды", kk: "Киім өлшемдері"}
+    paragraphs:
+      - en: "The table applies to shirts, dresses, jeans and the down jacket. Choose by chest for tops and jackets and by waist for jeans."
+        ru: "Таблица подходит для рубашек, платьев, джинсов и пуховика. Для верхней одежды и рубашек ориентируйтесь на обхват груди, для джинсов — на талию."
+        kk: "Кесте көйлектерге, жейделерге, джинсыға және мамық күртешеге қолданылады. Жейде мен күртеше үшін кеуде көлемін, джинсы үшін бел көлемін басшылыққа алыңыз."
+    table:
+      columns:
+        - {en: "Size", ru: "Размер", kk: "Өлшем"}
+        - {en: "RU size", ru: "Российский размер", kk: "Ресей өлшемі"}
+        - {en: "Chest, cm", ru: "Обхват груди, см", kk: "Кеуде көлемі, см"}
+        - {en: "Waist, cm", ru: "Талия, см", kk: "Бел, см"}
+      rows:
+        - ["XS", "42", "82-86", "64-68"]
+        - ["S", "44", "86-90", "68-72"]
+        - ["M", "46-48", "90-98", "72-80"]
+        - ["L", "50", "98-102", "80-86"]
+        - ["XL", "52-54", "102-110", "86-94"]
+        - ["XXL", "56", "110-116", "94-100"]
+  - id: kids
+    heading: {en: "Children's goods", ru: "Детские товары", kk: "Балалар тауарлары"}
+    paragraphs:
+      - en: "Car seats and strollers do not have clothing sizes: the child car seat is chosen by the child's weight and the stroller by age. Both limits are listed on the product page."
+        ru: "У автокресел и колясок нет размеров одежды: детское автокресло подбирают по весу ребёнка, а коляску — по возрасту. Оба ограничения указаны на странице товара."
+        kk: "Автокресло мен арбаның киім өлшемі болмайды: балалар автокреслосы баланың салмағына, ал арба жасына қарай таңдалады. Екі шектеу де тауар бетінде көрсетілген."

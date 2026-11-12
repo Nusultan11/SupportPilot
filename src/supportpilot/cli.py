@@ -258,12 +258,14 @@ def _cmd_stage3(args: argparse.Namespace, settings: Settings) -> int:
 STAGE4_ACTIONS = (
     "taxonomy",
     "select",
+    "native",
     "kb-train",
     "mt-compare",
     "translate",
     "qe-score",
     "sft",
     "gold",
+    "retrieval-set",
 )
 
 
@@ -280,6 +282,9 @@ def _cmd_stage4(args: argparse.Namespace, settings: Settings) -> int:
             return 0
         case "select":
             _emit(stage4.run_select(settings, selected, code_commit=commit, force=force))
+            return 0
+        case "native":
+            _emit(stage4.run_native(settings, selected, code_commit=commit, force=force))
             return 0
         case "kb-train":
             _emit(stage4.run_kb(settings, code_commit=commit, force=force))
@@ -306,6 +311,7 @@ def _cmd_stage4(args: argparse.Namespace, settings: Settings) -> int:
 
             steps = {
                 "select": stage4.run_select(settings, selected, code_commit=commit, force=False),
+                "native": stage4.run_native(settings, selected, code_commit=commit, force=False),
                 "kb_train": stage4.run_kb(settings, code_commit=commit, force=False),
                 "qe_score": run_score(settings, code_commit=commit, force=False),
             }
@@ -318,6 +324,14 @@ def _cmd_stage4(args: argparse.Namespace, settings: Settings) -> int:
             from supportpilot.data.gold import build_gold
 
             report = build_gold(settings, code_commit=commit, semantic=not args.no_semantic)
+            _emit(report)
+            return 0 if report["passed"] else 1
+        case "retrieval-set":
+            from supportpilot.data.retrievalset import build_retrieval_set
+
+            report = build_retrieval_set(
+                settings, code_commit=commit, semantic=not args.no_semantic
+            )
             _emit(report)
             return 0 if report["passed"] else 1
     raise AssertionError(args.action)  # pragma: no cover
@@ -391,6 +405,7 @@ def build_parser() -> argparse.ArgumentParser:
     dsub.add_parser("taxonomy", help="Stage 4: validate taxonomy v1 and report the relabelling")
     for name, helptext in (
         ("select", "Stage 4: v1 relabel + EN backbone selection -> data/interim/stage4/selected"),
+        ("native", "Stage 4: native-language source rows -> data/interim/stage4/native"),
         ("kb-train", "Stage 4: training KB variant -> data/processed/kb_train"),
         ("qe-score", "Stage 4: QE of cached translations -> data/interim/stage4/translated"),
     ):
@@ -408,6 +423,12 @@ def build_parser() -> argparse.ArgumentParser:
     sf.add_argument("--no-semantic", action="store_true", help="skip the e5 semantic leakage check")
     gd = dsub.add_parser("gold", help="Stage 4: build the gold benchmark -> data/gold/<version>")
     gd.add_argument("--no-semantic", action="store_true", help="skip the e5 semantic leakage check")
+    rq = dsub.add_parser(
+        "retrieval-set", help="build independent KB-bound retrieval queries and qrels"
+    )
+    rq.add_argument(
+        "--no-semantic", action="store_true", help="skip diagnostic semantic comparison"
+    )
     dt.set_defaults(func=cmd_data)
 
     from supportpilot.kb.cli import add_parser as add_kb_parser

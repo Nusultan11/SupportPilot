@@ -398,7 +398,9 @@ def test_task_mix_is_deterministic(resources: Resources) -> None:
 
 
 def test_assign_authored_is_stratified_and_deterministic() -> None:
-    scn = [(f"s{i}", "answer_kb") for i in range(20)] + [(f"t{i}", "escalate") for i in range(4)]
+    scn = [(f"s{i}", "return_policy", "answer_kb", True) for i in range(20)] + [
+        (f"t{i}", "complaint", "escalate", True) for i in range(4)
+    ]
     a = assign_authored(scn, {"train": 0.7, "validation": 0.15, "test": 0.15}, 7)
     assert a == assign_authored(
         list(reversed(scn)), {"train": 0.7, "validation": 0.15, "test": 0.15}, 7

@@ -1,0 +1,127 @@
+# Authored training scenarios, series 2: payment and invoices (Stage 4b, ADR-029).
+schema_version: scenarios/1
+scenarios:
+  - id: payment_methods_foreign_card
+    intent: payment_methods
+    action: answer_kb
+    sections: [payment_policy.methods]
+    en: ["I'm visiting from abroad, which ways of paying do you accept?", "can I use a regular Visa card or only Kaspi?"]
+    ru: ["Я приезжий, какие способы оплаты у вас принимаются?", "можно оплатить обычной картой Visa или только через Kaspi?"]
+    kk: ["Мен шетелден келдім, қандай төлем тәсілдерін қабылдайсыздар?", "кәдімгі Visa картасымен төлеуге бола ма, әлде тек Kaspi ме?"]
+    mix_kk: ["Visa картамен оплатить етуге бола ма?"]
+  - id: payment_methods_qr_how
+    intent: payment_methods
+    action: answer_kb
+    sections: [payment_policy.methods]
+    en: ["do you take Kaspi QR at checkout?", "is paying by QR code an option?"]
+    ru: ["Kaspi QR при оформлении принимаете?", "можно оплатить по QR-коду?"]
+    kk: ["Рәсімдеу кезінде Kaspi QR қабылдайсыздар ма?", "QR код арқылы төлеуге бола ма?"]
+  - id: payment_instalment_washing_machine
+    intent: payment_methods
+    action: answer_kb
+    sections: [payment_policy.instalments]
+    en: ["can I take the washing machine in instalments?", "is there a way to pay for a laptop monthly?"]
+    ru: ["Стиральную машину можно взять в рассрочку?", "ноутбук можно оплачивать помесячно?"]
+    kk: ["Кір жуғыш машинаны бөліп төлеуге алуға бола ма?", "ноутбукті ай сайын бөліп төлеуге бола ма?"]
+    mix_ru: ["рассрочкаға алуға бола ма стиралканы?"]
+  - id: payment_cod_large_order
+    intent: payment_methods
+    action: answer_kb
+    sections: [payment_policy.cod]
+    en: ["is there a limit for paying the courier when the parcel arrives?", "up to what amount can I pay in cash on delivery?"]
+    ru: ["Есть ограничение по сумме, если платить курьеру при получении?", "до какой суммы можно заплатить наличными при доставке?"]
+    kk: ["Сәлемдеме келгенде курьерге төлегенде сома шегі бар ма?", "жеткізгенде қолма-қол қанша сомаға дейін төлеуге болады?"]
+  - id: payment_methods_multiturn_instalment
+    intent: payment_methods
+    action: answer_kb
+    sections: [payment_policy.instalments]
+    history:
+      - user: {en: "I want the 4K TV", ru: "Хочу телевизор 4K", kk: "4K теледидар алғым келеді"}
+        assistant: {en: "Great choice! How can I help with it?", ru: "Отличный выбор! Чем помочь?", kk: "Жақсы таңдау! Немен көмектесейін?"}
+    en: ["can I split the payment?", "is it possible without paying everything at once?"]
+    ru: ["можно оплату разбить?", "можно не сразу всю сумму платить?"]
+    kk: ["төлемді бөлуге бола ма?", "бүкіл соманы бірден төлемей-ақ алуға бола ма?"]
+  - id: payment_problem_declined_vague
+    intent: payment_problem
+    action: clarify
+    ask: payment_details
+    en: ["can't pay for my order, something's off", "the payment doesn't go through"]
+    ru: ["Не могу оплатить заказ, что-то не так", "оплата не проходит"]
+    kk: ["Тапсырысқа төлей алмай жатырмын, бірдеңе дұрыс емес", "төлем өтпей жатыр"]
+    mix_kk: ["оплата өтпей жатыр, не істеймін?"]
+  - id: payment_problem_card_limit_kb
+    intent: payment_problem
+    action: answer_kb
+    sections: [payment_policy.failed_payment]
+    en: ["the bank keeps rejecting my card at checkout, what should I check?", "no confirmation code came from the bank so the payment failed, help"]
+    ru: ["Банк постоянно отклоняет карту при оплате, что проверить?", "код подтверждения от банка не пришёл, оплата не прошла, помогите"]
+    kk: ["Төлеген кезде банк картамды үнемі қабылдамайды, нені тексеру керек?", "банктен растау коды келмеді, төлем өтпеді, көмектесіңізші"]
+  - id: payment_problem_hold_without_order
+    intent: payment_problem
+    action: answer_kb
+    sections: [payment_policy.failed_payment]
+    en: ["the money is frozen on my card but the order says not paid", "my bank blocked the amount, yet the site says payment failed"]
+    ru: ["Деньги на карте заморожены, а заказ не оплачен", "банк заблокировал сумму, а на сайте пишет, что оплата не прошла"]
+    kk: ["Картамдағы ақша бұғатталып тұр, ал тапсырыс төленбеген", "банк соманы бұғаттап қойды, бірақ сайтта төлем өтпеді деп тұр"]
+  - id: payment_problem_double_charge
+    intent: payment_problem
+    action: escalate
+    reason: payment_dispute
+    en: ["I was charged twice for order {order_id}, I see two payments of {amount}", "money came off my card three times for one order!"]
+    ru: ["С меня дважды списали деньги за заказ {order_id}, вижу два платежа по {amount}", "за один заказ деньги с карты сняли три раза!"]
+    kk: ["{order_id} тапсырысы үшін ақша екі рет алынды, әрқайсысы {amount} болатын екі төлемді көріп тұрмын", "бір тапсырыс үшін картадан үш рет ақша алынды!"]
+    mix_kk: ["{order_id} заказ үшін екі раз списали, {amount}"]
+  - id: payment_problem_charged_no_order
+    intent: payment_problem
+    action: escalate
+    reason: payment_dispute
+    en: ["I paid {amount} but there is no order in my account at all", "money left my card yesterday and no order was created"]
+    ru: ["Я заплатила {amount}, а заказа в аккаунте вообще нет", "вчера с карты ушли деньги, а заказ так и не создался"]
+    kk: ["{amount} төледім, бірақ аккаунтымда ешқандай тапсырыс жоқ", "кеше картадан ақша кетті, бірақ тапсырыс жасалмады"]
+  - id: payment_problem_multiturn_details
+    intent: payment_problem
+    action: answer_kb
+    sections: [payment_policy.failed_payment]
+    history:
+      - user: {en: "problem with payment", ru: "проблема с оплатой", kk: "төлемде мәселе бар"}
+        assistant: {en: "Sorry about that. What exactly happens when you pay?", ru: "Сожалею. Что именно происходит при оплате?", kk: "Кешіріңіз. Төлеген кезде нақты не болады?"}
+    en: ["it says 'payment declined' and that's it", "error 'declined by issuer', the order stays unpaid"]
+    ru: ["пишет «платёж отклонён», и всё", "ошибка «отклонено банком-эмитентом», заказ не оплачен"]
+    kk: ["«төлем қабылданбады» деп жазады, болды", "«эмитент банк қабылдамады» деген қате шығады, тапсырыс төленбеген"]
+  - id: invoice_company_vat
+    intent: invoice
+    action: answer_kb
+    sections: [payment_policy.receipts]
+    en: ["we buy for our office, how do we get documents for accounting?", "I'm an individual entrepreneur, can I have an invoice in my company's name?"]
+    ru: ["Покупаем для офиса — как получить документы для бухгалтерии?", "я ИП, можно получить счёт на мою компанию?"]
+    kk: ["Кеңсеге сатып аламыз — бухгалтерияға құжаттарды қалай аламыз?", "мен жеке кәсіпкермін, компаниямның атына шот алуға бола ма?"]
+    mix_kk: ["ИП-ге счёт алуға бола ма, бухгалтерия сұрап жатыр"]
+  - id: invoice_paid_receipt_lost
+    intent: invoice
+    action: call_tool
+    tool_status: [paid, unpaid]
+    en: ["I deleted the email with the receipt for order {order_id}, can you resend it?", "need the fiscal check for {order_id} again"]
+    ru: ["Я удалил письмо с чеком по заказу {order_id}, можно отправить ещё раз?", "нужен ещё раз фискальный чек по {order_id}"]
+    kk: ["{order_id} тапсырысының чегі бар хатты өшіріп алдым, қайта жібересіздер ме?", "{order_id} бойынша фискалдық чек тағы керек"]
+  - id: invoice_warranty_needs_receipt
+    intent: invoice
+    action: call_tool
+    tool_status: [paid]
+    en: ["the service centre asks for the receipt of order {order_id}, where do I get it?", "for the warranty I need proof of purchase for {order_id}"]
+    ru: ["Сервисный центр просит чек по заказу {order_id}, где его взять?", "для гарантии нужно подтверждение покупки по {order_id}"]
+    kk: ["Сервис орталығы {order_id} тапсырысының чегін сұрап жатыр, оны қайдан аламын?", "кепілдік үшін {order_id} бойынша сатып алғанымды растайтын құжат керек"]
+  - id: invoice_no_number
+    intent: invoice
+    action: clarify
+    ask: order_number
+    en: ["can you send me the receipt?", "I need a copy of my receipt for the tax office"]
+    ru: ["Пришлите мне чек, пожалуйста", "мне нужна копия чека для налоговой"]
+    kk: ["Маған чекті жіберіңізші", "салық органына чектің көшірмесі керек"]
+    mix_ru: ["чек керек еді, жібересіз бе?"]
+  - id: invoice_where_receipts_kept
+    intent: invoice
+    action: answer_kb
+    sections: [payment_policy.receipts]
+    en: ["where are receipts stored after I pay?", "do you send a receipt automatically or do I have to ask?"]
+    ru: ["Где хранятся чеки после оплаты?", "чек приходит автоматически или его нужно запрашивать?"]
+    kk: ["Төлегеннен кейін чектер қайда сақталады?", "чек автоматты түрде келе ме, әлде сұрату керек пе?"]
