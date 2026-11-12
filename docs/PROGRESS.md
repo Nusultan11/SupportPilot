@@ -15,7 +15,7 @@ documented gaps (see "Stage 4 open items").
 | 2 Data acquisition and source registry | COMPLETED | `a7bcc05`, `4384d13`, `f43dec0` |
 | 3 EDA and data quality engineering | COMPLETED | `b2f5d86`, `809b47b` |
 | 4 Multilingual dataset engineering | COMPLETED (gaps documented) | `da28191`, `6e5c537` |
-| 5 Knowledge base and document extraction | COMPLETED | see "Git and backups" |
+| 5 Knowledge base and document extraction | COMPLETED | `c79d8af`, plus a follow-up progress commit |
 
 ## What exists (cumulative)
 
@@ -386,7 +386,7 @@ WEAK_TEXT, OFF_DOMAIN, LANG_OTHER, LID_ERROR and RESPONSE_DEFECT.
   after each stage.
 - Backups live in `backups/` at the project root (git-ignored, ADR-013).
 - Code bundles (`backups/code/`): Stage 0 `…T104345Z`, Stage 1 `…T115429Z`, Stage 2
-  `…T134356Z`, Stage 3 `…1T154236Z`, Stage 4 `…2T084303Z`.
+  `…T134356Z`, Stage 3 `…1T154236Z`, Stage 4 `…2T084303Z`, Stage 5 `…2T085955Z`.
 - Stage 3 data snapshots (pinned): `clean_records/20261111T154052Z-5d85c3cb`,
   `canonical/20261111T154055Z-c62f57ae`, `eda_report/20261111T154057Z-9fe64e24`.
 - **Stage 4 data snapshots** (pinned, deep-verified, 2026-11-12):
@@ -400,6 +400,21 @@ WEAK_TEXT, OFF_DOMAIN, LANG_OTHER, LID_ERROR and RESPONSE_DEFECT.
 - **Stage 4 code:** commit `da28191` on `main` (committed from a clean worktree so that the
   hooks checked only Stage 4 files); bundle `backups/code/supportpilot-20261112T084303Z.bundle`
   (verified, sha256 file next to it).
+
+- **Stage 5 data snapshots** (pinned, deep-verified, 2026-11-12):
+  - `kb_demo_store/20261112T085739Z-f82d885d` (`data/kb/demo_store`: sources, version
+    `kb_demo_store-20261112-bcae8093`, `current.json`; 71 files). Restore drill: restored into
+    an empty directory, byte-identical, and `kb validate` passed all 13 gates on the copy.
+    Taken from the final code before the commit, so its `code_commit` reads `6e5c537…-dirty`.
+  - `kb_reports/20261112T085742Z-59678c41` (parser comparison results and script).
+- **Stage 5 code:** commit `c79d8af` on `main`; bundle
+  `backups/code/supportpilot-20261112T085955Z.bundle` (verified, sha256 file next to it).
+  A clean clone of the bundle (`uv sync --locked`, 22 s; `kb build`) reproduced
+  `kb_demo_store-20261112-bcae8093` with byte-identical `chunks.parquet` and `documents.parquet`.
+- Stage 4 builds after Stage 5: `facts.yaml` gained three keys (values of Stage 4 gold
+  `FIXED_FACTS`; no existing value changed). The gold fact check still finds 0 problems on all
+  936 items and `kb_variant_distinct` still passes; a Stage 4 re-run will rebuild `kb-train`
+  because the facts file hash is one of its inputs.
 
 ## Notes for the next stages
 
