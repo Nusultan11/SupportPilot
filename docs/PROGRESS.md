@@ -91,6 +91,10 @@ directory after Git verification; no processed datasets, backups or weights are 
 No authored-data redistribution licence has been invented. Independent human RU/KK and
 qrels review remain open, along with the historical MT-quality limitations.
 
+**Expansion Git/code backup:** implementation commit `893a7c74cf08c6fa54a22f57fa7ada04f25e9c5a`;
+all commit hooks pass. Verified code bundle: `backups/code/supportpilot-20261112T111926Z.bundle`
+with adjacent SHA256. The following documentation commit records the final evidence.
+
 ## What exists (cumulative)
 
 | Component | Path | Notes |
