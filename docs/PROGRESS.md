@@ -4,8 +4,8 @@ Last updated: 2026-11-12 (Stage 6 implementation and measured retrieval experime
 
 ## Current stage
 
-**Stage 6: IN PROGRESS — final verification/backup/publication.** Implementation and
-experiments are complete; final receipts are recorded in the Stage 6 section below.
+**Stage 6: COMPLETED — retrieval engineering and experiments, with the quality limits below.**
+Implementation, measurements, checks and local restores are verified.
 Semantic answerability is an explicit unresolved quality limit, not a passed safety gate.
 The current datasets and follow-up results are below; older Stage 4/5 tables are historical.
 
@@ -17,7 +17,7 @@ The current datasets and follow-up results are below; older Stage 4/5 tables are
 | 3 EDA and data quality engineering | COMPLETED | `b2f5d86`, `809b47b` |
 | 4 Multilingual dataset engineering | COMPLETED (gaps documented) | `da28191`, `6e5c537` |
 | 5 Knowledge base and document extraction | COMPLETED | `c79d8af`, plus a follow-up progress commit |
-| 6 Retrieval and RAG experiments | Final verification | pending stage-end commit |
+| 6 Retrieval and RAG experiments | COMPLETED (limits below) | `326d223` + stage-end report (this change) |
 
 ## Stage 6 — retrieval implementation and measurements (2026-11-12; ADR-030)
 
@@ -131,13 +131,47 @@ API cost USD 0; GPU hours across the interrupted/pause interval are UNKNOWN.
 Selected portable index `data/indexes/retrieval/c589a0db1c53a5a87322/versions/rindex-20261112-88e36128/`;
 caches and other candidates stay under `data/indexes/`. Experiment `supportpilot/retrieval`
 uses local `mlruns/mlflow.db` and artifacts. See RUNBOOK Stage 6 commands and ADR-030.
-**Checks so far:** locked environment sync, Ruff lint/format and strict mypy pass;
+**Checks:** locked environment sync, Ruff lint/format and strict mypy pass;
 full pytest **367 passed, 0 skipped** (113.56 s), including two GPU and three real-Qdrant
 tests. The final metadata-repair server test also passed separately. One local-Qdrant
-exact-search warning is expected. Hook line-ending fixes were applied; code checks pass.
+exact-search warning is expected. Initial hook line-ending fixes were applied; all
+commit hooks then passed, including strict typing and the fast pytest subset.
 Pinned index backup `retrieval_indexes/20261112T162836Z-722c87d7` deep-verifies; restore
 into an empty directory verifies 84 files, ten immutable indexes, six SQLite databases
-and the portable Qdrant snapshot hash. Report/MLflow backups and publication follow.
+and the portable Qdrant snapshot hash.
+
+**Stage-end provenance and backups:** implementation **`326d223`**; final delivery
+MLflow run **`84384dd3cb5a441bbced7d223026aa19`**, from that clean implementation commit.
+Frozen report **`retrieval_report-20261112-f18b0247`**, manifest checks all **556 members**;
+its source fingerprints cover configuration, lock, retrieval code and tests. Historical
+index/run manifests keep their original `58e7c45-dirty` build provenance; they are not
+relabelled retroactively. The delivery records the later metadata-only correction;
+encoding/search/rerank/packing measurements remain unchanged.
+
+All three snapshots are pinned, deep-verified and restored into separate empty paths:
+
+| Backup under `backups/` | Snapshot | Files | Restore verification |
+|---|---|---:|---|
+| `data/retrieval_indexes/` | `20261112T162836Z-722c87d7` | 84 | 10 index manifests, 6 SQLite caches, snapshot SHA |
+| `data/retrieval_reports/` | `20261112T163654Z-e2fdce6d` | 557 | report manifest + all 556 member hashes |
+| `data/retrieval_mlflow/` | `20261112T163650Z-7b0cc4b0` | 1,926 | SQLite integrity; delivery run FINISHED; artifact hashes |
+
+Restored MLflow contains 257 FINISHED and nine FAILED runs across the existing project
+history; the current retrieval matrix has 96 audited configuration runs. Index snapshot
+SHA256 `90ff9e3554de9337d0b95189198cdd56a27a7d6cf453cbbab0be3f2c38b81676`;
+restored named-vector digest `9ca16f9f4cf351446517028eff7c3a717b4d8b91ec4fc9d933888df03c766976`.
+Code bundle: `backups/code/supportpilot-20261112T163941Z.bundle` plus `.sha256`;
+bundle verification and a separate clone check cover the stage-end `main` commit.
+Publication/backup receipt: `artifacts/reports/retrieval_delivery_receipt.json` (outside
+the frozen report to avoid a self-referencing archive). Runtime data, models, reports,
+backups and pre-existing untracked `.codex/` are excluded from Git/publication.
+
+**Completion decision:** Stage 6 ROADMAP deliverables are implemented and measured:
+chosen multilingual pipeline, conditional language targets, comparison CIs, resumable
+incremental index, ADR, tests and verified restores. This closes the retrieval experiment
+stage; it does **not** accept semantic abstention or customer-facing RAG quality. Keep
+draft relevance status, the exploratory holdout warning and downstream grounding/routing
+requirements. Stage 7 requires a later user confirmation.
 
 **Next stage:** Stage 7 is not started. Stop here; a later user confirmation is required.
 

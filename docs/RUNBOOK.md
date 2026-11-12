@@ -582,3 +582,11 @@ all payloads/named vectors plus six dense/sparse queries. Reruns verify the rece
 they do not reset the serving collection. Restoring the backup archive to a new empty
 directory also verifies files before publication. Stage-end IDs and code bundles are
 in PROGRESS.md. Keep earlier failed/superseded artifacts and never prune pinned backups.
+
+Stage-end restore receipts: 84 index/cache files (10 immutable indexes, six SQLite
+integrity checks), 557 report files (556 manifest members), 1,926 MLflow files (SQLite
+integrity plus FINISHED delivery run). Restores live under `artifacts/restore_drills/`;
+snapshot IDs and the separate code bundle are in PROGRESS.md. The frozen report's
+`manifest.json` is a standard `DatasetManifest` with `retrieval_report/1`; delivery
+source fingerprints refer to implementation commit `326d223`. Publication receipts
+are outside that frozen directory at `artifacts/reports/retrieval_delivery_receipt.json`.
