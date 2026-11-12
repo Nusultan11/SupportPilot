@@ -17,7 +17,7 @@ Note: a separate Stage 5 session is working in this checkout on new, uncommitted
 | 1 Engineering foundation | COMPLETED | `6b17404`, `7b6bc4c` |
 | 2 Data acquisition and source registry | COMPLETED | `a7bcc05`, `4384d13`, `f43dec0` |
 | 3 EDA and data quality engineering | COMPLETED | `b2f5d86`, `809b47b` |
-| 4 Multilingual dataset engineering | COMPLETED (gaps documented) | see "Git and backups" |
+| 4 Multilingual dataset engineering | COMPLETED (gaps documented) | `da28191`, plus a follow-up progress commit |
 
 ## What exists (cumulative)
 
@@ -283,7 +283,7 @@ WEAK_TEXT, OFF_DOMAIN, LANG_OTHER, LID_ERROR and RESPONSE_DEFECT.
   after each stage.
 - Backups live in `backups/` at the project root (git-ignored, ADR-013).
 - Code bundles (`backups/code/`): Stage 0 `…T104345Z`, Stage 1 `…T115429Z`, Stage 2
-  `…T134356Z`, Stage 3 `…1T154236Z`, Stage 4: see the line below.
+  `…T134356Z`, Stage 3 `…1T154236Z`, Stage 4 `…2T084303Z`.
 - Stage 3 data snapshots (pinned): `clean_records/20261111T154052Z-5d85c3cb`,
   `canonical/20261111T154055Z-c62f57ae`, `eda_report/20261111T154057Z-9fe64e24`.
 - **Stage 4 data snapshots** (pinned, deep-verified, 2026-11-12):
@@ -294,7 +294,9 @@ WEAK_TEXT, OFF_DOMAIN, LANG_OTHER, LID_ERROR and RESPONSE_DEFECT.
   - `stage4_reports/20261112T083645Z-aec9e7b1` (MT comparison samples and metrics).
 - Models are not backed up: they are pinned by revision in `configs/base.yaml` and re-download
   into the HF cache (MADLAD-400-3B 11.8 GB, Opus-MT, M2M100, multilingual-e5-small).
-- **Stage 4 code:** STAGE4_COMMIT_LINE
+- **Stage 4 code:** commit `da28191` on `main` (committed from a clean worktree so that the
+  hooks checked only Stage 4 files); bundle `backups/code/supportpilot-20261112T084303Z.bundle`
+  (verified, sha256 file next to it).
 
 ## Notes for the next stages
 
