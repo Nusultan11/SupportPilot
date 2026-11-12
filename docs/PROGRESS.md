@@ -1,6 +1,6 @@
 # PROGRESS: current state (single source of truth for status)
 
-Last updated: 2026-11-12 (multilingual data expansion)
+Last updated: 2026-11-12 (multilingual data expansion; installed artifacts rechecked)
 
 ## Current stage
 
@@ -100,6 +100,23 @@ SFT rerun skips, and SFT/gold/retrieval/KB manifests verify there. The initial p
 rejected by automatic approval review; the owner then explicitly approved publication of
 source code and authored YAML. Implementation/installation commits were pushed to `origin/main`.
 Processed datasets, backups and model weights remain local and git-ignored.
+
+**Installed-artifact recheck (2026-11-12):** the requested expansion was already present
+on `main`; no dataset content was regenerated or changed. Reverified five output manifests,
+35 intents in each language in every SFT split, zero scenario/family overlap across splits,
+all 681 retrieval queries and 845 qrels against the active KB and authored query sources.
+Existing demo facts and gold source YAML remain unchanged from Stage 5; current SFT bytes
+match the saved forced-rebuild SHA256 receipts. Seven raw/converted sources, Stage 3 gates,
+all 13 KB gates and deep SFT/KB/retrieval snapshot checks pass. Forced KB build reparsed all
+42 documents without a version change; the SFT rerun skips unchanged inputs.
+Ruff lint/format and strict mypy pass; full pytest: **343 passed, 0 skipped** (93.86 s,
+including GPU and Qdrant). Initial sandbox/cache and nested-temp test issues, followed by
+the successful normal-temp rerun, are recorded in
+`artifacts/reports/data_expansion/recheck_checks.json`; content checks are in `recheck.json`
+with the repeatable `recheck.py` script. Pinned report snapshot:
+`data_expansion_reports/20261112T113236Z-65884674` (33 files).
+RUNBOOK §7c now follows ADR-029: preserve gold and exclude copied SFT inputs on leakage.
+Human RU/KK and relevance review remain pending; gold/retrieval stay `draft`.
 
 ## What exists (cumulative)
 

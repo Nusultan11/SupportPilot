@@ -336,7 +336,9 @@ Behaviour:
   leftovers are removed by the next run.
 - **Failed gates.** The SFT or gold build is kept at `<root>/current.failed/` with its
   `quality_report.json`, and the exit code is 1. A gold leakage hit lists the gold ids
-  (`leakage_items`): rewrite those items in `authored/gold/`, do not delete them silently.
+  (`leakage_items`): preserve `authored/gold/` and diagnose copied SFT inputs. Rebuild SFT
+  with the ADR-029 copy-exclusion policy, then rebuild gold; do not rewrite evaluation
+  questions to accommodate training data.
 - **Long runs that must survive a closed terminal or agent session:** start them detached, e.g.
   in PowerShell `Start-Process cmd -ArgumentList '/c uv run supportpilot data translate --lang kk > mt.log 2>&1' -WindowStyle Hidden`.
 
