@@ -42,7 +42,7 @@ JSON, grounding, abstention, escalation), never facts. Details: [docs/PROJECT.md
 | `docs/reviews/` | Qualitative reviews (Stage 3: `stage3_review.yaml`; Stage 4: `stage4_mt_review.yaml`, `stage4_sft_review.yaml`). LLM reviews are labelled as such |
 | `tests/unit`, `tests/integration` | pytest suites (markers: `slow`, `gpu`, `qdrant_server`) |
 | `compose.yaml` | Local services (Qdrant) |
-| `.mcp.json` | Project MCP servers for agents: `huggingface`, `mlflow` (read tools only); RUNBOOK §4a, ADR-012 |
+| `.mcp.json`, `.claude/settings.json`, `.serena/project.yml` | Agent dev-tool MCP servers (not runtime): usage rules in §12; setup RUNBOOK §4a; ADR-012 |
 | `apps/` | UI (created in Stage 8) |
 | `data/`, `artifacts/`, `mlruns/` | Local only, git-ignored |
 
@@ -117,3 +117,36 @@ backup taken; commit created; report delivered. Unverifiable items are stated as
 Everything needed to continue must be in PROGRESS.md (state, artifacts, open issues, next action)
 and DECISIONS.md — not in chat history. Subagents only for independent tasks; integrate and verify centrally.
 Project skills / MCP servers are added only for repeatable processes with proven value (see DECISIONS ADR-012).
+
+## 12. MCP servers: on demand only
+
+MCP servers are agent dev tools, never SupportPilot runtime: no `src/` code, config or
+dependency may require them. Setup, toggling, diagnostics: RUNBOOK §4a. Rationale: ADR-012.
+
+- **Built-in tools first.** Reading a file, grep/glob, a local `git` command, running tests or
+  `gh` already answer most questions. Use an MCP server only when it gives what they cannot.
+- **Never activate or call every server by default** on a task, and never call one "just to
+  check". Pick the one server the current step needs; most tasks need none.
+- Tool schemas load lazily (tool search). Remote servers start no local process; local
+  stdio servers (`serena`, `playwright`, `mlflow`) are **off by default**. When a step truly
+  needs one, ask the owner to enable it in `/mcp` (one toggle; per the client docs it
+  connects in the running session), and ask to switch it off when the task ends. Agents do
+  not edit client state files to toggle servers.
+
+| Server | Use it for | Do not use it for |
+|---|---|---|
+| `context7` (remote) | Current docs of a library/API when the version matters, behaviour is unclear, or an upgrade breaks something | Trivial or well-known calls; facts already in our code or docs |
+| `serena` (local, off) | Symbol-level work across many files: definitions, references, dependency analysis, precise symbol edits or renames | Reading or editing one known file (use Read/Edit/Grep) |
+| `github` (remote, read-only) | GitHub API data: issues, PRs, CI runs and logs, remote history, repo metadata | Local history, diffs, status (use `git`). Writes go through `gh` only when the task explicitly asks for them |
+| `playwright` (local, off) | Browser tests of the UI: user flows, forms, navigation, integration checks | Anything before the Stage 8 UI exists; general web reading |
+| `exa` (remote) | Finding primary sources: papers, model/dataset cards, technical solutions (RAG, SFT, evaluation) | Questions the docs or `huggingface` MCP answer directly |
+| `huggingface` (remote) | Hub search, model/dataset cards, licences | Downloading data (use the pipelines) |
+| `mlflow` (local, off) | Reading runs and metrics (read tools only) | Logging runs (code does it); write tools are denied |
+
+- Search results are leads, not evidence: check origin, date, version and licence, and record
+  sources we adopt in the source registry (§2).
+- Send external servers only public, minimal queries (library names, generic technical
+  terms). Never send code, KB or dataset content, logs, `.env` values or personal data.
+- Secrets (`GITHUB_MCP_PAT`, optional API keys) live in user environment variables or
+  local-scope config, never in Git. A missing key disables only that server; carry on with
+  the others and report the gap.

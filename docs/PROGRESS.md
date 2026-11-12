@@ -1,6 +1,6 @@
 # PROGRESS: current state (single source of truth for status)
 
-Last updated: 2026-11-12 (Stage 5)
+Last updated: 2026-11-12 (Stage 5; MCP dev tools)
 
 ## Current stage
 
@@ -428,11 +428,19 @@ WEAK_TEXT, OFF_DOMAIN, LANG_OTHER, LID_ERROR and RESPONSE_DEFECT.
   `messages_json` is ready for chat templates; `quality_flags` (`mt:madlad400_3b`,
   `src:bitext`, `src:authored`, `injection:*`, `conflict:*`) allow weighting. Report every
   metric per language and on gold, with the semantic-near-train subset separately.
-- MCP servers (ADR-012 amendment, 2026-11-12): `.mcp.json` declares `huggingface`, which is
-  anonymous and used for model/dataset search and licences, and `mlflow`, which is local and
-  read-only by rule. See RUNBOOK §4a. A Claude Code `deny` list for the MLflow write tools
-  is not committed yet: the agent was not allowed to write `.claude/settings.json`, so the
-  owner adds it. The Kaggle MCP is deferred to Stage 7 because it needs the owner's account.
+- MCP dev tools (ADR-012 amendments, 2026-11-12; rules AGENTS §12, setup RUNBOOK §4a).
+  Not runtime: no stage status, pipeline, contract or dependency changed.
+  - Remote, on by default: `context7`, `exa`, `github` (read-only), `huggingface`.
+  - Local stdio, off by default via `/mcp` in this clone: `serena`, `playwright`, `mlflow`.
+    A new clone must disable them once (RUNBOOK §4a step 1).
+  - Verified: Claude Code health check (all remote servers connected; `github` with a token
+    in the process env only), one safe call per server, no leftover local processes.
+  - Open: `github` needs the owner's fine-grained read-only PAT in the `GITHUB_MCP_PAT`
+    user env var; until then it fails on connect and the others are unaffected. Not
+    exercised here: re-enabling a server in `/mcp` inside a running session, and the tool
+    calls through the desktop app itself (the client was checked with `claude mcp`, the
+    calls with a fastmcp client).
+  - `.claude/settings.json` now denies the MLflow write tools (the earlier open item).
 - Re-running Stage 4: RUNBOOK §7c. MT is the only GPU step; everything else rebuilds in
   minutes from the cache.
 

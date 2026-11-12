@@ -38,6 +38,7 @@ uv run pre-commit install     # once per clone
   been run.
 - Configuration: `configs/base.yaml`. Override with env vars `SUPPORTPILOT_<SECTION>__<KEY>`,
   or a file via `--config` / `SUPPORTPILOT_CONFIG`. Secrets go in `.env` (git-ignored).
+- Agents: disable the local MCP servers once per clone (§4a step 1).
 
 ## 3. Quality checks (verified Stage 5)
 
@@ -82,26 +83,71 @@ artifacts are in `mlruns/artifacts/`. Both are git-ignored, so back them up with
 
 ## 4a. MCP servers for agents (verified 2026-11-12, ADR-012)
 
-`.mcp.json` declares two servers. Claude Code asks once per clone before it enables them.
-Other MCP clients can read the same file.
+Dev tools only, not SupportPilot runtime. Usage rules: AGENTS.md §12. Client: Claude Code
+(2.1.321, the Claude desktop app's Code tab). It reads `.mcp.json` at session start and
+loads tool schemas lazily (tool search), so an idle server costs no schema tokens.
 
-| Server | Transport | Tools agents may use |
-|---|---|---|
-| `huggingface` | HTTP, `https://huggingface.co/mcp`, anonymous | `hub_repo_search`, `hub_repo_details`, `hf_fs`, `hf_whoami` |
-| `mlflow` | stdio, `uv run --locked mlflow mcp run` (cwd = repo root) | read only: `search_experiments`, `get_experiment`, `list_runs`, `describe_run` |
+| Server | Transport (no secrets in Git) | Default | Auth |
+|---|---|---|---|
+| `context7` | HTTP `https://mcp.context7.com/mcp` | on | none (anonymous rate limit) |
+| `exa` | HTTP `https://mcp.exa.ai/mcp?tools=web_search_exa,web_fetch_exa` | on | none (anonymous rate limit, direct IPv4) |
+| `github` | HTTP `https://api.githubcopilot.com/mcp/`, `X-MCP-Readonly: true`, toolsets `context,repos,issues,pull_requests,actions` (29 read tools) | on | `GITHUB_MCP_PAT` user env var |
+| `huggingface` | HTTP `https://huggingface.co/mcp` | on | none |
+| `serena` | stdio `uvx -p 3.13 --from serena-agent==2.1.0 serena start-mcp-server --context claude-code --project-from-cwd`, dashboard off, telemetry off; project config `.serena/project.yml` (tool interface, no onboarding, no memories) | **off** | none |
+| `playwright` | stdio `npx -y @playwright/mcp@0.0.84 --browser msedge --headless --isolated --output-dir artifacts/playwright` | **off** | none |
+| `mlflow` | stdio `uv run --locked mlflow mcp run` (read tools only) | **off** | none |
 
-The MLflow server also exposes create, delete, restore and rename tools. Never call them.
-To make Claude Code enforce this, add a `deny` list for those tool names to
-`.claude/settings.json` (or `.claude/settings.local.json`).
+`.claude/settings.json` denies the MLflow write tools and Playwright `browser_run_code_unsafe`.
 
-Check both servers without an agent:
+**Per-clone setup (once).**
+1. Open a session in the repo. In `/mcp`, select `serena`, `playwright` and `mlflow` and
+   choose *Disable*. Claude Code stores this per project in `~/.claude.json`
+   (`projects.<path>.disabledMcpServers`). Until then the three local servers start with
+   every session.
+2. Optional, for `github`: create a fine-grained PAT (repository `Nusultan11/SupportPilot`,
+   or public repos only; permissions read-only: Metadata, Contents, Issues, Pull requests,
+   Actions), then set it as a user env var and restart the app:
+   ```powershell
+   [Environment]::SetEnvironmentVariable("GITHUB_MCP_PAT", "<token>", "User")
+   ```
+   Without it `github` fails with HTTP 400/401 and the other servers are unaffected.
+3. Optional keys (higher rate limits) go into local scope, never `.mcp.json`, e.g.
+   `claude mcp add --scope local --transport http context7 https://mcp.context7.com/mcp --header "Authorization: Bearer <key>"`
+   (a local entry with the same name overrides the project one). An empty `Bearer ` header
+   breaks the connection, so the project config carries no optional key.
+
+**On demand.** Enable a local server in `/mcp` for the task that needs it; per the Claude
+Code docs it connects in the running session (not exercised here). Disable it in `/mcp` when done. Ending the session also ends the
+server's process tree. No server is needed by `uv run pytest`, the CLI or any pipeline.
+
+**Check without an agent** (`claude` = the CLI; the desktop copy lives under
+`%LOCALAPPDATA%\Claude-Data\...\claude-code\<version>\`). A plain `claude mcp list` shows
+"Pending approval" because the desktop app approves project servers itself:
 ```bash
-uv run mlflow mcp run --help                       # needs mlflow[mcp] (dev group)
-claude mcp list                                    # if the Claude Code CLI is installed
+claude --settings '{"enableAllProjectMcpServers":true}' mcp list   # health-checks enabled servers
+claude mcp get github                                              # headers and status
 ```
-How it was verified: an MCP client (fastmcp) started the stdio server, listed 13 tools and
-`search_experiments` returned `supportpilot/healthcheck`. Anonymously, the HF server listed 4
-tools and `hub_repo_details` returned the card of `intfloat/multilingual-e5-small`.
+Expected: `context7`, `exa`, `huggingface` "Connected"; `github` "Connected" when
+`GITHUB_MCP_PAT` is set; `serena`, `playwright`, `mlflow` "Disabled for this project", not started.
+
+**Diagnostics.**
+| Symptom | Fix |
+|---|---|
+| `github`: "Authorization header is badly formatted" / 401, warning "Missing environment variables: GITHUB_MCP_PAT" | Set the PAT (step 2) and restart the app |
+| `exa`: 403 | Keyless access needs a direct IPv4 connection; use a key in local scope |
+| `serena` times out on first start | It installs Pyright via uv on first use; start it once in a terminal or set `MCP_TIMEOUT=60000` |
+| `serena` offers onboarding or memories | Check `added_modes` in `.serena/project.yml`; project facts belong in docs, not `.serena/memories` |
+| `playwright`: browser not found | It uses the installed Edge (`--browser msedge`); no `playwright install` needed |
+| A local server keeps running | Disable it in `/mcp` or end the session; `Get-CimInstance Win32_Process` filtered on `serena\|pyright\|playwright` must be empty |
+
+How it was verified (2026-11-12): Claude Code `mcp list` connected `context7`, `exa`,
+`huggingface`, `mlflow` and (token in the process env only) `github`; it reported the
+disabled servers without starting them. A fastmcp client started each server exactly as
+declared and ran one safe call: `context7` `resolve-library-id` (polars), `exa`
+`web_search_exa` (Qdrant hybrid search docs), `github` `list_commits` on this repo,
+`serena` `find_referencing_symbols` for `find_project_root`, `playwright` `browser_navigate`
+to an inline `data:` page. After each stdio probe no `serena`, `pyright` or `playwright`
+process was left.
 
 ## 5. Code backup (git bundle): verified Stage 0, new location verified Stage 2
 

@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "deny": [
+      "mcp__mlflow__create_experiment",
+      "mcp__mlflow__create_run",
+      "mcp__mlflow__delete_experiment",
+      "mcp__mlflow__delete_run",
+      "mcp__mlflow__rename_experiment",
+      "mcp__mlflow__restore_experiment",
+      "mcp__mlflow__restore_run",
+      "mcp__mlflow__update_experiment",
+      "mcp__mlflow__link_traces_to_run",
+      "mcp__playwright__browser_run_code_unsafe"
+    ]
+  }
+}

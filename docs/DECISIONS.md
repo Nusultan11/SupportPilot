@@ -84,7 +84,7 @@ Format: context → decision → alternatives → risks → revisit when. Status
 - **Alternatives:** W&B (external account, data leaves the machine); plain CSV logs (no comparison UI).
 - **Revisit:** multi-machine collaboration needs a shared tracking server.
 
-### ADR-012 Skills and MCP: none at Stage 0 — accepted (2026-11-11)
+### ADR-012 Skills and MCP: none at Stage 0; MCP dev tools on demand — accepted (2026-11-11, amended 2026-11-12)
 - **Decision:** no project skills or MCP servers yet. There is no repeated process to capture.
   HF access via `huggingface_hub`; research via built-in web tools.
   Candidate skills once the processes exist: `data-quality-audit` (Stage 3), `rag-eval` (Stage 6), `experiment-review` (Stage 7), `release-readiness` (Stage 10).
@@ -117,6 +117,55 @@ Format: context → decision → alternatives → risks → revisit when. Status
   - **Deferred:** Kaggle's hosted MCP (`https://www.kaggle.com/mcp`, OAuth). It needs the
     owner's Kaggle account, so it waits for Stage 7 when training moves to Kaggle.
   - **Rollback:** delete the entry from `.mcp.json` (and `mlflow[mcp]` from the dev group).
+- **Dev-tool amendment (2026-11-12, owner request before Stage 6): five more servers, all on demand.**
+  - **New evidence:** the owner asked for Context7, Serena, GitHub, Playwright and Exa as
+    standard agent tools. This reopens the earlier rejection of GitHub MCP and Context7
+    (above). All five are dev tools: nothing in `src/`, configs or dependencies uses them.
+  - **Client facts (Claude Code 2.1.321 in the desktop app, measured):** tool schemas load
+    lazily (tool search on by default), so idle servers cost only their tool names. Every
+    enabled project server is connected at session start; the desktop app approves
+    `.mcp.json` servers without a prompt. A stdio server is a local process for the whole
+    session. The `/mcp` toggle (`disabledMcpServers`, per project in `~/.claude.json`)
+    stops a server from starting; per the docs, re-enabling connects it in the running
+    session. The agent cannot toggle project servers itself (`set_session_connector_enabled`
+    covers claude.ai connectors only).
+  - **Decision:**
+    - Remote HTTP servers stay on: `context7`, `exa` (tools `web_search_exa`,
+      `web_fetch_exa`), `github`, `huggingface`. Cost per session: one connect and tool
+      list each, no local process, no project data.
+    - Local stdio servers are off by default: `serena`, `playwright` and now also
+      `mlflow` (it ran in every session). The owner turns one on in `/mcp` for the task that
+      needs it. A committed `disabledMcpjsonServers` was rejected because it hard-rejects a
+      server and `/mcp` cannot re-enable it.
+    - `github` is read-only: `X-MCP-Readonly: true` and toolsets `context,repos,issues,
+      pull_requests,actions` (29 read tools). Token from the `GITHUB_MCP_PAT` user env var
+      (fine-grained, read-only). Writes go through `gh` when a task asks for them.
+      The local Docker image was rejected: it is a local process and needs Docker running.
+    - `serena` is pinned (`serena-agent==2.1.0`) with context `claude-code`, the tool
+      interface (2.1 defaults to a Python REPL tool), no dashboard, no telemetry, and modes
+      `no-onboarding` and `no-memories`, because PROGRESS/DECISIONS stay the only memory.
+      `.serena/project.yml` is versioned; everything else under `.serena/` is ignored.
+    - `playwright` is pinned (`@playwright/mcp@0.0.84`, the newest release ≥ 10 days old),
+      headless, isolated profile, installed Edge (no browser download). Output goes to the
+      git-ignored `artifacts/playwright`. It stays off until the Stage 8 UI exists.
+    - Context7 and Exa run keyless (anonymous rate limits). Keys, if ever needed, go into
+      local scope, because an empty optional `Bearer` header breaks the connection.
+    - `.claude/settings.json` denies the MLflow write tools and Playwright
+      `browser_run_code_unsafe` (closes the earlier open item).
+  - **Alternatives:** everything always on (a Serena + Pyright and a Node process in every
+    session, for tools most tasks do not need); stdio variants of Context7/Exa (local
+    processes for no gain); a launcher script that edits client state (couples the repo
+    to a private client file format).
+  - **Risks:** a fresh clone starts the local servers until the owner disables them once
+    (RUNBOOK §4a step 1); anonymous rate limits; queries leave the machine (rule: public,
+    minimal queries only, AGENTS §12).
+  - **Verified:** RUNBOOK §4a (client health check plus one safe call per server, no
+    leftover processes).
+  - **Rollback:** remove the entry from `.mcp.json` (and `.serena/`, the deny rules), or
+    disable it in `/mcp`.
+  - **Revisit:** if the client gains agent-driven activation of project servers, use it for
+    the local servers; if a remote server's handshake cost or rate limits become a problem,
+    turn it off by default as well.
 
 ### ADR-013 Git on `main` only; backups in the git-ignored `backups/` dir — accepted (2026-11-11, location changed the same day)
 - **Decision:** project rule set by the owner.

@@ -15,6 +15,45 @@
         "DO_NOT_TRACK": "true",
         "MLFLOW_DISABLE_AGENT_HINT": "1"
       }
+    },
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "exa": {
+      "type": "http",
+      "url": "https://mcp.exa.ai/mcp?tools=web_search_exa,web_fetch_exa"
+    },
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${GITHUB_MCP_PAT}",
+        "X-MCP-Readonly": "true",
+        "X-MCP-Toolsets": "context,repos,issues,pull_requests,actions"
+      }
+    },
+    "serena": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "-p", "3.13", "--from", "serena-agent==2.1.0",
+        "serena", "start-mcp-server",
+        "--context", "claude-code", "--project-from-cwd",
+        "--enable-web-dashboard", "false", "--open-web-dashboard", "false"
+      ],
+      "env": {
+        "SERENA_USAGE_REPORTING": "false"
+      }
+    },
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y", "@playwright/mcp@0.0.84",
+        "--browser", "msedge", "--headless", "--isolated",
+        "--output-dir", "artifacts/playwright"
+      ]
     }
   }
 }

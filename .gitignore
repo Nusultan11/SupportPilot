@@ -36,3 +36,8 @@ htmlcov/
 Thumbs.db
 .idea/
 .vscode/
+
+# Agent dev tools (MCP, ADR-012): Serena keeps only its versioned project.yml
+/.serena/*
+!/.serena/project.yml
+.claude/settings.local.json
