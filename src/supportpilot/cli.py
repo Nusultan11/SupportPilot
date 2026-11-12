@@ -434,6 +434,9 @@ def build_parser() -> argparse.ArgumentParser:
     from supportpilot.kb.cli import add_parser as add_kb_parser
 
     add_kb_parser(sub)
+    from supportpilot.retrieval.cli import add_parser as add_retrieval_parser
+
+    add_retrieval_parser(sub)
     return p
 
 

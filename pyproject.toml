@@ -5,6 +5,8 @@ description = "Multilingual (RU/KK/EN) grounded customer-support assistant for a
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = [
+    "bm25s>=0.2.14",
+    "httpx>=0.28.1",
     "huggingface-hub>=2.4.0",
     "lingua-language-detector>=2.2.0",
     "matplotlib>=3.11.2",
@@ -91,7 +93,7 @@ mypy_path = "src"
 files = ["src", "tests"]
 
 [[tool.mypy.overrides]]
-module = ["mlflow.*", "qdrant_client.*", "pyarrow.*", "scipy.*", "reportlab.*", "openpyxl.*", "pdfplumber.*", "docx.*", "PIL.*"]
+module = ["mlflow.*", "qdrant_client.*", "pyarrow.*", "scipy.*", "reportlab.*", "openpyxl.*", "pdfplumber.*", "docx.*", "PIL.*", "bm25s.*"]
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]

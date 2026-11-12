@@ -103,3 +103,64 @@ Rules:
 | 6 | dense vs sparse vs hybrid; ≥ 3 embedding models; chunking strategy × size × overlap; top-k; RRF vs weighted fusion; rerank vs none; mono- vs cross-lingual |
 | 7 | zero-shot vs few-shot vs LoRA/QLoRA per candidate model; rank {8, 16, 32}; LR {5e-5, 1e-4, 2e-4}; target modules; sequence length / packing; encoder classifier vs LLM router |
 | 8–9 | end-to-end with and without fine-tuned model; quantised vs bf16 inference; latency/VRAM trade-offs |
+
+## 6. Stage 6 executed retrieval protocol (2026-11-12)
+
+The immutable inputs are `retrieval-20261112-ecc28bf4` (681 queries, 175 needs,
+633 answerable/48 unanswerable) and `kb_demo_store-20261112-d58e3f93` (369 chunks).
+All relevance judgements remain `draft`; reported quality is conditional on those
+judgements. Gold is not loaded for model/parameter selection or retrieval evaluation.
+The Stage 4 SFT validation/test sets are not used for retrieval tuning.
+
+`sha256(seed|scenario_id)[:8] % 5 == 0` defines holdout; seed 20261112 gives 33 needs /
+160 queries, versus 142 / 521 development. Translations and code-switched variants of
+one need stay together. Ranking selection uses development metrics only: start from
+the best minimum-language recall baseline; adopt a reranker only when its paired
+development Recall or nDCG CI excludes zero and no mono language loses more than .005
+Recall. Prefer the baseline otherwise. There is no stochastic fitting; one deterministic
+inference configuration/seed was measured, not three independent training runs.
+
+The matrix comprises 74 embedding/sparse/fusion/top-k/view configurations, seven
+rerank/control variants and 15 whole-query score gates. Four encoders and two rerankers
+use pinned weights and documented pooling/prefix protocols. Sparse Qdrant BM25-style
+fixed-pivot normalization and BM25S are separate baselines, not numerically identical
+implementations. Chunk-view comparisons use E5-base as the controlled encoder; this
+does not establish a universal chunking optimum for every encoder. Context budgets
+512/1024/2048 and section diversification are compared separately. Canonical qrels
+never change: an adjacent view with two members consumes two canonical ranking slots.
+
+**Protocol amendment:** the initial gate rule required only RU/KK/EN mono Recall >= .85.
+It selected .02 but development cross-language Recall fell from .9744 to .6667. That
+rule was rejected as unsuitable for the task. The amended rule additionally allows at
+most .01 development Recall loss on cross-language and RU–KK slices. No positive gate
+survives; the default gate is disabled. The earlier holdout had already been inspected:
+its subsequent results and paired CIs are **exploratory**, not an untouched confirmation
+set. `gate_selection_history.json` retains the amendment and initial result. No qrels,
+query texts, split seed or gold labels were changed. A fresh independently reviewed
+cohort is needed before a generalization or deployment claim.
+
+Full/development/holdout Recall@5, MRR@10, nDCG@10 use 1,000 scenario-cluster bootstrap
+resamples and 95% percentile CIs. Paired deltas reuse the same needs; a CI containing
+zero provides no evidence of improvement. Mono language, query language, six directional
+language pairs, cross-language, RU–KK, multi-fragment and semantic-near-SFT results are
+separate. Empty-qrels queries have undefined ranking metrics, not zero recall; their
+abstention/FPR have separate grouped CIs. Rejected answerable queries score zero.
+Tiny slices (six mixed queries, six answerable semantic-near queries) cannot establish
+language robustness. This is evidence retrieval, not generated-answer quality.
+
+The final public API is also run online for all 681 queries, without query/pair caches,
+with model loading separated from warm latency. Evaluate the *packed context* as well
+as top-k rankings; metadata counts in the Qwen tokenizer budget. Store raw latency,
+resource samples, model-load time, document encode speed, artifact/snapshot sizes and
+incremental/no-work times. RSS is the Python process; GPU figures are PyTorch peaks,
+not whole-machine RAM/VRAM. Docker and other applications are outside process RSS.
+Concurrent LLM serving, sustained multi-user throughput and production scale are untested.
+
+Artifacts: `artifacts/reports/retrieval/{comparison.md,summary.json,paired_comparisons.json,
+context_comparison.json,online_context_metrics.json,performance.json,errors.json,
+error_analysis.md,index_drill.json}`; complete CIs/observations per configuration under
+`comparisons/`. MLflow runs include failed attempts and operational measurements.
+When a model misses .85, analyse up to 50 distinct failed needs per language; if fewer
+exist, report the entire available census and its size, without duplicating errors.
+No automatic relevance-score threshold proves that a live order/status or missing
+policy exception exists in the KB. Stage 7/8 grounding and routing remain necessary.

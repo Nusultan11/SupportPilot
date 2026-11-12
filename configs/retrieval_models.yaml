@@ -1,0 +1,61 @@
+schema_version: retrieval_models/1
+reviewed_at: '2026-11-12'
+references:
+  - https://huggingface.co/intfloat/multilingual-e5-small/blob/614241f622f53c4eeff9890bdc4f31cfecc418b3/README.md
+  - https://huggingface.co/intfloat/multilingual-e5-base/blob/d128750597153bb5987e10b1c3493a34e5a4502a/README.md
+  - https://huggingface.co/BAAI/bge-m3/blob/5617a9f61b028005a4858fdac845db406aefb181/README.md
+  - https://huggingface.co/Qwen/Qwen3-Embedding-0.6B/blob/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/README.md
+  - https://huggingface.co/BAAI/bge-reranker-v2-m3/blob/953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e/README.md
+  - https://huggingface.co/Qwen/Qwen3-Reranker-0.6B/blob/e61197ed45024b0ed8a2d74b80b4d909f1255473/README.md
+# Primary evidence: pinned public model cards; inference uses transformers, no remote code.
+models:
+  e5_small:
+    repo_id: intfloat/multilingual-e5-small
+    revision: 614241f622f53c4eeff9890bdc4f31cfecc418b3
+    licence: mit
+    kind: embedding
+    pooling: mean
+    dimensions: 384
+    protocol: e5
+    batch_size: 16
+  e5_base:
+    repo_id: intfloat/multilingual-e5-base
+    revision: d128750597153bb5987e10b1c3493a34e5a4502a
+    licence: mit
+    kind: embedding
+    pooling: mean
+    dimensions: 768
+    protocol: e5
+    batch_size: 8
+  bge_m3:
+    repo_id: BAAI/bge-m3
+    revision: 5617a9f61b028005a4858fdac845db406aefb181
+    licence: mit
+    kind: embedding
+    pooling: cls
+    dimensions: 1024
+    protocol: plain
+    batch_size: 4
+  qwen_embedding:
+    repo_id: Qwen/Qwen3-Embedding-0.6B
+    revision: 97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3
+    licence: apache-2.0
+    kind: embedding
+    pooling: last
+    dimensions: 1024
+    protocol: qwen
+    batch_size: 4
+  bge_reranker:
+    repo_id: BAAI/bge-reranker-v2-m3
+    revision: 953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e
+    licence: apache-2.0
+    kind: reranker
+    protocol: classification
+    batch_size: 4
+  qwen_reranker:
+    repo_id: Qwen/Qwen3-Reranker-0.6B
+    revision: e61197ed45024b0ed8a2d74b80b4d909f1255473
+    licence: apache-2.0
+    kind: reranker
+    protocol: qwen
+    batch_size: 4

@@ -111,3 +111,20 @@ kb:                                # Stage 5 knowledge base (ADR-027, DATA_CONTR
   max_tokens: 400                  # chunk budget in kb.tokenizer tokens
   tokenizer: qwen3                 # name from eda.tokenizers (pinned, hash-checked)
   lid_min_letters: 40              # language gate on prose chunks with at least this many letters
+
+retrieval:
+  models: configs/retrieval_models.yaml
+  encoder: bge_m3
+  reranker: bge_reranker
+  view: canonical
+  sparse: word
+  mode: hybrid
+  fusion: weighted
+  dense_weight: 0.75
+  candidate_k: 20
+  rerank_k: 20
+  evidence_threshold: null        # score gate failed multilingual recall guard; ADR-030
+  context_tokens: 1024
+  device: auto
+  seed: 20261112
+  evaluation_date: '2026-11-12'

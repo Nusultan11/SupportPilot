@@ -607,6 +607,77 @@ Format: context → decision → alternatives → risks → revisit when. Status
   as measurements of the new authored questions. No authored-data redistribution licence
   or real customer data was introduced.
 
+### ADR-030 Measured multilingual retrieval and portable index — accepted (2026-11-12)
+
+- **Problem:** Stage 7 needs evidence with stable KB provenance on 4 GB VRAM, including
+  Kazakh, cross-language queries and policy changes. A high English-only average is
+  insufficient. The fixed 681-query/369-chunk benchmark is LLM-authored and remains draft.
+- **Choice:** pinned BGE-M3 dense embeddings (CLS, 1024 dimensions, fp16 CUDA), Unicode
+  word BM25-style sparse vectors with Qdrant IDF, min-max weighted fusion (.75 dense),
+  20 candidates from each channel, BGE-reranker-v2-m3 over 20 canonical candidates,
+  output up to 10, whole-chunk JSON evidence within 1024 Qwen tokens. No section
+  diversification or automatic score gate by default. Reuse Transformers/Qdrant/MLflow;
+  BM25S is an experimental reference dependency, not an additional runtime service.
+  Model cards, licences, full revisions/protocols: `configs/retrieval_models.yaml`;
+  measured comparison/CI artifacts: `artifacts/reports/retrieval/` (backed up locally).
+- **Evidence:** 96 configurations/variants, four encoders and two rerankers. Dense-only
+  mono Recall@5 RU/KK/EN: E5-small .9259/.6411/.9330; E5-base .9530/.7459/.9565;
+  BGE-M3 .9775/.9463/.9693; Qwen3-Embedding-0.6B .9775/.8834/.9770. Cross-language
+  Recall respectively .7283/.7536/.9275/.7029. Architecture reputation did not decide.
+  Final reranked Recall .9898/.9678/.9760, cross .9420; draft qrels and bootstrap limits
+  apply. Against the development fusion baseline, the reranker improves nDCG by .0339
+  [95% paired CI .0209,.0467]; recall delta .0105 [.0010,.0212]. These are development
+  comparisons, not an independent deployment acceptance test.
+  The matched k20 control gives nDCG delta .0335 [.0209,.0466]. K20 versus k10
+  reranking is not statistically established (.0012 [-.0019,.0053]); k20 follows
+  the development minimum-language recall rule. K10 remains a latency alternative
+  to revisit with Stage 7 residency/latency measurements, not a proven inferior option.
+- **Alternatives/negative results:** word sparse loses morphology and cross-language
+  meaning; prefix sparse helps mono retrieval but not translation. RRF, dense weights
+  .25/.5/.75, top-k 10/20/40 and E5-base canonical/window/overlap/adjacent views were
+  measured. Qwen reranking is substantially slower, and its k20 cross recall is .8551
+  versus .9420 for BGE. Qwen batch 8 did not materially improve throughput over 4;
+  batch 16 was slower. No universal optimum across all chunking/encoder combinations
+  is claimed. Failed setup, interrupted inference and negative threshold runs are retained.
+- **Answerability limit:** a positive reranker score is not evidence of answerability.
+  Per-chunk pruning drops legitimate background. A whole-query .02 gate initially
+  met mono targets but reduced development cross recall .9744 -> .6667. The selection
+  rule was amended to protect cross-language/RU–KK recall within .01 of ungated output;
+  all positive tested thresholds fail. Keep the gate as an optional measured mechanism,
+  disabled by default. Consequently default top-k returns candidates for all 48 empty-qrels
+  queries (FPR 1.0). Empty filters, expired policies, insufficient context and configured
+  low-confidence rejection fail closed, but semantic abstention is **not solved**.
+  No factual answer may be inferred from a nonempty candidate list alone. Downstream
+  claim grounding and live-tool routing are required before customer-facing use.
+- **Evaluation honesty:** after the initial gate experiment, holdout was already viewed.
+  Final holdout/CIs are exploratory; no untouched confirmation claim. Gold never selected
+  parameters. Keep all statuses draft and retain `gate_selection_history.json`.
+- **Index lifecycle:** immutable hashed local snapshots + checksummed batch caches;
+  one materialised collection per recipe, OS-owned writer locks, bounded IO retries,
+  inventory-verified upsert/delete, fail-closed readiness. Parent `changes.json` is
+  validated; non-parent rollback uses the exact inventory diff. Interruption resumes
+  from committed batches. Metadata-only date/type edits replace payloads while retaining
+  vectors; complete payload inventories are compared on no-work and completion checks.
+  Unchanged runs perform no inference/upsert/delete. Brief
+  unavailability during version changes is an explicit trade-off against dual collections.
+  Deleted IDs leave the live index; internal tombstones are Qdrant's responsibility.
+- **Restore correction:** global sparse IDF changed after delete/reinsert/restore despite
+  byte-identical named vectors. Scope IDF to live `kb_version` using Qdrant 1.20's corpus
+  filter. Recompute all prepared searches and comparisons with `kb_scoped_idf/1`.
+  Snapshot recovery actually uploads the local file into a separate collection; compare
+  all payloads, all named-vector hashes, and six dense/sparse query results (normal
+  floating-point tolerance). Parent rollback, forward 90 deletes/171 upserts/198 retained
+  vectors and no-work rerun were verified against the real server.
+- **Resources/operation:** selected encoder and reranker coexist locally; no LLM residency
+  or multi-user SLO has been verified. Full online measurements, process RSS, PyTorch
+  peaks, index bytes and indexing times are in `performance.json`/`index_drill.json`.
+  Exact search is appropriate to this 369-chunk experiment; do not infer million-row scale.
+- **Revisit/rollback:** require a fresh independently reviewed multilingual/unanswerable
+  cohort, evidence of unacceptable recall/latency, larger documents or Stage 7 residency
+  measurements before changing this choice. Activate a previous KB, rebuild/synchronise
+  that recipe from verified artifacts/cache, then serve; never mix KB versions. Original
+  KB/SFT/gold contracts are unchanged. Model-specific thresholds require recalibration.
+
 ## Open decisions (owner input needed; see PROGRESS.md)
 1. Budget for a paid LLM API (MT for KK/RU, data generation, LLM judge). Without it: open MT + local models, with lower expected KK quality.
 2. Availability of fluent KK and RU reviewers for the gold benchmark and translation audits.

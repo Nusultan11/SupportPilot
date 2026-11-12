@@ -40,12 +40,12 @@ uv run pre-commit install     # once per clone
   or a file via `--config` / `SUPPORTPILOT_CONFIG`. Secrets go in `.env` (git-ignored).
 - Agents: disable the local MCP servers once per clone (§4a step 1).
 
-## 3. Quality checks (verified Stage 5)
+## 3. Quality checks (verified Stage 6)
 
 ```bash
 uv run ruff check . && uv run ruff format --check .
 uv run mypy                   # strict; src + tests
-uv run pytest -q              # full suite: 317 tests, ~66 s (with the Qdrant server up)
+uv run pytest -q              # Stage 6: 367 passed, 0 skipped, 114 s; GPU + Qdrant up
 uv run pytest -q -m "not slow and not gpu and not qdrant_server"   # fast subset
 uv run pre-commit run --all-files                                  # all hooks
 ```
@@ -464,3 +464,121 @@ evidence and the distinction from historical MT error estimates are in
 | `data translate` very slow, `nvidia-smi` near 4 GB | VRAM spills into shared memory. Close GPU apps; keep MADLAD `batch_size` at 8 in `stage4.mt_systems` |
 | `data sft`: "translations missing" | Run `data translate --lang <ru|kk>` until it reports `translated: 0` |
 | `data gold` fails `leakage` | Keep gold unchanged. Rebuild SFT with copy exclusion; diagnose remaining SFT inputs using `current.failed/quality_report.json` |
+
+## 9. Retrieval and experiments (verified Stage 6, ADR-030)
+
+Start Docker Desktop, wait for `docker info`, then `docker compose up -d qdrant`.
+`docker desktop start --detach` was also verified on this Windows installation.
+The selected defaults are in `configs/base.yaml`: BGE-M3, word sparse, weighted .75,
+20 candidates/channel, BGE rerank 20, output up to 10 and context 1024 Qwen tokens.
+Model revisions/licences and pooling/prefixes are pinned in `configs/retrieval_models.yaml`.
+
+Commands below were run in PowerShell (UTF-8 is needed for redirected KK text):
+
+```powershell
+$env:PYTHONUTF8='1'
+uv sync --locked
+uv run --locked supportpilot retrieval index
+uv run --locked supportpilot retrieval query 'Алматыға жеткізу қанша тұрады?' --lang ru --budget 1024 --as-of 2026-11-12
+uv run --locked supportpilot retrieval query 'Доставка' --lang kk --doc-id missing-document --as-of 2026-11-12
+```
+
+`--lang` filters the **corpus**, independently of query language (the first example is
+KK input / RU evidence). Omit it to search all KB languages. `--doc-id`/`--doc-type`
+are repeatable. `--as-of` is inclusive; serving defaults to today's date, experiments
+pin `retrieval.evaluation_date`. CLI returns JSON evidence with original locators,
+scores, KB/index versions, token budget and `abstain/reason`. Empty document filter
+returned zero tokens/evidence and `no_retrieval_evidence`. `--budget 0` rejects all
+evidence; fragments are never cut to fit. Retrieval does not generate store answers.
+
+Library (the equivalent persistent-model API was used for all 681 online requests):
+
+```python
+from supportpilot.common.config import load_settings
+from supportpilot.retrieval import SearchFilters, open_retriever
+
+with open_retriever(load_settings()) as retrieval:
+    context = retrieval.context(
+        "Алматыға жеткізу қанша тұрады?",
+        filters=SearchFilters(corpus_lang="ru"),
+        budget=1024,
+    )
+```
+
+Resume/index versions:
+
+- Re-run `retrieval index` after interruption. Checksummed embeddings are committed in
+  batches; Qdrant inventory supplies the remaining upserts/deletes. OS locks release on
+  process death. Do not remove persistent `.lock` files or SQLite caches to recover.
+- KB activation and retrieval synchronisation are separate. After `kb activate <version>`,
+  run `retrieval index` before serving; queries fail closed until they agree. To roll back,
+  activate the previous verified KB and run the same index command. Cached immutable
+  snapshots avoid re-encoding unchanged text. The activate command itself is Stage 5;
+  Stage 6 tested real parent/current index transitions without changing the active KB pointer.
+- `retrieval index --kb-version <version>` materialises an explicit version; it does not
+  activate the KB. Queries still require agreement with active KB. Never serve a mismatched
+  collection or clear the live collection as a recovery shortcut.
+- A matching parent validates `changes.json`; other transitions use exact inventories.
+  Selected forward update: 90 deletes/171 upserts/198 vectors retained; rerun 0/0.
+  Global sparse IDF is unsuitable after these transitions: preserve the implemented
+  KB-scoped IDF query settings (requires the pinned Qdrant 1.20 feature).
+
+Experiment stages were verified individually; all reuse existing checkpoints where valid:
+
+```powershell
+# After a successful first download; omit this on a cold cache:
+$env:HF_HUB_OFFLINE='1'
+uv run --locked supportpilot retrieval experiment --stage prepare
+uv run --locked supportpilot retrieval experiment --stage compare
+uv run --locked supportpilot retrieval experiment --stage batch
+uv run --locked supportpilot retrieval experiment --stage rerank
+uv run --locked supportpilot retrieval experiment --stage report
+uv run --locked supportpilot retrieval experiment --stage profile
+uv run --locked supportpilot retrieval experiment --stage drill
+```
+
+Cold execution downloads pinned public weights; it does not need remote inference or
+paid API credentials. The gated Gemma candidate was only screened, not downloaded.
+HF cache completeness is checked against actual weight files (BGE-M3 uses `.bin` at its
+pinned revision); a config-only snapshot is not a usable offline model. Clear the
+offline env flag for a missing download. Model changes produce a separate recipe/cache.
+
+Reranking all 13,620 pairs is substantially slower with Qwen; interrupted committed
+batches resume. Qwen batch 4 is retained: measured 4/8/16 pair throughput 4.87/4.88/4.41 s^-1.
+Do not run concurrent model jobs during measurement. `profile` runs all 681 queries
+through the public API without query/pair caches and measures the packed context.
+All results remain conditional on draft qrels. A confidence-rule amendment followed
+an initial holdout inspection; later holdout results are exploratory. No gold tuning.
+
+Read `artifacts/reports/retrieval/comparison.md`, `summary.json`, per-configuration
+`metrics.json`/`observations.json`, `online_context_metrics.json`, `performance.json`,
+`context_audit.json`, `indexing_upload.json`, `error_analysis.md`, `mlflow_audit.json`.
+The scripts `error_analysis.py`, `context_audit.py`, `measure_index_upload.py` in that
+backed-up report directory reproduce the detailed diagnostic census and isolated upload
+measurement; they are analysis artifacts, not runtime dependencies. MLflow experiment
+`supportpilot/retrieval` contains 96 audited current comparison runs and nine retained
+failed attempts, as well as preparation/probe/profile runs and superseded measurements.
+
+Measured laptop profile: warm p50/p95 297/841 ms, 2.18 sequential requests/s; cold first
+request 16.93 s. Python peak RSS 4.80 GiB, PyTorch allocated/reserved VRAM 2.145/2.174 GiB.
+These exclude Docker/desktop memory. Document encoding 40.37 units/s; portable selected
+index files 2,123,262 bytes, snapshot 7,687,680 bytes. Larger/multi-user workloads and
+simultaneous LLM residency are unverified. Earlier short samples were faster; use the
+681-query result for planning. Keep models alive between requests; CLI startup is cold.
+
+**Evidence limit:** score gating is disabled by default because all tested positive
+thresholds violate the cross-language recall guard. `evidence_threshold` optionally
+rejects a whole query by maximum reranker score; `min_rerank_score` instead prunes
+individual chunks. Do not transfer either threshold to a different model. When disabling
+the reranker, also disable its thresholds. Default top-k returns candidates for all 48
+unanswerable benchmark queries; it cannot prove a missing policy or live order fact.
+Future routing/claim grounding is required before customer-facing answers. `draft`
+judgements and a six-query RU–KK slice do not establish production readiness.
+
+Back up `data/indexes/`, `artifacts/reports/retrieval/` and `mlruns/` with §6 after all
+writers finish. Deep-verify each pinned snapshot. `experiment --stage drill` verifies
+the saved snapshot hash, uploads the local file into a separate collection and compares
+all payloads/named vectors plus six dense/sparse queries. Reruns verify the receipt;
+they do not reset the serving collection. Restoring the backup archive to a new empty
+directory also verifies files before publication. Stage-end IDs and code bundles are
+in PROGRESS.md. Keep earlier failed/superseded artifacts and never prune pinned backups.

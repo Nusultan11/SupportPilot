@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import os
 from contextvars import ContextVar
+from datetime import date
 from pathlib import Path
 from typing import Any, Literal
 
@@ -163,6 +164,28 @@ class QdrantSettings(_Section):
     timeout_s: float = Field(default=10.0, gt=0)
 
 
+class RetrievalSettings(_Section):
+    models: Path = Path("configs/retrieval_models.yaml")
+    encoder: str = "bge_m3"
+    reranker: str | None = "bge_reranker"
+    view: Literal["canonical", "window", "adjacent"] = "canonical"
+    window_tokens: int = Field(default=128, ge=16)
+    overlap_tokens: int = Field(default=32, ge=0)
+    sparse: Literal["word", "prefix"] = "word"
+    mode: Literal["dense", "sparse", "hybrid"] = "hybrid"
+    fusion: Literal["rrf", "weighted"] = "weighted"
+    dense_weight: float = Field(default=0.75, ge=0, le=1)
+    candidate_k: int = Field(default=20, ge=1, le=1000)
+    rerank_k: int = Field(default=20, ge=1, le=1000)
+    context_tokens: int = Field(default=1024, ge=0)
+    min_dense_score: float | None = None
+    min_rerank_score: float | None = None
+    evidence_threshold: float | None = Field(default=None, ge=0, le=1)
+    device: Literal["auto", "cpu", "cuda"] = "auto"
+    seed: int = 20261112
+    evaluation_date: date = date(2026, 11, 12)
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_prefix=ENV_PREFIX,
@@ -179,6 +202,7 @@ class Settings(BaseSettings):
     eda: EdaSettings = EdaSettings()
     stage4: Stage4Settings = Stage4Settings()
     kb: KBSettings = KBSettings()
+    retrieval: RetrievalSettings = RetrievalSettings()
     logging: LoggingSettings = LoggingSettings()
     backup: BackupSettings = BackupSettings()
     mlflow: MLflowSettings = MLflowSettings()

@@ -1,10 +1,12 @@
 # PROGRESS: current state (single source of truth for status)
 
-Last updated: 2026-11-12 (multilingual data expansion; installed artifacts rechecked)
+Last updated: 2026-11-12 (Stage 6 implementation and measured retrieval experiments)
 
 ## Current stage
 
-**Data expansion after Stages 4-5: COMPLETED.** Stage 6 has not started.
+**Stage 6: IN PROGRESS — final verification/backup/publication.** Implementation and
+experiments are complete; final receipts are recorded in the Stage 6 section below.
+Semantic answerability is an explicit unresolved quality limit, not a passed safety gate.
 The current datasets and follow-up results are below; older Stage 4/5 tables are historical.
 
 | Stage | Status | Commits |
@@ -15,6 +17,129 @@ The current datasets and follow-up results are below; older Stage 4/5 tables are
 | 3 EDA and data quality engineering | COMPLETED | `b2f5d86`, `809b47b` |
 | 4 Multilingual dataset engineering | COMPLETED (gaps documented) | `da28191`, `6e5c537` |
 | 5 Knowledge base and document extraction | COMPLETED | `c79d8af`, plus a follow-up progress commit |
+| 6 Retrieval and RAG experiments | Final verification | pending stage-end commit |
+
+## Stage 6 — retrieval implementation and measurements (2026-11-12; ADR-030)
+
+**Implemented:** `src/supportpilot/retrieval/` exposes typed library and CLI evidence
+retrieval through Qdrant: dense/sparse/hybrid, RRF/weighted fusion, two pinned rerankers,
+canonical/window/adjacent views, corpus-language/document/type/effective-date filters,
+whole-chunk token-budgeted contexts and explicit empty-evidence reasons. Original
+`chunk_id`, KB/index/model version, source path and PDF/table/section locators survive.
+This stage does not generate customer answers, train an LLM or implement an application.
+
+**Index:** verified immutable artifacts, checksummed SQLite inference batches, OS writer
+locks, bounded retries and fail-closed readiness. Real parent rollback and forward
+`changes.json`: 90 deletes, 171 upserts, 198 vectors retained; unchanged rerun 0/0 in
+.104 s. The selected collection contains exactly 369 live chunks. Internal Qdrant
+tombstones exposed global-IDF drift after restore; KB-scoped IDF fixed it, and all nine
+prepared searches/comparisons were recomputed. A downloaded 7,687,680-byte snapshot was
+uploaded into a separate collection: all 369 payloads and named-vector hashes match,
+plus six dense/sparse query checks. This is a real local-file restore, not just counting
+points in the original collection. Process-kill and interrupted-batch tests cover resume.
+Metadata-only validity/type changes refresh payload filters without re-encoding; tested
+for date/type changes, rollback and real-server payload repair. No-work detection checks
+the complete expected payload inventory, not just point IDs and KB tags.
+
+**Data/protocol:** unchanged KB `kb_demo_store-20261112-d58e3f93`, retrieval
+`retrieval-20261112-ecc28bf4`, 681 queries / 175 needs (633 answerable, 48 unanswerable).
+Scenario-group development 142 needs/521 queries; holdout 33/160. All qrels stay `draft`.
+Gold 936 and SFT 17,456 artifacts deep-verify unchanged; gold is not a tuning input.
+One deterministic inference/seed, 1,000 grouped bootstrap resamples, per-language and
+directional-language-pair metrics, graded nDCG and grade>=2 sensitivity; paired CIs.
+The confidence rule was amended after the initial holdout was inspected. Final holdout
+is **exploratory**, not an untouched confirmation set; human independent review is pending.
+
+**Experiments/choice:** 96 variants (74 dense/sparse/fusion/top-k/view, seven rerank/control,
+15 query gates), four encoders (E5-small/base, BGE-M3, Qwen3-Embedding-0.6B), two rerankers
+(BGE-v2-m3, Qwen3-0.6B), BM25S reference, word/prefix features, k=10/20/40, weights
+.25/.5/.75, five controlled E5 chunk views, context 512/1024/2048 +/- diversification.
+Licences, full Hub revisions, protocols and card checksums are retained; a newer gated
+Gemma candidate was screened but not acquired. Final: BGE-M3 + word sparse, weighted
+fusion .75, 20 candidates/channel, BGE rerank 20, up to 10 results, 1024 Qwen tokens,
+no diversification or score gate. `configs/base.yaml` and Python defaults agree.
+
+Top-k retrieval, full answerable set, mean [95% scenario-bootstrap CI]:
+
+| Slice | n | Recall@5 | MRR@10 | nDCG@10 |
+|---|---:|---|---|---|
+| RU mono | 163 | .9898 [.9785,.9980] | .9790 [.9616,.9939] | .9753 [.9608,.9875] |
+| KK mono | 163 | .9678 [.9453,.9857] | .9692 [.9455,.9886] | .9616 [.9426,.9776] |
+| EN mono | 163 | .9760 [.9560,.9923] | .9709 [.9468,.9898] | .9661 [.9437,.9833] |
+| Cross-lingual | 138 | .9420 [.8768,.9928] | .9361 [.8646,.9964] | .9424 [.8833,.9909] |
+| RU–KK code-switch | 6 | 1.000 [1,1] | 1.000 [1,1] | 1.000 [1,1] |
+| Multi-fragment | 66 | .9621 [.9167,.9931] | 1.000 [1,1] | .9658 [.9365,.9863] |
+| Semantic-near-SFT, answerable | 6 | 1.000 [1,1] | 1.000 [1,1] | 1.000 [1,1] |
+
+Mono Recall exceeds the .85 goal separately in all three languages. These conditional
+figures do not establish human relevance or production robustness. Six mixed queries
+and three semantic-near needs are especially small cohorts. CIs containing zero in
+paired comparisons are not evidence of improvement. All development/holdout/full CIs
+and six directional pairs are retained, not averaged away.
+
+**Online packed-context verification:** all 681 requests through the public API, no
+query-vector/pair-score caches. Recall RU .9898 / KK .9647 / EN .9760 / cross .9420;
+KK CI [.9412,.9826]. Context packing slightly reduces KK support coverage; all mono
+targets remain met. Mono macro Recall .9778 [.9632,.9898] before packing and .9768
+[.9615,.9894] online (three equally sized language cohorts). Four packed rankings differ
+from cached inference; per-slice
+metrics agree (retained in the diagnostic receipt), so byte-identical ranking is not
+claimed. Context includes source metadata in its 1024-token budget, never partial facts.
+
+**Performance on the RTX 3050 Laptop:** 681 sequential warm requests, batch one:
+p50 **296.96 ms**, p95 **841.34 ms**, **2.181 requests/s**; cold first request **16.934 s**,
+model loading 12.146 s. Peak Python RSS **5,152,636,928 bytes** (4.80 GiB), PyTorch VRAM
+**2,302,613,504 bytes** allocated / **2,334,130,176** reserved; minimum machine-available
+RAM 3,692,515,328 bytes during this run. Document re-encoding: 369 / 9.140 s = **40.37/s**,
+vectors reproduce exactly. A fresh isolated collection upload of 369 precomputed vectors,
+sparse payloads and full inventory verification takes .807 s (457.5 units/s); this excludes
+model loading/encoding and is not an end-to-end cold indexing rate.
+Portable index files 2,123,262 bytes; Qdrant snapshot
+7,687,680 bytes. Earlier 105-query runs were faster and are not substituted for this
+sustained profile. An earlier startup approached RAM pressure; close other model jobs.
+Process RSS excludes Docker/other applications; LLM co-residency, concurrency, CPU-only
+performance and large-scale SLOs remain unverified.
+
+**Negative/failed results and limits:** E5-small/base KK Recall .6411/.7459; Qwen dense
+cross .7029. Prefix sparse helps mono morphology but not translation. BGE reranking
+improves development nDCG by .0339 [.0209,.0467] versus the selected fusion baseline;
+against the matched k20 control the delta is .0335 [.0209,.0466]. K20 versus k10
+reranking is not statistically established (.0012 nDCG [-.0019,.0053]); k20 follows the
+development minimum-language recall rule, not a claimed significant win over k10.
+Qwen is slower and k20 cross recall is lower. Qwen batch 8 adds no meaningful speed;
+16 is slower. Per-chunk pruning loses supporting evidence. A .02 query gate retained
+mono recall but reduced cross recall to .6051; rejected under the multilingual guard.
+**Default unanswerable FPR = 1.0 (48/48)**; no tested positive threshold preserves
+the cross-language recall budget. Semantic abstention is unsolved. Similarity must not
+be treated as permission to invent a missing policy/live status. Empty filtered results,
+expired policies, insufficient context and configured confidence rejection return no
+evidence; downstream routing/claim grounding are necessary before customer-facing use.
+No independent human review, LLM grounding evaluation or production acceptance is claimed.
+
+Error analysis retains 50 distinct KK failures for each E5 baseline, up to 50 sparse
+failures and the complete available selected residual census (RU 4, KK 10, EN 7 mono;
+cross 12 query failures / four needs). Judgements were not edited. Failed Windows-lock,
+weight/cache setup, interrupted Qwen inference, Qdrant-outage and global-IDF restore
+attempts remain in artifacts and MLflow as failures/UNKNOWN, not silent omissions.
+API cost USD 0; GPU hours across the interrupted/pause interval are UNKNOWN.
+
+**Artifacts/reproduce:** `artifacts/reports/retrieval/comparison.md`, `summary.json`,
+`comparisons/*/{metrics,observations}.json`, `paired_comparisons.json`,
+`context_comparison.json`, `online_context_metrics.json`, `performance.json`,
+`selection_evidence.json`, `gate_selection_history.json`, `error_analysis.md`,
+`error_census.json`, `input_integrity.json`, `index_drill.json`, `mlflow_audit.json`.
+Selected portable index `data/indexes/retrieval/c589a0db1c53a5a87322/versions/rindex-20261112-88e36128/`;
+caches and other candidates stay under `data/indexes/`. Experiment `supportpilot/retrieval`
+uses local `mlruns/mlflow.db` and artifacts. See RUNBOOK Stage 6 commands and ADR-030.
+**Checks so far:** locked environment sync, Ruff lint/format and strict mypy pass;
+full pytest **367 passed, 0 skipped** (113.56 s), including two GPU and three real-Qdrant
+tests. The final metadata-repair server test also passed separately. One local-Qdrant
+exact-search warning is expected. Hook line-ending fixes were applied; code checks pass.
+Pinned index backup `retrieval_indexes/20261112T162836Z-722c87d7` deep-verifies; restore
+into an empty directory verifies 84 files, ten immutable indexes, six SQLite databases
+and the portable Qdrant snapshot hash. Report/MLflow backups and publication follow.
+
+**Next stage:** Stage 7 is not started. Stop here; a later user confirmation is required.
 
 ## Multilingual data expansion (2026-11-12; ADR-028, ADR-029)
 

@@ -433,3 +433,66 @@ validation/test. Training near-copies of those held-out scenarios are excluded, 
 lowering thresholds. Gold question text is used only to reject copied SFT inputs, never as
 training examples or target text. Final gates require every intent in each split/language,
 and check exact/lexical/13-gram overlap between validation and test.
+
+## 15. Retrieval index, results and context (Stage 6)
+
+`configs/retrieval_models.yaml` is the model registry, separate from the dataset source
+registry: pinned Hub commit, licence/card evidence, pooling, query/document protocol,
+dimensions and bounded inference settings. `retrieval.models.ModelSpec` rejects unknown
+licences and unpinned revisions. No remote model code is executed.
+
+`retrieval.models.Recipe` identifies the encoder, sparse features, token window/overlap,
+length normalisation and tokenizer checksum. Its content hash owns one Qdrant collection
+and `data/indexes/retrieval/<recipe_hash>/`. Immutable `versions/rindex-<date>-<hash>/`
+contains a `DatasetManifest` (`retrieval_index/1`), `recipe.json`, `units.jsonl`,
+`vectors.npy` and canonical `chunks.jsonl`. The manifest links the exact KB/model versions
+and hashes every file. Vectors use float32 storage and cosine distance; model inference
+uses float16 on CUDA, float32 on CPU. SQLite embedding caches are keyed by full encoder
+configuration, text hash and query/document role, with a checksum for each vector blob.
+
+Search-unit IDs hash the recipe, source chunk IDs, span and search text. Canonical,
+token-window and adjacent-section views retain their original chunk IDs; scores project
+back to unique canonical chunks, each consuming a ranking slot. A search view does not
+create new evidence, mutate KB chunks or relabel qrels. Unit payloads carry language,
+document/type, canonical members and inclusive effective-date ordinals.
+
+`state.json` names the materialised collection/index/KB version and readiness. Synchronising
+sets readiness false before any delete/upsert. A matching-parent transition validates
+`changes.json`; rollback/non-parent transitions use an exact inventory diff. Unchanged
+vectors are retained, deleted IDs are removed from the live collection, and cached old
+snapshots allow rollback. Qdrant may retain internal segment tombstones until compaction.
+The ready pointer is published only after exact point-inventory verification. Readers
+refuse incomplete/stale versions, including a KB activation not yet synchronised. This
+is fail-closed synchronisation with brief unavailability, not zero-downtime activation.
+
+`retrieve(query, lang, filters, k)` is exposed by `retrieval.Retriever`; use
+`with retrieval.open_retriever(settings)` to reuse models and release resources.
+`SearchFilters` supports `corpus_lang`, `doc_ids`, `doc_types`, inclusive `as_of` date.
+Omitting corpus language searches all languages; it is independent of the query language.
+`SearchOptions` separates candidate count, rerank count and output count, fusion and
+optional dense/reranker confidence thresholds. `lang` is a convenience corpus-language
+filter; use `SearchFilters` to make the corpus language explicit for cross-language input.
+Sparse IDF statistics are scoped to the live `kb_version` via `SearchParams.idf.corpus`
+(Qdrant 1.20); global segment statistics were not stable after delete/restore.
+IO retries are bounded to three attempts.
+
+`evidence_threshold` gates the entire query by its maximum reranker score, preserving
+weak supporting chunks when the query passes. It requires reranker scores and yields
+`low_evidence_confidence` on rejection. It is disabled in the selected configuration:
+calibration could not improve abstention while preserving the multilingual recall guard.
+`min_rerank_score` instead prunes individual chunks; these are distinct operations.
+
+`ScoredChunk` contains `chunk_id`, `kb_version`, `index_version`, the original `KBChunk`
+(including locator/source path and validity dates), dense/sparse/fused/rerank scores and
+matching unit IDs. `RetrievalContext` (`retrieval_context/1`) contains complete selected
+evidence, a JSON-data text representation, exact token count/budget, truncation and empty
+evidence/abstention reason. Metadata counts toward the budget; chunks are never cut inside
+a fact/table. Insufficient budget and empty filtered results produce no evidence.
+Retrieved source text remains untrusted data. Similarity is relevance, not a proof that
+the KB contains a requested live status or missing policy exception; downstream grounding
+and routing must still check answerability.
+
+Evaluation preserves `retrieval_query/1` and its draft judgements. Fixed evaluation date,
+seed, scenario-level development/holdout assignment, query-level observations, grouped
+bootstrap CIs, paired comparisons and resource measurements live under
+`artifacts/reports/retrieval/` and in MLflow. Gold, SFT and their schemas are unchanged.

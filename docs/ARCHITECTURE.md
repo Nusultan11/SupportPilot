@@ -111,6 +111,17 @@ and a typed error that maps to a fallback response.
   No full reindex for single-document edits.
 - Chunks carry `effective_from/to`. Retrieval filters out expired policies.
 
+Stage 6 materialisation: `retrieval.corpus` creates search representations retaining
+canonical evidence IDs; `encode` supplies pinned model inference and verified resumable
+caches; `index` stores portable snapshots and synchronises one dense+sparse Qdrant
+collection per recipe. Changed-parent updates validate KB `changes.json`; rollback uses
+the inventory diff and cached vectors. Readers fail closed while the collection is being
+mutated and until its exact KB-version inventory is verified. No stale-version fallback.
+`search` supplies dense/sparse/fusion/reranking, date/document/language filters and
+token-budget context packing. `evaluate`, `experiments` and `profile` measure it without
+gold input, LLM generation, training or business API execution. The serving lifecycle is
+`with supportpilot.retrieval.open_retriever(settings)`; the evidence retains KB locators.
+
 ## 6. Scaling path
 
 | Concern | Local MVP | Scaled |
