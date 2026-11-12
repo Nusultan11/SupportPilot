@@ -95,6 +95,11 @@ qrels review remain open, along with the historical MT-quality limitations.
 all commit hooks pass. Verified code bundle: `backups/code/supportpilot-20261112T111926Z.bundle`
 with adjacent SHA256. The following documentation commit records the final evidence.
 
+**Local installation:** synchronised to `C:/Users/nurs/SupportPilot`; clean `main`,
+SFT rerun skips, and SFT/gold/retrieval/KB manifests verify there. Publication is pending:
+automatic approval review rejected `git push origin main` because public release of the
+code and authored YAML payload needs separate explicit approval. Nothing was pushed.
+
 ## What exists (cumulative)
 
 | Component | Path | Notes |
