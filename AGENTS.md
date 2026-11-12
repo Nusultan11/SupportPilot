@@ -36,7 +36,10 @@ JSON, grounding, abstention, escalation), never facts. Details: [docs/PROJECT.md
 | `src/supportpilot/` | Python package: `common/` (foundation), `ops/` (env, backup, checks), `cli.py` |
 | `configs/base.yaml` | Default settings; override via `SUPPORTPILOT_<SECTION>__<KEY>` |
 | `configs/intent_map.yaml`, `configs/placeholders.yaml` | Draft v0 label map (ADR-021), synthetic slot catalogue (ADR-020) |
-| `docs/reviews/` | Hand-written qualitative reviews (Stage 3: `stage3_review.yaml`), rendered into the EDA report |
+| `configs/taxonomy.yaml`, `configs/locale_kz.yaml` | Intent taxonomy v1 + source mapping (ADR-023), Kazakhstan localisation catalogue (ADR-024) |
+| `authored/` | LLM-agent-authored content (Stage 4): native scenarios, answer templates, training KB variant, gold sources. Labelled `llm_generated`; human review pending |
+| `kb_sources/` | Demo-store KB sources (`demo_store/facts.yaml` seeded in Stage 4, documents in Stage 5) |
+| `docs/reviews/` | Qualitative reviews (Stage 3: `stage3_review.yaml`; Stage 4: `stage4_mt_review.yaml`, `stage4_sft_review.yaml`). LLM reviews are labelled as such |
 | `tests/unit`, `tests/integration` | pytest suites (markers: `slow`, `gpu`, `qdrant_server`) |
 | `compose.yaml` | Local services (Qdrant) |
 | `apps/` | UI (created in Stage 8) |
@@ -68,7 +71,8 @@ docker compose up -d qdrant                        # Qdrant server for qdrant_se
 
 A stage is not done while any of these fail. A *skipped* `qdrant_server` or `gpu` test means
 the check did not run, so report it as unverified. Operational CLI: `uv run supportpilot --help`
-(`env`, `backup`, `check`, `data`; Stage 3: `data clean --all`, `data gates`, `data eda`).
+(`env`, `backup`, `check`, `data`; Stage 3: `data clean --all`, `data gates`, `data eda`;
+Stage 4: `data select|kb-train|mt-compare|translate|qe-score|sft|gold|taxonomy`).
 
 ## 6. Code and data standards
 

@@ -377,8 +377,9 @@ class Split(StrEnum):
     TEST = "test"
 
 
-# Intent taxonomy draft v0 (DATA_CONTRACTS §7). Frozen as v1 in Stage 4.
-INTENTS: frozenset[str] = frozenset(
+# Intent taxonomy draft v0 (Stage 3, ADR-021). The Stage 3 build and its `labels` gate keep
+# using it, so the Stage 3 outputs stay byte-identical.
+INTENTS_V0: frozenset[str] = frozenset(
     {
         "track_order", "cancel_order", "change_order", "order_history", "place_order",
         "delivery_time", "delivery_options_cost", "delivery_problem",
@@ -389,6 +390,15 @@ INTENTS: frozenset[str] = frozenset(
         "account_help",
         "human_agent", "complaint", "feedback",
         "unclear", "out_of_scope", "greeting",
+    }
+)  # fmt: skip
+
+# Intent taxonomy v1 (frozen in Stage 4, ADR-023): a superset of v0. The authoritative list
+# with actions and conditions is configs/taxonomy.yaml; a unit test keeps both equal.
+INTENTS: frozenset[str] = INTENTS_V0 | frozenset(
+    {
+        "change_address", "product_defect", "contact_info", "personal_data", "newsletter",
+        "cart_help", "app_help", "technical_issue",
     }
 )  # fmt: skip
 
@@ -449,4 +459,182 @@ class CanonicalExample(_Contract):
             raise ValueError("machine_translated requires translation_of and translation_system")
         if "{{" in self.text:
             raise ValueError("unresolved {{placeholder}} in text")
+        return self
+
+
+# ---------------------------------------------------------------- §5-6 SFT and model output
+
+CHUNK_ID_PATTERN = re.compile(r"^[a-z0-9]+(?:[_-][a-z0-9]+)*:[0-9a-f]{8}:\d{4,}$")
+
+
+class Task(StrEnum):
+    GROUNDED_ANSWER = "grounded_answer"
+    TOOL_ANSWER = "tool_answer"
+    CLARIFY = "clarify"
+    ESCALATE = "escalate"
+    ABSTAIN_NO_EVIDENCE = "abstain_no_evidence"
+    REFUSE_OOS = "refuse_oos"
+    CONFLICTING_CONTEXT = "conflicting_context"
+    INJECTION_RESIST = "injection_resist"
+
+
+class AssistantResponse(_Contract):
+    """§6: the structured model output (and API output). Grounding is checked separately
+    against the evidence by `supportpilot.common.grounding.check_response`."""
+
+    language: LanguageCode
+    intent: Intent
+    action: Action
+    answer: NonEmptyStr
+    citations: list[str] = Field(default_factory=list)
+    facts_from_tools: list[str] = Field(default_factory=list)
+    missing_information: list[str] = Field(default_factory=list)
+    needs_human: bool = False
+    escalation_reason: str | None = None
+    clarification_question: str | None = None
+
+    @model_validator(mode="after")
+    def _consistency(self) -> Self:
+        if self.needs_human and not self.escalation_reason:
+            raise ValueError("needs_human requires escalation_reason")
+        if self.escalation_reason and not self.needs_human:
+            raise ValueError("escalation_reason without needs_human")
+        if self.action is Action.ESCALATE and not self.needs_human:
+            raise ValueError("action='escalate' requires needs_human")
+        if (self.action is Action.CLARIFY) != (self.clarification_question is not None):
+            raise ValueError("clarification_question is set exactly for action='clarify'")
+        for c in self.citations:
+            if not CHUNK_ID_PATTERN.fullmatch(c):
+                raise ValueError(f"citation is not a chunk id: {c!r}")
+        if self.action is Action.REFUSE_OOS and self.citations:
+            raise ValueError("a refusal cites nothing")
+        return self
+
+
+class SFTMessage(_Contract):
+    role: Literal["system", "user", "assistant", "tool"]
+    content: NonEmptyStr
+    name: str | None = None  # tool name for role=tool
+
+    @model_validator(mode="after")
+    def _tool(self) -> Self:
+        if (self.role == "tool") != (self.name is not None):
+            raise ValueError("name is set exactly for tool messages")
+        return self
+
+
+class SFTExample(_Contract):
+    """§5: one supervised fine-tuning example (`sft/1`)."""
+
+    schema_version: Literal["sft/1"] = "sft/1"
+    example_id: ExampleId
+    scenario_id: NonEmptyStr
+    family_id: NonEmptyStr
+    lang: LanguageCode
+    code_switch: bool
+    task: Task
+    messages: list[SFTMessage] = Field(min_length=3)
+    context_chunk_ids: list[str] = Field(default_factory=list)
+    distractor_chunk_ids: list[str] = Field(default_factory=list)
+    target: AssistantResponse
+    split: Split
+    # lineage and provenance
+    source_id: Slug
+    record_id: RecordId
+    origin: Origin
+    translation_of: ExampleId | None = None
+    translation_system: str | None = None
+    kb_variant: str | None = None
+    system_prompt_id: NonEmptyStr
+    quality_flags: list[str] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def _shape(self) -> Self:
+        if self.messages[0].role != "system" or self.messages[-1].role != "assistant":
+            raise ValueError("messages start with system and end with the assistant target")
+        if not any(m.role == "user" for m in self.messages):
+            raise ValueError("an SFT example needs a user message")
+        if AssistantResponse.model_validate_json(self.messages[-1].content) != self.target:
+            raise ValueError("the last assistant message must equal `target`")
+        if self.target.language != self.lang and not self.code_switch:
+            raise ValueError("target.language must equal lang")
+        if not set(self.target.citations) <= set(self.context_chunk_ids):
+            raise ValueError("citations must be a subset of context_chunk_ids")
+        if set(self.distractor_chunk_ids) & set(self.target.citations):
+            raise ValueError("a distractor chunk is cited")
+        if self.origin is Origin.MACHINE_TRANSLATED and not (
+            self.translation_of and self.translation_system
+        ):
+            raise ValueError("machine_translated requires translation_of and translation_system")
+        return self
+
+
+class ReviewStatus(StrEnum):
+    """Gold review levels (EVALUATION §1). Only `verified` means author + independent human."""
+
+    DRAFT = "draft"  # authored; automatic checks passed; no second review
+    LLM_REVIEWED = "llm_reviewed"  # re-read by an LLM reviewer; never "independently verified"
+    HUMAN_REVIEWED = "human_reviewed"  # one fluent human review
+    VERIFIED = "verified"  # author + independent fluent human reviewer agree
+
+
+class GoldTurn(_Contract):
+    role: Literal["user", "assistant"]
+    content: NonEmptyStr
+
+
+class GoldFact(_Contract):
+    key: NonEmptyStr  # demo-store fact key or tool field, e.g. return_window_days
+    value: str  # expected surface value, e.g. "14"
+
+
+class GoldEvidence(_Contract):
+    doc_id: Slug
+    section: NonEmptyStr
+
+
+class GoldReview(_Contract):
+    status: ReviewStatus
+    author: NonEmptyStr
+    reviewers: list[str] = Field(default_factory=list)
+    notes: str = ""
+
+
+class GoldItem(_Contract):
+    """One gold benchmark item (`gold/1`, EVALUATION §1)."""
+
+    schema_version: Literal["gold/1"] = "gold/1"
+    gold_id: Annotated[str, Field(pattern=r"^g_[a-z0-9_]+_(?:en|ru|kk)$")]
+    scenario_id: NonEmptyStr
+    lang: LanguageCode
+    code_switch: bool = False
+    category: Literal[
+        "grounded", "tool", "clarify", "escalate", "abstain", "out_of_scope",
+        "conflicting", "injection", "multi_turn", "code_switch",
+    ]  # fmt: skip
+    difficulty: Literal["easy", "medium", "hard"]
+    turns: list[GoldTurn] = Field(min_length=1)
+    intent: Intent
+    action: Action
+    escalate: bool
+    escalation_reason: str | None = None
+    required_facts: list[GoldFact] = Field(default_factory=list)
+    tool_state: dict[str, object] | None = None
+    accepted_evidence: list[GoldEvidence] = Field(default_factory=list)
+    must_not: list[str] = Field(default_factory=list)  # claims that make an answer wrong
+    kb: Literal["demo_store"] = "demo_store"
+    review: GoldReview
+
+    @model_validator(mode="after")
+    def _consistent(self) -> Self:
+        if self.turns[-1].role != "user":
+            raise ValueError("the last turn is the user's message to answer")
+        if self.escalate != bool(self.escalation_reason):
+            raise ValueError("escalate requires escalation_reason (and only then)")
+        if self.action is Action.ESCALATE and not self.escalate:
+            raise ValueError("action='escalate' requires escalate=True")
+        if not self.gold_id.endswith(f"_{self.lang}"):
+            raise ValueError("gold_id must end with _<lang>")
+        if self.review.status is ReviewStatus.VERIFIED and not self.review.reviewers:
+            raise ValueError("verified requires a named independent reviewer")
         return self

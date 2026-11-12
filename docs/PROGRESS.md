@@ -1,18 +1,23 @@
 # PROGRESS: current state (single source of truth for status)
 
-Last updated: 2026-11-11
+Last updated: 2026-11-12
 
 ## Current stage
 
-**Stage 3: EDA and data quality engineering. Status: COMPLETED.** Waiting for owner
-confirmation to start Stage 4 (multilingual dataset engineering).
+**Stage 4: Multilingual dataset engineering. Status: COMPLETED with documented gaps** (no
+fluent human review of RU/KK and gold; SFT volume and held-out sets far below the 90k/5k/5k
+targets; see "Stage 4 open items"). Waiting for owner confirmation before Stage 5 continues.
+Note: a separate Stage 5 session is working in this checkout on new, uncommitted files
+(`src/supportpilot/kb/**`, `tests/*/test_kb_*`, `kb_sources/demo_store/docs/**`,
+`kb_sources/demo_store/catalog.yaml`). They are not part of Stage 4.
 
 | Stage | Status | Commits |
 |---|---|---|
 | 0 Audit and research | COMPLETED | `699dc23`, `cd50a6c`, `ced287e` |
 | 1 Engineering foundation | COMPLETED | `6b17404`, `7b6bc4c` |
 | 2 Data acquisition and source registry | COMPLETED | `a7bcc05`, `4384d13`, `f43dec0` |
-| 3 EDA and data quality engineering | COMPLETED | `b2f5d86`, plus a follow-up progress commit |
+| 3 EDA and data quality engineering | COMPLETED | `b2f5d86`, `809b47b` |
+| 4 Multilingual dataset engineering | COMPLETED (gaps documented) | see "Git and backups" |
 
 ## What exists (cumulative)
 
@@ -22,14 +27,116 @@ confirmation to start Stage 4 (multilingual dataset engineering).
 | Source registry | `configs/sources.yaml` | 16 sources reviewed; licence policy enforced by the schema (ADR-018) |
 | Usage policy | `data/policy.py` | acquire/convert/analysis ≥ reference_only, evaluation ≥ eval_only, training = train |
 | Acquisition, conversion (Stage 2) | `data/acquire.py`, `converters.py`, `convert.py`, `records.py` | pinned, hash-checked raw data → `RawRecord` Parquet (ADR-019) |
-| Cleaning (Stage 3) | `data/textnorm.py`, `placeholders.py`, `langid.py`, `clean.py` | repair, PII masking, synthetic slots, lingua LID, flags; checkpoint per source (ADR-020) |
-| Labels (Stage 3) | `data/labels.py`, `configs/intent_map.yaml` | draft v0 map, rule-based `needs_reference` action, `suspect_unless` label-noise rule (ADR-021) |
-| Dedup and grouping (Stage 3) | `data/neardup.py`, `build.py` | exact + MinHash/LSH + exact Jaccard, label guard, families and scenarios (ADR-022) |
-| Quality gates (Stage 3) | `data/gates.py` | 9 gates + `splits_and_leakage: not_applicable`; failing build not swapped in |
-| EDA (Stage 3) | `data/eda.py`, `report.py`, `review.py`, `docs/reviews/stage3_review.yaml` | profile, 12 charts, tables, review samples, hand-written review |
-| CLI | `supportpilot data sources/acquire/convert/verify/clean/gates/eda` | RUNBOOK §7, §7b |
+| Cleaning, labels v0, dedup, gates, EDA (Stage 3) | `data/textnorm.py`, `placeholders.py`, `langid.py`, `clean.py`, `labels.py`, `neardup.py`, `build.py`, `gates.py`, `eda.py`, `report.py`, `review.py` | ADR-020..022; unchanged in Stage 4 except that its gate now uses `INTENTS_V0` |
+| Taxonomy v1 (Stage 4) | `configs/taxonomy.yaml`, `data/taxonomy.py`, `data/select.py` | 35 intents, actions, conditions, rule-split labels (ADR-023) |
+| Localisation, MT, QE (Stage 4) | `configs/locale_kz.yaml`, `data/locale.py`, `data/mt.py`, `data/mtrun.py`, `data/qe.py`, `data/embed.py` | KZT/cities/names, resumable MT cache, glossary, QE filter (ADR-024) |
+| Training KB, answers, scenarios (Stage 4) | `authored/kb_train/`, `authored/responses/`, `authored/scenarios/`, `data/kbtrain.py`, `data/textfmt.py`, `data/scenarios.py` | LLM-agent-authored, native en/ru/kk (ADR-025) |
+| Demo-store facts seed | `kb_sources/demo_store/facts.yaml` | values reserved for Stage 5; training KB must differ |
+| SFT build, splits, gates (Stage 4) | `common/grounding.py`, `data/sft.py`, `data/sftbuild.py`, `data/split.py`, `data/sftgates.py`, `data/steps.py`, `data/stage4.py` | `sft/1` + `AssistantResponse` contracts, leakage checks (ADR-026) |
+| Gold benchmark (Stage 4) | `authored/gold/`, `data/gold.py` | 312 scenarios × en/ru/kk, `gold/1`, review status per item |
+| CLI | `supportpilot data …` | Stage 3 commands + `taxonomy`, `select`, `kb-train`, `mt-compare`, `translate`, `qe-score`, `sft`, `gold` (RUNBOOK §7c) |
 
-## Data state (Stage 3 build `canonical-20261111-8fe01586`)
+## Stage 4 results (2026-11-12)
+
+### Taxonomy v1 and relabelling (ADR-023)
+- 35 intents (v0's 27 + `change_address`, `product_defect`, `contact_info`, `personal_data`,
+  `newsletter`, `cart_help`, `app_help`, `technical_issue`), 10 escalation reasons, 4 tools.
+- Input: Stage 3 canonical (55,648) + pending `intent_unmapped` (11,494) EN rows of train sources.
+  Relabelled 65,550; excluded 1,592: label excluded 1,268 (`check_cancellation_fee`, `pay` with
+  "transfer"), no rule matched 320 (`customer_service` without explicit wording), family split
+  across labels 4. `label_conflict`/`label_suspect` rows stay out. while-ai: excluded entirely.
+- EN backbone: one row per family, ≤ 260 per source label+action, profanity ≤ 10%:
+  21,190 rows. MT queue: 100 rows per label+action and language = 7,554 RU + 7,554 KK.
+
+### MT comparison and translation (ADR-024, `docs/reviews/stage4_mt_review.yaml`)
+Major-error rate on 50 reviewed items per system (LLM reviewer, not human), and the
+automatic QE accept rate on the 100-item sample (QE v1):
+
+| system | RU major | KK major | RU auto-accept | KK auto-accept |
+|---|---|---|---|---|
+| Opus-MT en-ru / en-trk | 52% | 92% | 84% | 36% |
+| M2M100-418M | 50% | 100% | 84% | 2% |
+| MADLAD-400-3B nf4 | **40%** | **34%** | 80% | 69% |
+| MADLAD pivot en→ru→kk | – | 52% | – | 69% |
+
+- Automatic QE alone would have picked the wrong RU system and accepts many wrong KK
+  outputs: the decision rests on the reviewed sample.
+- Production (MADLAD, RTX 3050, nf4, 2 beams): KK 6,486 new + 7,141 back-translations in
+  4,354 s + 4,090 s; RU 7,532 in 6,878 s, Opus-MT ru-en back-translation 372 s.
+- QE (v2, with the `latin_word` rule added after the first KK audit): accepted RU 5,511 / 7,554
+  (73%), KK 5,098 / 7,554 (67%). Top KK rejections: back-translation chrF < 0.30 1,637,
+  lower-case Latin typo copied 510, untranslated Latin 150, length ratio 127, name lost 119,
+  glossary (cart as fence/trash bin, item as article, human-agent calque) 197, Russian
+  function words 101.
+- **Post-QE audit** (deterministic sample, LLM reviewer): RU major errors 3/60 = 5%, minor
+  14/60 = 23% (literal calques); KK major errors 11/55 = 20% (Wilson 95% CI ≈ 11–32%),
+  minor 9/55 = 16%. QE scores do not separate the remaining KK semantic errors (wrong
+  person, meaning shifts) from correct rows. **This is the main quality risk of the dataset.**
+- Localisation: USD amounts < 1,000 → KZT at 500/USD; Stage 3 slot amounts ≥ 1,000 are kept as
+  tenge values (first build converted them to 100+ million tenge; fixed, 38 rows re-translated).
+
+### SFT dataset `sft-20261112-a33e9c1b` (`data/processed/sft/sft-20261112-a33e9c1b/`)
+
+| split | examples | EN | RU | KK | scenarios | origin |
+|---|---|---|---|---|---|---|
+| train | 15,548 | 4,537 (29.2%) | 5,718 (36.8%) | 5,293 (34.0%) | 141 | MT 10,472 · original 4,297 · authored 779 |
+| validation | 98 | 28 | 36 | 34 | 16 | authored |
+| test | 116 | 33 | 39 | 44 | 16 | authored |
+
+- Tasks in train: grounded_answer 5,979 · clarify 4,835 · tool_answer 1,241 · escalate 1,190 ·
+  injection_resist 1,006 · abstain_no_evidence 994 · conflicting_context 232 · refuse_oos 71.
+  Per language × task counts are in `stats.json`.
+- 35 intents in train; validation 14 intents, test 12 intents (authored scenarios only).
+  Code-switching: 67 train / 11 validation / 11 test examples; multi-turn: 95 train.
+- The language mix is reached by **down-sampling English only** (16,875 EN Bitext examples
+  dropped); RU/KK were never up-sampled. 117 duplicate examples and 38 tool rows without an
+  order reference were dropped while building.
+- Leakage filter (held-out vs train): exact 0, lexical (J ≥ 0.8) 0, 13-gram 0, semantic (e5
+  cosine ≥ 0.95, digits masked) 63 texts → 63 held-out examples removed. Median held-out max
+  cosine to train 0.93.
+- Gates (all pass): schema, ids, language (user text 100%, answer 100%), licence/provenance,
+  grounding (0 unsupported numbers/citations/tool facts), evidence per task, duplicates 0,
+  leakage 0, placeholders 0, PII 0, kb_variant_distinct 0. Kazakh: 99.2% of KK user texts and
+  100% of KK answers contain Kazakh-specific letters; 81 KK user texts contain a Russian
+  function word (code-switched authored texts and loanword noise).
+- Training KB `kbtrain` (`data/processed/kb_train/`): 6 stores × 8 documents × 3 languages,
+  1,734 chunks (current + outdated). No value equals a demo-store value.
+- Authored: 106 situations → 1,056 utterances (EN 324 / RU 353 / KK 379; 92 code-switched,
+  95 multi-turn), split by scenario 70/15/15 stratified by action.
+
+### Gold benchmark `gold-20261112-8d91fbf4` (`data/gold/gold-20261112-8d91fbf4/gold.jsonl`)
+- 312 scenarios × en/ru/kk = 936 items, written natively per language, separately from the
+  training scenarios. Categories (per language): grounded 98, tool 48, escalate 37, clarify 34,
+  abstain 23, out_of_scope 23, multi_turn 22, injection 15, conflicting 12; difficulty easy 73 /
+  medium 148 / hard 91; 72 multi-turn items, 59 code-switched items.
+- Expected facts refer to the demo store (`kb_sources/demo_store/facts.yaml`); all 0 problems
+  in the fact, evidence-section and language checks.
+- Leakage vs all SFT splits: scenario 0, exact 0, lexical 0, 13-gram 0. Semantic near-train
+  (cosine ≥ 0.95): 79 items (KK 42, RU 21, EN 16; mostly short tool requests such as "status of
+  order N"), flagged in each item's review notes and reported, not removed (ADR-026).
+- **Review status: all 936 items `draft`** (authored by the LLM agent, automatic checks only).
+  No item is `human_reviewed` or `verified`.
+
+### Verification evidence (Stage 4)
+- `ruff check`, `ruff format --check`, `mypy --strict` clean on Stage 4 code; pre-commit hooks
+  run in a clean worktree at commit time.
+- `pytest`: **277 passed, 0 skipped** with the Qdrant server up (Stage 5 WIP tests excluded:
+  they are untracked files of another session). New Stage 4 tests: 41 unit
+  (`tests/unit/test_stage4_units.py`) + 2 integration (`tests/integration/test_stage4_pipeline.py`:
+  select → KB → resumable translation with a fake MT backend → QE → SFT gates → gold, re-runs,
+  forced rebuild identical, stale partial removed).
+- Real data: forced SFT rebuild gives the same `dataset_version` and byte-identical
+  `train.parquet`; a plain re-run is skipped. Stage 3 is unchanged: `data clean --all` skips
+  with `canonical-20261111-8fe01586`, `data gates` and `data verify --all` pass.
+- Interruption: two MT runs were killed by agent-session restarts; the cache kept every finished
+  512-row shard and the next run resumed (1,636 KK rows reused).
+- Bugs found and fixed: unquoted commas in YAML flow mappings split addresses (demo facts;
+  reported by the Stage 5 session; regression test added); QE step skipped after a localisation
+  change (sources hash now in its parameters); KK dates without case suffixes in tool answers;
+  injection note added when only a planted passage carried the injection; KZT-scale amounts
+  converted twice.
+
+## Stage 3 data state (unchanged in Stage 4; build `canonical-20261111-8fe01586`)
 
 | source_id | allowed_use | records | distinct texts | families (J ≥ 0.8) | scenarios | canonical | pending | rejected |
 |---|---|---|---|---|---|---|---|---|
@@ -80,7 +187,7 @@ confirmation to start Stage 4 (multilingual dataset engineering).
 - Full report: `artifacts/reports/eda/report.md` (git-ignored, backed up). Regenerate with
   `supportpilot data eda`.
 
-## Quality gates (build canonical-20261111-8fe01586)
+## Stage 3 quality gates (build canonical-20261111-8fe01586)
 
 | gate | result |
 |---|---|
@@ -95,7 +202,7 @@ confirmation to start Stage 4 (multilingual dataset engineering).
 | labels | pass: only v0 intents; no escalation without a reason |
 | splits_and_leakage | not applicable: splits are made in Stage 4 |
 
-## Qualitative review (LLM agent, not an independent human review)
+## Stage 3 qualitative review (LLM agent, not an independent human review)
 
 1,024 records were read and coded: 100 random + 100 flagged per source, and 24 flagged for
 Belebele (all it had). Annotations are in `docs/reviews/stage3_review.yaml`.
@@ -111,7 +218,7 @@ Belebele (all it had). Annotations are in `docs/reviews/stage3_review.yaml`.
 "OK" is strict (any soft code counts as not OK). Hard codes are LABEL_WRONG, GARBLED,
 WEAK_TEXT, OFF_DOMAIN, LANG_OTHER, LID_ERROR and RESPONSE_DEFECT.
 
-## Verification evidence (Stage 3, 2026-11-11)
+## Stage 3 verification evidence (2026-11-11)
 
 - **Checks:**
   - `ruff check`, `ruff format --check` and `mypy --strict` (57 files) are clean;
@@ -149,27 +256,26 @@ WEAK_TEXT, OFF_DOMAIN, LANG_OTHER, LID_ERROR and RESPONSE_DEFECT.
   - A CLI test resolved the real project root. The test is now pinned to `tmp`, and the
     real outputs were rebuilt identically.
 
-## Known limitations and open items
+## Stage 4 open items and limitations
 
-1. **No RU/KK training data** yet (unchanged). It is the core of Stage 4.
-2. **Split unit (ADR-022).** Bitext has 68 scenarios. Splitting by `scenario_id` as
-   DATA_CONTRACTS says would remove intents from test, and splitting by family leaves
-   paraphrase near-copies (J 0.5–0.8) across splits. Stage 4 must decide, and generalisation
-   must be measured on the independent gold set.
-3. **Draft labels (ADR-021).** 11 Bitext labels are unmapped. Taxonomy decisions are open:
-   customer_service vs human_agent, technical support, cart, `pay`, GDPR requests,
-   shipping-address changes, and the return/tracking conflicts. Actions come from rules.
-4. **Reference responses** are unfit as training targets. They contain unresolved store facts
-   (65% of retail rows), template instructions and prompt leaks. Stage 4 targets come from
-   the training KB variant.
-5. **Detector gaps.**
-   - Single-script word salad is not detected (3 of 100 reviewed flagged while-ai rows).
-   - Obfuscated e-mails ("name dot surname at gmail") are not masked.
-   - Latin-script Kazakh is not detected.
-6. **The review is by an LLM agent** on truncated displays. KK/RU quality needs a fluent
-   human reviewer (open decision 2).
-7. Still open from earlier stages: gated sources (HF account), `uv sync --no-group gpu` not
-   run, no LICENSE file, paid-API budget, reviewers, Kaggle/Colab accounts.
+1. **No fluent human review** of RU/KK. The MT error rates, the authored scenarios, the answer
+   templates, the training KB texts and all gold items were written or judged by the LLM agent.
+   Gold items are `draft`. Needed: a fluent KK and RU reviewer (open decision 2) to audit
+   ≥ 100 MT rows per language and to review gold (`verified` = author + independent human).
+2. **KK machine translation quality.** About 20% of accepted KK MT rows still carry a major
+   error (LLM-judged, CI 11–32%). Options: a paid MT/LLM budget (open decision 1), Tilmash or
+   KazParC access (HF account), human post-editing, or down-weighting `mt:` rows in Stage 7.
+3. **Volume.** 15,548 / 98 / 116 instead of 90k / 5k / 5k. Nothing was duplicated. Limits: one
+   GPU (MT ≈ 2.5 rows/s), 55 Bitext scenarios, authored scenarios written by one agent.
+   Validation/test cover 14 / 12 intents only; use gold (936 items) for decisions.
+4. **Templated targets.** Answers come from authored templates (≈ 40 section answers,
+   ≈ 30 tool answers per language): correct and grounded, but low lexical variety.
+5. **Bitext register.** EN originals keep typos and 10% inserted profanity; RU/KK
+   translations of typo-heavy sources are literal. refuse_oos is rare in train (71).
+6. Still open from earlier stages: gated sources, `uv sync --no-group gpu` not run, no LICENSE
+   file (authored content has no declared licence yet), paid-API budget, reviewers,
+   Kaggle/Colab accounts. Detector gaps from Stage 3 (single-script word salad, obfuscated
+   e-mails, Latin-script Kazakh) are unchanged.
 
 ## Git and backups
 
@@ -177,30 +283,33 @@ WEAK_TEXT, OFF_DOMAIN, LANG_OTHER, LID_ERROR and RESPONSE_DEFECT.
   after each stage.
 - Backups live in `backups/` at the project root (git-ignored, ADR-013).
 - Code bundles (`backups/code/`): Stage 0 `…T104345Z`, Stage 1 `…T115429Z`, Stage 2
-  `…T134356Z`, Stage 3 `…1T154236Z`.
-- Data snapshots (`backups/data/`): pinned raw snapshots per source from Stage 2, plus
-  `raw_records/20261111T134036Z-ee0f165b` and `env_reports/20261111T113155Z-92ddf171`.
-- **Stage 3 data snapshots** (pinned, deep-verified):
-  - `clean_records/20261111T154052Z-5d85c3cb` (85.0 MB);
-  - `canonical/20261111T154055Z-c62f57ae` (51.1 MB, build `canonical-20261111-8fe01586`);
-  - `eda_report/20261111T154057Z-9fe64e24` (1.2 MB, report, figures, review samples).
-- **Stage 3 code:** commit `b2f5d86` on `main`; bundle `backups/code/supportpilot-20261111T154236Z.bundle`
-  (verified, sha256 file next to it).
+  `…T134356Z`, Stage 3 `…1T154236Z`, Stage 4: see the line below.
+- Stage 3 data snapshots (pinned): `clean_records/20261111T154052Z-5d85c3cb`,
+  `canonical/20261111T154055Z-c62f57ae`, `eda_report/20261111T154057Z-9fe64e24`.
+- **Stage 4 data snapshots** (pinned, deep-verified, 2026-11-12):
+  - `stage4_interim/20261112T083636Z-dceb7610` (6.3 MB: backbone, MT cache, translations + QE);
+  - `kb_train/20261112T083638Z-a667cddf` (training KB chunks);
+  - `sft/20261112T083640Z-7ca2f2fc` (`sft-20261112-a33e9c1b`, 2.3 MB);
+  - `gold/20261112T083643Z-8d81b605` (`gold-20261112-8d91fbf4`, 0.7 MB);
+  - `stage4_reports/20261112T083645Z-aec9e7b1` (MT comparison samples and metrics).
+- Models are not backed up: they are pinned by revision in `configs/base.yaml` and re-download
+  into the HF cache (MADLAD-400-3B 11.8 GB, Opus-MT, M2M100, multilingual-e5-small).
+- **Stage 4 code:** STAGE4_COMMIT_LINE
 
-## Notes for the next stage (Stage 4)
+## Notes for the next stages
 
-- Load data only through `scan_records(..., purpose)`. Read the canonical build from
-  `data/interim/canonical/` and check the source policy before training use (canonical holds
-  train sources only; pending holds all of them).
-- Use canonical texts and labels as the EN backbone. Cap rows per family, and down-sample
-  the profane register.
-- Do not train on `reference_response`.
-- Pending while-ai dialogues: take only the in-domain ones, relabel per dialogue, and run a
-  coherence pass.
-- Localise money (currently `$`/USD slots) to KZT together with the response during translation.
-- Decide the split unit with the ADR-022 evidence before building splits. Leakage gates
-  then become active.
+- Stage 5 (KB): the demo store must keep the values in `kb_sources/demo_store/facts.yaml`
+  (gold expected facts and the `kb_variant_distinct` check depend on them). Gold
+  `accepted_evidence` uses the doc/section ids of `authored/kb_train/docs.yaml`
+  (e.g. `returns_policy.window`); Stage 5 must resolve them to demo chunk ids.
+- Stage 7 (training): load `data/processed/sft/<version>/{train,validation}.parquet`;
+  `messages_json` is ready for chat templates; `quality_flags` (`mt:madlad400_3b`,
+  `src:bitext`, `src:authored`, `injection:*`, `conflict:*`) allow weighting. Report every
+  metric per language and on gold, with the semantic-near-train subset separately.
+- Re-running Stage 4: RUNBOOK §7c. MT is the only GPU step; everything else rebuilds in
+  minutes from the cache.
 
 ## Next recommended action
 
-Owner confirmation, then Stage 4 (ROADMAP §Stage 4).
+Owner review of the Stage 4 report and decisions on open items 1–2 (reviewer, MT budget),
+then continue Stage 5 (KB and document extraction).

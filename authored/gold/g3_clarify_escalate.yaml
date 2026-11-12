@@ -1,0 +1,134 @@
+# Gold benchmark source, part 3: clarification and escalation.
+# Authored separately from training by the Stage 4 agent (LLM); review status `draft`.
+schema_version: gold_src/1
+items:
+  # --- clarify: the request cannot be acted on without one missing detail (F7)
+  - {id: cl_track_vague, cat: clarify, diff: easy, intent: track_order, action: clarify,
+     en: "any idea when my stuff arrives?", ru: "не подскажете, когда приедут мои покупки?", kk: "сатып алғандарым қашан келетінін білесіз бе?"}
+  - {id: cl_track_two_orders, cat: clarify, diff: medium, intent: track_order, action: clarify,
+     en: "I have two orders going, one is late. Can you check?", ru: "У меня два заказа в пути, один опаздывает. Проверите?", kk: "Менің екі тапсырысым жолда, біреуі кешігіп жатыр. Тексересіз бе?"}
+  - {id: cl_cancel_vague, cat: clarify, diff: easy, intent: cancel_order, action: clarify,
+     en: "changed my mind, cancel please", ru: "передумала, отмените пожалуйста", kk: "ойымнан айныдым, болдырмаңызшы"}
+  - {id: cl_cancel_last, cat: clarify, diff: medium, intent: cancel_order, action: clarify,
+     en: "cancel the order I made this morning", ru: "отмените заказ, который я сделал утром", kk: "бүгін таңертең берген тапсырысымды болдырмаңыз"}
+  - {id: cl_refund_where, cat: clarify, diff: easy, intent: refund_status, action: clarify,
+     en: "still waiting for my money back", ru: "всё ещё жду возврат денег", kk: "ақшамның қайтуын әлі күтіп жүрмін"}
+  - {id: cl_refund_request, cat: clarify, diff: medium, intent: request_refund, action: clarify,
+     en: "I want a refund for the broken lamp", ru: "хочу вернуть деньги за сломанную лампу", kk: "сынған шам үшін ақшамды қайтарғым келеді"}
+  - {id: cl_receipt, cat: clarify, diff: easy, intent: invoice, action: clarify,
+     en: "need a receipt for my last purchase", ru: "нужен чек за последнюю покупку", kk: "соңғы сатып алуымның чегі керек"}
+  - {id: cl_damaged_no_id, cat: clarify, diff: medium, intent: delivery_problem, action: clarify,
+     en: "the parcel came soaked and the box is torn", ru: "посылка пришла мокрая, коробка порвана", kk: "сәлемдеме су болып келді, қорабы жыртылған"}
+  - {id: cl_wrong_item_no_id, cat: clarify, diff: medium, intent: delivery_problem, action: clarify,
+     en: "got a kids' jacket instead of an adult one", ru: "вместо взрослой куртки прислали детскую", kk: "үлкендерге арналған күртенің орнына балалар күртесі келді"}
+  - {id: cl_defect_no_id, cat: clarify, diff: medium, intent: product_defect, action: clarify,
+     en: "the watch screen went black after two days", ru: "у часов погас экран через два дня", kk: "сағаттың экраны екі күннен кейін сөніп қалды"}
+  - {id: cl_change_no_id, cat: clarify, diff: easy, intent: change_order, action: clarify,
+     en: "I want to add socks to my order", ru: "хочу добавить носки в свой заказ", kk: "тапсырысыма шұлық қосқым келеді"}
+  - {id: cl_address_scope, cat: clarify, diff: medium, intent: change_address, action: clarify,
+     en: "need to update my delivery address", ru: "надо обновить адрес доставки", kk: "жеткізу мекенжайын жаңарту керек"}
+  - {id: cl_address_typo, cat: clarify, diff: hard, intent: change_address, action: clarify, cs: [kk],
+     en: "typed the wrong building number in the address omg", ru: "блин, в адресе неправильный номер дома написал", kk: "ой, адресте үйдің номерін қате жазып қойдым"}
+  - {id: cl_stock_unnamed, cat: clarify, diff: easy, intent: availability, action: clarify,
+     en: "is this one available in blue?", ru: "а этот есть в синем цвете?", kk: "мынаның көк түсі бар ма?"}
+  - {id: cl_stock_link, cat: clarify, diff: medium, intent: availability, action: clarify,
+     en: "do you still sell the thing from your instagram story?", ru: "вы ещё продаёте ту штуку из сторис?", kk: "стористе көрсеткен затты әлі сатасыздар ма?"}
+  - {id: cl_product_unnamed, cat: clarify, diff: easy, intent: product_info, action: clarify,
+     en: "what material is it made of?", ru: "из какого он материала?", kk: "ол неден жасалған?"}
+  - {id: cl_product_compat, cat: clarify, diff: medium, intent: product_info, action: clarify,
+     en: "will the charger work with my phone?", ru: "зарядка подойдёт к моему телефону?", kk: "зарядтағыш менің телефоныма келе ме?"}
+  - {id: cl_payment_vague, cat: clarify, diff: easy, intent: payment_problem, action: clarify,
+     en: "payment issue again", ru: "опять проблема с оплатой", kk: "төлеммен тағы мәселе"}
+  - {id: cl_payment_kaspi, cat: clarify, diff: medium, intent: payment_problem, action: clarify, cs: [kk],
+     en: "something weird happened with my Kaspi payment", ru: "с оплатой через Kaspi что-то странное", kk: "Kaspi арқылы төлегенде что-то странное болды"}
+  - {id: cl_register_err, cat: clarify, diff: medium, intent: account_help, action: clarify,
+     en: "can't create an account, something is wrong", ru: "не получается создать аккаунт, что-то не так", kk: "аккаунт аша алмай жатырмын, бірдеңе дұрыс емес"}
+  - {id: cl_unclear_short, cat: clarify, diff: easy, intent: unclear, action: clarify,
+     en: "hmm", ru: "ммм", kk: "әә?"}
+  - {id: cl_unclear_broken, cat: clarify, diff: medium, intent: unclear, action: clarify,
+     en: "it's broken again", ru: "опять сломалось", kk: "тағы бұзылды"}
+  - {id: cl_unclear_mixed, cat: clarify, diff: hard, intent: unclear, action: clarify,
+     en: "so what about the thing we discussed", ru: "ну так что там с тем, о чём говорили", kk: "сонымен әлгі айтқан нәрсе не болды"}
+  - {id: cl_greet, cat: clarify, diff: easy, intent: greeting, action: clarify,
+     en: "good morning!", ru: "доброе утро!", kk: "қайырлы таң!"}
+  - {id: cl_greet_cs, cat: clarify, diff: easy, intent: greeting, action: clarify, cs: [kk, ru],
+     en: "hi hi", ru: "салем, добрый день", kk: "сәлем, здравствуйте"}
+  - {id: cl_thanks_only, cat: clarify, diff: medium, intent: greeting, action: clarify,
+     en: "thanks", ru: "спасибо", kk: "рақмет"}
+  - {id: cl_track_cs, cat: clarify, diff: medium, intent: track_order, action: clarify, cs: [kk, ru],
+     en: "where is my order, waiting since Monday", ru: "заказ где, с понедельника күтемін", kk: "заказым қайда, дүйсенбіден бері ждём"}
+  - {id: cl_cancel_cs, cat: clarify, diff: medium, intent: cancel_order, action: clarify, cs: [kk],
+     en: "please cancel, ordered by accident", ru: "отмените, случайно заказала", kk: "отменить етіңізші, байқамай заказ беріп қойдым"}
+  - {id: cl_refund_cs, cat: clarify, diff: hard, intent: refund_status, action: clarify, cs: [ru],
+     en: "the refund still isn't here, it's been ages", ru: "возврат әлі жоқ, уже сколько времени", kk: "қайтарылған ақша әлі жоқ, қанша уақыт өтті"}
+  - {id: cl_defect_cs, cat: clarify, diff: hard, intent: product_defect, action: clarify, cs: [kk],
+     en: "bought headphones, left one is silent", ru: "купил наушники, левый не работает", kk: "наушник алдым, сол жағы істемейді"}
+  # --- escalate (F8)
+  - {id: es_human_plain, cat: escalate, diff: easy, intent: human_agent, action: escalate, esc: customer_requested_human,
+     en: "can I talk to someone from your team?", ru: "можно поговорить с кем-то из вашей команды?", kk: "командаңыздағы біреумен сөйлесуге бола ма?"}
+  - {id: es_human_annoyed, cat: escalate, diff: easy, intent: human_agent, action: escalate, esc: customer_requested_human,
+     en: "stop with the robot answers, give me an actual human", ru: "хватит этих роботских ответов, дайте нормального человека", kk: "робот жауаптарыңызды қойыңыз, маған нағыз адам керек"}
+  - {id: es_human_call_me, cat: escalate, diff: medium, intent: human_agent, action: escalate, esc: customer_requested_human,
+     en: "have a manager contact me please", ru: "пусть со мной свяжется менеджер", kk: "менеджер маған хабарлассын"}
+  - {id: es_human_cs, cat: escalate, diff: medium, intent: human_agent, action: escalate, esc: customer_requested_human, cs: [kk, ru],
+     en: "is there a live operator?", ru: "живой оператор бар ма?", kk: "живой оператор бар ма, сөйлескім келеді"}
+  - {id: es_complaint_staff, cat: escalate, diff: easy, intent: complaint, action: escalate, esc: complaint,
+     en: "the girl at your pickup point was incredibly rude to me", ru: "девушка в вашем пункте выдачи мне жутко нахамила", kk: "беру пунктіңіздегі қыз маған өте дөрекі сөйледі"}
+  - {id: es_complaint_quality, cat: escalate, diff: medium, intent: complaint, action: escalate, esc: complaint,
+     en: "third order in a row with something missing. I'm fed up with your store", ru: "третий заказ подряд с недостачей. Достал ваш магазин", kk: "қатарынан үшінші тапсырыста бірдеңе жетіспейді. Дүкендеріңізден әбден шаршадым"}
+  - {id: es_complaint_courier_late, cat: escalate, diff: medium, intent: complaint, action: escalate, esc: complaint,
+     en: "the courier made me wait 4 hours and didn't even call. I want to complain", ru: "курьер заставил ждать 4 часа и даже не позвонил. Хочу пожаловаться", kk: "курьер мені 4 сағат күттіріп, тіпті қоңырау да шалмады. Шағым түсіргім келеді"}
+  - {id: es_complaint_cs, cat: escalate, diff: hard, intent: complaint, action: escalate, esc: complaint, cs: [kk],
+     en: "your service is a joke, nobody fixes anything", ru: "ваш сервис просто цирк, никто ничего не решает", kk: "сервистерің просто цирк, ешкім ештеңе шешпейді"}
+  - {id: es_legal_court, cat: escalate, diff: medium, intent: complaint, action: escalate, esc: legal_threat,
+     en: "I've already talked to a lawyer, expect a claim from us", ru: "я уже проконсультировался с юристом, ждите претензию", kk: "заңгермен ақылдасып қойдым, бізден талап-арыз күтіңіздер"}
+  - {id: es_legal_agency, cat: escalate, diff: hard, intent: complaint, action: escalate, esc: legal_threat,
+     en: "fine, I'll report you to the consumer protection committee", ru: "хорошо, напишу на вас в комитет по защите прав потребителей", kk: "жарайды, сіздер туралы тұтынушылар құқығын қорғау комитетіне жазамын"}
+  - {id: es_safety_burn, cat: escalate, diff: medium, intent: product_defect, action: escalate, esc: safety_risk,
+     en: "the iron melted the cord and burned my hand", ru: "утюг расплавил шнур, я обожгла руку", kk: "үтік сымын ерітіп жіберді, қолымды күйдіріп алдым"}
+  - {id: es_safety_battery, cat: escalate, diff: hard, intent: product_defect, action: escalate, esc: safety_risk,
+     en: "the power bank is swollen and hot, is it dangerous??", ru: "пауэрбанк вздулся и горячий, это опасно??", kk: "пауэрбанк ісініп, қызып тұр, бұл қауіпті ме??"}
+  - {id: es_safety_toy, cat: escalate, diff: hard, intent: product_defect, action: escalate, esc: safety_risk,
+     en: "a small part came off the toy and my baby almost swallowed it", ru: "от игрушки отвалилась мелкая деталь, ребёнок чуть не проглотил", kk: "ойыншықтан кішкене бөлшек түсіп қалды, балам жұтып қоя жаздады"}
+  - {id: es_privacy_delete, cat: escalate, diff: easy, intent: personal_data, action: escalate, esc: privacy_request,
+     en: "erase everything you know about me from your systems", ru: "сотрите из своих систем всё, что знаете обо мне", kk: "жүйелеріңізден мен туралы білетініңіздің бәрін өшіріңіз"}
+  - {id: es_privacy_access, cat: escalate, diff: medium, intent: personal_data, action: escalate, esc: privacy_request,
+     en: "I want a copy of all personal data you keep on me", ru: "хочу получить копию всех моих персональных данных у вас", kk: "сіздерде сақталған жеке деректерімнің көшірмесін алғым келеді"}
+  - {id: es_privacy_third_party, cat: escalate, diff: hard, intent: personal_data, action: escalate, esc: privacy_request,
+     en: "why did a delivery company I've never heard of get my phone number?", ru: "откуда у какой-то незнакомой службы доставки мой номер телефона?", kk: "мен білмейтін жеткізу компаниясы телефон нөмірімді қайдан алды?"}
+  - {id: es_tech_app, cat: escalate, diff: easy, intent: technical_issue, action: escalate, esc: technical_issue,
+     en: "the app freezes on the payment screen every time", ru: "приложение каждый раз зависает на экране оплаты", kk: "қосымша төлем бетінде әр жолы қатып қалады"}
+  - {id: es_tech_site, cat: escalate, diff: medium, intent: technical_issue, action: escalate, esc: technical_issue,
+     en: "your website throws error 500 when I open my orders", ru: "сайт выдаёт ошибку 500, когда открываю заказы", kk: "тапсырыстарымды ашқанда сайт 500 қатесін береді"}
+  - {id: es_tech_cs, cat: escalate, diff: medium, intent: technical_issue, action: escalate, esc: technical_issue, cs: [kk],
+     en: "can't log in to the app since the update", ru: "после обновления не могу войти в приложение", kk: "обновлениеден кейін приложениеге кіре алмай жатырмын"}
+  - {id: es_dispute_double, cat: escalate, diff: easy, intent: payment_problem, action: escalate, esc: payment_dispute,
+     en: "I was billed twice for the same order", ru: "с меня взяли деньги два раза за один заказ", kk: "бір тапсырыс үшін менен екі рет ақша алынды"}
+  - {id: es_dispute_no_order, cat: escalate, diff: medium, intent: payment_problem, action: escalate, esc: payment_dispute,
+     en: "you took 38,000 tenge from my card but there's no order in my account", ru: "с карты списали 38 000 тенге, а заказа в аккаунте нет", kk: "картамнан 38 000 теңге шегерілді, бірақ аккаунтымда тапсырыс жоқ"}
+  - {id: es_fraud_unknown_order, cat: escalate, diff: medium, intent: account_help, action: escalate, esc: fraud_suspected,
+     en: "there's an order to Shymkent in my account and I live in Astana. Not mine!", ru: "в моём аккаунте заказ в Шымкент, а я живу в Астане. Это не мой!", kk: "аккаунтымда Шымкентке тапсырыс тұр, ал мен Астанада тұрамын. Бұл менікі емес!"}
+  - {id: es_fraud_sms, cat: escalate, diff: hard, intent: account_help, action: escalate, esc: fraud_suspected,
+     en: "someone called pretending to be you and asked for my SMS code. I gave it. What now?", ru: "мне позвонили якобы от вас и попросили код из смс, я его назвала. Что теперь?", kk: "сіздердің атыңыздан біреу қоңырау шалып, SMS кодты сұрады, мен айтып қойдым. Енді не істеймін?"}
+  - {id: es_repeat_failure, cat: escalate, diff: hard, intent: delivery_problem, action: escalate, esc: repeated_failure,
+     en: ["my order 640213 never arrived", "I'm sorry for that. The carrier reports order 640213 is still in transit; you will receive an SMS when it is out for delivery.", "you told me the exact same thing on Friday and on Monday. this is useless"],
+     ru: ["мой заказ 640213 так и не пришёл", "Приносим извинения. По данным перевозчика, заказ 640213 ещё в пути; когда его передадут курьеру, придёт SMS.", "вы мне это же писали в пятницу и в понедельник. толку ноль"],
+     kk: ["640213 тапсырысым әлі келген жоқ", "Кешірім сұраймыз. Тасымалдаушы деректері бойынша 640213 тапсырысы әлі жолда; курьерге берілгенде SMS келеді.", "жұма мен дүйсенбіде де дәл осыны айттыңыздар. ешқандай пайдасы жоқ"]}
+  - {id: es_repeat_payment, cat: escalate, diff: hard, intent: payment_problem, action: escalate, esc: repeated_failure,
+     en: ["the payment keeps failing", "Please check the card limit and 3-D Secure confirmation and try again in 15 minutes.", "did all that 3 times, still fails. I'm done with the bot"],
+     ru: ["оплата всё время не проходит", "Проверьте лимит карты и подтверждение 3-D Secure и попробуйте снова через 15 минут.", "сделал это уже 3 раза, всё равно не проходит. хватит бота"],
+     kk: ["төлем үнемі өтпей жатыр", "Карта лимитін және 3-D Secure растауын тексеріп, 15 минуттан кейін қайталап көріңіз.", "мұның бәрін 3 рет істедім, бәрібір өтпейді. ботпен сөйлесуді доғарамын"]}
+  - {id: es_complaint_refund_slow, cat: escalate, diff: medium, intent: complaint, action: escalate, esc: complaint,
+     en: "a month without my refund. this is outrageous and I want it escalated", ru: "месяц без возврата денег. Это возмутительно, передайте жалобу выше", kk: "бір ай бойы ақшам қайтарылмады. Бұл сұмдық, шағымымды жоғары жаққа жеткізіңіз"}
+  - {id: es_human_elderly, cat: escalate, diff: medium, intent: human_agent, action: escalate, esc: customer_requested_human,
+     en: "I'm not good with chats, can a person just phone me", ru: "я плохо разбираюсь в чатах, пусть мне просто позвонит человек", kk: "чатты жақсы түсінбеймін, маған жай ғана адам қоңырау шалсын"}
+  - {id: es_safety_smoke_cs, cat: escalate, diff: hard, intent: product_defect, action: escalate, esc: safety_risk, cs: [kk, ru],
+     en: "the heater started smoking!!", ru: "обогреватель түтін шығарып жатыр!!", kk: "обогреватель дымит, түтін шығып жатыр!!"}
+  - {id: es_legal_cs, cat: escalate, diff: hard, intent: complaint, action: escalate, esc: legal_threat, cs: [kk],
+     en: "return my money or see you in court", ru: "верните деньги или увидимся в суде", kk: "ақшамды қайтарыңдар, әйтпесе сотта көрісеміз, понятно?"}
+  - {id: es_privacy_cs, cat: escalate, diff: medium, intent: personal_data, action: escalate, esc: privacy_request, cs: [ru],
+     en: "remove my passport scan from your database", ru: "удалите скан моего паспорта из базы, өтінемін", kk: "базаларыңыздан төлқұжатымның сканын өшіріңіз"}
+  - {id: es_tech_checkout, cat: escalate, diff: medium, intent: technical_issue, action: escalate, esc: technical_issue,
+     en: "the 'pay' button does nothing on your site in Chrome", ru: "кнопка «Оплатить» на сайте в Chrome не нажимается", kk: "Chrome-да сайттағы «Төлеу» батырмасы басылмайды"}
+  - {id: es_dispute_after_cancel, cat: escalate, diff: hard, intent: payment_problem, action: escalate, esc: payment_dispute,
+     en: "I cancelled the order but the money was still charged today", ru: "заказ я отменила, а деньги сегодня всё равно списали", kk: "тапсырыстан бас тарттым, бірақ ақша бүгін бәрібір шегерілді"}

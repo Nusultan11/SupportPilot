@@ -9,7 +9,7 @@ import pytest
 from pydantic import ValidationError
 
 from supportpilot.common.config import find_project_root
-from supportpilot.common.schemas import INTENTS
+from supportpilot.common.schemas import INTENTS_V0
 from supportpilot.data.labels import (
     IntentMap,
     IntentRule,
@@ -95,7 +95,7 @@ def test_response_resolution_fills_own_slots_and_classifies_the_rest() -> None:
 def test_real_intent_map_is_valid_and_uses_known_intents() -> None:
     mapped = [r for s in IMAP.sources.values() for r in s.values() if r.intent]
     assert mapped
-    assert all(r.intent in INTENTS for r in mapped)
+    assert all(r.intent in INTENTS_V0 for r in mapped)
     assert IMAP.status.startswith("draft")
 
 

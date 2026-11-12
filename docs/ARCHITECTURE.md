@@ -10,7 +10,7 @@ Logical components share one Python package. They are not separate microservices
 |---|---|---|---|
 | Common | `supportpilot.common` | config, logging (redaction), schemas (DATA_CONTRACTS), IDs, hashing, manifests, atomic IO, provenance, MLflow run helper | library |
 | Ops | `supportpilot.ops` | environment/GPU report, data/model snapshots, MLflow and Qdrant round-trip checks | `supportpilot` CLI |
-| Data pipeline | `supportpilot.data` | registry policy → acquire → convert to raw records (Stage 2) → clean (`textnorm`, `placeholders`, `langid`) → dedup and grouping (`neardup`, `build`) → draft labels (`labels`) → gates → EDA (`eda`, `report`, `review`) (Stage 3) → language adaptation → label v1 → build SFT → split → version | `supportpilot data ...`, CPU |
+| Data pipeline | `supportpilot.data` | registry policy → acquire → convert to raw records (Stage 2) → clean (`textnorm`, `placeholders`, `langid`) → dedup and grouping (`neardup`, `build`) → draft labels (`labels`) → gates → EDA (`eda`, `report`, `review`) (Stage 3) → label v1 (`taxonomy`, `select`) → language adaptation (`locale`, `mt`, `mtrun`, `qe`, `embed`) → training KB (`kbtrain`, `textfmt`) → authored scenarios (`scenarios`) → SFT (`sft`, `sftbuild`, `split`, `sftgates`) → gold (`gold`) (Stage 4) | `supportpilot data ...`, CPU |
 | Knowledge ingestion | `supportpilot.kb` | parse PDF/DOCX/XLSX/CSV/JSON/TXT → structured docs → chunks + metadata | batch CLI, CPU |
 | Retrieval | `supportpilot.retrieval` | embeddings, Qdrant index, sparse/BM25, fusion, reranking, context assembly | library + index CLI |
 | LLM | `supportpilot.llm` | prompts, inference backend, structured decoding, LoRA/QLoRA training | library; training on Kaggle/Colab |
@@ -66,7 +66,10 @@ Data:      configs/sources.yaml (registry + licence policy)
            → data/interim/clean/<source>/<rev>/clean.parquet (cleaned, LID, slots, keys) [Stage 3]
            → data/interim/canonical/ (examples/lang=*, pending, rejected, groups, pairs,
              quality_report, manifest; dedup + families + scenarios + gates)            [Stage 3]
-           → language adaptation, labels v1, splits                                     [Stage 4]
+           → data/interim/stage4/selected (labels v1, EN backbone, MT queue)             [Stage 4]
+           → data/interim/stage4/mt (resumable MT cache) → translated (QE, glossary)      [Stage 4]
+           + authored/ (native scenarios, answer templates, training KB, gold sources)    [Stage 4]
+           → data/processed/kb_train (training KB variant chunks)                         [Stage 4]
            → data/processed/sft/<dataset_version>/{train,validation,test}.parquet + manifest.json
            → data/gold/<benchmark_version>/ (never used for training/tuning)
 

@@ -1,0 +1,226 @@
+# Training KB variants (Stage 4, ADR-025; DATA_CONTRACTS §5). Fictional stores whose policy
+# values differ from each other and from the demo store (kb_sources/demo_store/facts.yaml),
+# so a model trained on them has to read the context instead of memorising one policy.
+# The `kb_variant_distinct` gate checks that no variant reuses a demo-store value of the
+# facts listed in `distinct_facts`.
+#
+# Value conventions: money in KZT (integers), periods as integers or [min, max] ranges,
+# times as "HH:MM". Each variant also has an `outdated` block: an earlier policy version
+# (effective_to before the current effective_from) used for `conflicting_context` tasks.
+# Authored by the Stage 4 agent (LLM); synthetic, no real store.
+schema_version: kb_variants/1
+distinct_facts:
+  - return_window_days
+  - refund_days
+  - exchange_window_days
+  - return_shipping_cost
+  - courier_cost
+  - free_delivery_from
+  - pickup_cost
+  - fast_delivery_days
+  - region_delivery_days
+  - instalment_months
+  - cod_max
+  - cancel_hours
+  - min_order
+  - warranty_months
+  - defect_report_days
+  - loyalty_percent
+  - gift_card_months
+  - account_delete_days
+  - support_hours
+  - support_phone
+  - store_name
+
+variants:
+  - id: dala
+    store_name: Dala Market
+    effective_from: '2026-09-01'
+    support_phone: +7 700 555 0131
+    support_email: help@dala-market.example
+    support_hours: ['08:00', '22:00']
+    showroom: {city: Almaty, address: {en: '24 Satpayev St', ru: 'ул. Сатпаева, 24', kk: 'Сәтбаев к-сі, 24'}}
+    showroom_hours: ['10:00', '21:00']
+    return_window_days: 30
+    return_shipping_cost: 0
+    refund_days: 5
+    exchange_window_days: 30
+    non_returnable: [underwear, opened_cosmetics, perishables]
+    fast_delivery_days: [1, 2]
+    region_delivery_days: [3, 7]
+    courier_cost: 990
+    free_delivery_from: 20000
+    pickup_cost: 0
+    carriers: [courier, kazpost, pickup]
+    payment_methods: [kaspi_qr, kaspi_red, card, cod]
+    instalment_months: 24
+    cod_max: 150000
+    cancel_hours: 24
+    min_order: 0
+    warranty_months: 24
+    defect_report_days: 14
+    loyalty_percent: 3
+    gift_card_months: 12
+    account_delete_days: 30
+    sale: {en: Black Friday, ru: Чёрная пятница, kk: Қара жұма, from: '2026-11-25', to: '2026-11-30'}
+    outdated: {effective_to: '2026-08-31', return_window_days: 15, courier_cost: 1290, free_delivery_from: 30000, refund_days: 8, warranty_months: 20}
+
+  - id: shanyrak
+    store_name: Shanyrak Shop
+    effective_from: '2026-10-01'
+    support_phone: +7 700 555 0142
+    support_email: support@shanyrak-shop.example
+    support_hours: ['09:00', '21:00']
+    showroom: {city: Astana, address: {en: '12 Kabanbay Batyr Ave', ru: 'пр. Кабанбай батыра, 12', kk: 'Қабанбай батыр даңғ., 12'}}
+    showroom_hours: ['10:00', '20:00']
+    return_window_days: 7
+    return_shipping_cost: 1500
+    refund_days: 3
+    exchange_window_days: 7
+    non_returnable: [underwear, opened_cosmetics, gift_cards, custom_items]
+    fast_delivery_days: [1, 3]
+    region_delivery_days: [4, 8]
+    courier_cost: 1490
+    free_delivery_from: 15000
+    pickup_cost: 300
+    carriers: [courier, cdek, postomat]
+    payment_methods: [kaspi_qr, card, halyk, apple_pay]
+    instalment_months: 6
+    cod_max: 100000
+    cancel_hours: 2
+    min_order: 2000
+    warranty_months: 6
+    defect_report_days: 7
+    loyalty_percent: 1
+    gift_card_months: 6
+    account_delete_days: 7
+    sale: {en: 11.11 sale, ru: распродажа 11.11, kk: 11.11 жеңілдік науқаны, from: '2026-11-11', to: '2026-11-13'}
+    outdated: {effective_to: '2026-09-30', return_window_days: 10, courier_cost: 990, free_delivery_from: 35000, refund_days: 7, warranty_months: 15}
+
+  - id: kokzhiek
+    store_name: Kokzhiek Store
+    effective_from: '2026-08-15'
+    support_phone: +7 700 555 0153
+    support_email: care@kokzhiek.example
+    support_hours: ['10:00', '20:00']
+    showroom: {city: Shymkent, address: {en: '5 Tauke Khan Ave', ru: 'пр. Тауке хана, 5', kk: 'Тәуке хан даңғ., 5'}}
+    showroom_hours: ['09:00', '19:00']
+    return_window_days: 21
+    return_shipping_cost: 2000
+    refund_days: 7
+    exchange_window_days: 14
+    non_returnable: [perishables, gift_cards]
+    fast_delivery_days: [2, 4]
+    region_delivery_days: [5, 10]
+    courier_cost: 1990
+    free_delivery_from: 50000
+    pickup_cost: 690
+    carriers: [kazpost, cdek, pickup]
+    payment_methods: [kaspi_qr, kaspi_red, cod, invoice_b2b]
+    instalment_months: 3
+    cod_max: 300000
+    cancel_hours: 6
+    min_order: 5000
+    warranty_months: 36
+    defect_report_days: 30
+    loyalty_percent: 5
+    gift_card_months: 24
+    account_delete_days: 14
+    sale: {en: New Year sale, ru: новогодняя распродажа, kk: Жаңа жылдық жеңілдік, from: '2026-12-20', to: '2027-01-05'}
+    outdated: {effective_to: '2026-08-14', return_window_days: 30, courier_cost: 1490, free_delivery_from: 40000, refund_days: 5, warranty_months: 24}
+
+  - id: tumar
+    store_name: Tumar Market
+    effective_from: '2026-07-01'
+    support_phone: +7 700 555 0164
+    support_email: hello@tumar-market.example
+    support_hours: ['08:00', '20:00']
+    showroom: {city: Karaganda, address: {en: '41 Bukhar Zhyrau Ave', ru: 'пр. Бухар Жырау, 41', kk: 'Бұқар жырау даңғ., 41'}}
+    showroom_hours: ['10:00', '19:00']
+    return_window_days: 10
+    return_shipping_cost: 0
+    refund_days: 14
+    exchange_window_days: 10
+    non_returnable: [underwear, perishables, custom_items]
+    fast_delivery_days: [1, 1]
+    region_delivery_days: [2, 5]
+    courier_cost: 1290
+    free_delivery_from: 30000
+    pickup_cost: 0
+    carriers: [courier, postomat, pickup]
+    payment_methods: [card, halyk, cod, apple_pay]
+    instalment_months: 24
+    cod_max: 50000
+    cancel_hours: 1
+    min_order: 1000
+    warranty_months: 18
+    defect_report_days: 21
+    loyalty_percent: 4
+    gift_card_months: 36
+    account_delete_days: 3
+    sale: {en: Nauryz sale, ru: распродажа к Наурызу, kk: Наурыз жеңілдіктері, from: '2027-03-18', to: '2027-03-23'}
+    outdated: {effective_to: '2026-06-30', return_window_days: 7, courier_cost: 1990, free_delivery_from: 20000, refund_days: 3, warranty_months: 6}
+
+  - id: baiterek
+    store_name: Baiterek Shop
+    effective_from: '2026-10-15'
+    support_phone: +7 700 555 0175
+    support_email: info@baiterek-shop.example
+    support_hours: ['07:00', '23:00']
+    showroom: {city: Aktobe, address: {en: '8 Abilkayir Khan Ave', ru: 'пр. Абилкайыр хана, 8', kk: 'Әбілқайыр хан даңғ., 8'}}
+    showroom_hours: ['11:00', '21:00']
+    return_window_days: 45
+    return_shipping_cost: 990
+    refund_days: 1
+    exchange_window_days: 45
+    non_returnable: [opened_cosmetics, custom_items]
+    fast_delivery_days: [2, 2]
+    region_delivery_days: [4, 9]
+    courier_cost: 490
+    free_delivery_from: 7000
+    pickup_cost: 0
+    carriers: [courier, kazpost]
+    payment_methods: [kaspi_qr, kaspi_red, card]
+    instalment_months: 3
+    cod_max: 0
+    cancel_hours: 48
+    min_order: 10000
+    warranty_months: 6
+    defect_report_days: 3
+    loyalty_percent: 7
+    gift_card_months: 12
+    account_delete_days: 60
+    sale: {en: Back to School sale, ru: распродажа «Снова в школу», kk: «Мектепке қайта» жеңілдігі, from: '2027-08-15', to: '2027-08-31'}
+    outdated: {effective_to: '2026-10-14', return_window_days: 21, courier_cost: 1490, free_delivery_from: 15000, refund_days: 5, warranty_months: 24}
+
+  - id: saryarka
+    store_name: Saryarka Store
+    effective_from: '2026-06-01'
+    support_phone: +7 700 555 0186
+    support_email: service@saryarka.example
+    support_hours: ['09:00', '18:00']
+    showroom: {city: Pavlodar, address: {en: '63 Lomov St', ru: 'ул. Ломова, 63', kk: 'Ломов к-сі, 63'}}
+    showroom_hours: ['09:00', '18:00']
+    return_window_days: 60
+    return_shipping_cost: 2500
+    refund_days: 21
+    exchange_window_days: 60
+    non_returnable: [underwear, opened_cosmetics, perishables, gift_cards]
+    fast_delivery_days: [3, 5]
+    region_delivery_days: [7, 14]
+    courier_cost: 2490
+    free_delivery_from: 100000
+    pickup_cost: 990
+    carriers: [cdek, kazpost, pickup, postomat]
+    payment_methods: [kaspi_qr, card, cod, invoice_b2b]
+    instalment_months: 6
+    cod_max: 500000
+    cancel_hours: 12
+    min_order: 500
+    warranty_months: 9
+    defect_report_days: 60
+    loyalty_percent: 10
+    gift_card_months: 3
+    account_delete_days: 1
+    sale: {en: Summer clearance, ru: летняя распродажа, kk: жазғы жеңілдік, from: '2027-07-01', to: '2027-07-15'}
+    outdated: {effective_to: '2026-05-31', return_window_days: 30, courier_cost: 990, free_delivery_from: 50000, refund_days: 14, warranty_months: 18}

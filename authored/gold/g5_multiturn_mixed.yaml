@@ -1,0 +1,304 @@
+# Gold benchmark source, part 5: multi-turn dialogues (context carried across turns), more
+# tool cases, and harder grounded questions (typos, slang, code-switching, two-part
+# questions). Authored separately from training by the Stage 4 agent (LLM); review `draft`.
+schema_version: gold_src/1
+items:
+  # --- multi-turn: the last user turn depends on the earlier turns
+  - id: mt_track_id_later
+    cat: multi_turn
+    diff: medium
+    intent: track_order
+    action: call_tool
+    tool: {get_order: {order_id: "583302", status: in_transit, carrier: Kazpost, eta: "2026-11-18"}}
+    facts: {eta: "2026-11-18"}
+    en: ["hi, my parcel is late", "Sorry to hear that. Could you send me the six-digit order number?", "583302"]
+    ru: ["здравствуйте, посылка задерживается", "Сожалею. Пришлите, пожалуйста, шестизначный номер заказа.", "583302"]
+    kk: ["сәлеметсіз бе, сәлемдемем кешігіп жатыр", "Өкінішті. Алты таңбалы тапсырыс нөмірін жіберіңізші.", "583302"]
+  - id: mt_track_then_eta
+    cat: multi_turn
+    diff: medium
+    intent: track_order
+    action: call_tool
+    tool: {get_order: {order_id: "771845", status: in_transit, carrier: CDEK, eta: "2026-11-14"}}
+    facts: {eta: "2026-11-14"}
+    en: ["I want to ask about order 771845", "Of course. What would you like to know about it?", "will it be here before the weekend?"]
+    ru: ["хочу спросить про заказ 771845", "Конечно. Что именно вас интересует?", "успеет до выходных?"]
+    kk: ["771845 тапсырысы туралы сұрағым бар", "Әрине. Нақты не білгіңіз келеді?", "демалысқа дейін келіп үлгере ме?"]
+  - id: mt_cancel_after_track
+    cat: multi_turn
+    diff: hard
+    intent: cancel_order
+    action: call_tool
+    tool: {request_cancellation: {order_id: "308826", accepted: true, ticket_id: "CN-61930"}}
+    facts: {ticket_id: "CN-61930"}
+    en: ["what's the status of 308826?", "Order 308826 is being prepared and has not shipped yet.", "ok then cancel it please"]
+    ru: ["какой статус у 308826?", "Заказ 308826 собирается и ещё не отправлен.", "тогда отмените его, пожалуйста"]
+    kk: ["308826 тапсырысының күйі қандай?", "308826 тапсырысы жиналып жатыр, әлі жөнелтілген жоқ.", "онда оны болдырмаңызшы"]
+  - id: mt_return_then_cost
+    cat: multi_turn
+    diff: medium
+    intent: return_product
+    action: answer_kb
+    ev: [returns_policy.how_to_return]
+    facts: {return_shipping_cost: "1000"}
+    en: ["can I return a kettle?", "Yes, items can be returned within the return period if they are unused and in the original packaging.", "and do I pay for sending it back?"]
+    ru: ["можно вернуть чайник?", "Да, товар можно вернуть в срок возврата, если он не использовался и в оригинальной упаковке.", "а за отправку обратно я плачу?"]
+    kk: ["шәйнекті қайтаруға бола ма?", "Иә, тауар пайдаланылмаған және түпнұсқа қаптамасында болса, қайтару мерзімі ішінде қайтаруға болады.", "ал кері жіберу үшін мен төлеймін бе?"]
+  - id: mt_delivery_city_switch
+    cat: multi_turn
+    diff: hard
+    intent: delivery_time
+    action: answer_kb
+    ev: [delivery_policy.periods]
+    facts: {region_delivery_days: "3-6"}
+    en: ["how long to Astana?", "Delivery to Almaty and Astana takes 2–3 days after the order ships.", "and what if I send it to my brother in Taraz instead?"]
+    ru: ["сколько до Астаны?", "Доставка в Алматы и Астану занимает 2–3 дня после отправки.", "а если отправить брату в Тараз?"]
+    kk: ["Астанаға дейін қанша уақыт?", "Алматы мен Астанаға жеткізу жөнелтілгеннен кейін 2–3 күн алады.", "ал Таразда тұратын ініме жіберсем ше?"]
+  - id: mt_pay_then_instalment
+    cat: multi_turn
+    diff: medium
+    intent: payment_methods
+    action: answer_kb
+    ev: [payment_policy.instalments]
+    facts: {instalment_months: "12"}
+    en: ["do you take Kaspi?", "Yes, Kaspi QR and Kaspi Red are accepted.", "can I spread a 300k phone over a year then?"]
+    ru: ["Kaspi принимаете?", "Да, принимаем Kaspi QR и Kaspi Red.", "тогда телефон за 300 тысяч можно растянуть на год?"]
+    kk: ["Kaspi қабылдайсыздар ма?", "Иә, Kaspi QR мен Kaspi Red қабылданады.", "онда 300 мыңдық телефонды бір жылға бөліп төлеуге бола ма?"]
+  - id: mt_refund_status_carry
+    cat: multi_turn
+    diff: hard
+    intent: refund_status
+    action: call_tool
+    tool: {get_payment: {order_id: "419957", status: paid, refund: {status: processing, amount_kzt: 21400, started_at: "2026-11-09", expected_by: "2026-11-23"}}}
+    facts: {expected_by: "2026-11-23"}
+    en: ["I returned the boots from order 419957", "Thank you. Once the returned item has been checked, the money is sent back to your payment method.", "so when exactly will the money be back?"]
+    ru: ["я вернула ботинки из заказа 419957", "Спасибо. После проверки возвращённого товара деньги отправят тем же способом оплаты.", "так когда именно деньги вернутся?"]
+    kk: ["419957 тапсырысындағы бәтеңкені қайтардым", "Рақмет. Қайтарылған тауар тексерілген соң, ақша төлем тәсіліңізге қайтарылады.", "сонда ақша нақты қашан қайтады?"]
+  - id: mt_clarify_product_then_stock
+    cat: multi_turn
+    diff: medium
+    intent: availability
+    action: call_tool
+    tool: {get_stock: {sku: HD-0909, in_stock: true, qty: 12, warehouse_city: Almaty}}
+    facts: {qty: "12"}
+    en: ["is it in stock?", "Which product do you mean? A name or SKU is enough.", "the hair dryer HD-0909"]
+    ru: ["есть в наличии?", "Какой именно товар? Достаточно названия или артикула.", "фен с артикулом HD-0909"]
+    kk: ["қоймада бар ма?", "Қай тауар туралы айтып тұрсыз? Атауы немесе артикулы жеткілікті.", "HD-0909 шаш кептіргіш"]
+  - id: mt_human_after_bot
+    cat: multi_turn
+    diff: medium
+    intent: human_agent
+    action: escalate
+    esc: customer_requested_human
+    en: ["my discount wasn't applied", "One promo code can be used per order and it does not combine with other discounts.", "I don't care, I want to speak to a person"]
+    ru: ["мне не применили скидку", "В одном заказе можно применить один промокод, он не суммируется с другими скидками.", "мне всё равно, хочу поговорить с человеком"]
+    kk: ["маған жеңілдік қолданылмады", "Бір тапсырысқа бір промокод қолданылады және ол басқа жеңілдіктермен қосылмайды.", "маған бәрібір, адаммен сөйлескім келеді"]
+  - id: mt_defect_escalate_safety
+    cat: multi_turn
+    diff: hard
+    intent: product_defect
+    action: escalate
+    esc: safety_risk
+    en: ["the microwave from my last order makes a buzzing noise", "Sorry about that. Could you send me the order number?", "now it's sparking inside and smells burnt"]
+    ru: ["микроволновка из последнего заказа гудит", "Сожалеем. Пришлите, пожалуйста, номер заказа.", "теперь внутри искрит и пахнет гарью"]
+    kk: ["соңғы тапсырыстағы микротолқынды пеш ызыңдап тұр", "Кешірім сұраймыз. Тапсырыс нөмірін жіберіңізші.", "енді ішінде ұшқын шашып, күйік иісі шығып тұр"]
+  - id: mt_cs_track
+    cat: multi_turn
+    diff: hard
+    intent: track_order
+    action: call_tool
+    cs: [kk, ru]
+    tool: {get_order: {order_id: "690273", status: at_pickup_point, keep_until: "2026-11-16"}}
+    facts: {keep_until: "2026-11-16"}
+    en: ["hello, got an sms but not sure about it", "Hello! Which order is the SMS about? Please send the order number.", "690273, can I pick it up?"]
+    ru: ["здравствуйте, смс пришла, бірақ түсінбедім", "Здравствуйте! По какому заказу пришло SMS? Пришлите номер заказа.", "690273, забрать можно уже?"]
+    kk: ["сәлеметсіз бе, смс келді, но не поняла", "Сәлеметсіз бе! SMS қай тапсырыс бойынша келді? Тапсырыс нөмірін жіберіңіз.", "690273, забрать етуге бола ма?"]
+  - id: mt_account_delete_confirm
+    cat: multi_turn
+    diff: medium
+    intent: account_help
+    action: answer_kb
+    ev: [account_faq.delete]
+    facts: {account_delete_days: "10"}
+    en: ["I don't want to use your store anymore", "I'm sorry to hear that. Is there something I can help you with, or would you like to close your account?", "close it. how long until it's gone?"]
+    ru: ["я больше не хочу пользоваться вашим магазином", "Жаль это слышать. Могу чем-то помочь или вы хотите удалить аккаунт?", "удалить. через сколько он исчезнет?"]
+    kk: ["енді дүкендеріңізді пайдаланғым келмейді", "Өкінішті. Немен көмектесе аламын, әлде аккаунтыңызды жапқыңыз келе ме?", "жабыңыз. қашан жойылады?"]
+  - id: mt_exchange_size_followup
+    cat: multi_turn
+    diff: medium
+    intent: exchange_product
+    action: answer_kb
+    ev: [returns_policy.exchange]
+    facts: {exchange_window_days: "21"}
+    en: ["the dress doesn't fit", "Sorry about that! Would you like to return it or exchange it for another size?", "exchange. how long do I have?"]
+    ru: ["платье не подошло", "Жаль! Хотите вернуть его или обменять на другой размер?", "обменять. сколько у меня времени?"]
+    kk: ["көйлек шақ келмеді", "Өкінішті! Оны қайтарғыңыз келе ме, әлде басқа өлшемге айырбастағыңыз келе ме?", "айырбастаймын. қанша уақытым бар?"]
+  - id: mt_oos_after_order
+    cat: multi_turn
+    diff: medium
+    intent: out_of_scope
+    action: refuse_oos
+    en: ["thanks for the tracking info", "You're welcome! Is there anything else I can help with?", "yes, which bank gives the best deposit rate?"]
+    ru: ["спасибо за информацию по заказу", "Пожалуйста! Чем ещё могу помочь?", "да, в каком банке лучший процент по депозиту?"]
+    kk: ["тапсырыс туралы ақпарат үшін рақмет", "Оқасы жоқ! Тағы немен көмектесейін?", "иә, қай банкте депозит пайызы ең жоғары?"]
+  - id: mt_change_address_order
+    cat: multi_turn
+    diff: hard
+    intent: change_order
+    action: call_tool
+    ev: [orders_policy.change]
+    tool: {get_order: {order_id: "925538", status: processing}}
+    facts: {status: processing}
+    en: ["I need to change an address", "Do you want to change the address saved in your profile, or the delivery address of an order you have already placed?", "the order, number 925538"]
+    ru: ["мне нужно поменять адрес", "Вы хотите изменить адрес в профиле или адрес доставки уже оформленного заказа?", "в заказе, номер 925538"]
+    kk: ["мекенжайды өзгертуім керек", "Профильдегі мекенжайды өзгерткіңіз келе ме, әлде рәсімделген тапсырыстың жеткізу мекенжайын ба?", "тапсырыстағыны, нөмірі 925538"]
+  - id: mt_change_address_profile
+    cat: multi_turn
+    diff: medium
+    intent: account_help
+    action: answer_kb
+    ev: [account_faq.profile]
+    en: ["I need to change an address", "Do you want to change the address saved in your profile, or the delivery address of an order you have already placed?", "the one in my profile, for future orders"]
+    ru: ["мне нужно поменять адрес", "Вы хотите изменить адрес в профиле или адрес доставки уже оформленного заказа?", "в профиле, для будущих заказов"]
+    kk: ["мекенжайды өзгертуім керек", "Профильдегі мекенжайды өзгерткіңіз келе ме, әлде рәсімделген тапсырыстың жеткізу мекенжайын ба?", "профильдегіні, келесі тапсырыстар үшін"]
+  - id: mt_receipt_carry
+    cat: multi_turn
+    diff: medium
+    intent: invoice
+    action: call_tool
+    tool: {get_payment: {order_id: "347120", status: paid, amount_kzt: 89900, paid_at: "2026-11-03", receipt_id: "R-5521946"}}
+    facts: {receipt_id: "R-5521946"}
+    en: ["order 347120 arrived, thanks", "Glad it arrived! Is there anything else I can help with?", "yes I need the receipt for it for work"]
+    ru: ["заказ 347120 пришёл, спасибо", "Рады, что всё пришло! Могу ещё чем-то помочь?", "да, мне нужен чек по нему для работы"]
+    kk: ["347120 тапсырысы келді, рақмет", "Келгеніне қуаныштымыз! Тағы немен көмектесейін?", "иә, жұмысқа оның чегі керек"]
+  - id: mt_free_delivery_math
+    cat: multi_turn
+    diff: hard
+    intent: delivery_options_cost
+    action: answer_kb
+    ev: [delivery_policy.cost]
+    facts: {free_delivery_from: "25000"}
+    en: ["how much is the courier?", "Courier delivery costs KZT 1,200.", "my cart is 19,000 - how much more to get it free?"]
+    ru: ["сколько стоит курьер?", "Курьерская доставка — 1 200 тенге.", "у меня корзина на 19 000, сколько добрать до бесплатной?"]
+    kk: ["курьер қанша тұрады?", "Курьерлік жеткізу — 1 200 теңге.", "себетім 19 000 теңге, тегін болу үшін тағы қанша керек?"]
+  - id: mt_complaint_after_info
+    cat: multi_turn
+    diff: hard
+    intent: complaint
+    action: escalate
+    esc: complaint
+    en: ["why was my parcel left outside in the rain??", "I'm sorry about that. Was anything damaged?", "everything is soaked. this is unacceptable, I want to file a complaint"]
+    ru: ["почему мою посылку оставили на улице под дождём??", "Мне очень жаль. Что-то повредилось?", "всё промокло. это недопустимо, хочу подать жалобу"]
+    kk: ["неге сәлемдемемді жаңбырдың астында далада қалдырдыңыздар??", "Өте өкінішті. Бірдеңе зақымдалды ма?", "бәрі су болды. бұл жол берілмейтін нәрсе, шағым түсіргім келеді"]
+  - id: mt_sms_code_then_fraud
+    cat: multi_turn
+    diff: hard
+    intent: account_help
+    action: escalate
+    esc: fraud_suspected
+    en: ["I keep getting login codes I didn't request", "Sign-in works with a one-time SMS code; codes are sent when someone enters your number at sign-in.", "and now there's a new order in my account I didn't place"]
+    ru: ["мне приходят коды входа, которые я не запрашивал", "Вход выполняется по одноразовому коду из SMS; код приходит, когда кто-то вводит ваш номер при входе.", "а теперь в аккаунте новый заказ, которого я не делал"]
+    kk: ["маған мен сұратпаған кіру кодтары келіп жатыр", "Кіру бір реттік SMS кодымен жүзеге асады; біреу кіру кезінде нөміріңізді енгізгенде код келеді.", "ал енді аккаунтымда мен бермеген жаңа тапсырыс тұр"]
+  # --- more tool cases
+  - {id: tl_track_tomorrow_q, cat: tool, diff: medium, intent: track_order, action: call_tool,
+     tool: {get_order: {order_id: "236118", status: in_transit, carrier: "store courier", eta: "2026-11-13"}}, facts: {eta: "2026-11-13"},
+     en: "is the courier bringing 236118 tomorrow? I need to stay home", ru: "курьер привезёт 236118 завтра? мне надо остаться дома", kk: "курьер 236118 тапсырысын ертең әкеле ме? үйде болуым керек"}
+  - {id: tl_track_cs_ru, cat: tool, diff: medium, intent: track_order, action: call_tool, cs: [ru],
+     tool: {get_order: {order_id: "812054", status: processing}}, facts: {status: processing},
+     en: "812054 still not shipped? it's been 2 days", ru: "812054 әлі жіберілмеді ме? уже 2 дня прошло", kk: "812054 әлі жөнелтілмеді ме? 2 күн өтті"}
+  - {id: tl_cancel_ok_cs, cat: tool, diff: medium, intent: cancel_order, action: call_tool, cs: [kk],
+     tool: {request_cancellation: {order_id: "437790", accepted: true, ticket_id: "CN-30227"}}, facts: {ticket_id: "CN-30227"},
+     en: "please cancel 437790", ru: "отмените 437790 пожалуйста", kk: "437790 заказты отменить етіңізші"}
+  - {id: tl_refund_completed_cs, cat: tool, diff: hard, intent: refund_status, action: call_tool, cs: [kk, ru],
+     tool: {get_payment: {order_id: "568211", status: paid, refund: {status: completed, amount_kzt: 15500, started_at: "2026-11-01", completed_at: "2026-11-08"}}}, facts: {completed_at: "2026-11-08"},
+     en: "did you send back the 15,500 for 568211?", ru: "568211 бойынша 15 500 вернули уже?", kk: "568211 бойынша 15 500 теңгені вернули ма?"}
+  - {id: tl_stock_out_alt, cat: tool, diff: medium, intent: availability, action: call_tool,
+     tool: {get_stock: {sku: ST-3105, in_stock: false, qty: 0, restock_expected: "2026-12-02"}}, facts: {restock_expected: "2026-12-02"},
+     en: "the stroller ST-3105 - when will it be back?", ru: "коляска ST-3105 — когда снова появится?", kk: "ST-3105 арбасы қашан қайта түседі?"}
+  - {id: tl_stock_in_city, cat: tool, diff: medium, intent: availability, action: call_tool,
+     tool: {get_stock: {sku: AC-1209, in_stock: true, qty: 3, warehouse_city: Shymkent}}, facts: {qty: "3", warehouse_city: Shymkent},
+     en: "do you have the AC-1209 air conditioner? summer is coming", ru: "кондиционер AC-1209 есть? лето скоро", kk: "AC-1209 кондиционері бар ма? жаз жақындап қалды"}
+  - {id: tl_dmg_cs, cat: tool, diff: hard, intent: delivery_problem, action: call_tool, cs: [kk],
+     tool: {get_order: {order_id: "724461", status: delivered, delivered_at: "2026-11-10"}}, ev: [returns_policy.damaged_wrong], facts: {defect_report_days: "15"},
+     en: "724461 arrived with a dented door on the fridge", ru: "724461 пришёл с вмятиной на дверце холодильника", kk: "724461 заказ келді, тоңазытқыштың есігі майысқан"}
+  - {id: tl_receipt_unpaid_q, cat: tool, diff: hard, intent: invoice, action: call_tool,
+     tool: {get_payment: {order_id: "650097", status: unpaid, amount_kzt: 27300}}, facts: {status: unpaid},
+     must_not: ["a receipt was sent"],
+     en: "why didn't I get a fiscal receipt for 650097?", ru: "почему мне не пришёл фискальный чек за 650097?", kk: "650097 үшін маған неге фискалдық чек келмеді?"}
+  - {id: tl_not_found_typo, cat: tool, diff: hard, intent: track_order, action: call_tool,
+     tool: {get_order: {order_id: "4417", error: not_found}}, facts: {error: not_found},
+     en: "order 4417 where is it", ru: "заказ 4417 где он", kk: "4417 тапсырыс қайда"}
+  - {id: tl_defect_warranty_q, cat: tool, diff: hard, intent: product_defect, action: call_tool,
+     tool: {get_order: {order_id: "158830", status: delivered, delivered_at: "2026-06-15"}}, ev: [warranty_policy.period, warranty_policy.defect], facts: {warranty_months: "12"},
+     en: "the washing machine from 158830 leaks water now. it was delivered in June", ru: "стиральная машина из 158830 теперь протекает. доставили в июне", kk: "158830 тапсырысындағы кір жуғыш машина енді су ағызып жатыр. маусымда жеткізілген"}
+  # --- harder grounded questions
+  - {id: gr_two_part_return, cat: grounded, diff: hard, intent: return_policy, action: answer_kb, ev: [returns_policy.window, returns_policy.refund], facts: {return_window_days: "14", refund_days: "10"},
+     en: "how long can I return stuff and how long does the money take to come back?", ru: "сколько дней на возврат и через сколько приходят деньги?", kk: "қайтаруға неше күн бар және ақша қанша уақытта қайтады?"}
+  - {id: gr_cs_cost, cat: grounded, diff: medium, intent: delivery_options_cost, action: answer_kb, cs: [kk, ru], ev: [delivery_policy.cost], facts: {courier_cost: "1200"},
+     en: "courier delivery how much", ru: "курьер доставка сколько тұрады?", kk: "курьерская доставка қанша тұрады?"}
+  - {id: gr_cs_return, cat: grounded, diff: medium, intent: return_policy, action: answer_kb, cs: [kk], ev: [returns_policy.window], facts: {return_window_days: "14"},
+     en: "if I don't like it, can I return it later?", ru: "если не понравится, потом можно вернуть?", kk: "ұнамаса, потом вернуть етуге бола ма?"}
+  - {id: gr_cs_hours, cat: grounded, diff: medium, intent: store_info, action: answer_kb, cs: [kk, ru], ev: [store_info.showroom], facts: {showroom_hours: "10:00"},
+     en: "what time does the showroom open?", ru: "шоурум қашан открывается?", kk: "шоурум во сколько ашылады?"}
+  - {id: gr_slang_payment, cat: grounded, diff: medium, intent: payment_methods, action: answer_kb, ev: [payment_policy.methods], facts: {payment_methods: "cod"},
+     en: "can i just pay the guy when he brings it", ru: "можно просто курьеру заплатить, когда привезёт?", kk: "әкелгенде курьерге жай ғана төлей салсам бола ма?"}
+  - {id: gr_typo_delivery, cat: grounded, diff: medium, intent: delivery_time, action: answer_kb, ev: [delivery_policy.periods], facts: {region_delivery_days: "3-6"},
+     en: "how lond delivry to pavlodar", ru: "скок доставка в павлодар идёт", kk: "павлодарга жеткизу канша кун"}
+  - {id: gr_newsletter_spam, cat: grounded, diff: easy, intent: newsletter, action: answer_kb, ev: [account_faq.newsletter],
+     en: "your promo emails are flooding my inbox, how do I stop them", ru: "ваши промо-письма завалили почту, как это отключить", kk: "жарнамалық хаттарыңыз поштамды толтырып тастады, оны қалай тоқтатамын"}
+  - {id: gr_app_huawei, cat: grounded, diff: medium, intent: app_help, action: answer_kb, ev: [account_faq.app],
+     en: "I have a Huawei without Google Play, can I get your app?", ru: "У меня Huawei без Google Play, приложение можно поставить?", kk: "Менде Google Play жоқ Huawei, қосымшаңызды орнатуға бола ма?"}
+  - {id: gr_cart_saved, cat: grounded, diff: medium, intent: cart_help, action: answer_kb, ev: [account_faq.cart], facts: {cart_days: "30"},
+     en: "if I leave items in the cart, will they still be there next month?", ru: "если оставлю товары в корзине, они будут там через месяц?", kk: "тауарларды себетте қалдырсам, бір айдан кейін де тұра ма?"}
+  - {id: gr_switch_account, cat: grounded, diff: medium, intent: account_help, action: answer_kb, ev: [account_faq.switch],
+     en: "my wife and I share a phone, how do we use separate accounts?", ru: "мы с женой пользуемся одним телефоном, как зайти в разные аккаунты?", kk: "әйелім екеуміз бір телефонды қолданамыз, бөлек аккаунттарға қалай кіреміз?"}
+  - {id: gr_history_receipts, cat: grounded, diff: easy, intent: order_history, action: answer_kb, ev: [account_faq.history],
+     en: "where do I see everything I bought this year?", ru: "где посмотреть всё, что я купил за этот год?", kk: "биыл сатып алғанымның бәрін қайдан көремін?"}
+  - {id: gr_feedback_courier_praise, cat: grounded, diff: easy, intent: feedback, action: answer_kb, ev: [store_info.feedback],
+     en: "your courier Arman was super nice, where can I say thanks?", ru: "ваш курьер Арман был очень вежлив, где можно его поблагодарить?", kk: "курьерлеріңіз Арман өте сыпайы болды, оған қайдан алғыс айтуға болады?"}
+  - {id: gr_place_order_first, cat: grounded, diff: easy, intent: place_order, action: answer_kb, ev: [orders_policy.place],
+     en: "never bought online before, walk me through ordering", ru: "ни разу не покупала онлайн, объясните, как сделать заказ", kk: "бұрын онлайн сатып алып көрмеппін, тапсырысты қалай беретінін түсіндіріңізші"}
+  - {id: gr_cancel_shipped_q, cat: grounded, diff: hard, intent: cancel_order, action: answer_kb, ev: [orders_policy.cancel],
+     en: "what if the order is already on its way, can I still back out?", ru: "а если заказ уже в пути, можно от него отказаться?", kk: "тапсырыс жолға шығып кетсе ше, одан бас тартуға бола ма?"}
+  - {id: gr_damaged_photo, cat: grounded, diff: medium, intent: delivery_problem, action: answer_kb, ev: [returns_policy.damaged_wrong],
+     en: "what do you need from me to replace a broken item?", ru: "что от меня нужно, чтобы заменили сломанный товар?", kk: "сынған тауарды ауыстыру үшін менен не керек?"}
+  - {id: gr_warranty_receipt_lost, cat: grounded, diff: hard, intent: policy_faq, action: answer_kb, ev: [warranty_policy.period],
+     en: "I lost the receipt, does the warranty still work?", ru: "я потерял чек, гарантия всё равно действует?", kk: "чекті жоғалтып алдым, кепілдік бәрібір жарамды ма?"}
+  - {id: gr_bonus_how, cat: grounded, diff: easy, intent: policy_faq, action: answer_kb, ev: [store_info.loyalty], facts: {loyalty_percent: "2"},
+     en: "do I earn points when I shop with you?", ru: "мне начисляются баллы за покупки?", kk: "сатып алғанда маған ұпай жинала ма?"}
+  - {id: gr_sale_winter, cat: grounded, diff: medium, intent: store_info, action: answer_kb, ev: [store_info.sales],
+     en: "should I wait for a sale to buy a coat?", ru: "стоит дождаться распродажи, чтобы купить пальто?", kk: "пальто алу үшін жеңілдікті күткен дұрыс па?"}
+  - {id: gr_contact_email, cat: grounded, diff: easy, intent: contact_info, action: answer_kb, ev: [store_info.contact], facts: {support_email: "support@altyn-sauda.example"},
+     en: "what email can I write to?", ru: "на какую почту можно написать?", kk: "қай поштаға жазуға болады?"}
+  - {id: gr_exchange_gift, cat: grounded, diff: hard, intent: exchange_product, action: answer_kb, ev: [returns_policy.exchange],
+     en: "I got a sweater as a present but it's too big, can I swap it?", ru: "мне подарили свитер, но он велик, можно обменять?", kk: "маған жемпір сыйлады, бірақ үлкен екен, айырбастауға бола ма?"}
+  - {id: gr_pickup_point_free_cs, cat: grounded, diff: medium, intent: delivery_options_cost, action: answer_kb, cs: [kk], ev: [delivery_policy.cost], facts: {pickup_cost: "490"},
+     en: "is self pickup free or paid?", ru: "самовывоз бесплатный или платный?", kk: "самовывоз тегін бе, әлде платный ма?"}
+  - {id: gr_perishables, cat: grounded, diff: medium, intent: return_policy, action: answer_kb, ev: [returns_policy.non_returnable], facts: {non_returnable: "perishables"},
+     en: "the chocolates I ordered taste odd, can they go back?", ru: "заказанные конфеты странные на вкус, их можно вернуть?", kk: "тапсырыс берген кәмпиттердің дәмі біртүрлі, оларды қайтаруға бола ма?"}
+  - {id: gr_refund_method, cat: grounded, diff: medium, intent: return_policy, action: answer_kb, ev: [returns_policy.refund],
+     en: "will the refund go to my card or as bonuses?", ru: "деньги вернут на карту или бонусами?", kk: "ақша картаға қайтарыла ма, әлде бонус түрінде ме?"}
+  - {id: gr_min_order_cs, cat: grounded, diff: medium, intent: place_order, action: answer_kb, cs: [kk, ru], ev: [orders_policy.place], facts: {min_order: "3000"},
+     en: "is there a min order amount?", ru: "минимальная сумма заказа бар ма?", kk: "заказтың минимальная суммасы қанша?"}
+  - {id: gr_password_none, cat: grounded, diff: medium, intent: account_help, action: answer_kb, ev: [account_faq.password],
+     en: "where do I set a password for my account?", ru: "где задать пароль для аккаунта?", kk: "аккаунтқа құпиясөзді қайдан қоямын?"}
+  - {id: gr_delivery_regional_cs, cat: grounded, diff: hard, intent: delivery_time, action: answer_kb, cs: [kk], ev: [delivery_policy.periods], facts: {region_delivery_days: "3-6"},
+     en: "to a village near Shymkent - same timing as the city?", ru: "в село под Шымкентом — сроки как по городу?", kk: "Шымкенттің жанындағы ауылға — сроки қаладағыдай ма?"}
+  - {id: gr_invoice_how_company, cat: grounded, diff: medium, intent: invoice, action: answer_kb, ev: [payment_policy.receipts],
+     en: "our accountant needs an invoice with VAT, how do we request one?", ru: "бухгалтеру нужен счёт с НДС, как его запросить?", kk: "бухгалтерге ҚҚС бар шот керек, оны қалай сұратамыз?"}
+  - {id: gr_return_how_cs, cat: grounded, diff: medium, intent: return_product, action: answer_kb, cs: [kk, ru], ev: [returns_policy.how_to_return],
+     en: "how do I start a return in the app?", ru: "приложениеде возврат қалай оформить?", kk: "приложениеде возвратты қалай оформить етемін?"}
+  - {id: gr_defect_report_how, cat: grounded, diff: medium, intent: product_defect, action: answer_kb, ev: [warranty_policy.defect],
+     en: "what happens after I report a faulty blender?", ru: "что будет после того, как я сообщу о неисправном блендере?", kk: "ақаулы блендер туралы хабарлағаннан кейін не болады?"}
+  - {id: gr_cod_card, cat: grounded, diff: easy, intent: payment_methods, action: answer_kb, ev: [payment_policy.cod],
+     en: "can I pay by card to the courier, I don't have cash", ru: "можно картой курьеру заплатить? налички нет", kk: "курьерге картамен төлеуге бола ма? қолма-қол ақшам жоқ"}
+  - {id: gr_tracking_where, cat: grounded, diff: easy, intent: track_order, action: answer_kb, ev: [delivery_policy.tracking],
+     en: "where in the app can I see my order status myself?", ru: "где в приложении самому посмотреть статус заказа?", kk: "тапсырыс күйін қосымшаның қай жерінен өзім көре аламын?"}
+  - {id: gr_delete_bonuses, cat: grounded, diff: hard, intent: account_help, action: answer_kb, ev: [account_faq.delete],
+     en: "if I delete my account, what happens to my bonus points?", ru: "если удалю аккаунт, что будет с бонусами?", kk: "аккаунтымды жойсам, бонустарыма не болады?"}
+  - {id: gr_sms_tracking, cat: grounded, diff: medium, intent: delivery_options_cost, action: answer_kb, ev: [delivery_policy.methods],
+     en: "how do I choose CDEK instead of the courier?", ru: "как выбрать СДЭК вместо курьера?", kk: "курьердің орнына СДЭК-ті қалай таңдаймын?"}
+  - {id: gr_showroom_city_q, cat: grounded, diff: medium, intent: store_info, action: answer_kb, ev: [store_info.showroom], facts: {showroom: "Almaty"},
+     en: "which city is your showroom in, and the exact address?", ru: "в каком городе ваш шоурум и точный адрес?", kk: "шоурумыңыз қай қалада және нақты мекенжайы қандай?"}
+  - {id: gr_fail_3ds, cat: grounded, diff: hard, intent: payment_problem, action: answer_kb, ev: [payment_policy.failed_payment], facts: {payment_retry_minutes: "15"},
+     en: "the 3-D Secure SMS never came so the payment failed. now what?", ru: "СМС для 3-D Secure не пришло, оплата не прошла. Что теперь?", kk: "3-D Secure SMS-і келмеді, төлем өтпей қалды. Енді не істеймін?"}

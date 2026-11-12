@@ -31,7 +31,7 @@ Format: context → decision → alternatives → risks → revisit when. Status
 - **Alternatives:** pandas (higher RAM, no lazy engine); Spark (cluster overhead); DuckDB (good; allowed for ad-hoc EDA SQL, not a second pipeline engine).
 - **Revisit:** a measured Polars limitation on 1M+ workloads.
 
-### ADR-006 Training-data backbone and language adaptation — provisional (Stage 2–4)
+### ADR-006 Training-data backbone and language adaptation — accepted, refined by ADR-024/025 (2026-11-12)
 - **Context:** No open Kazakh e-commerce support dataset was found. The best licensed EN data:
   - Bitext retail e-commerce: 44,884 rows, 46 intents / 13 categories, CDLA-Sharing-1.0, hybrid-synthetic, `{{placeholders}}`.
   - Bitext customer support: 26,872 rows, 27 intents / 11 categories (card lists are inconsistent → verify on data), CDLA-Sharing-1.0.
@@ -91,6 +91,8 @@ Format: context → decision → alternatives → risks → revisit when. Status
 - **Stage 3 check (2026-11-11):** the data-quality audit ran once, and it is now code
   (`data clean`, `data gates`, `data eda`), not a manual process. So no skill yet. Revisit
   when Stage 4 repeats the review on translated data.
+- **Stage 4 check (2026-11-12):** the MT review and the gold authoring ran once each, and
+  the repeatable parts are code (`data mt-compare`, `data sft`, `data gold`). No skill yet.
 - **Revisit:** at the end of each of those stages, if the process was run ≥ 2 times by hand.
 
 ### ADR-013 Git on `main` only; backups in the git-ignored `backups/` dir — accepted (2026-11-11, location changed the same day)
@@ -135,6 +137,9 @@ Format: context → decision → alternatives → risks → revisit when. Status
     lengths from the pinned `tokenizer.json`, without the heavy `transformers`), and `numpy`,
     `scipy`, `matplotlib`. Those three were already transitive (via mlflow) and are now
     explicit, because MinHash, sparse Jaccard and the EDA charts import them.
+  - Stage 4 added the `ml` group (installed by default): `transformers` 5.22, `sentencepiece`,
+    `sacremoses`, `accelerate` and `bitsandbytes` 0.50 (4-bit MADLAD on the 4 GB GPU, ADR-024).
+    Building the SFT dataset from an existing MT cache does not import them (lazy imports).
 - **Why cu126:** it is verified on driver 566.07 (CUDA 12.7 runtime). Newer CUDA builds need a newer driver. Updating the driver is the owner's call.
 - **Alternatives:** torch as a main dependency (forces a ~2.5 GB CUDA wheel on every install); `uv pip install` outside the lock (not reproducible).
 - **Revisit:** driver update → consider a newer CUDA index; training libraries that need a specific torch.
@@ -228,7 +233,7 @@ Format: context → decision → alternatives → risks → revisit when. Status
 - **Revisit:** RU/KK data arrives in Stage 4. Then measure LID on real KK/RU support text and
   add a GlotLID comparison if KK–RU confusions appear.
 
-### ADR-021 Draft intent map v0 and rule-based actions — provisional (Stage 4 freezes v1)
+### ADR-021 Draft intent map v0 and rule-based actions — superseded for Stage 4 by ADR-023 (still used by the Stage 3 build)
 - **Context:** canonical/1 requires `intent` and `action`. The taxonomy is frozen in Stage 4.
 - **Decision:** `configs/intent_map.yaml` maps each source label to one v0 intent or to
   `null` with a reason. It is validated by `IntentMap`.
@@ -291,6 +296,113 @@ Format: context → decision → alternatives → risks → revisit when. Status
   homogeneous paraphrase set its clusters are arbitrary). It is the candidate for Stage 4
   cross-lingual or semantic dedup, once translations exist.
 - **Revisit:** Stage 4 decides the split unit, or generated or translated data needs semantic dedup.
+
+### ADR-023 Intent taxonomy v1 — accepted (2026-11-12)
+- **Context:** the Stage 3 draft v0 left 11 Bitext labels unmapped and several taxonomy
+  questions open (ADR-021). Stage 4 must freeze the taxonomy before building SFT targets.
+- **Decision:** `configs/taxonomy.yaml` is the single source of taxonomy v1: 35 intents in 10
+  groups, 5 actions, 4 mock tools, 10 escalation reasons. Each intent records its default
+  action, tool, KB documents and its clarify / escalate / refuse conditions.
+  - New intents: `change_address` (always clarify: profile address vs placed order),
+    `product_defect` (warranty; needs_reference; escalate on injury or fire), `contact_info`
+    (how to reach support; answer_kb, not a request for a person), `personal_data` (escalate,
+    privacy_request), `newsletter`, `cart_help`, `app_help`, `technical_issue` (escalate).
+  - Ambiguous labels are split by ordered regex `rules` on explicit wording; a text that matches
+    no rule stays unlabelled. Bitext `customer_service`: "how/call/hours" -> contact_info,
+    "talk/speak" -> human_agent, the rest unlabelled. `pay`: "transfer" excluded, "pay" ->
+    payment_methods. A paraphrase family split across two v1 labels is dropped.
+  - Excluded: `check_cancellation_fee` (telecom concept; labelling it out_of_scope would misread
+    the customer) and all while-ai labels (dialogue-level payment-agent labels, 52% hard defects
+    in the Stage 3 review). No while-ai dialogue enters Stage 4.
+  - `schemas.INTENTS_V0` stays for the Stage 3 build and gate, so Stage 3 outputs are unchanged;
+    `schemas.INTENTS` (v1) is a superset and a unit test keeps it equal to the YAML.
+- **Alternatives:** editing `configs/intent_map.yaml` in place (changes the Stage 3 build hash
+  and silently rebuilds it); a classifier to relabel ambiguous rows (invents labels).
+- **Revisit:** gold or validation errors concentrate on one intent pair (merge or split), or a
+  new tool (e.g. address change) makes a clarify intent actionable.
+
+### ADR-024 RU/KK creation: MADLAD-400 + glossary post-edit + QE filter — accepted (2026-11-12)
+- **Context:** no paid API budget (open decision 1) and no fluent reviewer (open decision 2).
+  Candidates had to be open, licence-compatible for training data and fit a 4 GB GPU.
+- **Comparison.** 100-item stratified EN sample; the first 50 were judged per system by the LLM
+  agent (`docs/reviews/stage4_mt_review.yaml`). Major-error rate before QE:
+
+  | system | licence | RU major errors | KK major errors |
+  |---|---|---|---|
+  | Opus-MT en-ru / en-trk | Apache-2.0 | 52% | 92% |
+  | M2M100-418M | MIT | 50% | 100% |
+  | MADLAD-400-3B (nf4) | Apache-2.0 | **40%** | **34%** |
+  | MADLAD en->ru->kk pivot | Apache-2.0 | n/a | 52% |
+
+  Not tried: NLLB-200 (CC-BY-NC, outputs not usable for training under ADR-018), Tilmash (gated,
+  no HF account), paid APIs (no budget).
+- **Decision:**
+  - MADLAD-400-3B-MT in 4-bit (bitsandbytes nf4, 2 beams, batch 8, output capped at 2.5x the
+    input) for both languages. Opus-MT ru-en and MADLAD kk-en back-translate for QE.
+  - Bitext texts are localised before MT: USD amounts -> KZT at a fixed synthetic rate. Names
+    and cities are Kazakhstan values already (Stage 3 catalogue) and must survive translation.
+  - Domain glossary from the reviewed errors. Repairable mistranslations are fixed by suffix
+    tables (kk "тапсырма" -> "тапсырыс", ru "приказ" -> "заказ", "тележка" -> "корзина"); the
+    others reject the row (cart as "fence" / "trash bin", "human agent" calques, "article").
+  - QE filter, all must hold: language ID = target, Cyrillic script, at most 34% Latin words,
+    numbers and names preserved, length ratio 0.45–2.6, no decoder loop, no Russian function
+    words in Kazakh, back-translation chrF >= 0.30, multilingual-e5 cosine >= 0.80.
+  - Every MT row keeps `translation_of`, `translation_system`, the raw MT, the back-translation
+    and QE values; rejected rows stay in `data/interim/stage4/translated/` with their reasons.
+  - The cache (`data/interim/stage4/mt/`) makes translation resumable; re-runs translate nothing.
+  - GPU time bounds the volume: 100 Bitext rows per source label and action per language
+    (7,554 per language) at about 2.5 sentences/s on the RTX 3050.
+- **Risks:** an LLM judged the errors; Kazakh fluency is not verified by a human. MT of typo-heavy
+  templated text stays unnatural even when accepted. Mitigation: native authored data
+  (ADR-025), reported QE and post-QE error rates, and a human audit as an open item.
+- **Revisit:** a paid MT/LLM budget or a fluent reviewer; KazParC / Tilmash access.
+
+### ADR-025 SFT construction: native authored data, training KB variant, templated grounded targets — accepted (2026-11-12)
+- **Context:** Bitext has 55 scenarios and its responses are unfit as targets (Stage 3). MT alone
+  gives RU/KK copies of the same templates. There is no budget for a generator LLM.
+- **Decision:**
+  - **Native authored scenarios** (`authored/scenarios/`, 81 situations, 896 utterances,
+    en / ru / kk, RU–KK code-switching, multi-turn) written by the Stage 4 agent and labelled
+    `origin=llm_generated`, `source_id=supportpilot_authored`. They add what Bitext lacks:
+    late or "delivered but not received" orders, refused cancellations, double charges, safety
+    risks, fraud, legal threats, repeated failure, injection attempts, out-of-scope requests.
+  - **Training KB variant** (`authored/kb_train/`): 6 fictional stores x 8 documents x 3
+    languages, plus outdated versions: 1,734 chunks with contract chunk ids. Every policy value
+    differs between variants and from the demo store (`kb_sources/demo_store/facts.yaml`,
+    `kb_variant_distinct` check).
+  - **Targets** are `AssistantResponse` JSON rendered from authored answer templates
+    (`authored/responses/templates.yaml`) with the values of the cited chunk or the tool result.
+    Russian plural agreement and Kazakh case suffixes are table-driven (`data/textfmt.py`).
+  - **Tasks.** answer_kb utterances draw grounded 62% / abstain 12% / conflicting 14% /
+    injection 12%. call_tool -> tool_answer with synthetic `get_order`, `get_payment`,
+    `get_stock`, `request_cancellation` results (7% order not found). clarify, escalate and
+    refuse_oos follow the action. Every example passes `SFTExample` and
+    `common.grounding.check_response`, or it is dropped and counted.
+- **Alternatives:** Bitext reference responses (prompt leaks, invented facts); free-form LLM
+  generation (no budget, unverifiable); translating authored EN (loses native phrasing).
+- **Risks:** templated answers are less varied than real agents; one author for the scenarios and
+  the gold set limits independence (ADR-026). Revisit with a generator budget or human writers.
+
+### ADR-026 Split unit and held-out sets — accepted (2026-11-12)
+- **Context:** DATA_CONTRACTS splits by `scenario_id`. After v1 relabelling Bitext still has one
+  scenario per label and action, so a scenario-disjoint Bitext split removes whole intents from
+  test, and a family split leaves paraphrases (J 0.5–0.8) on both sides (ADR-022).
+- **Decision:** keep the contract (split by `scenario_id`) and change what feeds held-out sets.
+  - Every Bitext-derived example (EN originals and their RU/KK translations, which share family
+    and scenario) goes to **train**.
+  - **Validation / test** = authored scenarios, assigned by scenario_id 70/15/15, stratified by
+    action, with at least one scenario per action in each held-out set.
+  - Held-out user texts that are exact, lexical (char-5-gram J >= 0.8), 13-gram or semantic
+    (e5 cosine >= 0.95, digits masked) near-copies of a train text are removed; the gate then
+    re-checks scenario/family, exact and lexical overlap = 0.
+  - The **gold** benchmark is authored separately (312 scenarios x 3 languages) and checked
+    against all SFT splits. Its review status is `draft`: there is no human reviewer.
+  - Volume is what quality allows: 90k/5k/5k is not reached and nothing is duplicated to reach
+    it. English is down-sampled toward EN 30 / RU 35 / KK 35; RU and KK are never up-sampled.
+- **Consequence:** validation and test measure generalisation to new authored situations, not
+  Bitext paraphrase robustness, and they are small.
+- **Revisit:** more independent scenarios (human-written, or generated with a budget) allow larger
+  held-out sets; Stage 7 shows that validation does not track gold.
 
 ---
 

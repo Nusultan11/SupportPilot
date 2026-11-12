@@ -1,0 +1,159 @@
+# Authored training scenarios: products, store, account and app (Stage 4, ADR-025).
+# Written natively per language by the Stage 4 agent (LLM). Human review pending.
+schema_version: scenarios/1
+scenarios:
+  - id: product_price
+    intent: product_info
+    action: answer_kb
+    product: true
+    sections: [catalog]
+    en: ["how much is the {product} ({sku})?", "price of {sku}?", "what does the {product} cost"]
+    ru: ["Сколько стоит {product} ({sku})?", "цена {sku}?", "почём {product}?"]
+    kk: ["{product} ({sku}) қанша тұрады?", "{sku} бағасы қанша?", "{product} бағасы қандай?"]
+    mix_kk: ["{sku} цена қанша?"]
+  - id: product_warranty_named
+    intent: product_info
+    action: answer_kb
+    product: true
+    sections: [catalog]
+    en: ["is there a warranty on the {product} {sku}?", "{sku} - price and guarantee?"]
+    ru: ["На {product} {sku} есть гарантия?", "{sku} — цена и гарантия?"]
+    kk: ["{product} {sku} үшін кепілдік бар ма?", "{sku} — бағасы мен кепілдігі қандай?"]
+  - id: product_unnamed
+    intent: product_info
+    action: clarify
+    ask: product
+    en: ["what size is it?", "tell me more about this product", "is it compatible with iphone?"]
+    ru: ["а какой у него размер?", "расскажите подробнее про этот товар", "он подходит к айфону?"]
+    kk: ["өлшемі қандай?", "осы тауар туралы толығырақ айтыңызшы", "айфонға сәйкес келе ме?"]
+  - id: stock_named
+    intent: availability
+    action: call_tool
+    product: true
+    tool_status: [in_stock, out_of_stock]
+    en: ["do you have the {product} ({sku}) in stock?", "is {sku} available?"]
+    ru: ["{product_cap} ({sku}) есть в наличии?", "{sku} в наличии?"]
+    kk: ["{product} ({sku}) бар ма?", "{sku} қоймада бар ма?"]
+    mix_kk: ["{sku} наличияда бар ма?"]
+  - id: stock_unnamed
+    intent: availability
+    action: clarify
+    ask: product
+    en: ["is it in stock?", "when will you have it again?"]
+    ru: ["есть в наличии?", "когда снова появится?"]
+    kk: ["қоймада бар ма?", "қашан қайта түседі?"]
+  - id: showroom_hours
+    intent: store_info
+    action: answer_kb
+    sections: [store_info.showroom]
+    en: ["where is your shop and what are the hours?", "can I pick up from your showroom on Sunday?"]
+    ru: ["Где ваш магазин и до скольки работает?", "можно забрать из шоурума в воскресенье?"]
+    kk: ["Дүкендеріңіз қайда және қашанға дейін жұмыс істейді?", "жексенбіде шоурумнан алып кетуге бола ма?"]
+  - id: contact_support
+    intent: contact_info
+    action: answer_kb
+    sections: [store_info.contact]
+    en: ["what's your support phone number?", "how can I contact you besides the chat?"]
+    ru: ["Какой у вас телефон поддержки?", "как с вами связаться, кроме чата?"]
+    kk: ["Қолдау қызметінің телефоны қандай?", "чаттан басқа сіздермен қалай байланысуға болады?"]
+    mix_ru: ["поддержкаға қалай звонить етемін?"]
+  - id: sales_when
+    intent: store_info
+    action: answer_kb
+    sections: [store_info.sales]
+    en: ["when is the next big sale?", "any discounts coming soon?"]
+    ru: ["Когда следующая большая распродажа?", "скоро будут скидки?"]
+    kk: ["Келесі үлкен жеңілдік қашан?", "жақында жеңілдіктер бола ма?"]
+  - id: loyalty_promo
+    intent: policy_faq
+    action: answer_kb
+    sections: [store_info.loyalty]
+    en: ["can I use two promo codes on one order?", "how do bonus points work?", "how long is a gift card valid?"]
+    ru: ["Можно применить два промокода в одном заказе?", "как работают бонусы?", "сколько действует подарочная карта?"]
+    kk: ["Бір тапсырысқа екі промокод қолдануға бола ма?", "бонустар қалай жұмыс істейді?", "сыйлық картасы қанша уақыт жарамды?"]
+  - id: account_create
+    intent: account_help
+    action: answer_kb
+    sections: [account_faq.create]
+    en: ["how do I sign up?", "want to make an account"]
+    ru: ["Как зарегистрироваться?", "хочу создать аккаунт"]
+    kk: ["Қалай тіркелемін?", "аккаунт ашқым келеді"]
+  - id: account_sms_code
+    intent: account_help
+    action: answer_kb
+    sections: [account_faq.password]
+    en: ["I forgot my password", "the sms code never comes"]
+    ru: ["Забыл пароль", "код из смс не приходит"]
+    kk: ["Құпиясөзімді ұмытып қалдым", "SMS код келмейді"]
+    mix_kk: ["смс код келмей жатыр, что делать?"]
+  - id: account_delete
+    intent: account_help
+    action: answer_kb
+    sections: [account_faq.delete]
+    en: ["please delete my account", "how do I close my profile?"]
+    ru: ["Удалите мой аккаунт", "как удалить профиль?"]
+    kk: ["Аккаунтымды жойыңызшы", "профильді қалай жоямын?"]
+  - id: account_switch
+    intent: account_help
+    action: answer_kb
+    sections: [account_faq.switch]
+    en: ["how do I log in with my wife's number instead?", "switch to another account"]
+    ru: ["Как войти под номером жены?", "как переключиться на другой аккаунт?"]
+    kk: ["Әйелімнің нөмірімен қалай кіремін?", "басқа аккаунтқа қалай ауысамын?"]
+  - id: account_profile_address
+    intent: account_help
+    action: answer_kb
+    sections: [account_faq.profile]
+    en: ["how do I change the address saved in my profile?", "I want to update my email in the profile"]
+    ru: ["Как изменить адрес, сохранённый в профиле?", "хочу поменять e-mail в профиле"]
+    kk: ["Профильде сақталған мекенжайды қалай өзгертемін?", "профильдегі e-mail-ді ауыстырғым келеді"]
+  - id: newsletter_unsub
+    intent: newsletter
+    action: answer_kb
+    sections: [account_faq.newsletter]
+    en: ["stop sending me emails", "how to unsubscribe from the newsletter"]
+    ru: ["Перестаньте присылать мне рассылку", "как отписаться от писем?"]
+    kk: ["Маған хат жіберуді тоқтатыңыз", "таратылымнан қалай бас тартамын?"]
+  - id: app_download
+    intent: app_help
+    action: answer_kb
+    sections: [account_faq.app]
+    en: ["do you have an app for android?", "where can I download your app"]
+    ru: ["У вас есть приложение для андроида?", "где скачать ваше приложение?"]
+    kk: ["Андроидқа арналған қосымшаңыз бар ма?", "қосымшаңызды қайдан жүктеймін?"]
+  - id: cart_remove
+    intent: cart_help
+    action: answer_kb
+    sections: [account_faq.cart]
+    en: ["how do I take something out of my cart?", "how do I add this to the cart"]
+    ru: ["Как убрать товар из корзины?", "как добавить в корзину?"]
+    kk: ["Себеттен тауарды қалай алып тастаймын?", "себетке қалай саламын?"]
+  - id: personal_data_delete
+    intent: personal_data
+    action: escalate
+    reason: privacy_request
+    en: ["I want you to delete all my personal data", "what personal data do you store about me?"]
+    ru: ["Удалите все мои персональные данные", "какие мои персональные данные вы храните?"]
+    kk: ["Менің барлық жеке деректерімді жойыңыз", "мен туралы қандай жеке деректер сақтайсыздар?"]
+  - id: account_hacked
+    intent: account_help
+    action: escalate
+    reason: fraud_suspected
+    en: ["someone ordered stuff from my account, it wasn't me", "i think my account was hacked"]
+    ru: ["С моего аккаунта кто-то сделал заказ, это не я", "кажется, мой аккаунт взломали"]
+    kk: ["Менің аккаунтымнан біреу тапсырыс беріпті, мен емеспін", "аккаунтымды бұзып кірген сияқты"]
+  - id: app_crash
+    intent: technical_issue
+    action: escalate
+    reason: technical_issue
+    en: ["the app crashes every time I open the cart", "website shows a blank page at checkout"]
+    ru: ["Приложение вылетает каждый раз, когда открываю корзину", "сайт показывает пустую страницу при оформлении"]
+    kk: ["Себетті ашқан сайын қосымша жабылып қалады", "рәсімдеу кезінде сайт бос бет көрсетеді"]
+    mix_kk: ["приложение ашылмай жатыр, вылетает"]
+  - id: feedback_leave
+    intent: feedback
+    action: answer_kb
+    sections: [store_info.feedback]
+    en: ["I'd like to leave a review for the {product}", "I have a suggestion for your app"]
+    ru: ["Хочу оставить отзыв о товаре", "у меня есть предложение по приложению"]
+    kk: ["Тауарға пікір қалдырғым келеді", "қосымшаңыз бойынша ұсынысым бар"]

@@ -169,6 +169,8 @@ def cmd_data(args: argparse.Namespace, settings: Settings) -> int:
 
     if args.action in ("clean", "gates", "eda"):
         return _cmd_stage3(args, settings)
+    if args.action in STAGE4_ACTIONS:
+        return _cmd_stage4(args, settings)
     entries = _selected_entries(args, settings)
     if args.action == "acquire":
         results = []
@@ -253,6 +255,74 @@ def _cmd_stage3(args: argparse.Namespace, settings: Settings) -> int:
     return 0 if result.gates is None or result.gates.passed else 1
 
 
+STAGE4_ACTIONS = (
+    "taxonomy",
+    "select",
+    "kb-train",
+    "mt-compare",
+    "translate",
+    "qe-score",
+    "sft",
+    "gold",
+)
+
+
+def _cmd_stage4(args: argparse.Namespace, settings: Settings) -> int:
+    from supportpilot.data import stage4
+
+    registry = load_source_registry(settings.resolve(settings.data.registry))
+    selected = [s for s in registry.sources if s.status is SourceStatus.SELECTED]
+    commit = code_commit(settings.root)
+    force = getattr(args, "force", False)
+    match args.action:
+        case "taxonomy":
+            _emit(stage4.taxonomy_report(settings))
+            return 0
+        case "select":
+            _emit(stage4.run_select(settings, selected, code_commit=commit, force=force))
+            return 0
+        case "kb-train":
+            _emit(stage4.run_kb(settings, code_commit=commit, force=force))
+            return 0
+        case "mt-compare":
+            from supportpilot.data.mtrun import run_compare
+
+            _emit(run_compare(settings))
+            return 0
+        case "translate":
+            from supportpilot.data.mtrun import run_translate
+
+            res = run_translate(settings, args.lang, limit=args.limit, back=not args.no_back)
+            _emit({"translated": [r.model_dump() for r in res]})
+            return 0
+        case "qe-score":
+            from supportpilot.data.mtrun import run_score
+
+            _emit(run_score(settings, code_commit=commit, force=force))
+            return 0
+        case "sft":
+            from supportpilot.data.mtrun import run_score
+            from supportpilot.data.sftbuild import build_sft
+
+            steps = {
+                "select": stage4.run_select(settings, selected, code_commit=commit, force=False),
+                "kb_train": stage4.run_kb(settings, code_commit=commit, force=False),
+                "qe_score": run_score(settings, code_commit=commit, force=False),
+            }
+            result = build_sft(
+                settings, selected, code_commit=commit, force=force, semantic=not args.no_semantic
+            )
+            _emit({"steps": steps, "sft": result})
+            return 0 if result.get("gates_passed", True) else 1
+        case "gold":
+            from supportpilot.data.gold import build_gold
+
+            report = build_gold(settings, code_commit=commit, semantic=not args.no_semantic)
+            _emit(report)
+            return 0 if report["passed"] else 1
+    raise AssertionError(args.action)  # pragma: no cover
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="supportpilot", description=__doc__)
     p.add_argument("--config", type=Path, help="YAML config (default: configs/base.yaml)")
@@ -318,6 +388,26 @@ def build_parser() -> argparse.ArgumentParser:
     dsub.add_parser("gates", help="re-run the quality gates on data/interim/canonical")
     ed = dsub.add_parser("eda", help="EDA report -> artifacts/reports/eda/")
     ed.add_argument("--no-tokens", action="store_true", help="skip Qwen token counts (offline)")
+    dsub.add_parser("taxonomy", help="Stage 4: validate taxonomy v1 and report the relabelling")
+    for name, helptext in (
+        ("select", "Stage 4: v1 relabel + EN backbone selection -> data/interim/stage4/selected"),
+        ("kb-train", "Stage 4: training KB variant -> data/processed/kb_train"),
+        ("qe-score", "Stage 4: QE of cached translations -> data/interim/stage4/translated"),
+    ):
+        a = dsub.add_parser(name, help=helptext)
+        a.add_argument("--force", action="store_true", help="rebuild even if up to date")
+    dsub.add_parser("mt-compare", help="Stage 4: compare MT systems on a sample (GPU)")
+    tr = dsub.add_parser("translate", help="Stage 4: translate the backbone queue (GPU, resumable)")
+    tr.add_argument("--lang", choices=["ru", "kk"], required=True)
+    tr.add_argument("--limit", type=int, help="translate at most N new texts")
+    tr.add_argument("--no-back", action="store_true", help="skip back-translation")
+    sf = dsub.add_parser(
+        "sft", help="Stage 4: build the SFT dataset -> data/processed/sft/<version>"
+    )
+    sf.add_argument("--force", action="store_true", help="rebuild even if up to date")
+    sf.add_argument("--no-semantic", action="store_true", help="skip the e5 semantic leakage check")
+    gd = dsub.add_parser("gold", help="Stage 4: build the gold benchmark -> data/gold/<version>")
+    gd.add_argument("--no-semantic", action="store_true", help="skip the e5 semantic leakage check")
     dt.set_defaults(func=cmd_data)
     return p
 
@@ -335,6 +425,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     from supportpilot.data.build import BuildError
     from supportpilot.data.converters import ConversionError
     from supportpilot.data.policy import PolicyError
+    from supportpilot.data.steps import StepError
 
     try:
         return int(args.func(args, settings))
@@ -344,6 +435,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         BuildError,
         ConversionError,
         PolicyError,
+        StepError,
         FileNotFoundError,
         ValueError,
     ) as exc:

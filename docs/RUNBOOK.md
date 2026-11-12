@@ -39,13 +39,13 @@ uv run pre-commit install     # once per clone
 - Configuration: `configs/base.yaml`. Override with env vars `SUPPORTPILOT_<SECTION>__<KEY>`,
   or a file via `--config` / `SUPPORTPILOT_CONFIG`. Secrets go in `.env` (git-ignored).
 
-## 3. Quality checks (verified Stage 3)
+## 3. Quality checks (verified Stage 4)
 
 ```bash
 uv run ruff check . && uv run ruff format --check .
 uv run mypy                   # strict; src + tests
-uv run pytest -q              # full suite: 233 tests, ~25 s (with the Qdrant server up)
-uv run pytest -q -m "not slow and not gpu and not qdrant_server"   # fast subset (230 tests)
+uv run pytest -q              # full suite: 277 tests, ~31 s (with the Qdrant server up)
+uv run pytest -q -m "not slow and not gpu and not qdrant_server"   # fast subset
 uv run pre-commit run --all-files                                  # all hooks
 ```
 
@@ -232,6 +232,53 @@ uv run supportpilot backup create data/interim/canonical --name canonical --kind
 uv run supportpilot backup create artifacts/reports/eda --name eda_report --kind data --pin
 ```
 
+## 7c. Stage 4: multilingual SFT dataset and gold benchmark (verified Stage 4)
+
+Inputs: the Stage 3 build (`data/interim/canonical/`, read-only), `configs/taxonomy.yaml`
+(taxonomy v1), `configs/locale_kz.yaml`, `authored/` (scenarios, answer templates, training KB,
+gold sources) and `kb_sources/demo_store/facts.yaml`. Settings: `configs/base.yaml` `stage4:`.
+
+```bash
+uv run supportpilot data taxonomy             # validate taxonomy v1, show how labels were split
+uv run supportpilot data select               # v1 relabel + EN backbone + MT queue
+uv run supportpilot data kb-train             # training KB variant (6 stores x 3 languages)
+uv run supportpilot data mt-compare           # MT systems on a 100-item sample -> artifacts/reports/stage4/mt_compare/ (GPU)
+uv run supportpilot data translate --lang kk  # MADLAD-400 en->kk + kk->en back-translation (GPU, resumable)
+uv run supportpilot data translate --lang ru  # en->ru + Opus-MT ru->en back-translation
+uv run supportpilot data qe-score             # QE + glossary -> data/interim/stage4/translated/
+uv run supportpilot data sft                  # select/kb/qe if stale, then SFT -> data/processed/sft/<version>/
+uv run supportpilot data gold                 # gold benchmark -> data/gold/<version>/ (needs the SFT build)
+```
+
+Behaviour:
+- **Models.** `translate`, `mt-compare` and the semantic leakage check download pinned models
+  into the HF cache on first use (MADLAD-400-3B 11.8 GB, Opus-MT 0.3 GB each, M2M100 1.9 GB,
+  multilingual-e5-small 0.5 GB). Afterwards set `HF_HUB_OFFLINE=1`. `--no-semantic` on `sft` /
+  `gold` skips e5 (the lexical and id checks still run).
+- **GPU time.** MADLAD in nf4 uses about 3.4 GB VRAM and translates about 2.5 short texts/s on
+  the RTX 3050 (batch 8, 2 beams). The 7,554-row queue per language takes about 50 min forward
+  plus the back-translation. Close other GPU programs; `nvidia-smi` should show < 300 MiB used.
+- **Interruption.** Translations are cached per 512-row shard
+  (`data/interim/stage4/mt/<system>/<pair>/`). A killed run loses at most one shard; re-run the
+  same command. A finished run re-translates nothing.
+- **Re-runs.** `select`, `kb-train`, `qe-score`, `sft` and `gold` skip when inputs, parameters
+  and file hashes are unchanged; `--force` rebuilds (`sft` reproduces the same
+  `dataset_version` for the same inputs). Outputs are written to `.partial-*` and renamed;
+  leftovers are removed by the next run.
+- **Failed gates.** The SFT or gold build is kept at `<root>/current.failed/` with its
+  `quality_report.json`, and the exit code is 1. A gold leakage hit lists the gold ids
+  (`leakage_items`): rewrite those items in `authored/gold/`, do not delete them silently.
+- **Long runs that must survive a closed terminal or agent session:** start them detached, e.g.
+  in PowerShell `Start-Process cmd -ArgumentList '/c uv run supportpilot data translate --lang kk > mt.log 2>&1' -WindowStyle Hidden`.
+
+Backup after a stage build:
+```bash
+uv run supportpilot backup create data/interim/stage4 --name stage4_interim --kind data --pin
+uv run supportpilot backup create data/processed/kb_train --name kb_train --kind data --pin
+uv run supportpilot backup create data/processed/sft/<dataset_version> --name sft --kind data --pin
+uv run supportpilot backup create data/gold/<benchmark_version> --name gold --kind data --pin
+```
+
 ## 8. Diagnostics
 
 | Symptom | Check |
@@ -253,3 +300,6 @@ uv run supportpilot backup create artifacts/reports/eda --name eda_report --kind
 | `data eda`: tokenizer download fails or sha256 mismatch | Offline or upstream changed: use `--no-tokens`, or re-pin `eda.tokenizers` after checking the new revision |
 | HF warning "cache-system uses symlinks" | Harmless on Windows. Set `HF_HUB_DISABLE_SYMLINKS_WARNING=1` |
 | `data/interim/.partial-*` directories exist | A run was killed. The next run of the same step removes them |
+| `data translate` very slow, `nvidia-smi` near 4 GB | VRAM spills into shared memory. Close GPU apps; keep MADLAD `batch_size` at 8 in `stage4.mt_systems` |
+| `data sft`: "translations missing" | Run `data translate --lang <ru|kk>` until it reports `translated: 0` |
+| `data gold` fails `leakage` | `current.failed/quality_report.json` lists the gold ids; rewrite those items in `authored/gold/` |

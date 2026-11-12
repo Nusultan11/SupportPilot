@@ -15,7 +15,7 @@ from typing import Literal
 import yaml
 from pydantic import BaseModel, ConfigDict, model_validator
 
-from supportpilot.common.schemas import INTENTS, Action
+from supportpilot.common.schemas import INTENTS_V0, Action
 
 NEEDS_REFERENCE = "needs_reference"
 REFERENCE_SLOTS = frozenset({"order_id", "invoice_id"})
@@ -48,7 +48,7 @@ class IntentRule(_Model):
             if self.action is not None or self.escalate:
                 raise ValueError("an unmapped label cannot have an action or escalation")
             return self
-        if self.intent not in INTENTS:
+        if self.intent not in INTENTS_V0:
             raise ValueError(f"unknown v0 intent {self.intent!r}")
         allowed = {a.value for a in Action} | {NEEDS_REFERENCE}
         if self.action not in allowed:

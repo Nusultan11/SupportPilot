@@ -94,6 +94,33 @@ class EdaSettings(_Section):
     tokenizers: list[TokenizerSpec] = Field(default_factory=list)
 
 
+class Stage4Settings(_Section):
+    """Stage 4 multilingual SFT dataset and gold benchmark (ADR-023..026)."""
+
+    taxonomy: Path = Path("configs/taxonomy.yaml")
+    locale: Path = Path("configs/locale_kz.yaml")
+    authored_dir: Path = Path("authored")
+    demo_facts: Path = Path("kb_sources/demo_store/facts.yaml")
+    seed: int = 20261111
+    max_per_family: int = Field(default=1, ge=1)
+    max_per_label: int = Field(default=260, ge=1)
+    max_profane_share: float = Field(default=0.1, ge=0.0, le=1.0)
+    mt_per_label: int = Field(default=150, ge=0)
+    mt_selected: dict[str, str] = Field(default_factory=dict)
+    back_translation: dict[str, str] = Field(default_factory=dict)
+    qe_min_bt_chrf: float = Field(default=0.3, ge=0.0, le=1.0)
+    qe_min_emb_sim: float = Field(default=0.8, ge=-1.0, le=1.0)
+    mt_compare_n: int = Field(default=100, ge=1)
+    embedder: dict[str, Any] = Field(default_factory=dict)
+    mt_systems: list[dict[str, Any]] = Field(default_factory=list)
+    split_ratios: dict[str, float] = Field(
+        default_factory=lambda: {"train": 0.7, "validation": 0.15, "test": 0.15}
+    )
+    leak_jaccard: float = Field(default=0.8, gt=0.0, le=1.0)
+    leak_ngram: int = Field(default=13, ge=5)
+    leak_cosine: float = Field(default=0.95, gt=0.0, le=1.0)
+
+
 class LoggingSettings(_Section):
     level: Literal["DEBUG", "INFO", "WARNING", "ERROR"] = "INFO"
     format: Literal["json", "console"] = "json"
@@ -137,6 +164,7 @@ class Settings(BaseSettings):
     data: DataSettings = DataSettings()
     clean: CleanSettings = CleanSettings()
     eda: EdaSettings = EdaSettings()
+    stage4: Stage4Settings = Stage4Settings()
     logging: LoggingSettings = LoggingSettings()
     backup: BackupSettings = BackupSettings()
     mlflow: MLflowSettings = MLflowSettings()

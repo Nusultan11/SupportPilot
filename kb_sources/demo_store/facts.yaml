@@ -1,0 +1,40 @@
+# Demo-store canonical facts (seeded in Stage 4, owned by Stage 5; ROADMAP §Stage 5).
+# The fictional Kazakhstan store the running system answers about. Stage 5 renders these
+# facts into PDF/DOCX/XLSX/CSV/JSON/TXT documents in RU/KK/EN.
+#
+# Stage 4 needs them for two things:
+#   1. the gold benchmark: expected answers and required facts refer to these keys;
+#   2. the `kb_variant_distinct` gate: no training KB variant (authored/kb_train/variants.yaml)
+#      may reuse a value listed here, so the SFT data never teaches the demo policy.
+# Changing a value here requires re-running `supportpilot data sft` (gate) and
+# `supportpilot data gold` (expected facts). Synthetic; no real store.
+schema_version: demo_facts/1
+store_name: Altyn Sauda
+effective_from: '2026-11-01'
+support_phone: +7 700 555 0120
+support_email: support@altyn-sauda.example
+support_hours: ['09:00', '20:00']
+showroom: {city: Almaty, address: {en: '77 Dostyk Ave', ru: 'пр. Достык, 77', kk: 'Достық даңғ., 77'}}
+showroom_hours: ['10:00', '20:00']
+return_window_days: 14
+return_shipping_cost: 1000
+refund_days: 10
+exchange_window_days: 21
+non_returnable: [underwear, opened_cosmetics, perishables, gift_cards]
+fast_delivery_days: [2, 3]
+region_delivery_days: [3, 6]
+courier_cost: 1200
+free_delivery_from: 25000
+pickup_cost: 490
+carriers: [courier, kazpost, cdek, pickup]
+payment_methods: [kaspi_qr, kaspi_red, card, cod]
+instalment_months: 12
+cod_max: 200000
+cancel_hours: 3
+min_order: 3000
+warranty_months: 12
+defect_report_days: 15
+loyalty_percent: 2
+gift_card_months: 18
+account_delete_days: 10
+sale: {en: Winter sale, ru: зимняя распродажа, kk: қысқы жеңілдік, from: '2027-01-10', to: '2027-01-20'}

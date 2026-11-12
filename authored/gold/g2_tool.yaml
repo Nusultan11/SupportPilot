@@ -1,0 +1,321 @@
+# Gold benchmark source, part 2: requests answered from mock tool results (tool_state).
+# Authored separately from training by the Stage 4 agent (LLM); review status `draft`.
+schema_version: gold_src/1
+items:
+  - id: trk_transit_basic
+    cat: tool
+    diff: easy
+    intent: track_order
+    action: call_tool
+    tool: {get_order: {order_id: "418273", status: in_transit, carrier: CDEK, eta: "2026-11-15"}}
+    facts: {status: in_transit, eta: "2026-11-15"}
+    en: "Where's my order 418273?"
+    ru: "Где сейчас мой заказ 418273?"
+    kk: "418273 тапсырысым қазір қайда?"
+  - id: trk_transit_impatient
+    cat: tool
+    diff: medium
+    intent: track_order
+    action: call_tool
+    tool: {get_order: {order_id: "559012", status: in_transit, carrier: Kazpost, eta: "2026-11-16"}}
+    facts: {eta: "2026-11-16"}
+    en: "559012 ordered a week ago still nothing, any news??"
+    ru: "559012 заказывала неделю назад и тишина, есть новости??"
+    kk: "559012 бір апта бұрын тапсырыс бердім, әлі хабар жоқ, жаңалық бар ма??"
+  - id: trk_delayed_eta
+    cat: tool
+    diff: medium
+    intent: track_order
+    action: call_tool
+    tool: {get_order: {order_id: "730418", status: in_transit, carrier: CDEK, eta: "2026-11-09", new_eta: "2026-11-14"}}
+    facts: {new_eta: "2026-11-14"}
+    must_not: ["the order will arrive on 9 November"]
+    en: "Order 730418 was promised for the 9th. Today is the 12th. When will it actually come?"
+    ru: "Заказ 730418 обещали к 9-му, сегодня 12-е. Когда он реально приедет?"
+    kk: "730418 тапсырысын 9-ына уәде еткенсіздер, бүгін 12-сі. Нақты қашан келеді?"
+  - id: trk_pickup_ready
+    cat: tool
+    diff: easy
+    intent: track_order
+    action: call_tool
+    tool: {get_order: {order_id: "264910", status: at_pickup_point, keep_until: "2026-11-17"}}
+    facts: {status: at_pickup_point, keep_until: "2026-11-17"}
+    en: "is 264910 ready to collect?"
+    ru: "264910 уже можно забирать?"
+    kk: "264910 тапсырысын алып кетуге бола ма?"
+  - id: trk_pickup_deadline
+    cat: tool
+    diff: medium
+    intent: track_order
+    action: call_tool
+    tool: {get_order: {order_id: "382755", status: at_pickup_point, keep_until: "2026-11-14"}}
+    facts: {keep_until: "2026-11-14"}
+    en: "I'm away until next week, how long will the pickup point hold order 382755?"
+    ru: "Я уезжаю до следующей недели, сколько пункт выдачи будет хранить заказ 382755?"
+    kk: "Келесі аптаға дейін жоқпын, беру пункті 382755 тапсырысын қанша уақыт сақтайды?"
+  - id: trk_delivered_claim
+    cat: tool
+    diff: hard
+    intent: track_order
+    action: call_tool
+    tool: {get_order: {order_id: "907146", status: delivered, delivered_at: "2026-11-10"}}
+    facts: {delivered_at: "2026-11-10"}
+    must_not: ["the order is still on its way"]
+    en: "907146 marked delivered on the 10th but my doorman says nothing came"
+    ru: "907146 отмечен доставленным 10-го, но консьерж говорит, что ничего не приносили"
+    kk: "907146 тапсырысы 10-ында жеткізілді деп тұр, бірақ күзетші ештеңе әкелмеді дейді"
+  - id: trk_processing
+    cat: tool
+    diff: easy
+    intent: track_order
+    action: call_tool
+    tool: {get_order: {order_id: "651320", status: processing}}
+    facts: {status: processing}
+    en: "has 651320 shipped yet"
+    ru: "651320 уже отправили?"
+    kk: "651320 жөнелтілді ме?"
+  - id: trk_cancelled_surprise
+    cat: tool
+    diff: hard
+    intent: track_order
+    action: call_tool
+    tool: {get_order: {order_id: "120586", status: cancelled, cancelled_at: "2026-11-08"}}
+    facts: {status: cancelled, cancelled_at: "2026-11-08"}
+    en: "Why does my app say order 120586 is cancelled? I didn't cancel anything!"
+    ru: "Почему в приложении заказ 120586 отменён? Я ничего не отменял!"
+    kk: "Неге қосымшада 120586 тапсырысы болдырылмады деп тұр? Мен ештеңе болдырмадым ғой!"
+  - id: trk_not_found
+    cat: tool
+    diff: medium
+    intent: track_order
+    action: call_tool
+    tool: {get_order: {order_id: "99812", error: not_found}}
+    facts: {error: not_found}
+    en: "status of order 99812 please"
+    ru: "статус заказа 99812, пожалуйста"
+    kk: "99812 тапсырысының күйі қандай?"
+  - id: trk_cs_kk
+    cat: tool
+    diff: medium
+    intent: track_order
+    action: call_tool
+    cs: [kk, ru]
+    tool: {get_order: {order_id: "345761", status: in_transit, carrier: CDEK, eta: "2026-11-13"}}
+    facts: {eta: "2026-11-13"}
+    en: "345761 - is it coming tomorrow?"
+    ru: "345761 ертең келе ме? очень нужно"
+    kk: "345761 заказ ертең приедет па? срочно керек"
+  - id: cancel_ok
+    cat: tool
+    diff: easy
+    intent: cancel_order
+    action: call_tool
+    tool: {request_cancellation: {order_id: "804417", accepted: true, ticket_id: "CN-40871"}}
+    facts: {accepted: "true", ticket_id: "CN-40871"}
+    en: "Cancel 804417, found it cheaper elsewhere"
+    ru: "Отмените 804417, нашёл дешевле"
+    kk: "804417 тапсырысын болдырмаңыз, басқа жерден арзанырақ таптым"
+  - id: cancel_too_late
+    cat: tool
+    diff: medium
+    intent: cancel_order
+    action: call_tool
+    tool: {request_cancellation: {order_id: "275903", accepted: false, reason: already_shipped}}
+    facts: {accepted: "false"}
+    must_not: ["the order has been cancelled"]
+    en: "I need to cancel order 275903 right now"
+    ru: "Мне нужно прямо сейчас отменить заказ 275903"
+    kk: "275903 тапсырысын дәл қазір болдырмауым керек"
+  - id: cancel_partial
+    cat: tool
+    diff: hard
+    intent: cancel_order
+    action: call_tool
+    tool: {request_cancellation: {order_id: "618842", accepted: true, ticket_id: "CN-55102"}}
+    facts: {ticket_id: "CN-55102"}
+    en: "Please cancel the whole order 618842, my husband already bought the same kettle"
+    ru: "Отмените весь заказ 618842, муж уже купил такой же чайник"
+    kk: "618842 тапсырысын толықтай болдырмаңызшы, күйеуім дәл сондай шәйнек сатып алып қойыпты"
+  - id: change_size_ok
+    cat: tool
+    diff: medium
+    intent: change_order
+    action: call_tool
+    tool: {get_order: {order_id: "472009", status: processing}}
+    ev: [orders_policy.change]
+    facts: {status: processing}
+    en: "Can I swap the M for an L in order 472009?"
+    ru: "Можно в заказе 472009 поменять M на L?"
+    kk: "472009 тапсырысында M өлшемін L-ге ауыстыруға бола ма?"
+  - id: change_addr_shipped
+    cat: tool
+    diff: medium
+    intent: change_order
+    action: call_tool
+    tool: {get_order: {order_id: "193374", status: in_transit, carrier: Kazpost}}
+    ev: [orders_policy.change]
+    facts: {status: in_transit}
+    must_not: ["the address has been changed"]
+    en: "I moved yesterday, please send order 193374 to my new flat instead"
+    ru: "Я вчера переехала, отправьте заказ 193374 на новую квартиру"
+    kk: "Кеше көшіп кеттім, 193374 тапсырысын жаңа пәтеріме жіберіңізші"
+  - id: receipt_paid
+    cat: tool
+    diff: easy
+    intent: invoice
+    action: call_tool
+    tool: {get_payment: {order_id: "530611", status: paid, amount_kzt: 45600, paid_at: "2026-10-29", receipt_id: "R-7718203"}}
+    facts: {receipt_id: "R-7718203", amount_kzt: "45600"}
+    en: "send me the receipt for 530611"
+    ru: "скиньте чек по 530611"
+    kk: "530611 бойынша чекті жіберіңізші"
+  - id: receipt_unpaid
+    cat: tool
+    diff: medium
+    intent: invoice
+    action: call_tool
+    tool: {get_payment: {order_id: "877230", status: unpaid, amount_kzt: 12900}}
+    facts: {status: unpaid}
+    must_not: ["a receipt was sent"]
+    en: "I can't find the receipt for order 877230 anywhere"
+    ru: "Не могу нигде найти чек по заказу 877230"
+    kk: "877230 тапсырысының чегін еш жерден таба алмай жүрмін"
+  - id: refund_processing
+    cat: tool
+    diff: easy
+    intent: refund_status
+    action: call_tool
+    tool: {get_payment: {order_id: "306284", status: paid, refund: {status: processing, amount_kzt: 18900, started_at: "2026-11-07", expected_by: "2026-11-21"}}}
+    facts: {refund_status: processing, expected_by: "2026-11-21"}
+    en: "any update on the refund for 306284?"
+    ru: "что там с возвратом денег по 306284?"
+    kk: "306284 бойынша ақша қайтару қалай болып жатыр?"
+  - id: refund_completed
+    cat: tool
+    diff: medium
+    intent: refund_status
+    action: call_tool
+    tool: {get_payment: {order_id: "711490", status: paid, refund: {status: completed, amount_kzt: 7400, started_at: "2026-11-02", completed_at: "2026-11-10"}}}
+    facts: {completed_at: "2026-11-10", amount_kzt: "7400"}
+    en: "You said the money for 711490 was refunded but I don't see it on my card"
+    ru: "Вы пишете, что деньги за 711490 вернули, а на карте их нет"
+    kk: "711490 үшін ақша қайтарылды дейсіздер, бірақ картамда жоқ"
+  - id: refund_none
+    cat: tool
+    diff: hard
+    intent: refund_status
+    action: call_tool
+    tool: {get_payment: {order_id: "452137", status: paid, refund: null, return_registered: false}}
+    facts: {return_registered: "false"}
+    must_not: ["the refund is on its way"]
+    en: "Where is my refund for 452137? I want my money"
+    ru: "Где мой возврат за 452137? Верните деньги"
+    kk: "452137 үшін қайтарылатын ақша қайда? Ақшамды қайтарыңыз"
+  - id: refund_req_received
+    cat: tool
+    diff: medium
+    intent: request_refund
+    action: call_tool
+    tool: {get_payment: {order_id: "628504", status: paid, return_registered: true, refund: {status: processing, amount_kzt: 32500, started_at: "2026-11-11", expected_by: "2026-11-25"}}}
+    facts: {amount_kzt: "32500", expected_by: "2026-11-25"}
+    en: "I dropped off the return for 628504 yesterday, please refund me"
+    ru: "Вчера сдала возврат по 628504, верните деньги"
+    kk: "Кеше 628504 бойынша тауарды қайтарып бердім, ақшамды қайтарыңыз"
+  - id: refund_req_no_return
+    cat: tool
+    diff: hard
+    intent: request_refund
+    action: call_tool
+    tool: {get_payment: {order_id: "246681", status: paid, amount_kzt: 64900, refund: null, return_registered: false}}
+    ev: [returns_policy.how_to_return]
+    facts: {return_registered: "false"}
+    en: "Just refund me for 246681, I don't want the blender"
+    ru: "Просто верните мне деньги за 246681, блендер мне не нужен"
+    kk: "246681 үшін ақшамды қайтарыңызшы, блендер керек емес"
+  - id: dmg_with_order
+    cat: tool
+    diff: medium
+    intent: delivery_problem
+    action: call_tool
+    tool: {get_order: {order_id: "389015", status: delivered, delivered_at: "2026-11-11"}}
+    ev: [returns_policy.damaged_wrong]
+    facts: {delivered_at: "2026-11-11", defect_report_days: "15"}
+    en: "order 389015 came yesterday and the glass shelf is shattered"
+    ru: "заказ 389015 пришёл вчера, стеклянная полка разбита вдребезги"
+    kk: "389015 тапсырысы кеше келді, шыны сөресі быт-шыт болып сынған"
+  - id: wrong_colour_order
+    cat: tool
+    diff: medium
+    intent: delivery_problem
+    action: call_tool
+    tool: {get_order: {order_id: "164427", status: delivered, delivered_at: "2026-11-09"}}
+    ev: [returns_policy.damaged_wrong]
+    facts: {defect_report_days: "15"}
+    en: "Ordered a black backpack in 164427, got a pink one"
+    ru: "В заказе 164427 заказывал чёрный рюкзак, пришёл розовый"
+    kk: "164427 тапсырысында қара рюкзак алғам, қызғылт түстісі келді"
+  - id: missing_item_order
+    cat: tool
+    diff: hard
+    intent: delivery_problem
+    action: call_tool
+    tool: {get_order: {order_id: "502288", status: delivered, delivered_at: "2026-11-06"}}
+    ev: [returns_policy.damaged_wrong]
+    facts: {delivered_at: "2026-11-06"}
+    en: "Only 2 of the 3 pans in order 502288 were in the box"
+    ru: "В коробке по заказу 502288 было только 2 сковородки из 3"
+    kk: "502288 тапсырысының қорабында 3 табаның тек 2-уі болды"
+  - id: defect_vacuum
+    cat: tool
+    diff: medium
+    intent: product_defect
+    action: call_tool
+    tool: {get_order: {order_id: "835160", status: delivered, delivered_at: "2026-10-20"}}
+    ev: [warranty_policy.period, warranty_policy.defect]
+    facts: {warranty_months: "12", defect_report_days: "15"}
+    en: "the robot vacuum from order 835160 stopped charging"
+    ru: "робот-пылесос из заказа 835160 перестал заряжаться"
+    kk: "835160 тапсырысындағы робот шаңсорғыш зарядталмай қалды"
+  - id: defect_cs_ru
+    cat: tool
+    diff: hard
+    intent: product_defect
+    action: call_tool
+    cs: [ru, kk]
+    tool: {get_order: {order_id: "297734", status: delivered, delivered_at: "2026-09-30"}}
+    ev: [warranty_policy.period, warranty_policy.defect]
+    facts: {warranty_months: "12"}
+    en: "the hair dryer from 297734 smells weird and won't heat anymore"
+    ru: "фен из 297734 иісі шығып жатыр, больше не греет"
+    kk: "297734-тегі фен қызбай қалды, біртүрлі запах шығады"
+  - id: stock_in
+    cat: tool
+    diff: easy
+    intent: availability
+    action: call_tool
+    tool: {get_stock: {sku: CF-0812, in_stock: true, qty: 7, warehouse_city: Almaty}}
+    facts: {in_stock: "true", qty: "7"}
+    en: "is the coffee machine CF-0812 available?"
+    ru: "кофемашина CF-0812 в наличии?"
+    kk: "CF-0812 кофе машинасы бар ма?"
+  - id: stock_out
+    cat: tool
+    diff: medium
+    intent: availability
+    action: call_tool
+    tool: {get_stock: {sku: BT-3802, in_stock: false, qty: 0, restock_expected: "2026-11-27"}}
+    facts: {in_stock: "false", restock_expected: "2026-11-27"}
+    must_not: ["the boots are in stock"]
+    en: "Winter boots BT-3802 in stock? need them before the cold"
+    ru: "Зимние ботинки BT-3802 есть? нужны до холодов"
+    kk: "BT-3802 қысқы бәтеңке бар ма? суық түскенше керек"
+  - id: stock_qty_enough
+    cat: tool
+    diff: hard
+    intent: availability
+    action: call_tool
+    tool: {get_stock: {sku: TB-2626, in_stock: true, qty: 4, warehouse_city: Astana}}
+    facts: {qty: "4"}
+    en: "We need 10 yoga mats TB-2626 for our studio, do you have that many?"
+    ru: "Нам для студии нужно 10 ковриков TB-2626, столько есть?"
+    kk: "Студиямызға TB-2626 йога кілемшесінен 10 дана керек, сонша бар ма?"

@@ -19,8 +19,9 @@ and an entry in DECISIONS.md.
   - `scenario_id`: a group of examples that express the same request and require the same
     action: the same source label and action, or a source-provided scenario id. It is joined
     across sources only through identical or near-identical texts with the same v0 intent and
-    action (ADR-022). Format `scn_<16 hex>`. Splits are by `scenario_id`. **Open (Stage 4):**
-    Bitext has only 68 scenarios, so see ADR-022 before choosing the split unit.
+    action (ADR-022). Format `scn_<16 hex>`. Splits are by `scenario_id` (ADR-026): all
+    Bitext-derived scenarios are train; validation/test are authored scenarios; Stage 4 ids
+    are defined in §11.
   - `family_id`: a paraphrase family inside a scenario. These are near-duplicates (char-5-gram
     Jaccard ≥ 0.8) with compatible labels, plus source alignments. All translations of an
     example share its `family_id`. Format `fam_<16 hex>`.
@@ -197,8 +198,21 @@ label compatibility.
 
 `task` ∈ `grounded_answer`, `tool_answer`, `clarify`, `escalate`, `abstain_no_evidence`,
 `refuse_oos`, `conflicting_context`, `injection_resist`. Context chunks used for SFT come from a
-**training KB variant**, whose policy values differ from the demo KB, so the model learns to
-read context instead of memorising policies.
+**training KB variant** (§12), whose policy values differ from the demo KB, so the model learns
+to read context instead of memorising policies.
+
+Implemented as `common.schemas.SFTExample` (Stage 4). Message order: `system` (prompt id
+`support_json_1` + text), earlier `user`/`assistant` turns, the `user` message, then `tool`
+messages: `kb_search` (`{"results": [{chunk_id, title, effective_from, effective_to, text}]}`)
+and/or a tool call (`{"call": {name, arguments}, "result": {...}}`), and the final `assistant`
+message = `target` as JSON. Lineage fields: `source_id`, `record_id`, `origin`,
+`translation_of`, `translation_system`, `kb_variant`, `system_prompt_id`, `quality_flags`.
+Authored rows use `source_id = supportpilot_authored` (project-written content).
+
+On disk: `data/processed/sft/<dataset_version>/{train,validation,test}.parquet` with columns
+`messages_json` and `target_json` (JSON strings), the other fields as columns, plus
+`user_text`, `history_len`, `intent`, `action`; `stats.json` (counts per split x language x
+task, leakage filter), `quality_report.json` (gates) and `manifest.json`.
 
 ## 6. AssistantResponse (model output and API output)
 
@@ -223,7 +237,14 @@ Validation:
 - `language` = the detected user language unless the user asked for another.
 - `needs_human` ⇒ `escalation_reason`.
 
-## 7. Intent taxonomy (draft v0, frozen in Stage 4)
+## 7. Intent taxonomy (v1, frozen in Stage 4, ADR-023)
+
+The authoritative v1 list, with actions, tools, KB documents and clarify / escalate / refuse
+conditions, is `configs/taxonomy.yaml` (35 intents). v1 adds `change_address`, `product_defect`,
+`contact_info`, `personal_data`, `newsletter`, `cart_help`, `app_help` and `technical_issue` to
+the v0 table below, which remains the Stage 3 draft (`INTENTS_V0`).
+
+### Draft v0 (Stage 3)
 
 Derived from the Bitext retail (46 intents) and customer-support (27 intents) labels, merged
 into product scope. Each source intent maps to exactly one SupportPilot intent. The mapping
@@ -281,7 +302,13 @@ checks:
 - `pii`: no unmasked e-mail, phone or card in the text;
 - `labels`: only v0 intents, and escalation always has a reason.
 
-The leakage and split rows below are `not_applicable` until Stage 4.
+Stage 4 SFT gates (`data/sftgates.py`, written to the dataset's `quality_report.json`):
+`schema`, `ids`, `language` (user text LID = lang or code-switch ≥ 99%; answer LID = lang ≥ 99.9%),
+`licence_provenance` (train sources or `supportpilot_authored`; MT systems with
+`training_use`), `grounding` (check_response re-run from the stored messages), `evidence`
+(task shape: citations, tool facts, abstain/refuse/escalate/clarify fields), `duplicates`,
+`leakage`, `placeholders`, `pii` and `kb_variant_distinct`. The gold build checks schema, demo
+facts, evidence sections, language and leakage against every SFT split.
 
 | Gate | Rule |
 |---|---|
@@ -291,3 +318,42 @@ The leakage and split rows below are `not_applicable` until Stage 4.
 | leakage | 0 shared `scenario_id`/`family_id` across train/validation/test/gold. No n-gram (≥ 13-gram) overlap between gold and train |
 | placeholders | no unresolved `{{…}}` in SFT targets |
 | licence | every row's source has `allowed_use` ∈ {train} for training sets |
+
+## 11. Stage 4 interim outputs (`data/interim/stage4/`)
+
+| Path | Schema | Content |
+|---|---|---|
+| `selected/backbone.parquet` | `stage4_backbone/1` | every Stage 3 canonical row and every `intent_unmapped` pending row of a train source, relabelled with taxonomy v1 (`intent`, `action`, `escalate`, `escalation_reason`, `rule`), v1 `scenario_id`, `selected_en` (EN backbone) and `mt_ru` / `mt_kk` (translation queue) |
+| `selected/excluded.parquet` | | rows without a reliable v1 label: `excluded` (label excluded), `unlabelled` (no rule matched), `family_label_conflict` |
+| `mt/<system>/<src>-<tgt>/shard-*.parquet` | cache | `{key, system, src_lang, tgt_lang, src_text, mt_text}`, key = sha256(system\|src\|tgt\|text)[:32]; append-only shards, resumable |
+| `translated/translations.parquet` | `stage4_translated/1` | one row per queued translation: lineage (`example_id` of the EN source, `record_id`, `scenario_id`, `family_id`), `localized_en`, `mt_raw`, post-edited `text`, `back_translation`, `bt_chrf`, `emb_sim`, `lid_conf`, `fixes`, `hard` / `soft` QE flags, `accept` |
+
+v1 scenario ids: a Stage 3 scenario keeps its id when all its rows map to one (intent, action);
+otherwise `scn_` + sha256(old id \| intent \| action)[:16]. Translations share the family and
+scenario of their source. Authored scenario ids are `scn_` + sha256(`supportpilot_authored`\|
+situation id)[:16]; each authored template is one family.
+
+## 12. Training KB chunk (`data/processed/kb_train/chunks.parquet`, `kb_chunk_train/1`)
+
+`chunk_id` (§1 format), `doc_id`, `version` (sha256 of the rendered document), `variant`,
+`status` (`current` | `outdated`), `lang`, `position`, `section_id`, `section_path`,
+`doc_type`, `text`, `facts` (fact keys), `fact_values_json`, `sku` (catalogue rows),
+`effective_from`, `effective_to` (set for outdated versions). Sources:
+`authored/kb_train/{variants,docs}.yaml`. No variant may reuse a demo-store value of the facts
+listed in `distinct_facts` (`kb_variant_distinct`).
+
+## 13. Gold item (`data/gold/<benchmark_version>/gold.jsonl`, `gold/1`)
+
+Fields (`common.schemas.GoldItem`): `gold_id` (`g_<scenario>_<lang>`), `scenario_id`, `lang`,
+`code_switch`, `category` (grounded, tool, clarify, escalate, abstain, out_of_scope,
+conflicting, injection, multi_turn, code_switch), `difficulty`, `turns` (alternating, last =
+user), `intent`, `action`, `escalate`, `escalation_reason`, `required_facts` (`{key, value}`:
+demo-store fact keys or tool fields), `tool_state` (mock tool results the item depends on),
+`accepted_evidence` (`{doc_id, section}`; resolved to demo-KB chunk ids in Stage 5),
+`must_not` (claims that make an answer wrong), `kb` (`demo_store`) and `review`
+(`{status, author, reviewers, notes}`).
+
+Review status: `draft` (authored, automatic checks passed), `llm_reviewed` (re-read by an LLM;
+never "independently verified"), `human_reviewed` (one fluent human), `verified` (author +
+independent fluent human; requires a named reviewer). Source: `authored/gold/*.yaml`; every
+scenario is written natively in en, ru and kk.

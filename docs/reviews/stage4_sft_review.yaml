@@ -1,0 +1,42 @@
+# Stage 4 SFT spot check (LLM agent review, not a human review).
+schema_version: sft_review/1
+reviewer: Claude (claude-opus-5-5), LLM agent; not a fluent human reviewer
+reviewed_at: '2026-11-12'
+sample: >-
+  Deterministic sample (first rows by example_id) of the SFT build before the final fixes:
+  14 KK, 8 RU, 8 EN train examples and 6 KK test examples (user message, target answer,
+  tool/kb_search context).
+findings:
+  - id: F1
+    severity: fixed
+    text: >-
+      injection_resist with a planted context passage prepended "I cannot do that" although the customer
+      asked for nothing unusual. The note is now added only when the user message carries the injection;
+      a planted passage is ignored silently (sft.py, SFT_VERSION 2).
+  - id: F2
+    severity: fixed
+    text: >-
+      Kazakh tool answers used dates without case suffixes ("4 қараша жеткізілген" instead of
+      "4 қарашада", "16 қараша дейін" instead of "16 қарашаға дейін"). Templates now use date@loc and
+      date@dat (authored/responses/templates.yaml).
+  - id: F3
+    severity: open
+    text: >-
+      MT user texts keep literal calques ("мой элемент", "элементтің қолжетімділігі") and occasional
+      Latin typo remnants with a capital letter ("Stoe-де"). Answers are unaffected (they are authored),
+      but the model sees unnatural customer language. See stage4_mt_review.yaml post_qe.
+  - id: F4
+    severity: by_design
+    text: >-
+      Abstain examples answer "I do not have information" for questions the KB variant could answer,
+      because the task shows only distractor chunks. Correct behaviour for the shown evidence; the
+      tasks are labelled abstain_no_evidence and carry missing_information.
+  - id: F5
+    severity: open
+    text: >-
+      Answers are template-based: correct, grounded and consistent, but with low lexical variety
+      (about 40 section answers and 30 tool answers per language).
+checked_ok:
+  - every answer in the sample is in the example's language and states only values found in the shown chunk or tool result
+  - clarify questions ask for exactly one missing item (order number, product, address scope, payment details)
+  - code-switched KK/RU user texts get answers in the dominant language

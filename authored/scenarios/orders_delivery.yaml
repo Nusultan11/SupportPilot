@@ -1,0 +1,188 @@
+# Authored training scenarios: orders and delivery (Stage 4, ADR-025). Written natively per
+# language by the Stage 4 agent (LLM); not translated from Bitext. Human review pending.
+schema_version: scenarios/1
+scenarios:
+  - id: track_shipped_plain
+    intent: track_order
+    action: call_tool
+    tool_status: [shipped]
+    en: ["hi, where is my order {order_id}?", "can you check order #{order_id} for me", "order {order_id} - when will it arrive?"]
+    ru: ["Здравствуйте, где мой заказ {order_id}?", "подскажите статус заказа №{order_id}", "заказ {order_id} когда привезут?"]
+    kk: ["Сәлеметсіз бе, {order_id} тапсырысым қайда?", "{order_id} нөмірлі тапсырыстың күйін айтып жіберіңізші", "тапсырыс {order_id} қашан келеді?"]
+    mix_kk: ["Сәлем, менің заказым қайда? номері {order_id}", "{order_id} заказ қашан келеді, подскажите"]
+    mix_ru: ["Здравствуйте, тапсырыс {order_id} где сейчас?", "заказ {order_id} где, рахмет заранее"]
+  - id: track_delayed_angry
+    intent: track_order
+    action: call_tool
+    tool_status: [delayed]
+    en: ["my order {order_id} was supposed to come days ago!! where is it", "seriously, order {order_id} still not here. what is going on?"]
+    ru: ["Заказ {order_id} должен был прийти ещё на прошлой неделе, где он?!", "уже сколько можно ждать, заказ {order_id} так и не пришёл"]
+    kk: ["{order_id} тапсырысым баяғыда келуі керек еді, қайда жүр?", "қашанға дейін күтеміз? {order_id} тапсырысы әлі жоқ"]
+    mix_kk: ["{order_id} заказым әлі келмеді, сколько можно күту керек?"]
+  - id: track_pickup_point
+    intent: track_order
+    action: call_tool
+    tool_status: [at_pickup_point]
+    en: ["got an sms about order {order_id}, is it at the pickup point already?", "can I collect order {order_id} today?"]
+    ru: ["Пришла смс по заказу {order_id}, он уже в пункте выдачи?", "можно сегодня забрать заказ {order_id}?"]
+    kk: ["{order_id} тапсырысы бойынша SMS келді, ол беру пунктіне жетті ме?", "{order_id} тапсырысын бүгін алып кетуге бола ма?"]
+  - id: track_delivered_not_received
+    intent: track_order
+    action: call_tool
+    tool_status: [delivered]
+    en: ["the app says order {order_id} is delivered but I got nothing", "order {order_id} shows delivered?? nobody came"]
+    ru: ["В приложении написано, что заказ {order_id} доставлен, но я ничего не получал", "заказ {order_id} отмечен как доставленный, а курьера не было"]
+    kk: ["Қосымшада {order_id} тапсырысы жеткізілді деп тұр, бірақ мен ештеңе алған жоқпын", "{order_id} тапсырысы жеткізілді дейді, курьер келген жоқ қой"]
+    mix_ru: ["Заказ {order_id} доставлен деп тұр, но я ничего не получила"]
+  - id: track_processing
+    intent: track_order
+    action: call_tool
+    tool_status: [processing]
+    en: ["ordered yesterday, number {order_id}. has it been sent yet?", "is order {order_id} shipped or still waiting?"]
+    ru: ["Заказал вчера, номер {order_id}. Его уже отправили?", "заказ {order_id} отправлен или ещё собирается?"]
+    kk: ["Кеше тапсырыс бердім, нөмірі {order_id}. Жіберілді ме?", "{order_id} тапсырысы жөнелтілді ме, әлде әлі жиналып жатыр ма?"]
+  - id: track_cancelled
+    intent: track_order
+    action: call_tool
+    tool_status: [cancelled]
+    en: ["why is my order {order_id} not coming?", "what happened with order {order_id}"]
+    ru: ["Почему мой заказ {order_id} не едет?", "что с заказом {order_id}?"]
+    kk: ["{order_id} тапсырысым неге келмей жатыр?", "{order_id} тапсырысына не болды?"]
+  - id: track_no_number
+    intent: track_order
+    action: clarify
+    ask: order_number
+    en: ["where is my package", "when will my order arrive?", "hi i want to know where my parcel is"]
+    ru: ["где моя посылка?", "когда придёт мой заказ?", "Добрый день, хочу узнать, где мой заказ"]
+    kk: ["сәлемдемем қайда?", "тапсырысым қашан келеді?", "Сәлеметсіз бе, тапсырысымның қайда екенін білгім келеді"]
+    mix_kk: ["заказым қашан келеді?", "посылкам қайда екен, білуге бола ма"]
+    mix_ru: ["посылка қашан келеді, не подскажете?"]
+  - id: track_multiturn_carry_id
+    intent: track_order
+    action: call_tool
+    tool_status: [shipped, delayed]
+    history:
+      - user: {en: "hi, I have a question about order {order_id}", ru: "Здравствуйте, у меня вопрос по заказу {order_id}", kk: "Сәлеметсіз бе, {order_id} тапсырысы бойынша сұрағым бар"}
+        assistant: {en: "Hello! Sure, what would you like to know about order {order_id}?", ru: "Здравствуйте! Конечно, что вы хотите узнать о заказе {order_id}?", kk: "Сәлеметсіз бе! Әрине, {order_id} тапсырысы туралы не білгіңіз келеді?"}
+    en: ["when will it be delivered?", "where is it right now?"]
+    ru: ["когда его доставят?", "где он сейчас?"]
+    kk: ["ол қашан жеткізіледі?", "қазір қай жерде?"]
+  - id: cancel_accepted
+    intent: cancel_order
+    action: call_tool
+    tool_status: [accepted]
+    en: ["please cancel order {order_id}, I ordered the wrong thing", "I want to cancel my order {order_id}"]
+    ru: ["Отмените, пожалуйста, заказ {order_id}, я ошибся с товаром", "хочу отменить заказ {order_id}"]
+    kk: ["{order_id} тапсырысын болдырмаңызшы, қате тауар таңдап қойыппын", "{order_id} тапсырысымнан бас тартқым келеді"]
+    mix_kk: ["{order_id} заказты отмена жасаңызшы, керек емес болып қалды"]
+  - id: cancel_shipped
+    intent: cancel_order
+    action: call_tool
+    tool_status: [rejected_shipped]
+    en: ["cancel order {order_id} asap, I don't need it anymore", "can I still cancel {order_id}? it might be shipped already"]
+    ru: ["Срочно отмените заказ {order_id}, он мне больше не нужен", "ещё можно отменить {order_id}? его, наверное, уже отправили"]
+    kk: ["{order_id} тапсырысын тез арада болдырмаңыз, маған енді керек емес", "{order_id} тапсырысын әлі болдырмауға бола ма? жіберіліп кеткен шығар"]
+  - id: cancel_no_number
+    intent: cancel_order
+    action: clarify
+    ask: order_number
+    en: ["I want to cancel my order", "how do I cancel what I just ordered?"]
+    ru: ["Хочу отменить заказ", "как отменить то, что я только что заказала?"]
+    kk: ["Тапсырысымды болдырмағым келеді", "жаңа ғана берген тапсырысымды қалай болдырмаймын?"]
+  - id: cancel_policy
+    intent: cancel_order
+    action: answer_kb
+    sections: [orders_policy.cancel]
+    en: ["how long do I have to cancel an order?", "is there a fee if I cancel an order?"]
+    ru: ["Сколько времени есть, чтобы отменить заказ?", "отмена заказа платная?"]
+    kk: ["Тапсырысты болдырмауға қанша уақыт бар?", "тапсырыстан бас тарту ақылы ма?"]
+  - id: change_order_processing
+    intent: change_order
+    action: call_tool
+    tool_status: [processing]
+    en: ["can I add one more item to order {order_id}?", "I need to change the size in order {order_id}"]
+    ru: ["Можно добавить ещё один товар в заказ {order_id}?", "нужно поменять размер в заказе {order_id}"]
+    kk: ["{order_id} тапсырысына тағы бір тауар қосуға бола ма?", "{order_id} тапсырысындағы өлшемді ауыстыру керек"]
+  - id: change_order_shipped
+    intent: change_order
+    action: call_tool
+    tool_status: [shipped]
+    en: ["I need to change the address on order {order_id}", "can you swap the colour in order {order_id}?"]
+    ru: ["Нужно поменять адрес в заказе {order_id}", "можно поменять цвет в заказе {order_id}?"]
+    kk: ["{order_id} тапсырысындағы мекенжайды өзгерту керек", "{order_id} тапсырысындағы түсін ауыстыруға бола ма?"]
+  - id: change_order_policy
+    intent: change_order
+    action: answer_kb
+    sections: [orders_policy.change]
+    en: ["can an order be edited after I place it?", "until when can I change my order?"]
+    ru: ["Можно ли изменить заказ после оформления?", "до какого момента можно поменять заказ?"]
+    kk: ["Рәсімделген тапсырысты өзгертуге бола ма?", "тапсырысты қашанға дейін өзгертуге болады?"]
+  - id: change_address_ambiguous
+    intent: change_address
+    action: clarify
+    ask: address_scope
+    en: ["I moved, how do I change my address?", "wrong address!! need to fix it"]
+    ru: ["Я переехал, как поменять адрес?", "указала не тот адрес, как исправить?"]
+    kk: ["Мен көшіп кеттім, мекенжайды қалай өзгертемін?", "мекенжайды қате жазып қойдым, қалай түзетемін?"]
+    mix_kk: ["адресті қалай поменять етемін?"]
+  - id: order_history_view
+    intent: order_history
+    action: answer_kb
+    sections: [account_faq.history]
+    en: ["where can I see my old orders?", "how do I find what I ordered last month"]
+    ru: ["Где посмотреть мои прошлые заказы?", "как найти, что я заказывал в прошлом месяце?"]
+    kk: ["Бұрынғы тапсырыстарымды қайдан көремін?", "өткен айда не тапсырыс бергенімді қалай табамын?"]
+  - id: place_order_how
+    intent: place_order
+    action: answer_kb
+    sections: [orders_policy.place]
+    en: ["first time here, how do I order something?", "is there a minimum order amount?"]
+    ru: ["Я тут впервые, как оформить заказ?", "есть минимальная сумма заказа?"]
+    kk: ["Мұнда бірінші ретпін, тапсырысты қалай беремін?", "тапсырыстың ең аз сомасы бар ма?"]
+  - id: delivery_time_city
+    intent: delivery_time
+    action: answer_kb
+    sections: [delivery_policy.periods]
+    en: ["how long does delivery to {city} take?", "if I order today, when will it get to {city}?"]
+    ru: ["Сколько идёт доставка {city_to}?", "если закажу сегодня, когда доставят {city_to}?"]
+    kk: ["{city_to} жеткізу қанша уақыт алады?", "бүгін тапсырыс берсем, {city_to} қашан жетеді?"]
+    mix_ru: ["доставка {city_to} сколько күн?"]
+  - id: delivery_cost
+    intent: delivery_options_cost
+    action: answer_kb
+    sections: [delivery_policy.cost]
+    en: ["how much is delivery?", "from what amount is shipping free?", "do I pay for courier delivery?"]
+    ru: ["Сколько стоит доставка?", "от какой суммы доставка бесплатная?", "курьер платный?"]
+    kk: ["Жеткізу қанша тұрады?", "қандай сомадан бастап жеткізу тегін?", "курьер ақылы ма?"]
+    mix_kk: ["доставка қанша тұрады, бесплатно бола ма?"]
+  - id: delivery_methods
+    intent: delivery_options_cost
+    action: answer_kb
+    sections: [delivery_policy.methods]
+    en: ["which delivery services do you use?", "can you ship with Kazpost?"]
+    ru: ["Какими службами доставки вы отправляете?", "можно отправить Казпочтой?"]
+    kk: ["Қандай жеткізу қызметтерімен жібересіздер?", "Қазпоштамен жіберуге бола ма?"]
+  - id: delivery_damaged_with_number
+    intent: delivery_problem
+    action: call_tool
+    tool_status: [delivered]
+    sections: [returns_policy.damaged_wrong]
+    en: ["order {order_id} came with a cracked screen", "the box for order {order_id} was crushed and the {product} is broken"]
+    ru: ["Заказ {order_id} пришёл с треснувшим экраном", "коробка заказа {order_id} помята, {product} сломан"]
+    kk: ["{order_id} тапсырысы экраны жарылған күйде келді", "{order_id} тапсырысының қорабы мыжылған, {product} сынған"]
+  - id: delivery_wrong_item_with_number
+    intent: delivery_problem
+    action: call_tool
+    tool_status: [delivered]
+    sections: [returns_policy.damaged_wrong]
+    en: ["I ordered a {product} but got something else, order {order_id}", "order {order_id}: one item is missing from the box"]
+    ru: ["Заказывал {product}, а пришло другое, заказ {order_id}", "в заказе {order_id} не хватает одного товара"]
+    kk: ["{product} тапсырыс бергем, басқа тауар келді, тапсырыс {order_id}", "{order_id} тапсырысында бір тауар жетіспейді"]
+  - id: delivery_problem_no_number
+    intent: delivery_problem
+    action: clarify
+    ask: order_number
+    en: ["my parcel arrived damaged", "you sent me the wrong colour"]
+    ru: ["посылка пришла повреждённой", "вы прислали не тот цвет"]
+    kk: ["сәлемдеме зақымдалып келді", "маған басқа түсін жіберіпсіздер"]
+    mix_kk: ["посылка сынық келді, что делать?"]

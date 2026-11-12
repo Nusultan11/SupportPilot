@@ -1,0 +1,337 @@
+# SupportPilot intent taxonomy v1 (frozen in Stage 4, ADR-023; DATA_CONTRACTS §7).
+# Validated by `supportpilot.data.taxonomy.Taxonomy`; `common.schemas.INTENTS` must equal
+# the intent list here (unit test). Stage 3 keeps reading the draft v0 map
+# (configs/intent_map.yaml) so its build stays byte-identical; Stage 4 relabels with the
+# `sources` section below.
+#
+# Per intent:
+#   group, description
+#   action: answer_kb | call_tool | clarify | escalate | refuse_oos | needs_reference
+#     needs_reference = about one specific order/payment: call_tool when the message carries an
+#     order/invoice reference, else clarify (ask once for it, F7).
+#   tool: the mock API the call_tool path uses (ARCHITECTURE §4).
+#   kb: training-KB documents that hold the facts for answer_kb (authored/kb_train).
+#   clarify_when / escalate_when / refuse_when: the decision conditions, in words; the
+#     generators and the gold benchmark follow them.
+# Escalation always carries one `escalation_reasons` value.
+schema_version: taxonomy/1
+version: v1
+frozen_at: '2026-11-11'
+
+actions: [answer_kb, call_tool, clarify, escalate, refuse_oos]
+tools: [get_order, get_payment, get_stock, request_cancellation]
+escalation_reasons:
+  customer_requested_human: the customer explicitly asks for a person (F8)
+  complaint: a complaint about the store, service or staff that needs a human decision
+  legal_threat: court, lawyer, consumer-protection agency, police
+  safety_risk: injury, fire, electric shock, allergic reaction, threats
+  privacy_request: personal-data access, correction or deletion request (Law on personal data)
+  technical_issue: the app or website is broken for the customer and needs a support ticket
+  payment_dispute: charged twice, money taken but order missing, chargeback
+  conflicting_policy: the evidence contradicts itself and the current rule cannot be determined
+  repeated_failure: the customer says earlier answers did not solve the problem (2+ times)
+  fraud_suspected: account takeover, unknown orders or charges
+
+intents:
+  # ORDER
+  track_order:
+    group: order
+    action: needs_reference
+    tool: get_order
+    description: "where an order or parcel is, its status or ETA"
+    clarify_when: "no order number in the message or session"
+  cancel_order:
+    group: order
+    action: needs_reference
+    tool: request_cancellation
+    kb: [orders_policy]
+    description: "cancel a placed order"
+    clarify_when: "no order number"
+  change_order:
+    group: order
+    action: needs_reference
+    tool: get_order
+    kb: [orders_policy]
+    description: "change items, quantity or delivery details of a placed order"
+    clarify_when: "no order number"
+  order_history:
+    group: order
+    action: answer_kb
+    kb: [account_faq]
+    description: "how to see past orders"
+  place_order:
+    group: order
+    action: answer_kb
+    kb: [orders_policy]
+    description: "how to place an order"
+  # DELIVERY
+  delivery_time:
+    group: delivery
+    action: answer_kb
+    kb: [delivery_policy]
+    description: "delivery periods by city or service (not one specific order)"
+  delivery_options_cost:
+    group: delivery
+    action: answer_kb
+    kb: [delivery_policy]
+    description: "delivery methods, carriers, pickup points, delivery prices and free-delivery threshold"
+  delivery_problem:
+    group: delivery
+    action: needs_reference
+    tool: get_order
+    kb: [returns_policy]
+    description: "damaged, missing, wrong item or a delivery that went wrong"
+    clarify_when: "no order number"
+    escalate_when: "the problem is still unresolved after a previous contact (repeated_failure) or injury (safety_risk)"
+  change_address:
+    group: delivery
+    action: clarify
+    kb: [account_faq, orders_policy]
+    description: "change a delivery address"
+    clarify_when: "always unless the message says whether it is the profile address or a placed order (then account_help or change_order)"
+  # RETURNS
+  return_policy:
+    group: returns
+    action: answer_kb
+    kb: [returns_policy]
+    description: "return and refund rules (window, condition, non-returnable items)"
+  return_product:
+    group: returns
+    action: answer_kb
+    kb: [returns_policy]
+    description: "how to return an item"
+  exchange_product:
+    group: returns
+    action: answer_kb
+    kb: [returns_policy]
+    description: "how to exchange an item for another size, colour or model"
+  request_refund:
+    group: returns
+    action: needs_reference
+    tool: get_payment
+    kb: [returns_policy]
+    description: "ask for money back for a specific order"
+    clarify_when: "no order number"
+  refund_status:
+    group: returns
+    action: needs_reference
+    tool: get_payment
+    description: "where a refund is"
+    clarify_when: "no order number"
+  product_defect:
+    group: returns
+    action: needs_reference
+    tool: get_order
+    kb: [returns_policy, warranty_policy]
+    description: "a product broke or is defective after delivery (warranty)"
+    clarify_when: "no order number"
+    escalate_when: "injury, fire or electric shock (safety_risk)"
+  # PAYMENT
+  payment_methods:
+    group: payment
+    action: answer_kb
+    kb: [payment_policy]
+    description: "accepted payment methods, instalments, cash on delivery"
+  payment_problem:
+    group: payment
+    action: clarify
+    tool: get_payment
+    kb: [payment_policy]
+    description: "a payment fails or was charged wrongly"
+    clarify_when: "neither the order number nor the error is given"
+    escalate_when: "charged twice or money taken without an order (payment_dispute)"
+  invoice:
+    group: payment
+    action: needs_reference
+    tool: get_payment
+    description: "receipt, invoice or fiscal check for an order"
+    clarify_when: "no order number"
+  # PRODUCT
+  product_info:
+    group: product
+    action: clarify
+    kb: [catalog]
+    description: "attributes of a product (size, material, compatibility)"
+    clarify_when: "the product is not named; with a named product the action is answer_kb"
+  availability:
+    group: product
+    action: clarify
+    tool: get_stock
+    description: "whether a product is in stock"
+    clarify_when: "the product is not named; with a named product the action is call_tool"
+  # STORE
+  store_info:
+    group: store
+    action: answer_kb
+    kb: [store_info]
+    description: "pickup points and showroom addresses, opening hours, sales periods"
+  contact_info:
+    group: store
+    action: answer_kb
+    kb: [store_info]
+    description: "how to reach support (channels, phone, hours); not a request for a person in this chat"
+  policy_faq:
+    group: store
+    action: answer_kb
+    kb: [warranty_policy, store_info, payment_policy]
+    description: "other store rules (warranty, promo codes, gift cards, loyalty points)"
+  # ACCOUNT
+  account_help:
+    group: account
+    action: answer_kb
+    kb: [account_faq]
+    description: "create, edit, switch, delete an account, password recovery, profile address"
+  personal_data:
+    group: account
+    action: escalate
+    escalation_reason: privacy_request
+    description: "access, correct or delete personal data, data-protection requests"
+  newsletter:
+    group: account
+    action: answer_kb
+    kb: [account_faq]
+    description: "subscribe to or unsubscribe from newsletters and notifications"
+  # APP AND WEBSITE
+  cart_help:
+    group: app
+    action: answer_kb
+    kb: [account_faq]
+    description: "add or remove items in the cart"
+  app_help:
+    group: app
+    action: answer_kb
+    kb: [account_faq]
+    description: "where to get and how to use the mobile app"
+  technical_issue:
+    group: app
+    action: escalate
+    escalation_reason: technical_issue
+    description: "the app or website does not work"
+  # CONTACT
+  human_agent:
+    group: contact
+    action: escalate
+    escalation_reason: customer_requested_human
+    description: "explicit request for a human operator"
+  complaint:
+    group: contact
+    action: escalate
+    escalation_reason: complaint
+    description: "complaint about service, staff or the store"
+    escalate_when: "always; legal_threat when a court, lawyer or agency is mentioned"
+  feedback:
+    group: contact
+    action: answer_kb
+    kb: [store_info]
+    description: "leave a review, suggestion or product idea"
+  # META
+  unclear:
+    group: meta
+    action: clarify
+    description: "the request cannot be understood or fits several intents equally"
+    clarify_when: "always (one targeted question, F7)"
+  out_of_scope:
+    group: meta
+    action: refuse_oos
+    description: "not about this store (weather, homework, crypto, money transfers, other shops)"
+    refuse_when: "the request is not about orders, products, delivery, payment, returns, account or the store"
+  greeting:
+    group: meta
+    action: clarify
+    description: "greeting or thanks without a request; reply politely and ask how to help"
+
+# Source label -> v1 intent. `rules` (ordered regexes on the message, case-insensitive) split a
+# source label whose texts carry two different requests; a text matching no rule keeps no label
+# (`unlabelled`, never guessed). `exclude` drops a label from Stage 4 with a reason.
+sources:
+  bitext_retail_ecom:
+    change_account: {intent: account_help}
+    close_account: {intent: account_help}
+    open_account: {intent: account_help}
+    recover_password: {intent: account_help}
+    order_history: {intent: order_history}
+    request_right_to_rectification: {intent: personal_data}
+    technical_issue: {intent: technical_issue}
+    use_app: {intent: app_help}
+    add_product: {intent: cart_help}
+    remove_product: {intent: cart_help}
+    customer_service:
+      rules:
+        - {pattern: '\b(?:how|where|what time|which|when)\b|\b(?:e-?mail|call|phone|number|hours?)\b', intent: contact_info}
+        - {pattern: '\b(?:talk|speak|chat)\b', intent: human_agent}
+    human_agent: {intent: human_agent}
+    damaged_delivery: {intent: delivery_problem}
+    delivery_issue: {intent: delivery_problem}
+    missing_item: {intent: delivery_problem}
+    wrong_item: {intent: delivery_problem}
+    delivery_time: {intent: delivery_time}
+    shipping_costs: {intent: delivery_options_cost}
+    track_delivery: {intent: track_order}
+    submit_feedback: {intent: feedback}
+    submit_product_feedback: {intent: feedback}
+    submit_product_idea: {intent: feedback}
+    cancel_order: {intent: cancel_order}
+    change_order: {intent: change_order}
+    request_invoice: {intent: invoice}
+    track_order: {intent: track_order}
+    pay:
+      rules:
+        - {pattern: '\btransfer', exclude: "money transfers are not a store request; no reliable store intent"}
+        - {pattern: '\bpa(?:y|ys|ying|yment|yments)\b', intent: payment_methods}
+    payment_issue: {intent: payment_problem}
+    payment_methods: {intent: payment_methods}
+    availability: {intent: availability}
+    availability_in_store: {intent: availability}
+    availability_online: {intent: availability}
+    product_information: {intent: product_info}
+    product_issue: {intent: product_defect}
+    exchange_product: {intent: exchange_product}
+    exchange_product_in_store: {intent: exchange_product}
+    refund_policy: {intent: return_policy}
+    return_policy: {intent: return_policy}
+    return_product: {intent: return_product}
+    return_product_in_store: {intent: return_product}
+    return_product_online: {intent: return_product}
+    refund_status: {intent: refund_status}
+    request_refund: {intent: request_refund}
+    sales_period: {intent: store_info}
+    store_location: {intent: store_info}
+    store_opening_hours: {intent: store_info}
+  bitext_customer_support:
+    create_account: {intent: account_help}
+    delete_account: {intent: account_help}
+    edit_account: {intent: account_help}
+    recover_password: {intent: account_help}
+    switch_account: {intent: account_help}
+    registration_problems: {intent: account_help, action: clarify}
+    check_cancellation_fee: {exclude: "contract termination fees are a telecom/SaaS concept; labelling them out_of_scope would misread a customer who believes the fee exists"}
+    contact_customer_service: {intent: contact_info}
+    contact_human_agent: {intent: human_agent}
+    delivery_options: {intent: delivery_options_cost}
+    delivery_period: {intent: delivery_time}
+    complaint: {intent: complaint}
+    review: {intent: feedback}
+    check_invoice: {intent: invoice}
+    get_invoice: {intent: invoice}
+    cancel_order: {intent: cancel_order}
+    change_order: {intent: change_order}
+    place_order: {intent: place_order}
+    track_order: {intent: track_order}
+    check_payment_methods: {intent: payment_methods}
+    payment_issue: {intent: payment_problem}
+    check_refund_policy: {intent: return_policy}
+    get_refund: {intent: request_refund}
+    track_refund: {intent: refund_status}
+    change_shipping_address: {intent: change_address}
+    set_up_shipping_address: {intent: account_help}
+    newsletter_subscription: {intent: newsletter}
+  whileai_ecommerce_intent:
+    # Payment-agent labels for whole dialogues; Stage 3 review: 52% hard defects, about half
+    # off-domain. No label is a reliable v1 intent, so the source is excluded from Stage 4 SFT.
+    bill: {exclude: "dialogue-level payment-agent label; bill pay is not a store intent"}
+    exchange: {exclude: "currency/crypto exchange; dialogue-level label"}
+    none: {exclude: "heterogeneous dialogues with no store intent"}
+    recur: {exclude: "subscriptions; dialogue-level label mixing several requests"}
+    reverse: {exclude: "mixes cancel, refund and dispute in one label"}
+    send: {exclude: "P2P money transfer dialogues; label describes the dialogue, not a turn"}
+    spend: {exclude: "purchase/payment dialogues; label describes the dialogue, not a turn"}

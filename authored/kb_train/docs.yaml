@@ -1,0 +1,239 @@
+# Training KB documents (Stage 4, ADR-025). Each section is one chunk; its text is rendered
+# per language from the variant's facts (authored/kb_train/variants.yaml) by
+# `supportpilot.data.kbtrain`. Authored natively in each language by the Stage 4 agent (LLM),
+# not machine-translated. Human review: pending (see PROGRESS.md).
+#
+# Placeholders: {fact} or {fact:format}. Formats (supportpilot.data.textfmt):
+#   kzt, kzt_free (0 -> "free"), days, days_gen, wdays, wdays_gen, months, months_gen,
+#   hours_gen, range_days, clock_range, percent, city, address, date, carriers,
+#   payment_methods, non_returnable, store, sale_name, sale_from, sale_to.
+#   `fmt@case` selects a Kazakh case form (abl = -дан/-ден, dat = -ға/-ге); other
+#   languages ignore the case.
+# `requires` lists facts that must be present / truthy for the section to exist.
+schema_version: kb_docs/1
+docs:
+  returns_policy:
+    doc_type: policy
+    title: {en: Returns and refunds, ru: Возврат и обмен товаров, kk: Тауарды қайтару және айырбастау}
+    sections:
+      - id: window
+        facts: [return_window_days]
+        en: "Return period. Items bought at {store_name:store} can be returned within {return_window_days:days_gen} of delivery. The item must be unused, with its tags and original packaging, and you need the order number or the receipt."
+        ru: "Срок возврата. Товар, купленный в {store_name:store}, можно вернуть в течение {return_window_days:days_gen} с момента получения. Товар должен быть без следов использования, с ярлыками и в оригинальной упаковке; понадобится номер заказа или чек."
+        kk: "Қайтару мерзімі. {store_name:store} дүкенінен сатып алынған тауарды алған күннен бастап {return_window_days:days_gen} ішінде қайтаруға болады. Тауар пайдаланылмаған, жапсырмалары мен түпнұсқа қаптамасы сақталған болуы керек; тапсырыс нөмірі немесе чек қажет."
+      - id: non_returnable
+        facts: [non_returnable]
+        en: "Items that cannot be returned: {non_returnable:non_returnable}. Faulty items of these kinds are handled under the warranty rules."
+        ru: "Не подлежат возврату: {non_returnable:non_returnable}. Если такой товар оказался неисправным, действуют правила гарантии."
+        kk: "Қайтаруға жатпайтын тауарлар: {non_returnable:non_returnable}. Мұндай тауар ақаулы болып шықса, кепілдік ережелері қолданылады."
+      - id: how_to_return
+        facts: [return_shipping_cost]
+        en: "How to return an item. Open \"My orders\", choose the order and press \"Return\", then bring the item to a pickup point or hand it to our courier. Return shipping: {return_shipping_cost:kzt_free}."
+        ru: "Как вернуть товар. Откройте «Мои заказы», выберите заказ и нажмите «Вернуть», затем сдайте товар в пункт выдачи или передайте нашему курьеру. Обратная доставка: {return_shipping_cost:kzt_free}."
+        kk: "Тауарды қалай қайтаруға болады. «Менің тапсырыстарым» бөлімін ашып, тапсырысты таңдаңыз да, «Қайтару» батырмасын басыңыз, содан кейін тауарды беру пунктіне тапсырыңыз немесе курьерімізге беріңіз. Кері жеткізу құны: {return_shipping_cost:kzt_free}."
+      - id: refund
+        facts: [refund_days]
+        en: "Refunds. After the returned item passes inspection, the money goes back to the original payment method within {refund_days:wdays_gen}. Your bank may need extra time to show it on the statement."
+        ru: "Возврат денег. После проверки возвращённого товара деньги возвращаются тем же способом, которым была оплата, в течение {refund_days:wdays_gen}. Банку может понадобиться дополнительное время, чтобы отразить их в выписке."
+        kk: "Ақшаны қайтару. Қайтарылған тауар тексерілгеннен кейін ақша төлем жасалған тәсілмен {refund_days:wdays_gen} ішінде қайтарылады. Банкке оны үзінді көшірмеде көрсету үшін қосымша уақыт қажет болуы мүмкін."
+      - id: exchange
+        facts: [exchange_window_days]
+        en: "Exchanges. You can exchange an item for another size, colour or model within {exchange_window_days:days_gen} of delivery if the new item is in stock. Start the exchange in \"My orders\" or at a pickup point."
+        ru: "Обмен. Товар можно обменять на другой размер, цвет или модель в течение {exchange_window_days:days_gen} после получения, если нужный товар есть в наличии. Оформить обмен можно в «Моих заказах» или в пункте выдачи."
+        kk: "Айырбастау. Қажетті тауар қоймада болса, оны алған күннен бастап {exchange_window_days:days_gen} ішінде басқа өлшемге, түске немесе үлгіге айырбастауға болады. Айырбастауды «Менің тапсырыстарым» бөлімінде немесе беру пунктінде рәсімдеуге болады."
+      - id: damaged_wrong
+        facts: [defect_report_days]
+        en: "Damaged, missing or wrong items. Report the problem within {defect_report_days:days_gen} of delivery with the order number and photos of the item and the packaging. We replace the item or refund it in full, including delivery."
+        ru: "Повреждённый, недостающий или не тот товар. Сообщите о проблеме в течение {defect_report_days:days_gen} после получения, указав номер заказа и приложив фото товара и упаковки. Мы заменим товар или полностью вернём деньги, включая доставку."
+        kk: "Зақымдалған, жетіспейтін немесе басқа тауар келсе. Мәселе туралы алған күннен бастап {defect_report_days:days_gen} ішінде тапсырыс нөмірін көрсетіп, тауар мен қаптаманың суретін тіркеп хабарлаңыз. Біз тауарды ауыстырамыз немесе ақшаны жеткізу құнымен қоса толық қайтарамыз."
+
+  delivery_policy:
+    doc_type: policy
+    title: {en: Delivery, ru: Доставка, kk: Жеткізу}
+    sections:
+      - id: periods
+        facts: [fast_delivery_days, region_delivery_days]
+        en: "Delivery periods. Orders to Almaty and Astana arrive in {fast_delivery_days:range_days}; other cities of Kazakhstan take {region_delivery_days:range_days}. The period starts when the order is shipped."
+        ru: "Сроки доставки. Заказы в Алматы и Астану доставляются за {fast_delivery_days:range_days}, в другие города Казахстана — за {region_delivery_days:range_days}. Срок отсчитывается с момента отправки заказа."
+        kk: "Жеткізу мерзімі. Алматы мен Астанаға тапсырыс {fast_delivery_days:range_days} ішінде, Қазақстанның басқа қалаларына {region_delivery_days:range_days} ішінде жеткізіледі. Мерзім тапсырыс жөнелтілген сәттен бастап есептеледі."
+      - id: cost
+        facts: [courier_cost, free_delivery_from, pickup_cost]
+        en: "Delivery cost. Courier delivery: {courier_cost:kzt_free}; free for orders from {free_delivery_from:kzt}. Collecting an order at a pickup point: {pickup_cost:kzt_free}."
+        ru: "Стоимость доставки. Курьерская доставка — {courier_cost:kzt_free}, для заказов от {free_delivery_from:kzt} она бесплатна. Получение в пункте выдачи — {pickup_cost:kzt_free}."
+        kk: "Жеткізу құны. Курьерлік жеткізу — {courier_cost:kzt_free}, {free_delivery_from:kzt@abl} бастап тапсырыстар үшін тегін. Беру пунктінен алу — {pickup_cost:kzt_free}."
+      - id: methods
+        facts: [carriers]
+        en: "Delivery methods. We deliver with: {carriers:carriers}. You choose the method at checkout; the tracking number is sent by SMS when the order ships."
+        ru: "Способы доставки: {carriers:carriers}. Способ выбирается при оформлении заказа; трек-номер приходит в SMS после отправки."
+        kk: "Жеткізу тәсілдері: {carriers:carriers}. Тәсіл тапсырысты рәсімдеу кезінде таңдалады; тапсырыс жөнелтілгенде трек-нөмір SMS арқылы келеді."
+      - id: tracking
+        facts: []
+        en: "Tracking. The current status of an order is shown in \"My orders\". Support can check an order by its six-digit order number."
+        ru: "Отслеживание. Текущий статус заказа виден в разделе «Мои заказы». Поддержка может проверить заказ по шестизначному номеру заказа."
+        kk: "Бақылау. Тапсырыстың ағымдағы күйі «Менің тапсырыстарым» бөлімінде көрінеді. Қолдау қызметі тапсырысты алты таңбалы тапсырыс нөмірі бойынша тексере алады."
+
+  payment_policy:
+    doc_type: policy
+    title: {en: Payment, ru: Оплата, kk: Төлем}
+    sections:
+      - id: methods
+        facts: [payment_methods]
+        en: "Payment methods. {store_name:store} accepts: {payment_methods:payment_methods}."
+        ru: "Способы оплаты. {store_name:store} принимает: {payment_methods:payment_methods}."
+        kk: "Төлем тәсілдері. {store_name:store} дүкені қабылдайды: {payment_methods:payment_methods}."
+      - id: instalments
+        facts: [instalment_months]
+        requires: [has:payment_methods=kaspi_red]
+        en: "Instalments. With Kaspi Red you can split the payment over up to {instalment_months:months} without overpayment. The instalment option appears at checkout for orders that qualify."
+        ru: "Рассрочка. С Kaspi Red оплату можно разделить на срок до {instalment_months:months_gen} без переплаты. Вариант рассрочки появляется при оформлении для подходящих заказов."
+        kk: "Бөліп төлеу. Kaspi Red арқылы төлемді артық төлемсіз {instalment_months:months@dat} дейін бөліп төлеуге болады. Бөліп төлеу мүмкіндігі тапсырысты рәсімдеу кезінде сәйкес тапсырыстар үшін шығады."
+      - id: cod
+        facts: [cod_max]
+        requires: [has:payment_methods=cod]
+        en: "Payment on delivery. Cash or card payment on delivery is available for orders up to {cod_max:kzt}."
+        ru: "Оплата при получении. Оплатить наличными или картой при получении можно заказы на сумму до {cod_max:kzt}."
+        kk: "Алған кезде төлеу. Алған кезде қолма-қол немесе картамен {cod_max:kzt@dat} дейінгі тапсырыстарды төлеуге болады."
+      - id: failed_payment
+        facts: []
+        en: "If a payment fails. Check the card limit and the 3-D Secure confirmation, then try again in 15 minutes. If the money was debited but the order shows as unpaid, the bank releases the hold automatically; contact support with the order number if it does not."
+        ru: "Если оплата не прошла. Проверьте лимит карты и подтверждение 3-D Secure и повторите попытку через 15 минут. Если деньги списались, а заказ не оплачен, банк автоматически снимет блокировку; если этого не произошло, обратитесь в поддержку с номером заказа."
+        kk: "Төлем өтпесе. Карта лимитін және 3-D Secure растауын тексеріп, 15 минуттан кейін қайталап көріңіз. Ақша шегерілсе де, тапсырыс төленбеген болып көрінсе, банк бұғаттауды автоматты түрде алып тастайды; олай болмаса, тапсырыс нөмірімен қолдау қызметіне жүгініңіз."
+      - id: receipts
+        facts: []
+        en: "Receipts and invoices. The electronic fiscal receipt is sent by e-mail and SMS after payment and is also available in \"My orders\". Companies can request an invoice with the order number."
+        ru: "Чеки и счета. Электронный фискальный чек приходит на e-mail и в SMS после оплаты и доступен в «Моих заказах». Юрлица могут запросить счёт по номеру заказа."
+        kk: "Чектер мен шоттар. Электрондық фискалдық чек төлемнен кейін e-mail мен SMS арқылы келеді және «Менің тапсырыстарым» бөлімінде қолжетімді. Заңды тұлғалар тапсырыс нөмірі бойынша шот сұрата алады."
+
+  orders_policy:
+    doc_type: policy
+    title: {en: Orders, ru: Заказы, kk: Тапсырыстар}
+    sections:
+      - id: place
+        facts: [min_order]
+        en: "Placing an order. Add items to the cart, press \"Checkout\", choose delivery and payment and confirm. The minimum order amount is {min_order:kzt}."
+        ru: "Оформление заказа. Добавьте товары в корзину, нажмите «Оформить», выберите доставку и оплату и подтвердите заказ. Минимальная сумма заказа — {min_order:kzt}."
+        kk: "Тапсырыс беру. Тауарларды себетке салып, «Рәсімдеу» батырмасын басыңыз, жеткізу мен төлем тәсілін таңдап, тапсырысты растаңыз. Тапсырыстың ең аз сомасы — {min_order:kzt}."
+      - id: cancel
+        facts: [cancel_hours]
+        en: "Cancelling an order. An order can be cancelled free of charge within {cancel_hours:hours_gen} of placing it and before it is shipped. A shipped order cannot be cancelled; refuse it on delivery or return it instead."
+        ru: "Отмена заказа. Заказ можно бесплатно отменить в течение {cancel_hours:hours_gen} после оформления, если он ещё не отправлен. Отправленный заказ отменить нельзя: от него можно отказаться при получении или оформить возврат."
+        kk: "Тапсырыстан бас тарту. Тапсырысты рәсімдегеннен кейін {cancel_hours:hours_gen} ішінде, ол әлі жөнелтілмесе, тегін болдырмауға болады. Жөнелтілген тапсырысты болдырмау мүмкін емес: оны алу кезінде қабылдамауға немесе қайтаруды рәсімдеуге болады."
+      - id: change
+        facts: []
+        en: "Changing an order. Items, quantity and the delivery address can be changed while the order has the status \"processing\". After it is shipped, changes are not possible."
+        ru: "Изменение заказа. Товары, их количество и адрес доставки можно изменить, пока заказ в статусе «в обработке». После отправки изменения невозможны."
+        kk: "Тапсырысты өзгерту. Тапсырыс «өңделуде» күйінде тұрғанда тауарларды, олардың санын және жеткізу мекенжайын өзгертуге болады. Жөнелтілгеннен кейін өзгерту мүмкін емес."
+
+  warranty_policy:
+    doc_type: policy
+    title: {en: Warranty, ru: Гарантия, kk: Кепілдік}
+    sections:
+      - id: period
+        facts: [warranty_months]
+        en: "Warranty period. Electronics and home appliances have a warranty of {warranty_months:months} from the delivery date. Keep the receipt or the order number."
+        ru: "Гарантийный срок. На электронику и бытовую технику действует гарантия {warranty_months:months} с даты получения. Сохраните чек или номер заказа."
+        kk: "Кепілдік мерзімі. Электроника мен тұрмыстық техникаға алған күннен бастап {warranty_months:months} кепілдік беріледі. Чекті немесе тапсырыс нөмірін сақтаңыз."
+      - id: defect
+        facts: [defect_report_days]
+        en: "Defects. If an item is faulty, report it within {defect_report_days:days_gen} of noticing the defect. We check the item at a service centre and repair, replace or refund it. Stop using an item that overheats, sparks or smells of burning."
+        ru: "Брак. Если товар оказался неисправным, сообщите об этом в течение {defect_report_days:days_gen} с момента обнаружения дефекта. Мы проверим товар в сервисном центре и отремонтируем, заменим его или вернём деньги. Не пользуйтесь товаром, если он перегревается, искрит или пахнет гарью."
+        kk: "Ақау. Тауар ақаулы болып шықса, ақауды байқаған күннен бастап {defect_report_days:days_gen} ішінде хабарлаңыз. Біз тауарды сервис орталығында тексеріп, жөндейміз, ауыстырамыз немесе ақшасын қайтарамыз. Тауар қызып кетсе, ұшқын шашса немесе күйік иісі шықса, оны пайдаланбаңыз."
+
+  store_info:
+    doc_type: faq
+    title: {en: About the store, ru: О магазине, kk: Дүкен туралы}
+    sections:
+      - id: showroom
+        facts: [showroom, showroom_hours]
+        en: "Showroom and pickup. Our showroom in {showroom:city} is at {showroom:address}. It is open daily {showroom_hours:clock_range}."
+        ru: "Шоурум и самовывоз. Наш шоурум в городе {showroom:city} находится по адресу: {showroom:address}. Работает ежедневно {showroom_hours:clock_range}."
+        kk: "Шоурум және өзі алып кету. {showroom:city} қаласындағы шоурумымыз мына мекенжайда орналасқан: {showroom:address}. Күн сайын {showroom_hours:clock_range} жұмыс істейді."
+      - id: contact
+        facts: [support_phone, support_email, support_hours]
+        en: "Contacting support. Phone {support_phone}, e-mail {support_email}, chat in the app. Support works daily {support_hours:clock_range} (Astana time)."
+        ru: "Связь с поддержкой. Телефон {support_phone}, e-mail {support_email}, чат в приложении. Поддержка работает ежедневно {support_hours:clock_range} (время Астаны)."
+        kk: "Қолдау қызметімен байланыс. Телефон {support_phone}, e-mail {support_email}, қосымшадағы чат. Қолдау қызметі күн сайын {support_hours:clock_range} жұмыс істейді (Астана уақыты)."
+      - id: sales
+        facts: [sale]
+        en: "Sales. The next big sale: {sale:sale_name}, from {sale:sale_from} to {sale:sale_to}. Sale prices are shown in the catalogue."
+        ru: "Распродажи. Ближайшая большая акция — {sale:sale_name}, с {sale:sale_from} по {sale:sale_to}. Цены со скидкой указаны в каталоге."
+        kk: "Жеңілдіктер. Келесі ірі науқан — {sale:sale_name}, {sale:sale_from@abl} бастап {sale:sale_to@dat} дейін. Жеңілдік бағалары каталогта көрсетілген."
+      - id: loyalty
+        facts: [loyalty_percent, gift_card_months]
+        en: "Bonuses, promo codes and gift cards. You get {loyalty_percent:percent} of each purchase back as bonus points. One promo code can be used per order and cannot be combined with other discounts. Gift cards are valid for {gift_card_months:months}."
+        ru: "Бонусы, промокоды и подарочные карты. С каждой покупки возвращается {loyalty_percent:percent} бонусами. В одном заказе можно использовать один промокод, он не суммируется с другими скидками. Подарочные карты действуют {gift_card_months:months}."
+        kk: "Бонустар, промокодтар және сыйлық карталары. Әр сатып алудан {loyalty_percent:percent} бонус ретінде қайтарылады. Бір тапсырысқа бір промокод қолданылады және ол басқа жеңілдіктермен қосылмайды. Сыйлық карталары {gift_card_months:months} жарамды."
+      - id: feedback
+        facts: []
+        en: "Reviews and suggestions. You can rate a product in \"My orders\" after delivery, and send suggestions about the store through the \"Feedback\" form in the app."
+        ru: "Отзывы и предложения. Оценить товар можно в «Моих заказах» после получения, а предложения о работе магазина отправляются через форму «Обратная связь» в приложении."
+        kk: "Пікірлер мен ұсыныстар. Тауарды алғаннан кейін «Менің тапсырыстарым» бөлімінде бағалауға болады, ал дүкен жұмысы туралы ұсыныстарды қосымшадағы «Кері байланыс» формасы арқылы жіберуге болады."
+
+  account_faq:
+    doc_type: faq
+    title: {en: Account and app, ru: Аккаунт и приложение, kk: Аккаунт және қосымша}
+    sections:
+      - id: create
+        facts: []
+        en: "Creating an account. Press \"Sign in\", enter your phone number and the code from the SMS. The profile is created automatically."
+        ru: "Создание аккаунта. Нажмите «Войти», введите номер телефона и код из SMS. Профиль создаётся автоматически."
+        kk: "Аккаунт ашу. «Кіру» батырмасын басып, телефон нөміріңізді және SMS-тегі кодты енгізіңіз. Профиль автоматты түрде жасалады."
+      - id: password
+        facts: []
+        en: "Password and sign-in problems. Sign-in works with a one-time SMS code, so there is no password to recover. If the code does not arrive, check the number and request it again after 60 seconds."
+        ru: "Пароль и проблемы со входом. Вход выполняется по одноразовому коду из SMS, поэтому восстанавливать пароль не нужно. Если код не приходит, проверьте номер и запросите его повторно через 60 секунд."
+        kk: "Құпиясөз және кіру мәселелері. Кіру бір реттік SMS кодымен жүзеге асады, сондықтан құпиясөзді қалпына келтірудің қажеті жоқ. Код келмесе, нөмірді тексеріп, 60 секундтан кейін қайта сұратыңыз."
+      - id: profile
+        facts: []
+        en: "Profile and saved addresses. Name, e-mail and saved delivery addresses are edited in \"Profile\" → \"Settings\". A new address applies to future orders only."
+        ru: "Профиль и сохранённые адреса. Имя, e-mail и сохранённые адреса доставки меняются в разделе «Профиль» → «Настройки». Новый адрес действует только для будущих заказов."
+        kk: "Профиль және сақталған мекенжайлар. Аты-жөні, e-mail және сақталған жеткізу мекенжайлары «Профиль» → «Баптаулар» бөлімінде өзгертіледі. Жаңа мекенжай тек келесі тапсырыстарға қолданылады."
+      - id: switch
+        facts: []
+        en: "Switching accounts. Sign out in \"Profile\" → \"Settings\" → \"Sign out\", then sign in with the other phone number. Orders and bonuses stay with the account they were made in."
+        ru: "Смена аккаунта. Выйдите через «Профиль» → «Настройки» → «Выйти», затем войдите по другому номеру телефона. Заказы и бонусы остаются в том аккаунте, где они были оформлены."
+        kk: "Аккаунтты ауыстыру. «Профиль» → «Баптаулар» → «Шығу» арқылы шығып, басқа телефон нөмірімен кіріңіз. Тапсырыстар мен бонустар өздері рәсімделген аккаунтта қалады."
+      - id: delete
+        facts: [account_delete_days]
+        en: "Deleting an account. Request deletion in \"Profile\" → \"Settings\" → \"Delete account\". The account is deleted within {account_delete_days:days_gen}; unused bonus points are lost."
+        ru: "Удаление аккаунта. Запрос подаётся в разделе «Профиль» → «Настройки» → «Удалить аккаунт». Аккаунт удаляется в течение {account_delete_days:days_gen}, неиспользованные бонусы сгорают."
+        kk: "Аккаунтты жою. Сұраныс «Профиль» → «Баптаулар» → «Аккаунтты жою» бөлімінде жіберіледі. Аккаунт {account_delete_days:days_gen} ішінде жойылады, пайдаланылмаған бонустар күйіп кетеді."
+      - id: history
+        facts: []
+        en: "Order history. All your orders, with receipts and statuses, are listed in \"Profile\" → \"My orders\"."
+        ru: "История заказов. Все ваши заказы с чеками и статусами находятся в разделе «Профиль» → «Мои заказы»."
+        kk: "Тапсырыстар тарихы. Барлық тапсырыстарыңыз чектерімен және күйлерімен «Профиль» → «Менің тапсырыстарым» бөлімінде тұр."
+      - id: newsletter
+        facts: []
+        en: "Newsletters and notifications. Subscribe or unsubscribe in \"Profile\" → \"Notifications\", or use the \"Unsubscribe\" link at the bottom of any e-mail."
+        ru: "Рассылки и уведомления. Подписаться или отписаться можно в разделе «Профиль» → «Уведомления» или по ссылке «Отписаться» внизу любого письма."
+        kk: "Хабарламалар мен таратылымдар. Жазылу немесе бас тарту «Профиль» → «Хабарламалар» бөлімінде немесе кез келген хаттың төменгі жағындағы «Жазылымнан бас тарту» сілтемесі арқылы жасалады."
+      - id: app
+        facts: []
+        en: "Mobile app. The app is available in the App Store, Google Play and AppGallery. Sign in with the same phone number as on the website."
+        ru: "Мобильное приложение. Приложение есть в App Store, Google Play и AppGallery. Входите по тому же номеру телефона, что и на сайте."
+        kk: "Мобильді қосымша. Қосымша App Store, Google Play және AppGallery дүкендерінде бар. Сайттағы телефон нөмірімен кіріңіз."
+      - id: cart
+        facts: []
+        en: "Cart. Press \"Add to cart\" on a product page. To remove an item, open the cart and press the bin icon next to it. The cart is saved for 30 days."
+        ru: "Корзина. Нажмите «В корзину» на странице товара. Чтобы удалить товар, откройте корзину и нажмите на значок корзины рядом с ним. Корзина хранится 30 дней."
+        kk: "Себет. Тауар бетіндегі «Себетке» батырмасын басыңыз. Тауарды өшіру үшін себетті ашып, оның жанындағы қоқыс жәшігі белгішесін басыңыз. Себет 30 күн сақталады."
+
+  catalog:
+    doc_type: catalog
+    title: {en: Catalogue, ru: Каталог, kk: Каталог}
+    # One chunk per product (rows from configs/locale_kz.yaml `products`); the price is the
+    # variant's own (deterministic within the product's price range). `warranty` sentences
+    # exist only for electronics and appliances.
+    per_product: true
+    sections:
+      - id: product
+        facts: [price]
+        en: "{product} (SKU {sku}). Price: {price:kzt}."
+        ru: "{product}, артикул {sku}. Цена: {price:kzt}."
+        kk: "{product}, артикулы {sku}. Бағасы: {price:kzt}."
+      - id: product_warranty
+        facts: [price, warranty_months]
+        en: "{product} (SKU {sku}). Price: {price:kzt}. Warranty: {warranty_months:months}."
+        ru: "{product}, артикул {sku}. Цена: {price:kzt}. Гарантия: {warranty_months:months}."
+        kk: "{product}, артикулы {sku}. Бағасы: {price:kzt}. Кепілдік мерзімі: {warranty_months:months}."

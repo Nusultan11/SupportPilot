@@ -1,0 +1,161 @@
+# Authored training scenarios: returns, refunds, warranty and payment (Stage 4, ADR-025).
+# Written natively per language by the Stage 4 agent (LLM). Human review pending.
+schema_version: scenarios/1
+scenarios:
+  - id: return_window
+    intent: return_policy
+    action: answer_kb
+    sections: [returns_policy.window]
+    en: ["how many days do I have to send something back?", "can I still return a jacket I got two weeks ago?", "whats ur return policy"]
+    ru: ["Сколько дней есть на возврат?", "можно ещё вернуть куртку, которую получила две недели назад?", "какие у вас условия возврата"]
+    kk: ["Тауарды қайтаруға неше күн беріледі?", "екі апта бұрын алған күртешені әлі қайтаруға бола ма?", "қайтару шарттарыңыз қандай?"]
+    mix_kk: ["возврат жасауға неше күн бар?"]
+    mix_ru: ["возврат сколько күн можно сделать?"]
+  - id: return_how
+    intent: return_product
+    action: answer_kb
+    sections: [returns_policy.how_to_return]
+    en: ["how do I return the {product}?", "I want to send back an item, what are the steps", "do I pay for return shipping?"]
+    ru: ["Как вернуть {product}?", "хочу вернуть товар, что нужно сделать?", "обратная доставка платная?"]
+    kk: ["{product} қалай қайтарамын?", "тауарды қайтарғым келеді, не істеу керек?", "кері жеткізу ақылы ма?"]
+    mix_kk: ["тауарды вернуть етейін деп едім, қалай жасаймын?"]
+  - id: return_non_returnable
+    intent: return_policy
+    action: answer_kb
+    sections: [returns_policy.non_returnable]
+    en: ["can I return a face cream I already opened?", "which items can't be returned?"]
+    ru: ["Можно вернуть крем, который я уже открыла?", "какие товары нельзя вернуть?"]
+    kk: ["Ашып қойған кремді қайтаруға бола ма?", "қандай тауарларды қайтаруға болмайды?"]
+  - id: refund_timing
+    intent: return_policy
+    action: answer_kb
+    sections: [returns_policy.refund]
+    en: ["after I return something, how fast do I get the money back?", "how long does a refund take to the card?"]
+    ru: ["Через сколько вернут деньги после возврата товара?", "сколько идёт возврат на карту?"]
+    kk: ["Тауарды қайтарғаннан кейін ақша қанша уақытта қайтады?", "картаға ақша қайтару қанша уақыт алады?"]
+    mix_ru: ["деньги қашан қайтады после возврата?"]
+  - id: exchange_size
+    intent: exchange_product
+    action: answer_kb
+    sections: [returns_policy.exchange]
+    en: ["the sneakers are too small, can I swap them for a bigger size?", "can I exchange a dress for another colour?"]
+    ru: ["Кроссовки малы, можно обменять на размер больше?", "можно обменять платье на другой цвет?"]
+    kk: ["Кроссовка кішкентай болып қалды, үлкенірек өлшемге ауыстыруға бола ма?", "көйлекті басқа түске айырбастауға бола ма?"]
+    mix_kk: ["размері келмеді, обмен жасауға бола ма?"]
+  - id: refund_request_with_return
+    intent: request_refund
+    action: call_tool
+    tool_status: [return_received, no_return]
+    en: ["I want my money back for order {order_id}", "refund order {order_id} please"]
+    ru: ["Хочу вернуть деньги за заказ {order_id}", "оформите возврат денег по заказу {order_id}"]
+    kk: ["{order_id} тапсырысы үшін ақшамды қайтарғым келеді", "{order_id} тапсырысы бойынша ақшаны қайтарыңызшы"]
+  - id: refund_status_check
+    intent: refund_status
+    action: call_tool
+    tool_status: [processing, completed, none]
+    en: ["where is my refund for order {order_id}?", "I returned order {order_id} last week, still no money"]
+    ru: ["Где мой возврат по заказу {order_id}?", "вернул заказ {order_id} на прошлой неделе, денег до сих пор нет"]
+    kk: ["{order_id} тапсырысы бойынша ақшам қайда?", "өткен аптада {order_id} тапсырысын қайтардым, ақша әлі жоқ"]
+    mix_kk: ["{order_id} заказ бойынша возврат қайда, деньги келмеді"]
+  - id: refund_status_no_number
+    intent: refund_status
+    action: clarify
+    ask: order_number
+    en: ["when will I get my refund?", "my refund still hasn't arrived"]
+    ru: ["Когда мне вернут деньги?", "возврат так и не пришёл"]
+    kk: ["Ақшамды қашан қайтарасыздар?", "қайтарылған ақша әлі түскен жоқ"]
+  - id: defect_with_number
+    intent: product_defect
+    action: call_tool
+    tool_status: [delivered]
+    sections: [warranty_policy.period, warranty_policy.defect]
+    en: ["the {product} from order {order_id} stopped working after a week", "order {order_id}: the {product} won't turn on"]
+    ru: ["{product_cap} из заказа {order_id} сломался через неделю", "заказ {order_id}: {product} не включается"]
+    kk: ["{order_id} тапсырысындағы {product} бір аптадан кейін істемей қалды", "{order_id} тапсырысы: {product} қосылмайды"]
+  - id: defect_no_number
+    intent: product_defect
+    action: clarify
+    ask: order_number
+    en: ["the thing I bought is broken already", "my headphones stopped charging, what do I do"]
+    ru: ["купленный товар уже сломался", "наушники перестали заряжаться, что делать?"]
+    kk: ["сатып алған тауарым бұзылып қалды", "құлаққабым зарядталмай қалды, не істеймін?"]
+  - id: defect_safety
+    intent: product_defect
+    action: escalate
+    reason: safety_risk
+    en: ["the kettle sparked and there's smoke coming out!", "my kid got a shock from the charger you sold"]
+    ru: ["Чайник заискрил и пошёл дым!", "ребёнка ударило током от зарядки, которую вы продали"]
+    kk: ["Шәйнек ұшқын шашып, түтін шықты!", "сіздер сатқан зарядтағыштан балама ток соқты"]
+  - id: warranty_period
+    intent: policy_faq
+    action: answer_kb
+    sections: [warranty_policy.period]
+    en: ["what's the warranty on electronics?", "how long is the guarantee for a washing machine?"]
+    ru: ["Какая гарантия на электронику?", "сколько гарантия на стиральную машину?"]
+    kk: ["Электроникаға кепілдік қанша?", "кір жуғыш машинаға кепілдік қанша уақыт?"]
+  - id: payment_methods_list
+    intent: payment_methods
+    action: answer_kb
+    sections: [payment_policy.methods]
+    en: ["how can I pay?", "do you take Kaspi?", "can I pay with a Halyk card"]
+    ru: ["Как можно оплатить?", "Kaspi принимаете?", "можно оплатить картой Halyk?"]
+    kk: ["Қалай төлеуге болады?", "Kaspi қабылдайсыздар ма?", "Halyk картасымен төлеуге бола ма?"]
+    mix_kk: ["Kaspi QR-мен оплата жасауға бола ма?"]
+  - id: payment_instalments
+    intent: payment_methods
+    action: answer_kb
+    sections: [payment_policy.instalments]
+    en: ["can I buy the laptop in instalments?", "is there Kaspi Red installment?"]
+    ru: ["Можно купить ноутбук в рассрочку?", "есть рассрочка Kaspi Red?"]
+    kk: ["Ноутбукты бөліп төлеп алуға бола ма?", "Kaspi Red бөліп төлеу бар ма?"]
+    mix_ru: ["рассрочка бар ма? на сколько месяцев?"]
+  - id: payment_cod
+    intent: payment_methods
+    action: answer_kb
+    sections: [payment_policy.cod]
+    en: ["can I pay cash to the courier?", "is cash on delivery possible?"]
+    ru: ["Можно оплатить курьеру наличными?", "есть оплата при получении?"]
+    kk: ["Курьерге қолма-қол төлеуге бола ма?", "алған кезде төлеуге бола ма?"]
+  - id: payment_failed_generic
+    intent: payment_problem
+    action: answer_kb
+    sections: [payment_policy.failed_payment]
+    en: ["my card keeps getting declined at checkout", "payment doesn't go through, it says error"]
+    ru: ["Карта не проходит при оплате", "оплата не проходит, пишет ошибку"]
+    kk: ["Төлеген кезде картам өтпей жатыр", "төлем өтпейді, қате деп жазады"]
+  - id: payment_vague
+    intent: payment_problem
+    action: clarify
+    ask: payment_details
+    en: ["problem with payment", "something is wrong with my payment"]
+    ru: ["проблема с оплатой", "что-то не так с оплатой"]
+    kk: ["төлеммен мәселе бар", "төлемімде бірдеңе дұрыс емес"]
+  - id: payment_double_charge
+    intent: payment_problem
+    action: escalate
+    reason: payment_dispute
+    en: ["you charged my card twice for order {order_id}!", "money was taken from my card but there is no order"]
+    ru: ["С карты дважды списали деньги за заказ {order_id}!", "деньги списались, а заказа нет"]
+    kk: ["{order_id} тапсырысы үшін картамнан екі рет ақша алынды!", "картамнан ақша шегерілді, бірақ тапсырыс жоқ"]
+    mix_kk: ["картадан екі раз списали, {order_id} заказ үшін"]
+  - id: receipt_with_number
+    intent: invoice
+    action: call_tool
+    tool_status: [paid, unpaid]
+    en: ["I need the receipt for order {order_id}", "can you send me the invoice for {order_id}?"]
+    ru: ["Нужен чек по заказу {order_id}", "пришлите счёт по заказу {order_id}"]
+    kk: ["{order_id} тапсырысының чегі керек", "{order_id} тапсырысы бойынша шотты жіберіңізші"]
+  - id: receipt_no_number
+    intent: invoice
+    action: clarify
+    ask: order_number
+    en: ["where do I get my receipt?", "I need an invoice for accounting"]
+    ru: ["где взять чек?", "нужен счёт для бухгалтерии"]
+    kk: ["чекті қайдан аламын?", "бухгалтерияға шот керек"]
+  - id: receipt_policy
+    intent: invoice
+    action: answer_kb
+    sections: [payment_policy.receipts]
+    en: ["do you send fiscal receipts?", "will I get a receipt by email?"]
+    ru: ["Вы отправляете фискальный чек?", "чек придёт на почту?"]
+    kk: ["Фискалдық чек жібересіздер ме?", "чек поштаға келе ме?"]

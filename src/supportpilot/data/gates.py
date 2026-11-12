@@ -21,7 +21,7 @@ from supportpilot.common.config import CleanSettings
 from supportpilot.common.ids import make_example_id
 from supportpilot.common.manifest import read_model_json
 from supportpilot.common.schemas import (
-    INTENTS,
+    INTENTS_V0,
     CanonicalExample,
     PendingExample,
     RecordsManifest,
@@ -353,7 +353,7 @@ def g_licence(build: Path, entries: Sequence[SourceEntry]) -> Gate:
 
 def g_labels(build: Path) -> Gate:
     can = _canonical(build)
-    unknown = can.filter(~pl.col("intent").is_in(sorted(INTENTS))).height if can.height else 0
+    unknown = can.filter(~pl.col("intent").is_in(sorted(INTENTS_V0))).height if can.height else 0
     esc_bad = (
         can.filter(pl.col("escalate") & pl.col("escalation_reason").is_null()).height
         if can.height

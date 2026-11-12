@@ -1,0 +1,108 @@
+# Kazakhstan localisation catalogue (Stage 4, ADR-024). Validated by
+# `supportpilot.data.locale.LocaleCatalog`. All values are synthetic or public geography;
+# no real customer data. Used by: MT pre-localisation of Bitext slots, the authored
+# scenario expander, the training KB variant and the mock tool states.
+#
+# Case forms are needed because RU and KK inflect place names and the templates use them:
+#   kk: nom (Алматы), dat (Алматыға: "to"), loc (Алматыда: "in"), abl (Алматыдан: "from")
+#   ru: nom (Алматы), to (в Алматы), in (в Алматы), from (из Алматы)
+schema_version: locale/1
+currency: KZT
+# Bitext amounts are USD-like ($10-$2,500). They are converted with one fixed synthetic
+# rate and rounded to a "shop price" step, so a localised text never shows dollars.
+usd_to_kzt: 500
+kzt_round_to: 100
+
+cities:
+  - {en: Almaty, ru: {nom: Алматы, to: в Алматы, in: в Алматы, from: из Алматы}, kk: {nom: Алматы, dat: Алматыға, loc: Алматыда, abl: Алматыдан}}
+  - {en: Astana, ru: {nom: Астана, to: в Астану, in: в Астане, from: из Астаны}, kk: {nom: Астана, dat: Астанаға, loc: Астанада, abl: Астанадан}}
+  - {en: Shymkent, ru: {nom: Шымкент, to: в Шымкент, in: в Шымкенте, from: из Шымкента}, kk: {nom: Шымкент, dat: Шымкентке, loc: Шымкентте, abl: Шымкенттен}}
+  - {en: Karaganda, ru: {nom: Караганда, to: в Караганду, in: в Караганде, from: из Караганды}, kk: {nom: Қарағанды, dat: Қарағандыға, loc: Қарағандыда, abl: Қарағандыдан}}
+  - {en: Aktobe, ru: {nom: Актобе, to: в Актобе, in: в Актобе, from: из Актобе}, kk: {nom: Ақтөбе, dat: Ақтөбеге, loc: Ақтөбеде, abl: Ақтөбеден}}
+  - {en: Taraz, ru: {nom: Тараз, to: в Тараз, in: в Таразе, from: из Тараза}, kk: {nom: Тараз, dat: Таразға, loc: Таразда, abl: Тараздан}}
+  - {en: Pavlodar, ru: {nom: Павлодар, to: в Павлодар, in: в Павлодаре, from: из Павлодара}, kk: {nom: Павлодар, dat: Павлодарға, loc: Павлодарда, abl: Павлодардан}}
+  - {en: Oskemen, ru: {nom: Усть-Каменогорск, to: в Усть-Каменогорск, in: в Усть-Каменогорске, from: из Усть-Каменогорска}, kk: {nom: Өскемен, dat: Өскеменге, loc: Өскеменде, abl: Өскеменнен}}
+  - {en: Semey, ru: {nom: Семей, to: в Семей, in: в Семее, from: из Семея}, kk: {nom: Семей, dat: Семейге, loc: Семейде, abl: Семейден}}
+  - {en: Atyrau, ru: {nom: Атырау, to: в Атырау, in: в Атырау, from: из Атырау}, kk: {nom: Атырау, dat: Атырауға, loc: Атырауда, abl: Атыраудан}}
+  - {en: Kostanay, ru: {nom: Костанай, to: в Костанай, in: в Костанае, from: из Костаная}, kk: {nom: Қостанай, dat: Қостанайға, loc: Қостанайда, abl: Қостанайдан}}
+  - {en: Kyzylorda, ru: {nom: Кызылорда, to: в Кызылорду, in: в Кызылорде, from: из Кызылорды}, kk: {nom: Қызылорда, dat: Қызылордаға, loc: Қызылордада, abl: Қызылордадан}}
+  - {en: Oral, ru: {nom: Уральск, to: в Уральск, in: в Уральске, from: из Уральска}, kk: {nom: Орал, dat: Оралға, loc: Оралда, abl: Оралдан}}
+  - {en: Petropavl, ru: {nom: Петропавловск, to: в Петропавловск, in: в Петропавловске, from: из Петропавловска}, kk: {nom: Петропавл, dat: Петропавлға, loc: Петропавлда, abl: Петропавлдан}}
+  - {en: Aktau, ru: {nom: Актау, to: в Актау, in: в Актау, from: из Актау}, kk: {nom: Ақтау, dat: Ақтауға, loc: Ақтауда, abl: Ақтаудан}}
+  - {en: Turkistan, ru: {nom: Туркестан, to: в Туркестан, in: в Туркестане, from: из Туркестана}, kk: {nom: Түркістан, dat: Түркістанға, loc: Түркістанда, abl: Түркістаннан}}
+  - {en: Kokshetau, ru: {nom: Кокшетау, to: в Кокшетау, in: в Кокшетау, from: из Кокшетау}, kk: {nom: Көкшетау, dat: Көкшетауға, loc: Көкшетауда, abl: Көкшетаудан}}
+  - {en: Taldykorgan, ru: {nom: Талдыкорган, to: в Талдыкорган, in: в Талдыкоргане, from: из Талдыкоргана}, kk: {nom: Талдықорған, dat: Талдықорғанға, loc: Талдықорғанда, abl: Талдықорғаннан}}
+
+# Synthetic customer names (first + last), one form per language. Kazakh names keep the
+# Kazakh letters in kk, use the official Russian spelling in ru and passport-style Latin in en.
+names:
+  - {en: Aigerim Sadykova, ru: Айгерим Садыкова, kk: Әйгерім Садықова}
+  - {en: Daniyar Bekov, ru: Данияр Беков, kk: Данияр Беков}
+  - {en: Madina Omarova, ru: Мадина Омарова, kk: Мадина Омарова}
+  - {en: Yerlan Tulegenov, ru: Ерлан Тулегенов, kk: Ерлан Төлегенов}
+  - {en: Asel Nurlanova, ru: Асель Нурланова, kk: Әсел Нұрланова}
+  - {en: Timur Akhmetov, ru: Тимур Ахметов, kk: Темір Ахметов}
+  - {en: Dana Seitkali, ru: Дана Сейткали, kk: Дана Сейітқали}
+  - {en: Arman Zhumabayev, ru: Арман Жумабаев, kk: Арман Жұмабаев}
+  - {en: Zarina Iskakova, ru: Зарина Искакова, kk: Зарина Ысқақова}
+  - {en: Ruslan Kim, ru: Руслан Ким, kk: Руслан Ким}
+  - {en: Kamila Abenova, ru: Камила Абенова, kk: Камила Әбенова}
+  - {en: Olzhas Dauletov, ru: Олжас Даулетов, kk: Олжас Дәулетов}
+  - {en: Gulnara Sarsenova, ru: Гульнара Сарсенова, kk: Гүлнар Сәрсенова}
+  - {en: Nurlan Kassymov, ru: Нурлан Касымов, kk: Нұрлан Қасымов}
+  - {en: Aliya Mukhtarova, ru: Алия Мухтарова, kk: Әлия Мұхтарова}
+  - {en: Bauyrzhan Ospanov, ru: Бауыржан Оспанов, kk: Бауыржан Оспанов}
+  - {en: Elena Petrova, ru: Елена Петрова, kk: Елена Петрова}
+  - {en: Sergey Ivanov, ru: Сергей Иванов, kk: Сергей Иванов}
+
+# Delivery services named in the training KB and tool states. Generic store-owned options
+# plus well-known national carriers (names only; every price and period is the fictional
+# store's own policy, never a claim about the carrier).
+carriers:
+  - {id: courier, en: store courier, ru: курьер магазина, kk: дүкен курьері}
+  - {id: kazpost, en: Kazpost, ru: Казпочта, kk: Қазпошта}
+  - {id: cdek, en: CDEK, ru: СДЭК, kk: СДЭК}
+  - {id: pickup, en: pickup point, ru: пункт выдачи, kk: беру пункті}
+  - {id: postomat, en: parcel locker, ru: постамат, kk: постамат}
+
+payment_methods:
+  - {id: kaspi_qr, en: Kaspi QR, ru: Kaspi QR, kk: Kaspi QR}
+  - {id: kaspi_red, en: Kaspi Red instalments, ru: рассрочка Kaspi Red, kk: Kaspi Red бөліп төлеу}
+  - {id: card, en: Visa or Mastercard bank card, ru: банковская карта Visa или Mastercard, kk: Visa немесе Mastercard банк картасы}
+  - {id: halyk, en: Halyk Bank card, ru: карта Halyk Bank, kk: Halyk Bank картасы}
+  - {id: cod, en: cash or card on delivery, ru: наличными или картой при получении, kk: алған кезде қолма-қол немесе картамен}
+  - {id: apple_pay, en: Apple Pay, ru: Apple Pay, kk: Apple Pay}
+  - {id: invoice_b2b, en: bank transfer for companies, ru: безналичный расчёт для юрлиц, kk: заңды тұлғаларға қолма-қол ақшасыз төлем}
+
+# Training catalogue (fictional products). sku, category, names per language, price range.
+products:
+  - {sku: TV-5501, cat: electronics, en: 55-inch 4K TV, ru: телевизор 4K 55 дюймов, kk: 55 дюймдік 4K теледидар, price: [189000, 289000]}
+  - {sku: PH-1288, cat: electronics, en: smartphone 128 GB, ru: смартфон на 128 ГБ, kk: 128 ГБ смартфон, price: [99000, 219000]}
+  - {sku: HP-0305, cat: electronics, en: wireless headphones, ru: беспроводные наушники, kk: сымсыз құлаққап, price: [12900, 59900]}
+  - {sku: LP-1406, cat: electronics, en: 14-inch laptop, ru: ноутбук 14 дюймов, kk: 14 дюймдік ноутбук, price: [249000, 459000]}
+  - {sku: SW-0921, cat: electronics, en: smart watch, ru: умные часы, kk: смарт сағат, price: [29900, 119000]}
+  - {sku: PB-2010, cat: electronics, en: power bank 20000 mAh, ru: пауэрбанк на 20000 мАч, kk: 20000 мАсағ пауэрбанк, price: [8900, 19900]}
+  - {sku: WM-0708, cat: appliances, en: washing machine 7 kg, ru: стиральная машина на 7 кг, kk: 7 кг кір жуғыш машина, price: [159000, 249000]}
+  - {sku: VC-3302, cat: appliances, en: robot vacuum cleaner, ru: робот-пылесос, kk: робот шаңсорғыш, price: [89000, 179000]}
+  - {sku: KT-0117, cat: appliances, en: electric kettle, ru: электрочайник, kk: электр шәйнек, price: [7900, 24900]}
+  - {sku: MW-2004, cat: appliances, en: microwave oven, ru: микроволновая печь, kk: микротолқынды пеш, price: [32900, 69900]}
+  - {sku: AC-1209, cat: appliances, en: air conditioner, ru: кондиционер, kk: кондиционер, price: [149000, 299000]}
+  - {sku: SN-4140, cat: shoes, en: running sneakers, ru: беговые кроссовки, kk: жүгіруге арналған кроссовка, price: [24900, 64900]}
+  - {sku: BT-3802, cat: shoes, en: winter boots, ru: зимние ботинки, kk: қысқы бәтеңке, price: [29900, 79900]}
+  - {sku: JK-0560, cat: clothing, en: down jacket, ru: пуховик, kk: мамық күрте, price: [39900, 119000]}
+  - {sku: DR-1131, cat: clothing, en: summer dress, ru: летнее платье, kk: жазғы көйлек, price: [9900, 29900]}
+  - {sku: JN-2232, cat: clothing, en: jeans, ru: джинсы, kk: джинсы шалбар, price: [12900, 34900]}
+  - {sku: SH-0410, cat: clothing, en: cotton shirt, ru: хлопковая рубашка, kk: мақта жейде, price: [7900, 19900]}
+  - {sku: BG-0711, cat: accessories, en: leather backpack, ru: кожаный рюкзак, kk: былғары рюкзак, price: [19900, 49900]}
+  - {sku: CH-1002, cat: kids, en: child car seat, ru: детское автокресло, kk: балаларға арналған автокресло, price: [39900, 99000]}
+  - {sku: ST-3105, cat: kids, en: baby stroller, ru: детская коляска, kk: балалар арбасы, price: [89000, 239000]}
+  - {sku: TY-0620, cat: kids, en: construction toy set, ru: конструктор, kk: құрастырмалы ойыншық, price: [8900, 39900]}
+  - {sku: CF-0812, cat: home, en: coffee machine, ru: кофемашина, kk: кофе машинасы, price: [69900, 189000]}
+  - {sku: BL-1515, cat: home, en: blanket 200x220, ru: одеяло 200 на 220, kk: 200x220 көрпе, price: [14900, 39900]}
+  - {sku: PN-0303, cat: home, en: frying pan set, ru: набор сковородок, kk: таба жиынтығы, price: [12900, 34900]}
+  - {sku: CR-7007, cat: beauty, en: face cream, ru: крем для лица, kk: бет кремі, price: [4900, 19900]}
+  - {sku: HD-0909, cat: beauty, en: hair dryer, ru: фен, kk: шаш кептіргіш, price: [12900, 49900]}
+  - {sku: BK-0101, cat: books, en: Kazakh-English dictionary, ru: казахско-английский словарь, kk: қазақша-ағылшынша сөздік, price: [3900, 9900]}
+  - {sku: TB-2626, cat: sport, en: yoga mat, ru: коврик для йоги, kk: йога кілемшесі, price: [5900, 14900]}
+  - {sku: BC-2900, cat: sport, en: mountain bike, ru: горный велосипед, kk: тау велосипеді, price: [129000, 299000]}
+  - {sku: TN-0412, cat: auto, en: winter tyres set, ru: комплект зимних шин, kk: қысқы дөңгелек жиынтығы, price: [99000, 219000]}

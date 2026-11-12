@@ -1,0 +1,508 @@
+# Gold benchmark source, part 1: grounded questions answered from the demo-store KB.
+# Authored separately from the training scenarios by the Stage 4 agent (LLM); review status
+# `draft` (no independent fluent human review yet). Facts: kb_sources/demo_store/facts.yaml.
+schema_version: gold_src/1
+items:
+  - id: ret_days_plain
+    cat: grounded
+    diff: easy
+    intent: return_policy
+    action: answer_kb
+    facts: {return_window_days: "14"}
+    ev: [returns_policy.window]
+    en: "How long after delivery can I still return something?"
+    ru: "Через сколько после получения ещё можно сдать товар обратно?"
+    kk: "Тауарды алғаннан кейін қанша уақыт ішінде кері өткізуге болады?"
+  - id: ret_days_typo
+    cat: grounded
+    diff: medium
+    intent: return_policy
+    action: answer_kb
+    facts: {return_window_days: "14"}
+    ev: [returns_policy.window]
+    en: "hey can i retrun shoes i bougth 10 days ago??"
+    ru: "здрасте, можно вернуть кросы купленные 10 дней назад??"
+    kk: "салем, 10 күн бұрын алған кроссовкамды қайтара аламба?"
+  - id: ret_days_over_limit
+    cat: grounded
+    diff: hard
+    intent: return_policy
+    action: answer_kb
+    facts: {return_window_days: "14"}
+    ev: [returns_policy.window]
+    must_not: ["the item can still be returned after 20 days"]
+    en: "I got the coat three weeks ago and never wore it. Is it too late to return it?"
+    ru: "Пальто получила три недели назад, ни разу не надевала. Уже поздно его возвращать?"
+    kk: "Пальтоны үш апта бұрын алдым, бір рет те кимедім. Қайтаруға кеш болып қалды ма?"
+  - id: ret_tags_removed
+    cat: grounded
+    diff: medium
+    intent: return_policy
+    action: answer_kb
+    ev: [returns_policy.window]
+    en: "I cut the tags off a sweater before noticing a stain. Will you still take it back?"
+    ru: "Срезал бирки со свитера, а потом заметил пятно. Его всё равно примут обратно?"
+    kk: "Жемпірдің жапсырмаларын кесіп тастағаннан кейін дақты байқадым. Оны бәрібір қабылдайсыздар ма?"
+  - id: ret_underwear
+    cat: grounded
+    diff: easy
+    intent: return_policy
+    action: answer_kb
+    facts: {non_returnable: "underwear"}
+    ev: [returns_policy.non_returnable]
+    en: "Can underwear be returned if the size is wrong?"
+    ru: "Нижнее бельё можно вернуть, если не подошёл размер?"
+    kk: "Өлшемі келмесе, іш киімді қайтаруға бола ма?"
+  - id: ret_giftcard
+    cat: grounded
+    diff: medium
+    intent: return_policy
+    action: answer_kb
+    facts: {non_returnable: "gift_cards"}
+    ev: [returns_policy.non_returnable]
+    en: "I bought a gift card by mistake, can I return it for money?"
+    ru: "Случайно купила подарочную карту, можно сдать её и вернуть деньги?"
+    kk: "Сыйлық картасын байқамай сатып алып қойдым, оны тапсырып, ақшамды қайтаруға бола ма?"
+  - id: ret_cosmetics_opened
+    cat: grounded
+    diff: medium
+    intent: return_policy
+    action: answer_kb
+    facts: {non_returnable: "opened_cosmetics"}
+    ev: [returns_policy.non_returnable]
+    en: "the lipstick color is awful, i only tried it once. return possible?"
+    ru: "цвет помады ужасный, попробовала один раз. вернуть можно?"
+    kk: "ерін далабының түсі мүлде ұнамады, бір рет қана жағып көрдім. қайтаруға бола ма?"
+  - id: ret_shipping_fee
+    cat: grounded
+    diff: easy
+    intent: return_product
+    action: answer_kb
+    facts: {return_shipping_cost: "1000"}
+    ev: [returns_policy.how_to_return]
+    en: "Do I have to pay anything to send a return back?"
+    ru: "Мне нужно платить за отправку возврата?"
+    kk: "Қайтарылатын тауарды жіберу үшін ақы төлеуім керек пе?"
+  - id: ret_steps
+    cat: grounded
+    diff: easy
+    intent: return_product
+    action: answer_kb
+    ev: [returns_policy.how_to_return]
+    en: "What are the steps to send back a blender I don't need?"
+    ru: "Какие шаги, чтобы вернуть ненужный блендер?"
+    kk: "Керек емес блендерді қайтару үшін не істеу керек?"
+  - id: refund_days_card
+    cat: grounded
+    diff: easy
+    intent: return_policy
+    action: answer_kb
+    facts: {refund_days: "10"}
+    ev: [returns_policy.refund]
+    en: "How many working days until a refund shows up on my Visa?"
+    ru: "Через сколько рабочих дней деньги за возврат придут на карту Visa?"
+    kk: "Қайтарылған ақша Visa картама неше жұмыс күнінде түседі?"
+  - id: refund_days_kaspi_cs
+    cat: grounded
+    diff: medium
+    intent: return_policy
+    action: answer_kb
+    facts: {refund_days: "10"}
+    ev: [returns_policy.refund]
+    cs: [kk]
+    en: "I returned stuff paid via Kaspi QR, how soon is the money back?"
+    ru: "Вернул товар, оплачивал через Kaspi QR. Как скоро деньги вернутся?"
+    kk: "Kaspi QR-мен төлеген тауарды вернуть еттім, деньги қашан қайтады?"
+  - id: exch_period
+    cat: grounded
+    diff: easy
+    intent: exchange_product
+    action: answer_kb
+    facts: {exchange_window_days: "21"}
+    ev: [returns_policy.exchange]
+    en: "How long do I have to swap jeans for a different size?"
+    ru: "Сколько времени есть, чтобы поменять джинсы на другой размер?"
+    kk: "Джинсыны басқа өлшемге ауыстыруға қанша уақыт бар?"
+  - id: exch_out_of_stock
+    cat: grounded
+    diff: hard
+    intent: exchange_product
+    action: answer_kb
+    ev: [returns_policy.exchange]
+    en: "Can I exchange my boots for a size 42 even if 42 is sold out right now?"
+    ru: "Можно обменять ботинки на 42-й размер, даже если его сейчас нет в наличии?"
+    kk: "Қазір 42 өлшем жоқ болса да, бәтеңкемді 42 өлшемге айырбастай аламын ба?"
+  - id: dmg_report_window
+    cat: grounded
+    diff: medium
+    intent: delivery_problem
+    action: answer_kb
+    facts: {defect_report_days: "15"}
+    ev: [returns_policy.damaged_wrong]
+    en: "If a parcel arrives broken, how many days do I have to tell you?"
+    ru: "Если посылка пришла разбитой, за сколько дней нужно сообщить?"
+    kk: "Сәлемдеме сынып келсе, неше күн ішінде хабарлау керек?"
+  - id: del_time_almaty
+    cat: grounded
+    diff: easy
+    intent: delivery_time
+    action: answer_kb
+    facts: {fast_delivery_days: "2-3"}
+    ev: [delivery_policy.periods]
+    en: "how fast do you deliver within Almaty?"
+    ru: "Как быстро доставляете по Алматы?"
+    kk: "Алматы ішінде қаншалықты тез жеткізесіздер?"
+  - id: del_time_aktau
+    cat: grounded
+    diff: easy
+    intent: delivery_time
+    action: answer_kb
+    facts: {region_delivery_days: "3-6"}
+    ev: [delivery_policy.periods]
+    en: "Ordering to Aktau - how many days roughly?"
+    ru: "Заказ в Актау — примерно сколько дней ехать будет?"
+    kk: "Ақтауға тапсырыс берсем, шамамен неше күнде келеді?"
+  - id: del_time_kokshetau_cs
+    cat: grounded
+    diff: medium
+    intent: delivery_time
+    action: answer_kb
+    facts: {region_delivery_days: "3-6"}
+    ev: [delivery_policy.periods]
+    cs: [ru]
+    en: "my mom lives in Kokshetau, how long would a delivery there take"
+    ru: "Мама живёт в Кокшетау, доставка туда қанша күн алады?"
+    kk: "Анам Көкшетауда тұрады, сол жаққа жеткізу қанша уақыт алады?"
+  - id: del_time_start
+    cat: grounded
+    diff: hard
+    intent: delivery_time
+    action: answer_kb
+    facts: {fast_delivery_days: "2-3"}
+    ev: [delivery_policy.periods]
+    en: "Does the 2-3 day delivery to Astana count from when I pay or from when you ship?"
+    ru: "2–3 дня доставки в Астану считаются с момента оплаты или с отправки?"
+    kk: "Астанаға 2–3 күндік жеткізу төлеген сәттен бе, әлде жөнелткен сәттен бе есептеледі?"
+  - id: del_cost_courier
+    cat: grounded
+    diff: easy
+    intent: delivery_options_cost
+    action: answer_kb
+    facts: {courier_cost: "1200"}
+    ev: [delivery_policy.cost]
+    en: "What does courier delivery cost?"
+    ru: "Сколько берёт курьер за доставку?"
+    kk: "Курьер жеткізу үшін қанша алады?"
+  - id: del_free_threshold
+    cat: grounded
+    diff: easy
+    intent: delivery_options_cost
+    action: answer_kb
+    facts: {free_delivery_from: "25000"}
+    ev: [delivery_policy.cost]
+    en: "what's the minimum basket for free shipping"
+    ru: "с какой суммы корзины доставка за ваш счёт?"
+    kk: "жеткізу тегін болу үшін себеттегі сома қанша болуы керек?"
+  - id: del_free_math
+    cat: grounded
+    diff: hard
+    intent: delivery_options_cost
+    action: answer_kb
+    facts: {free_delivery_from: "25000", courier_cost: "1200"}
+    ev: [delivery_policy.cost]
+    en: "My cart is 23,500 tenge. Will I pay for the courier or not?"
+    ru: "У меня в корзине на 23 500 тенге. За курьера платить придётся?"
+    kk: "Себетімде 23 500 теңгенің тауары бар. Курьерге ақы төлеймін бе?"
+  - id: del_pickup_cost
+    cat: grounded
+    diff: medium
+    intent: delivery_options_cost
+    action: answer_kb
+    facts: {pickup_cost: "490"}
+    ev: [delivery_policy.cost]
+    en: "Is picking up from a pickup point free?"
+    ru: "Самовывоз из пункта выдачи бесплатный?"
+    kk: "Беру пунктінен өзім алып кетсем, тегін бе?"
+  - id: del_carriers
+    cat: grounded
+    diff: easy
+    intent: delivery_options_cost
+    action: answer_kb
+    facts: {carriers: "cdek"}
+    ev: [delivery_policy.methods]
+    en: "Do you ship through CDEK?"
+    ru: "Через СДЭК отправляете?"
+    kk: "СДЭК арқылы жібересіздер ме?"
+  - id: del_tracking_sms
+    cat: grounded
+    diff: medium
+    intent: delivery_options_cost
+    action: answer_kb
+    ev: [delivery_policy.methods]
+    en: "Will I get a tracking number somehow?"
+    ru: "Трек-номер мне как-то пришлют?"
+    kk: "Трек-нөмірді маған қалай да бір жібересіздер ме?"
+  - id: pay_methods_all
+    cat: grounded
+    diff: easy
+    intent: payment_methods
+    action: answer_kb
+    facts: {payment_methods: "kaspi_qr"}
+    ev: [payment_policy.methods]
+    en: "What payment options are there at checkout?"
+    ru: "Какие варианты оплаты есть при оформлении?"
+    kk: "Рәсімдеу кезінде қандай төлем түрлері бар?"
+  - id: pay_apple_pay
+    cat: grounded
+    diff: medium
+    intent: payment_methods
+    action: answer_kb
+    ev: [payment_policy.methods]
+    must_not: ["Apple Pay is accepted"]
+    en: "Can I pay with Apple Pay?"
+    ru: "Можно оплатить через Apple Pay?"
+    kk: "Apple Pay арқылы төлеуге бола ма?"
+  - id: pay_instalment_months
+    cat: grounded
+    diff: easy
+    intent: payment_methods
+    action: answer_kb
+    facts: {instalment_months: "12"}
+    ev: [payment_policy.instalments]
+    en: "For how many months can I split the payment with Kaspi Red?"
+    ru: "На сколько месяцев можно разбить оплату через Kaspi Red?"
+    kk: "Kaspi Red арқылы төлемді неше айға бөлуге болады?"
+  - id: pay_instalment_cs
+    cat: grounded
+    diff: medium
+    intent: payment_methods
+    action: answer_kb
+    facts: {instalment_months: "12"}
+    ev: [payment_policy.instalments]
+    cs: [kk, ru]
+    en: "is there an installment plan without overpaying?"
+    ru: "рассрочка без переплаты бар ма? на сколько айға?"
+    kk: "бөліп төлеу бар ма, переплатасыз? неше айға?"
+  - id: pay_cod_limit
+    cat: grounded
+    diff: medium
+    intent: payment_methods
+    action: answer_kb
+    facts: {cod_max: "200000"}
+    ev: [payment_policy.cod]
+    en: "I want to pay cash when the TV arrives, it's 240,000 tenge. Is that allowed?"
+    ru: "Хочу заплатить наличными при получении телевизора за 240 000 тенге. Так можно?"
+    kk: "Теледидар келгенде қолма-қол төлегім келеді, бағасы 240 000 теңге. Болады ма?"
+  - id: pay_fail_retry
+    cat: grounded
+    diff: medium
+    intent: payment_problem
+    action: answer_kb
+    facts: {payment_retry_minutes: "15"}
+    ev: [payment_policy.failed_payment]
+    en: "Checkout says 'payment declined' every time I try. What should I do?"
+    ru: "При оформлении каждый раз пишет «платёж отклонён». Что делать?"
+    kk: "Рәсімдеген сайын «төлем қабылданбады» деп шығады. Не істеуім керек?"
+  - id: pay_money_held
+    cat: grounded
+    diff: hard
+    intent: payment_problem
+    action: answer_kb
+    ev: [payment_policy.failed_payment]
+    en: "The bank froze the amount but the order says unpaid. Will I lose that money?"
+    ru: "Банк заморозил сумму, а заказ висит неоплаченным. Я потеряю эти деньги?"
+    kk: "Банк соманы бұғаттап тастады, ал тапсырыс төленбеген деп тұр. Ол ақшадан айырыламын ба?"
+  - id: receipt_where
+    cat: grounded
+    diff: easy
+    intent: invoice
+    action: answer_kb
+    ev: [payment_policy.receipts]
+    en: "Where can I find the electronic receipt after paying?"
+    ru: "Где найти электронный чек после оплаты?"
+    kk: "Төлегеннен кейін электрондық чекті қайдан табамын?"
+  - id: receipt_company
+    cat: grounded
+    diff: medium
+    intent: invoice
+    action: answer_kb
+    ev: [payment_policy.receipts]
+    en: "We're a company (TOO), can we get an invoice for the order?"
+    ru: "Мы ТОО, можно получить счёт на заказ?"
+    kk: "Біз ЖШС-мыз, тапсырысқа шот ала аламыз ба?"
+  - id: order_min_amount
+    cat: grounded
+    diff: easy
+    intent: place_order
+    action: answer_kb
+    facts: {min_order: "3000"}
+    ev: [orders_policy.place]
+    en: "Is there a minimum I have to spend to place an order?"
+    ru: "Есть минимальная сумма, чтобы оформить заказ?"
+    kk: "Тапсырыс беру үшін ең аз сома бар ма?"
+  - id: order_min_below
+    cat: grounded
+    diff: hard
+    intent: place_order
+    action: answer_kb
+    facts: {min_order: "3000"}
+    ev: [orders_policy.place]
+    en: "The site won't let me check out a 2,500 tenge charger. Why?"
+    ru: "Сайт не даёт оформить зарядку за 2 500 тенге. Почему?"
+    kk: "Сайт 2 500 теңгелік зарядтағышқа тапсырыс бергізбей жатыр. Неге?"
+  - id: cancel_window_hours
+    cat: grounded
+    diff: easy
+    intent: cancel_order
+    action: answer_kb
+    facts: {cancel_hours: "3"}
+    ev: [orders_policy.cancel]
+    en: "How many hours do I have to cancel for free?"
+    ru: "Сколько часов есть на бесплатную отмену?"
+    kk: "Тегін болдырмауға неше сағат беріледі?"
+  - id: change_after_ship
+    cat: grounded
+    diff: medium
+    intent: change_order
+    action: answer_kb
+    ev: [orders_policy.change]
+    en: "Can the delivery address still be changed once the parcel has left the warehouse?"
+    ru: "Можно ли поменять адрес доставки, когда посылка уже уехала со склада?"
+    kk: "Сәлемдеме қоймадан шығып кеткен соң жеткізу мекенжайын өзгертуге бола ма?"
+  - id: warranty_tv
+    cat: grounded
+    diff: easy
+    intent: policy_faq
+    action: answer_kb
+    facts: {warranty_months: "12"}
+    ev: [warranty_policy.period]
+    en: "What warranty do I get on a TV?"
+    ru: "Какая гарантия на телевизор?"
+    kk: "Теледидарға қандай кепілдік беріледі?"
+  - id: warranty_expired
+    cat: grounded
+    diff: hard
+    intent: policy_faq
+    action: answer_kb
+    facts: {warranty_months: "12"}
+    ev: [warranty_policy.period]
+    en: "My microwave from you is 14 months old and broke. Is it still under warranty?"
+    ru: "Микроволновке от вас 14 месяцев, и она сломалась. Гарантия ещё действует?"
+    kk: "Сіздерден алған микротолқынды пешіме 14 ай болды, бұзылып қалды. Кепілдік әлі жарамды ма?"
+  - id: defect_report_days
+    cat: grounded
+    diff: medium
+    intent: product_defect
+    action: answer_kb
+    facts: {defect_report_days: "15"}
+    ev: [warranty_policy.defect]
+    en: "How long do I have to report a defect after I notice it?"
+    ru: "Сколько времени есть, чтобы сообщить о браке после того, как его заметил?"
+    kk: "Ақауды байқағаннан кейін ол туралы қанша уақыт ішінде хабарлау керек?"
+  - id: showroom_address
+    cat: grounded
+    diff: easy
+    intent: store_info
+    action: answer_kb
+    facts: {showroom: "Almaty"}
+    ev: [store_info.showroom]
+    en: "Do you have a physical store where I can look at things?"
+    ru: "У вас есть офлайн-магазин, где можно посмотреть товар?"
+    kk: "Тауарды көруге болатын нақты дүкендеріңіз бар ма?"
+  - id: showroom_hours_late
+    cat: grounded
+    diff: medium
+    intent: store_info
+    action: answer_kb
+    facts: {showroom_hours: "20:00"}
+    ev: [store_info.showroom]
+    en: "Can I come to the showroom at 9 pm after work?"
+    ru: "Можно подъехать в шоурум в девять вечера после работы?"
+    kk: "Жұмыстан кейін кешкі сағат тоғызда шоурумға келуге бола ма?"
+  - id: contact_phone
+    cat: grounded
+    diff: easy
+    intent: contact_info
+    action: answer_kb
+    facts: {support_phone: "+7 700 555 0120"}
+    ev: [store_info.contact]
+    en: "Is there a number I can call you on?"
+    ru: "По какому номеру вам можно позвонить?"
+    kk: "Сіздерге қай нөмірге қоңырау шалуға болады?"
+  - id: contact_hours
+    cat: grounded
+    diff: medium
+    intent: contact_info
+    action: answer_kb
+    facts: {support_hours: "09:00"}
+    ev: [store_info.contact]
+    en: "until what time does your support answer?"
+    ru: "До скольки отвечает ваша поддержка?"
+    kk: "Қолдау қызметі сағат нешеге дейін жауап береді?"
+  - id: sale_dates
+    cat: grounded
+    diff: easy
+    intent: store_info
+    action: answer_kb
+    ev: [store_info.sales]
+    en: "When does your next sale start?"
+    ru: "Когда у вас начнётся следующая распродажа?"
+    kk: "Келесі жеңілдік науқаны қашан басталады?"
+  - id: loyalty_percent
+    cat: grounded
+    diff: easy
+    intent: policy_faq
+    action: answer_kb
+    facts: {loyalty_percent: "2"}
+    ev: [store_info.loyalty]
+    en: "How much cashback in bonuses do I get per purchase?"
+    ru: "Какой кешбэк бонусами начисляется за покупку?"
+    kk: "Әр сатып алу үшін қанша бонус кешбэк беріледі?"
+  - id: promo_combine
+    cat: grounded
+    diff: medium
+    intent: policy_faq
+    action: answer_kb
+    ev: [store_info.loyalty]
+    en: "I have a promo code and there's already a discount on the item. Will both apply?"
+    ru: "У меня промокод, а на товар уже есть скидка. Сработает и то и другое?"
+    kk: "Менде промокод бар, тауарда жеңілдік те бар. Екеуі де қолданыла ма?"
+  - id: giftcard_valid
+    cat: grounded
+    diff: easy
+    intent: policy_faq
+    action: answer_kb
+    facts: {gift_card_months: "18"}
+    ev: [store_info.loyalty]
+    en: "How long can I use a gift card I received?"
+    ru: "Сколько можно пользоваться подаренной картой?"
+    kk: "Сыйға алған картамды қанша уақыт пайдалана аламын?"
+  - id: acc_delete_days
+    cat: grounded
+    diff: medium
+    intent: account_help
+    action: answer_kb
+    facts: {account_delete_days: "10"}
+    ev: [account_faq.delete]
+    en: "If I delete my profile today, when is it actually gone?"
+    ru: "Если удалю профиль сегодня, когда он реально исчезнет?"
+    kk: "Профилімді бүгін жойсам, ол шын мәнінде қашан жойылады?"
+  - id: acc_sms_code
+    cat: grounded
+    diff: medium
+    intent: account_help
+    action: answer_kb
+    facts: {sms_retry_seconds: "60"}
+    ev: [account_faq.password]
+    en: "the login code isn't coming to my phone"
+    ru: "код для входа не приходит на телефон"
+    kk: "кіру коды телефоныма келмей жатыр"
+  - id: acc_register
+    cat: grounded
+    diff: easy
+    intent: account_help
+    action: answer_kb
+    ev: [account_faq.create]
+    en: "How can I register on your site?"
+    ru: "Как у вас зарегистрироваться на сайте?"
+    kk: "Сайттарыңызға қалай тіркелуге болады?"

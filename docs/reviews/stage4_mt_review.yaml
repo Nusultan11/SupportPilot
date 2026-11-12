@@ -1,0 +1,84 @@
+# Stage 4 MT comparison review (EVALUATION §5, ADR-024).
+# Reviewer: Claude (claude-opus-5-5), an LLM agent. This is NOT a review by a fluent human;
+# KK/RU error rates below are LLM judgements and must be re-checked by a native speaker
+# before they are quoted as translation quality.
+schema_version: mt_review/1
+reviewer: Claude (claude-opus-5-5), LLM agent; not a fluent human reviewer
+reviewed_at: '2026-11-12'
+sample: >-
+  The first 50 items of the stratified comparison sample (supportpilot.data.mtrun.compare_sample,
+  round-robin over the 35 v1 intents, seed 20261111): Bitext EN texts after KZT localisation,
+  typos and inserted profanity kept as in the source. Outputs before post-editing and QE.
+codes:
+  A: acceptable — meaning, intent and required action preserved; fluent enough for a customer message
+  M: minor — meaning preserved, but a calque, odd word choice or grammar slip
+  E: major — meaning changed or lost, wrong term that changes the request, untranslated words, hallucination or truncation
+# Items not listed under M or E are A.
+systems:
+  ru:
+    opus_en_ru:
+      E: [6, 7, 8, 11, 12, 19, 20, 21, 23, 24, 25, 26, 30, 33, 34, 36, 37, 38, 39, 40, 41, 43, 45, 46, 47, 49]
+      M: [2, 4, 9, 10, 14, 35, 44]
+    m2m100_418m:
+      E: [0, 3, 4, 5, 6, 7, 10, 11, 12, 16, 21, 27, 29, 30, 31, 33, 34, 36, 37, 41, 42, 44, 45, 46, 47]
+      M: [2, 8, 14, 22, 38, 40, 43]
+    madlad400_3b:
+      E: [0, 3, 7, 10, 11, 12, 15, 16, 21, 22, 26, 29, 30, 34, 36, 37, 40, 43, 44, 45]
+      M: [9, 14, 33, 46]
+  kk:
+    madlad400_3b:
+      E: [2, 3, 4, 7, 11, 12, 23, 25, 30, 34, 35, 36, 37, 39, 40, 44, 46]
+      M: [8, 10, 14, 24, 26]
+    madlad400_3b_pivot_ru:
+      E: [0, 3, 4, 7, 10, 11, 12, 15, 21, 22, 23, 25, 26, 28, 29, 30, 34, 35, 36, 37, 40, 42, 43, 44, 45, 46]
+      M: [1, 13, 14, 38, 49]
+    opus_en_trk:
+      E: [0, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 30, 31, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
+      M: [1, 9, 29, 32]
+    m2m100_418m:
+      E: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
+      M: []
+findings:
+  - Source typos ("uhelp", "cancelin", "chck", "itrm") are the largest single error cause. MADLAD copies them
+    untranslated (caught by the QE check `untranslated_latin`); Opus-MT guesses a wrong word (not detectable).
+  - Domain terms. "order" -> kk "тапсырма" (task) / ru "приказ" (decree); "cart" -> kk "қоршау" (fence),
+    "қоқыс жәшігі" (trash bin), ru "тележка"; "item" -> "статья"/"мақала" (article); "bills" -> "купюры"/
+    "банкноттар"; "refund" -> ru "возмездие". Repairable ones are post-edited by a suffix table; the others
+    reject the translation (supportpilot.data.qe.GLOSSARY).
+  - The phrase "human agent" is calqued by every system (ru "человеческий агент", kk "адам агенті"); rejected by QE.
+  - Inserted profanity is translated literally, mistranslated or dropped; the profane register is capped at
+    10% of the MT queue.
+  - Opus-MT en-trk and M2M100-418M are unusable for Kazakh (word salad, decoder loops, unrelated
+    hallucinated sentences). Pivot en->ru->kk with MADLAD is worse than direct en->kk (errors compound).
+decision: >-
+  MADLAD-400-3B-MT (Apache-2.0, nf4 on the 4 GB GPU) for both RU and KK, followed by glossary post-editing
+  and the QE filter. Opus-MT ru-en is the RU back-translation model; MADLAD kk-en the KK one.
+
+# Post-QE audit of the production translations (data/interim/stage4/translated/, QE
+# score_version 2 with the `latin_word` rule added after the first KK audit). Deterministic
+# sample: rows ordered by sha256("rev|" + example_id); the first accepted rows were judged
+# with the codes above. Same LLM reviewer, not a human.
+post_qe:
+  ru:
+    queue: 7554
+    accepted: 5512
+    reviewed_accepted: 60
+    E: [8, 15, 39]          # "я получил удалить" (I got to -> I received), "мой пункт" (item -> point), "Ur" left
+    M: [9, 10, 13, 18, 20, 23, 31, 35, 38, 40, 42, 49, 50, 52]   # literal calques: предмет, элемент, представить предложение
+    major_error_rate: 0.05
+    minor_rate: 0.233
+  kk:
+    queue: 7554
+    accepted: 5098
+    reviewed_accepted: 55    # the first 60 accepted under QE v1; 5 of them are rejected by `latin_word`
+    E_count: 11              # wrong person ("білгіңіз келеді" for "I want"), meaning shifts (hacked -> blocked,
+                             # client service -> client), garbled word order, "Ya" left, sign-up -> sign-in
+    M_count: 9               # "элемент" for item, Russian "счет-фактура" inside Kazakh, awkward verbs
+    major_error_rate: 0.20   # 11/55, Wilson 95% CI about 0.11-0.32
+    minor_rate: 0.164
+  qe_note: >-
+    Back-translation chrF and e5 similarity do not separate the remaining semantic errors from correct
+    translations (errors in the sample have chrF 0.34-0.75 and cosine 0.84-0.91, like the correct rows),
+    so stricter thresholds would only cut volume. Rejected rows include correct translations
+    (false rejects), e.g. "Менің тапсырысым қайда?" for "hwere is my order" (chrF of the back-translation
+    against a typo source). The remaining KK error rate is the main data-quality risk of Stage 4.

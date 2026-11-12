@@ -65,3 +65,36 @@ qdrant:
   url: http://127.0.0.1:6333   # not "localhost": IPv6-first lookup adds ~2 s per call on Windows
   path: data/qdrant_embedded
   timeout_s: 10
+
+stage4:                            # multilingual SFT dataset (ADR-023..026, DATA_CONTRACTS §5, §11-13)
+  taxonomy: configs/taxonomy.yaml
+  locale: configs/locale_kz.yaml
+  authored_dir: authored           # LLM-agent-authored scenarios, responses, training KB
+  demo_facts: kb_sources/demo_store/facts.yaml
+  seed: 20261111
+  # EN backbone from the Stage 3 canonical build + relabelled pending rows (v1 taxonomy).
+  max_per_family: 1                # one paraphrase per family (J >= 0.8 near-copies)
+  max_per_label: 260               # per source label and action, EN
+  max_profane_share: 0.1           # inserted-profanity register capped (Stage 3: 49% in retail)
+  mt_per_label: 100                # Bitext rows per source label and action translated to RU and KK (GPU time-bound, ADR-024)
+  mt_selected: {ru: madlad400_3b, kk: madlad400_3b}
+  back_translation: {ru: opus_ru_en, kk: madlad400_3b}
+  qe_min_bt_chrf: 0.30
+  qe_min_emb_sim: 0.80
+  mt_compare_n: 100                # stratified EN sample for the MT comparison
+  embedder:
+    repo_id: intfloat/multilingual-e5-small
+    revision: 614241f622f53c4eeff9890bdc4f31cfecc418b3
+    licence: mit
+  mt_systems:
+    - {id: opus_en_ru, arch: marian, repo_id: Helsinki-NLP/opus-mt-en-ru, revision: bb09c99d180016eac6819df3dae68edb1690fdee, licence: apache-2.0, pairs: [en-ru], training_use: true}
+    - {id: opus_ru_en, arch: marian, repo_id: Helsinki-NLP/opus-mt-ru-en, revision: fbd6dc73284f95536648512cc21d57f19191961a, licence: apache-2.0, pairs: [ru-en], training_use: true}
+    - {id: opus_en_trk, arch: marian, repo_id: Helsinki-NLP/opus-mt-en-trk, revision: f9d8f6cd9d95d2f8ce34943c1f6cfe610d3bbf92, licence: apache-2.0, pairs: [en-kk], target_prefix: {kk: ">>kaz_Cyrl<< "}, training_use: true}
+    - {id: m2m100_418m, arch: m2m100, repo_id: facebook/m2m100_418M, revision: 55c2e61bbf05dfb8d7abccdc3fae6fc8512fd636, licence: mit, pairs: [en-ru, en-kk], training_use: true}
+    - {id: madlad400_3b, arch: madlad, repo_id: google/madlad400-3b-mt, revision: fa184c675da0b5c9e1c8694fccd4e12e2d422094, licence: apache-2.0, pairs: [en-ru, en-kk, ru-kk, ru-en, kk-en], quant: nf4, beams: 2, batch_size: 8, training_use: true}
+    - {id: madlad400_3b_pivot_ru, arch: pivot, via: [madlad400_3b, madlad400_3b], licence: apache-2.0, pairs: [en-kk], training_use: true}
+  # Splits (ADR-026): Bitext scenarios -> train; authored scenarios split by scenario_id.
+  split_ratios: {train: 0.7, validation: 0.15, test: 0.15}
+  leak_jaccard: 0.8                # char-5-gram near-duplicate threshold across splits
+  leak_ngram: 13                   # word n-gram overlap gold vs train
+  leak_cosine: 0.95                # e5 cosine: semantic near-copy across splits
