@@ -96,9 +96,10 @@ all commit hooks pass. Verified code bundle: `backups/code/supportpilot-20261112
 with adjacent SHA256. The following documentation commit records the final evidence.
 
 **Local installation:** synchronised to `C:/Users/nurs/SupportPilot`; clean `main`,
-SFT rerun skips, and SFT/gold/retrieval/KB manifests verify there. Publication is pending:
-automatic approval review rejected `git push origin main` because public release of the
-code and authored YAML payload needs separate explicit approval. Nothing was pushed.
+SFT rerun skips, and SFT/gold/retrieval/KB manifests verify there. The initial push was
+rejected by automatic approval review; the owner then explicitly approved publication of
+source code and authored YAML. Implementation/installation commits were pushed to `origin/main`.
+Processed datasets, backups and model weights remain local and git-ignored.
 
 ## What exists (cumulative)
 
