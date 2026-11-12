@@ -409,6 +409,10 @@ def build_parser() -> argparse.ArgumentParser:
     gd = dsub.add_parser("gold", help="Stage 4: build the gold benchmark -> data/gold/<version>")
     gd.add_argument("--no-semantic", action="store_true", help="skip the e5 semantic leakage check")
     dt.set_defaults(func=cmd_data)
+
+    from supportpilot.kb.cli import add_parser as add_kb_parser
+
+    add_kb_parser(sub)
     return p
 
 

@@ -1,0 +1,47 @@
+# Demo-store document spec (kb_doc/1). See returns_policy.yaml for the conventions.
+# FAQ: each section is one question (heading) and its answer (paragraphs).
+schema_version: kb_doc/1
+doc_id: store_info
+doc_type: faq
+format: json
+title:
+  en: About the store
+  ru: О магазине
+  kk: Дүкен туралы
+sections:
+  - id: about
+    heading: {en: "What does the store sell?", ru: "Что продаёт магазин?", kk: "Дүкен не сатады?"}
+    paragraphs:
+      - en: "{store_name:store} is an online store with electronics, home appliances, clothing, shoes, goods for children, home and sport. We deliver all over Kazakhstan."
+        ru: "{store_name:store} — интернет-магазин электроники, бытовой техники, одежды, обуви, товаров для детей, дома и спорта. Мы доставляем по всему Казахстану."
+        kk: "{store_name:store} — электроника, тұрмыстық техника, киім, аяқ киім, балаларға, үйге және спортқа арналған тауарлар сататын интернет-дүкен. Біз бүкіл Қазақстан бойынша жеткіземіз."
+  - id: showroom
+    heading: {en: "Where is the showroom and when is it open?", ru: "Где находится шоурум и когда он работает?", kk: "Шоурум қайда орналасқан және қашан жұмыс істейді?"}
+    paragraphs:
+      - en: "Our showroom in {showroom:city} is at {showroom:address}. It is open daily {showroom_hours:clock_range}. You can see the products there and collect online orders."
+        ru: "Наш шоурум в городе {showroom:city} находится по адресу: {showroom:address}. Он работает ежедневно {showroom_hours:clock_range}. Там можно посмотреть товары и забрать заказ, оформленный онлайн."
+        kk: "{showroom:city} қаласындағы шоурумымыз мына мекенжайда орналасқан: {showroom:address}. Ол күн сайын {showroom_hours:clock_range} жұмыс істейді. Онда тауарларды көріп, онлайн рәсімделген тапсырысты алуға болады."
+  - id: contact
+    heading: {en: "How can I contact support?", ru: "Как связаться с поддержкой?", kk: "Қолдау қызметімен қалай байланысуға болады?"}
+    paragraphs:
+      - en: "Phone {support_phone}, e-mail {support_email}, or the chat in the app. Support works daily {support_hours:clock_range} (Astana time)."
+        ru: "Телефон {support_phone}, e-mail {support_email} или чат в приложении. Поддержка работает ежедневно {support_hours:clock_range} (время Астаны)."
+        kk: "Телефон {support_phone}, e-mail {support_email} немесе қосымшадағы чат. Қолдау қызметі күн сайын {support_hours:clock_range} жұмыс істейді (Астана уақыты)."
+  - id: sales
+    heading: {en: "When is the next sale?", ru: "Когда ближайшая распродажа?", kk: "Келесі жеңілдік науқаны қашан?"}
+    paragraphs:
+      - en: "The next big sale: {sale:sale_name}, from {sale:sale_from} to {sale:sale_to}. Sale prices are shown in the catalogue."
+        ru: "Ближайшая большая акция — {sale:sale_name}, с {sale:sale_from} по {sale:sale_to}. Цены со скидкой указаны в каталоге."
+        kk: "Келесі ірі науқан — {sale:sale_name}, {sale:sale_from@abl} бастап {sale:sale_to@dat} дейін. Жеңілдік бағалары каталогта көрсетілген."
+  - id: loyalty
+    heading: {en: "How do bonuses, promo codes and gift cards work?", ru: "Как работают бонусы, промокоды и подарочные карты?", kk: "Бонустар, промокодтар және сыйлық карталары қалай жұмыс істейді?"}
+    paragraphs:
+      - en: "You get {loyalty_percent:percent} of each purchase back as bonus points. One promo code can be used per order and cannot be combined with other discounts. Gift cards are valid for {gift_card_months:months}."
+        ru: "С каждой покупки возвращается {loyalty_percent:percent} бонусами. В одном заказе можно использовать один промокод, он не суммируется с другими скидками. Подарочные карты действуют {gift_card_months:months}."
+        kk: "Әр сатып алудан {loyalty_percent:percent} бонус ретінде қайтарылады. Бір тапсырысқа бір промокод қолданылады және ол басқа жеңілдіктермен қосылмайды. Сыйлық карталары {gift_card_months:months} жарамды."
+  - id: feedback
+    heading: {en: "How can I leave a review or a suggestion?", ru: "Как оставить отзыв или предложение?", kk: "Пікір немесе ұсыныс қалай қалдыруға болады?"}
+    paragraphs:
+      - en: "You can rate a product in \"My orders\" after delivery, and send suggestions about the store through the \"Feedback\" form in the app."
+        ru: "Оценить товар можно в «Моих заказах» после получения, а предложения о работе магазина отправляются через форму «Обратная связь» в приложении."
+        kk: "Тауарды алғаннан кейін «Менің тапсырыстарым» бөлімінде бағалауға болады, ал дүкен жұмысы туралы ұсыныстарды қосымшадағы «Кері байланыс» формасы арқылы жіберуге болады."

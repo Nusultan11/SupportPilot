@@ -121,6 +121,17 @@ class Stage4Settings(_Section):
     leak_cosine: float = Field(default=0.95, gt=0.0, le=1.0)
 
 
+class KBSettings(_Section):
+    """Stage 5 demo-store knowledge base (ADR-027, DATA_CONTRACTS §8)."""
+
+    name: str = Field(default="demo_store", pattern=r"^[a-z0-9]+(?:[_-][a-z0-9]+)*$")
+    source_root: Path = Path("kb_sources/demo_store")
+    gold_dir: Path | None = Path("authored/gold")  # gold references checked by `evidence`
+    max_tokens: int = Field(default=400, ge=16, description="chunk budget (kb.tokenizer)")
+    tokenizer: str = "qwen3"  # a name from eda.tokenizers
+    lid_min_letters: int = Field(default=40, ge=1, description="LID only on longer chunks")
+
+
 class LoggingSettings(_Section):
     level: Literal["DEBUG", "INFO", "WARNING", "ERROR"] = "INFO"
     format: Literal["json", "console"] = "json"
@@ -165,6 +176,7 @@ class Settings(BaseSettings):
     clean: CleanSettings = CleanSettings()
     eda: EdaSettings = EdaSettings()
     stage4: Stage4Settings = Stage4Settings()
+    kb: KBSettings = KBSettings()
     logging: LoggingSettings = LoggingSettings()
     backup: BackupSettings = BackupSettings()
     mlflow: MLflowSettings = MLflowSettings()

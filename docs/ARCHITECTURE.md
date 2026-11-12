@@ -11,7 +11,7 @@ Logical components share one Python package. They are not separate microservices
 | Common | `supportpilot.common` | config, logging (redaction), schemas (DATA_CONTRACTS), IDs, hashing, manifests, atomic IO, provenance, MLflow run helper | library |
 | Ops | `supportpilot.ops` | environment/GPU report, data/model snapshots, MLflow and Qdrant round-trip checks | `supportpilot` CLI |
 | Data pipeline | `supportpilot.data` | registry policy → acquire → convert to raw records (Stage 2) → clean (`textnorm`, `placeholders`, `langid`) → dedup and grouping (`neardup`, `build`) → draft labels (`labels`) → gates → EDA (`eda`, `report`, `review`) (Stage 3) → label v1 (`taxonomy`, `select`) → language adaptation (`locale`, `mt`, `mtrun`, `qe`, `embed`) → training KB (`kbtrain`, `textfmt`) → authored scenarios (`scenarios`) → SFT (`sft`, `sftbuild`, `split`, `sftgates`) → gold (`gold`) (Stage 4) | `supportpilot data ...`, CPU |
-| Knowledge ingestion | `supportpilot.kb` | parse PDF/DOCX/XLSX/CSV/JSON/TXT → structured docs → chunks + metadata | batch CLI, CPU |
+| Knowledge ingestion | `supportpilot.kb` | specs + facts (`spec`) → render (`render`, `writers`) → parse PDF/DOCX/XLSX/CSV/JSON/TXT (`parse_pdf`, `parse_office`, `parse_text` → `blocks`) → KBDocument (`structure`) → KBChunk (`chunk`) → gates (`checks`, `locate`) → versioned KB (`build`, `register`) (Stage 5, ADR-027) | `supportpilot kb ...`, CPU |
 | Retrieval | `supportpilot.retrieval` | embeddings, Qdrant index, sparse/BM25, fusion, reranking, context assembly | library + index CLI |
 | LLM | `supportpilot.llm` | prompts, inference backend, structured decoding, LoRA/QLoRA training | library; training on Kaggle/Colab |
 | Routing | `supportpilot.routing` | language ID, intent/action/escalation decision, policy guards | library |
@@ -73,8 +73,12 @@ Data:      configs/sources.yaml (registry + licence policy)
            → data/processed/sft/<dataset_version>/{train,validation,test}.parquet + manifest.json
            → data/gold/<benchmark_version>/ (never used for training/tuning)
 
-Knowledge: kb_sources/ (synthetic store docs in several formats)
-           → parse → KBDocument → chunk → KBChunk (+metadata)
+Knowledge: kb_sources/demo_store/ (facts.yaml, catalog.yaml, docs/<doc_id>.yaml specs)       [Stage 5]
+           → render → data/kb/demo_store/sources/<lang>/<doc_id>.<pdf|docx|xlsx|csv|json|txt>
+             + register.json (CMS metadata) + expected.json (fact ground truth)
+           → parse → KBDocument → chunk → KBChunk (+metadata) → 13 gates
+           → data/kb/demo_store/versions/<kb_version>/ (immutable: sources copy, documents,
+             chunks, changes = chunk ids to delete/upsert, evidence_map) + current.json
            → embed (batch, resumable) → Qdrant collection kb_<schema> (upsert by chunk_id)
            → sparse index (Qdrant sparse vectors or bm25s, decided in Stage 6)
 

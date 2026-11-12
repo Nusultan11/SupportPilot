@@ -1,7 +1,7 @@
 # DATA_CONTRACTS — schemas, identifiers, versioning, validation
 
 Schemas are implemented as Pydantic models in `supportpilot.common.schemas` and ID helpers in
-`supportpilot.common.ids`. §2–4 and §9 have been implemented since Stage 1. Polars schemas
+`supportpilot.common.ids`. §2–4 and §9 have been implemented since Stage 1, §8 since Stage 5. Polars schemas
 are added with the first Parquet pipeline (Stage 2–3). This doc is the specification. Any breaking change needs a new `schema_version`
 and an entry in DECISIONS.md.
 
@@ -262,19 +262,50 @@ table lives in `configs/intent_map.yaml`.
 | contact | `human_agent`, `complaint`, `feedback` |
 | meta | `unclear`, `out_of_scope`, `greeting` |
 
-## 8. KB document and chunk
+## 8. KB document and chunk (Stage 5, ADR-027)
 
-**KBDocument** fields: `doc_id`, `version` (sha256 of source bytes), `title`, `lang`,
-`doc_type` (`policy`, `faq`, `catalog`, `terms`), `format`, `source_path`,
-`effective_from/to`, and `sections` (tree of `{heading, level, text, tables}`).
+Implemented as `common.schemas.KBDocument` (`kb_document/1`) and `KBChunk` (`kb_chunk/1`).
 
-**KBChunk** fields: `chunk_id`, `doc_id`, `version`, `lang`, `position`, `section_path`
-(list of headings), `text`, `locator` (`{page?, sheet?, row_range?, record_id?}`), `doc_type`,
-`effective_from/to`, `token_count`, `translation_group` (links the same content across
-languages), `checksum`.
+**KBDocument** fields: `doc_id`, `version` (sha256 of the source file bytes), `lang`, `title`,
+`doc_type` (`policy`, `faq`, `catalog`, `terms`), `format` (`pdf`, `docx`, `xlsx`, `csv`,
+`json`, `txt`), `source_path`, `effective_from/to`, `parser` (library/version + revision),
+and `sections`: a tree of `KBSection {section_id, heading, level, text, tables, locator,
+children}`. Level 0 is the text before the first heading; level-2 sections nest under level 1.
+A record (catalogue row, CSV row) is a level-1 section whose one-row table is the record and
+whose `section_id` is the slug of the row key. `KBTable {header, rows, locator}` is
+rectangular. One document per (`doc_id`, `lang`): the same `doc_id` in en/ru/kk is one logical
+document; chunk ids still differ because the versions differ.
 
-Tables keep their header row in each chunk. XLSX chunks keep `sheet`, column headers and the
-row key. A FAQ chunk is one Q+A pair. Small FAQ items are not split further.
+**Locator** (1-based, inclusive): `page`/`page_end` (pdf), `block_range` (docx body
+paragraphs and tables in order), `sheet` + `row_range` (xlsx rows), `row_range` (csv file
+lines), `line_range` (txt), `json_pointer` (json, RFC 6901), `record_id` (row key). At least
+one field is set.
+
+**KBChunk** fields: `chunk_id` (§1, recomputable), `doc_id`, `version`, `lang`, `position`
+(0..n-1 per document), `part` (> 0 when a long section was split), `section_id`,
+`section_path` (headings as printed), `title`, `text`, `locator`, `doc_type`, `format`,
+`source_path`, `effective_from/to`, `token_count` (pinned Qwen3 tokenizer, `kb.tokenizer`),
+`translation_group` (`<doc_id>#<section_id>`, `#intro` for level 0: links the same content
+across languages), `checksum` (sha256 of `text`).
+
+Chunk text: the heading path on the first line (`4. Personal data > 4.1. What data we store`),
+then the section text; tables as pipe tables with the header row in every chunk. A FAQ chunk
+is one Q+A pair and is not split unless it exceeds `kb.max_tokens`. A record chunk is
+`<title> · <sheet>` and one `header: value` line per non-empty cell (the row key included).
+
+On disk (`data/kb/<kb>/versions/<kb_version>/`): `chunks.parquet` (key columns + `chunk_json`),
+`documents.parquet` (key columns + `document_json`, `params_sha256`), `sources/` (the exact
+files, `register.json`, `expected.json`), `changes.json` (`documents.{added,changed,unchanged,
+removed}`, `chunks_delete`, `chunks_upsert`, `chunks_kept` vs the parent), `evidence_map.json`
+(`doc_id.section_id` -> lang -> chunk ids; resolves gold `accepted_evidence`),
+`quality_report.json` and `manifest.json` (`dataset_manifest/1`, `kb_version` =
+`kb_<kb>-<yyyymmdd>-<hash8>`, inputs = register and expected sha256 + parent version).
+`data/kb/<kb>/current.json` names the active version.
+
+KB sources: `kb_sources/<kb>/facts.yaml` (`demo_facts/1`), `catalog.yaml` (`demo_catalog/1`),
+`docs/<doc_id>.yaml` (`kb_doc/1`). Rendered: `register.json` (`kb_register/1`) and
+`expected.json` (`kb_expected/1`: fact placements `{key, value, surface, section_id, where}` and
+content strings per file).
 
 ## 9. Dataset version manifest
 
@@ -349,7 +380,7 @@ Fields (`common.schemas.GoldItem`): `gold_id` (`g_<scenario>_<lang>`), `scenario
 conflicting, injection, multi_turn, code_switch), `difficulty`, `turns` (alternating, last =
 user), `intent`, `action`, `escalate`, `escalation_reason`, `required_facts` (`{key, value}`:
 demo-store fact keys or tool fields), `tool_state` (mock tool results the item depends on),
-`accepted_evidence` (`{doc_id, section}`; resolved to demo-KB chunk ids in Stage 5),
+`accepted_evidence` (`{doc_id, section}`; resolved to demo-KB chunk ids by the KB version's `evidence_map.json`, §8),
 `must_not` (claims that make an answer wrong), `kb` (`demo_store`) and `review`
 (`{status, author, reviewers, notes}`).
 

@@ -93,6 +93,8 @@ Format: context → decision → alternatives → risks → revisit when. Status
   when Stage 4 repeats the review on translated data.
 - **Stage 4 check (2026-11-12):** the MT review and the gold authoring ran once each, and
   the repeatable parts are code (`data mt-compare`, `data sft`, `data gold`). No skill yet.
+- **Stage 5 check (2026-11-12):** the KB build, its gates and the update cycle are code
+  (`kb render|build|validate|activate`); the parser comparison ran once. No skill yet.
 - **Revisit:** at the end of each of those stages, if the process was run ≥ 2 times by hand.
 
 ### ADR-013 Git on `main` only; backups in the git-ignored `backups/` dir — accepted (2026-11-11, location changed the same day)
@@ -140,6 +142,9 @@ Format: context → decision → alternatives → risks → revisit when. Status
   - Stage 4 added the `ml` group (installed by default): `transformers` 5.22, `sentencepiece`,
     `sacremoses`, `accelerate` and `bitsandbytes` 0.50 (4-bit MADLAD on the 4 GB GPU, ADR-024).
     Building the SFT dataset from an existing MT cache does not import them (lazy imports).
+  - Stage 5 added `pdfplumber` 0.11 (MIT, PDF text/tables), `python-docx` 1.2 (MIT),
+    `openpyxl` 3.1 (MIT) and `reportlab` 5.1 (BSD, PDF writer): chosen by the ADR-027
+    measurement. PyMuPDF (AGPL-3.0) was measured and not adopted.
 - **Why cu126:** it is verified on driver 566.07 (CUDA 12.7 runtime). Newer CUDA builds need a newer driver. Updating the driver is the owner's call.
 - **Alternatives:** torch as a main dependency (forces a ~2.5 GB CUDA wheel on every install); `uv pip install` outside the lock (not reproducible).
 - **Revisit:** driver update → consider a newer CUDA index; training libraries that need a specific torch.
@@ -403,6 +408,78 @@ Format: context → decision → alternatives → risks → revisit when. Status
   Bitext paraphrase robustness, and they are small.
 - **Revisit:** more independent scenarios (human-written, or generated with a budget) allow larger
   held-out sets; Stage 7 shows that validation does not track gold.
+
+### ADR-027 Demo-store KB: rendered sources, measured parsers, verified extraction, versioned builds — accepted (2026-11-12)
+- **Context:** Stage 5 needs a demo-store KB in RU/KK/EN across PDF/DOCX/XLSX/CSV/JSON/TXT
+  whose extraction is provably complete, plus versioned, incremental updates for Stage 6.
+  There is no real store, so the documents are synthetic and generated.
+- **Decision:**
+  - **Sources.** Canonical values live once: `kb_sources/demo_store/facts.yaml` (policy values,
+    shared with Stage 4) and `catalog.yaml` (30 products, 12 delivery zones). Each document is a
+    spec `docs/<doc_id>.yaml` (kb_doc/1) with native text per language and `{fact:format}`
+    placeholders (Stage 4 `textfmt` formats + `seconds`, `minutes`, `date_full`). Every
+    language states the same value because no value is typed twice. 10 documents x 3 languages:
+    2 PDF, 3 DOCX, 2 TXT, 1 JSON (FAQ export), 1 XLSX (catalogue), 1 CSV (delivery tariffs).
+  - **Rendering** is byte-deterministic: reportlab `invariant=1` with DejaVu Sans from
+    matplotlib (Kazakh Cyrillic), python-docx / openpyxl with zip entry times and core dates
+    rewritten. Re-rendering unchanged specs gives identical sha256, so a document's `version`
+    changes only when its content does. Rendering also writes the ground truth
+    (`expected.json`: every fact placement with its exact surface string, every content string)
+    and a CMS-like `register.json` (doc metadata, section ids and headings).
+  - **Parsers** read only the file: PDF font size/weight, DOCX styles, XLSX/CSV header rows,
+    TXT setext/Q:A:/pipe tables, JSON keys. Section ids are attached by matching found headings
+    to the register; unmatched headings stay `None` and fail a gate. Scanned PDF pages raise an
+    error (no OCR engine is configured, and none is needed for born-digital PDFs).
+  - **Parser choice (measured)** on the 6 rendered PDFs plus 3 multi-page stress PDFs with a
+    60-row table split across pages, and on the 9 DOCX / 3 XLSX files:
+
+    | candidate | licence | word recall | fact recall | table rows exact | font info | time |
+    |---|---|---|---|---|---|---|
+    | **pdfplumber 0.11.10** | MIT | 1.000 | 1.000 | **1.000** | yes | 4.2 s |
+    | PyMuPDF 2.1 | AGPL-3.0 | 1.000 | 1.000 | 0.389 | yes | 17.3 s |
+    | pypdf 7.0.1 | BSD | 1.000 | 1.000 | 0 (no tables) | no | 1.3 s |
+    | **python-docx 1.2.0** | MIT | 1.000 | 1.000 | 1.000 | styles | 0.8 s |
+    | docx2python 3.7.2 | MIT | 1.000 | 1.000 | 1.000 | no styles | 0.5 s |
+    | **openpyxl 3.1.5** | MIT | records 1.000 | ints 90/90 as int | | | 0.45 s |
+    | python-calamine 0.9.1 | MIT | records 1.000 | ints 0/90 (floats) | | | 0.04 s |
+
+    Times include rendering the same files for every candidate. Docling was not measured: it
+    pulls torch layout models (GBs, GPU busy with Stage 4 MT) for a problem the born-digital
+    files do not have; revisit for scanned or complex-layout real documents.
+  - **Chunking by type:** policy/terms = one chunk per section with the heading path as the
+    first line and tables as pipe tables (header kept); FAQ = one Q+A; records = one row with
+    `header: value` lines, sheet and key; intro text = one chunk. Over the budget (400 Qwen3
+    tokens) a unit splits at paragraphs, then sentences; tables split by rows with the header
+    repeated. `translation_group = <doc_id>#<section_id>` links languages.
+  - **Gates (13), all must pass before a version is activated:** ids, sources, metadata,
+    sections_linked, facts (100% of placements in the chunk of their section; integers parsed
+    back), coverage (every canonical fact placed in every language), locators (the source text
+    at the chunk locator contains the fact, re-read from the file), completeness (no lost and no
+    extra words), cross_lingual (same numbers and fact keys per translation group), language
+    (lingua LID), tokens, pii, evidence (gold `doc.section` references resolve in en/ru/kk).
+  - **Versions:** `data/kb/<kb>/versions/<kb_version>/` is immutable and self-contained (its own
+    copy of the sources, documents, chunks, changes, evidence map, quality report, manifest).
+    Unchanged documents (same sha256 and processing params) are reused, not re-parsed; removed
+    documents drop out; `changes.json` lists the chunk ids to delete/upsert for Stage 6.
+    Identical content and ground truth produce no new version. A version that fails its gates
+    is kept as `.failed` and never activated; `kb activate` rolls back.
+- **Alternatives:** hand-written binary documents in git (no ground truth, values drift
+  between languages); one parser library for everything (PyMuPDF: AGPL and weaker tables);
+  fixed-size token windows (break Q+A pairs and table headers); a vector DB as the version
+  store (Stage 6 indexes from these versions instead, ADR-007).
+- **Risks:** generated documents are cleaner than real ones (no scans, merged cells,
+  multi-column layouts); parsers are proven on this generator's layouts only. KK/RU texts are
+  LLM-authored, not reviewed by a fluent human. Mitigation: parsers depend on layout signals
+  (font size, styles), not on the generator; `ExtractionError` instead of silent loss.
+- **Result (2026-11-12):** 30 documents, 288 chunks (catalog 90, policy 126, faq 45, terms 27);
+  912/912 fact placements found and locator-verified (per language: money 78, periods and
+  numbers 46, identifiers 47, dates and opening hours 4, condition lists 3, text 126; 304 per
+  language); 221 canonical facts covered in every language; word recall 1.0 and no extra words in all 30 documents; LID 198/198 prose
+  chunks; max chunk 280 Qwen3 tokens (p50 81). The data bug the cross-lingual gate found in
+  Stage 4's `facts.yaml` (an unquoted comma dropped the house number from the RU/KK showroom
+  address) is fixed and the loader now rejects such values.
+- **Revisit:** real store documents (scans, complex layouts) -> OCR / Docling evaluation;
+  a KB larger than memory -> streaming build.
 
 ---
 

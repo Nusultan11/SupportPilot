@@ -1,0 +1,23 @@
+# Demo-store document spec (kb_doc/1). See returns_policy.yaml for the conventions.
+# Record document: one row (and one chunk) per product of catalog.yaml `products`; the row key
+# is the SKU. `{rec.<field>}` refers to the record, other placeholders to facts.yaml.
+# A cell is left empty when its `when` condition does not hold.
+schema_version: kb_doc/1
+doc_id: catalog
+doc_type: catalog
+format: xlsx
+title:
+  en: Product catalogue
+  ru: Каталог товаров
+  kk: Тауарлар каталогы
+records:
+  source: products
+  key: sku
+  sheet: {en: "Products", ru: "Товары", kk: "Тауарлар"}
+  columns:
+    - {header: {en: "SKU", ru: "Артикул", kk: "Артикул"}, value: "{rec.sku}"}
+    - {header: {en: "Product", ru: "Товар", kk: "Тауар"}, value: "{rec.name}"}
+    - {header: {en: "Category", ru: "Категория", kk: "Санат"}, value: "{rec.category}"}
+    - {header: {en: "Price, KZT", ru: "Цена, тенге", kk: "Бағасы, теңге"}, value: "{rec.price}", type: int}
+    - {header: {en: "Warranty", ru: "Гарантия", kk: "Кепілдік"}, value: "{warranty_months:months}", when: warranty}
+    - {header: {en: "Key features", ru: "Характеристики", kk: "Сипаттамалары"}, value: "{rec.desc}"}

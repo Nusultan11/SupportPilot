@@ -1,0 +1,41 @@
+# Demo-store document spec (kb_doc/1). See returns_policy.yaml for the conventions.
+schema_version: kb_doc/1
+doc_id: warranty_policy
+doc_type: policy
+format: txt
+title:
+  en: Warranty
+  ru: Гарантия
+  kk: Кепілдік
+intro:
+  - en: "Warranty rules for electronics and home appliances bought from {store_name:store}."
+    ru: "Правила гарантии на электронику и бытовую технику, купленную в {store_name:store}."
+    kk: "{store_name:store} дүкенінен сатып алынған электроника мен тұрмыстық техникаға берілетін кепілдік ережелері."
+sections:
+  - id: period
+    heading: {en: "Warranty period", ru: "Гарантийный срок", kk: "Кепілдік мерзімі"}
+    paragraphs:
+      - en: "Electronics and home appliances have a warranty of {warranty_months:months} from the delivery date. Keep the receipt or the order number."
+        ru: "На электронику и бытовую технику действует гарантия {warranty_months:months} с даты получения. Сохраните чек или номер заказа."
+        kk: "Электроника мен тұрмыстық техникаға алған күннен бастап {warranty_months:months} кепілдік беріледі. Чекті немесе тапсырыс нөмірін сақтаңыз."
+  - id: defect
+    heading: {en: "Defects", ru: "Брак", kk: "Ақау"}
+    paragraphs:
+      - en: "If an item is faulty, report it within {defect_report_days:days_gen} of noticing the defect. We check the item at a service centre and repair, replace or refund it."
+        ru: "Если товар оказался неисправным, сообщите об этом в течение {defect_report_days:days_gen} с момента обнаружения дефекта. Мы проверим товар в сервисном центре и отремонтируем, заменим его или вернём деньги."
+        kk: "Тауар ақаулы болып шықса, ақауды байқаған күннен бастап {defect_report_days:days_gen} ішінде хабарлаңыз. Біз тауарды сервис орталығында тексеріп, жөндейміз, ауыстырамыз немесе ақшасын қайтарамыз."
+      - en: "Stop using an item that overheats, sparks or smells of burning, unplug it and contact support."
+        ru: "Не пользуйтесь товаром, если он перегревается, искрит или пахнет гарью: отключите его от сети и обратитесь в поддержку."
+        kk: "Тауар қызып кетсе, ұшқын шашса немесе күйік иісі шықса, оны пайдаланбаңыз: желіден ажыратып, қолдау қызметіне хабарласыңыз."
+  - id: exclusions
+    heading: {en: "What the warranty does not cover", ru: "На что не распространяется гарантия", kk: "Кепілдік қамтымайтын жағдайлар"}
+    paragraphs:
+      - en: "The warranty does not cover damage from drops, liquids, wrong voltage or repairs by third parties, or normal wear of batteries and consumables."
+        ru: "Гарантия не распространяется на повреждения от падений, жидкости, неправильного напряжения или ремонта третьими лицами, а также на естественный износ аккумуляторов и расходных материалов."
+        kk: "Кепілдік құлаудан, сұйықтықтан, дұрыс емес кернеуден немесе бөгде адамдардың жөндеуінен болған зақымдарды, сондай-ақ аккумуляторлар мен шығын материалдарының табиғи тозуын қамтымайды."
+  - id: service
+    heading: {en: "How to get warranty service", ru: "Как получить гарантийное обслуживание", kk: "Кепілдік қызметін қалай алуға болады"}
+    paragraphs:
+      - en: "Write to {support_email} or call {support_phone} with the order number and a description of the defect. We arrange pickup of the item at no cost to you."
+        ru: "Напишите на {support_email} или позвоните по номеру {support_phone}, указав номер заказа и описание неисправности. Мы бесплатно организуем забор товара."
+        kk: "Тапсырыс нөмірі мен ақаудың сипаттамасын көрсетіп, {support_email} поштасына жазыңыз немесе {support_phone} нөміріне қоңырау шалыңыз. Біз тауарды тегін алып кетуді ұйымдастырамыз."

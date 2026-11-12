@@ -1,4 +1,4 @@
-"""Pydantic data contracts (DATA_CONTRACTS §2-4, §9). Breaking changes bump `schema_version`."""
+"""Pydantic data contracts (DATA_CONTRACTS §2-4, §8-9). Breaking changes bump `schema_version`."""
 
 from __future__ import annotations
 
@@ -15,14 +15,17 @@ from pydantic import (
     ConfigDict,
     Field,
     NonNegativeInt,
+    PositiveInt,
     model_validator,
 )
 
-from supportpilot.common.hashing import SHA256_RE
+from supportpilot.common.hashing import SHA256_RE, sha256_text
 from supportpilot.common.ids import (
+    CHUNK_ID_RE,
     DATASET_VERSION_RE,
     EXAMPLE_ID_RE,
     RECORD_ID_RE,
+    make_chunk_id,
     validate_slug,
 )
 
@@ -637,4 +640,139 @@ class GoldItem(_Contract):
             raise ValueError("gold_id must end with _<lang>")
         if self.review.status is ReviewStatus.VERIFIED and not self.review.reviewers:
             raise ValueError("verified requires a named independent reviewer")
+        return self
+
+
+# ---------------------------------------------------------------- §8 KB document and chunk
+
+
+ChunkId = Annotated[str, _pattern("chunk_id", CHUNK_ID_RE)]
+
+
+class DocType(StrEnum):
+    POLICY = "policy"
+    FAQ = "faq"
+    CATALOG = "catalog"
+    TERMS = "terms"
+
+
+class DocFormat(StrEnum):
+    PDF = "pdf"
+    DOCX = "docx"
+    XLSX = "xlsx"
+    CSV = "csv"
+    JSON = "json"
+    TXT = "txt"
+
+
+Span = tuple[PositiveInt, PositiveInt]
+
+
+class Locator(_Contract):
+    """Where a piece of content sits in its source file. 1-based, inclusive ranges.
+
+    pdf: page (+ page_end); docx: block_range over body blocks (paragraphs and tables in
+    document order); xlsx: sheet + row_range (Excel rows); csv: row_range (file lines);
+    json: json_pointer (RFC 6901); txt: line_range. `record_id` is the row key of a record.
+    """
+
+    page: PositiveInt | None = None
+    page_end: PositiveInt | None = None
+    sheet: str | None = None
+    row_range: Span | None = None
+    block_range: Span | None = None
+    line_range: Span | None = None
+    json_pointer: str | None = None
+    record_id: str | None = None
+
+    @model_validator(mode="after")
+    def _valid(self) -> Self:
+        if all(v is None for v in self.model_dump().values()):
+            raise ValueError("an empty locator points nowhere")
+        for span in (self.row_range, self.block_range, self.line_range):
+            if span is not None and span[0] > span[1]:
+                raise ValueError(f"range start after end: {span}")
+        if self.page_end is not None and (self.page is None or self.page_end < self.page):
+            raise ValueError("page_end needs page <= page_end")
+        if self.json_pointer is not None and not self.json_pointer.startswith("/"):
+            raise ValueError("json_pointer must start with '/'")
+        return self
+
+
+class KBTable(_Contract):
+    header: list[str] = Field(min_length=1)
+    rows: list[list[str]]
+    locator: Locator
+
+    @model_validator(mode="after")
+    def _rectangular(self) -> Self:
+        if any(len(r) != len(self.header) for r in self.rows):
+            raise ValueError("every table row needs one cell per header column")
+        return self
+
+
+class KBSection(_Contract):
+    """One node of the document tree. Records (catalogue rows) are level-1 sections whose
+    single-row table holds the record; `section_id` is the record key."""
+
+    section_id: Slug | None = None
+    heading: str | None = None
+    level: NonNegativeInt
+    text: str = ""
+    tables: list[KBTable] = Field(default_factory=list)
+    locator: Locator
+    children: list[KBSection] = Field(default_factory=list)
+
+
+class KBDocument(_Contract):
+    schema_version: Literal["kb_document/1"] = "kb_document/1"
+    doc_id: Slug
+    version: Sha256  # sha256 of the source file bytes
+    lang: LanguageCode
+    title: NonEmptyStr
+    doc_type: DocType
+    format: DocFormat
+    source_path: RelPath
+    effective_from: date
+    effective_to: date | None = None
+    parser: NonEmptyStr  # library/version + parser revision
+    sections: list[KBSection] = Field(min_length=1)  # level 0 = text before the first heading
+
+    @model_validator(mode="after")
+    def _dates(self) -> Self:
+        if self.effective_to is not None and self.effective_to < self.effective_from:
+            raise ValueError("effective_to before effective_from")
+        return self
+
+
+class KBChunk(_Contract):
+    schema_version: Literal["kb_chunk/1"] = "kb_chunk/1"
+    chunk_id: ChunkId
+    doc_id: Slug
+    version: Sha256
+    lang: LanguageCode
+    position: NonNegativeInt
+    part: NonNegativeInt = 0  # > 0 when a long section was split
+    section_id: Slug | None
+    section_path: list[str]
+    title: NonEmptyStr
+    text: NonEmptyStr
+    locator: Locator
+    doc_type: DocType
+    format: DocFormat
+    source_path: RelPath
+    effective_from: date
+    effective_to: date | None = None
+    token_count: PositiveInt
+    translation_group: NonEmptyStr
+    checksum: Sha256  # sha256 of `text`
+
+    @model_validator(mode="after")
+    def _consistent(self) -> Self:
+        if self.chunk_id != make_chunk_id(self.doc_id, self.version, self.position):
+            raise ValueError("chunk_id must be {doc_id}:{version[:8]}:{position:04d}")
+        if self.checksum != sha256_text(self.text):
+            raise ValueError("checksum must be sha256(text)")
+        if self.effective_to is not None and self.effective_to < self.effective_from:
+            raise ValueError("effective_to before effective_from")
         return self

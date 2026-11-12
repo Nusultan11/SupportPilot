@@ -1,0 +1,193 @@
+# Demo-store record data (Stage 5, ADR-027): the product catalogue and the delivery zones of
+# the fictional store in facts.yaml. Synthetic: no real products, prices or customers.
+# Rendered by `supportpilot kb render` into catalog.xlsx and delivery_zones.csv (RU/KK/EN).
+#
+# SKUs and product names follow configs/locale_kz.yaml `products`, so the gold tool items
+# (get_stock by SKU) refer to products the demo store sells. Prices are the demo store's own
+# (KZT, integer). `desc` is a short attribute line written natively per language; the numbers
+# in it are the same in every language (checked by the `kb` cross-lingual gate).
+# Warranty comes from facts.yaml `warranty_months` for the categories in `warranty_categories`.
+schema_version: demo_catalog/1
+warranty_categories: [electronics, appliances]
+categories:
+  electronics: {en: "Electronics", ru: "Электроника", kk: "Электроника"}
+  appliances: {en: "Home appliances", ru: "Бытовая техника", kk: "Тұрмыстық техника"}
+  shoes: {en: "Shoes", ru: "Обувь", kk: "Аяқ киім"}
+  clothing: {en: "Clothing", ru: "Одежда", kk: "Киім"}
+  accessories: {en: "Accessories", ru: "Аксессуары", kk: "Аксессуарлар"}
+  kids: {en: "Kids", ru: "Детские товары", kk: "Балалар тауарлары"}
+  home: {en: "Home and kitchen", ru: "Дом и кухня", kk: "Үй және ас үй"}
+  beauty: {en: "Beauty", ru: "Красота", kk: "Сұлулық"}
+  books: {en: "Books", ru: "Книги", kk: "Кітаптар"}
+  sport: {en: "Sport", ru: "Спорт", kk: "Спорт"}
+  auto: {en: "Car accessories", ru: "Автотовары", kk: "Автотауарлар"}
+products:
+  - sku: TV-5501
+    cat: electronics
+    price: 239000
+    name: {en: "55-inch 4K TV", ru: "Телевизор 4K 55 дюймов", kk: "55 дюймдік 4K теледидар"}
+    desc: {en: "4K UHD screen, HDR10, Smart TV, 3 HDMI ports", ru: "экран 4K UHD, HDR10, Smart TV, 3 порта HDMI", kk: "4K UHD экран, HDR10, Smart TV, 3 HDMI порты"}
+  - sku: PH-1288
+    cat: electronics
+    price: 149000
+    name: {en: "Smartphone 128 GB", ru: "Смартфон на 128 ГБ", kk: "128 ГБ смартфон"}
+    desc: {en: "6.5-inch screen, 128 GB memory, 2 SIM cards, 5000 mAh battery", ru: "экран 6.5 дюйма, память 128 ГБ, 2 SIM-карты, аккумулятор 5000 мАч", kk: "6.5 дюймдік экран, 128 ГБ жад, 2 SIM-карта, 5000 мАсағ аккумулятор"}
+  - sku: HP-0305
+    cat: electronics
+    price: 24900
+    name: {en: "Wireless headphones", ru: "Беспроводные наушники", kk: "Сымсыз құлаққап"}
+    desc: {en: "Bluetooth 5.3, noise cancelling, up to 30 hours of playback", ru: "Bluetooth 5.3, шумоподавление, до 30 часов работы", kk: "Bluetooth 5.3, шуды басу, 30 сағатқа дейін жұмыс істейді"}
+  - sku: LP-1406
+    cat: electronics
+    price: 329000
+    name: {en: "14-inch laptop", ru: "Ноутбук 14 дюймов", kk: "14 дюймдік ноутбук"}
+    desc: {en: "16 GB RAM, 512 GB SSD, weight 1.3 kg", ru: "16 ГБ ОЗУ, SSD 512 ГБ, вес 1.3 кг", kk: "16 ГБ жедел жад, 512 ГБ SSD, салмағы 1.3 кг"}
+  - sku: SW-0921
+    cat: electronics
+    price: 59900
+    name: {en: "Smart watch", ru: "Умные часы", kk: "Смарт сағат"}
+    desc: {en: "heart-rate monitor, GPS, water resistant to 50 m", ru: "пульсометр, GPS, защита от воды до 50 м", kk: "пульсометр, GPS, 50 м-ге дейін суға төзімді"}
+  - sku: PB-2010
+    cat: electronics
+    price: 12900
+    name: {en: "Power bank 20000 mAh", ru: "Пауэрбанк на 20000 мАч", kk: "20000 мАсағ пауэрбанк"}
+    desc: {en: "2 USB-C ports, fast charging 22.5 W", ru: "2 порта USB-C, быстрая зарядка 22.5 Вт", kk: "2 USB-C порты, 22.5 Вт жылдам зарядтау"}
+  - sku: WM-0708
+    cat: appliances
+    price: 199000
+    name: {en: "Washing machine 7 kg", ru: "Стиральная машина на 7 кг", kk: "7 кг кір жуғыш машина"}
+    desc: {en: "load up to 7 kg, spin up to 1200 rpm, 15 programmes", ru: "загрузка до 7 кг, отжим до 1200 об/мин, 15 программ", kk: "7 кг-ға дейін жүктеу, 1200 айн/мин-қа дейін сығу, 15 бағдарлама"}
+  - sku: VC-3302
+    cat: appliances
+    price: 129000
+    name: {en: "Robot vacuum cleaner", ru: "Робот-пылесос", kk: "Робот шаңсорғыш"}
+    desc: {en: "wet and dry cleaning, up to 120 minutes per charge", ru: "сухая и влажная уборка, до 120 минут без подзарядки", kk: "құрғақ және ылғалды тазалау, бір зарядпен 120 минутқа дейін"}
+  - sku: KT-0117
+    cat: appliances
+    price: 14900
+    name: {en: "Electric kettle", ru: "Электрочайник", kk: "Электр шәйнек"}
+    desc: {en: "1.7 l, 2200 W, auto shut-off", ru: "1.7 л, 2200 Вт, автоотключение", kk: "1.7 л, 2200 Вт, автоматты түрде сөнеді"}
+  - sku: MW-2004
+    cat: appliances
+    price: 44900
+    name: {en: "Microwave oven", ru: "Микроволновая печь", kk: "Микротолқынды пеш"}
+    desc: {en: "20 l, 800 W, grill", ru: "20 л, 800 Вт, гриль", kk: "20 л, 800 Вт, гриль"}
+  - sku: AC-1209
+    cat: appliances
+    price: 219000
+    name: {en: "Air conditioner", ru: "Кондиционер", kk: "Кондиционер"}
+    desc: {en: "inverter, for rooms up to 35 m², heating mode", ru: "инверторный, для помещений до 35 м², режим обогрева", kk: "инверторлы, 35 м²-ге дейінгі бөлмелерге, жылыту режимі"}
+  - sku: SN-4140
+    cat: shoes
+    price: 39900
+    name: {en: "Running sneakers", ru: "Беговые кроссовки", kk: "Жүгіруге арналған кроссовка"}
+    desc: {en: "sizes 36–46, breathable mesh upper", ru: "размеры 36–46, дышащий сетчатый верх", kk: "36–46 өлшемдер, ауа өткізетін торлы беті"}
+  - sku: BT-3802
+    cat: shoes
+    price: 49900
+    name: {en: "Winter boots", ru: "Зимние ботинки", kk: "Қысқы бәтеңке"}
+    desc: {en: "natural fur lining, sizes 36–46, for frost down to −30 °C", ru: "подкладка из натурального меха, размеры 36–46, для мороза до −30 °C", kk: "табиғи мех астары, 36–46 өлшемдер, −30 °C-қа дейінгі аязға арналған"}
+  - sku: JK-0560
+    cat: clothing
+    price: 69900
+    name: {en: "Down jacket", ru: "Пуховик", kk: "Мамық күрте"}
+    desc: {en: "90% down, hood, sizes XS–XXL", ru: "90% пуха, капюшон, размеры XS–XXL", kk: "90% мамық, күләпара, XS–XXL өлшемдер"}
+  - sku: DR-1131
+    cat: clothing
+    price: 17900
+    name: {en: "Summer dress", ru: "Летнее платье", kk: "Жазғы көйлек"}
+    desc: {en: "100% cotton, sizes XS–XL", ru: "100% хлопок, размеры XS–XL", kk: "100% мақта, XS–XL өлшемдер"}
+  - sku: JN-2232
+    cat: clothing
+    price: 21900
+    name: {en: "Jeans", ru: "Джинсы", kk: "Джинсы шалбар"}
+    desc: {en: "straight fit, 98% cotton, waist sizes 26–36", ru: "прямой крой, 98% хлопка, размеры по талии 26–36", kk: "тік пішім, 98% мақта, бел өлшемі 26–36"}
+  - sku: SH-0410
+    cat: clothing
+    price: 12900
+    name: {en: "Cotton shirt", ru: "Хлопковая рубашка", kk: "Мақта жейде"}
+    desc: {en: "100% cotton, long sleeves, sizes S–XXL", ru: "100% хлопок, длинный рукав, размеры S–XXL", kk: "100% мақта, ұзын жең, S–XXL өлшемдер"}
+  - sku: BG-0711
+    cat: accessories
+    price: 32900
+    name: {en: "Leather backpack", ru: "Кожаный рюкзак", kk: "Былғары рюкзак"}
+    desc: {en: "genuine leather, 20 l, laptop pocket up to 15 inches", ru: "натуральная кожа, 20 л, отделение для ноутбука до 15 дюймов", kk: "табиғи былғары, 20 л, 15 дюймге дейінгі ноутбук қалтасы"}
+  - sku: CH-1002
+    cat: kids
+    price: 64900
+    name: {en: "Child car seat", ru: "Детское автокресло", kk: "Балаларға арналған автокресло"}
+    desc: {en: "for children from 9 to 36 kg, ISOFIX", ru: "для детей от 9 до 36 кг, ISOFIX", kk: "9-дан 36 кг-ға дейінгі балаларға, ISOFIX"}
+  - sku: ST-3105
+    cat: kids
+    price: 159000
+    name: {en: "Baby stroller", ru: "Детская коляска", kk: "Балалар арбасы"}
+    desc: {en: "2-in-1, from birth to 3 years, folds with one hand", ru: "2 в 1, от рождения до 3 лет, складывается одной рукой", kk: "2-і 1-де, туғаннан 3 жасқа дейін, бір қолмен жиналады"}
+  - sku: TY-0620
+    cat: kids
+    price: 19900
+    name: {en: "Construction toy set", ru: "Конструктор", kk: "Құрастырмалы ойыншық"}
+    desc: {en: "500 parts, age 6 and up", ru: "500 деталей, от 6 лет", kk: "500 бөлшек, 6 жастан бастап"}
+  - sku: CF-0812
+    cat: home
+    price: 119000
+    name: {en: "Coffee machine", ru: "Кофемашина", kk: "Кофе машинасы"}
+    desc: {en: "built-in grinder, 15 bar, milk frother", ru: "встроенная кофемолка, 15 бар, капучинатор", kk: "кіріктірілген кофе ұнтақтағыш, 15 бар, сүт көпіршіктендіргіш"}
+  - sku: BL-1515
+    cat: home
+    price: 24900
+    name: {en: "Blanket 200x220", ru: "Одеяло 200 на 220", kk: "200x220 көрпе"}
+    desc: {en: "200 x 220 cm, all-season, machine wash at 40 °C", ru: "200 x 220 см, всесезонное, машинная стирка при 40 °C", kk: "200 x 220 см, барлық маусымға арналған, 40 °C-та машинада жуылады"}
+  - sku: PN-0303
+    cat: home
+    price: 21900
+    name: {en: "Frying pan set", ru: "Набор сковородок", kk: "Таба жиынтығы"}
+    desc: {en: "3 pans of 20, 24 and 28 cm, non-stick coating", ru: "3 сковороды 20, 24 и 28 см, антипригарное покрытие", kk: "20, 24 және 28 см 3 таба, күйіп қалмайтын жабын"}
+  - sku: CR-7007
+    cat: beauty
+    price: 8900
+    name: {en: "Face cream", ru: "Крем для лица", kk: "Бет кремі"}
+    desc: {en: "50 ml, SPF 15, for dry skin", ru: "50 мл, SPF 15, для сухой кожи", kk: "50 мл, SPF 15, құрғақ теріге арналған"}
+  - sku: HD-0909
+    cat: beauty
+    price: 27900
+    name: {en: "Hair dryer", ru: "Фен", kk: "Шаш кептіргіш"}
+    desc: {en: "2000 W, 3 temperature modes, ionisation", ru: "2000 Вт, 3 температурных режима, ионизация", kk: "2000 Вт, 3 температура режимі, иондау"}
+  - sku: BK-0101
+    cat: books
+    price: 5900
+    name: {en: "Kazakh-English dictionary", ru: "Казахско-английский словарь", kk: "Қазақша-ағылшынша сөздік"}
+    desc: {en: "40000 words, hardcover", ru: "40000 слов, твёрдый переплёт", kk: "40000 сөз, қатты мұқаба"}
+  - sku: TB-2626
+    cat: sport
+    price: 8900
+    name: {en: "Yoga mat", ru: "Коврик для йоги", kk: "Йога кілемшесі"}
+    desc: {en: "183 x 61 cm, 6 mm thick, non-slip", ru: "183 x 61 см, толщина 6 мм, нескользящий", kk: "183 x 61 см, қалыңдығы 6 мм, тайғанамайды"}
+  - sku: BC-2900
+    cat: sport
+    price: 189000
+    name: {en: "Mountain bike", ru: "Горный велосипед", kk: "Тау велосипеді"}
+    desc: {en: "29-inch wheels, 21 speeds, aluminium frame", ru: "колёса 29 дюймов, 21 скорость, алюминиевая рама", kk: "29 дюймдік дөңгелектер, 21 жылдамдық, алюминий рама"}
+  - sku: TN-0412
+    cat: auto
+    price: 149000
+    name: {en: "Winter tyres set", ru: "Комплект зимних шин", kk: "Қысқы дөңгелек жиынтығы"}
+    desc: {en: "4 studded tyres, size 205/55 R16", ru: "4 шипованные шины, размер 205/55 R16", kk: "4 шипті дөңгелек, өлшемі 205/55 R16"}
+
+# Delivery zones (delivery_zones.csv). `fast` = facts.fast_delivery_days, `region` =
+# facts.region_delivery_days; courier and pickup costs come from facts.yaml as well.
+zones:
+  fast: {en: "Almaty and Astana", ru: "Алматы и Астана", kk: "Алматы мен Астана"}
+  region: {en: "other cities", ru: "другие города", kk: "басқа қалалар"}
+delivery_zones:
+  - {id: almaty, zone: fast, en: Almaty, ru: Алматы, kk: Алматы}
+  - {id: astana, zone: fast, en: Astana, ru: Астана, kk: Астана}
+  - {id: shymkent, zone: region, en: Shymkent, ru: Шымкент, kk: Шымкент}
+  - {id: karaganda, zone: region, en: Karaganda, ru: Караганда, kk: Қарағанды}
+  - {id: aktobe, zone: region, en: Aktobe, ru: Актобе, kk: Ақтөбе}
+  - {id: taraz, zone: region, en: Taraz, ru: Тараз, kk: Тараз}
+  - {id: pavlodar, zone: region, en: Pavlodar, ru: Павлодар, kk: Павлодар}
+  - {id: oskemen, zone: region, en: Oskemen, ru: Усть-Каменогорск, kk: Өскемен}
+  - {id: semey, zone: region, en: Semey, ru: Семей, kk: Семей}
+  - {id: atyrau, zone: region, en: Atyrau, ru: Атырау, kk: Атырау}
+  - {id: kostanay, zone: region, en: Kostanay, ru: Костанай, kk: Қостанай}
+  - {id: aktau, zone: region, en: Aktau, ru: Актау, kk: Ақтау}

@@ -10,13 +10,17 @@ dependencies = [
     "matplotlib>=3.11.2",
     "mlflow>=3.18.0",
     "numpy>=2.5.4",
+    "openpyxl>=3.1.5",
+    "pdfplumber>=0.11.10",
     "polars>=2.1.0",
     "psutil>=7.2.2",
     "pyarrow>=26.0.1",
     "pydantic>=2.14.3",
     "pydantic-settings>=2.16.2",
+    "python-docx>=1.2.0",
     "pyyaml>=6.0.3",
     "qdrant-client>=1.20.0",
+    "reportlab>=5.1.0",
     "scipy>=1.18.1",
     "tokenizers>=0.23.3",
 ]
@@ -75,6 +79,8 @@ ignore = ["S101"]  # assert is fine in tests (and only used there)
 "tests/**" = ["S", "PLR2004", "RUF001", "RUF003"]  # tests hold RU/KK text and unicode on purpose
 # RU/KK linguistic tables (case forms, glossary, function words) are Cyrillic on purpose
 "src/supportpilot/data/{textfmt,qe}.py" = ["RUF001", "RUF002", "RUF003"]
+# KB date lines and RU/KK unit tables (Stage 5) are Cyrillic on purpose
+"src/supportpilot/kb/{blocks,spec}.py" = ["RUF001", "RUF002", "RUF003"]
 
 [tool.mypy]
 python_version = "3.12"
@@ -84,7 +90,7 @@ mypy_path = "src"
 files = ["src", "tests"]
 
 [[tool.mypy.overrides]]
-module = ["mlflow.*", "qdrant_client.*", "pyarrow.*", "scipy.*"]
+module = ["mlflow.*", "qdrant_client.*", "pyarrow.*", "scipy.*", "reportlab.*", "openpyxl.*", "pdfplumber.*", "docx.*", "PIL.*"]
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]

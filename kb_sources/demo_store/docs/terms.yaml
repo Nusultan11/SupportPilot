@@ -1,0 +1,65 @@
+# Demo-store document spec (kb_doc/1). See returns_policy.yaml for the conventions.
+# Level-2 sections nest under the preceding level-1 section (section_path = [h1, h2]).
+schema_version: kb_doc/1
+doc_id: terms
+doc_type: terms
+format: docx
+title:
+  en: Terms of sale
+  ru: Условия продажи
+  kk: Сату шарттары
+intro:
+  - en: "These terms apply to every order placed on the website or in the app of {store_name:store}. By confirming an order, the customer accepts them."
+    ru: "Эти условия действуют для каждого заказа, оформленного на сайте или в приложении {store_name:store}. Подтверждая заказ, покупатель принимает их."
+    kk: "Бұл шарттар {store_name:store} сайтында немесе қосымшасында рәсімделген әр тапсырысқа қолданылады. Тапсырысты растау арқылы сатып алушы оларды қабылдайды."
+sections:
+  - id: general
+    heading: {en: "General provisions", ru: "Общие положения", kk: "Жалпы ережелер"}
+    paragraphs:
+      - en: "The seller is the online store {store_name:store}. The contract of sale is concluded when the customer receives the SMS with the order number."
+        ru: "Продавец — интернет-магазин {store_name:store}. Договор купли-продажи считается заключённым, когда покупатель получает SMS с номером заказа."
+        kk: "Сатушы — {store_name:store} интернет-дүкені. Сатып алу-сату шарты сатып алушы тапсырыс нөмірі бар SMS алған кезде жасалған болып саналады."
+  - id: prices
+    heading: {en: "Prices and payment", ru: "Цены и оплата", kk: "Бағалар және төлем"}
+    paragraphs:
+      - en: "Prices are in tenge and are fixed when the order is confirmed. The minimum order amount is {min_order:kzt}. Payment methods and limits are described in the payment rules."
+        ru: "Цены указаны в тенге и фиксируются в момент подтверждения заказа. Минимальная сумма заказа — {min_order:kzt}. Способы оплаты и ограничения описаны в правилах оплаты."
+        kk: "Бағалар теңгемен көрсетіледі және тапсырыс расталған сәтте бекітіледі. Тапсырыстың ең аз сомасы — {min_order:kzt}. Төлем тәсілдері мен шектеулері төлем ережелерінде сипатталған."
+  - id: delivery_terms
+    heading: {en: "Delivery and transfer of ownership", ru: "Доставка и переход права собственности", kk: "Жеткізу және меншік құқығының ауысуы"}
+    paragraphs:
+      - en: "Ownership and the risk of damage pass to the customer when the order is handed over. Delivery periods and prices are given in the delivery rules."
+        ru: "Право собственности и риск повреждения переходят к покупателю в момент передачи заказа. Сроки и стоимость доставки указаны в правилах доставки."
+        kk: "Меншік құқығы мен зақымдану тәуекелі тапсырыс табыс етілген сәтте сатып алушыға өтеді. Жеткізу мерзімі мен құны жеткізу ережелерінде көрсетілген."
+  - id: personal_data
+    heading: {en: "Personal data", ru: "Персональные данные", kk: "Дербес деректер"}
+    paragraphs:
+      - en: "The store processes personal data only to fulfil orders and provide support."
+        ru: "Магазин обрабатывает персональные данные только для выполнения заказов и поддержки покупателей."
+        kk: "Дүкен дербес деректерді тек тапсырыстарды орындау және сатып алушыларға қолдау көрсету үшін өңдейді."
+  - id: data_stored
+    level: 2
+    heading: {en: "What data we store", ru: "Какие данные мы храним", kk: "Біз қандай деректерді сақтаймыз"}
+    paragraphs:
+      - en: "We store the name, phone number, e-mail, delivery addresses and order history. Card details are processed by the bank and are not stored by the store."
+        ru: "Мы храним имя, номер телефона, e-mail, адреса доставки и историю заказов. Данные карты обрабатывает банк, магазин их не хранит."
+        kk: "Біз аты-жөнді, телефон нөмірін, e-mail-ді, жеткізу мекенжайларын және тапсырыстар тарихын сақтаймыз. Карта деректерін банк өңдейді, дүкен оларды сақтамайды."
+  - id: data_deletion
+    level: 2
+    heading: {en: "Deleting your data", ru: "Удаление данных", kk: "Деректерді жою"}
+    paragraphs:
+      - en: "A customer can ask for the account and personal data to be deleted. The request is fulfilled within {account_delete_days:days_gen}. Data that the law requires us to keep, such as fiscal receipts, is kept for the legal period."
+        ru: "Покупатель может попросить удалить аккаунт и персональные данные. Запрос выполняется в течение {account_delete_days:days_gen}. Данные, которые мы обязаны хранить по закону, например фискальные чеки, хранятся в течение установленного законом срока."
+        kk: "Сатып алушы аккаунтты және дербес деректерді жоюды сұрай алады. Сұраныс {account_delete_days:days_gen} ішінде орындалады. Заң бойынша сақтауға міндетті деректер, мысалы фискалдық чектер, заңда белгіленген мерзім бойы сақталады."
+  - id: liability
+    heading: {en: "Liability", ru: "Ответственность", kk: "Жауапкершілік"}
+    paragraphs:
+      - en: "The store is responsible for the quality of the goods within the warranty and returns rules. The store is not responsible for delays caused by the customer giving a wrong address or phone number."
+        ru: "Магазин отвечает за качество товара в рамках правил гарантии и возврата. Магазин не отвечает за задержки, вызванные тем, что покупатель указал неверный адрес или номер телефона."
+        kk: "Дүкен кепілдік және қайтару ережелері шеңберінде тауар сапасы үшін жауап береді. Сатып алушы қате мекенжай немесе телефон нөмірін көрсеткендіктен болған кешігулерге дүкен жауап бермейді."
+  - id: disputes
+    heading: {en: "Complaints and disputes", ru: "Претензии и споры", kk: "Шағымдар мен даулар"}
+    paragraphs:
+      - en: "Send a complaint to {support_email} with the order number. Disputes are settled by negotiation first and then under the law of the Republic of Kazakhstan."
+        ru: "Претензию направьте на {support_email}, указав номер заказа. Споры решаются сначала путём переговоров, а затем в соответствии с законодательством Республики Казахстан."
+        kk: "Шағымды тапсырыс нөмірін көрсетіп, {support_email} поштасына жіберіңіз. Даулар алдымен келіссөз арқылы, содан кейін Қазақстан Республикасының заңнамасына сәйкес шешіледі."

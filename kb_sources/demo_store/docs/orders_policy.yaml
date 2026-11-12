@@ -1,0 +1,44 @@
+# Demo-store document spec (kb_doc/1). See returns_policy.yaml for the conventions.
+schema_version: kb_doc/1
+doc_id: orders_policy
+doc_type: policy
+format: docx
+title:
+  en: Orders
+  ru: Заказы
+  kk: Тапсырыстар
+intro:
+  - en: "How to place, cancel and change an order in {store_name:store}."
+    ru: "Как оформить, отменить и изменить заказ в {store_name:store}."
+    kk: "{store_name:store} дүкенінде тапсырысты қалай рәсімдеуге, болдырмауға және өзгертуге болады."
+sections:
+  - id: place
+    heading: {en: "Placing an order", ru: "Оформление заказа", kk: "Тапсырыс беру"}
+    paragraphs:
+      - en: "Add items to the cart, press \"Checkout\", choose delivery and payment and confirm. The minimum order amount is {min_order:kzt}."
+        ru: "Добавьте товары в корзину, нажмите «Оформить», выберите доставку и оплату и подтвердите заказ. Минимальная сумма заказа — {min_order:kzt}."
+        kk: "Тауарларды себетке салып, «Рәсімдеу» батырмасын басыңыз, жеткізу мен төлем тәсілін таңдап, тапсырысты растаңыз. Тапсырыстың ең аз сомасы — {min_order:kzt}."
+      - en: "After confirmation you receive an SMS with the six-digit order number. Keep it: support needs it to find the order."
+        ru: "После подтверждения приходит SMS с шестизначным номером заказа. Сохраните его: по нему поддержка находит заказ."
+        kk: "Растағаннан кейін алты таңбалы тапсырыс нөмірі бар SMS келеді. Оны сақтаңыз: қолдау қызметі тапсырысты сол нөмір бойынша табады."
+  - id: statuses
+    heading: {en: "Order statuses", ru: "Статусы заказа", kk: "Тапсырыс күйлері"}
+    paragraphs:
+      - en: "An order goes through the statuses \"processing\", \"shipped\" and \"delivered\". The current status is shown in \"My orders\"."
+        ru: "Заказ проходит статусы «в обработке», «отправлен» и «доставлен». Текущий статус виден в «Моих заказах»."
+        kk: "Тапсырыс «өңделуде», «жөнелтілді» және «жеткізілді» күйлерінен өтеді. Ағымдағы күйі «Менің тапсырыстарым» бөлімінде көрінеді."
+  - id: cancel
+    heading: {en: "Cancelling an order", ru: "Отмена заказа", kk: "Тапсырыстан бас тарту"}
+    paragraphs:
+      - en: "An order can be cancelled free of charge within {cancel_hours:hours_gen} of placing it and before it is shipped. A shipped order cannot be cancelled; refuse it on delivery or return it instead."
+        ru: "Заказ можно бесплатно отменить в течение {cancel_hours:hours_gen} после оформления, если он ещё не отправлен. Отправленный заказ отменить нельзя: от него можно отказаться при получении или оформить возврат."
+        kk: "Тапсырысты рәсімдегеннен кейін {cancel_hours:hours_gen} ішінде, ол әлі жөнелтілмесе, тегін болдырмауға болады. Жөнелтілген тапсырысты болдырмау мүмкін емес: оны алу кезінде қабылдамауға немесе қайтаруды рәсімдеуге болады."
+  - id: change
+    heading: {en: "Changing an order", ru: "Изменение заказа", kk: "Тапсырысты өзгерту"}
+    paragraphs:
+      - en: "Items, quantity and the delivery address can be changed while the order has the status \"processing\". After it is shipped, changes are not possible."
+        ru: "Товары, их количество и адрес доставки можно изменить, пока заказ в статусе «в обработке». После отправки изменения невозможны."
+        kk: "Тапсырыс «өңделуде» күйінде тұрғанда тауарларды, олардың санын және жеткізу мекенжайын өзгертуге болады. Жөнелтілгеннен кейін өзгерту мүмкін емес."
+      - en: "To change an order, open it in \"My orders\" and press \"Edit\", or write to support with the order number."
+        ru: "Чтобы изменить заказ, откройте его в «Моих заказах» и нажмите «Изменить» или напишите в поддержку, указав номер заказа."
+        kk: "Тапсырысты өзгерту үшін оны «Менің тапсырыстарым» бөлімінде ашып, «Өзгерту» батырмасын басыңыз немесе тапсырыс нөмірін көрсетіп, қолдау қызметіне жазыңыз."

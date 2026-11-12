@@ -1,0 +1,54 @@
+# Demo-store document spec (kb_doc/1). See returns_policy.yaml for the conventions.
+schema_version: kb_doc/1
+doc_id: payment_policy
+doc_type: policy
+format: pdf
+title:
+  en: Payment
+  ru: Оплата
+  kk: Төлем
+intro:
+  - en: "Prices in {store_name:store} are in tenge. This document describes the accepted payment methods, instalments and what to do if a payment fails."
+    ru: "Цены в {store_name:store} указаны в тенге. В документе описаны способы оплаты, рассрочка и что делать, если оплата не прошла."
+    kk: "{store_name:store} дүкеніндегі бағалар теңгемен көрсетілген. Құжатта төлем тәсілдері, бөліп төлеу және төлем өтпеген жағдайда не істеу керектігі сипатталған."
+sections:
+  - id: methods
+    heading: {en: "Payment methods", ru: "Способы оплаты", kk: "Төлем тәсілдері"}
+    paragraphs:
+      - en: "{store_name:store} accepts: {payment_methods:payment_methods}. Payment by bank transfer from a personal account is not accepted."
+        ru: "{store_name:store} принимает: {payment_methods:payment_methods}. Оплата банковским переводом с личного счёта не принимается."
+        kk: "{store_name:store} дүкені қабылдайды: {payment_methods:payment_methods}. Жеке шоттан банктік аударым арқылы төлеу қабылданбайды."
+    table:
+      columns:
+        - {en: "Method", ru: "Способ", kk: "Тәсіл"}
+        - {en: "When you pay", ru: "Когда оплачивается", kk: "Қашан төленеді"}
+        - {en: "Limit", ru: "Ограничение", kk: "Шектеу"}
+      rows:
+        - [Kaspi QR, {en: "at checkout", ru: "при оформлении", kk: "рәсімдеу кезінде"}, {en: "none", ru: "нет", kk: "жоқ"}]
+        - [Kaspi Red, {en: "in monthly payments", ru: "ежемесячными платежами", kk: "ай сайынғы төлемдермен"}, {en: "up to {instalment_months:months}", ru: "до {instalment_months:months_gen}", kk: "{instalment_months:months@dat} дейін"}]
+        - [{en: "Visa or Mastercard bank card", ru: "Банковская карта Visa или Mastercard", kk: "Visa немесе Mastercard банк картасы"}, {en: "at checkout", ru: "при оформлении", kk: "рәсімдеу кезінде"}, {en: "none", ru: "нет", kk: "жоқ"}]
+        - [{en: "Cash or card on delivery", ru: "Наличными или картой при получении", kk: "Алған кезде қолма-қол немесе картамен"}, {en: "on delivery", ru: "при получении", kk: "алған кезде"}, {en: "orders up to {cod_max:kzt}", ru: "заказы до {cod_max:kzt}", kk: "{cod_max:kzt@dat} дейінгі тапсырыстар"}]
+  - id: instalments
+    heading: {en: "Instalments", ru: "Рассрочка", kk: "Бөліп төлеу"}
+    paragraphs:
+      - en: "With Kaspi Red you can split the payment over up to {instalment_months:months} without overpayment. The instalment option appears at checkout for orders that qualify."
+        ru: "С Kaspi Red оплату можно разделить на срок до {instalment_months:months_gen} без переплаты. Вариант рассрочки появляется при оформлении для подходящих заказов."
+        kk: "Kaspi Red арқылы төлемді артық төлемсіз {instalment_months:months@dat} дейін бөліп төлеуге болады. Бөліп төлеу мүмкіндігі тапсырысты рәсімдеу кезінде сәйкес тапсырыстар үшін шығады."
+  - id: cod
+    heading: {en: "Payment on delivery", ru: "Оплата при получении", kk: "Алған кезде төлеу"}
+    paragraphs:
+      - en: "Cash or card payment on delivery is available for orders up to {cod_max:kzt}. More expensive orders are paid online at checkout."
+        ru: "Оплатить наличными или картой при получении можно заказы на сумму до {cod_max:kzt}. Более дорогие заказы оплачиваются онлайн при оформлении."
+        kk: "Алған кезде қолма-қол немесе картамен {cod_max:kzt@dat} дейінгі тапсырыстарды төлеуге болады. Бұдан қымбат тапсырыстар рәсімдеу кезінде онлайн төленеді."
+  - id: failed_payment
+    heading: {en: "If a payment fails", ru: "Если оплата не прошла", kk: "Төлем өтпесе"}
+    paragraphs:
+      - en: "Check the card limit and the 3-D Secure confirmation, then try again in {payment_retry_minutes:minutes}. If the money was debited but the order shows as unpaid, the bank releases the hold automatically; contact support with the order number if it does not."
+        ru: "Проверьте лимит карты и подтверждение 3-D Secure и повторите попытку через {payment_retry_minutes:minutes}. Если деньги списались, а заказ не оплачен, банк автоматически снимет блокировку; если этого не произошло, обратитесь в поддержку с номером заказа."
+        kk: "Карта лимитін және 3-D Secure растауын тексеріп, {payment_retry_minutes:minutes@abl} кейін қайталап көріңіз. Ақша шегерілсе де, тапсырыс төленбеген болып көрінсе, банк бұғаттауды автоматты түрде алып тастайды; олай болмаса, тапсырыс нөмірімен қолдау қызметіне жүгініңіз."
+  - id: receipts
+    heading: {en: "Receipts and invoices", ru: "Чеки и счета", kk: "Чектер мен шоттар"}
+    paragraphs:
+      - en: "The electronic fiscal receipt is sent by e-mail and SMS after payment and is also available in \"My orders\". Companies can request an invoice with the order number."
+        ru: "Электронный фискальный чек приходит на e-mail и в SMS после оплаты и доступен в «Моих заказах». Юрлица могут запросить счёт по номеру заказа."
+        kk: "Электрондық фискалдық чек төлемнен кейін e-mail мен SMS арқылы келеді және «Менің тапсырыстарым» бөлімінде қолжетімді. Заңды тұлғалар тапсырыс нөмірі бойынша шот сұрата алады."

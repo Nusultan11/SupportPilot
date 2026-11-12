@@ -98,3 +98,11 @@ stage4:                            # multilingual SFT dataset (ADR-023..026, DAT
   leak_jaccard: 0.8                # char-5-gram near-duplicate threshold across splits
   leak_ngram: 13                   # word n-gram overlap gold vs train
   leak_cosine: 0.95                # e5 cosine: semantic near-copy across splits
+
+kb:                                # Stage 5 knowledge base (ADR-027, DATA_CONTRACTS §8)
+  name: demo_store                 # -> data/kb/demo_store/{sources,versions,current.json}
+  source_root: kb_sources/demo_store   # facts.yaml, catalog.yaml, docs/<doc_id>.yaml
+  gold_dir: authored/gold          # gold `doc.section` references must resolve (evidence gate)
+  max_tokens: 400                  # chunk budget in kb.tokenizer tokens
+  tokenizer: qwen3                 # name from eda.tokenizers (pinned, hash-checked)
+  lid_min_letters: 40              # language gate on prose chunks with at least this many letters

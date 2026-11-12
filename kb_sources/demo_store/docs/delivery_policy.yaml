@@ -1,0 +1,55 @@
+# Demo-store document spec (kb_doc/1). See returns_policy.yaml for the conventions.
+schema_version: kb_doc/1
+doc_id: delivery_policy
+doc_type: policy
+format: docx
+title:
+  en: Delivery
+  ru: Доставка
+  kk: Жеткізу
+intro:
+  - en: "{store_name:store} delivers orders to every region of Kazakhstan. This document lists the delivery periods, prices and methods."
+    ru: "{store_name:store} доставляет заказы во все регионы Казахстана. В этом документе указаны сроки, стоимость и способы доставки."
+    kk: "{store_name:store} тапсырыстарды Қазақстанның барлық өңірлеріне жеткізеді. Бұл құжатта жеткізу мерзімі, құны және тәсілдері көрсетілген."
+sections:
+  - id: periods
+    heading: {en: "Delivery periods", ru: "Сроки доставки", kk: "Жеткізу мерзімі"}
+    paragraphs:
+      - en: "Orders to Almaty and Astana arrive in {fast_delivery_days:range_days}; other cities of Kazakhstan take {region_delivery_days:range_days}. The period starts when the order is shipped, not when it is placed."
+        ru: "Заказы в Алматы и Астану доставляются за {fast_delivery_days:range_days}, в другие города Казахстана — за {region_delivery_days:range_days}. Срок отсчитывается с момента отправки заказа, а не с момента оформления."
+        kk: "Алматы мен Астанаға тапсырыс {fast_delivery_days:range_days} ішінде, Қазақстанның басқа қалаларына {region_delivery_days:range_days} ішінде жеткізіледі. Мерзім тапсырыс рәсімделген сәттен емес, жөнелтілген сәттен бастап есептеледі."
+      - en: "The delivery period for each city is listed in the delivery zones table."
+        ru: "Срок доставки для каждого города указан в таблице зон доставки."
+        kk: "Әр қалаға жеткізу мерзімі жеткізу аймақтары кестесінде көрсетілген."
+  - id: cost
+    heading: {en: "Delivery cost", ru: "Стоимость доставки", kk: "Жеткізу құны"}
+    paragraphs:
+      - en: "Courier delivery costs {courier_cost:kzt} and is free for orders from {free_delivery_from:kzt}. Collecting an order at a pickup point costs {pickup_cost:kzt}."
+        ru: "Курьерская доставка стоит {courier_cost:kzt}, для заказов от {free_delivery_from:kzt} она бесплатна. Получение в пункте выдачи стоит {pickup_cost:kzt}."
+        kk: "Курьерлік жеткізу құны — {courier_cost:kzt}, {free_delivery_from:kzt@abl} бастап тапсырыстар үшін ол тегін. Беру пунктінен алу құны — {pickup_cost:kzt}."
+    table:
+      columns:
+        - {en: "Delivery method", ru: "Способ доставки", kk: "Жеткізу тәсілі"}
+        - {en: "Cost", ru: "Стоимость", kk: "Құны"}
+      rows:
+        - [{en: "Store courier", ru: "Курьер магазина", kk: "Дүкен курьері"}, "{courier_cost:kzt}"]
+        - [{en: "Store courier, order from {free_delivery_from:kzt}", ru: "Курьер магазина, заказ от {free_delivery_from:kzt}", kk: "Дүкен курьері, {free_delivery_from:kzt@abl} бастап тапсырыс"}, {en: "free", ru: "бесплатно", kk: "тегін"}]
+        - [{en: "Pickup point", ru: "Пункт выдачи", kk: "Беру пункті"}, "{pickup_cost:kzt}"]
+  - id: methods
+    heading: {en: "Delivery methods", ru: "Способы доставки", kk: "Жеткізу тәсілдері"}
+    paragraphs:
+      - en: "We deliver with: {carriers:carriers}. You choose the method at checkout; the tracking number is sent by SMS when the order ships."
+        ru: "Мы доставляем: {carriers:carriers}. Способ выбирается при оформлении заказа; трек-номер приходит в SMS после отправки."
+        kk: "Біз мына тәсілдермен жеткіземіз: {carriers:carriers}. Тәсіл тапсырысты рәсімдеу кезінде таңдалады; тапсырыс жөнелтілгенде трек-нөмір SMS арқылы келеді."
+  - id: tracking
+    heading: {en: "Tracking an order", ru: "Отслеживание заказа", kk: "Тапсырысты бақылау"}
+    paragraphs:
+      - en: "The current status of an order is shown in \"My orders\". Support can check an order by its six-digit order number."
+        ru: "Текущий статус заказа виден в разделе «Мои заказы». Поддержка может проверить заказ по шестизначному номеру заказа."
+        kk: "Тапсырыстың ағымдағы күйі «Менің тапсырыстарым» бөлімінде көрінеді. Қолдау қызметі тапсырысты алты таңбалы тапсырыс нөмірі бойынша тексере алады."
+  - id: receiving
+    heading: {en: "Receiving the order", ru: "Получение заказа", kk: "Тапсырысты алу"}
+    paragraphs:
+      - en: "Check the package when you receive it. If the box is damaged, take photos and report it within {defect_report_days:days_gen} of delivery; the rules are in the returns policy."
+        ru: "Проверьте посылку при получении. Если коробка повреждена, сфотографируйте её и сообщите об этом в течение {defect_report_days:days_gen} после получения; порядок описан в правилах возврата."
+        kk: "Сәлемдемені алған кезде тексеріңіз. Қорап зақымдалса, суретке түсіріп, алған күннен бастап {defect_report_days:days_gen} ішінде хабарлаңыз; тәртібі қайтару ережелерінде сипатталған."

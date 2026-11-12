@@ -1,0 +1,65 @@
+# Demo-store document spec (kb_doc/1). See returns_policy.yaml for the conventions.
+# FAQ: each section is one question (heading) and its answer (paragraphs).
+schema_version: kb_doc/1
+doc_id: account_faq
+doc_type: faq
+format: txt
+title:
+  en: Account and app
+  ru: Аккаунт и приложение
+  kk: Аккаунт және қосымша
+sections:
+  - id: create
+    heading: {en: "How do I create an account?", ru: "Как создать аккаунт?", kk: "Аккаунтты қалай ашуға болады?"}
+    paragraphs:
+      - en: "Press \"Sign in\", enter your phone number and the code from the SMS. The profile is created automatically."
+        ru: "Нажмите «Войти», введите номер телефона и код из SMS. Профиль создаётся автоматически."
+        kk: "«Кіру» батырмасын басып, телефон нөміріңізді және SMS-тегі кодты енгізіңіз. Профиль автоматты түрде жасалады."
+  - id: password
+    heading: {en: "I forgot my password or cannot sign in. What should I do?", ru: "Я забыл пароль или не могу войти. Что делать?", kk: "Құпиясөзді ұмытып қалдым немесе кіре алмаймын. Не істеу керек?"}
+    paragraphs:
+      - en: "Sign-in works with a one-time SMS code, so there is no password to recover. If the code does not arrive, check the number and request it again after {sms_retry_seconds:seconds}."
+        ru: "Вход выполняется по одноразовому коду из SMS, поэтому восстанавливать пароль не нужно. Если код не приходит, проверьте номер и запросите его повторно через {sms_retry_seconds:seconds}."
+        kk: "Кіру бір реттік SMS кодымен жүзеге асады, сондықтан құпиясөзді қалпына келтірудің қажеті жоқ. Код келмесе, нөмірді тексеріп, {sms_retry_seconds:seconds@abl} кейін қайта сұратыңыз."
+  - id: profile
+    heading: {en: "How do I change my name, e-mail or saved addresses?", ru: "Как изменить имя, e-mail или сохранённые адреса?", kk: "Аты-жөнді, e-mail-ді немесе сақталған мекенжайларды қалай өзгертуге болады?"}
+    paragraphs:
+      - en: "Name, e-mail and saved delivery addresses are edited in \"Profile\" → \"Settings\". A new address applies to future orders only."
+        ru: "Имя, e-mail и сохранённые адреса доставки меняются в разделе «Профиль» → «Настройки». Новый адрес действует только для будущих заказов."
+        kk: "Аты-жөні, e-mail және сақталған жеткізу мекенжайлары «Профиль» → «Баптаулар» бөлімінде өзгертіледі. Жаңа мекенжай тек келесі тапсырыстарға қолданылады."
+  - id: switch
+    heading: {en: "How do I switch to another account?", ru: "Как перейти в другой аккаунт?", kk: "Басқа аккаунтқа қалай ауысуға болады?"}
+    paragraphs:
+      - en: "Sign out in \"Profile\" → \"Settings\" → \"Sign out\", then sign in with the other phone number. Orders and bonuses stay with the account they were made in."
+        ru: "Выйдите через «Профиль» → «Настройки» → «Выйти», затем войдите по другому номеру телефона. Заказы и бонусы остаются в том аккаунте, где они были оформлены."
+        kk: "«Профиль» → «Баптаулар» → «Шығу» арқылы шығып, басқа телефон нөмірімен кіріңіз. Тапсырыстар мен бонустар өздері рәсімделген аккаунтта қалады."
+  - id: delete
+    heading: {en: "How do I delete my account?", ru: "Как удалить аккаунт?", kk: "Аккаунтты қалай жоюға болады?"}
+    paragraphs:
+      - en: "Request deletion in \"Profile\" → \"Settings\" → \"Delete account\". The account is deleted within {account_delete_days:days_gen}; unused bonus points are lost."
+        ru: "Запрос подаётся в разделе «Профиль» → «Настройки» → «Удалить аккаунт». Аккаунт удаляется в течение {account_delete_days:days_gen}, неиспользованные бонусы сгорают."
+        kk: "Сұраныс «Профиль» → «Баптаулар» → «Аккаунтты жою» бөлімінде жіберіледі. Аккаунт {account_delete_days:days_gen} ішінде жойылады, пайдаланылмаған бонустар күйіп кетеді."
+  - id: history
+    heading: {en: "Where can I see my orders?", ru: "Где посмотреть мои заказы?", kk: "Тапсырыстарымды қайдан көруге болады?"}
+    paragraphs:
+      - en: "All your orders, with receipts and statuses, are listed in \"Profile\" → \"My orders\"."
+        ru: "Все ваши заказы с чеками и статусами находятся в разделе «Профиль» → «Мои заказы»."
+        kk: "Барлық тапсырыстарыңыз чектерімен және күйлерімен «Профиль» → «Менің тапсырыстарым» бөлімінде тұр."
+  - id: newsletter
+    heading: {en: "How do I subscribe to or unsubscribe from newsletters?", ru: "Как подписаться на рассылку или отписаться от неё?", kk: "Таратылымға қалай жазылуға немесе одан бас тартуға болады?"}
+    paragraphs:
+      - en: "Subscribe or unsubscribe in \"Profile\" → \"Notifications\", or use the \"Unsubscribe\" link at the bottom of any e-mail."
+        ru: "Подписаться или отписаться можно в разделе «Профиль» → «Уведомления» или по ссылке «Отписаться» внизу любого письма."
+        kk: "Жазылу немесе бас тарту «Профиль» → «Хабарламалар» бөлімінде немесе кез келген хаттың төменгі жағындағы «Жазылымнан бас тарту» сілтемесі арқылы жасалады."
+  - id: app
+    heading: {en: "Is there a mobile app?", ru: "Есть ли мобильное приложение?", kk: "Мобильді қосымша бар ма?"}
+    paragraphs:
+      - en: "The app is available in the App Store, Google Play and AppGallery. Sign in with the same phone number as on the website."
+        ru: "Приложение есть в App Store, Google Play и AppGallery. Входите по тому же номеру телефона, что и на сайте."
+        kk: "Қосымша App Store, Google Play және AppGallery дүкендерінде бар. Сайттағы телефон нөмірімен кіріңіз."
+  - id: cart
+    heading: {en: "How does the cart work?", ru: "Как работает корзина?", kk: "Себет қалай жұмыс істейді?"}
+    paragraphs:
+      - en: "Press \"Add to cart\" on a product page. To remove an item, open the cart and press the bin icon next to it. The cart is saved for {cart_days:days}."
+        ru: "Нажмите «В корзину» на странице товара. Чтобы удалить товар, откройте корзину и нажмите на значок корзины рядом с ним. Корзина хранится {cart_days:days}."
+        kk: "Тауар бетіндегі «Себетке» батырмасын басыңыз. Тауарды өшіру үшін себетті ашып, оның жанындағы қоқыс жәшігі белгішесін басыңыз. Себет {cart_days:days} сақталады."

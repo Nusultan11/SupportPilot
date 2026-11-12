@@ -33,12 +33,12 @@ JSON, grounding, abstention, escalation), never facts. Details: [docs/PROJECT.md
 | `docs/EVALUATION.md` | Datasets, metrics, experiment protocol |
 | `docs/DECISIONS.md` | ADRs: chosen option, alternatives, revisit conditions |
 | `docs/RUNBOOK.md` | Verified commands: setup, run, backup, restore, diagnostics |
-| `src/supportpilot/` | Python package: `common/` (foundation), `ops/` (env, backup, checks), `cli.py` |
+| `src/supportpilot/` | Python package: `common/` (foundation), `ops/` (env, backup, checks), `data/` (Stages 2–4), `kb/` (Stage 5 KB), `cli.py` |
 | `configs/base.yaml` | Default settings; override via `SUPPORTPILOT_<SECTION>__<KEY>` |
 | `configs/intent_map.yaml`, `configs/placeholders.yaml` | Draft v0 label map (ADR-021), synthetic slot catalogue (ADR-020) |
 | `configs/taxonomy.yaml`, `configs/locale_kz.yaml` | Intent taxonomy v1 + source mapping (ADR-023), Kazakhstan localisation catalogue (ADR-024) |
 | `authored/` | LLM-agent-authored content (Stage 4): native scenarios, answer templates, training KB variant, gold sources. Labelled `llm_generated`; human review pending |
-| `kb_sources/` | Demo-store KB sources (`demo_store/facts.yaml` seeded in Stage 4, documents in Stage 5) |
+| `kb_sources/` | Demo-store KB sources: `demo_store/facts.yaml` (policy values), `catalog.yaml` (products, zones), `docs/<doc_id>.yaml` (document specs, RU/KK/EN). Rendered and versioned KB: `data/kb/demo_store/` (ADR-027) |
 | `docs/reviews/` | Qualitative reviews (Stage 3: `stage3_review.yaml`; Stage 4: `stage4_mt_review.yaml`, `stage4_sft_review.yaml`). LLM reviews are labelled as such |
 | `tests/unit`, `tests/integration` | pytest suites (markers: `slow`, `gpu`, `qdrant_server`) |
 | `compose.yaml` | Local services (Qdrant) |
@@ -72,7 +72,8 @@ docker compose up -d qdrant                        # Qdrant server for qdrant_se
 A stage is not done while any of these fail. A *skipped* `qdrant_server` or `gpu` test means
 the check did not run, so report it as unverified. Operational CLI: `uv run supportpilot --help`
 (`env`, `backup`, `check`, `data`; Stage 3: `data clean --all`, `data gates`, `data eda`;
-Stage 4: `data select|kb-train|mt-compare|translate|qe-score|sft|gold|taxonomy`).
+Stage 4: `data select|kb-train|mt-compare|translate|qe-score|sft|gold|taxonomy`;
+Stage 5: `kb render|build|validate|status|activate`).
 
 ## 6. Code and data standards
 

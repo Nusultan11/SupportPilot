@@ -1,0 +1,22 @@
+# Demo-store document spec (kb_doc/1). See catalog.yaml for record documents.
+# The delivery tariff table per city (a policy table exported as CSV); values come from the
+# delivery facts in facts.yaml through the zone of each city.
+schema_version: kb_doc/1
+doc_id: delivery_zones
+doc_type: policy
+format: csv
+title:
+  en: Delivery zones
+  ru: Зоны доставки
+  kk: Жеткізу аймақтары
+records:
+  source: delivery_zones
+  key: id
+  columns:
+    - {header: {en: "City code", ru: "Код города", kk: "Қала коды"}, value: "{rec.id}"}
+    - {header: {en: "City", ru: "Город", kk: "Қала"}, value: "{rec.name}"}
+    - {header: {en: "Zone", ru: "Зона", kk: "Аймақ"}, value: "{rec.zone_name}"}
+    - {header: {en: "Delivery time", ru: "Срок доставки", kk: "Жеткізу мерзімі"}, value: "{rec.delivery_days:range_days}"}
+    - {header: {en: "Courier delivery", ru: "Курьерская доставка", kk: "Курьерлік жеткізу"}, value: "{courier_cost:kzt}"}
+    - {header: {en: "Free courier delivery from", ru: "Бесплатная курьерская доставка от", kk: "Тегін курьерлік жеткізу шегі"}, value: "{free_delivery_from:kzt}"}
+    - {header: {en: "Pickup point", ru: "Пункт выдачи", kk: "Беру пункті"}, value: "{pickup_cost:kzt}"}

@@ -1,0 +1,77 @@
+# Demo-store document spec (kb_doc/1, Stage 5, ADR-027). Text is written natively per
+# language by the Stage 5 agent (LLM), not machine-translated; human review pending.
+# Values come only from facts.yaml / catalog.yaml through placeholders (`{fact:format}`,
+# formats in supportpilot.data.textfmt and supportpilot.kb.spec), so every language states
+# the same policy. Section ids are stable across languages and versions; the gold benchmark
+# cites them as `<doc_id>.<section id>`.
+schema_version: kb_doc/1
+doc_id: returns_policy
+doc_type: policy
+format: pdf
+title:
+  en: Returns and refunds
+  ru: Возврат и обмен товаров
+  kk: Тауарды қайтару және айырбастау
+intro:
+  - en: "This policy explains how to return or exchange an item bought from {store_name:store} and how the money is refunded. It applies to orders delivered in Kazakhstan."
+    ru: "Эти правила описывают, как вернуть или обменять товар, купленный в {store_name:store}, и как возвращаются деньги. Правила действуют для заказов, доставленных по Казахстану."
+    kk: "Бұл ережелер {store_name:store} дүкенінен сатып алынған тауарды қалай қайтаруға немесе айырбастауға болатынын және ақша қалай қайтарылатынын түсіндіреді. Ережелер Қазақстан бойынша жеткізілген тапсырыстарға қолданылады."
+sections:
+  - id: window
+    heading: {en: "Return period", ru: "Срок возврата", kk: "Қайтару мерзімі"}
+    paragraphs:
+      - en: "Items can be returned within {return_window_days:days_gen} of delivery. The item must be unused, with its tags and original packaging, and you need the order number or the receipt."
+        ru: "Товар можно вернуть в течение {return_window_days:days_gen} с момента получения. Товар должен быть без следов использования, с ярлыками и в оригинальной упаковке; понадобится номер заказа или чек."
+        kk: "Тауарды алған күннен бастап {return_window_days:days_gen} ішінде қайтаруға болады. Тауар пайдаланылмаған, жапсырмалары мен түпнұсқа қаптамасы сақталған болуы керек; тапсырыс нөмірі немесе чек қажет."
+      - en: "If the tags were removed or the item shows signs of wear, the return can be refused. The period is counted from the day you received the order, including weekends."
+        ru: "Если ярлыки срезаны или на товаре есть следы носки, в возврате могут отказать. Срок считается со дня получения заказа, включая выходные."
+        kk: "Жапсырмалар алынып тасталса немесе тауарда киілген іздер болса, қайтарудан бас тартылуы мүмкін. Мерзім тапсырысты алған күннен бастап, демалыс күндерін қоса есептеледі."
+  - id: non_returnable
+    heading: {en: "Items that cannot be returned", ru: "Товары, которые нельзя вернуть", kk: "Қайтаруға жатпайтын тауарлар"}
+    paragraphs:
+      - en: "The following items cannot be returned if they are in good condition: {non_returnable:non_returnable}. Faulty items of these kinds are handled under the warranty rules."
+        ru: "Не подлежат возврату, если они надлежащего качества: {non_returnable:non_returnable}. Если такой товар оказался неисправным, действуют правила гарантии."
+        kk: "Сапасы тиісті болса, мына тауарлар қайтарылмайды: {non_returnable:non_returnable}. Мұндай тауар ақаулы болып шықса, кепілдік ережелері қолданылады."
+  - id: how_to_return
+    heading: {en: "How to return an item", ru: "Как вернуть товар", kk: "Тауарды қалай қайтаруға болады"}
+    paragraphs:
+      - en: "Open \"My orders\", choose the order and press \"Return\", then bring the item to a pickup point or hand it to our courier. Return shipping costs {return_shipping_cost:kzt}; it is free if the item is faulty or we sent the wrong item."
+        ru: "Откройте «Мои заказы», выберите заказ и нажмите «Вернуть», затем сдайте товар в пункт выдачи или передайте нашему курьеру. Обратная доставка стоит {return_shipping_cost:kzt}; она бесплатна, если товар неисправен или мы прислали не тот товар."
+        kk: "«Менің тапсырыстарым» бөлімін ашып, тапсырысты таңдаңыз да, «Қайтару» батырмасын басыңыз, содан кейін тауарды беру пунктіне тапсырыңыз немесе курьерімізге беріңіз. Кері жеткізу құны — {return_shipping_cost:kzt}; тауар ақаулы болса немесе біз басқа тауар жіберсек, ол тегін."
+  - id: refund
+    heading: {en: "Refunds", ru: "Возврат денег", kk: "Ақшаны қайтару"}
+    paragraphs:
+      - en: "After the returned item passes inspection, the money goes back to the original payment method within {refund_days:wdays_gen}. Your bank may need extra time to show it on the statement."
+        ru: "После проверки возвращённого товара деньги возвращаются тем же способом, которым была оплата, в течение {refund_days:wdays_gen}. Банку может понадобиться дополнительное время, чтобы отразить их в выписке."
+        kk: "Қайтарылған тауар тексерілгеннен кейін ақша төлем жасалған тәсілмен {refund_days:wdays_gen} ішінде қайтарылады. Банкке оны үзінді көшірмеде көрсету үшін қосымша уақыт қажет болуы мүмкін."
+      - en: "Orders paid with Kaspi Red instalments are refunded to Kaspi, and the remaining instalments are cancelled. Orders paid in cash on delivery are refunded to a bank card of your choice."
+        ru: "Заказы, оплаченные в рассрочку Kaspi Red, возвращаются в Kaspi, а оставшиеся платежи по рассрочке отменяются. За заказы, оплаченные наличными при получении, деньги возвращаются на указанную вами банковскую карту."
+        kk: "Kaspi Red бөліп төлеуімен төленген тапсырыстардың ақшасы Kaspi-ге қайтарылады, ал қалған төлемдер жойылады. Алған кезде қолма-қол төленген тапсырыстардың ақшасы сіз көрсеткен банк картасына қайтарылады."
+  - id: exchange
+    heading: {en: "Exchanges", ru: "Обмен", kk: "Айырбастау"}
+    paragraphs:
+      - en: "You can exchange an item for another size, colour or model within {exchange_window_days:days_gen} of delivery if the new item is in stock. Start the exchange in \"My orders\" or at a pickup point. If the new item costs more, you pay the difference; if it costs less, we refund the difference."
+        ru: "Товар можно обменять на другой размер, цвет или модель в течение {exchange_window_days:days_gen} после получения, если нужный товар есть в наличии. Оформить обмен можно в «Моих заказах» или в пункте выдачи. Если новый товар дороже, вы доплачиваете разницу, если дешевле — мы возвращаем разницу."
+        kk: "Қажетті тауар қоймада болса, оны алған күннен бастап {exchange_window_days:days_gen} ішінде басқа өлшемге, түске немесе үлгіге айырбастауға болады. Айырбастауды «Менің тапсырыстарым» бөлімінде немесе беру пунктінде рәсімдеуге болады. Жаңа тауар қымбатырақ болса, айырманы сіз төлейсіз, арзанырақ болса, айырманы біз қайтарамыз."
+  - id: damaged_wrong
+    heading: {en: "Damaged, missing or wrong items", ru: "Повреждённый, недостающий или не тот товар", kk: "Зақымдалған, жетіспейтін немесе басқа тауар"}
+    paragraphs:
+      - en: "Report the problem within {defect_report_days:days_gen} of delivery with the order number and photos of the item and the packaging. We replace the item or refund it in full, including delivery."
+        ru: "Сообщите о проблеме в течение {defect_report_days:days_gen} после получения, указав номер заказа и приложив фото товара и упаковки. Мы заменим товар или полностью вернём деньги, включая доставку."
+        kk: "Мәселе туралы алған күннен бастап {defect_report_days:days_gen} ішінде тапсырыс нөмірін көрсетіп, тауар мен қаптаманың суретін тіркеп хабарлаңыз. Біз тауарды ауыстырамыз немесе ақшаны жеткізу құнымен қоса толық қайтарамыз."
+  - id: periods_table
+    heading: {en: "Key periods and costs", ru: "Основные сроки и стоимость", kk: "Негізгі мерзімдер мен құны"}
+    paragraphs:
+      - en: "The table summarises the periods above. They are counted from the day of delivery unless stated otherwise."
+        ru: "В таблице собраны сроки, указанные выше. Они считаются со дня получения, если не указано иное."
+        kk: "Кестеде жоғарыда көрсетілген мерзімдер жинақталған. Басқаша көрсетілмесе, олар алған күннен бастап есептеледі."
+    table:
+      columns:
+        - {en: "Action", ru: "Действие", kk: "Әрекет"}
+        - {en: "Period or cost", ru: "Срок или стоимость", kk: "Мерзімі немесе құны"}
+      rows:
+        - [{en: "Return an item", ru: "Возврат товара", kk: "Тауарды қайтару"}, "{return_window_days:days}"]
+        - [{en: "Exchange an item", ru: "Обмен товара", kk: "Тауарды айырбастау"}, "{exchange_window_days:days}"]
+        - [{en: "Report a damaged or wrong item", ru: "Сообщить о повреждённом или не том товаре", kk: "Зақымдалған немесе басқа тауар туралы хабарлау"}, "{defect_report_days:days}"]
+        - [{en: "Refund after inspection", ru: "Возврат денег после проверки", kk: "Тексеруден кейін ақшаны қайтару"}, "{refund_days:wdays}"]
+        - [{en: "Return shipping", ru: "Обратная доставка", kk: "Кері жеткізу"}, "{return_shipping_cost:kzt}"]

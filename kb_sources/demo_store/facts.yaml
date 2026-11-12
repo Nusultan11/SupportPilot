@@ -8,6 +8,9 @@
 #      may reuse a value listed here, so the SFT data never teaches the demo policy.
 # Changing a value here requires re-running `supportpilot data sft` (gate) and
 # `supportpilot data gold` (expected facts). Synthetic; no real store.
+# Stage 5 (ADR-027): every value is placed into the KB documents through `{key:format}`
+# placeholders (kb_sources/demo_store/docs/); `supportpilot kb build` re-renders the documents
+# that use a changed value and builds a new KB version. Quote YAML values that contain commas.
 schema_version: demo_facts/1
 store_name: Altyn Sauda
 effective_from: '2026-11-01'
@@ -38,3 +41,7 @@ loyalty_percent: 2
 gift_card_months: 18
 account_delete_days: 10
 sale: {en: Winter sale, ru: зимняя распродажа, kk: қысқы жеңілдік, from: '2027-01-10', to: '2027-01-20'}
+# Stage 5: values the account / payment FAQs state (Stage 4 gold: FIXED_FACTS)
+sms_retry_seconds: 60
+cart_days: 30
+payment_retry_minutes: 15

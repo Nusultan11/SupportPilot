@@ -39,12 +39,12 @@ uv run pre-commit install     # once per clone
 - Configuration: `configs/base.yaml`. Override with env vars `SUPPORTPILOT_<SECTION>__<KEY>`,
   or a file via `--config` / `SUPPORTPILOT_CONFIG`. Secrets go in `.env` (git-ignored).
 
-## 3. Quality checks (verified Stage 4)
+## 3. Quality checks (verified Stage 5)
 
 ```bash
 uv run ruff check . && uv run ruff format --check .
 uv run mypy                   # strict; src + tests
-uv run pytest -q              # full suite: 277 tests, ~31 s (with the Qdrant server up)
+uv run pytest -q              # full suite: 317 tests, ~66 s (with the Qdrant server up)
 uv run pytest -q -m "not slow and not gpu and not qdrant_server"   # fast subset
 uv run pre-commit run --all-files                                  # all hooks
 ```
@@ -278,6 +278,49 @@ uv run supportpilot backup create data/processed/kb_train --name kb_train --kind
 uv run supportpilot backup create data/processed/sft/<dataset_version> --name sft --kind data --pin
 uv run supportpilot backup create data/gold/<benchmark_version> --name gold --kind data --pin
 ```
+
+## 7d. Stage 5: demo-store knowledge base (verified Stage 5)
+
+Inputs: `kb_sources/demo_store/` (`facts.yaml`, `catalog.yaml`, `docs/<doc_id>.yaml`),
+`configs/locale_kz.yaml` (city / carrier / payment names), `authored/gold/` (evidence gate).
+Settings: `configs/base.yaml` `kb:`. Output: `data/kb/demo_store/` (ADR-027, DATA_CONTRACTS §8).
+
+```bash
+uv run supportpilot kb render                  # specs + facts -> data/kb/demo_store/sources/ (30 files)
+uv run supportpilot kb build                   # render, then extract, chunk, gate, activate a new version
+uv run supportpilot kb build --force           # re-parse every document (same content -> "unchanged")
+uv run supportpilot kb validate                # re-run all 13 gates on the current version (exit 1 on failure)
+uv run supportpilot kb validate --version <kb_version>
+uv run supportpilot kb status                  # current version, stored versions, sources_match_current
+uv run supportpilot kb activate <kb_version>   # switch the current version (rollback)
+```
+
+Behaviour:
+- **Updating the KB.** Edit a value in `facts.yaml` / `catalog.yaml` or a text in
+  `docs/<doc_id>.yaml`, then `kb build`. Only the files whose bytes change are re-rendered and
+  re-parsed; `versions/<new>/changes.json` lists the documents changed/added/removed and the
+  chunk ids to delete and upsert (the Stage 6 reindex input). Deleting a spec removes its
+  documents from the next version. Quote YAML values that contain commas (the loader rejects
+  split values).
+- **Identical content** (same chunks, same ground truth) creates no version: the build reports
+  `unchanged`, or `activated_existing` when it matches an older stored version (a reverted
+  edit). The tokenizer is the pinned Qwen3 `tokenizer.json` from the HF cache
+  (`HF_HUB_OFFLINE=1` once cached).
+- **Failed gates.** The version is kept as `versions/<kb_version>.failed/` with its
+  `quality_report.json`, `current.json` is not changed, and the exit code is 1. A source file
+  edited after rendering is refused (`changed after rendering`): run `kb render` again.
+  Extraction errors (scanned PDF page, missing header row, no effective date) exit 2.
+- **Timings (laptop):** render ≈ 2.4 s; full build ≈ 8 s including start-up and the tokenizer;
+  `--force` re-parse of 30 documents 6.4 s, peak RSS 269 MiB; 2.4 MB on disk per version set.
+
+Backup and restore drill:
+```bash
+uv run supportpilot backup create data/kb/demo_store --name kb_demo_store --kind data --pin
+uv run supportpilot backup restore data/kb_demo_store/<snapshot_id> --target <empty-dir>/kb/demo_store
+SUPPORTPILOT_PATHS__DATA_DIR=<empty-dir> uv run supportpilot kb validate   # gates on the restored copy
+```
+A version directory is self-contained (its own copy of the sources), so a restored version
+validates without re-rendering.
 
 ## 8. Diagnostics
 

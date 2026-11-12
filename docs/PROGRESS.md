@@ -1,15 +1,12 @@
 # PROGRESS: current state (single source of truth for status)
 
-Last updated: 2026-11-12
+Last updated: 2026-11-12 (Stage 5)
 
 ## Current stage
 
-**Stage 4: Multilingual dataset engineering. Status: COMPLETED with documented gaps** (no
-fluent human review of RU/KK and gold; SFT volume and held-out sets far below the 90k/5k/5k
-targets; see "Stage 4 open items"). Waiting for owner confirmation before Stage 5 continues.
-Note: a separate Stage 5 session is working in this checkout on new, uncommitted files
-(`src/supportpilot/kb/**`, `tests/*/test_kb_*`, `kb_sources/demo_store/docs/**`,
-`kb_sources/demo_store/catalog.yaml`). They are not part of Stage 4.
+**Stage 5: Knowledge base and document extraction. Status: COMPLETED.** Waiting for owner
+confirmation before Stage 6 (retrieval and RAG experiments). Stage 4 stays COMPLETED with
+documented gaps (see "Stage 4 open items").
 
 | Stage | Status | Commits |
 |---|---|---|
@@ -17,7 +14,8 @@ Note: a separate Stage 5 session is working in this checkout on new, uncommitted
 | 1 Engineering foundation | COMPLETED | `6b17404`, `7b6bc4c` |
 | 2 Data acquisition and source registry | COMPLETED | `a7bcc05`, `4384d13`, `f43dec0` |
 | 3 EDA and data quality engineering | COMPLETED | `b2f5d86`, `809b47b` |
-| 4 Multilingual dataset engineering | COMPLETED (gaps documented) | `da28191`, plus a follow-up progress commit |
+| 4 Multilingual dataset engineering | COMPLETED (gaps documented) | `da28191`, `6e5c537` |
+| 5 Knowledge base and document extraction | COMPLETED | see "Git and backups" |
 
 ## What exists (cumulative)
 
@@ -31,10 +29,115 @@ Note: a separate Stage 5 session is working in this checkout on new, uncommitted
 | Taxonomy v1 (Stage 4) | `configs/taxonomy.yaml`, `data/taxonomy.py`, `data/select.py` | 35 intents, actions, conditions, rule-split labels (ADR-023) |
 | Localisation, MT, QE (Stage 4) | `configs/locale_kz.yaml`, `data/locale.py`, `data/mt.py`, `data/mtrun.py`, `data/qe.py`, `data/embed.py` | KZT/cities/names, resumable MT cache, glossary, QE filter (ADR-024) |
 | Training KB, answers, scenarios (Stage 4) | `authored/kb_train/`, `authored/responses/`, `authored/scenarios/`, `data/kbtrain.py`, `data/textfmt.py`, `data/scenarios.py` | LLM-agent-authored, native en/ru/kk (ADR-025) |
-| Demo-store facts seed | `kb_sources/demo_store/facts.yaml` | values reserved for Stage 5; training KB must differ |
+| Demo-store KB sources (Stage 5) | `kb_sources/demo_store/{facts,catalog}.yaml`, `docs/*.yaml` | canonical values once + 10 document specs in en/ru/kk (ADR-027); training KB must differ |
+| KB pipeline (Stage 5) | `kb/spec.py`, `render.py`, `writers.py`, `parse_pdf.py`, `parse_office.py`, `parse_text.py`, `blocks.py`, `structure.py`, `chunk.py`, `checks.py`, `locate.py`, `register.py`, `build.py`, `cli.py`; `common.schemas` KBDocument/KBChunk | render -> parse -> structure -> chunk -> 13 gates -> versioned KB `data/kb/demo_store/` |
 | SFT build, splits, gates (Stage 4) | `common/grounding.py`, `data/sft.py`, `data/sftbuild.py`, `data/split.py`, `data/sftgates.py`, `data/steps.py`, `data/stage4.py` | `sft/1` + `AssistantResponse` contracts, leakage checks (ADR-026) |
 | Gold benchmark (Stage 4) | `authored/gold/`, `data/gold.py` | 312 scenarios × en/ru/kk, `gold/1`, review status per item |
-| CLI | `supportpilot data …` | Stage 3 commands + `taxonomy`, `select`, `kb-train`, `mt-compare`, `translate`, `qe-score`, `sft`, `gold` (RUNBOOK §7c) |
+| CLI | `supportpilot data …`, `supportpilot kb …` | Stage 3 commands + `taxonomy`, `select`, `kb-train`, `mt-compare`, `translate`, `qe-score`, `sft`, `gold` (RUNBOOK §7c); `kb render/build/validate/status/activate` (RUNBOOK §7d) |
+
+## Stage 5 results (2026-11-12)
+
+### Knowledge base content (ADR-027)
+- Fictional store Altyn Sauda (KZT, Kazakhstan). Canonical values are written once:
+  `facts.yaml` (policy values; Stage 5 added `sms_retry_seconds`, `cart_days`,
+  `payment_retry_minutes`) and `catalog.yaml` (30 products with demo prices, 11 categories,
+  12 delivery-zone cities). No real customer data; no real store.
+- 10 documents x en/ru/kk = 30 files. The text is written natively per language by the
+  Stage 5 agent (LLM; human review pending). Values enter only through placeholders, so every
+  language states the same policy.
+
+  | doc_id | type | format | sections / records |
+  |---|---|---|---|
+  | returns_policy | policy | PDF (table) | 7 |
+  | payment_policy | policy | PDF (table) | 5 |
+  | delivery_policy | policy | DOCX (table) | 5 |
+  | orders_policy | policy | DOCX | 4 |
+  | terms | terms | DOCX (level-2 sections) | 8 |
+  | warranty_policy | policy | TXT | 4 |
+  | account_faq | faq | TXT (Q:/A:) | 9 |
+  | store_info | faq | JSON (FAQ export) | 6 |
+  | catalog | catalog | XLSX | 30 products |
+  | delivery_zones | policy | CSV | 12 cities |
+
+- Every section the gold benchmark cites (34 `doc.section` references, e.g.
+  `returns_policy.window`) exists in all three languages (`evidence` gate), and
+  `evidence_map.json` resolves them to chunk ids.
+
+### Parser choice (measured, ADR-027)
+| candidate | table rows exact | word / fact recall | decision |
+|---|---|---|---|
+| pdfplumber 0.11.10 (MIT) | 1.000 | 1.000 / 1.000 | **chosen** (PDF) |
+| PyMuPDF 2.1 (AGPL-3.0) | 0.389 | 1.000 / 1.000 | rejected (tables, licence) |
+| pypdf 7.0.1 (BSD) | no tables | 1.000 / 1.000 | rejected |
+| python-docx 1.2.0 (MIT) | 1.000 | 1.000 / 1.000 | **chosen** (styles give heading levels) |
+| docx2python 3.7.2 (MIT) | 1.000 | 1.000 / 1.000 | rejected (no styles) |
+| openpyxl 3.1.5 (MIT) | records 1.000 | integers 90/90 as int | **chosen** (XLSX) |
+| python-calamine 0.9.1 (MIT) | records 1.000 | integers 0/90 (floats) | rejected |
+
+Measured on 6 rendered PDFs + 3 multi-page stress PDFs, 9 DOCX and 3 XLSX. Docling was not run
+(torch layout models, and there is no scanned input). Results:
+`artifacts/reports/kb/parser_comparison/`.
+
+### Build `kb_demo_store-20261112-bcae8093` (13 gates, all pass)
+| gate | result |
+|---|---|
+| facts | 912 / 912 placements found in the chunk of their section (304 per language: money 78, periods 46, identifiers 47, dates/hours 4, condition lists 3, text 126) |
+| locators | 912 / 912: the source file, re-read at the chunk locator, contains the fact |
+| coverage | 221 / 221 canonical facts placed in every language |
+| completeness | word recall 1.0 and 0 extra words in all 30 documents (running headers, footers and page numbers removed) |
+| cross_lingual | 96 / 96 translation groups have en/ru/kk with equal numbers and fact keys |
+| sections_linked | 270 / 270 sections and records found once; none unlinked |
+| language | 198 / 198 prose chunks: LID = document language |
+| metadata, sources, ids, pii, tokens, evidence | pass (max chunk 280 Qwen3 tokens, p50 81; budget 400) |
+
+- 288 chunks: catalog 90, policy 126, faq 45, terms 27 (96 per language).
+- **Reproducibility.** Re-rendering gives identical sha256 for all 30 files. Deleting
+  `data/kb/` and rebuilding gives byte-identical `chunks.parquet`, `documents.parquet`,
+  `evidence_map.json` and `changes.json` and the same `kb_version`, which is also the version
+  of a build from a copy of the sources in another directory. A `--force` re-parse of all 30
+  documents reports `unchanged` (6.4 s, peak RSS 269 MiB).
+
+### Verification evidence (2026-11-12)
+- `ruff check`, `ruff format --check` and `mypy --strict` are clean; pre-commit passes;
+  full `pytest`: **317 passed, 0 skipped** (Qdrant server up).
+- **New tests: 40** (unit 33, integration 7). They cover:
+  - spec validation and split YAML values; RU plural and KK case surfaces; effective-date
+    lines in 3 languages x 12 months; byte-deterministic writers for all 6 formats;
+  - parsers: PDF headings, tables, page furniture, paragraphs across pages, a 70-row table
+    split over pages, a scanned page -> error; DOCX styles and levels; XLSX header detection
+    and integer cells; CSV delimiter sniffing and multi-line rows; TXT setext, Q:/A: and pipe
+    tables; JSON FAQ ids and generic JSON;
+  - structure and chunking: FAQ = Q+A, records keep header, key and sheet, long sections and
+    tables split with the heading / header repeated; every gate on passing and failing input;
+  - **every document in every compatible format and language (84 combinations): 100% of
+    facts, words and locators**;
+  - the versioned build: unchanged re-run, identical forced rebuild, a changed fact that
+    re-parses only its 3 files and replaces only their chunk ids, removed and added documents,
+    failed gates that keep the current version, a damaged version that cannot be activated,
+    rollback, a reverted edit that reuses the stored version, and the CLI round trip.
+- **Bugs found and fixed during the stage:**
+  - Stage 4's `facts.yaml` lost the house number of the RU/KK showroom address (an unquoted
+    comma in a YAML flow mapping). The cross-lingual gate found it, the Stage 4 session fixed
+    it, and the KB loader now rejects split values.
+  - A changed ground truth with unchanged content skipped the gates. Re-saving a spec with CRLF
+    could overwrite a stored version of identical content. The version identity is now the
+    content plus the ground truth.
+  - The table of a section that fits the budget went into a separate chunk; the sheet name was
+    expected in CSV text.
+
+## Stage 5 limitations and open items
+
+1. **Synthetic, clean layouts.** The parsers are proven on this generator's documents
+   (born-digital PDF, styled DOCX, plain XLSX). Real scans, merged cells or multi-column PDFs are
+   not covered; a scanned page raises an error instead of being skipped. Revisit with real
+   documents (OCR / Docling evaluation).
+2. **The RU/KK texts are LLM-authored.** Fluent human review is pending (open decision 2), as
+   in Stage 4.
+3. **One effective period.** Every document has `effective_from` = the facts date and no
+   `effective_to`. Superseded versions live in older KB versions, not as dated chunks in the
+   current one. Future-dated policies are not modelled yet.
+4. **In-memory build.** Fine for this KB (2.4 MB); a KB larger than memory needs a streaming build.
+5. The retrieval query set (EVALUATION §1, ≥ 150 queries per language) is Stage 6 work.
 
 ## Stage 4 results (2026-11-12)
 
@@ -300,10 +403,12 @@ WEAK_TEXT, OFF_DOMAIN, LANG_OTHER, LID_ERROR and RESPONSE_DEFECT.
 
 ## Notes for the next stages
 
-- Stage 5 (KB): the demo store must keep the values in `kb_sources/demo_store/facts.yaml`
-  (gold expected facts and the `kb_variant_distinct` check depend on them). Gold
-  `accepted_evidence` uses the doc/section ids of `authored/kb_train/docs.yaml`
-  (e.g. `returns_policy.window`); Stage 5 must resolve them to demo chunk ids.
+- Stage 6 (retrieval): index the chunks of the current KB version
+  (`data/kb/demo_store/current.json` -> `versions/<kb_version>/chunks.parquet`, `chunk_json`
+  = KBChunk). Reindex incrementally from `changes.json` (`chunks_delete`, `chunks_upsert`).
+  Filter by `lang`, `doc_type`, `effective_from/to`; use `translation_group` for cross-lingual
+  evaluation and `evidence_map.json` for gold citations. Demo facts must keep their values
+  (gold, `kb_variant_distinct`).
 - Stage 7 (training): load `data/processed/sft/<version>/{train,validation}.parquet`;
   `messages_json` is ready for chat templates; `quality_flags` (`mt:madlad400_3b`,
   `src:bitext`, `src:authored`, `injection:*`, `conflict:*`) allow weighting. Report every
@@ -313,5 +418,5 @@ WEAK_TEXT, OFF_DOMAIN, LANG_OTHER, LID_ERROR and RESPONSE_DEFECT.
 
 ## Next recommended action
 
-Owner review of the Stage 4 report and decisions on open items 1–2 (reviewer, MT budget),
-then continue Stage 5 (KB and document extraction).
+Owner review of the Stage 5 report, then Stage 6 (retrieval and RAG experiments). Open
+decisions 1-2 (paid API budget, fluent reviewers) still apply.
