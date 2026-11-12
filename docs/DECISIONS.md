@@ -96,6 +96,27 @@ Format: context → decision → alternatives → risks → revisit when. Status
 - **Stage 5 check (2026-11-12):** the KB build, its gates and the update cycle are code
   (`kb render|build|validate|activate`); the parser comparison ran once. No skill yet.
 - **Revisit:** at the end of each of those stages, if the process was run ≥ 2 times by hand.
+- **MCP amendment (2026-11-12, owner request before Stage 6):** two project MCP servers in
+  `.mcp.json`, both verified to start and answer (RUNBOOK §4a). Skills: still none.
+  - `huggingface`: the hosted `https://huggingface.co/mcp`, used anonymously (no token in
+    the repo). It gives `hub_repo_search`, `hub_repo_details` (card metadata, licence) and
+    `hf_fs`. Need: Stages 6–7 compare embedders, rerankers and base LLMs, and every candidate
+    needs a licence check for the source registry (§2). Today this needs ad-hoc web reads.
+    Data sent: search terms and repo ids only, never project data.
+  - `mlflow`: `mlflow mcp run` from the locked env (`mlflow[mcp]` in the dev group), local
+    stdio, `MLFLOW_MCP_TOOLS=experiments,runs`, tracking URI `sqlite:///mlruns/mlflow.db`,
+    telemetry off. Need: Stages 6–7 compare runs per language (EVALUATION protocol). The tools
+    read the same store that `common/tracking.py` writes. The server also exposes write tools
+    (`create_*`, `delete_*`, `restore_*`, `rename_experiment`, `update_experiment`,
+    `link_traces_to_run`). Agents must use only the read tools (`search_experiments`,
+    `get_experiment`, `list_runs`, `describe_run`). Runs are logged by code, never through MCP.
+  - **Rejected:** `mcp-server-qdrant`, because it embeds with FastEmbed and writes its own
+    collections, so its queries would not match our e5 prefixes. Inspect the KB with
+    `kb status` or the Qdrant REST API instead. GitHub MCP, because `gh` covers it.
+    Context7/docs servers, because the built-in web tools suffice and there is no measured gap.
+  - **Deferred:** Kaggle's hosted MCP (`https://www.kaggle.com/mcp`, OAuth). It needs the
+    owner's Kaggle account, so it waits for Stage 7 when training moves to Kaggle.
+  - **Rollback:** delete the entry from `.mcp.json` (and `mlflow[mcp]` from the dev group).
 
 ### ADR-013 Git on `main` only; backups in the git-ignored `backups/` dir — accepted (2026-11-11, location changed the same day)
 - **Decision:** project rule set by the owner.

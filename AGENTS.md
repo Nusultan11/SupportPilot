@@ -42,6 +42,7 @@ JSON, grounding, abstention, escalation), never facts. Details: [docs/PROJECT.md
 | `docs/reviews/` | Qualitative reviews (Stage 3: `stage3_review.yaml`; Stage 4: `stage4_mt_review.yaml`, `stage4_sft_review.yaml`). LLM reviews are labelled as such |
 | `tests/unit`, `tests/integration` | pytest suites (markers: `slow`, `gpu`, `qdrant_server`) |
 | `compose.yaml` | Local services (Qdrant) |
+| `.mcp.json` | Project MCP servers for agents: `huggingface`, `mlflow` (read tools only); RUNBOOK §4a, ADR-012 |
 | `apps/` | UI (created in Stage 8) |
 | `data/`, `artifacts/`, `mlruns/` | Local only, git-ignored |
 

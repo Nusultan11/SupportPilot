@@ -80,6 +80,29 @@ uv run mlflow ui --backend-store-uri sqlite:///mlruns/mlflow.db --host 127.0.0.1
 Experiments are named `supportpilot/<name>`. The database is `mlruns/mlflow.db` and
 artifacts are in `mlruns/artifacts/`. Both are git-ignored, so back them up with §6.
 
+## 4a. MCP servers for agents (verified 2026-11-12, ADR-012)
+
+`.mcp.json` declares two servers. Claude Code asks once per clone before it enables them.
+Other MCP clients can read the same file.
+
+| Server | Transport | Tools agents may use |
+|---|---|---|
+| `huggingface` | HTTP, `https://huggingface.co/mcp`, anonymous | `hub_repo_search`, `hub_repo_details`, `hf_fs`, `hf_whoami` |
+| `mlflow` | stdio, `uv run --locked mlflow mcp run` (cwd = repo root) | read only: `search_experiments`, `get_experiment`, `list_runs`, `describe_run` |
+
+The MLflow server also exposes create, delete, restore and rename tools. Never call them.
+To make Claude Code enforce this, add a `deny` list for those tool names to
+`.claude/settings.json` (or `.claude/settings.local.json`).
+
+Check both servers without an agent:
+```bash
+uv run mlflow mcp run --help                       # needs mlflow[mcp] (dev group)
+claude mcp list                                    # if the Claude Code CLI is installed
+```
+How it was verified: an MCP client (fastmcp) started the stdio server, listed 13 tools and
+`search_experiments` returned `supportpilot/healthcheck`. Anonymously, the HF server listed 4
+tools and `hub_repo_details` returned the card of `intfloat/multilingual-e5-small`.
+
 ## 5. Code backup (git bundle): verified Stage 0, new location verified Stage 2
 
 Location: `backups/code/` in the project root (git-ignored, ADR-013).

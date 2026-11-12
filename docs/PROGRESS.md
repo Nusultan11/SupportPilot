@@ -428,6 +428,11 @@ WEAK_TEXT, OFF_DOMAIN, LANG_OTHER, LID_ERROR and RESPONSE_DEFECT.
   `messages_json` is ready for chat templates; `quality_flags` (`mt:madlad400_3b`,
   `src:bitext`, `src:authored`, `injection:*`, `conflict:*`) allow weighting. Report every
   metric per language and on gold, with the semantic-near-train subset separately.
+- MCP servers (ADR-012 amendment, 2026-11-12): `.mcp.json` declares `huggingface`, which is
+  anonymous and used for model/dataset search and licences, and `mlflow`, which is local and
+  read-only by rule. See RUNBOOK §4a. A Claude Code `deny` list for the MLflow write tools
+  is not committed yet: the agent was not allowed to write `.claude/settings.json`, so the
+  owner adds it. The Kaggle MCP is deferred to Stage 7 because it needs the owner's account.
 - Re-running Stage 4: RUNBOOK §7c. MT is the only GPU step; everything else rebuilds in
   minutes from the cache.
 
