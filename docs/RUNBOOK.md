@@ -3,6 +3,22 @@
 Only commands that were actually run go here, each marked with the stage that verified it.
 Shell: Git Bash on Windows unless stated otherwise. Run everything from the repo root.
 
+## Stage 7 Kaggle hardware preflight
+
+Verified CLI 2.2.5 commands (PowerShell; hardware-only private kernel, no project inputs):
+
+```powershell
+kaggle kernels status nurs2005/supportpilot-stage7-preflight/1
+kaggle kernels output nurs2005/supportpilot-stage7-preflight/1 -p artifacts/kaggle/stage7_preflight/output
+kaggle kernels pull nurs2005/supportpilot-stage7-preflight/1 -p artifacts/kaggle/stage7_preflight/remote -m
+```
+
+Require COMPLETE for the explicit version. Compare output SHA256 with the downloaded
+sidecar and submitted vs downloaded source; verify private metadata and input sources.
+Submission is not completion. Hardware success does not establish training compatibility,
+free quota for later sessions or semantic quality. The remote environment differs from
+the local Python 3.12 lock. Execution receipts and status are in PROGRESS.md.
+
 ## 1. Environment check (verified Stage 1)
 
 ```bash

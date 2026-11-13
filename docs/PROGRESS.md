@@ -1,13 +1,66 @@
 # PROGRESS: current state (single source of truth for status)
 
-Last updated: 2026-11-13 (Stage 6.1 completed; implementation published)
+Last updated: 2026-11-13 (Stage 7 started by owner authorization)
 
 ## Current stage
 
-**Stage 6.1: COMPLETED — implementation, frozen evaluation, source-bound error review,
-serving rollback, full checks, verified/restored backups and publication complete.**
-This is completion of the controlled experiment, not semantic-abstention or production
-quality acceptance. Stage 7 has not started and requires owner confirmation.
+**Stage 7: IN PROGRESS — protocol, generation boundary and Kaggle hardware preflight.**
+Owner authorized the complete Stage 7 task and Kaggle CLI execution on 2026-11-13.
+Stage 6.1 remains completed with its quality limitations below. Stage 8 is not started.
+
+### Stage 7 execution checkpoint
+
+- Protocol: `docs/reviews/stage7_protocol.md`. Preserve existing SFT
+  `sft-20261112-b0388c64`, training KB, gold and Stage 6.1 frozen artifacts.
+- Kaggle CLI 2.2.5 authentication verified. Private hardware-only kernel
+  `nurs2005/supportpilot-stage7-preflight/1` reached COMPLETE. Two Tesla T4 devices,
+  each 15,636,037,632 bytes; CUDA matmul succeeded on each. Python 3.13.16,
+  Torch 2.11.0+cu130, transformers 5.20.2, PEFT 0.21.2, accelerate 1.15.0.
+  TRL, bitsandbytes and MLflow are absent. This is not the locked local Python 3.12
+  environment, not proof of training compatibility or available future GPU quota.
+- Downloaded explicit-version output and source/metadata under
+  `artifacts/kaggle/stage7_preflight/`. `preflight.json` SHA256
+  `bc149c243ab405630b49e4831422222b62524e69b2c77555da423fc9453a54c6`
+  matches its downloaded sidecar. Remote metadata confirms private, no inputs,
+  internet disabled and a pinned Docker image. No project data/credentials uploaded.
+- Initial `llm/generation.py` boundary checks AssistantResponse schema, citation
+  membership, unsupported numbers, response language and required escalation; retains
+  raw completions and fallback reasons. Semantic support requires an explicit verifier
+  verdict, default UNKNOWN/fallback. **No calibrated semantic verifier or real model
+  backend is implemented yet; this is not an accepted working generation pipeline.**
+- Initial targeted tests: 11 passed. Repository-wide Ruff, format and strict mypy
+  pass (142 formatted files, 128 typed source files). Full pytest **431 passed,
+  zero skipped**, one expected Qdrant local-mode warning, 407.89 seconds, including
+  actual GPU/server tests. These verify the current boundary, not Stage 7 completion.
+  Initial uv commands failed on sandbox cache access, escalated rerun worked;
+  initial Ruff attempts found Cyrillic-string and compound-assertion lint errors.
+- Model selection, actual baselines, training/resume, classifier comparison, safety set,
+  paired CIs, RTX 3050 inference and joint retrieval residency are NOT_RUN.
+  Semantic quality remains NOT_EVALUATED. No adapter selected or Stage 8 readiness claim.
+- Preflight MLflow run `eecf03b90ab24b5b965e96c0d3f9d5bb` FINISHED. Downloaded
+  source matches submitted source after documented LF/outer-whitespace normalization;
+  source SHA256 `c17a379642d621b28473a38b5fbdee7dc924757c8fbfad7c2add7df67fef3c6e`.
+  Snapshot `data/stage7_preflight/20261113T103127Z-f16280cc` is pinned,
+  deep-verified and restored with all hashes verified.
+- Private inference smoke `nurs2005/supportpilot-stage7-model-smoke/1` submitted:
+  Qwen3-0.6B revision `c1899de289a04d12100db370d81485cdf75e47ca`, fp16, six
+  validation prompts (two per language), 512 max generated tokens, 900-second limit.
+  Validation parquet SHA256 `1a989f060f9654f9a37850f24996b73c8e5eb692e3fa8721a1a78cb577479ff7`.
+  No assistant targets enter prompts. Version 1 reached COMPLETE, receipt FINISHED,
+  six predictions downloaded, all output hashes and normalized remote source verified.
+  JSON parseability 2/2 per language; AssistantResponse validity **0/2 per language**
+  (0/6 overall). Labels, enum values, field types and citations fail. This is a small
+  negative prompt/pipeline diagnostic, not a complete baseline or model-selection result.
+  T4 process peak allocated VRAM 1,659,389,440 bytes; loading 15.42 seconds, total
+  script 70.81 seconds. These do not establish local RTX 3050 feasibility or session cost.
+  MLflow `42cfea134e694e8c879e4681314fbc68` FINISHED; pinned snapshot
+  `data/stage7_model_smoke/20261113T103707Z-ea042930` deep-verified and restored.
+  First local import failed on Windows cp1251 decoding before MLflow opened; explicit
+  UTF-8 fixed the importer. Raw outputs retained; semantic quality NOT_EVALUATED.
+- Next: prepare pinned compatible remote training environment, audit model candidates,
+  implement real backend/experiment runners and compare schema-aware zero/few-shot
+  prompts on validation. Then training/resume, routing, safety and final evaluations.
+  Use only validation for development. Test/gold have not been loaded in this work cycle.
 
 ## Stage 6.1 verified results
 
@@ -95,7 +148,8 @@ quality acceptance. Stage 7 has not started and requires owner confirmation.
   `git ls-remote origin refs/heads/main` verified that exact hash. Delivery metadata is
   recorded below; final publication and the documentation bundle are recorded
   in `artifacts/reports/retrieval_scale_delivery_receipt.json`.
-- Next stage: **Stage 7 only after explicit owner confirmation**. No work started.
+- At Stage 6.1 delivery, Stage 7 awaited owner confirmation; authorization and its
+  current execution checkpoint are now recorded above.
   User-owned untracked `.codex/` remains excluded from Git.
 
 ### Delivery snapshots (pinned, deep-verified and restored)
