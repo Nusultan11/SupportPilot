@@ -134,6 +134,12 @@ def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
             name: max((r[name] for r in selected if r.get(name) is not None), default=None)
             for name in ("rss_bytes", "peak_vram_bytes", "reserved_vram_bytes")
         }
+        escalation_rows = [
+            r
+            for r in selected
+            if isinstance(r.get("expected_escalation"), bool)
+            and isinstance(r.get("predicted_escalation"), bool)
+        ]
         result[scope] = {
             "n": len(selected),
             "scenarios": len({r["scenario_id"] for r in selected}),
@@ -146,11 +152,15 @@ def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
             "latency_p95": float(np.percentile(timings, 95)) if timings else None,
             "resources": resource_peaks,
             "execution_errors": sum(bool(r.get("execution_error")) for r in selected),
-            "required_escalations": sum(bool(r.get("expected_escalation")) for r in selected),
-            "missed_required_escalations": sum(
-                bool(r.get("expected_escalation")) and not r.get("predicted_escalation", False)
-                for r in selected
+            "escalation_observations": len(escalation_rows),
+            "required_escalations": (
+                sum(r["expected_escalation"] for r in escalation_rows) if escalation_rows else None
             ),
+            "missed_required_escalations": sum(
+                r["expected_escalation"] and not r["predicted_escalation"] for r in escalation_rows
+            )
+            if escalation_rows
+            else None,
             "token_limit_reached": sum(bool(r.get("token_limit_reached")) for r in selected),
             "timed_observations": len(timed),
             "generation_tokens_per_second": (

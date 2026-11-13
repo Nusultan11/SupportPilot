@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from supportpilot.common.hashing import sha256_file
-from supportpilot.common.io import write_json
+from supportpilot.common.io import read_json, write_json
 
 REQUIREMENTS = (
     "transformers==5.20.2\npeft==0.21.3\ntrl==1.17.1\n"
@@ -111,6 +111,16 @@ def package(
     import hashlib
 
     manifest = {name: hashlib.sha256(value).hexdigest() for name, value in files.items()}
+    submission = destination / "submission.json"
+    if submission.exists():
+        previous = read_json(submission)
+        if previous["files"] != manifest:
+            raise ValueError("existing payload is immutable; use a distinct destination")
+        if sha256_file(dataset / "payload.zip") != previous["payload_sha256"]:
+            raise ValueError("existing payload ZIP is corrupt")
+        if (kernel / "run.py").read_text("utf-8") != BOOTSTRAP:
+            raise ValueError("existing kernel source changed")
+        return destination
     files["payload_manifest.json"] = json.dumps(manifest, sort_keys=True).encode()
     with zipfile.ZipFile(dataset / "payload.zip", "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for name, value in sorted(files.items()):

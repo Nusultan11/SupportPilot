@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import subprocess
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -96,6 +98,8 @@ def test_resources_keep_missing_measurements_and_errors_explicit() -> None:
     assert summary["en"]["resources"]["peak_vram_bytes"] == 100
     assert summary["en"]["resources"]["rss_bytes"] is None
     assert summary["kk"]["generation_tokens_per_second"] is None
+    assert summary["en"]["escalation_observations"] == 0
+    assert summary["en"]["missed_required_escalations"] is None
 
 
 def test_nonlinear_macro_f1_bootstrap_recomputes_the_metric() -> None:
@@ -146,3 +150,16 @@ def test_route_consistency_and_reference_policy() -> None:
     human = policy_decision("greeting", 0.5, "Connect a human agent", {}, "en", False, taxonomy)
     assert human.escalate
     assert human.escalation_reason == "customer_requested_human"
+
+
+def test_llm_router_import_does_not_require_retrieval_services() -> None:
+    code = """import sys
+class BlockRetrieval:
+    def find_spec(self, fullname, path=None, target=None):
+        if fullname.startswith('supportpilot.retrieval'):
+            raise ImportError('retrieval is deliberately unavailable')
+sys.meta_path.insert(0, BlockRetrieval())
+from supportpilot.routing.llm import LLMRouter
+"""
+    result = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True)
+    assert result.returncode == 0, result.stderr

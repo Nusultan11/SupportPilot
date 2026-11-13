@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 import time
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 import numpy as np
 import numpy.typing as npt
@@ -14,9 +14,10 @@ from supportpilot.common.io import read_json, write_json
 from supportpilot.common.schemas import INTENTS, Action, AssistantResponse, LanguageCode
 from supportpilot.data.labels import has_reference
 from supportpilot.data.taxonomy import Taxonomy
-from supportpilot.retrieval.encode import Transformer
-from supportpilot.retrieval.models import ModelSpec
 from supportpilot.routing.models import RouteDecision
+
+if TYPE_CHECKING:
+    from supportpilot.retrieval.models import ModelSpec
 
 _HUMAN = re.compile(
     r"\b(?:operator|human agent|оператор\w*|менеджер\w*|адаммен|қызметкермен)\b", re.I
@@ -101,6 +102,8 @@ class EncoderRouter:
     def __init__(
         self, encoder: ModelSpec, head: dict[str, Any], taxonomy: Taxonomy, *, device: str = "cpu"
     ) -> None:
+        from supportpilot.retrieval.encode import Transformer
+
         self.encoder = Transformer(encoder, device=device)
         self.head = head
         self.taxonomy = taxonomy
@@ -144,6 +147,8 @@ class EncoderRouter:
 
     @classmethod
     def load(cls, path: Path, taxonomy: Taxonomy, *, device: str = "cpu") -> EncoderRouter:
+        from supportpilot.retrieval.models import ModelSpec
+
         data = read_json(path)
         if data["schema_version"] != "encoder_router/1":
             raise ValueError("unsupported router artifact")

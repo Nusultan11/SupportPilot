@@ -12,6 +12,57 @@ Stage 6.1 remains completed with its quality limitations below. Stage 8 is not s
 
 #### Active continuation (2026-11-13)
 
+- Routing2 COMPLETE; both313-row runs FINISHED, source/payload/output hashes verified
+  and imported to MLflow. Comparison/paired scenario+family CIs:
+  `artifacts/reports/llm/routing_comparison.json`. Intent macro-F1 EN/RU/KK/mixed:
+  encoder .53411/.53250/.38675/.16190; Qwen3.5 .39324/.40980/.29828/.08102;
+  Qwen3 .13314/.08116/.03678/.01905. Qwen3.5-minus-encoder scenario CI excludes
+  zero for EN/mixed, includes zero for RU/KK. Encoder warm p50 ~8.3ms vs Qwen3.5
+  ~3.0–3.5s (different local/Kaggle devices; no same-hardware speedup claim).
+  Critical misses EN/RU/KK: encoder10/13,10/12,19/21; Qwen3.5 5/13,2/12,10/21.
+  Neither router accepted for autonomous escalation decisions. Encoder predicted
+  escalation reconstructed exactly from stored binary correctness and expected boolean,
+  since its original report omitted that field; derivation recorded in comparison.
+- Full pytest after routing import fix: **454 passed, zero skipped**, expected Qdrant
+  warning,411.59s, log `artifacts/reports/llm/pytest_completion.log`. Subsequently
+  added immutable packaging and missing-observation reporting guards: focused tests
+  pass, full-stage verification still pending. Packaging refuses a changed payload in
+  an existing destination and preserves identical ZIP bytes on replay.
+
+- Published engineering checkpoint **fe50e7c2cf8c25eaab9c71c834e8fbd41e80b3cc**;
+  remote main hash verified. All commit hooks pass. Code bundle
+  `backups/code/supportpilot-stage7-checkpoint.bundle` verified; SHA256 sidecar retained.
+- Baselines explicit version **1 COMPLETE**, source/payload/output hashes verified;
+  four FINISHED runs imported to MLflow. Each configuration has all313 validation rows.
+  Derived report/CIs: `artifacts/reports/llm/baselines.json`. Preregistered selection
+  among bases favors Qwen3.5-2B few-shot (weighted diagnostic score .51049).
+  EN/RU/KK raw schema validity .63918/.67961/.58407; intent accuracy
+  .28866/.29126/.30973. Mixed22 schema validity .54545. Semantic quality remains
+  NOT_EVALUATED; these results do not establish deployment acceptance.
+  Baseline pinned deep-verified snapshot
+  `data/stage7_baselines/20261113T141825Z-746892e2`.
+- Routing explicit version1 submitted successfully after baseline freed a GPU slot.
+  Routing1 COMPLETE but both tasks FAILED on an eager encoder import requiring
+  qdrant_client. Encoder imports are now lazy; isolated subprocess regression passes.
+  Both failures imported to MLflow. Original submission.json was overwritten during
+  repackaging before import: evidence loss of original upload-ZIP SHA256 (UNKNOWN).
+  Before any Dataset update, its unchanged private version1 archive was downloaded;
+  every source/config/data byte matches the remote execution manifest. Recovery receipt:
+  `artifacts/kaggle/stage7_routing/attempts/1/submission.json`.
+  Automatic review rejected the updated-code upload despite the initial upload permission;
+  owner explicitly authorized updates/retries in this chat. Dataset updated and routing
+  version2 submitted successfully; RUNNING at latest check.
+  Sweep1 remains RUNNING. No final model/adapter selection seal.
+  Local Qwen3.5-2B NF4 executed one EN/RU/KK query each in isolation and with retrieval:
+  no execution errors. Isolated allocated peak max2,364,117,504 bytes; generation
+  8.14–9.25s. Joint allocated max4,636,914,688 / reserved max5,247,074,304 bytes;
+  generation29.94–35.73s. Joint allocation exceeds physical4GB budget: do not claim
+  fully VRAM-resident serving or SLO acceptance. Receipts under
+  `artifacts/reports/llm/local_selected_base/`; isolated success under
+  `20317c294533ff5186bd/`. Initial sandbox network failure, interrupted stalled Xet
+  download and fingerprint-mismatch attempt retained; HTTP download then succeeded.
+  Safety150 rows and sufficiency144 rows/18 related needs are frozen, not evaluated.
+
 - Continuation verification: private training-smoke explicit version **3 COMPLETE**;
   downloaded result inventory, every checksum and submitted/remote kernel source match.
   Four attempt receipts imported to MLflow, all FINISHED (ledger
