@@ -1,11 +1,13 @@
 # PROGRESS: current state (single source of truth for status)
 
-Last updated: 2026-11-13 (Stage 6.1 experiments complete; delivery pending)
+Last updated: 2026-11-13 (Stage 6.1 completed; implementation published)
 
 ## Current stage
 
-**Stage 6.1: IN PROGRESS — experiments, source-bound error review and serving rollback
-complete; final report snapshot, commit and push pending.** Stage 7 has not started.
+**Stage 6.1: COMPLETED — implementation, frozen evaluation, source-bound error review,
+serving rollback, full checks, verified/restored backups and publication complete.**
+This is completion of the controlled experiment, not semantic-abstention or production
+quality acceptance. Stage 7 has not started and requires owner confirmation.
 
 ## Stage 6.1 verified results
 
@@ -76,7 +78,7 @@ complete; final report snapshot, commit and push pending.** Stage 7 has not star
 - Final full check: **420 passed, zero skipped, one expected local-Qdrant warning**,
   434.35 seconds, including actual GPU/Qdrant tests. Log:
   `artifacts/reports/retrieval_scale_pytest_completion.log`. Ruff check/format and strict
-  mypy pass (125 files). Static precommit hooks pass; full commit fast-test hook pending.
+  mypy pass (125 files). All implementation commit hooks pass, including the fast-test subset.
   Earlier interrupted/modified-during-run hook is retained as a failed attempt.
 - Artifacts: `artifacts/reports/retrieval_scale/6fab32c16b3a6e05b29f/`.
   Baseline556 report files/369chunks/681queries verified unchanged in
@@ -85,12 +87,16 @@ complete; final report snapshot, commit and push pending.** Stage 7 has not star
   `data/stage6_scale_kb/20261113T051522Z-89ce6640`; earlier benchmark
   `data/stage6_scale_benchmark/20261113T051529Z-09f9c315`; load
   `data/stage6_scale_load/20261113T052952Z-ce8b17de`; indexes
-  `data/stage6_scale_indexes/20261113T071321Z-b1407eff`. Final snapshots pending.
+  `data/stage6_scale_indexes/20261113T071321Z-b1407eff`. Delivery coverage is listed below.
 - Final source/report audit passes:43 frozen source files,8 final MLflow report artifacts;
   report run`d49e79f234e6468aa1b1a73a3010f0e6` FINISHED. All41 tracked frozen files
-  match staged Git blobs. All1,925 historical MLflow artifact files unchanged.
-- Next: final report snapshot; commit/push
-  main. User-owned untracked `.codex/` must remain unstaged. Do not start Stage7.
+  match committed Git blobs. All1,925 historical MLflow artifact files unchanged.
+- Implementation commit **`6d5a6bdb98bc1e6e95753bd05ff4f0402f37149c`** is published;
+  `git ls-remote origin refs/heads/main` verified that exact hash. Delivery metadata is
+  recorded below; final publication and the documentation bundle are recorded
+  in `artifacts/reports/retrieval_scale_delivery_receipt.json`.
+- Next stage: **Stage 7 only after explicit owner confirmation**. No work started.
+  User-owned untracked `.codex/` remains excluded from Git.
 
 ### Delivery snapshots (pinned, deep-verified and restored)
 
@@ -105,8 +111,27 @@ complete; final report snapshot, commit and push pending.** Stage 7 has not star
 
 All restored files match hashes; restored SQLite integrity checks pass. Full archive
 SHA256 and restore paths: `artifacts/reports/retrieval_scale/delivery_snapshots.json`.
-Report snapshot and committed-code bundles remain pending. These backups were taken from
-the verified working implementation before commit; frozen source hashes bind that code.
+Full report snapshot: **`data/stage6_scale_reports/20261113T101036Z-b3a3b907`**,151 files,
+pinned, deep-verified and all restored hashes verified. Archive SHA256:
+`c011623294ef1ff4df04650beed8ba0c17f6c2bdeb7d944bf640a59a02683a3d`.
+Includes selected/full development observations, holdout, source errors, load snapshots,
+performance/recovery/diagnostics, failed attempts and finished check/commit logs.
+Code bundle **`backups/code/supportpilot-20261113T101031Z.bundle`**, SHA256
+`5c91a47b34b84b188a089cae63731540f832a48b6d9f728f2ba2d233aae1a337`, verified and
+cloned separately at implementation HEAD. Final documentation HEAD gets its own verified
+bundle and publication receipt. Data snapshots were taken from the verified working
+implementation before commit; all41 tracked frozen inputs match implementation Git blobs.
+
+Final publication receipt lives **outside** the report archive to avoid self-reference:
+`artifacts/reports/retrieval_scale_delivery_receipt.json`. It records final HEAD, both
+publication checks and code-bundle verification, with a checksum sidecar. Local datasets,
+reports, models, MLflow, backups and user `.codex/` never enter public Git.
+
+Completion decision: requested volume/diversity audits, comparisons and CIs, explicit
+negative results, full tests and real restore evidence are present. No measured semantic
+quality improvement over baseline is claimed. Correlated synthetic templates, draft qrels,
+absent fluent review, incomplete blind negative coverage and FPR1.0 remain limitations
+for Stage7–8, not silently passed quality gates.
 
 ### Large-cohort expansion history (before final freeze)
 

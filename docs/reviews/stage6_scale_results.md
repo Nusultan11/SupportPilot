@@ -16,6 +16,10 @@ without a confidence gate. Every ranking alternative violates the cross-language
 guard or has no significant positive nDCG difference. Context 512/2048 changes packing,
 not ranking, and does not provide the required ranking improvement. No latency tie-break
 was needed. This is not evidence that the larger corpus improves semantic quality.
+Because selection retains the control itself, selected-minus-control holdout deltas are
+identity comparisons (zero by construction), not independent evidence of improvement.
+The nontrivial comparisons are the development alternatives and the explicitly exposed
+matched historical growth diagnostic.
 
 For example, E5-base hybrid + the same reranker has development cross Recall@5 .72748
 versus control .89114. Gate .01 reduces development FPR only from 1.0 to .96730 while
