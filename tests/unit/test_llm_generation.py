@@ -173,3 +173,35 @@ def test_unshown_context_text_is_not_exposed(context: RetrievalContext) -> None:
     payload = json.loads(messages[1]["content"])
     assert "secret" not in messages[1]["content"]
     assert payload["evidence"][0]["chunk_id"] == "returns:aaaaaaaa:0000"
+
+
+def test_authenticated_tool_values_are_a_separate_evidence_channel(
+    context: RetrievalContext,
+) -> None:
+    target = AssistantResponse(
+        language="en",
+        intent="track_order",
+        action=Action.CALL_TOOL,
+        answer="Order 123456 is shipped.",
+        facts_from_tools=["status=shipped"],
+    )
+    result = generate_grounded(
+        FakeBackend(target.model_dump_json()),
+        "My order?",
+        "en",
+        context.model_copy(update={"evidence": [], "abstain": True}),
+        tool_results=[{"order_id": "123456", "status": "shipped"}],
+        identify_language=lambda _: "en",
+        verify_claims=lambda *_: "supported",
+    )
+    assert not result.fallback
+    assert result.response == target
+
+
+def test_mixed_index_provenance_fails_before_generation(context: RetrievalContext) -> None:
+    backend = FakeBackend(response().model_dump_json())
+    bad = context.model_copy(update={"index_version": "different"})
+    result = generate_grounded(backend, "Returns?", "en", bad, identify_language=lambda _: "en")
+    assert result.fallback
+    assert backend.calls == 0
+    assert result.problems == ("invalid_provenance",)

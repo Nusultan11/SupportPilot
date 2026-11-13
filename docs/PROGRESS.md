@@ -10,6 +10,73 @@ Stage 6.1 remains completed with its quality limitations below. Stage 8 is not s
 
 ### Stage 7 execution checkpoint
 
+#### Active continuation (2026-11-13)
+
+- Continuation verification: private training-smoke explicit version **3 COMPLETE**;
+  downloaded result inventory, every checksum and submitted/remote kernel source match.
+  Four attempt receipts imported to MLflow, all FINISHED (ledger
+  `artifacts/kaggle/stage7_training_smoke/output/3/mlflow_import.json`).
+  Checkpoint4/resume8 and adapter reload succeeded on 86 included training rows;
+  step8 reference loss 2.23033 -> 2.07624, zero nonfinite gradient steps,
+  peak allocated VRAM 2,701,483,520 bytes. This is engineering smoke, not quality acceptance.
+  Versions1/2 remain retained failures (optional torchao/enforcer compatibility, then
+  TRL rejecting DataParallel); version3 isolates one visible GPU per subprocess.
+- Baselines version1 and OFAT sweep version1 remain RUNNING at continuation verification.
+  No final selection/test/gold opening or completion claim. Owner explicitly authorized
+  the concrete private routing upload in this chat. Dataset
+  `nurs2005/supportpilot-stage7-routing` creation accepted. Kernel submission rejected
+  by Kaggle's maximum two concurrent batch-GPU sessions; retry after an existing run ends.
+  Automatic-review rejection before that authorization is preserved in the chat.
+- Final selection seals now bind adapter manifest hashes and validate adapter bytes
+  on reopening, rejecting weight replacement even with a refreshed manifest.
+  Regression test passes. Ruff/format and strict mypy pass (153 source files).
+  Full pytest: **450 passed, zero skipped**, one expected local-Qdrant warning,
+  567.49 seconds. The subsequently added seal regression passes separately; targeted
+  Stage7 suite **28 passed**. Restore-verified pinned continuation snapshots:
+  smoke `data/stage7_training_smoke/20261113T134907Z-ba83e021`, reports
+  `data/stage7_reports/20261113T134911Z-e596078d`; full snapshot ledger
+  `artifacts/kaggle/stage7_checkpoint_backups.json`. Stage7 remains incomplete.
+
+- Real Transformers backend, schema/few-shot prompts, constrained JSON support via
+  lm-format-enforcer, completion-only TRL/PEFT training, input-bound resume and portable
+  private Kaggle packaging are implemented in the working tree. PEFT 0.21.3, TRL 1.17.1,
+  lm-format-enforcer 0.11.3 and scikit-learn 1.9.1 are locked. Full-stage checks pending.
+- Development freeze `data/benchmarks/llm/9cbe1277cdde32b15f74` contains existing train
+  and all 313 validation examples, scenario/family disjointness verified. It does not load
+  test/gold. Three short train-only demonstrations are frozen. All labels remain draft.
+- Public primary model cards/configs and full revisions of six Apache-2.0 candidates
+  are retained in `artifacts/reports/llm/audit`; registry `configs/llm_models.yaml`.
+  Farabi card access was denied anonymously; no claim about its current suitability.
+- Private `nurs2005/supportpilot-stage7-audit-run/2` COMPLETE. All six models executed
+  24 validation probes (eight tasks per language). Source/config/data payload and output
+  hashes verified; nine attempts imported to MLflow, six FINISHED and three FAILED
+  (two training attempts, dependent adapter load). Ledger:
+  `artifacts/kaggle/stage7_audit/output/2/mlflow_import.json`.
+  Audit is preliminary development evidence, not the full baseline comparison.
+- Preserved failures: CLI relative-path Dataset upload; kernel/Dataset duplicate title
+  rejected with HTTP409; audit version1 ERROR before inference because Kaggle expands ZIP
+  inputs automatically. Version2 trained nothing: TRL1.17.1 rejects `warmup_ratio`.
+  Replaced with supported `warmup_steps`, verified against the installed signature.
+- Training smoke history is preserved by explicit version; see verified version3 above.
+- Local RTX3050 NF4 Qwen3-0.6B inference and joint expanded retrieval each ran three
+  real RU/KK/EN queries. Receipt `artifacts/reports/llm/local_resources.json` FINISHED;
+  isolated peak allocated VRAM max869,581,824; joint max3,265,154,560 bytes.
+  This establishes those probes only, not load/SLO acceptance or arbitrary model coexistence.
+- Encoder classifier: pinned E5-small plus multinomial linear head, C=.1/1/10 on
+  train/validation, selected C10. MLflow `27e59010e3344c72ab131ec99971b6c9` FINISHED.
+  Validation macro-F1 EN .53411, RU .53250, KK .38675, mixed .16190 (10 intents in
+  mixed, 35 per monolingual slice). Raw action accuracy EN .64948, RU .50485, KK .37168.
+  Warm per-request encoder+head timing now included; earlier head-only timing report and
+  run `ffcfdb2053c3465aaa195c7d09e22315` retained, never use it as end-to-end inference.
+- Added `RouteDecision` and 50 authored semantic safety cases x3 languages (150 rows),
+  `authored/safety/scenarios.yaml`, frozen `data/benchmarks/llm_safety/`. All LLM-authored
+  draft; not training or tuning inputs. Safety inference and final evaluation not run.
+- Current focused tests: 19 passed. Ruff and strict mypy for new modules pass after
+  formatting. Full pytest/commit/push, model selection, actual training, final test/gold,
+  CIs, model card and stage-end backups remain pending. No Stage8 work.
+
+#### Earlier checkpoint at published commit 179030d
+
 - Protocol: `docs/reviews/stage7_protocol.md`. Preserve existing SFT
   `sft-20261112-b0388c64`, training KB, gold and Stage 6.1 frozen artifacts.
 - Kaggle CLI 2.2.5 authentication verified. Private hardware-only kernel

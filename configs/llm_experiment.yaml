@@ -1,0 +1,44 @@
+schema_version: llm_experiment/1
+seed: 20261113
+development_freeze: 9cbe1277cdde32b15f74
+dataset_version: sft-20261112-b0388c64
+baseline_candidates: [qwen3_06b, qwen35_2b]
+baseline_prompts: [schema, fewshot]
+demonstrations: 3
+max_input_tokens: 6144
+max_new_tokens: 512
+training:
+  base: qwen3_06b
+  reason: Measured standalone and joint NF4 feasibility on RTX3050; full multilingual audit retained.
+  pilot_steps: 80
+  selected_steps: 512
+  gradient_accumulation: 4
+  train_limit: null
+  mt_weight: 0.5
+  control: {rank: 16, alpha: 32, learning_rate: 0.0001, target_modules: [q_proj, v_proj], max_length: 3072, packing: false, quantization: none}
+  alternatives:
+    - {name: rank8, rank: 8, alpha: 16}
+    - {name: rank32, rank: 32, alpha: 64}
+    - {name: lr_low, learning_rate: 0.00005}
+    - {name: lr_high, learning_rate: 0.0002}
+    - {name: all_linear, target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]}
+    - {name: length2048, max_length: 2048}
+    - {name: nf4, quantization: nf4}
+    - {name: packing, packing: true}
+  packing_guard: Reject eager attention packing; no cross-example attention contamination allowed.
+  tuning_cohort: One SHA-sorted item per language/intent plus all mixed validation items; no test/gold.
+selection:
+  language_weights: {kk: 0.5, ru: 0.25, en: 0.25}
+  metric_weights: {schema_validity: 0.2, intent_accuracy: 0.2, action_accuracy: 0.2, language_compliance: 0.2, escalation_accuracy: 0.2}
+  kk_guard_max_regression: 0.02
+  tie_break: Smaller measured VRAM then lower warm latency; training gain with CI crossing zero is inconclusive.
+  semantic_quality_gate: NOT_EVALUATED unless calibrated independent claim judgments become available.
+  readiness: Separate engineering completion from autonomous factual-answer acceptance.
+bootstrap: {samples: 1000, confidence: 0.95, primary_cluster: scenario_id, sensitivity_cluster: family_id, paired: true}
+final_evaluation:
+  seal_before_reading: [test, gold]
+  finalists: One selected base configuration and the selected adapter, with the frozen chosen prompts.
+  seeds_if_compute_allows: [20261113, 20261114, 20261115]
+  repeated_seed_scope: Validation stability; default primary seed for final test/gold if quota limits replication.
+  safety: 50 authored needs per language, draft labels, no tuning.
+  sufficiency: Exposed Stage6.1 development diagnostic; no fresh holdout claim.

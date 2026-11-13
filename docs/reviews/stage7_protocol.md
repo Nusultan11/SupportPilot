@@ -34,6 +34,19 @@ Never silently truncate an assistant target or evidence; record overlength failu
 
 ## Evidence and metrics
 
+Continuation plan before full-validation results and actual training are inspected:
+`configs/llm_experiment.yaml` fixes candidate screening, OFAT pilot parameters, the
+validation tuning subset, language/metric weights, KK guard, tie-breaks, final seal and
+compute-dependent seed scope. The six-model 24-item audit is explicitly a development
+screen, not final selection. Full validation compares the resource-feasible 0.6B control
+and the stronger KK-language audit candidate Qwen3.5-2B; all six audit failures/results
+remain in the report. Language conditioning uses the dataset language field, so reply
+language results do not certify upstream language detection.
+
+The encoder timing from the first run measured only the linear head; retain it as such.
+The replacement report adds measured warm single-request encoding. No cached-feature
+matrix multiplication timing is reported as end-to-end encoder latency.
+
 Report RU, KK, EN and RU-KK independently, denominators and UNKNOWN for unobserved
 slices. Raw JSON validity, intent accuracy/macro-F1, routing actions, escalation,
 abstention, false-answer rate and false refusals are distinct from semantic quality.

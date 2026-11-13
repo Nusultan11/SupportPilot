@@ -3,14 +3,15 @@
 from __future__ import annotations
 
 import json
-from collections.abc import Callable
+from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass
-from typing import Literal, Protocol
+from typing import Any, Literal, Protocol
 
 from pydantic import ValidationError
 
 from supportpilot.common.grounding import Evidence, check_response
 from supportpilot.common.schemas import Action, AssistantResponse, LanguageCode
+from supportpilot.llm.prompts import response_schema
 from supportpilot.retrieval.models import RetrievalContext
 
 SupportVerdict = Literal["supported", "unsupported", "unknown"]
@@ -60,12 +61,19 @@ def safe_fallback(language: LanguageCode) -> AssistantResponse:
 
 
 def build_messages(
-    query: str, language: LanguageCode, context: RetrievalContext
+    query: str,
+    language: LanguageCode,
+    context: RetrievalContext,
+    *,
+    tool_results: Sequence[Mapping[str, Any]] = (),
 ) -> list[dict[str, str]]:
     """Serialize only packed evidence; ranked-but-dropped chunks must never be exposed."""
     passages = [
         {
             "chunk_id": item.chunk_id,
+            "doc_id": item.chunk.doc_id,
+            "source_path": item.chunk.source_path,
+            "locator": item.chunk.locator.model_dump(exclude_none=True),
             "text": item.chunk.text,
             "effective_from": item.chunk.effective_from.isoformat(),
             "effective_to": (
@@ -84,13 +92,16 @@ def build_messages(
         "completed handoff. Answer in language "
         + language
         + ". Schema: "
-        + json.dumps(AssistantResponse.model_json_schema(), ensure_ascii=False)
+        + json.dumps(response_schema(), ensure_ascii=False)
     )
     return [
         {"role": "system", "content": rules},
         {
             "role": "user",
-            "content": json.dumps({"query": query, "evidence": passages}, ensure_ascii=False),
+            "content": json.dumps(
+                {"query": query, "evidence": passages, "tool_results": list(tool_results)},
+                ensure_ascii=False,
+            ),
         },
     ]
 
@@ -104,6 +115,7 @@ def generate_grounded(
     identify_language: Callable[[str], str],
     verify_claims: ClaimVerifier | None = None,
     mandatory_escalation: bool = False,
+    tool_results: Sequence[Mapping[str, Any]] = (),
 ) -> GenerationResult:
     """Require an explicit support verdict, including for nonnumeric factual claims.
 
@@ -111,19 +123,40 @@ def generate_grounded(
     membership, a high retrieval score or the model's own assertion as a proof.
     Operational backend exceptions propagate so a failed attempt is retained by the runner.
     """
-    if context.abstain or not context.evidence:
+    if (context.abstain or not context.evidence) and not tool_results:
         return GenerationResult(safe_fallback(language), None, ("empty_evidence",), True, "unknown")
-    raw = backend.generate(build_messages(query, language, context))
+    if any(
+        item.chunk_id != item.chunk.chunk_id
+        or item.kb_version != context.kb_version
+        or item.index_version != context.index_version
+        for item in context.evidence
+    ):
+        return GenerationResult(
+            safe_fallback(language), None, ("invalid_provenance",), True, "unknown"
+        )
+    raw = backend.generate(build_messages(query, language, context, tool_results=tool_results))
     try:
-        response = AssistantResponse.model_validate_json(raw)
+        response = AssistantResponse.model_validate_json(raw, strict=True)
     except ValidationError:
         return GenerationResult(safe_fallback(language), raw, ("invalid_schema",), True, "unknown")
     # User-provided numbers cannot authorize store facts in a generated answer.
-    evidence = Evidence(chunks={e.chunk_id: e.chunk.text for e in context.evidence})
+    evidence = Evidence(
+        chunks={
+            e.chunk_id: " ".join(
+                [
+                    e.chunk.text,
+                    e.chunk.effective_from.isoformat(),
+                    e.chunk.effective_to.isoformat() if e.chunk.effective_to else "",
+                ]
+            )
+            for e in context.evidence
+        },
+        tool_results=tool_results,
+    )
     problems = check_response(response, evidence)
     if response.language != language or identify_language(response.answer) != language:
         problems.append("language_mismatch")
-    if response.action is Action.CALL_TOOL or response.facts_from_tools:
+    if (response.action is Action.CALL_TOOL or response.facts_from_tools) and not tool_results:
         problems.append("no_authenticated_tool_results")
     if mandatory_escalation and not (response.needs_human and response.action is Action.ESCALATE):
         problems.append("mandatory_escalation_missing")
