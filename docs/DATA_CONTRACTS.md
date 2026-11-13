@@ -496,3 +496,52 @@ Evaluation preserves `retrieval_query/1` and its draft judgements. Fixed evaluat
 seed, scenario-level development/holdout assignment, query-level observations, grouped
 bootstrap CIs, paired comparisons and resource measurements live under
 `artifacts/reports/retrieval/` and in MLflow. Gold, SFT and their schemas are unchanged.
+
+## 16. Large-scale retrieval inputs and validity (Stage 6.1)
+
+`technical_profiles/1` in `kb_sources/demo_store/technical_profiles.yaml` is an internal
+LLM-authored source registry: author, origin, review status and licence note accompany
+explicit product rows, native names, field units/labels, related families and a separate
+stable `sku_registry`. Every row supplies one value per declared field; duplicate IDs/SKUs,
+unknown fields, nonfinite numbers and inverted operating/storage intervals are rejected.
+The adapter emits separate `technical_<product_id>` documents and canonical
+`technical.<product_id>.<attribute>` facts. Identifiers, translated names, prices and
+composite registry entries are counted separately from atomic numeric attributes.
+No real manufacturer data or live stock/order/payment state is asserted.
+
+Optional document-spec `effective_from`, `effective_to` and `superseded_by` preserve the
+existing default start date. A superseded source needs an explicit end; its inclusive end
+must precede its successor's start. Source registers and expected documents carry the
+optional end, omitted when null for compatibility. Metadata-only validity edits invalidate
+incremental reuse; canonical chunk IDs can remain stable while payload dates change.
+Default `SearchFilters` still enforce validity. Explicit `all_versions=True` supports a
+historical comparison, retaining both dates in context metadata; it does not choose which
+historical condition a downstream answer should apply.
+
+`retrieval_scale_source/1` extends the Stage 4 retrieval source with unique `need_key`,
+`family_id`, tags, optional `as_of`, `all_versions`, negative reason and required
+`{fact, sections}` groups. Its header is the registry for these internal eval-only authored
+inputs; the adapter retains `source_id=supportpilot_authored_retrieval`. Questions resolve
+to unchanged `retrieval_query/1`, with proof/split metadata in a separate sidecar. Each
+required fact must have an actual canonical placement in an in-date target-language chunk
+(unless all versions were explicitly requested). Translation/paraphrase variants share
+one scenario; related predicates/entities additionally share a family for splitting.
+
+`data/benchmarks/retrieval_scale/<input_hash>/` contains `queries.jsonl`, `qrels.tsv`,
+`metadata.json`, `protocol.json`, `audit.json`, `freeze.json`. The last file hashes every
+other file, records identity/time, and is published atomically only after gates and semantic
+leakage diagnostics. Execution verifies source/code/tokenizer fingerprints and qrel alignment.
+Use LF for source files per `.gitattributes` before freezing. Each namespace owns separate
+index state/collections without changing default Stage 6 identities. Candidate checkpoints
+are atomic and bind the index manifest, query/filter set, limit and execution code; altered
+checksums or mismatched execution inputs fail closed. Cached searches are excluded from
+new search latency measurements.
+
+`retrieval_load_corpus/1` uses immutable checksummed synthetic text and memmapped float32
+vectors with explicit generator configuration. Its IDs/collections never enter the semantic
+KB or qrels. ANN fidelity, random-vector upload and fixed top-20 neural work are separate
+measurement scopes; none establishes semantic quality or 100k neural encoding throughput.
+
+Supplemental retrieval-diagnostic freezes bind source/query/metadata hashes and the primary
+selection. New variant IDs retain original development need IDs and proof groups; they
+never increase independent-need counts or enter selection. Authorship is llm_generated.

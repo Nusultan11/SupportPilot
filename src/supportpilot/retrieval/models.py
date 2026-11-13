@@ -78,6 +78,7 @@ class SearchUnit(Contract):
 
 
 class SearchFilters(Contract):
+    all_versions: bool = False
     corpus_lang: LanguageCode | None = None
     doc_ids: list[str] = Field(default_factory=list)
     doc_types: list[str] = Field(default_factory=list)

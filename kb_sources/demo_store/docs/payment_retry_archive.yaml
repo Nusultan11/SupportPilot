@@ -1,0 +1,15 @@
+schema_version: kb_doc/1
+doc_id: payment_retry_archive
+doc_type: policy
+format: txt
+effective_from: '2026-09-01'
+effective_to: '2026-10-31'
+superseded_by: payment_policy
+title: {en: 'Archived payment retry instruction', ru: 'Архивная инструкция повторной оплаты', kk: 'Төлемді қайталаудың мұрағаттық нұсқаулығы'}
+intro:
+  - {en: 'Fictional store archive, valid from {archive_effective_from:date_full} through {archive_effective_to:date_full}. This instruction is superseded by the current payment policy.', ru: 'Архив вымышленного магазина: действует с {archive_effective_from:date_full} по {archive_effective_to:date_full} включительно. Инструкция заменена текущими правилами оплаты.', kk: 'Ойдан шығарылған дүкен мұрағаты: {archive_effective_from:date_full} бастап {archive_effective_to:date_full} дейін қоса қолданылады. Бұл нұсқаулық қазіргі төлем ережелерімен ауыстырылған.'}
+sections:
+  - id: retry
+    heading: {en: 'Retry interval for failed authorisation', ru: 'Интервал повтора неудачной авторизации', kk: 'Сәтсіз авторизацияны қайталау аралығы'}
+    paragraphs:
+      - {en: 'For a failed payment attempt made during this validity interval, wait {archive_payment_retry_minutes:minutes} before retrying. This historical interval must not be used for a new payment attempt after expiry.', ru: 'Для неудачной попытки оплаты в период действия этой инструкции следует подождать {archive_payment_retry_minutes:minutes} до повтора. Исторический интервал не применяется к новой попытке после окончания действия инструкции.', kk: 'Нұсқаулықтың әрекет мерзіміндегі сәтсіз төлем әрекетін қайталауға дейін {archive_payment_retry_minutes:minutes} күтіңіз. Бұл бұрынғы аралық нұсқаулық мерзімі өткеннен кейінгі жаңа әрекетке қолданылмайды.'}

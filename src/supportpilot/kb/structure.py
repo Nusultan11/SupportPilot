@@ -136,6 +136,7 @@ def build_document(parsed: ParsedDoc, entry: RegisterEntry) -> KBDocument:
         format=entry.format,
         source_path=entry.path,
         effective_from=effective,
+        effective_to=entry.effective_to,
         parser=parsed.parser,
         sections=[s.build() for s in sections],
     )

@@ -590,3 +590,42 @@ snapshot IDs and the separate code bundle are in PROGRESS.md. The frozen report'
 `manifest.json` is a standard `DatasetManifest` with `retrieval_report/1`; delivery
 source fingerprints refer to implementation commit `326d223`. Publication receipts
 are outside that frozen directory at `artifacts/reports/retrieval_delivery_receipt.json`.
+
+## 16. Large-scale retrieval and serving rollback
+
+Verified phase commands; immutable selection and holdout must never be retuned in place:
+
+```powershell
+$env:HF_HUB_OFFLINE='1'
+$cohort='data/benchmarks/retrieval_scale/6fab32c16b3a6e05b29f'
+uv run --locked supportpilot retrieval scale --stage author
+uv run --locked supportpilot retrieval scale --stage audit --semantic --kb-version kb_demo_store-20261113-f3b204a6
+uv run --locked supportpilot retrieval scale --stage freeze --semantic --kb-version kb_demo_store-20261113-f3b204a6
+uv run --locked supportpilot retrieval scale --stage development --frozen $cohort
+uv run --locked supportpilot retrieval scale --stage holdout --frozen $cohort
+uv run --locked supportpilot retrieval scale --stage profile --frozen $cohort
+uv run --locked supportpilot retrieval scale --stage recovery --frozen $cohort --restore-root artifacts/restore_drills/stage6_scale_runtime
+uv run --locked supportpilot retrieval scale --stage diagnostic --frozen $cohort
+uv run --locked supportpilot retrieval scale --stage report --frozen $cohort
+uv run --locked supportpilot retrieval scale --stage load --count 100000
+uv run --locked supportpilot retrieval scale --stage update-drill
+```
+
+Recovery requires verified KB/index restores under that isolated runtime/restore namespace.
+Check local attempts and terminal MLflow FINISHED. Candidate checkpoints reject changed
+code/query/index/filter hashes. No modification of frozen files to force resume. Random
+load/update collections are isolated from serving. Diagnostic is development-only.
+
+Current serving: activate expanded KB and set retrieval.namespace to
+`scale_6fab32c16b3a6e05b29f`. Ranking defaults are unchanged. Original complete config is
+`artifacts/reports/retrieval_scale/6fab32c16b3a6e05b29f/serving/baseline_config.yaml`.
+Rollback: activate `kb_demo_store-20261112-d58e3f93`, then use global `--config` pointing
+to that preserved file; it addresses the baseline index. Restore expanded active KB before
+using current config. Real rollback and final active identity are in
+`serving/activation_rollback.json`. Never delete either collection.
+
+Read quantitative comparison, family sensitivity, source-traced errors and resource-scope
+audit together. No certified fluency or semantic abstention claim. After all writers close,
+back up KB, benchmarks (primary and diagnostic), indexes, scale cache, load, reports and
+MLflow (§6). Deep-verify and restore, check restored SQLite integrity, bundle code (§5).
+Preserve partial attempts; snapshot identities and completion status live in PROGRESS.

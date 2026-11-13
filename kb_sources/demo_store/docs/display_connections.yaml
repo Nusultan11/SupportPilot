@@ -1,0 +1,25 @@
+# Original fictional demo specifications, authored by Codex (LLM). Review: draft.
+schema_version: kb_doc/1
+doc_id: display_connections
+doc_type: faq
+format: json
+title: {en: 'Display connections and mounting by model', ru: 'Подключение и крепление экранов по моделям', kk: 'Үлгі бойынша экрандарды қосу және бекіту'}
+sections:
+  - id: tv55_arc
+    heading: {en: 'Where is ARC on TV-5501?', ru: 'Где ARC у TV-5501?', kk: 'TV-5501 үлгісінде ARC қайда орналасқан?'}
+    paragraphs: [{en: '{display_tv55_arc}', ru: '{display_tv55_arc}', kk: '{display_tv55_arc}'}]
+  - id: tv43_arc
+    heading: {en: 'Where is ARC on TV-4302?', ru: 'Где ARC у TV-4302?', kk: 'TV-4302 үлгісінде ARC қайда орналасқан?'}
+    paragraphs: [{en: '{display_tv43_arc}', ru: '{display_tv43_arc}', kk: '{display_tv43_arc}'}]
+  - id: tv55_mount
+    heading: {en: 'Which bracket fits TV-5501?', ru: 'Какое крепление подходит TV-5501?', kk: 'TV-5501 үлгісіне қандай бекіткіш сәйкес келеді?'}
+    paragraphs: [{en: '{display_tv55_mount}', ru: '{display_tv55_mount}', kk: '{display_tv55_mount}'}]
+  - id: tv43_mount
+    heading: {en: 'Which bracket fits TV-4302?', ru: 'Какое крепление подходит TV-4302?', kk: 'TV-4302 үлгісіне қандай бекіткіш сәйкес келеді?'}
+    paragraphs: [{en: '{display_tv43_mount}', ru: '{display_tv43_mount}', kk: '{display_tv43_mount}'}]
+  - id: laptop_video
+    heading: {en: 'How does LP-1406 connect to a screen?', ru: 'Как LP-1406 подключить к экрану?', kk: 'LP-1406 үлгісін экранға қалай қосуға болады?'}
+    paragraphs: [{en: '{display_laptop_video}', ru: '{display_laptop_video}', kk: '{display_laptop_video}'}]
+  - id: laptop_power
+    heading: {en: 'Can LP-1406 be charged through USB-C?', ru: 'Можно зарядить LP-1406 через USB-C?', kk: 'LP-1406 үлгісін USB-C арқылы зарядтауға бола ма?'}
+    paragraphs: [{en: '{display_laptop_power}', ru: '{display_laptop_power}', kk: '{display_laptop_power}'}]

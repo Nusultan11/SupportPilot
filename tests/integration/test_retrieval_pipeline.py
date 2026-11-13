@@ -200,6 +200,13 @@ def test_incomplete_index_and_expired_filter_return_no_context(
         )
         assert context.abstain
         assert context.evidence == []
+        historical = retriever.context(
+            "Доставка",
+            filters=SearchFilters(corpus_lang="ru", as_of=date(2026, 3, 1), all_versions=True),
+        )
+        assert not historical.abstain
+        source_metadata = json.loads(historical.text.splitlines()[0])["source"]
+        assert source_metadata["effective_to"] == "2026-02-01"
         state_path = index_root(settings, recipe) / "state.json"
         state = json.loads(state_path.read_text())
         state["ready"] = False

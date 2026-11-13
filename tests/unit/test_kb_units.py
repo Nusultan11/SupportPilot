@@ -45,6 +45,34 @@ from supportpilot.kb.spec import (
 from supportpilot.kb.structure import build_document
 from supportpilot.kb.writers import normalize_zip, write
 
+
+@pytest.mark.parametrize(
+    ("value", "surface", "body", "found"),
+    [
+        (-10, "-10", "Ambient temperature: -10 C.", True),
+        (10, "10", "Ambient temperature: -10 C.", False),
+        (-10, "-10", "Ambient temperature: -100 C.", False),
+        (2.5, "2.5", "Output: 22.5 W.", False),
+        (2.5, "2.5", "Output: 2.5 W.", True),
+        (1, "1", "SKU AX-0001.", False),
+        (1000, "1 000", "Price: 1 000 KZT.", True),
+        (100000, "KZT 100,000", "Limit: KZT 100,000.", True),
+    ],
+)
+def test_numeric_fact_matching_preserves_sign_and_token_boundaries(
+    value: int | float,
+    surface: str,
+    body: str,
+    found: bool,
+) -> None:
+    from tests.unit.test_retrieval import chunk
+
+    placement = ExpectedPlacement(
+        key="test.value", value=value, surface=surface, section_id="terms", where="paragraph"
+    )
+    assert (checks._find(placement, [chunk(text=body)]) is not None) is found
+
+
 ROOT = Path(__file__).resolve().parents[2]
 SOURCES = ROOT / "kb_sources" / "demo_store"
 LOCALE = load_locale(ROOT / "configs" / "locale_kz.yaml")

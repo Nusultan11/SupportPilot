@@ -83,7 +83,8 @@ ignore = ["S101"]  # assert is fine in tests (and only used there)
 # RU/KK linguistic tables (case forms, glossary, function words) are Cyrillic on purpose
 "src/supportpilot/data/{textfmt,qe}.py" = ["RUF001", "RUF002", "RUF003"]
 # KB date lines and RU/KK unit tables (Stage 5) are Cyrillic on purpose
-"src/supportpilot/kb/{blocks,spec}.py" = ["RUF001", "RUF002", "RUF003"]
+"src/supportpilot/kb/{blocks,spec,profiles}.py" = ["RUF001", "RUF002", "RUF003"]
+"src/supportpilot/retrieval/scale_author.py" = ["RUF001", "RUF002", "RUF003"]
 
 [tool.mypy]
 python_version = "3.12"

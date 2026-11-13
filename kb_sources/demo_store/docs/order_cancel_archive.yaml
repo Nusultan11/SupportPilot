@@ -1,0 +1,15 @@
+schema_version: kb_doc/1
+doc_id: order_cancel_archive
+doc_type: policy
+format: docx
+effective_from: '2026-09-01'
+effective_to: '2026-10-31'
+superseded_by: orders_policy
+title: {en: 'Archived order cancellation window', ru: 'Архивное окно отмены заказа', kk: 'Тапсырысты болдырмаудың мұрағаттық мерзімі'}
+intro:
+  - {en: 'Fictional store archive, valid from {archive_effective_from:date_full} through {archive_effective_to:date_full}. Current orders use the successor order policy.', ru: 'Архив вымышленного магазина: действует с {archive_effective_from:date_full} по {archive_effective_to:date_full} включительно. Для текущих заказов действуют последующие правила заказа.', kk: 'Ойдан шығарылған дүкен мұрағаты: {archive_effective_from:date_full} бастап {archive_effective_to:date_full} дейін қоса қолданылады. Қазіргі тапсырыстарға кейінгі тапсырыс ережелері қолданылады.'}
+sections:
+  - id: window
+    heading: {en: 'Cancellation before dispatch', ru: 'Отмена до отправки', kk: 'Жөнелтуге дейін болдырмау'}
+    paragraphs:
+      - {en: 'An order placed within this historical validity interval could be cancelled without charge within {archive_cancel_hours:hours} of placement, provided it had not been dispatched. The rule does not reveal the live dispatch state of any order.', ru: 'Заказ, оформленный в этот исторический период, можно было бесплатно отменить в течение {archive_cancel_hours:hours_gen} после оформления, если его ещё не отправили. Правило не сообщает фактическое состояние отправки конкретного заказа.', kk: 'Осы бұрынғы әрекет мерзімінде рәсімделген тапсырысты жөнелтілмесе, рәсімдеуден кейін {archive_cancel_hours:hours} ішінде тегін болдырмауға болатын. Ереже нақты тапсырыстың жөнелтілу күйін хабарламайды.'}

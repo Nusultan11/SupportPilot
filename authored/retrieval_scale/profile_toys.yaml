@@ -1,0 +1,4978 @@
+# Compiled from explicit technical_profiles/1 facts and native LLM-authored templates.
+schema_version: retrieval_scale_source/1
+origin: llm_generated
+review_status: draft
+author: Codex (LLM); explicit profiles and native templates compiled deterministically
+allowed_use: eval_only
+licence_note: Original fictional store specifications for internal demo and evaluation; no external manufacturer
+  data or real customer data. Fluent human review pending.
+items:
+- id: catalog_rc_buggy_mass_g
+  category: simple
+  en: For Radio-controlled dune buggy, what is the specified mass in g?
+  ru: Для «Радиоуправляемый багги» какое значение указано для показателя «Масса» (г)?
+  kk: «Радиобасқарылатын багги» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_rc_buggy.mass_g
+    grade: 3
+  - section: technical_rc_buggy.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_buggy.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.rc_buggy.mass_g|current
+  required:
+  - fact: technical.rc_buggy.mass_g
+    sections:
+    - technical_rc_buggy.mass_g
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_buggy_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Radio-controlled dune buggy, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Радиоуправляемый багги», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын багги» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_rc_buggy.width_mm
+    grade: 3
+  - section: technical_rc_buggy.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_buggy.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_buggy.width_mm|current
+  required:
+  - fact: technical.rc_buggy.width_mm
+    sections:
+    - technical_rc_buggy.width_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_buggy_height_mm
+  category: simple
+  en: 'Radio-controlled dune buggy: height, mm?'
+  ru: '«Радиоуправляемый багги»: высота, мм?'
+  kk: '«Радиобасқарылатын багги»: биіктігі, мм?'
+  relevant:
+  - section: technical_rc_buggy.height_mm
+    grade: 3
+  - section: technical_rc_buggy.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_buggy.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_buggy.height_mm|current
+  required:
+  - fact: technical.rc_buggy.height_mm
+    sections:
+    - technical_rc_buggy.height_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_buggy_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Radio-controlled dune buggy (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Радиоуправляемый багги» (мм).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын багги» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_rc_buggy.depth_mm
+    grade: 3
+  - section: technical_rc_buggy.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Радиоуправляемый багги» показатель «Глубина» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.rc_buggy.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_buggy.depth_mm|current
+  required:
+  - fact: technical.rc_buggy.depth_mm
+    sections:
+    - technical_rc_buggy.depth_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_buggy_operating_min_c
+  category: hard
+  en: Check the specifcation of Radio-controlled dune buggy for minimum operating ambient temperature
+    (C), please.
+  ru: 'Проверьте характиристику «Радиоуправляемый багги»: интересует «Минимальная температура воздуха
+    при работе» (C).'
+  kk: «Радиобасқарылатын багги» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_rc_buggy.operating_min_c
+    grade: 3
+  - section: technical_rc_buggy.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_buggy.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rc_buggy.operating_min_c|current
+  required:
+  - fact: technical.rc_buggy.operating_min_c
+    sections:
+    - technical_rc_buggy.operating_min_c
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_buggy_operating_max_c
+  category: hard
+  en: For Radio-controlled dune buggy, what is the specified maximum operating ambient temperature in
+    C?
+  ru: Для «Радиоуправляемый багги» какое значение указано для показателя «Максимальная температура воздуха
+    при работе» (C)?
+  kk: «Радиобасқарылатын багги» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_rc_buggy.operating_max_c
+    grade: 3
+  - section: technical_rc_buggy.parts_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_buggy.operating_max_c; neighbouring parts_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rc_buggy.operating_max_c|current
+  required:
+  - fact: technical.rc_buggy.operating_max_c
+    sections:
+    - technical_rc_buggy.operating_max_c
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_buggy_parts_count
+  category: simple
+  en: I am comparing specifications. Find the number of package parts for Radio-controlled dune buggy,
+    in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число деталей комплекта» у «Радиоуправляемый багги»,
+    в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын багги» үшін «Жинақ бөлшектерінің саны» мәні
+    қажет (дана).
+  relevant:
+  - section: technical_rc_buggy.parts_count
+    grade: 3
+  - section: technical_rc_buggy.min_age_years
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_buggy.parts_count; neighbouring min_age_years does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_assembly_parts
+  need_key: technical.rc_buggy.parts_count|current
+  required:
+  - fact: technical.rc_buggy.parts_count
+    sections:
+    - technical_rc_buggy.parts_count
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_buggy_min_age_years
+  category: hard
+  en: 'Radio-controlled dune buggy: minimum labelled age, years?'
+  ru: '«Радиоуправляемый багги»: минимальный возраст на маркировке, лет?'
+  kk: '«Радиобасқарылатын багги»: таңбалаудағы ең төмен жас, жас?'
+  relevant:
+  - section: technical_rc_buggy.min_age_years
+    grade: 3
+  - section: technical_rc_buggy.battery_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_buggy.min_age_years; neighbouring battery_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_age_label
+  need_key: technical.rc_buggy.min_age_years|current
+  required:
+  - fact: technical.rc_buggy.min_age_years
+    sections:
+    - technical_rc_buggy.min_age_years
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_buggy_battery_v
+  category: hard
+  en: The cards look similar. What nominal battery voltage is listed for Radio-controlled dune buggy (V)?
+  ru: Карточки похожи. Уточните показатель «Номинальное напряжение аккумулятора» именно для «Радиоуправляемый
+    багги» (В).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын багги» үшін нақты «Аккумулятордың номиналды кернеуі» көрсеткішін
+    айтыңыз (В).
+  relevant:
+  - section: technical_rc_buggy.battery_v
+    grade: 3
+  - section: technical_rc_buggy.range_m
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_buggy.battery_v; neighbouring range_m does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_battery_voltage
+  need_key: technical.rc_buggy.battery_v|current
+  required:
+  - fact: technical.rc_buggy.battery_v
+    sections:
+    - technical_rc_buggy.battery_v
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_buggy_range_m
+  category: hard
+  en: Check the specifcation of Radio-controlled dune buggy for rated control range (m), please.
+  ru: 'Проверьте характиристику «Радиоуправляемый багги»: интересует «Номинальная дальность управления»
+    (м).'
+  kk: «Радиобасқарылатын багги» сипатамасынан «Басқарудың номиналды қашықтығы» мәнін тексеріңізші (м).
+  relevant:
+  - section: technical_rc_buggy.range_m
+    grade: 3
+  - section: technical_rc_buggy.run_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_buggy.range_m; neighbouring run_minutes does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_control_range
+  need_key: technical.rc_buggy.range_m|current
+  required:
+  - fact: technical.rc_buggy.range_m
+    sections:
+    - technical_rc_buggy.range_m
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_buggy_run_minutes
+  category: hard
+  en: For Radio-controlled dune buggy, what is the specified rated battery runtime in minutes?
+  ru: Для «Радиоуправляемый багги» какое значение указано для показателя «Номинальное время работы от
+    аккумулятора» (минут)?
+  kk: «Радиобасқарылатын багги» тауары үшін «Аккумулятордан жұмыстың номиналды ұзақтығы» көрсеткішінің
+    мәні қандай (минут)?
+  relevant:
+  - section: technical_rc_buggy.run_minutes
+    grade: 3
+  - section: technical_rc_buggy.charge_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Радиобасқарылатын багги» үшін «Аккумулятордан жұмыстың номиналды ұзақтығы» (минут) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.rc_buggy.run_minutes; neighbouring charge_minutes does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_battery_runtime
+  need_key: technical.rc_buggy.run_minutes|current
+  required:
+  - fact: technical.rc_buggy.run_minutes
+    sections:
+    - technical_rc_buggy.run_minutes
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_buggy_charge_minutes
+  category: hard
+  en: I am comparing specifications. Find the rated recharge time for Radio-controlled dune buggy, in
+    minutes.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное время зарядки» у «Радиоуправляемый багги»,
+    в минут.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын багги» үшін «Зарядтаудың номиналды ұзақтығы»
+    мәні қажет (минут).
+  relevant:
+  - section: technical_rc_buggy.charge_minutes
+    grade: 3
+  - section: technical_rc_buggy.channels_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_buggy.charge_minutes; neighbouring channels_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_recharge_time
+  need_key: technical.rc_buggy.charge_minutes|current
+  required:
+  - fact: technical.rc_buggy.charge_minutes
+    sections:
+    - technical_rc_buggy.charge_minutes
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_buggy_channels_count
+  category: simple
+  en: 'Radio-controlled dune buggy: number of control channels, units?'
+  ru: '«Радиоуправляемый багги»: число каналов управления, шт.?'
+  kk: '«Радиобасқарылатын багги»: басқару арналарының саны, дана?'
+  relevant:
+  - section: technical_rc_buggy.channels_count
+    grade: 3
+  - section: technical_rc_buggy.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_buggy.channels_count; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_control_channels
+  need_key: technical.rc_buggy.channels_count|current
+  required:
+  - fact: technical.rc_buggy.channels_count
+    sections:
+    - technical_rc_buggy.channels_count
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_rc_buggy_humidity_max_percent
+  category: unanswerable
+  en: For Radio-controlled dune buggy, what is the specified maximum permitted humidity in percent?
+  ru: Для «Радиоуправляемый багги» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Радиобасқарылатын багги» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_rc_buggy.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_buggy does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.rc_buggy.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rc_buggy_drop_test_cm
+  category: unanswerable
+  en: For Radio-controlled dune buggy, what is the specified certified drop-test height in cm?
+  ru: Для «Радиоуправляемый багги» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Радиобасқарылатын багги» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_rc_buggy.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_buggy does not state drop_test_cm. Dimensions, the retail price or a diagnostic
+    fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.rc_buggy.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rc_buggy_repair_parts_price
+  category: unanswerable
+  en: For Radio-controlled dune buggy, what is the specified replacement-part price in KZT?
+  ru: Для «Радиоуправляемый багги» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Радиобасқарылатын багги» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_rc_buggy.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_buggy does not state repair_parts_price. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.rc_buggy.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_rc_buggy_certification_id
+  category: unanswerable
+  en: For Radio-controlled dune buggy, what is the specified certification record number in record?
+  ru: Для «Радиоуправляемый багги» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Радиобасқарылатын багги» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_rc_buggy.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_buggy does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.rc_buggy.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_rc_buggy
+  category: multi_fragment
+  en: What does Radio-controlled dune buggy weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Радиоуправляемый багги» и какой вес посылки допускают пункты самовывоза?
+  kk: «Радиобасқарылатын багги» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_rc_buggy.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.rc_buggy.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.rc_buggy.mass_g
+    sections:
+    - technical_rc_buggy.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_prepublication_mass_rc_buggy
+  category: unanswerable
+  en: According to the instructions valid on 15 October 2026, what was the stated mass of Radio-controlled
+    dune buggy?
+  ru: По инструкциям, действовавшим 15 октября 2026 года, какая масса была указана для «Радиоуправляемый
+    багги»?
+  kk: 2026 жылғы 15 қазанда қолданылған нұсқаулықтар бойынша «Радиобасқарылатын багги» үшін қандай салмақ
+    көрсетілген еді?
+  relevant:
+  - section: technical_rc_buggy.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The technical source starts on 1 November 2026. Its current mass cannot establish a fact
+    at the requested earlier date.
+  family_id: profile_physical_mass
+  need_key: technical.rc_buggy.mass_g|2026_10_15_before_document_validity
+  required: []
+  tags:
+  - profile_derived
+  - temporal
+  - outside_validity
+  - hard_negative
+  as_of: '2026-10-15'
+  all_versions: false
+  negative_reason: expired
+- id: catalog_rc_crawler_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Radio-controlled rock crawler (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Радиоуправляемый скальный вездеход» (г).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын жартастық жолталғамайтын көлік» үшін нақты «Салмағы» көрсеткішін
+    айтыңыз (г).
+  relevant:
+  - section: technical_rc_crawler.mass_g
+    grade: 3
+  - section: technical_rc_crawler.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_crawler.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.rc_crawler.mass_g|current
+  required:
+  - fact: technical.rc_crawler.mass_g
+    sections:
+    - technical_rc_crawler.mass_g
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_crawler_width_mm
+  category: hard
+  en: Check the specifcation of Radio-controlled rock crawler for width (mm), please.
+  ru: 'Проверьте характиристику «Радиоуправляемый скальный вездеход»: интересует «Ширина» (мм).'
+  kk: «Радиобасқарылатын жартастық жолталғамайтын көлік» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_rc_crawler.width_mm
+    grade: 3
+  - section: technical_rc_crawler.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_crawler.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_crawler.width_mm|current
+  required:
+  - fact: technical.rc_crawler.width_mm
+    sections:
+    - technical_rc_crawler.width_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_crawler_height_mm
+  category: simple
+  en: For Radio-controlled rock crawler, what is the specified height in mm?
+  ru: Для «Радиоуправляемый скальный вездеход» какое значение указано для показателя «Высота» (мм)?
+  kk: «Радиобасқарылатын жартастық жолталғамайтын көлік» тауары үшін «Биіктігі» көрсеткішінің мәні қандай
+    (мм)?
+  relevant:
+  - section: technical_rc_crawler.height_mm
+    grade: 3
+  - section: technical_rc_crawler.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_crawler.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_crawler.height_mm|current
+  required:
+  - fact: technical.rc_crawler.height_mm
+    sections:
+    - technical_rc_crawler.height_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_crawler_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Radio-controlled rock crawler, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Радиоуправляемый скальный вездеход», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын жартастық жолталғамайтын көлік» үшін «Тереңдігі»
+    мәні қажет (мм).
+  relevant:
+  - section: technical_rc_crawler.depth_mm
+    grade: 3
+  - section: technical_rc_crawler.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_crawler.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_crawler.depth_mm|current
+  required:
+  - fact: technical.rc_crawler.depth_mm
+    sections:
+    - technical_rc_crawler.depth_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_crawler_operating_min_c
+  category: hard
+  en: 'Radio-controlled rock crawler: minimum operating ambient temperature, C?'
+  ru: '«Радиоуправляемый скальный вездеход»: минимальная температура воздуха при работе, C?'
+  kk: '«Радиобасқарылатын жартастық жолталғамайтын көлік»: жұмыс кезіндегі ауаның ең төмен температурасы,
+    C?'
+  relevant:
+  - section: technical_rc_crawler.operating_min_c
+    grade: 3
+  - section: technical_rc_crawler.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Радиоуправляемый скальный вездеход» показатель «Минимальная температура воздуха при работе»
+    (C) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.rc_crawler.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rc_crawler.operating_min_c|current
+  required:
+  - fact: technical.rc_crawler.operating_min_c
+    sections:
+    - technical_rc_crawler.operating_min_c
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_crawler_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Radio-controlled
+    rock crawler (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Радиоуправляемый
+    скальный вездеход» (C).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын жартастық жолталғамайтын көлік» үшін нақты «Жұмыс кезіндегі
+    ауаның ең жоғары температурасы» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_rc_crawler.operating_max_c
+    grade: 3
+  - section: technical_rc_crawler.parts_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_crawler.operating_max_c; neighbouring parts_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rc_crawler.operating_max_c|current
+  required:
+  - fact: technical.rc_crawler.operating_max_c
+    sections:
+    - technical_rc_crawler.operating_max_c
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_crawler_parts_count
+  category: hard
+  en: Check the specifcation of Radio-controlled rock crawler for number of package parts (units), please.
+  ru: 'Проверьте характиристику «Радиоуправляемый скальный вездеход»: интересует «Число деталей комплекта»
+    (шт.).'
+  kk: «Радиобасқарылатын жартастық жолталғамайтын көлік» сипатамасынан «Жинақ бөлшектерінің саны» мәнін
+    тексеріңізші (дана).
+  relevant:
+  - section: technical_rc_crawler.parts_count
+    grade: 3
+  - section: technical_rc_crawler.min_age_years
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_crawler.parts_count; neighbouring min_age_years does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_assembly_parts
+  need_key: technical.rc_crawler.parts_count|current
+  required:
+  - fact: technical.rc_crawler.parts_count
+    sections:
+    - technical_rc_crawler.parts_count
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_crawler_min_age_years
+  category: hard
+  en: For Radio-controlled rock crawler, what is the specified minimum labelled age in years?
+  ru: Для «Радиоуправляемый скальный вездеход» какое значение указано для показателя «Минимальный возраст
+    на маркировке» (лет)?
+  kk: «Радиобасқарылатын жартастық жолталғамайтын көлік» тауары үшін «Таңбалаудағы ең төмен жас» көрсеткішінің
+    мәні қандай (жас)?
+  relevant:
+  - section: technical_rc_crawler.min_age_years
+    grade: 3
+  - section: technical_rc_crawler.battery_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_crawler.min_age_years; neighbouring battery_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_age_label
+  need_key: technical.rc_crawler.min_age_years|current
+  required:
+  - fact: technical.rc_crawler.min_age_years
+    sections:
+    - technical_rc_crawler.min_age_years
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_crawler_battery_v
+  category: simple
+  en: I am comparing specifications. Find the nominal battery voltage for Radio-controlled rock crawler,
+    in V.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное напряжение аккумулятора» у «Радиоуправляемый
+    скальный вездеход», в В.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын жартастық жолталғамайтын көлік» үшін «Аккумулятордың
+    номиналды кернеуі» мәні қажет (В).
+  relevant:
+  - section: technical_rc_crawler.battery_v
+    grade: 3
+  - section: technical_rc_crawler.range_m
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_crawler.battery_v; neighbouring range_m does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_battery_voltage
+  need_key: technical.rc_crawler.battery_v|current
+  required:
+  - fact: technical.rc_crawler.battery_v
+    sections:
+    - technical_rc_crawler.battery_v
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_crawler_range_m
+  category: simple
+  en: 'Radio-controlled rock crawler: rated control range, m?'
+  ru: '«Радиоуправляемый скальный вездеход»: номинальная дальность управления, м?'
+  kk: '«Радиобасқарылатын жартастық жолталғамайтын көлік»: басқарудың номиналды қашықтығы, м?'
+  relevant:
+  - section: technical_rc_crawler.range_m
+    grade: 3
+  - section: technical_rc_crawler.run_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_crawler.range_m; neighbouring run_minutes does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_control_range
+  need_key: technical.rc_crawler.range_m|current
+  required:
+  - fact: technical.rc_crawler.range_m
+    sections:
+    - technical_rc_crawler.range_m
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_crawler_run_minutes
+  category: hard
+  en: The cards look similar. What rated battery runtime is listed for Radio-controlled rock crawler (minutes)?
+  ru: Карточки похожи. Уточните показатель «Номинальное время работы от аккумулятора» именно для «Радиоуправляемый
+    скальный вездеход» (минут).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын жартастық жолталғамайтын көлік» үшін нақты «Аккумулятордан
+    жұмыстың номиналды ұзақтығы» көрсеткішін айтыңыз (минут).
+  relevant:
+  - section: technical_rc_crawler.run_minutes
+    grade: 3
+  - section: technical_rc_crawler.charge_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_crawler.run_minutes; neighbouring charge_minutes does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_battery_runtime
+  need_key: technical.rc_crawler.run_minutes|current
+  required:
+  - fact: technical.rc_crawler.run_minutes
+    sections:
+    - technical_rc_crawler.run_minutes
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_crawler_charge_minutes
+  category: hard
+  en: Check the specifcation of Radio-controlled rock crawler for rated recharge time (minutes), please.
+  ru: 'Проверьте характиристику «Радиоуправляемый скальный вездеход»: интересует «Номинальное время зарядки»
+    (минут).'
+  kk: «Радиобасқарылатын жартастық жолталғамайтын көлік» сипатамасынан «Зарядтаудың номиналды ұзақтығы»
+    мәнін тексеріңізші (минут).
+  relevant:
+  - section: technical_rc_crawler.charge_minutes
+    grade: 3
+  - section: technical_rc_crawler.channels_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Радиобасқарылатын жартастық жолталғамайтын көлік» үшін «Зарядтаудың номиналды ұзақтығы» (минут)
+    керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.rc_crawler.charge_minutes; neighbouring channels_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_recharge_time
+  need_key: technical.rc_crawler.charge_minutes|current
+  required:
+  - fact: technical.rc_crawler.charge_minutes
+    sections:
+    - technical_rc_crawler.charge_minutes
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_crawler_channels_count
+  category: simple
+  en: For Radio-controlled rock crawler, what is the specified number of control channels in units?
+  ru: Для «Радиоуправляемый скальный вездеход» какое значение указано для показателя «Число каналов управления»
+    (шт.)?
+  kk: «Радиобасқарылатын жартастық жолталғамайтын көлік» тауары үшін «Басқару арналарының саны» көрсеткішінің
+    мәні қандай (дана)?
+  relevant:
+  - section: technical_rc_crawler.channels_count
+    grade: 3
+  - section: technical_rc_crawler.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_crawler.channels_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_control_channels
+  need_key: technical.rc_crawler.channels_count|current
+  required:
+  - fact: technical.rc_crawler.channels_count
+    sections:
+    - technical_rc_crawler.channels_count
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_rc_crawler_humidity_max_percent
+  category: unanswerable
+  en: For Radio-controlled rock crawler, what is the specified maximum permitted humidity in percent?
+  ru: Для «Радиоуправляемый скальный вездеход» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Радиобасқарылатын жартастық жолталғамайтын көлік» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық»
+    көрсеткішінің мәні қандай (пайыз)?
+  relevant:
+  - section: technical_rc_crawler.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_crawler does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.rc_crawler.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rc_crawler_drop_test_cm
+  category: unanswerable
+  en: For Radio-controlled rock crawler, what is the specified certified drop-test height in cm?
+  ru: Для «Радиоуправляемый скальный вездеход» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Радиобасқарылатын жартастық жолталғамайтын көлік» тауары үшін «Құлауды сынаудың сертификатталған
+    биіктігі» көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_rc_crawler.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_crawler does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.rc_crawler.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rc_crawler_repair_parts_price
+  category: unanswerable
+  en: For Radio-controlled rock crawler, what is the specified replacement-part price in KZT?
+  ru: Для «Радиоуправляемый скальный вездеход» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Радиобасқарылатын жартастық жолталғамайтын көлік» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің
+    мәні қандай (теңге)?
+  relevant:
+  - section: technical_rc_crawler.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_crawler does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.rc_crawler.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_rc_crawler_certification_id
+  category: unanswerable
+  en: For Radio-controlled rock crawler, what is the specified certification record number in record?
+  ru: Для «Радиоуправляемый скальный вездеход» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Радиобасқарылатын жартастық жолталғамайтын көлік» тауары үшін «Сертификаттау жазбасының нөмірі»
+    көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_rc_crawler.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_crawler does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.rc_crawler.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_rc_rally_car_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Radio-controlled rally car, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Радиоуправляемая раллийная машина», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын ралли көлігі» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_rc_rally_car.mass_g
+    grade: 3
+  - section: technical_rc_rally_car.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_rally_car.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.rc_rally_car.mass_g|current
+  required:
+  - fact: technical.rc_rally_car.mass_g
+    sections:
+    - technical_rc_rally_car.mass_g
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_rally_car_width_mm
+  category: simple
+  en: 'Radio-controlled rally car: width, mm?'
+  ru: '«Радиоуправляемая раллийная машина»: ширина, мм?'
+  kk: '«Радиобасқарылатын ралли көлігі»: ені, мм?'
+  relevant:
+  - section: technical_rc_rally_car.width_mm
+    grade: 3
+  - section: technical_rc_rally_car.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_rally_car.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_rally_car.width_mm|current
+  required:
+  - fact: technical.rc_rally_car.width_mm
+    sections:
+    - technical_rc_rally_car.width_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_rally_car_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Radio-controlled rally car (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Радиоуправляемая раллийная машина» (мм).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын ралли көлігі» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_rc_rally_car.height_mm
+    grade: 3
+  - section: technical_rc_rally_car.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_rally_car.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_rally_car.height_mm|current
+  required:
+  - fact: technical.rc_rally_car.height_mm
+    sections:
+    - technical_rc_rally_car.height_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_rally_car_depth_mm
+  category: hard
+  en: Check the specifcation of Radio-controlled rally car for depth (mm), please.
+  ru: 'Проверьте характиристику «Радиоуправляемая раллийная машина»: интересует «Глубина» (мм).'
+  kk: «Радиобасқарылатын ралли көлігі» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_rc_rally_car.depth_mm
+    grade: 3
+  - section: technical_rc_rally_car.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_rally_car.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_rally_car.depth_mm|current
+  required:
+  - fact: technical.rc_rally_car.depth_mm
+    sections:
+    - technical_rc_rally_car.depth_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_rally_car_operating_min_c
+  category: hard
+  en: For Radio-controlled rally car, what is the specified minimum operating ambient temperature in C?
+  ru: Для «Радиоуправляемая раллийная машина» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Радиобасқарылатын ралли көлігі» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_rc_rally_car.operating_min_c
+    grade: 3
+  - section: technical_rc_rally_car.operating_max_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_rally_car.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rc_rally_car.operating_min_c|current
+  required:
+  - fact: technical.rc_rally_car.operating_min_c
+    sections:
+    - technical_rc_rally_car.operating_min_c
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_rally_car_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Radio-controlled
+    rally car, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Радиоуправляемая
+    раллийная машина», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын ралли көлігі» үшін «Жұмыс кезіндегі ауаның
+    ең жоғары температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_rc_rally_car.operating_max_c
+    grade: 3
+  - section: technical_rc_rally_car.parts_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Радиоуправляемая раллийная машина» показатель «Максимальная температура воздуха при работе»
+    (C) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.rc_rally_car.operating_max_c; neighbouring parts_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rc_rally_car.operating_max_c|current
+  required:
+  - fact: technical.rc_rally_car.operating_max_c
+    sections:
+    - technical_rc_rally_car.operating_max_c
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_rally_car_parts_count
+  category: simple
+  en: 'Radio-controlled rally car: number of package parts, units?'
+  ru: '«Радиоуправляемая раллийная машина»: число деталей комплекта, шт.?'
+  kk: '«Радиобасқарылатын ралли көлігі»: жинақ бөлшектерінің саны, дана?'
+  relevant:
+  - section: technical_rc_rally_car.parts_count
+    grade: 3
+  - section: technical_rc_rally_car.min_age_years
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_rally_car.parts_count; neighbouring min_age_years does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_assembly_parts
+  need_key: technical.rc_rally_car.parts_count|current
+  required:
+  - fact: technical.rc_rally_car.parts_count
+    sections:
+    - technical_rc_rally_car.parts_count
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_rally_car_min_age_years
+  category: hard
+  en: The cards look similar. What minimum labelled age is listed for Radio-controlled rally car (years)?
+  ru: Карточки похожи. Уточните показатель «Минимальный возраст на маркировке» именно для «Радиоуправляемая
+    раллийная машина» (лет).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын ралли көлігі» үшін нақты «Таңбалаудағы ең төмен жас» көрсеткішін
+    айтыңыз (жас).
+  relevant:
+  - section: technical_rc_rally_car.min_age_years
+    grade: 3
+  - section: technical_rc_rally_car.battery_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_rally_car.min_age_years; neighbouring battery_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_age_label
+  need_key: technical.rc_rally_car.min_age_years|current
+  required:
+  - fact: technical.rc_rally_car.min_age_years
+    sections:
+    - technical_rc_rally_car.min_age_years
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_rally_car_battery_v
+  category: hard
+  en: Check the specifcation of Radio-controlled rally car for nominal battery voltage (V), please.
+  ru: 'Проверьте характиристику «Радиоуправляемая раллийная машина»: интересует «Номинальное напряжение
+    аккумулятора» (В).'
+  kk: «Радиобасқарылатын ралли көлігі» сипатамасынан «Аккумулятордың номиналды кернеуі» мәнін тексеріңізші
+    (В).
+  relevant:
+  - section: technical_rc_rally_car.battery_v
+    grade: 3
+  - section: technical_rc_rally_car.range_m
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_rally_car.battery_v; neighbouring range_m does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_battery_voltage
+  need_key: technical.rc_rally_car.battery_v|current
+  required:
+  - fact: technical.rc_rally_car.battery_v
+    sections:
+    - technical_rc_rally_car.battery_v
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_rally_car_range_m
+  category: simple
+  en: For Radio-controlled rally car, what is the specified rated control range in m?
+  ru: Для «Радиоуправляемая раллийная машина» какое значение указано для показателя «Номинальная дальность
+    управления» (м)?
+  kk: «Радиобасқарылатын ралли көлігі» тауары үшін «Басқарудың номиналды қашықтығы» көрсеткішінің мәні
+    қандай (м)?
+  relevant:
+  - section: technical_rc_rally_car.range_m
+    grade: 3
+  - section: technical_rc_rally_car.run_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_rally_car.range_m; neighbouring run_minutes does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_control_range
+  need_key: technical.rc_rally_car.range_m|current
+  required:
+  - fact: technical.rc_rally_car.range_m
+    sections:
+    - technical_rc_rally_car.range_m
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_rally_car_run_minutes
+  category: hard
+  en: I am comparing specifications. Find the rated battery runtime for Radio-controlled rally car, in
+    minutes.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное время работы от аккумулятора» у «Радиоуправляемая
+    раллийная машина», в минут.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын ралли көлігі» үшін «Аккумулятордан жұмыстың
+    номиналды ұзақтығы» мәні қажет (минут).
+  relevant:
+  - section: technical_rc_rally_car.run_minutes
+    grade: 3
+  - section: technical_rc_rally_car.charge_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_rally_car.run_minutes; neighbouring charge_minutes does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_battery_runtime
+  need_key: technical.rc_rally_car.run_minutes|current
+  required:
+  - fact: technical.rc_rally_car.run_minutes
+    sections:
+    - technical_rc_rally_car.run_minutes
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_rally_car_charge_minutes
+  category: hard
+  en: 'Radio-controlled rally car: rated recharge time, minutes?'
+  ru: '«Радиоуправляемая раллийная машина»: номинальное время зарядки, минут?'
+  kk: '«Радиобасқарылатын ралли көлігі»: зарядтаудың номиналды ұзақтығы, минут?'
+  relevant:
+  - section: technical_rc_rally_car.charge_minutes
+    grade: 3
+  - section: technical_rc_rally_car.channels_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_rally_car.charge_minutes; neighbouring channels_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_recharge_time
+  need_key: technical.rc_rally_car.charge_minutes|current
+  required:
+  - fact: technical.rc_rally_car.charge_minutes
+    sections:
+    - technical_rc_rally_car.charge_minutes
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_rally_car_channels_count
+  category: hard
+  en: The cards look similar. What number of control channels is listed for Radio-controlled rally car
+    (units)?
+  ru: Карточки похожи. Уточните показатель «Число каналов управления» именно для «Радиоуправляемая раллийная
+    машина» (шт.).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын ралли көлігі» үшін нақты «Басқару арналарының саны» көрсеткішін
+    айтыңыз (дана).
+  relevant:
+  - section: technical_rc_rally_car.channels_count
+    grade: 3
+  - section: technical_rc_rally_car.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Радиобасқарылатын ралли көлігі» үшін «Басқару арналарының саны» (дана) керек, уточните по этой
+    модели, пожалуйста.
+  rationale: Authored target technical.rc_rally_car.channels_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_control_channels
+  need_key: technical.rc_rally_car.channels_count|current
+  required:
+  - fact: technical.rc_rally_car.channels_count
+    sections:
+    - technical_rc_rally_car.channels_count
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_rc_rally_car_humidity_max_percent
+  category: unanswerable
+  en: For Radio-controlled rally car, what is the specified maximum permitted humidity in percent?
+  ru: Для «Радиоуправляемая раллийная машина» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Радиобасқарылатын ралли көлігі» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_rc_rally_car.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_rally_car does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.rc_rally_car.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rc_rally_car_drop_test_cm
+  category: unanswerable
+  en: For Radio-controlled rally car, what is the specified certified drop-test height in cm?
+  ru: Для «Радиоуправляемая раллийная машина» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Радиобасқарылатын ралли көлігі» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_rc_rally_car.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_rally_car does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.rc_rally_car.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rc_rally_car_repair_parts_price
+  category: unanswerable
+  en: For Radio-controlled rally car, what is the specified replacement-part price in KZT?
+  ru: Для «Радиоуправляемая раллийная машина» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Радиобасқарылатын ралли көлігі» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_rc_rally_car.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_rally_car does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.rc_rally_car.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_rc_rally_car_certification_id
+  category: unanswerable
+  en: For Radio-controlled rally car, what is the specified certification record number in record?
+  ru: Для «Радиоуправляемая раллийная машина» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Радиобасқарылатын ралли көлігі» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_rc_rally_car.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_rally_car does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.rc_rally_car.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_rc_rally_car
+  category: multi_fragment
+  en: What does Radio-controlled rally car weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Радиоуправляемая раллийная машина» и какой вес посылки допускают пункты самовывоза?
+  kk: «Радиобасқарылатын ралли көлігі» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_rc_rally_car.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.rc_rally_car.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.rc_rally_car.mass_g
+    sections:
+    - technical_rc_rally_car.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_truck_mass_g
+  category: hard
+  en: Check the specifcation of Radio-controlled transport truck for mass (g), please.
+  ru: 'Проверьте характиристику «Радиоуправляемый грузовик»: интересует «Масса» (г).'
+  kk: «Радиобасқарылатын жүк көлігі» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_rc_truck.mass_g
+    grade: 3
+  - section: technical_rc_truck.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_truck.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.rc_truck.mass_g|current
+  required:
+  - fact: technical.rc_truck.mass_g
+    sections:
+    - technical_rc_truck.mass_g
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_truck_width_mm
+  category: simple
+  en: For Radio-controlled transport truck, what is the specified width in mm?
+  ru: Для «Радиоуправляемый грузовик» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Радиобасқарылатын жүк көлігі» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_rc_truck.width_mm
+    grade: 3
+  - section: technical_rc_truck.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_truck.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_truck.width_mm|current
+  required:
+  - fact: technical.rc_truck.width_mm
+    sections:
+    - technical_rc_truck.width_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_truck_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Radio-controlled transport truck, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Радиоуправляемый грузовик», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын жүк көлігі» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_rc_truck.height_mm
+    grade: 3
+  - section: technical_rc_truck.depth_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_truck.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_truck.height_mm|current
+  required:
+  - fact: technical.rc_truck.height_mm
+    sections:
+    - technical_rc_truck.height_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_truck_depth_mm
+  category: simple
+  en: 'Radio-controlled transport truck: depth, mm?'
+  ru: '«Радиоуправляемый грузовик»: глубина, мм?'
+  kk: '«Радиобасқарылатын жүк көлігі»: тереңдігі, мм?'
+  relevant:
+  - section: technical_rc_truck.depth_mm
+    grade: 3
+  - section: technical_rc_truck.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_truck.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_truck.depth_mm|current
+  required:
+  - fact: technical.rc_truck.depth_mm
+    sections:
+    - technical_rc_truck.depth_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_truck_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Radio-controlled
+    transport truck (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Радиоуправляемый
+    грузовик» (C).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын жүк көлігі» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_rc_truck.operating_min_c
+    grade: 3
+  - section: technical_rc_truck.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_truck.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rc_truck.operating_min_c|current
+  required:
+  - fact: technical.rc_truck.operating_min_c
+    sections:
+    - technical_rc_truck.operating_min_c
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_truck_operating_max_c
+  category: hard
+  en: Check the specifcation of Radio-controlled transport truck for maximum operating ambient temperature
+    (C), please.
+  ru: 'Проверьте характиристику «Радиоуправляемый грузовик»: интересует «Максимальная температура воздуха
+    при работе» (C).'
+  kk: «Радиобасқарылатын жүк көлігі» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы» мәнін
+    тексеріңізші (C).
+  relevant:
+  - section: technical_rc_truck.operating_max_c
+    grade: 3
+  - section: technical_rc_truck.parts_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_truck.operating_max_c; neighbouring parts_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rc_truck.operating_max_c|current
+  required:
+  - fact: technical.rc_truck.operating_max_c
+    sections:
+    - technical_rc_truck.operating_max_c
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_truck_parts_count
+  category: simple
+  en: For Radio-controlled transport truck, what is the specified number of package parts in units?
+  ru: Для «Радиоуправляемый грузовик» какое значение указано для показателя «Число деталей комплекта»
+    (шт.)?
+  kk: «Радиобасқарылатын жүк көлігі» тауары үшін «Жинақ бөлшектерінің саны» көрсеткішінің мәні қандай
+    (дана)?
+  relevant:
+  - section: technical_rc_truck.parts_count
+    grade: 3
+  - section: technical_rc_truck.min_age_years
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Радиоуправляемый грузовик» показатель «Число деталей комплекта» (шт.) нақтылап беріңізші,
+    осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.rc_truck.parts_count; neighbouring min_age_years does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_assembly_parts
+  need_key: technical.rc_truck.parts_count|current
+  required:
+  - fact: technical.rc_truck.parts_count
+    sections:
+    - technical_rc_truck.parts_count
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_truck_min_age_years
+  category: hard
+  en: I am comparing specifications. Find the minimum labelled age for Radio-controlled transport truck,
+    in years.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальный возраст на маркировке» у «Радиоуправляемый
+    грузовик», в лет.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын жүк көлігі» үшін «Таңбалаудағы ең төмен жас»
+    мәні қажет (жас).
+  relevant:
+  - section: technical_rc_truck.min_age_years
+    grade: 3
+  - section: technical_rc_truck.battery_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_truck.min_age_years; neighbouring battery_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_age_label
+  need_key: technical.rc_truck.min_age_years|current
+  required:
+  - fact: technical.rc_truck.min_age_years
+    sections:
+    - technical_rc_truck.min_age_years
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_truck_battery_v
+  category: simple
+  en: 'Radio-controlled transport truck: nominal battery voltage, V?'
+  ru: '«Радиоуправляемый грузовик»: номинальное напряжение аккумулятора, В?'
+  kk: '«Радиобасқарылатын жүк көлігі»: аккумулятордың номиналды кернеуі, В?'
+  relevant:
+  - section: technical_rc_truck.battery_v
+    grade: 3
+  - section: technical_rc_truck.range_m
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_truck.battery_v; neighbouring range_m does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_battery_voltage
+  need_key: technical.rc_truck.battery_v|current
+  required:
+  - fact: technical.rc_truck.battery_v
+    sections:
+    - technical_rc_truck.battery_v
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_truck_range_m
+  category: hard
+  en: The cards look similar. What rated control range is listed for Radio-controlled transport truck
+    (m)?
+  ru: Карточки похожи. Уточните показатель «Номинальная дальность управления» именно для «Радиоуправляемый
+    грузовик» (м).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын жүк көлігі» үшін нақты «Басқарудың номиналды қашықтығы» көрсеткішін
+    айтыңыз (м).
+  relevant:
+  - section: technical_rc_truck.range_m
+    grade: 3
+  - section: technical_rc_truck.run_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_truck.range_m; neighbouring run_minutes does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_control_range
+  need_key: technical.rc_truck.range_m|current
+  required:
+  - fact: technical.rc_truck.range_m
+    sections:
+    - technical_rc_truck.range_m
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_truck_run_minutes
+  category: hard
+  en: Check the specifcation of Radio-controlled transport truck for rated battery runtime (minutes),
+    please.
+  ru: 'Проверьте характиристику «Радиоуправляемый грузовик»: интересует «Номинальное время работы от аккумулятора»
+    (минут).'
+  kk: «Радиобасқарылатын жүк көлігі» сипатамасынан «Аккумулятордан жұмыстың номиналды ұзақтығы» мәнін
+    тексеріңізші (минут).
+  relevant:
+  - section: technical_rc_truck.run_minutes
+    grade: 3
+  - section: technical_rc_truck.charge_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_truck.run_minutes; neighbouring charge_minutes does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_battery_runtime
+  need_key: technical.rc_truck.run_minutes|current
+  required:
+  - fact: technical.rc_truck.run_minutes
+    sections:
+    - technical_rc_truck.run_minutes
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_truck_charge_minutes
+  category: hard
+  en: For Radio-controlled transport truck, what is the specified rated recharge time in minutes?
+  ru: Для «Радиоуправляемый грузовик» какое значение указано для показателя «Номинальное время зарядки»
+    (минут)?
+  kk: «Радиобасқарылатын жүк көлігі» тауары үшін «Зарядтаудың номиналды ұзақтығы» көрсеткішінің мәні қандай
+    (минут)?
+  relevant:
+  - section: technical_rc_truck.charge_minutes
+    grade: 3
+  - section: technical_rc_truck.channels_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_truck.charge_minutes; neighbouring channels_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_recharge_time
+  need_key: technical.rc_truck.charge_minutes|current
+  required:
+  - fact: technical.rc_truck.charge_minutes
+    sections:
+    - technical_rc_truck.charge_minutes
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_truck_channels_count
+  category: simple
+  en: I am comparing specifications. Find the number of control channels for Radio-controlled transport
+    truck, in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число каналов управления» у «Радиоуправляемый грузовик»,
+    в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын жүк көлігі» үшін «Басқару арналарының саны»
+    мәні қажет (дана).
+  relevant:
+  - section: technical_rc_truck.channels_count
+    grade: 3
+  - section: technical_rc_truck.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_truck.channels_count; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_control_channels
+  need_key: technical.rc_truck.channels_count|current
+  required:
+  - fact: technical.rc_truck.channels_count
+    sections:
+    - technical_rc_truck.channels_count
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_rc_truck_humidity_max_percent
+  category: unanswerable
+  en: For Radio-controlled transport truck, what is the specified maximum permitted humidity in percent?
+  ru: Для «Радиоуправляемый грузовик» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Радиобасқарылатын жүк көлігі» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_rc_truck.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_truck does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.rc_truck.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rc_truck_drop_test_cm
+  category: unanswerable
+  en: For Radio-controlled transport truck, what is the specified certified drop-test height in cm?
+  ru: Для «Радиоуправляемый грузовик» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Радиобасқарылатын жүк көлігі» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_rc_truck.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_truck does not state drop_test_cm. Dimensions, the retail price or a diagnostic
+    fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.rc_truck.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rc_truck_repair_parts_price
+  category: unanswerable
+  en: For Radio-controlled transport truck, what is the specified replacement-part price in KZT?
+  ru: Для «Радиоуправляемый грузовик» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Радиобасқарылатын жүк көлігі» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_rc_truck.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_truck does not state repair_parts_price. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.rc_truck.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_rc_truck_certification_id
+  category: unanswerable
+  en: For Radio-controlled transport truck, what is the specified certification record number in record?
+  ru: Для «Радиоуправляемый грузовик» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Радиобасқарылатын жүк көлігі» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_rc_truck.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_truck does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.rc_truck.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_rc_excavator_mass_g
+  category: simple
+  en: 'Radio-controlled excavator model: mass, g?'
+  ru: '«Радиоуправляемая модель экскаватора»: масса, г?'
+  kk: '«Радиобасқарылатын экскаватор үлгісі»: салмағы, г?'
+  relevant:
+  - section: technical_rc_excavator.mass_g
+    grade: 3
+  - section: technical_rc_excavator.width_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: «Радиобасқарылатын экскаватор үлгісі» үшін «Салмағы» (г) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.rc_excavator.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.rc_excavator.mass_g|current
+  required:
+  - fact: technical.rc_excavator.mass_g
+    sections:
+    - technical_rc_excavator.mass_g
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_excavator_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Radio-controlled excavator model (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Радиоуправляемая модель экскаватора» (мм).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын экскаватор үлгісі» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_rc_excavator.width_mm
+    grade: 3
+  - section: technical_rc_excavator.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_excavator.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_excavator.width_mm|current
+  required:
+  - fact: technical.rc_excavator.width_mm
+    sections:
+    - technical_rc_excavator.width_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_excavator_height_mm
+  category: hard
+  en: Check the specifcation of Radio-controlled excavator model for height (mm), please.
+  ru: 'Проверьте характиристику «Радиоуправляемая модель экскаватора»: интересует «Высота» (мм).'
+  kk: «Радиобасқарылатын экскаватор үлгісі» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_rc_excavator.height_mm
+    grade: 3
+  - section: technical_rc_excavator.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_excavator.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_excavator.height_mm|current
+  required:
+  - fact: technical.rc_excavator.height_mm
+    sections:
+    - technical_rc_excavator.height_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_excavator_depth_mm
+  category: simple
+  en: For Radio-controlled excavator model, what is the specified depth in mm?
+  ru: Для «Радиоуправляемая модель экскаватора» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Радиобасқарылатын экскаватор үлгісі» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_rc_excavator.depth_mm
+    grade: 3
+  - section: technical_rc_excavator.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_excavator.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_excavator.depth_mm|current
+  required:
+  - fact: technical.rc_excavator.depth_mm
+    sections:
+    - technical_rc_excavator.depth_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_excavator_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Radio-controlled
+    excavator model, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Радиоуправляемая
+    модель экскаватора», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын экскаватор үлгісі» үшін «Жұмыс кезіндегі ауаның
+    ең төмен температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_rc_excavator.operating_min_c
+    grade: 3
+  - section: technical_rc_excavator.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_excavator.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rc_excavator.operating_min_c|current
+  required:
+  - fact: technical.rc_excavator.operating_min_c
+    sections:
+    - technical_rc_excavator.operating_min_c
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_excavator_operating_max_c
+  category: hard
+  en: 'Radio-controlled excavator model: maximum operating ambient temperature, C?'
+  ru: '«Радиоуправляемая модель экскаватора»: максимальная температура воздуха при работе, C?'
+  kk: '«Радиобасқарылатын экскаватор үлгісі»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_rc_excavator.operating_max_c
+    grade: 3
+  - section: technical_rc_excavator.parts_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_excavator.operating_max_c; neighbouring parts_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rc_excavator.operating_max_c|current
+  required:
+  - fact: technical.rc_excavator.operating_max_c
+    sections:
+    - technical_rc_excavator.operating_max_c
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_excavator_parts_count
+  category: hard
+  en: The cards look similar. What number of package parts is listed for Radio-controlled excavator model
+    (units)?
+  ru: Карточки похожи. Уточните показатель «Число деталей комплекта» именно для «Радиоуправляемая модель
+    экскаватора» (шт.).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын экскаватор үлгісі» үшін нақты «Жинақ бөлшектерінің саны» көрсеткішін
+    айтыңыз (дана).
+  relevant:
+  - section: technical_rc_excavator.parts_count
+    grade: 3
+  - section: technical_rc_excavator.min_age_years
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_excavator.parts_count; neighbouring min_age_years does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_assembly_parts
+  need_key: technical.rc_excavator.parts_count|current
+  required:
+  - fact: technical.rc_excavator.parts_count
+    sections:
+    - technical_rc_excavator.parts_count
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_excavator_min_age_years
+  category: hard
+  en: Check the specifcation of Radio-controlled excavator model for minimum labelled age (years), please.
+  ru: 'Проверьте характиристику «Радиоуправляемая модель экскаватора»: интересует «Минимальный возраст
+    на маркировке» (лет).'
+  kk: «Радиобасқарылатын экскаватор үлгісі» сипатамасынан «Таңбалаудағы ең төмен жас» мәнін тексеріңізші
+    (жас).
+  relevant:
+  - section: technical_rc_excavator.min_age_years
+    grade: 3
+  - section: technical_rc_excavator.battery_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Радиоуправляемая модель экскаватора» показатель «Минимальный возраст на маркировке» (лет)
+    нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.rc_excavator.min_age_years; neighbouring battery_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_age_label
+  need_key: technical.rc_excavator.min_age_years|current
+  required:
+  - fact: technical.rc_excavator.min_age_years
+    sections:
+    - technical_rc_excavator.min_age_years
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_excavator_battery_v
+  category: simple
+  en: For Radio-controlled excavator model, what is the specified nominal battery voltage in V?
+  ru: Для «Радиоуправляемая модель экскаватора» какое значение указано для показателя «Номинальное напряжение
+    аккумулятора» (В)?
+  kk: «Радиобасқарылатын экскаватор үлгісі» тауары үшін «Аккумулятордың номиналды кернеуі» көрсеткішінің
+    мәні қандай (В)?
+  relevant:
+  - section: technical_rc_excavator.battery_v
+    grade: 3
+  - section: technical_rc_excavator.range_m
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_excavator.battery_v; neighbouring range_m does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_battery_voltage
+  need_key: technical.rc_excavator.battery_v|current
+  required:
+  - fact: technical.rc_excavator.battery_v
+    sections:
+    - technical_rc_excavator.battery_v
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_excavator_range_m
+  category: simple
+  en: I am comparing specifications. Find the rated control range for Radio-controlled excavator model,
+    in m.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная дальность управления» у «Радиоуправляемая
+    модель экскаватора», в м.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын экскаватор үлгісі» үшін «Басқарудың номиналды
+    қашықтығы» мәні қажет (м).
+  relevant:
+  - section: technical_rc_excavator.range_m
+    grade: 3
+  - section: technical_rc_excavator.run_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_excavator.range_m; neighbouring run_minutes does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_control_range
+  need_key: technical.rc_excavator.range_m|current
+  required:
+  - fact: technical.rc_excavator.range_m
+    sections:
+    - technical_rc_excavator.range_m
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_excavator_run_minutes
+  category: hard
+  en: 'Radio-controlled excavator model: rated battery runtime, minutes?'
+  ru: '«Радиоуправляемая модель экскаватора»: номинальное время работы от аккумулятора, минут?'
+  kk: '«Радиобасқарылатын экскаватор үлгісі»: аккумулятордан жұмыстың номиналды ұзақтығы, минут?'
+  relevant:
+  - section: technical_rc_excavator.run_minutes
+    grade: 3
+  - section: technical_rc_excavator.charge_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_excavator.run_minutes; neighbouring charge_minutes does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_battery_runtime
+  need_key: technical.rc_excavator.run_minutes|current
+  required:
+  - fact: technical.rc_excavator.run_minutes
+    sections:
+    - technical_rc_excavator.run_minutes
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_excavator_charge_minutes
+  category: hard
+  en: The cards look similar. What rated recharge time is listed for Radio-controlled excavator model
+    (minutes)?
+  ru: Карточки похожи. Уточните показатель «Номинальное время зарядки» именно для «Радиоуправляемая модель
+    экскаватора» (минут).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын экскаватор үлгісі» үшін нақты «Зарядтаудың номиналды ұзақтығы»
+    көрсеткішін айтыңыз (минут).
+  relevant:
+  - section: technical_rc_excavator.charge_minutes
+    grade: 3
+  - section: technical_rc_excavator.channels_count
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_excavator.charge_minutes; neighbouring channels_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_recharge_time
+  need_key: technical.rc_excavator.charge_minutes|current
+  required:
+  - fact: technical.rc_excavator.charge_minutes
+    sections:
+    - technical_rc_excavator.charge_minutes
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_excavator_channels_count
+  category: hard
+  en: Check the specifcation of Radio-controlled excavator model for number of control channels (units),
+    please.
+  ru: 'Проверьте характиристику «Радиоуправляемая модель экскаватора»: интересует «Число каналов управления»
+    (шт.).'
+  kk: «Радиобасқарылатын экскаватор үлгісі» сипатамасынан «Басқару арналарының саны» мәнін тексеріңізші
+    (дана).
+  relevant:
+  - section: technical_rc_excavator.channels_count
+    grade: 3
+  - section: technical_rc_excavator.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_excavator.channels_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_control_channels
+  need_key: technical.rc_excavator.channels_count|current
+  required:
+  - fact: technical.rc_excavator.channels_count
+    sections:
+    - technical_rc_excavator.channels_count
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_rc_excavator_humidity_max_percent
+  category: unanswerable
+  en: For Radio-controlled excavator model, what is the specified maximum permitted humidity in percent?
+  ru: Для «Радиоуправляемая модель экскаватора» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Радиобасқарылатын экскаватор үлгісі» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_rc_excavator.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_excavator does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.rc_excavator.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rc_excavator_drop_test_cm
+  category: unanswerable
+  en: For Radio-controlled excavator model, what is the specified certified drop-test height in cm?
+  ru: Для «Радиоуправляемая модель экскаватора» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Радиобасқарылатын экскаватор үлгісі» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_rc_excavator.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_excavator does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.rc_excavator.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rc_excavator_repair_parts_price
+  category: unanswerable
+  en: For Radio-controlled excavator model, what is the specified replacement-part price in KZT?
+  ru: Для «Радиоуправляемая модель экскаватора» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Радиобасқарылатын экскаватор үлгісі» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_rc_excavator.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_excavator does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.rc_excavator.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_rc_excavator_certification_id
+  category: unanswerable
+  en: For Radio-controlled excavator model, what is the specified certification record number in record?
+  ru: Для «Радиоуправляемая модель экскаватора» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Радиобасқарылатын экскаватор үлгісі» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_rc_excavator.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_excavator does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.rc_excavator.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_rc_excavator
+  category: multi_fragment
+  en: What does Radio-controlled excavator model weigh, and what parcel weight limit do pickup points
+    state?
+  ru: Какая масса у «Радиоуправляемая модель экскаватора» и какой вес посылки допускают пункты самовывоза?
+  kk: «Радиобасқарылатын экскаватор үлгісі» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_rc_excavator.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.rc_excavator.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.rc_excavator.mass_g
+    sections:
+    - technical_rc_excavator.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_tank_mass_g
+  category: simple
+  en: For Radio-controlled tracked model, what is the specified mass in g?
+  ru: Для «Радиоуправляемая гусеничная модель» какое значение указано для показателя «Масса» (г)?
+  kk: «Радиобасқарылатын шынжыртабанды үлгі» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_rc_tank.mass_g
+    grade: 3
+  - section: technical_rc_tank.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_tank.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.rc_tank.mass_g|current
+  required:
+  - fact: technical.rc_tank.mass_g
+    sections:
+    - technical_rc_tank.mass_g
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_tank_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Radio-controlled tracked model, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Радиоуправляемая гусеничная модель», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын шынжыртабанды үлгі» үшін «Ені» мәні қажет
+    (мм).
+  relevant:
+  - section: technical_rc_tank.width_mm
+    grade: 3
+  - section: technical_rc_tank.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Радиобасқарылатын шынжыртабанды үлгі» үшін «Ені» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.rc_tank.width_mm; neighbouring height_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_tank.width_mm|current
+  required:
+  - fact: technical.rc_tank.width_mm
+    sections:
+    - technical_rc_tank.width_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_tank_height_mm
+  category: simple
+  en: 'Radio-controlled tracked model: height, mm?'
+  ru: '«Радиоуправляемая гусеничная модель»: высота, мм?'
+  kk: '«Радиобасқарылатын шынжыртабанды үлгі»: биіктігі, мм?'
+  relevant:
+  - section: technical_rc_tank.height_mm
+    grade: 3
+  - section: technical_rc_tank.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_tank.height_mm; neighbouring depth_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_tank.height_mm|current
+  required:
+  - fact: technical.rc_tank.height_mm
+    sections:
+    - technical_rc_tank.height_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_tank_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Radio-controlled tracked model (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Радиоуправляемая гусеничная модель» (мм).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын шынжыртабанды үлгі» үшін нақты «Тереңдігі» көрсеткішін айтыңыз
+    (мм).
+  relevant:
+  - section: technical_rc_tank.depth_mm
+    grade: 3
+  - section: technical_rc_tank.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_tank.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_tank.depth_mm|current
+  required:
+  - fact: technical.rc_tank.depth_mm
+    sections:
+    - technical_rc_tank.depth_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_tank_operating_min_c
+  category: hard
+  en: Check the specifcation of Radio-controlled tracked model for minimum operating ambient temperature
+    (C), please.
+  ru: 'Проверьте характиристику «Радиоуправляемая гусеничная модель»: интересует «Минимальная температура
+    воздуха при работе» (C).'
+  kk: «Радиобасқарылатын шынжыртабанды үлгі» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    мәнін тексеріңізші (C).
+  relevant:
+  - section: technical_rc_tank.operating_min_c
+    grade: 3
+  - section: technical_rc_tank.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_tank.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rc_tank.operating_min_c|current
+  required:
+  - fact: technical.rc_tank.operating_min_c
+    sections:
+    - technical_rc_tank.operating_min_c
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_tank_operating_max_c
+  category: hard
+  en: For Radio-controlled tracked model, what is the specified maximum operating ambient temperature
+    in C?
+  ru: Для «Радиоуправляемая гусеничная модель» какое значение указано для показателя «Максимальная температура
+    воздуха при работе» (C)?
+  kk: «Радиобасқарылатын шынжыртабанды үлгі» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    көрсеткішінің мәні қандай (C)?
+  relevant:
+  - section: technical_rc_tank.operating_max_c
+    grade: 3
+  - section: technical_rc_tank.parts_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_tank.operating_max_c; neighbouring parts_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rc_tank.operating_max_c|current
+  required:
+  - fact: technical.rc_tank.operating_max_c
+    sections:
+    - technical_rc_tank.operating_max_c
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_tank_parts_count
+  category: simple
+  en: I am comparing specifications. Find the number of package parts for Radio-controlled tracked model,
+    in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число деталей комплекта» у «Радиоуправляемая гусеничная
+    модель», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын шынжыртабанды үлгі» үшін «Жинақ бөлшектерінің
+    саны» мәні қажет (дана).
+  relevant:
+  - section: technical_rc_tank.parts_count
+    grade: 3
+  - section: technical_rc_tank.min_age_years
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_tank.parts_count; neighbouring min_age_years does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_assembly_parts
+  need_key: technical.rc_tank.parts_count|current
+  required:
+  - fact: technical.rc_tank.parts_count
+    sections:
+    - technical_rc_tank.parts_count
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_tank_min_age_years
+  category: hard
+  en: 'Radio-controlled tracked model: minimum labelled age, years?'
+  ru: '«Радиоуправляемая гусеничная модель»: минимальный возраст на маркировке, лет?'
+  kk: '«Радиобасқарылатын шынжыртабанды үлгі»: таңбалаудағы ең төмен жас, жас?'
+  relevant:
+  - section: technical_rc_tank.min_age_years
+    grade: 3
+  - section: technical_rc_tank.battery_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_tank.min_age_years; neighbouring battery_v does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_age_label
+  need_key: technical.rc_tank.min_age_years|current
+  required:
+  - fact: technical.rc_tank.min_age_years
+    sections:
+    - technical_rc_tank.min_age_years
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_tank_battery_v
+  category: hard
+  en: The cards look similar. What nominal battery voltage is listed for Radio-controlled tracked model
+    (V)?
+  ru: Карточки похожи. Уточните показатель «Номинальное напряжение аккумулятора» именно для «Радиоуправляемая
+    гусеничная модель» (В).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын шынжыртабанды үлгі» үшін нақты «Аккумулятордың номиналды кернеуі»
+    көрсеткішін айтыңыз (В).
+  relevant:
+  - section: technical_rc_tank.battery_v
+    grade: 3
+  - section: technical_rc_tank.range_m
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Радиоуправляемая гусеничная модель» показатель «Номинальное напряжение аккумулятора» (В)
+    нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.rc_tank.battery_v; neighbouring range_m does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_battery_voltage
+  need_key: technical.rc_tank.battery_v|current
+  required:
+  - fact: technical.rc_tank.battery_v
+    sections:
+    - technical_rc_tank.battery_v
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_tank_range_m
+  category: hard
+  en: Check the specifcation of Radio-controlled tracked model for rated control range (m), please.
+  ru: 'Проверьте характиристику «Радиоуправляемая гусеничная модель»: интересует «Номинальная дальность
+    управления» (м).'
+  kk: «Радиобасқарылатын шынжыртабанды үлгі» сипатамасынан «Басқарудың номиналды қашықтығы» мәнін тексеріңізші
+    (м).
+  relevant:
+  - section: technical_rc_tank.range_m
+    grade: 3
+  - section: technical_rc_tank.run_minutes
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_tank.range_m; neighbouring run_minutes does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_control_range
+  need_key: technical.rc_tank.range_m|current
+  required:
+  - fact: technical.rc_tank.range_m
+    sections:
+    - technical_rc_tank.range_m
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_tank_run_minutes
+  category: hard
+  en: For Radio-controlled tracked model, what is the specified rated battery runtime in minutes?
+  ru: Для «Радиоуправляемая гусеничная модель» какое значение указано для показателя «Номинальное время
+    работы от аккумулятора» (минут)?
+  kk: «Радиобасқарылатын шынжыртабанды үлгі» тауары үшін «Аккумулятордан жұмыстың номиналды ұзақтығы»
+    көрсеткішінің мәні қандай (минут)?
+  relevant:
+  - section: technical_rc_tank.run_minutes
+    grade: 3
+  - section: technical_rc_tank.charge_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_tank.run_minutes; neighbouring charge_minutes does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_battery_runtime
+  need_key: technical.rc_tank.run_minutes|current
+  required:
+  - fact: technical.rc_tank.run_minutes
+    sections:
+    - technical_rc_tank.run_minutes
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_tank_charge_minutes
+  category: hard
+  en: I am comparing specifications. Find the rated recharge time for Radio-controlled tracked model,
+    in minutes.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное время зарядки» у «Радиоуправляемая гусеничная
+    модель», в минут.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын шынжыртабанды үлгі» үшін «Зарядтаудың номиналды
+    ұзақтығы» мәні қажет (минут).
+  relevant:
+  - section: technical_rc_tank.charge_minutes
+    grade: 3
+  - section: technical_rc_tank.channels_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_tank.charge_minutes; neighbouring channels_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_recharge_time
+  need_key: technical.rc_tank.charge_minutes|current
+  required:
+  - fact: technical.rc_tank.charge_minutes
+    sections:
+    - technical_rc_tank.charge_minutes
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_tank_channels_count
+  category: simple
+  en: 'Radio-controlled tracked model: number of control channels, units?'
+  ru: '«Радиоуправляемая гусеничная модель»: число каналов управления, шт.?'
+  kk: '«Радиобасқарылатын шынжыртабанды үлгі»: басқару арналарының саны, дана?'
+  relevant:
+  - section: technical_rc_tank.channels_count
+    grade: 3
+  - section: technical_rc_tank.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_tank.channels_count; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_control_channels
+  need_key: technical.rc_tank.channels_count|current
+  required:
+  - fact: technical.rc_tank.channels_count
+    sections:
+    - technical_rc_tank.channels_count
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_rc_tank_humidity_max_percent
+  category: unanswerable
+  en: For Radio-controlled tracked model, what is the specified maximum permitted humidity in percent?
+  ru: Для «Радиоуправляемая гусеничная модель» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Радиобасқарылатын шынжыртабанды үлгі» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_rc_tank.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_tank does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.rc_tank.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rc_tank_drop_test_cm
+  category: unanswerable
+  en: For Radio-controlled tracked model, what is the specified certified drop-test height in cm?
+  ru: Для «Радиоуправляемая гусеничная модель» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Радиобасқарылатын шынжыртабанды үлгі» тауары үшін «Құлауды сынаудың сертификатталған биіктігі»
+    көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_rc_tank.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_tank does not state drop_test_cm. Dimensions, the retail price or a diagnostic
+    fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.rc_tank.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rc_tank_repair_parts_price
+  category: unanswerable
+  en: For Radio-controlled tracked model, what is the specified replacement-part price in KZT?
+  ru: Для «Радиоуправляемая гусеничная модель» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Радиобасқарылатын шынжыртабанды үлгі» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_rc_tank.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_tank does not state repair_parts_price. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.rc_tank.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_rc_tank_certification_id
+  category: unanswerable
+  en: For Radio-controlled tracked model, what is the specified certification record number in record?
+  ru: Для «Радиоуправляемая гусеничная модель» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Радиобасқарылатын шынжыртабанды үлгі» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_rc_tank.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_tank does not state certification_id. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.rc_tank.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_rc_sailboat_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Radio-controlled sailboat model (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Радиоуправляемая модель парусника» (г).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын желкенді қайық үлгісі» үшін нақты «Салмағы» көрсеткішін айтыңыз
+    (г).
+  relevant:
+  - section: technical_rc_sailboat.mass_g
+    grade: 3
+  - section: technical_rc_sailboat.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_sailboat.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.rc_sailboat.mass_g|current
+  required:
+  - fact: technical.rc_sailboat.mass_g
+    sections:
+    - technical_rc_sailboat.mass_g
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_sailboat_width_mm
+  category: hard
+  en: Check the specifcation of Radio-controlled sailboat model for width (mm), please.
+  ru: 'Проверьте характиристику «Радиоуправляемая модель парусника»: интересует «Ширина» (мм).'
+  kk: «Радиобасқарылатын желкенді қайық үлгісі» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_rc_sailboat.width_mm
+    grade: 3
+  - section: technical_rc_sailboat.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_sailboat.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_sailboat.width_mm|current
+  required:
+  - fact: technical.rc_sailboat.width_mm
+    sections:
+    - technical_rc_sailboat.width_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_sailboat_height_mm
+  category: simple
+  en: For Radio-controlled sailboat model, what is the specified height in mm?
+  ru: Для «Радиоуправляемая модель парусника» какое значение указано для показателя «Высота» (мм)?
+  kk: «Радиобасқарылатын желкенді қайық үлгісі» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_rc_sailboat.height_mm
+    grade: 3
+  - section: technical_rc_sailboat.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Радиобасқарылатын желкенді қайық үлгісі» үшін «Биіктігі» (мм) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.rc_sailboat.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_sailboat.height_mm|current
+  required:
+  - fact: technical.rc_sailboat.height_mm
+    sections:
+    - technical_rc_sailboat.height_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_sailboat_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Radio-controlled sailboat model, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Радиоуправляемая модель парусника», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын желкенді қайық үлгісі» үшін «Тереңдігі» мәні
+    қажет (мм).
+  relevant:
+  - section: technical_rc_sailboat.depth_mm
+    grade: 3
+  - section: technical_rc_sailboat.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_sailboat.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_sailboat.depth_mm|current
+  required:
+  - fact: technical.rc_sailboat.depth_mm
+    sections:
+    - technical_rc_sailboat.depth_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_sailboat_operating_min_c
+  category: hard
+  en: 'Radio-controlled sailboat model: minimum operating ambient temperature, C?'
+  ru: '«Радиоуправляемая модель парусника»: минимальная температура воздуха при работе, C?'
+  kk: '«Радиобасқарылатын желкенді қайық үлгісі»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_rc_sailboat.operating_min_c
+    grade: 3
+  - section: technical_rc_sailboat.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_sailboat.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rc_sailboat.operating_min_c|current
+  required:
+  - fact: technical.rc_sailboat.operating_min_c
+    sections:
+    - technical_rc_sailboat.operating_min_c
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_sailboat_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Radio-controlled
+    sailboat model (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Радиоуправляемая
+    модель парусника» (C).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын желкенді қайық үлгісі» үшін нақты «Жұмыс кезіндегі ауаның
+    ең жоғары температурасы» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_rc_sailboat.operating_max_c
+    grade: 3
+  - section: technical_rc_sailboat.parts_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_sailboat.operating_max_c; neighbouring parts_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rc_sailboat.operating_max_c|current
+  required:
+  - fact: technical.rc_sailboat.operating_max_c
+    sections:
+    - technical_rc_sailboat.operating_max_c
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_sailboat_parts_count
+  category: hard
+  en: Check the specifcation of Radio-controlled sailboat model for number of package parts (units), please.
+  ru: 'Проверьте характиристику «Радиоуправляемая модель парусника»: интересует «Число деталей комплекта»
+    (шт.).'
+  kk: «Радиобасқарылатын желкенді қайық үлгісі» сипатамасынан «Жинақ бөлшектерінің саны» мәнін тексеріңізші
+    (дана).
+  relevant:
+  - section: technical_rc_sailboat.parts_count
+    grade: 3
+  - section: technical_rc_sailboat.min_age_years
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_sailboat.parts_count; neighbouring min_age_years does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_assembly_parts
+  need_key: technical.rc_sailboat.parts_count|current
+  required:
+  - fact: technical.rc_sailboat.parts_count
+    sections:
+    - technical_rc_sailboat.parts_count
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_sailboat_min_age_years
+  category: hard
+  en: For Radio-controlled sailboat model, what is the specified minimum labelled age in years?
+  ru: Для «Радиоуправляемая модель парусника» какое значение указано для показателя «Минимальный возраст
+    на маркировке» (лет)?
+  kk: «Радиобасқарылатын желкенді қайық үлгісі» тауары үшін «Таңбалаудағы ең төмен жас» көрсеткішінің
+    мәні қандай (жас)?
+  relevant:
+  - section: technical_rc_sailboat.min_age_years
+    grade: 3
+  - section: technical_rc_sailboat.battery_v
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_sailboat.min_age_years; neighbouring battery_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_age_label
+  need_key: technical.rc_sailboat.min_age_years|current
+  required:
+  - fact: technical.rc_sailboat.min_age_years
+    sections:
+    - technical_rc_sailboat.min_age_years
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_sailboat_battery_v
+  category: simple
+  en: I am comparing specifications. Find the nominal battery voltage for Radio-controlled sailboat model,
+    in V.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное напряжение аккумулятора» у «Радиоуправляемая
+    модель парусника», в В.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын желкенді қайық үлгісі» үшін «Аккумулятордың
+    номиналды кернеуі» мәні қажет (В).
+  relevant:
+  - section: technical_rc_sailboat.battery_v
+    grade: 3
+  - section: technical_rc_sailboat.range_m
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_sailboat.battery_v; neighbouring range_m does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_battery_voltage
+  need_key: technical.rc_sailboat.battery_v|current
+  required:
+  - fact: technical.rc_sailboat.battery_v
+    sections:
+    - technical_rc_sailboat.battery_v
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_sailboat_range_m
+  category: simple
+  en: 'Radio-controlled sailboat model: rated control range, m?'
+  ru: '«Радиоуправляемая модель парусника»: номинальная дальность управления, м?'
+  kk: '«Радиобасқарылатын желкенді қайық үлгісі»: басқарудың номиналды қашықтығы, м?'
+  relevant:
+  - section: technical_rc_sailboat.range_m
+    grade: 3
+  - section: technical_rc_sailboat.run_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Радиоуправляемая модель парусника» показатель «Номинальная дальность управления» (м) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.rc_sailboat.range_m; neighbouring run_minutes does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_control_range
+  need_key: technical.rc_sailboat.range_m|current
+  required:
+  - fact: technical.rc_sailboat.range_m
+    sections:
+    - technical_rc_sailboat.range_m
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_sailboat_run_minutes
+  category: hard
+  en: The cards look similar. What rated battery runtime is listed for Radio-controlled sailboat model
+    (minutes)?
+  ru: Карточки похожи. Уточните показатель «Номинальное время работы от аккумулятора» именно для «Радиоуправляемая
+    модель парусника» (минут).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын желкенді қайық үлгісі» үшін нақты «Аккумулятордан жұмыстың
+    номиналды ұзақтығы» көрсеткішін айтыңыз (минут).
+  relevant:
+  - section: technical_rc_sailboat.run_minutes
+    grade: 3
+  - section: technical_rc_sailboat.charge_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_sailboat.run_minutes; neighbouring charge_minutes does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_battery_runtime
+  need_key: technical.rc_sailboat.run_minutes|current
+  required:
+  - fact: technical.rc_sailboat.run_minutes
+    sections:
+    - technical_rc_sailboat.run_minutes
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_sailboat_charge_minutes
+  category: hard
+  en: Check the specifcation of Radio-controlled sailboat model for rated recharge time (minutes), please.
+  ru: 'Проверьте характиристику «Радиоуправляемая модель парусника»: интересует «Номинальное время зарядки»
+    (минут).'
+  kk: «Радиобасқарылатын желкенді қайық үлгісі» сипатамасынан «Зарядтаудың номиналды ұзақтығы» мәнін тексеріңізші
+    (минут).
+  relevant:
+  - section: technical_rc_sailboat.charge_minutes
+    grade: 3
+  - section: technical_rc_sailboat.channels_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_sailboat.charge_minutes; neighbouring channels_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_recharge_time
+  need_key: technical.rc_sailboat.charge_minutes|current
+  required:
+  - fact: technical.rc_sailboat.charge_minutes
+    sections:
+    - technical_rc_sailboat.charge_minutes
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_sailboat_channels_count
+  category: simple
+  en: For Radio-controlled sailboat model, what is the specified number of control channels in units?
+  ru: Для «Радиоуправляемая модель парусника» какое значение указано для показателя «Число каналов управления»
+    (шт.)?
+  kk: «Радиобасқарылатын желкенді қайық үлгісі» тауары үшін «Басқару арналарының саны» көрсеткішінің мәні
+    қандай (дана)?
+  relevant:
+  - section: technical_rc_sailboat.channels_count
+    grade: 3
+  - section: technical_rc_sailboat.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_sailboat.channels_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_control_channels
+  need_key: technical.rc_sailboat.channels_count|current
+  required:
+  - fact: technical.rc_sailboat.channels_count
+    sections:
+    - technical_rc_sailboat.channels_count
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_rc_sailboat_humidity_max_percent
+  category: unanswerable
+  en: For Radio-controlled sailboat model, what is the specified maximum permitted humidity in percent?
+  ru: Для «Радиоуправляемая модель парусника» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Радиобасқарылатын желкенді қайық үлгісі» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_rc_sailboat.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_sailboat does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.rc_sailboat.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rc_sailboat_drop_test_cm
+  category: unanswerable
+  en: For Radio-controlled sailboat model, what is the specified certified drop-test height in cm?
+  ru: Для «Радиоуправляемая модель парусника» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Радиобасқарылатын желкенді қайық үлгісі» тауары үшін «Құлауды сынаудың сертификатталған биіктігі»
+    көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_rc_sailboat.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_sailboat does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.rc_sailboat.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rc_sailboat_repair_parts_price
+  category: unanswerable
+  en: For Radio-controlled sailboat model, what is the specified replacement-part price in KZT?
+  ru: Для «Радиоуправляемая модель парусника» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Радиобасқарылатын желкенді қайық үлгісі» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні
+    қандай (теңге)?
+  relevant:
+  - section: technical_rc_sailboat.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_sailboat does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.rc_sailboat.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_rc_sailboat_certification_id
+  category: unanswerable
+  en: For Radio-controlled sailboat model, what is the specified certification record number in record?
+  ru: Для «Радиоуправляемая модель парусника» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Радиобасқарылатын желкенді қайық үлгісі» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_rc_sailboat.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_sailboat does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.rc_sailboat.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_rc_sailboat
+  category: multi_fragment
+  en: What does Radio-controlled sailboat model weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Радиоуправляемая модель парусника» и какой вес посылки допускают пункты самовывоза?
+  kk: «Радиобасқарылатын желкенді қайық үлгісі» салмағы қандай және беру пункттері сәлемдеменің қандай
+    салмағына рұқсат береді?
+  relevant:
+  - section: technical_rc_sailboat.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.rc_sailboat.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.rc_sailboat.mass_g
+    sections:
+    - technical_rc_sailboat.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_speedboat_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Radio-controlled speedboat model, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Радиоуправляемая модель катера», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын катер үлгісі» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_rc_speedboat.mass_g
+    grade: 3
+  - section: technical_rc_speedboat.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_speedboat.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.rc_speedboat.mass_g|current
+  required:
+  - fact: technical.rc_speedboat.mass_g
+    sections:
+    - technical_rc_speedboat.mass_g
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_speedboat_width_mm
+  category: simple
+  en: 'Radio-controlled speedboat model: width, mm?'
+  ru: '«Радиоуправляемая модель катера»: ширина, мм?'
+  kk: '«Радиобасқарылатын катер үлгісі»: ені, мм?'
+  relevant:
+  - section: technical_rc_speedboat.width_mm
+    grade: 3
+  - section: technical_rc_speedboat.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_speedboat.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_speedboat.width_mm|current
+  required:
+  - fact: technical.rc_speedboat.width_mm
+    sections:
+    - technical_rc_speedboat.width_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_speedboat_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Radio-controlled speedboat model (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Радиоуправляемая модель катера» (мм).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын катер үлгісі» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_rc_speedboat.height_mm
+    grade: 3
+  - section: technical_rc_speedboat.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_speedboat.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_speedboat.height_mm|current
+  required:
+  - fact: technical.rc_speedboat.height_mm
+    sections:
+    - technical_rc_speedboat.height_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_speedboat_depth_mm
+  category: hard
+  en: Check the specifcation of Radio-controlled speedboat model for depth (mm), please.
+  ru: 'Проверьте характиристику «Радиоуправляемая модель катера»: интересует «Глубина» (мм).'
+  kk: «Радиобасқарылатын катер үлгісі» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_rc_speedboat.depth_mm
+    grade: 3
+  - section: technical_rc_speedboat.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Радиобасқарылатын катер үлгісі» үшін «Тереңдігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.rc_speedboat.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_speedboat.depth_mm|current
+  required:
+  - fact: technical.rc_speedboat.depth_mm
+    sections:
+    - technical_rc_speedboat.depth_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_speedboat_operating_min_c
+  category: hard
+  en: For Radio-controlled speedboat model, what is the specified minimum operating ambient temperature
+    in C?
+  ru: Для «Радиоуправляемая модель катера» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Радиобасқарылатын катер үлгісі» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_rc_speedboat.operating_min_c
+    grade: 3
+  - section: technical_rc_speedboat.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_speedboat.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rc_speedboat.operating_min_c|current
+  required:
+  - fact: technical.rc_speedboat.operating_min_c
+    sections:
+    - technical_rc_speedboat.operating_min_c
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_speedboat_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Radio-controlled
+    speedboat model, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Радиоуправляемая
+    модель катера», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын катер үлгісі» үшін «Жұмыс кезіндегі ауаның
+    ең жоғары температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_rc_speedboat.operating_max_c
+    grade: 3
+  - section: technical_rc_speedboat.parts_count
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_speedboat.operating_max_c; neighbouring parts_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rc_speedboat.operating_max_c|current
+  required:
+  - fact: technical.rc_speedboat.operating_max_c
+    sections:
+    - technical_rc_speedboat.operating_max_c
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_speedboat_parts_count
+  category: simple
+  en: 'Radio-controlled speedboat model: number of package parts, units?'
+  ru: '«Радиоуправляемая модель катера»: число деталей комплекта, шт.?'
+  kk: '«Радиобасқарылатын катер үлгісі»: жинақ бөлшектерінің саны, дана?'
+  relevant:
+  - section: technical_rc_speedboat.parts_count
+    grade: 3
+  - section: technical_rc_speedboat.min_age_years
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_speedboat.parts_count; neighbouring min_age_years does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_assembly_parts
+  need_key: technical.rc_speedboat.parts_count|current
+  required:
+  - fact: technical.rc_speedboat.parts_count
+    sections:
+    - technical_rc_speedboat.parts_count
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_speedboat_min_age_years
+  category: hard
+  en: The cards look similar. What minimum labelled age is listed for Radio-controlled speedboat model
+    (years)?
+  ru: Карточки похожи. Уточните показатель «Минимальный возраст на маркировке» именно для «Радиоуправляемая
+    модель катера» (лет).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын катер үлгісі» үшін нақты «Таңбалаудағы ең төмен жас» көрсеткішін
+    айтыңыз (жас).
+  relevant:
+  - section: technical_rc_speedboat.min_age_years
+    grade: 3
+  - section: technical_rc_speedboat.battery_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_speedboat.min_age_years; neighbouring battery_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_age_label
+  need_key: technical.rc_speedboat.min_age_years|current
+  required:
+  - fact: technical.rc_speedboat.min_age_years
+    sections:
+    - technical_rc_speedboat.min_age_years
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_speedboat_battery_v
+  category: hard
+  en: Check the specifcation of Radio-controlled speedboat model for nominal battery voltage (V), please.
+  ru: 'Проверьте характиристику «Радиоуправляемая модель катера»: интересует «Номинальное напряжение аккумулятора»
+    (В).'
+  kk: «Радиобасқарылатын катер үлгісі» сипатамасынан «Аккумулятордың номиналды кернеуі» мәнін тексеріңізші
+    (В).
+  relevant:
+  - section: technical_rc_speedboat.battery_v
+    grade: 3
+  - section: technical_rc_speedboat.range_m
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_speedboat.battery_v; neighbouring range_m does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_battery_voltage
+  need_key: technical.rc_speedboat.battery_v|current
+  required:
+  - fact: technical.rc_speedboat.battery_v
+    sections:
+    - technical_rc_speedboat.battery_v
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_speedboat_range_m
+  category: simple
+  en: For Radio-controlled speedboat model, what is the specified rated control range in m?
+  ru: Для «Радиоуправляемая модель катера» какое значение указано для показателя «Номинальная дальность
+    управления» (м)?
+  kk: «Радиобасқарылатын катер үлгісі» тауары үшін «Басқарудың номиналды қашықтығы» көрсеткішінің мәні
+    қандай (м)?
+  relevant:
+  - section: technical_rc_speedboat.range_m
+    grade: 3
+  - section: technical_rc_speedboat.run_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_speedboat.range_m; neighbouring run_minutes does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_control_range
+  need_key: technical.rc_speedboat.range_m|current
+  required:
+  - fact: technical.rc_speedboat.range_m
+    sections:
+    - technical_rc_speedboat.range_m
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_speedboat_run_minutes
+  category: hard
+  en: I am comparing specifications. Find the rated battery runtime for Radio-controlled speedboat model,
+    in minutes.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное время работы от аккумулятора» у «Радиоуправляемая
+    модель катера», в минут.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын катер үлгісі» үшін «Аккумулятордан жұмыстың
+    номиналды ұзақтығы» мәні қажет (минут).
+  relevant:
+  - section: technical_rc_speedboat.run_minutes
+    grade: 3
+  - section: technical_rc_speedboat.charge_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Радиоуправляемая модель катера» показатель «Номинальное время работы от аккумулятора» (минут)
+    нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.rc_speedboat.run_minutes; neighbouring charge_minutes does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_battery_runtime
+  need_key: technical.rc_speedboat.run_minutes|current
+  required:
+  - fact: technical.rc_speedboat.run_minutes
+    sections:
+    - technical_rc_speedboat.run_minutes
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_speedboat_charge_minutes
+  category: hard
+  en: 'Radio-controlled speedboat model: rated recharge time, minutes?'
+  ru: '«Радиоуправляемая модель катера»: номинальное время зарядки, минут?'
+  kk: '«Радиобасқарылатын катер үлгісі»: зарядтаудың номиналды ұзақтығы, минут?'
+  relevant:
+  - section: technical_rc_speedboat.charge_minutes
+    grade: 3
+  - section: technical_rc_speedboat.channels_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_speedboat.charge_minutes; neighbouring channels_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_recharge_time
+  need_key: technical.rc_speedboat.charge_minutes|current
+  required:
+  - fact: technical.rc_speedboat.charge_minutes
+    sections:
+    - technical_rc_speedboat.charge_minutes
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_speedboat_channels_count
+  category: hard
+  en: The cards look similar. What number of control channels is listed for Radio-controlled speedboat
+    model (units)?
+  ru: Карточки похожи. Уточните показатель «Число каналов управления» именно для «Радиоуправляемая модель
+    катера» (шт.).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын катер үлгісі» үшін нақты «Басқару арналарының саны» көрсеткішін
+    айтыңыз (дана).
+  relevant:
+  - section: technical_rc_speedboat.channels_count
+    grade: 3
+  - section: technical_rc_speedboat.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_speedboat.channels_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_control_channels
+  need_key: technical.rc_speedboat.channels_count|current
+  required:
+  - fact: technical.rc_speedboat.channels_count
+    sections:
+    - technical_rc_speedboat.channels_count
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_rc_speedboat_humidity_max_percent
+  category: unanswerable
+  en: For Radio-controlled speedboat model, what is the specified maximum permitted humidity in percent?
+  ru: Для «Радиоуправляемая модель катера» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Радиобасқарылатын катер үлгісі» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_rc_speedboat.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_speedboat does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.rc_speedboat.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rc_speedboat_drop_test_cm
+  category: unanswerable
+  en: For Radio-controlled speedboat model, what is the specified certified drop-test height in cm?
+  ru: Для «Радиоуправляемая модель катера» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Радиобасқарылатын катер үлгісі» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_rc_speedboat.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_speedboat does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.rc_speedboat.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rc_speedboat_repair_parts_price
+  category: unanswerable
+  en: For Radio-controlled speedboat model, what is the specified replacement-part price in KZT?
+  ru: Для «Радиоуправляемая модель катера» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Радиобасқарылатын катер үлгісі» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_rc_speedboat.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_speedboat does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.rc_speedboat.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_rc_speedboat_certification_id
+  category: unanswerable
+  en: For Radio-controlled speedboat model, what is the specified certification record number in record?
+  ru: Для «Радиоуправляемая модель катера» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Радиобасқарылатын катер үлгісі» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_rc_speedboat.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_speedboat does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.rc_speedboat.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_rc_glider_mass_g
+  category: hard
+  en: Check the specifcation of Radio-controlled training glider for mass (g), please.
+  ru: 'Проверьте характиристику «Радиоуправляемый учебный планер»: интересует «Масса» (г).'
+  kk: «Радиобасқарылатын оқу планері» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_rc_glider.mass_g
+    grade: 3
+  - section: technical_rc_glider.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_glider.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.rc_glider.mass_g|current
+  required:
+  - fact: technical.rc_glider.mass_g
+    sections:
+    - technical_rc_glider.mass_g
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_glider_width_mm
+  category: simple
+  en: For Radio-controlled training glider, what is the specified width in mm?
+  ru: Для «Радиоуправляемый учебный планер» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Радиобасқарылатын оқу планері» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_rc_glider.width_mm
+    grade: 3
+  - section: technical_rc_glider.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_glider.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_glider.width_mm|current
+  required:
+  - fact: technical.rc_glider.width_mm
+    sections:
+    - technical_rc_glider.width_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_glider_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Radio-controlled training glider, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Радиоуправляемый учебный планер», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын оқу планері» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_rc_glider.height_mm
+    grade: 3
+  - section: technical_rc_glider.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_glider.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_glider.height_mm|current
+  required:
+  - fact: technical.rc_glider.height_mm
+    sections:
+    - technical_rc_glider.height_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_glider_depth_mm
+  category: simple
+  en: 'Radio-controlled training glider: depth, mm?'
+  ru: '«Радиоуправляемый учебный планер»: глубина, мм?'
+  kk: '«Радиобасқарылатын оқу планері»: тереңдігі, мм?'
+  relevant:
+  - section: technical_rc_glider.depth_mm
+    grade: 3
+  - section: technical_rc_glider.operating_min_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_glider.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_glider.depth_mm|current
+  required:
+  - fact: technical.rc_glider.depth_mm
+    sections:
+    - technical_rc_glider.depth_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_glider_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Radio-controlled
+    training glider (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Радиоуправляемый
+    учебный планер» (C).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын оқу планері» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_rc_glider.operating_min_c
+    grade: 3
+  - section: technical_rc_glider.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Радиобасқарылатын оқу планері» үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» (C) керек,
+    уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.rc_glider.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rc_glider.operating_min_c|current
+  required:
+  - fact: technical.rc_glider.operating_min_c
+    sections:
+    - technical_rc_glider.operating_min_c
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_glider_operating_max_c
+  category: hard
+  en: Check the specifcation of Radio-controlled training glider for maximum operating ambient temperature
+    (C), please.
+  ru: 'Проверьте характиристику «Радиоуправляемый учебный планер»: интересует «Максимальная температура
+    воздуха при работе» (C).'
+  kk: «Радиобасқарылатын оқу планері» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы» мәнін
+    тексеріңізші (C).
+  relevant:
+  - section: technical_rc_glider.operating_max_c
+    grade: 3
+  - section: technical_rc_glider.parts_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_glider.operating_max_c; neighbouring parts_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rc_glider.operating_max_c|current
+  required:
+  - fact: technical.rc_glider.operating_max_c
+    sections:
+    - technical_rc_glider.operating_max_c
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_glider_parts_count
+  category: simple
+  en: For Radio-controlled training glider, what is the specified number of package parts in units?
+  ru: Для «Радиоуправляемый учебный планер» какое значение указано для показателя «Число деталей комплекта»
+    (шт.)?
+  kk: «Радиобасқарылатын оқу планері» тауары үшін «Жинақ бөлшектерінің саны» көрсеткішінің мәні қандай
+    (дана)?
+  relevant:
+  - section: technical_rc_glider.parts_count
+    grade: 3
+  - section: technical_rc_glider.min_age_years
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_glider.parts_count; neighbouring min_age_years does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_assembly_parts
+  need_key: technical.rc_glider.parts_count|current
+  required:
+  - fact: technical.rc_glider.parts_count
+    sections:
+    - technical_rc_glider.parts_count
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_glider_min_age_years
+  category: hard
+  en: I am comparing specifications. Find the minimum labelled age for Radio-controlled training glider,
+    in years.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальный возраст на маркировке» у «Радиоуправляемый
+    учебный планер», в лет.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын оқу планері» үшін «Таңбалаудағы ең төмен жас»
+    мәні қажет (жас).
+  relevant:
+  - section: technical_rc_glider.min_age_years
+    grade: 3
+  - section: technical_rc_glider.battery_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_glider.min_age_years; neighbouring battery_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_age_label
+  need_key: technical.rc_glider.min_age_years|current
+  required:
+  - fact: technical.rc_glider.min_age_years
+    sections:
+    - technical_rc_glider.min_age_years
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_glider_battery_v
+  category: simple
+  en: 'Radio-controlled training glider: nominal battery voltage, V?'
+  ru: '«Радиоуправляемый учебный планер»: номинальное напряжение аккумулятора, В?'
+  kk: '«Радиобасқарылатын оқу планері»: аккумулятордың номиналды кернеуі, В?'
+  relevant:
+  - section: technical_rc_glider.battery_v
+    grade: 3
+  - section: technical_rc_glider.range_m
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_glider.battery_v; neighbouring range_m does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_battery_voltage
+  need_key: technical.rc_glider.battery_v|current
+  required:
+  - fact: technical.rc_glider.battery_v
+    sections:
+    - technical_rc_glider.battery_v
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_glider_range_m
+  category: hard
+  en: The cards look similar. What rated control range is listed for Radio-controlled training glider
+    (m)?
+  ru: Карточки похожи. Уточните показатель «Номинальная дальность управления» именно для «Радиоуправляемый
+    учебный планер» (м).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын оқу планері» үшін нақты «Басқарудың номиналды қашықтығы» көрсеткішін
+    айтыңыз (м).
+  relevant:
+  - section: technical_rc_glider.range_m
+    grade: 3
+  - section: technical_rc_glider.run_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_glider.range_m; neighbouring run_minutes does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_control_range
+  need_key: technical.rc_glider.range_m|current
+  required:
+  - fact: technical.rc_glider.range_m
+    sections:
+    - technical_rc_glider.range_m
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_glider_run_minutes
+  category: hard
+  en: Check the specifcation of Radio-controlled training glider for rated battery runtime (minutes),
+    please.
+  ru: 'Проверьте характиристику «Радиоуправляемый учебный планер»: интересует «Номинальное время работы
+    от аккумулятора» (минут).'
+  kk: «Радиобасқарылатын оқу планері» сипатамасынан «Аккумулятордан жұмыстың номиналды ұзақтығы» мәнін
+    тексеріңізші (минут).
+  relevant:
+  - section: technical_rc_glider.run_minutes
+    grade: 3
+  - section: technical_rc_glider.charge_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_glider.run_minutes; neighbouring charge_minutes does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_battery_runtime
+  need_key: technical.rc_glider.run_minutes|current
+  required:
+  - fact: technical.rc_glider.run_minutes
+    sections:
+    - technical_rc_glider.run_minutes
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_glider_charge_minutes
+  category: hard
+  en: For Radio-controlled training glider, what is the specified rated recharge time in minutes?
+  ru: Для «Радиоуправляемый учебный планер» какое значение указано для показателя «Номинальное время зарядки»
+    (минут)?
+  kk: «Радиобасқарылатын оқу планері» тауары үшін «Зарядтаудың номиналды ұзақтығы» көрсеткішінің мәні
+    қандай (минут)?
+  relevant:
+  - section: technical_rc_glider.charge_minutes
+    grade: 3
+  - section: technical_rc_glider.channels_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Радиоуправляемый учебный планер» показатель «Номинальное время зарядки» (минут) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.rc_glider.charge_minutes; neighbouring channels_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_recharge_time
+  need_key: technical.rc_glider.charge_minutes|current
+  required:
+  - fact: technical.rc_glider.charge_minutes
+    sections:
+    - technical_rc_glider.charge_minutes
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_glider_channels_count
+  category: simple
+  en: I am comparing specifications. Find the number of control channels for Radio-controlled training
+    glider, in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число каналов управления» у «Радиоуправляемый учебный
+    планер», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын оқу планері» үшін «Басқару арналарының саны»
+    мәні қажет (дана).
+  relevant:
+  - section: technical_rc_glider.channels_count
+    grade: 3
+  - section: technical_rc_glider.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_glider.channels_count; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_control_channels
+  need_key: technical.rc_glider.channels_count|current
+  required:
+  - fact: technical.rc_glider.channels_count
+    sections:
+    - technical_rc_glider.channels_count
+  tags:
+  - profile_derived
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_rc_glider_humidity_max_percent
+  category: unanswerable
+  en: For Radio-controlled training glider, what is the specified maximum permitted humidity in percent?
+  ru: Для «Радиоуправляемый учебный планер» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Радиобасқарылатын оқу планері» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_rc_glider.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_glider does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.rc_glider.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rc_glider_drop_test_cm
+  category: unanswerable
+  en: For Radio-controlled training glider, what is the specified certified drop-test height in cm?
+  ru: Для «Радиоуправляемый учебный планер» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Радиобасқарылатын оқу планері» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_rc_glider.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_glider does not state drop_test_cm. Dimensions, the retail price or a diagnostic
+    fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.rc_glider.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rc_glider_repair_parts_price
+  category: unanswerable
+  en: For Radio-controlled training glider, what is the specified replacement-part price in KZT?
+  ru: Для «Радиоуправляемый учебный планер» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Радиобасқарылатын оқу планері» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_rc_glider.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_glider does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.rc_glider.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_rc_glider_certification_id
+  category: unanswerable
+  en: For Radio-controlled training glider, what is the specified certification record number in record?
+  ru: Для «Радиоуправляемый учебный планер» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Радиобасқарылатын оқу планері» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_rc_glider.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_glider does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.rc_glider.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_rc_glider
+  category: multi_fragment
+  en: What does Radio-controlled training glider weigh, and what parcel weight limit do pickup points
+    state?
+  ru: Какая масса у «Радиоуправляемый учебный планер» и какой вес посылки допускают пункты самовывоза?
+  kk: «Радиобасқарылатын оқу планері» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_rc_glider.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.rc_glider.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.rc_glider.mass_g
+    sections:
+    - technical_rc_glider.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_hovercraft_mass_g
+  category: simple
+  en: 'Radio-controlled hovercraft model: mass, g?'
+  ru: '«Радиоуправляемая модель на воздушной подушке»: масса, г?'
+  kk: '«Радиобасқарылатын ауа жастықшалы үлгі»: салмағы, г?'
+  relevant:
+  - section: technical_rc_hovercraft.mass_g
+    grade: 3
+  - section: technical_rc_hovercraft.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_hovercraft.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.rc_hovercraft.mass_g|current
+  required:
+  - fact: technical.rc_hovercraft.mass_g
+    sections:
+    - technical_rc_hovercraft.mass_g
+  tags:
+  - profile_derived
+  - domain_toys
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_hovercraft_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Radio-controlled hovercraft model (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Радиоуправляемая модель на воздушной подушке»
+    (мм).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын ауа жастықшалы үлгі» үшін нақты «Ені» көрсеткішін айтыңыз
+    (мм).
+  relevant:
+  - section: technical_rc_hovercraft.width_mm
+    grade: 3
+  - section: technical_rc_hovercraft.height_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_hovercraft.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_hovercraft.width_mm|current
+  required:
+  - fact: technical.rc_hovercraft.width_mm
+    sections:
+    - technical_rc_hovercraft.width_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_hovercraft_height_mm
+  category: hard
+  en: Check the specifcation of Radio-controlled hovercraft model for height (mm), please.
+  ru: 'Проверьте характиристику «Радиоуправляемая модель на воздушной подушке»: интересует «Высота» (мм).'
+  kk: «Радиобасқарылатын ауа жастықшалы үлгі» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_rc_hovercraft.height_mm
+    grade: 3
+  - section: technical_rc_hovercraft.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_hovercraft.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_hovercraft.height_mm|current
+  required:
+  - fact: technical.rc_hovercraft.height_mm
+    sections:
+    - technical_rc_hovercraft.height_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_hovercraft_depth_mm
+  category: simple
+  en: For Radio-controlled hovercraft model, what is the specified depth in mm?
+  ru: Для «Радиоуправляемая модель на воздушной подушке» какое значение указано для показателя «Глубина»
+    (мм)?
+  kk: «Радиобасқарылатын ауа жастықшалы үлгі» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_rc_hovercraft.depth_mm
+    grade: 3
+  - section: technical_rc_hovercraft.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_hovercraft.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rc_hovercraft.depth_mm|current
+  required:
+  - fact: technical.rc_hovercraft.depth_mm
+    sections:
+    - technical_rc_hovercraft.depth_mm
+  tags:
+  - profile_derived
+  - domain_toys
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_hovercraft_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Radio-controlled
+    hovercraft model, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Радиоуправляемая
+    модель на воздушной подушке», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын ауа жастықшалы үлгі» үшін «Жұмыс кезіндегі
+    ауаның ең төмен температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_rc_hovercraft.operating_min_c
+    grade: 3
+  - section: technical_rc_hovercraft.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_hovercraft.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rc_hovercraft.operating_min_c|current
+  required:
+  - fact: technical.rc_hovercraft.operating_min_c
+    sections:
+    - technical_rc_hovercraft.operating_min_c
+  tags:
+  - profile_derived
+  - domain_toys
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_hovercraft_operating_max_c
+  category: hard
+  en: 'Radio-controlled hovercraft model: maximum operating ambient temperature, C?'
+  ru: '«Радиоуправляемая модель на воздушной подушке»: максимальная температура воздуха при работе, C?'
+  kk: '«Радиобасқарылатын ауа жастықшалы үлгі»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_rc_hovercraft.operating_max_c
+    grade: 3
+  - section: technical_rc_hovercraft.parts_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Радиобасқарылатын ауа жастықшалы үлгі» үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    (C) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.rc_hovercraft.operating_max_c; neighbouring parts_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rc_hovercraft.operating_max_c|current
+  required:
+  - fact: technical.rc_hovercraft.operating_max_c
+    sections:
+    - technical_rc_hovercraft.operating_max_c
+  tags:
+  - profile_derived
+  - domain_toys
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_hovercraft_parts_count
+  category: hard
+  en: The cards look similar. What number of package parts is listed for Radio-controlled hovercraft model
+    (units)?
+  ru: Карточки похожи. Уточните показатель «Число деталей комплекта» именно для «Радиоуправляемая модель
+    на воздушной подушке» (шт.).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын ауа жастықшалы үлгі» үшін нақты «Жинақ бөлшектерінің саны»
+    көрсеткішін айтыңыз (дана).
+  relevant:
+  - section: technical_rc_hovercraft.parts_count
+    grade: 3
+  - section: technical_rc_hovercraft.min_age_years
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_hovercraft.parts_count; neighbouring min_age_years does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_assembly_parts
+  need_key: technical.rc_hovercraft.parts_count|current
+  required:
+  - fact: technical.rc_hovercraft.parts_count
+    sections:
+    - technical_rc_hovercraft.parts_count
+  tags:
+  - profile_derived
+  - domain_toys
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_hovercraft_min_age_years
+  category: hard
+  en: Check the specifcation of Radio-controlled hovercraft model for minimum labelled age (years), please.
+  ru: 'Проверьте характиристику «Радиоуправляемая модель на воздушной подушке»: интересует «Минимальный
+    возраст на маркировке» (лет).'
+  kk: «Радиобасқарылатын ауа жастықшалы үлгі» сипатамасынан «Таңбалаудағы ең төмен жас» мәнін тексеріңізші
+    (жас).
+  relevant:
+  - section: technical_rc_hovercraft.min_age_years
+    grade: 3
+  - section: technical_rc_hovercraft.battery_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_hovercraft.min_age_years; neighbouring battery_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_age_label
+  need_key: technical.rc_hovercraft.min_age_years|current
+  required:
+  - fact: technical.rc_hovercraft.min_age_years
+    sections:
+    - technical_rc_hovercraft.min_age_years
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_hovercraft_battery_v
+  category: simple
+  en: For Radio-controlled hovercraft model, what is the specified nominal battery voltage in V?
+  ru: Для «Радиоуправляемая модель на воздушной подушке» какое значение указано для показателя «Номинальное
+    напряжение аккумулятора» (В)?
+  kk: «Радиобасқарылатын ауа жастықшалы үлгі» тауары үшін «Аккумулятордың номиналды кернеуі» көрсеткішінің
+    мәні қандай (В)?
+  relevant:
+  - section: technical_rc_hovercraft.battery_v
+    grade: 3
+  - section: technical_rc_hovercraft.range_m
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_hovercraft.battery_v; neighbouring range_m does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_battery_voltage
+  need_key: technical.rc_hovercraft.battery_v|current
+  required:
+  - fact: technical.rc_hovercraft.battery_v
+    sections:
+    - technical_rc_hovercraft.battery_v
+  tags:
+  - profile_derived
+  - domain_toys
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_hovercraft_range_m
+  category: simple
+  en: I am comparing specifications. Find the rated control range for Radio-controlled hovercraft model,
+    in m.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная дальность управления» у «Радиоуправляемая
+    модель на воздушной подушке», в м.
+  kk: Сипаттамаларды салыстырып отырмын. «Радиобасқарылатын ауа жастықшалы үлгі» үшін «Басқарудың номиналды
+    қашықтығы» мәні қажет (м).
+  relevant:
+  - section: technical_rc_hovercraft.range_m
+    grade: 3
+  - section: technical_rc_hovercraft.run_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_hovercraft.range_m; neighbouring run_minutes does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_control_range
+  need_key: technical.rc_hovercraft.range_m|current
+  required:
+  - fact: technical.rc_hovercraft.range_m
+    sections:
+    - technical_rc_hovercraft.range_m
+  tags:
+  - profile_derived
+  - domain_toys
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_hovercraft_run_minutes
+  category: hard
+  en: 'Radio-controlled hovercraft model: rated battery runtime, minutes?'
+  ru: '«Радиоуправляемая модель на воздушной подушке»: номинальное время работы от аккумулятора, минут?'
+  kk: '«Радиобасқарылатын ауа жастықшалы үлгі»: аккумулятордан жұмыстың номиналды ұзақтығы, минут?'
+  relevant:
+  - section: technical_rc_hovercraft.run_minutes
+    grade: 3
+  - section: technical_rc_hovercraft.charge_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_hovercraft.run_minutes; neighbouring charge_minutes does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_battery_runtime
+  need_key: technical.rc_hovercraft.run_minutes|current
+  required:
+  - fact: technical.rc_hovercraft.run_minutes
+    sections:
+    - technical_rc_hovercraft.run_minutes
+  tags:
+  - profile_derived
+  - domain_toys
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_hovercraft_charge_minutes
+  category: hard
+  en: The cards look similar. What rated recharge time is listed for Radio-controlled hovercraft model
+    (minutes)?
+  ru: Карточки похожи. Уточните показатель «Номинальное время зарядки» именно для «Радиоуправляемая модель
+    на воздушной подушке» (минут).
+  kk: Карточкалар ұқсас. «Радиобасқарылатын ауа жастықшалы үлгі» үшін нақты «Зарядтаудың номиналды ұзақтығы»
+    көрсеткішін айтыңыз (минут).
+  relevant:
+  - section: technical_rc_hovercraft.charge_minutes
+    grade: 3
+  - section: technical_rc_hovercraft.channels_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rc_hovercraft.charge_minutes; neighbouring channels_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_recharge_time
+  need_key: technical.rc_hovercraft.charge_minutes|current
+  required:
+  - fact: technical.rc_hovercraft.charge_minutes
+    sections:
+    - technical_rc_hovercraft.charge_minutes
+  tags:
+  - profile_derived
+  - domain_toys
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rc_hovercraft_channels_count
+  category: hard
+  en: Check the specifcation of Radio-controlled hovercraft model for number of control channels (units),
+    please.
+  ru: 'Проверьте характиристику «Радиоуправляемая модель на воздушной подушке»: интересует «Число каналов
+    управления» (шт.).'
+  kk: «Радиобасқарылатын ауа жастықшалы үлгі» сипатамасынан «Басқару арналарының саны» мәнін тексеріңізші
+    (дана).
+  relevant:
+  - section: technical_rc_hovercraft.channels_count
+    grade: 3
+  - section: technical_rc_hovercraft.mass_g
+    grade: 0
+  cross_lingual: true
+  mix_ru: У «Радиоуправляемая модель на воздушной подушке» показатель «Число каналов управления» (шт.)
+    нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.rc_hovercraft.channels_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_control_channels
+  need_key: technical.rc_hovercraft.channels_count|current
+  required:
+  - fact: technical.rc_hovercraft.channels_count
+    sections:
+    - technical_rc_hovercraft.channels_count
+  tags:
+  - profile_derived
+  - domain_toys
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_rc_hovercraft_humidity_max_percent
+  category: unanswerable
+  en: For Radio-controlled hovercraft model, what is the specified maximum permitted humidity in percent?
+  ru: Для «Радиоуправляемая модель на воздушной подушке» какое значение указано для показателя «Максимальная
+    допустимая влажность» (процентов)?
+  kk: «Радиобасқарылатын ауа жастықшалы үлгі» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_rc_hovercraft.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_hovercraft does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.rc_hovercraft.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rc_hovercraft_drop_test_cm
+  category: unanswerable
+  en: For Radio-controlled hovercraft model, what is the specified certified drop-test height in cm?
+  ru: Для «Радиоуправляемая модель на воздушной подушке» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Радиобасқарылатын ауа жастықшалы үлгі» тауары үшін «Құлауды сынаудың сертификатталған биіктігі»
+    көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_rc_hovercraft.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_hovercraft does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.rc_hovercraft.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rc_hovercraft_repair_parts_price
+  category: unanswerable
+  en: For Radio-controlled hovercraft model, what is the specified replacement-part price in KZT?
+  ru: Для «Радиоуправляемая модель на воздушной подушке» какое значение указано для показателя «Цена запасной
+    детали» (тенге)?
+  kk: «Радиобасқарылатын ауа жастықшалы үлгі» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_rc_hovercraft.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_hovercraft does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.rc_hovercraft.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_rc_hovercraft_certification_id
+  category: unanswerable
+  en: For Radio-controlled hovercraft model, what is the specified certification record number in record?
+  ru: Для «Радиоуправляемая модель на воздушной подушке» какое значение указано для показателя «Номер
+    сертификационной записи» (запись)?
+  kk: «Радиобасқарылатын ауа жастықшалы үлгі» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_rc_hovercraft.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rc_hovercraft does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.rc_hovercraft.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_toys
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact

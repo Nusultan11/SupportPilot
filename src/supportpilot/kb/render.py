@@ -84,6 +84,7 @@ class RenderedDoc:
     sections: list[RSection] = field(default_factory=list)
     records: RRecords | None = None
     placements: list[Placement] = field(default_factory=list)
+    effective_to: date | None = None
 
     @property
     def effective_text(self) -> str:
@@ -133,7 +134,8 @@ def render_doc(
         format=spec.format,
         store_name=store,
         title=spec.title.get(lang),
-        effective_from=sources.effective_from,
+        effective_from=spec.effective_from or sources.effective_from,
+        effective_to=spec.effective_to,
         intro=[],
     )
 

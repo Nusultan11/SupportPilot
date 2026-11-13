@@ -1,0 +1,15 @@
+schema_version: kb_doc/1
+doc_id: pickup_storage_archive
+doc_type: faq
+format: json
+effective_from: '2026-09-01'
+effective_to: '2026-10-31'
+superseded_by: delivery_faq
+title: {en: 'Archived pickup storage instruction', ru: 'Архивная инструкция хранения самовывоза', kk: 'Өзі алып кетуді сақтаудың мұрағаттық нұсқаулығы'}
+intro:
+  - {en: 'Fictional store archive, valid from {archive_effective_from:date_full} through {archive_effective_to:date_full}. New pickup arrivals use the current delivery FAQ.', ru: 'Архив вымышленного магазина: действует с {archive_effective_from:date_full} по {archive_effective_to:date_full} включительно. Для новых поступлений в пункт выдачи действует текущий FAQ доставки.', kk: 'Ойдан шығарылған дүкен мұрағаты: {archive_effective_from:date_full} бастап {archive_effective_to:date_full} дейін қоса қолданылады. Беру пунктіне жаңадан келген сәлемдемелерге қазіргі жеткізу сұрақтары қолданылады.'}
+sections:
+  - id: days
+    heading: {en: 'How long was an arriving parcel kept?', ru: 'Сколько хранилась поступившая посылка?', kk: 'Келген сәлемдеме қанша сақталды?'}
+    paragraphs:
+      - {en: 'A parcel arriving at pickup during this validity interval was kept for {archive_pickup_keep_days:days}. The current storage period must not be inferred from this expired instruction.', ru: 'Посылка, поступившая в пункт выдачи в этот период, хранилась {archive_pickup_keep_days:days}. Из просроченной инструкции нельзя выводить текущий срок хранения.', kk: 'Осы әрекет мерзімінде беру пунктіне келген сәлемдеме {archive_pickup_keep_days:days} сақталды. Мерзімі өткен нұсқаулықтан қазіргі сақтау мерзімін тұжырымдауға болмайды.'}

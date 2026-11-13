@@ -1,0 +1,26 @@
+# Original fictional demo service procedure, authored by Codex (LLM). Review: draft.
+# No new warranty period, delivery promise or price is introduced.
+schema_version: kb_doc/1
+doc_id: service_intake
+doc_type: policy
+format: pdf
+title: {en: 'Service handover, packaging and consent', ru: 'Передача в сервис, упаковка и согласие', kk: 'Сервиске тапсыру, қаптама және келісім'}
+sections:
+  - id: screen
+    heading: {en: 'Protecting a television', ru: 'Защита телевизора', kk: 'Теледидарды қорғау'}
+    paragraphs: [{en: '{packing_screen}', ru: '{packing_screen}', kk: '{packing_screen}'}]
+  - id: battery
+    heading: {en: 'Damaged power bank', ru: 'Повреждённый пауэрбанк', kk: 'Зақымдалған пауэрбанк'}
+    paragraphs: [{en: '{packing_battery}', ru: '{packing_battery}', kk: '{packing_battery}'}]
+  - id: accessories
+    heading: {en: 'Accessories handed over', ru: 'Переданные принадлежности', kk: 'Тапсырылған керек-жарақтар'}
+    paragraphs: [{en: '{packing_accessories}', ru: '{packing_accessories}', kk: '{packing_accessories}'}]
+  - id: personal_data
+    heading: {en: 'Device files and accounts', ru: 'Файлы и аккаунты устройства', kk: 'Құрылғы файлдары мен аккаунттары'}
+    paragraphs: [{en: '{packing_personal_data}', ru: '{packing_personal_data}', kk: '{packing_personal_data}'}]
+  - id: damage_record
+    heading: {en: 'Visible damage versus warranty decision', ru: 'Видимые повреждения и решение о гарантии', kk: 'Көрінетін зақым мен кепілдік шешімі'}
+    paragraphs: [{en: '{packing_damage_record}', ru: '{packing_damage_record}', kk: '{packing_damage_record}'}]
+  - id: paid_consent
+    heading: {en: 'Approval for a paid repair', ru: 'Согласие на платный ремонт', kk: 'Ақылы жөндеуге келісім'}
+    paragraphs: [{en: '{packing_repair_consent}', ru: '{packing_repair_consent}', kk: '{packing_repair_consent}'}]

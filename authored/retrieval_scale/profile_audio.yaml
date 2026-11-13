@@ -1,0 +1,4928 @@
+# Compiled from explicit technical_profiles/1 facts and native LLM-authored templates.
+schema_version: retrieval_scale_source/1
+origin: llm_generated
+review_status: draft
+author: Codex (LLM); explicit profiles and native templates compiled deterministically
+allowed_use: eval_only
+licence_note: Original fictional store specifications for internal demo and evaluation; no external manufacturer
+  data or real customer data. Fluent human review pending.
+items:
+- id: catalog_desktop_speakers_mass_g
+  category: simple
+  en: For Powered desktop speaker pair, what is the specified mass in g?
+  ru: Для «Пара активных настольных колонок» какое значение указано для показателя «Масса» (г)?
+  kk: «Белсенді үстел колонкаларының жұбы» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_desktop_speakers.mass_g
+    grade: 3
+  - section: technical_desktop_speakers.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Белсенді үстел колонкаларының жұбы» үшін «Салмағы» (г) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.desktop_speakers.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.desktop_speakers.mass_g|current
+  required:
+  - fact: technical.desktop_speakers.mass_g
+    sections:
+    - technical_desktop_speakers.mass_g
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_speakers_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Powered desktop speaker pair, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Пара активных настольных колонок», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Белсенді үстел колонкаларының жұбы» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_desktop_speakers.width_mm
+    grade: 3
+  - section: technical_desktop_speakers.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_speakers.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.desktop_speakers.width_mm|current
+  required:
+  - fact: technical.desktop_speakers.width_mm
+    sections:
+    - technical_desktop_speakers.width_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_speakers_height_mm
+  category: simple
+  en: 'Powered desktop speaker pair: height, mm?'
+  ru: '«Пара активных настольных колонок»: высота, мм?'
+  kk: '«Белсенді үстел колонкаларының жұбы»: биіктігі, мм?'
+  relevant:
+  - section: technical_desktop_speakers.height_mm
+    grade: 3
+  - section: technical_desktop_speakers.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_speakers.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.desktop_speakers.height_mm|current
+  required:
+  - fact: technical.desktop_speakers.height_mm
+    sections:
+    - technical_desktop_speakers.height_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_speakers_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Powered desktop speaker pair (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Пара активных настольных колонок» (мм).
+  kk: Карточкалар ұқсас. «Белсенді үстел колонкаларының жұбы» үшін нақты «Тереңдігі» көрсеткішін айтыңыз
+    (мм).
+  relevant:
+  - section: technical_desktop_speakers.depth_mm
+    grade: 3
+  - section: technical_desktop_speakers.operating_min_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_speakers.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.desktop_speakers.depth_mm|current
+  required:
+  - fact: technical.desktop_speakers.depth_mm
+    sections:
+    - technical_desktop_speakers.depth_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_speakers_operating_min_c
+  category: hard
+  en: Check the specifcation of Powered desktop speaker pair for minimum operating ambient temperature
+    (C), please.
+  ru: 'Проверьте характиристику «Пара активных настольных колонок»: интересует «Минимальная температура
+    воздуха при работе» (C).'
+  kk: «Белсенді үстел колонкаларының жұбы» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    мәнін тексеріңізші (C).
+  relevant:
+  - section: technical_desktop_speakers.operating_min_c
+    grade: 3
+  - section: technical_desktop_speakers.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_speakers.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.desktop_speakers.operating_min_c|current
+  required:
+  - fact: technical.desktop_speakers.operating_min_c
+    sections:
+    - technical_desktop_speakers.operating_min_c
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_speakers_operating_max_c
+  category: hard
+  en: For Powered desktop speaker pair, what is the specified maximum operating ambient temperature in
+    C?
+  ru: Для «Пара активных настольных колонок» какое значение указано для показателя «Максимальная температура
+    воздуха при работе» (C)?
+  kk: «Белсенді үстел колонкаларының жұбы» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    көрсеткішінің мәні қандай (C)?
+  relevant:
+  - section: technical_desktop_speakers.operating_max_c
+    grade: 3
+  - section: technical_desktop_speakers.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_speakers.operating_max_c; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.desktop_speakers.operating_max_c|current
+  required:
+  - fact: technical.desktop_speakers.operating_max_c
+    sections:
+    - technical_desktop_speakers.operating_max_c
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_speakers_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Powered desktop speaker pair,
+    in W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Пара активных
+    настольных колонок», в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Белсенді үстел колонкаларының жұбы» үшін «Номиналды тұтыну қуаты»
+    мәні қажет (Вт).
+  relevant:
+  - section: technical_desktop_speakers.power_w
+    grade: 3
+  - section: technical_desktop_speakers.freq_min_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_speakers.power_w; neighbouring freq_min_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.desktop_speakers.power_w|current
+  required:
+  - fact: technical.desktop_speakers.power_w
+    sections:
+    - technical_desktop_speakers.power_w
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_speakers_freq_min_hz
+  category: hard
+  en: 'Powered desktop speaker pair: lower rated audio frequency, Hz?'
+  ru: '«Пара активных настольных колонок»: нижняя номинальная звуковая частота, Гц?'
+  kk: '«Белсенді үстел колонкаларының жұбы»: номиналды дыбыс жиілігінің төменгі шегі, Гц?'
+  relevant:
+  - section: technical_desktop_speakers.freq_min_hz
+    grade: 3
+  - section: technical_desktop_speakers.freq_max_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Пара активных настольных колонок» показатель «Нижняя номинальная звуковая частота» (Гц) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.desktop_speakers.freq_min_hz; neighbouring freq_max_hz does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_frequency
+  need_key: technical.desktop_speakers.freq_min_hz|current
+  required:
+  - fact: technical.desktop_speakers.freq_min_hz
+    sections:
+    - technical_desktop_speakers.freq_min_hz
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_speakers_freq_max_hz
+  category: hard
+  en: The cards look similar. What upper rated audio frequency is listed for Powered desktop speaker pair
+    (Hz)?
+  ru: Карточки похожи. Уточните показатель «Верхняя номинальная звуковая частота» именно для «Пара активных
+    настольных колонок» (Гц).
+  kk: Карточкалар ұқсас. «Белсенді үстел колонкаларының жұбы» үшін нақты «Номиналды дыбыс жиілігінің жоғарғы
+    шегі» көрсеткішін айтыңыз (Гц).
+  relevant:
+  - section: technical_desktop_speakers.freq_max_hz
+    grade: 3
+  - section: technical_desktop_speakers.impedance_ohm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_speakers.freq_max_hz; neighbouring impedance_ohm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_frequency
+  need_key: technical.desktop_speakers.freq_max_hz|current
+  required:
+  - fact: technical.desktop_speakers.freq_max_hz
+    sections:
+    - technical_desktop_speakers.freq_max_hz
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_speakers_impedance_ohm
+  category: hard
+  en: Check the specifcation of Powered desktop speaker pair for nominal impedance (ohm), please.
+  ru: 'Проверьте характиристику «Пара активных настольных колонок»: интересует «Номинальное сопротивление»
+    (Ом).'
+  kk: «Белсенді үстел колонкаларының жұбы» сипатамасынан «Номиналды кедергі» мәнін тексеріңізші (Ом).
+  relevant:
+  - section: technical_desktop_speakers.impedance_ohm
+    grade: 3
+  - section: technical_desktop_speakers.sensitivity_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_speakers.impedance_ohm; neighbouring sensitivity_db does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_impedance
+  need_key: technical.desktop_speakers.impedance_ohm|current
+  required:
+  - fact: technical.desktop_speakers.impedance_ohm
+    sections:
+    - technical_desktop_speakers.impedance_ohm
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_speakers_sensitivity_db
+  category: simple
+  en: For Powered desktop speaker pair, what is the specified rated audio sensitivity in dB?
+  ru: Для «Пара активных настольных колонок» какое значение указано для показателя «Номинальная звуковая
+    чувствительность» (дБ)?
+  kk: «Белсенді үстел колонкаларының жұбы» тауары үшін «Номиналды дыбыс сезімталдығы» көрсеткішінің мәні
+    қандай (дБ)?
+  relevant:
+  - section: technical_desktop_speakers.sensitivity_db
+    grade: 3
+  - section: technical_desktop_speakers.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_speakers.sensitivity_db; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_sensitivity
+  need_key: technical.desktop_speakers.sensitivity_db|current
+  required:
+  - fact: technical.desktop_speakers.sensitivity_db
+    sections:
+    - technical_desktop_speakers.sensitivity_db
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_speakers_cable_cm
+  category: simple
+  en: I am comparing specifications. Find the supplied cable length for Powered desktop speaker pair,
+    in cm.
+  ru: Сравниваю характеристики. Нужен показатель «Длина комплектного кабеля» у «Пара активных настольных
+    колонок», в см.
+  kk: Сипаттамаларды салыстырып отырмын. «Белсенді үстел колонкаларының жұбы» үшін «Жинақтағы кабель ұзындығы»
+    мәні қажет (см).
+  relevant:
+  - section: technical_desktop_speakers.cable_cm
+    grade: 3
+  - section: technical_desktop_speakers.drivers_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_speakers.cable_cm; neighbouring drivers_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.desktop_speakers.cable_cm|current
+  required:
+  - fact: technical.desktop_speakers.cable_cm
+    sections:
+    - technical_desktop_speakers.cable_cm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_speakers_drivers_count
+  category: simple
+  en: 'Powered desktop speaker pair: number of acoustic drivers, units?'
+  ru: '«Пара активных настольных колонок»: число акустических излучателей, шт.?'
+  kk: '«Белсенді үстел колонкаларының жұбы»: акустикалық сәуле шығарғыштардың саны, дана?'
+  relevant:
+  - section: technical_desktop_speakers.drivers_count
+    grade: 3
+  - section: technical_desktop_speakers.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_speakers.drivers_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_drivers
+  need_key: technical.desktop_speakers.drivers_count|current
+  required:
+  - fact: technical.desktop_speakers.drivers_count
+    sections:
+    - technical_desktop_speakers.drivers_count
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_desktop_speakers_humidity_max_percent
+  category: unanswerable
+  en: For Powered desktop speaker pair, what is the specified maximum permitted humidity in percent?
+  ru: Для «Пара активных настольных колонок» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Белсенді үстел колонкаларының жұбы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_desktop_speakers.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for desktop_speakers does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.desktop_speakers.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_desktop_speakers_drop_test_cm
+  category: unanswerable
+  en: For Powered desktop speaker pair, what is the specified certified drop-test height in cm?
+  ru: Для «Пара активных настольных колонок» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Белсенді үстел колонкаларының жұбы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_desktop_speakers.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for desktop_speakers does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.desktop_speakers.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_desktop_speakers_repair_parts_price
+  category: unanswerable
+  en: For Powered desktop speaker pair, what is the specified replacement-part price in KZT?
+  ru: Для «Пара активных настольных колонок» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Белсенді үстел колонкаларының жұбы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_desktop_speakers.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for desktop_speakers does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.desktop_speakers.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_desktop_speakers_certification_id
+  category: unanswerable
+  en: For Powered desktop speaker pair, what is the specified certification record number in record?
+  ru: Для «Пара активных настольных колонок» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Белсенді үстел колонкаларының жұбы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_desktop_speakers.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for desktop_speakers does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.desktop_speakers.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_desktop_speakers
+  category: multi_fragment
+  en: What does Powered desktop speaker pair weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Пара активных настольных колонок» и какой вес посылки допускают пункты самовывоза?
+  kk: «Белсенді үстел колонкаларының жұбы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_desktop_speakers.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.desktop_speakers.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.desktop_speakers.mass_g
+    sections:
+    - technical_desktop_speakers.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_prepublication_mass_desktop_speakers
+  category: unanswerable
+  en: According to the instructions valid on 15 October 2026, what was the stated mass of Powered desktop
+    speaker pair?
+  ru: По инструкциям, действовавшим 15 октября 2026 года, какая масса была указана для «Пара активных
+    настольных колонок»?
+  kk: 2026 жылғы 15 қазанда қолданылған нұсқаулықтар бойынша «Белсенді үстел колонкаларының жұбы» үшін
+    қандай салмақ көрсетілген еді?
+  relevant:
+  - section: technical_desktop_speakers.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The technical source starts on 1 November 2026. Its current mass cannot establish a fact
+    at the requested earlier date.
+  family_id: profile_physical_mass
+  need_key: technical.desktop_speakers.mass_g|2026_10_15_before_document_validity
+  required: []
+  tags:
+  - profile_derived
+  - temporal
+  - outside_validity
+  - hard_negative
+  as_of: '2026-10-15'
+  all_versions: false
+  negative_reason: expired
+- id: catalog_bookshelf_speaker_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Powered bookshelf speaker (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Активная полочная колонка» (г).
+  kk: Карточкалар ұқсас. «Белсенді сөре колонкасы» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_bookshelf_speaker.mass_g
+    grade: 3
+  - section: technical_bookshelf_speaker.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bookshelf_speaker.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.bookshelf_speaker.mass_g|current
+  required:
+  - fact: technical.bookshelf_speaker.mass_g
+    sections:
+    - technical_bookshelf_speaker.mass_g
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookshelf_speaker_width_mm
+  category: hard
+  en: Check the specifcation of Powered bookshelf speaker for width (mm), please.
+  ru: 'Проверьте характиристику «Активная полочная колонка»: интересует «Ширина» (мм).'
+  kk: «Белсенді сөре колонкасы» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_bookshelf_speaker.width_mm
+    grade: 3
+  - section: technical_bookshelf_speaker.height_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: «Белсенді сөре колонкасы» үшін «Ені» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.bookshelf_speaker.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.bookshelf_speaker.width_mm|current
+  required:
+  - fact: technical.bookshelf_speaker.width_mm
+    sections:
+    - technical_bookshelf_speaker.width_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookshelf_speaker_height_mm
+  category: simple
+  en: For Powered bookshelf speaker, what is the specified height in mm?
+  ru: Для «Активная полочная колонка» какое значение указано для показателя «Высота» (мм)?
+  kk: «Белсенді сөре колонкасы» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_bookshelf_speaker.height_mm
+    grade: 3
+  - section: technical_bookshelf_speaker.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bookshelf_speaker.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.bookshelf_speaker.height_mm|current
+  required:
+  - fact: technical.bookshelf_speaker.height_mm
+    sections:
+    - technical_bookshelf_speaker.height_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookshelf_speaker_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Powered bookshelf speaker, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Активная полочная колонка», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Белсенді сөре колонкасы» үшін «Тереңдігі» мәні қажет (мм).
+  relevant:
+  - section: technical_bookshelf_speaker.depth_mm
+    grade: 3
+  - section: technical_bookshelf_speaker.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bookshelf_speaker.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.bookshelf_speaker.depth_mm|current
+  required:
+  - fact: technical.bookshelf_speaker.depth_mm
+    sections:
+    - technical_bookshelf_speaker.depth_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookshelf_speaker_operating_min_c
+  category: hard
+  en: 'Powered bookshelf speaker: minimum operating ambient temperature, C?'
+  ru: '«Активная полочная колонка»: минимальная температура воздуха при работе, C?'
+  kk: '«Белсенді сөре колонкасы»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_bookshelf_speaker.operating_min_c
+    grade: 3
+  - section: technical_bookshelf_speaker.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bookshelf_speaker.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.bookshelf_speaker.operating_min_c|current
+  required:
+  - fact: technical.bookshelf_speaker.operating_min_c
+    sections:
+    - technical_bookshelf_speaker.operating_min_c
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookshelf_speaker_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Powered bookshelf
+    speaker (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Активная
+    полочная колонка» (C).
+  kk: Карточкалар ұқсас. «Белсенді сөре колонкасы» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_bookshelf_speaker.operating_max_c
+    grade: 3
+  - section: technical_bookshelf_speaker.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bookshelf_speaker.operating_max_c; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.bookshelf_speaker.operating_max_c|current
+  required:
+  - fact: technical.bookshelf_speaker.operating_max_c
+    sections:
+    - technical_bookshelf_speaker.operating_max_c
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookshelf_speaker_power_w
+  category: hard
+  en: Check the specifcation of Powered bookshelf speaker for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Активная полочная колонка»: интересует «Номинальная потребляемая мощность»
+    (Вт).'
+  kk: «Белсенді сөре колонкасы» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_bookshelf_speaker.power_w
+    grade: 3
+  - section: technical_bookshelf_speaker.freq_min_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bookshelf_speaker.power_w; neighbouring freq_min_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.bookshelf_speaker.power_w|current
+  required:
+  - fact: technical.bookshelf_speaker.power_w
+    sections:
+    - technical_bookshelf_speaker.power_w
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookshelf_speaker_freq_min_hz
+  category: hard
+  en: For Powered bookshelf speaker, what is the specified lower rated audio frequency in Hz?
+  ru: Для «Активная полочная колонка» какое значение указано для показателя «Нижняя номинальная звуковая
+    частота» (Гц)?
+  kk: «Белсенді сөре колонкасы» тауары үшін «Номиналды дыбыс жиілігінің төменгі шегі» көрсеткішінің мәні
+    қандай (Гц)?
+  relevant:
+  - section: technical_bookshelf_speaker.freq_min_hz
+    grade: 3
+  - section: technical_bookshelf_speaker.freq_max_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bookshelf_speaker.freq_min_hz; neighbouring freq_max_hz does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_frequency
+  need_key: technical.bookshelf_speaker.freq_min_hz|current
+  required:
+  - fact: technical.bookshelf_speaker.freq_min_hz
+    sections:
+    - technical_bookshelf_speaker.freq_min_hz
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookshelf_speaker_freq_max_hz
+  category: hard
+  en: I am comparing specifications. Find the upper rated audio frequency for Powered bookshelf speaker,
+    in Hz.
+  ru: Сравниваю характеристики. Нужен показатель «Верхняя номинальная звуковая частота» у «Активная полочная
+    колонка», в Гц.
+  kk: Сипаттамаларды салыстырып отырмын. «Белсенді сөре колонкасы» үшін «Номиналды дыбыс жиілігінің жоғарғы
+    шегі» мәні қажет (Гц).
+  relevant:
+  - section: technical_bookshelf_speaker.freq_max_hz
+    grade: 3
+  - section: technical_bookshelf_speaker.impedance_ohm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Активная полочная колонка» показатель «Верхняя номинальная звуковая частота» (Гц) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.bookshelf_speaker.freq_max_hz; neighbouring impedance_ohm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_frequency
+  need_key: technical.bookshelf_speaker.freq_max_hz|current
+  required:
+  - fact: technical.bookshelf_speaker.freq_max_hz
+    sections:
+    - technical_bookshelf_speaker.freq_max_hz
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookshelf_speaker_impedance_ohm
+  category: simple
+  en: 'Powered bookshelf speaker: nominal impedance, ohm?'
+  ru: '«Активная полочная колонка»: номинальное сопротивление, Ом?'
+  kk: '«Белсенді сөре колонкасы»: номиналды кедергі, Ом?'
+  relevant:
+  - section: technical_bookshelf_speaker.impedance_ohm
+    grade: 3
+  - section: technical_bookshelf_speaker.sensitivity_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bookshelf_speaker.impedance_ohm; neighbouring sensitivity_db does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_impedance
+  need_key: technical.bookshelf_speaker.impedance_ohm|current
+  required:
+  - fact: technical.bookshelf_speaker.impedance_ohm
+    sections:
+    - technical_bookshelf_speaker.impedance_ohm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookshelf_speaker_sensitivity_db
+  category: hard
+  en: The cards look similar. What rated audio sensitivity is listed for Powered bookshelf speaker (dB)?
+  ru: Карточки похожи. Уточните показатель «Номинальная звуковая чувствительность» именно для «Активная
+    полочная колонка» (дБ).
+  kk: Карточкалар ұқсас. «Белсенді сөре колонкасы» үшін нақты «Номиналды дыбыс сезімталдығы» көрсеткішін
+    айтыңыз (дБ).
+  relevant:
+  - section: technical_bookshelf_speaker.sensitivity_db
+    grade: 3
+  - section: technical_bookshelf_speaker.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bookshelf_speaker.sensitivity_db; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_sensitivity
+  need_key: technical.bookshelf_speaker.sensitivity_db|current
+  required:
+  - fact: technical.bookshelf_speaker.sensitivity_db
+    sections:
+    - technical_bookshelf_speaker.sensitivity_db
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookshelf_speaker_cable_cm
+  category: hard
+  en: Check the specifcation of Powered bookshelf speaker for supplied cable length (cm), please.
+  ru: 'Проверьте характиристику «Активная полочная колонка»: интересует «Длина комплектного кабеля» (см).'
+  kk: «Белсенді сөре колонкасы» сипатамасынан «Жинақтағы кабель ұзындығы» мәнін тексеріңізші (см).
+  relevant:
+  - section: technical_bookshelf_speaker.cable_cm
+    grade: 3
+  - section: technical_bookshelf_speaker.drivers_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bookshelf_speaker.cable_cm; neighbouring drivers_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.bookshelf_speaker.cable_cm|current
+  required:
+  - fact: technical.bookshelf_speaker.cable_cm
+    sections:
+    - technical_bookshelf_speaker.cable_cm
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookshelf_speaker_drivers_count
+  category: simple
+  en: For Powered bookshelf speaker, what is the specified number of acoustic drivers in units?
+  ru: Для «Активная полочная колонка» какое значение указано для показателя «Число акустических излучателей»
+    (шт.)?
+  kk: «Белсенді сөре колонкасы» тауары үшін «Акустикалық сәуле шығарғыштардың саны» көрсеткішінің мәні
+    қандай (дана)?
+  relevant:
+  - section: technical_bookshelf_speaker.drivers_count
+    grade: 3
+  - section: technical_bookshelf_speaker.mass_g
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bookshelf_speaker.drivers_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_drivers
+  need_key: technical.bookshelf_speaker.drivers_count|current
+  required:
+  - fact: technical.bookshelf_speaker.drivers_count
+    sections:
+    - technical_bookshelf_speaker.drivers_count
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_bookshelf_speaker_humidity_max_percent
+  category: unanswerable
+  en: For Powered bookshelf speaker, what is the specified maximum permitted humidity in percent?
+  ru: Для «Активная полочная колонка» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Белсенді сөре колонкасы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_bookshelf_speaker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for bookshelf_speaker does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.bookshelf_speaker.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_bookshelf_speaker_drop_test_cm
+  category: unanswerable
+  en: For Powered bookshelf speaker, what is the specified certified drop-test height in cm?
+  ru: Для «Активная полочная колонка» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Белсенді сөре колонкасы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_bookshelf_speaker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for bookshelf_speaker does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.bookshelf_speaker.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_bookshelf_speaker_repair_parts_price
+  category: unanswerable
+  en: For Powered bookshelf speaker, what is the specified replacement-part price in KZT?
+  ru: Для «Активная полочная колонка» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Белсенді сөре колонкасы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_bookshelf_speaker.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for bookshelf_speaker does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.bookshelf_speaker.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_bookshelf_speaker_certification_id
+  category: unanswerable
+  en: For Powered bookshelf speaker, what is the specified certification record number in record?
+  ru: Для «Активная полочная колонка» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Белсенді сөре колонкасы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_bookshelf_speaker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for bookshelf_speaker does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.bookshelf_speaker.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_compact_soundbar_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Compact TV soundbar, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Компактный телевизионный саундбар», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Ықшам теледидар саундбары» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_compact_soundbar.mass_g
+    grade: 3
+  - section: technical_compact_soundbar.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_soundbar.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.compact_soundbar.mass_g|current
+  required:
+  - fact: technical.compact_soundbar.mass_g
+    sections:
+    - technical_compact_soundbar.mass_g
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_soundbar_width_mm
+  category: simple
+  en: 'Compact TV soundbar: width, mm?'
+  ru: '«Компактный телевизионный саундбар»: ширина, мм?'
+  kk: '«Ықшам теледидар саундбары»: ені, мм?'
+  relevant:
+  - section: technical_compact_soundbar.width_mm
+    grade: 3
+  - section: technical_compact_soundbar.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_soundbar.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.compact_soundbar.width_mm|current
+  required:
+  - fact: technical.compact_soundbar.width_mm
+    sections:
+    - technical_compact_soundbar.width_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_soundbar_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Compact TV soundbar (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Компактный телевизионный саундбар» (мм).
+  kk: Карточкалар ұқсас. «Ықшам теледидар саундбары» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_compact_soundbar.height_mm
+    grade: 3
+  - section: technical_compact_soundbar.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Ықшам теледидар саундбары» үшін «Биіктігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.compact_soundbar.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.compact_soundbar.height_mm|current
+  required:
+  - fact: technical.compact_soundbar.height_mm
+    sections:
+    - technical_compact_soundbar.height_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_soundbar_depth_mm
+  category: hard
+  en: Check the specifcation of Compact TV soundbar for depth (mm), please.
+  ru: 'Проверьте характиристику «Компактный телевизионный саундбар»: интересует «Глубина» (мм).'
+  kk: «Ықшам теледидар саундбары» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_compact_soundbar.depth_mm
+    grade: 3
+  - section: technical_compact_soundbar.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_soundbar.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.compact_soundbar.depth_mm|current
+  required:
+  - fact: technical.compact_soundbar.depth_mm
+    sections:
+    - technical_compact_soundbar.depth_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_soundbar_operating_min_c
+  category: hard
+  en: For Compact TV soundbar, what is the specified minimum operating ambient temperature in C?
+  ru: Для «Компактный телевизионный саундбар» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Ықшам теледидар саундбары» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_compact_soundbar.operating_min_c
+    grade: 3
+  - section: technical_compact_soundbar.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_soundbar.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.compact_soundbar.operating_min_c|current
+  required:
+  - fact: technical.compact_soundbar.operating_min_c
+    sections:
+    - technical_compact_soundbar.operating_min_c
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_soundbar_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Compact TV soundbar,
+    in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Компактный
+    телевизионный саундбар», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Ықшам теледидар саундбары» үшін «Жұмыс кезіндегі ауаның ең жоғары
+    температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_compact_soundbar.operating_max_c
+    grade: 3
+  - section: technical_compact_soundbar.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_soundbar.operating_max_c; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.compact_soundbar.operating_max_c|current
+  required:
+  - fact: technical.compact_soundbar.operating_max_c
+    sections:
+    - technical_compact_soundbar.operating_max_c
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_soundbar_power_w
+  category: simple
+  en: 'Compact TV soundbar: rated power consumption, W?'
+  ru: '«Компактный телевизионный саундбар»: номинальная потребляемая мощность, Вт?'
+  kk: '«Ықшам теледидар саундбары»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_compact_soundbar.power_w
+    grade: 3
+  - section: technical_compact_soundbar.freq_min_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_soundbar.power_w; neighbouring freq_min_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.compact_soundbar.power_w|current
+  required:
+  - fact: technical.compact_soundbar.power_w
+    sections:
+    - technical_compact_soundbar.power_w
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_soundbar_freq_min_hz
+  category: hard
+  en: The cards look similar. What lower rated audio frequency is listed for Compact TV soundbar (Hz)?
+  ru: Карточки похожи. Уточните показатель «Нижняя номинальная звуковая частота» именно для «Компактный
+    телевизионный саундбар» (Гц).
+  kk: Карточкалар ұқсас. «Ықшам теледидар саундбары» үшін нақты «Номиналды дыбыс жиілігінің төменгі шегі»
+    көрсеткішін айтыңыз (Гц).
+  relevant:
+  - section: technical_compact_soundbar.freq_min_hz
+    grade: 3
+  - section: technical_compact_soundbar.freq_max_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_soundbar.freq_min_hz; neighbouring freq_max_hz does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_frequency
+  need_key: technical.compact_soundbar.freq_min_hz|current
+  required:
+  - fact: technical.compact_soundbar.freq_min_hz
+    sections:
+    - technical_compact_soundbar.freq_min_hz
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_soundbar_freq_max_hz
+  category: hard
+  en: Check the specifcation of Compact TV soundbar for upper rated audio frequency (Hz), please.
+  ru: 'Проверьте характиристику «Компактный телевизионный саундбар»: интересует «Верхняя номинальная звуковая
+    частота» (Гц).'
+  kk: «Ықшам теледидар саундбары» сипатамасынан «Номиналды дыбыс жиілігінің жоғарғы шегі» мәнін тексеріңізші
+    (Гц).
+  relevant:
+  - section: technical_compact_soundbar.freq_max_hz
+    grade: 3
+  - section: technical_compact_soundbar.impedance_ohm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_soundbar.freq_max_hz; neighbouring impedance_ohm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_frequency
+  need_key: technical.compact_soundbar.freq_max_hz|current
+  required:
+  - fact: technical.compact_soundbar.freq_max_hz
+    sections:
+    - technical_compact_soundbar.freq_max_hz
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_soundbar_impedance_ohm
+  category: simple
+  en: For Compact TV soundbar, what is the specified nominal impedance in ohm?
+  ru: Для «Компактный телевизионный саундбар» какое значение указано для показателя «Номинальное сопротивление»
+    (Ом)?
+  kk: «Ықшам теледидар саундбары» тауары үшін «Номиналды кедергі» көрсеткішінің мәні қандай (Ом)?
+  relevant:
+  - section: technical_compact_soundbar.impedance_ohm
+    grade: 3
+  - section: technical_compact_soundbar.sensitivity_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Компактный телевизионный саундбар» показатель «Номинальное сопротивление» (Ом) нақтылап беріңізші,
+    осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.compact_soundbar.impedance_ohm; neighbouring sensitivity_db does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_impedance
+  need_key: technical.compact_soundbar.impedance_ohm|current
+  required:
+  - fact: technical.compact_soundbar.impedance_ohm
+    sections:
+    - technical_compact_soundbar.impedance_ohm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_soundbar_sensitivity_db
+  category: simple
+  en: I am comparing specifications. Find the rated audio sensitivity for Compact TV soundbar, in dB.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная звуковая чувствительность» у «Компактный
+    телевизионный саундбар», в дБ.
+  kk: Сипаттамаларды салыстырып отырмын. «Ықшам теледидар саундбары» үшін «Номиналды дыбыс сезімталдығы»
+    мәні қажет (дБ).
+  relevant:
+  - section: technical_compact_soundbar.sensitivity_db
+    grade: 3
+  - section: technical_compact_soundbar.cable_cm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_soundbar.sensitivity_db; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_sensitivity
+  need_key: technical.compact_soundbar.sensitivity_db|current
+  required:
+  - fact: technical.compact_soundbar.sensitivity_db
+    sections:
+    - technical_compact_soundbar.sensitivity_db
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_soundbar_cable_cm
+  category: simple
+  en: 'Compact TV soundbar: supplied cable length, cm?'
+  ru: '«Компактный телевизионный саундбар»: длина комплектного кабеля, см?'
+  kk: '«Ықшам теледидар саундбары»: жинақтағы кабель ұзындығы, см?'
+  relevant:
+  - section: technical_compact_soundbar.cable_cm
+    grade: 3
+  - section: technical_compact_soundbar.drivers_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_soundbar.cable_cm; neighbouring drivers_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.compact_soundbar.cable_cm|current
+  required:
+  - fact: technical.compact_soundbar.cable_cm
+    sections:
+    - technical_compact_soundbar.cable_cm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_soundbar_drivers_count
+  category: hard
+  en: The cards look similar. What number of acoustic drivers is listed for Compact TV soundbar (units)?
+  ru: Карточки похожи. Уточните показатель «Число акустических излучателей» именно для «Компактный телевизионный
+    саундбар» (шт.).
+  kk: Карточкалар ұқсас. «Ықшам теледидар саундбары» үшін нақты «Акустикалық сәуле шығарғыштардың саны»
+    көрсеткішін айтыңыз (дана).
+  relevant:
+  - section: technical_compact_soundbar.drivers_count
+    grade: 3
+  - section: technical_compact_soundbar.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_soundbar.drivers_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_drivers
+  need_key: technical.compact_soundbar.drivers_count|current
+  required:
+  - fact: technical.compact_soundbar.drivers_count
+    sections:
+    - technical_compact_soundbar.drivers_count
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_compact_soundbar_humidity_max_percent
+  category: unanswerable
+  en: For Compact TV soundbar, what is the specified maximum permitted humidity in percent?
+  ru: Для «Компактный телевизионный саундбар» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Ықшам теледидар саундбары» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_compact_soundbar.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for compact_soundbar does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.compact_soundbar.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_compact_soundbar_drop_test_cm
+  category: unanswerable
+  en: For Compact TV soundbar, what is the specified certified drop-test height in cm?
+  ru: Для «Компактный телевизионный саундбар» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Ықшам теледидар саундбары» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_compact_soundbar.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for compact_soundbar does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.compact_soundbar.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_compact_soundbar_repair_parts_price
+  category: unanswerable
+  en: For Compact TV soundbar, what is the specified replacement-part price in KZT?
+  ru: Для «Компактный телевизионный саундбар» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Ықшам теледидар саундбары» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_compact_soundbar.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for compact_soundbar does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.compact_soundbar.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_compact_soundbar_certification_id
+  category: unanswerable
+  en: For Compact TV soundbar, what is the specified certification record number in record?
+  ru: Для «Компактный телевизионный саундбар» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Ықшам теледидар саундбары» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_compact_soundbar.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for compact_soundbar does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.compact_soundbar.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_compact_soundbar
+  category: multi_fragment
+  en: What does Compact TV soundbar weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Компактный телевизионный саундбар» и какой вес посылки допускают пункты самовывоза?
+  kk: «Ықшам теледидар саундбары» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_compact_soundbar.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.compact_soundbar.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.compact_soundbar.mass_g
+    sections:
+    - technical_compact_soundbar.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_studio_monitor_mass_g
+  category: hard
+  en: Check the specifcation of Near-field studio monitor for mass (g), please.
+  ru: 'Проверьте характиристику «Студийный монитор ближнего поля»: интересует «Масса» (г).'
+  kk: «Жақын өрісті студия мониторы» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_studio_monitor.mass_g
+    grade: 3
+  - section: technical_studio_monitor.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.studio_monitor.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.studio_monitor.mass_g|current
+  required:
+  - fact: technical.studio_monitor.mass_g
+    sections:
+    - technical_studio_monitor.mass_g
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_studio_monitor_width_mm
+  category: simple
+  en: For Near-field studio monitor, what is the specified width in mm?
+  ru: Для «Студийный монитор ближнего поля» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Жақын өрісті студия мониторы» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_studio_monitor.width_mm
+    grade: 3
+  - section: technical_studio_monitor.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.studio_monitor.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.studio_monitor.width_mm|current
+  required:
+  - fact: technical.studio_monitor.width_mm
+    sections:
+    - technical_studio_monitor.width_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_studio_monitor_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Near-field studio monitor, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Студийный монитор ближнего поля», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Жақын өрісті студия мониторы» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_studio_monitor.height_mm
+    grade: 3
+  - section: technical_studio_monitor.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.studio_monitor.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.studio_monitor.height_mm|current
+  required:
+  - fact: technical.studio_monitor.height_mm
+    sections:
+    - technical_studio_monitor.height_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_studio_monitor_depth_mm
+  category: simple
+  en: 'Near-field studio monitor: depth, mm?'
+  ru: '«Студийный монитор ближнего поля»: глубина, мм?'
+  kk: '«Жақын өрісті студия мониторы»: тереңдігі, мм?'
+  relevant:
+  - section: technical_studio_monitor.depth_mm
+    grade: 3
+  - section: technical_studio_monitor.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Жақын өрісті студия мониторы» үшін «Тереңдігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.studio_monitor.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.studio_monitor.depth_mm|current
+  required:
+  - fact: technical.studio_monitor.depth_mm
+    sections:
+    - technical_studio_monitor.depth_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_studio_monitor_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Near-field studio
+    monitor (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Студийный
+    монитор ближнего поля» (C).
+  kk: Карточкалар ұқсас. «Жақын өрісті студия мониторы» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_studio_monitor.operating_min_c
+    grade: 3
+  - section: technical_studio_monitor.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.studio_monitor.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.studio_monitor.operating_min_c|current
+  required:
+  - fact: technical.studio_monitor.operating_min_c
+    sections:
+    - technical_studio_monitor.operating_min_c
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_studio_monitor_operating_max_c
+  category: hard
+  en: Check the specifcation of Near-field studio monitor for maximum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Студийный монитор ближнего поля»: интересует «Максимальная температура
+    воздуха при работе» (C).'
+  kk: «Жақын өрісті студия мониторы» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы» мәнін
+    тексеріңізші (C).
+  relevant:
+  - section: technical_studio_monitor.operating_max_c
+    grade: 3
+  - section: technical_studio_monitor.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.studio_monitor.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.studio_monitor.operating_max_c|current
+  required:
+  - fact: technical.studio_monitor.operating_max_c
+    sections:
+    - technical_studio_monitor.operating_max_c
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_studio_monitor_power_w
+  category: simple
+  en: For Near-field studio monitor, what is the specified rated power consumption in W?
+  ru: Для «Студийный монитор ближнего поля» какое значение указано для показателя «Номинальная потребляемая
+    мощность» (Вт)?
+  kk: «Жақын өрісті студия мониторы» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай (Вт)?
+  relevant:
+  - section: technical_studio_monitor.power_w
+    grade: 3
+  - section: technical_studio_monitor.freq_min_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.studio_monitor.power_w; neighbouring freq_min_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.studio_monitor.power_w|current
+  required:
+  - fact: technical.studio_monitor.power_w
+    sections:
+    - technical_studio_monitor.power_w
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_studio_monitor_freq_min_hz
+  category: hard
+  en: I am comparing specifications. Find the lower rated audio frequency for Near-field studio monitor,
+    in Hz.
+  ru: Сравниваю характеристики. Нужен показатель «Нижняя номинальная звуковая частота» у «Студийный монитор
+    ближнего поля», в Гц.
+  kk: Сипаттамаларды салыстырып отырмын. «Жақын өрісті студия мониторы» үшін «Номиналды дыбыс жиілігінің
+    төменгі шегі» мәні қажет (Гц).
+  relevant:
+  - section: technical_studio_monitor.freq_min_hz
+    grade: 3
+  - section: technical_studio_monitor.freq_max_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.studio_monitor.freq_min_hz; neighbouring freq_max_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_frequency
+  need_key: technical.studio_monitor.freq_min_hz|current
+  required:
+  - fact: technical.studio_monitor.freq_min_hz
+    sections:
+    - technical_studio_monitor.freq_min_hz
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_studio_monitor_freq_max_hz
+  category: hard
+  en: 'Near-field studio monitor: upper rated audio frequency, Hz?'
+  ru: '«Студийный монитор ближнего поля»: верхняя номинальная звуковая частота, Гц?'
+  kk: '«Жақын өрісті студия мониторы»: номиналды дыбыс жиілігінің жоғарғы шегі, Гц?'
+  relevant:
+  - section: technical_studio_monitor.freq_max_hz
+    grade: 3
+  - section: technical_studio_monitor.impedance_ohm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.studio_monitor.freq_max_hz; neighbouring impedance_ohm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_frequency
+  need_key: technical.studio_monitor.freq_max_hz|current
+  required:
+  - fact: technical.studio_monitor.freq_max_hz
+    sections:
+    - technical_studio_monitor.freq_max_hz
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_studio_monitor_impedance_ohm
+  category: hard
+  en: The cards look similar. What nominal impedance is listed for Near-field studio monitor (ohm)?
+  ru: Карточки похожи. Уточните показатель «Номинальное сопротивление» именно для «Студийный монитор ближнего
+    поля» (Ом).
+  kk: Карточкалар ұқсас. «Жақын өрісті студия мониторы» үшін нақты «Номиналды кедергі» көрсеткішін айтыңыз
+    (Ом).
+  relevant:
+  - section: technical_studio_monitor.impedance_ohm
+    grade: 3
+  - section: technical_studio_monitor.sensitivity_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.studio_monitor.impedance_ohm; neighbouring sensitivity_db does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_impedance
+  need_key: technical.studio_monitor.impedance_ohm|current
+  required:
+  - fact: technical.studio_monitor.impedance_ohm
+    sections:
+    - technical_studio_monitor.impedance_ohm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_studio_monitor_sensitivity_db
+  category: hard
+  en: Check the specifcation of Near-field studio monitor for rated audio sensitivity (dB), please.
+  ru: 'Проверьте характиристику «Студийный монитор ближнего поля»: интересует «Номинальная звуковая чувствительность»
+    (дБ).'
+  kk: «Жақын өрісті студия мониторы» сипатамасынан «Номиналды дыбыс сезімталдығы» мәнін тексеріңізші (дБ).
+  relevant:
+  - section: technical_studio_monitor.sensitivity_db
+    grade: 3
+  - section: technical_studio_monitor.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Студийный монитор ближнего поля» показатель «Номинальная звуковая чувствительность» (дБ)
+    нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.studio_monitor.sensitivity_db; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_sensitivity
+  need_key: technical.studio_monitor.sensitivity_db|current
+  required:
+  - fact: technical.studio_monitor.sensitivity_db
+    sections:
+    - technical_studio_monitor.sensitivity_db
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_studio_monitor_cable_cm
+  category: simple
+  en: For Near-field studio monitor, what is the specified supplied cable length in cm?
+  ru: Для «Студийный монитор ближнего поля» какое значение указано для показателя «Длина комплектного
+    кабеля» (см)?
+  kk: «Жақын өрісті студия мониторы» тауары үшін «Жинақтағы кабель ұзындығы» көрсеткішінің мәні қандай
+    (см)?
+  relevant:
+  - section: technical_studio_monitor.cable_cm
+    grade: 3
+  - section: technical_studio_monitor.drivers_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.studio_monitor.cable_cm; neighbouring drivers_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.studio_monitor.cable_cm|current
+  required:
+  - fact: technical.studio_monitor.cable_cm
+    sections:
+    - technical_studio_monitor.cable_cm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_studio_monitor_drivers_count
+  category: simple
+  en: I am comparing specifications. Find the number of acoustic drivers for Near-field studio monitor,
+    in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число акустических излучателей» у «Студийный монитор
+    ближнего поля», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Жақын өрісті студия мониторы» үшін «Акустикалық сәуле шығарғыштардың
+    саны» мәні қажет (дана).
+  relevant:
+  - section: technical_studio_monitor.drivers_count
+    grade: 3
+  - section: technical_studio_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.studio_monitor.drivers_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_drivers
+  need_key: technical.studio_monitor.drivers_count|current
+  required:
+  - fact: technical.studio_monitor.drivers_count
+    sections:
+    - technical_studio_monitor.drivers_count
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_studio_monitor_humidity_max_percent
+  category: unanswerable
+  en: For Near-field studio monitor, what is the specified maximum permitted humidity in percent?
+  ru: Для «Студийный монитор ближнего поля» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Жақын өрісті студия мониторы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_studio_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for studio_monitor does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.studio_monitor.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_studio_monitor_drop_test_cm
+  category: unanswerable
+  en: For Near-field studio monitor, what is the specified certified drop-test height in cm?
+  ru: Для «Студийный монитор ближнего поля» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Жақын өрісті студия мониторы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_studio_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for studio_monitor does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.studio_monitor.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_studio_monitor_repair_parts_price
+  category: unanswerable
+  en: For Near-field studio monitor, what is the specified replacement-part price in KZT?
+  ru: Для «Студийный монитор ближнего поля» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Жақын өрісті студия мониторы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_studio_monitor.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for studio_monitor does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.studio_monitor.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_studio_monitor_certification_id
+  category: unanswerable
+  en: For Near-field studio monitor, what is the specified certification record number in record?
+  ru: Для «Студийный монитор ближнего поля» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Жақын өрісті студия мониторы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_studio_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for studio_monitor does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.studio_monitor.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_conference_speaker_mass_g
+  category: simple
+  en: 'Conference room speaker: mass, g?'
+  ru: '«Колонка конференц-зала»: масса, г?'
+  kk: '«Мәжіліс бөлмесінің колонкасы»: салмағы, г?'
+  relevant:
+  - section: technical_conference_speaker.mass_g
+    grade: 3
+  - section: technical_conference_speaker.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.conference_speaker.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.conference_speaker.mass_g|current
+  required:
+  - fact: technical.conference_speaker.mass_g
+    sections:
+    - technical_conference_speaker.mass_g
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_conference_speaker_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Conference room speaker (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Колонка конференц-зала» (мм).
+  kk: Карточкалар ұқсас. «Мәжіліс бөлмесінің колонкасы» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_conference_speaker.width_mm
+    grade: 3
+  - section: technical_conference_speaker.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.conference_speaker.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.conference_speaker.width_mm|current
+  required:
+  - fact: technical.conference_speaker.width_mm
+    sections:
+    - technical_conference_speaker.width_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_conference_speaker_height_mm
+  category: hard
+  en: Check the specifcation of Conference room speaker for height (mm), please.
+  ru: 'Проверьте характиристику «Колонка конференц-зала»: интересует «Высота» (мм).'
+  kk: «Мәжіліс бөлмесінің колонкасы» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_conference_speaker.height_mm
+    grade: 3
+  - section: technical_conference_speaker.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.conference_speaker.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.conference_speaker.height_mm|current
+  required:
+  - fact: technical.conference_speaker.height_mm
+    sections:
+    - technical_conference_speaker.height_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_conference_speaker_depth_mm
+  category: simple
+  en: For Conference room speaker, what is the specified depth in mm?
+  ru: Для «Колонка конференц-зала» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Мәжіліс бөлмесінің колонкасы» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_conference_speaker.depth_mm
+    grade: 3
+  - section: technical_conference_speaker.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.conference_speaker.depth_mm; neighbouring operating_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.conference_speaker.depth_mm|current
+  required:
+  - fact: technical.conference_speaker.depth_mm
+    sections:
+    - technical_conference_speaker.depth_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_conference_speaker_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Conference room
+    speaker, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Колонка
+    конференц-зала», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Мәжіліс бөлмесінің колонкасы» үшін «Жұмыс кезіндегі ауаның ең
+    төмен температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_conference_speaker.operating_min_c
+    grade: 3
+  - section: technical_conference_speaker.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Мәжіліс бөлмесінің колонкасы» үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» (C) керек,
+    уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.conference_speaker.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.conference_speaker.operating_min_c|current
+  required:
+  - fact: technical.conference_speaker.operating_min_c
+    sections:
+    - technical_conference_speaker.operating_min_c
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_conference_speaker_operating_max_c
+  category: hard
+  en: 'Conference room speaker: maximum operating ambient temperature, C?'
+  ru: '«Колонка конференц-зала»: максимальная температура воздуха при работе, C?'
+  kk: '«Мәжіліс бөлмесінің колонкасы»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_conference_speaker.operating_max_c
+    grade: 3
+  - section: technical_conference_speaker.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.conference_speaker.operating_max_c; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.conference_speaker.operating_max_c|current
+  required:
+  - fact: technical.conference_speaker.operating_max_c
+    sections:
+    - technical_conference_speaker.operating_max_c
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_conference_speaker_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Conference room speaker (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Колонка конференц-зала»
+    (Вт).
+  kk: Карточкалар ұқсас. «Мәжіліс бөлмесінің колонкасы» үшін нақты «Номиналды тұтыну қуаты» көрсеткішін
+    айтыңыз (Вт).
+  relevant:
+  - section: technical_conference_speaker.power_w
+    grade: 3
+  - section: technical_conference_speaker.freq_min_hz
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.conference_speaker.power_w; neighbouring freq_min_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.conference_speaker.power_w|current
+  required:
+  - fact: technical.conference_speaker.power_w
+    sections:
+    - technical_conference_speaker.power_w
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_conference_speaker_freq_min_hz
+  category: hard
+  en: Check the specifcation of Conference room speaker for lower rated audio frequency (Hz), please.
+  ru: 'Проверьте характиристику «Колонка конференц-зала»: интересует «Нижняя номинальная звуковая частота»
+    (Гц).'
+  kk: «Мәжіліс бөлмесінің колонкасы» сипатамасынан «Номиналды дыбыс жиілігінің төменгі шегі» мәнін тексеріңізші
+    (Гц).
+  relevant:
+  - section: technical_conference_speaker.freq_min_hz
+    grade: 3
+  - section: technical_conference_speaker.freq_max_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.conference_speaker.freq_min_hz; neighbouring freq_max_hz does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_frequency
+  need_key: technical.conference_speaker.freq_min_hz|current
+  required:
+  - fact: technical.conference_speaker.freq_min_hz
+    sections:
+    - technical_conference_speaker.freq_min_hz
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_conference_speaker_freq_max_hz
+  category: hard
+  en: For Conference room speaker, what is the specified upper rated audio frequency in Hz?
+  ru: Для «Колонка конференц-зала» какое значение указано для показателя «Верхняя номинальная звуковая
+    частота» (Гц)?
+  kk: «Мәжіліс бөлмесінің колонкасы» тауары үшін «Номиналды дыбыс жиілігінің жоғарғы шегі» көрсеткішінің
+    мәні қандай (Гц)?
+  relevant:
+  - section: technical_conference_speaker.freq_max_hz
+    grade: 3
+  - section: technical_conference_speaker.impedance_ohm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.conference_speaker.freq_max_hz; neighbouring impedance_ohm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_frequency
+  need_key: technical.conference_speaker.freq_max_hz|current
+  required:
+  - fact: technical.conference_speaker.freq_max_hz
+    sections:
+    - technical_conference_speaker.freq_max_hz
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_conference_speaker_impedance_ohm
+  category: simple
+  en: I am comparing specifications. Find the nominal impedance for Conference room speaker, in ohm.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное сопротивление» у «Колонка конференц-зала»,
+    в Ом.
+  kk: Сипаттамаларды салыстырып отырмын. «Мәжіліс бөлмесінің колонкасы» үшін «Номиналды кедергі» мәні
+    қажет (Ом).
+  relevant:
+  - section: technical_conference_speaker.impedance_ohm
+    grade: 3
+  - section: technical_conference_speaker.sensitivity_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.conference_speaker.impedance_ohm; neighbouring sensitivity_db does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_impedance
+  need_key: technical.conference_speaker.impedance_ohm|current
+  required:
+  - fact: technical.conference_speaker.impedance_ohm
+    sections:
+    - technical_conference_speaker.impedance_ohm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_conference_speaker_sensitivity_db
+  category: simple
+  en: 'Conference room speaker: rated audio sensitivity, dB?'
+  ru: '«Колонка конференц-зала»: номинальная звуковая чувствительность, дБ?'
+  kk: '«Мәжіліс бөлмесінің колонкасы»: номиналды дыбыс сезімталдығы, дБ?'
+  relevant:
+  - section: technical_conference_speaker.sensitivity_db
+    grade: 3
+  - section: technical_conference_speaker.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.conference_speaker.sensitivity_db; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_sensitivity
+  need_key: technical.conference_speaker.sensitivity_db|current
+  required:
+  - fact: technical.conference_speaker.sensitivity_db
+    sections:
+    - technical_conference_speaker.sensitivity_db
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_conference_speaker_cable_cm
+  category: hard
+  en: The cards look similar. What supplied cable length is listed for Conference room speaker (cm)?
+  ru: Карточки похожи. Уточните показатель «Длина комплектного кабеля» именно для «Колонка конференц-зала»
+    (см).
+  kk: Карточкалар ұқсас. «Мәжіліс бөлмесінің колонкасы» үшін нақты «Жинақтағы кабель ұзындығы» көрсеткішін
+    айтыңыз (см).
+  relevant:
+  - section: technical_conference_speaker.cable_cm
+    grade: 3
+  - section: technical_conference_speaker.drivers_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Колонка конференц-зала» показатель «Длина комплектного кабеля» (см) нақтылап беріңізші, осы
+    үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.conference_speaker.cable_cm; neighbouring drivers_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.conference_speaker.cable_cm|current
+  required:
+  - fact: technical.conference_speaker.cable_cm
+    sections:
+    - technical_conference_speaker.cable_cm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_conference_speaker_drivers_count
+  category: hard
+  en: Check the specifcation of Conference room speaker for number of acoustic drivers (units), please.
+  ru: 'Проверьте характиристику «Колонка конференц-зала»: интересует «Число акустических излучателей»
+    (шт.).'
+  kk: «Мәжіліс бөлмесінің колонкасы» сипатамасынан «Акустикалық сәуле шығарғыштардың саны» мәнін тексеріңізші
+    (дана).
+  relevant:
+  - section: technical_conference_speaker.drivers_count
+    grade: 3
+  - section: technical_conference_speaker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.conference_speaker.drivers_count; neighbouring mass_g does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_drivers
+  need_key: technical.conference_speaker.drivers_count|current
+  required:
+  - fact: technical.conference_speaker.drivers_count
+    sections:
+    - technical_conference_speaker.drivers_count
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_conference_speaker_humidity_max_percent
+  category: unanswerable
+  en: For Conference room speaker, what is the specified maximum permitted humidity in percent?
+  ru: Для «Колонка конференц-зала» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Мәжіліс бөлмесінің колонкасы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_conference_speaker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for conference_speaker does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.conference_speaker.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_conference_speaker_drop_test_cm
+  category: unanswerable
+  en: For Conference room speaker, what is the specified certified drop-test height in cm?
+  ru: Для «Колонка конференц-зала» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Мәжіліс бөлмесінің колонкасы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_conference_speaker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for conference_speaker does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.conference_speaker.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_conference_speaker_repair_parts_price
+  category: unanswerable
+  en: For Conference room speaker, what is the specified replacement-part price in KZT?
+  ru: Для «Колонка конференц-зала» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Мәжіліс бөлмесінің колонкасы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_conference_speaker.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for conference_speaker does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.conference_speaker.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_conference_speaker_certification_id
+  category: unanswerable
+  en: For Conference room speaker, what is the specified certification record number in record?
+  ru: Для «Колонка конференц-зала» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Мәжіліс бөлмесінің колонкасы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_conference_speaker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for conference_speaker does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.conference_speaker.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_conference_speaker
+  category: multi_fragment
+  en: What does Conference room speaker weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Колонка конференц-зала» и какой вес посылки допускают пункты самовывоза?
+  kk: «Мәжіліс бөлмесінің колонкасы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_conference_speaker.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.conference_speaker.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.conference_speaker.mass_g
+    sections:
+    - technical_conference_speaker.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_pa_speaker_mass_g
+  category: simple
+  en: For Portable powered PA speaker, what is the specified mass in g?
+  ru: Для «Переносная активная акустическая система» какое значение указано для показателя «Масса» (г)?
+  kk: «Тасымалды белсенді дыбыс жүйесі» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_portable_pa_speaker.mass_g
+    grade: 3
+  - section: technical_portable_pa_speaker.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_pa_speaker.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.portable_pa_speaker.mass_g|current
+  required:
+  - fact: technical.portable_pa_speaker.mass_g
+    sections:
+    - technical_portable_pa_speaker.mass_g
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_pa_speaker_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Portable powered PA speaker, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Переносная активная акустическая система»,
+    в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Тасымалды белсенді дыбыс жүйесі» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_portable_pa_speaker.width_mm
+    grade: 3
+  - section: technical_portable_pa_speaker.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_pa_speaker.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.portable_pa_speaker.width_mm|current
+  required:
+  - fact: technical.portable_pa_speaker.width_mm
+    sections:
+    - technical_portable_pa_speaker.width_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_pa_speaker_height_mm
+  category: simple
+  en: 'Portable powered PA speaker: height, mm?'
+  ru: '«Переносная активная акустическая система»: высота, мм?'
+  kk: '«Тасымалды белсенді дыбыс жүйесі»: биіктігі, мм?'
+  relevant:
+  - section: technical_portable_pa_speaker.height_mm
+    grade: 3
+  - section: technical_portable_pa_speaker.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_pa_speaker.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.portable_pa_speaker.height_mm|current
+  required:
+  - fact: technical.portable_pa_speaker.height_mm
+    sections:
+    - technical_portable_pa_speaker.height_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_pa_speaker_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Portable powered PA speaker (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Переносная активная акустическая система»
+    (мм).
+  kk: Карточкалар ұқсас. «Тасымалды белсенді дыбыс жүйесі» үшін нақты «Тереңдігі» көрсеткішін айтыңыз
+    (мм).
+  relevant:
+  - section: technical_portable_pa_speaker.depth_mm
+    grade: 3
+  - section: technical_portable_pa_speaker.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_pa_speaker.depth_mm; neighbouring operating_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.portable_pa_speaker.depth_mm|current
+  required:
+  - fact: technical.portable_pa_speaker.depth_mm
+    sections:
+    - technical_portable_pa_speaker.depth_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_pa_speaker_operating_min_c
+  category: hard
+  en: Check the specifcation of Portable powered PA speaker for minimum operating ambient temperature
+    (C), please.
+  ru: 'Проверьте характиристику «Переносная активная акустическая система»: интересует «Минимальная температура
+    воздуха при работе» (C).'
+  kk: «Тасымалды белсенді дыбыс жүйесі» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    мәнін тексеріңізші (C).
+  relevant:
+  - section: technical_portable_pa_speaker.operating_min_c
+    grade: 3
+  - section: technical_portable_pa_speaker.operating_max_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_pa_speaker.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.portable_pa_speaker.operating_min_c|current
+  required:
+  - fact: technical.portable_pa_speaker.operating_min_c
+    sections:
+    - technical_portable_pa_speaker.operating_min_c
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_pa_speaker_operating_max_c
+  category: hard
+  en: For Portable powered PA speaker, what is the specified maximum operating ambient temperature in
+    C?
+  ru: Для «Переносная активная акустическая система» какое значение указано для показателя «Максимальная
+    температура воздуха при работе» (C)?
+  kk: «Тасымалды белсенді дыбыс жүйесі» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_portable_pa_speaker.operating_max_c
+    grade: 3
+  - section: technical_portable_pa_speaker.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Тасымалды белсенді дыбыс жүйесі» үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» (C)
+    керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.portable_pa_speaker.operating_max_c; neighbouring power_w does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.portable_pa_speaker.operating_max_c|current
+  required:
+  - fact: technical.portable_pa_speaker.operating_max_c
+    sections:
+    - technical_portable_pa_speaker.operating_max_c
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_pa_speaker_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Portable powered PA speaker,
+    in W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Переносная активная
+    акустическая система», в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Тасымалды белсенді дыбыс жүйесі» үшін «Номиналды тұтыну қуаты»
+    мәні қажет (Вт).
+  relevant:
+  - section: technical_portable_pa_speaker.power_w
+    grade: 3
+  - section: technical_portable_pa_speaker.freq_min_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_pa_speaker.power_w; neighbouring freq_min_hz does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.portable_pa_speaker.power_w|current
+  required:
+  - fact: technical.portable_pa_speaker.power_w
+    sections:
+    - technical_portable_pa_speaker.power_w
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_pa_speaker_freq_min_hz
+  category: hard
+  en: 'Portable powered PA speaker: lower rated audio frequency, Hz?'
+  ru: '«Переносная активная акустическая система»: нижняя номинальная звуковая частота, Гц?'
+  kk: '«Тасымалды белсенді дыбыс жүйесі»: номиналды дыбыс жиілігінің төменгі шегі, Гц?'
+  relevant:
+  - section: technical_portable_pa_speaker.freq_min_hz
+    grade: 3
+  - section: technical_portable_pa_speaker.freq_max_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_pa_speaker.freq_min_hz; neighbouring freq_max_hz does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_frequency
+  need_key: technical.portable_pa_speaker.freq_min_hz|current
+  required:
+  - fact: technical.portable_pa_speaker.freq_min_hz
+    sections:
+    - technical_portable_pa_speaker.freq_min_hz
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_pa_speaker_freq_max_hz
+  category: hard
+  en: The cards look similar. What upper rated audio frequency is listed for Portable powered PA speaker
+    (Hz)?
+  ru: Карточки похожи. Уточните показатель «Верхняя номинальная звуковая частота» именно для «Переносная
+    активная акустическая система» (Гц).
+  kk: Карточкалар ұқсас. «Тасымалды белсенді дыбыс жүйесі» үшін нақты «Номиналды дыбыс жиілігінің жоғарғы
+    шегі» көрсеткішін айтыңыз (Гц).
+  relevant:
+  - section: technical_portable_pa_speaker.freq_max_hz
+    grade: 3
+  - section: technical_portable_pa_speaker.impedance_ohm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_pa_speaker.freq_max_hz; neighbouring impedance_ohm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_frequency
+  need_key: technical.portable_pa_speaker.freq_max_hz|current
+  required:
+  - fact: technical.portable_pa_speaker.freq_max_hz
+    sections:
+    - technical_portable_pa_speaker.freq_max_hz
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_pa_speaker_impedance_ohm
+  category: hard
+  en: Check the specifcation of Portable powered PA speaker for nominal impedance (ohm), please.
+  ru: 'Проверьте характиристику «Переносная активная акустическая система»: интересует «Номинальное сопротивление»
+    (Ом).'
+  kk: «Тасымалды белсенді дыбыс жүйесі» сипатамасынан «Номиналды кедергі» мәнін тексеріңізші (Ом).
+  relevant:
+  - section: technical_portable_pa_speaker.impedance_ohm
+    grade: 3
+  - section: technical_portable_pa_speaker.sensitivity_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_pa_speaker.impedance_ohm; neighbouring sensitivity_db
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_impedance
+  need_key: technical.portable_pa_speaker.impedance_ohm|current
+  required:
+  - fact: technical.portable_pa_speaker.impedance_ohm
+    sections:
+    - technical_portable_pa_speaker.impedance_ohm
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_pa_speaker_sensitivity_db
+  category: simple
+  en: For Portable powered PA speaker, what is the specified rated audio sensitivity in dB?
+  ru: Для «Переносная активная акустическая система» какое значение указано для показателя «Номинальная
+    звуковая чувствительность» (дБ)?
+  kk: «Тасымалды белсенді дыбыс жүйесі» тауары үшін «Номиналды дыбыс сезімталдығы» көрсеткішінің мәні
+    қандай (дБ)?
+  relevant:
+  - section: technical_portable_pa_speaker.sensitivity_db
+    grade: 3
+  - section: technical_portable_pa_speaker.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_pa_speaker.sensitivity_db; neighbouring cable_cm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_sensitivity
+  need_key: technical.portable_pa_speaker.sensitivity_db|current
+  required:
+  - fact: technical.portable_pa_speaker.sensitivity_db
+    sections:
+    - technical_portable_pa_speaker.sensitivity_db
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_pa_speaker_cable_cm
+  category: simple
+  en: I am comparing specifications. Find the supplied cable length for Portable powered PA speaker, in
+    cm.
+  ru: Сравниваю характеристики. Нужен показатель «Длина комплектного кабеля» у «Переносная активная акустическая
+    система», в см.
+  kk: Сипаттамаларды салыстырып отырмын. «Тасымалды белсенді дыбыс жүйесі» үшін «Жинақтағы кабель ұзындығы»
+    мәні қажет (см).
+  relevant:
+  - section: technical_portable_pa_speaker.cable_cm
+    grade: 3
+  - section: technical_portable_pa_speaker.drivers_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_pa_speaker.cable_cm; neighbouring drivers_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.portable_pa_speaker.cable_cm|current
+  required:
+  - fact: technical.portable_pa_speaker.cable_cm
+    sections:
+    - technical_portable_pa_speaker.cable_cm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_pa_speaker_drivers_count
+  category: simple
+  en: 'Portable powered PA speaker: number of acoustic drivers, units?'
+  ru: '«Переносная активная акустическая система»: число акустических излучателей, шт.?'
+  kk: '«Тасымалды белсенді дыбыс жүйесі»: акустикалық сәуле шығарғыштардың саны, дана?'
+  relevant:
+  - section: technical_portable_pa_speaker.drivers_count
+    grade: 3
+  - section: technical_portable_pa_speaker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Переносная активная акустическая система» показатель «Число акустических излучателей» (шт.)
+    нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.portable_pa_speaker.drivers_count; neighbouring mass_g does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_drivers
+  need_key: technical.portable_pa_speaker.drivers_count|current
+  required:
+  - fact: technical.portable_pa_speaker.drivers_count
+    sections:
+    - technical_portable_pa_speaker.drivers_count
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_portable_pa_speaker_humidity_max_percent
+  category: unanswerable
+  en: For Portable powered PA speaker, what is the specified maximum permitted humidity in percent?
+  ru: Для «Переносная активная акустическая система» какое значение указано для показателя «Максимальная
+    допустимая влажность» (процентов)?
+  kk: «Тасымалды белсенді дыбыс жүйесі» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_portable_pa_speaker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for portable_pa_speaker does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.portable_pa_speaker.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_portable_pa_speaker_drop_test_cm
+  category: unanswerable
+  en: For Portable powered PA speaker, what is the specified certified drop-test height in cm?
+  ru: Для «Переносная активная акустическая система» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Тасымалды белсенді дыбыс жүйесі» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_portable_pa_speaker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for portable_pa_speaker does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.portable_pa_speaker.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_portable_pa_speaker_repair_parts_price
+  category: unanswerable
+  en: For Portable powered PA speaker, what is the specified replacement-part price in KZT?
+  ru: Для «Переносная активная акустическая система» какое значение указано для показателя «Цена запасной
+    детали» (тенге)?
+  kk: «Тасымалды белсенді дыбыс жүйесі» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_portable_pa_speaker.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for portable_pa_speaker does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.portable_pa_speaker.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_portable_pa_speaker_certification_id
+  category: unanswerable
+  en: For Portable powered PA speaker, what is the specified certification record number in record?
+  ru: Для «Переносная активная акустическая система» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Тасымалды белсенді дыбыс жүйесі» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_portable_pa_speaker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for portable_pa_speaker does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.portable_pa_speaker.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_ceiling_speaker_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Powered ceiling speaker (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Активная потолочная колонка» (г).
+  kk: Карточкалар ұқсас. «Белсенді төбе колонкасы» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_ceiling_speaker.mass_g
+    grade: 3
+  - section: technical_ceiling_speaker.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ceiling_speaker.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.ceiling_speaker.mass_g|current
+  required:
+  - fact: technical.ceiling_speaker.mass_g
+    sections:
+    - technical_ceiling_speaker.mass_g
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ceiling_speaker_width_mm
+  category: hard
+  en: Check the specifcation of Powered ceiling speaker for width (mm), please.
+  ru: 'Проверьте характиристику «Активная потолочная колонка»: интересует «Ширина» (мм).'
+  kk: «Белсенді төбе колонкасы» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_ceiling_speaker.width_mm
+    grade: 3
+  - section: technical_ceiling_speaker.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ceiling_speaker.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.ceiling_speaker.width_mm|current
+  required:
+  - fact: technical.ceiling_speaker.width_mm
+    sections:
+    - technical_ceiling_speaker.width_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ceiling_speaker_height_mm
+  category: simple
+  en: For Powered ceiling speaker, what is the specified height in mm?
+  ru: Для «Активная потолочная колонка» какое значение указано для показателя «Высота» (мм)?
+  kk: «Белсенді төбе колонкасы» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_ceiling_speaker.height_mm
+    grade: 3
+  - section: technical_ceiling_speaker.depth_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ceiling_speaker.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.ceiling_speaker.height_mm|current
+  required:
+  - fact: technical.ceiling_speaker.height_mm
+    sections:
+    - technical_ceiling_speaker.height_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ceiling_speaker_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Powered ceiling speaker, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Активная потолочная колонка», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Белсенді төбе колонкасы» үшін «Тереңдігі» мәні қажет (мм).
+  relevant:
+  - section: technical_ceiling_speaker.depth_mm
+    grade: 3
+  - section: technical_ceiling_speaker.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ceiling_speaker.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.ceiling_speaker.depth_mm|current
+  required:
+  - fact: technical.ceiling_speaker.depth_mm
+    sections:
+    - technical_ceiling_speaker.depth_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ceiling_speaker_operating_min_c
+  category: hard
+  en: 'Powered ceiling speaker: minimum operating ambient temperature, C?'
+  ru: '«Активная потолочная колонка»: минимальная температура воздуха при работе, C?'
+  kk: '«Белсенді төбе колонкасы»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_ceiling_speaker.operating_min_c
+    grade: 3
+  - section: technical_ceiling_speaker.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ceiling_speaker.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.ceiling_speaker.operating_min_c|current
+  required:
+  - fact: technical.ceiling_speaker.operating_min_c
+    sections:
+    - technical_ceiling_speaker.operating_min_c
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ceiling_speaker_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Powered ceiling
+    speaker (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Активная
+    потолочная колонка» (C).
+  kk: Карточкалар ұқсас. «Белсенді төбе колонкасы» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_ceiling_speaker.operating_max_c
+    grade: 3
+  - section: technical_ceiling_speaker.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ceiling_speaker.operating_max_c; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.ceiling_speaker.operating_max_c|current
+  required:
+  - fact: technical.ceiling_speaker.operating_max_c
+    sections:
+    - technical_ceiling_speaker.operating_max_c
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ceiling_speaker_power_w
+  category: hard
+  en: Check the specifcation of Powered ceiling speaker for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Активная потолочная колонка»: интересует «Номинальная потребляемая мощность»
+    (Вт).'
+  kk: «Белсенді төбе колонкасы» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_ceiling_speaker.power_w
+    grade: 3
+  - section: technical_ceiling_speaker.freq_min_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Белсенді төбе колонкасы» үшін «Номиналды тұтыну қуаты» (Вт) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.ceiling_speaker.power_w; neighbouring freq_min_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.ceiling_speaker.power_w|current
+  required:
+  - fact: technical.ceiling_speaker.power_w
+    sections:
+    - technical_ceiling_speaker.power_w
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ceiling_speaker_freq_min_hz
+  category: hard
+  en: For Powered ceiling speaker, what is the specified lower rated audio frequency in Hz?
+  ru: Для «Активная потолочная колонка» какое значение указано для показателя «Нижняя номинальная звуковая
+    частота» (Гц)?
+  kk: «Белсенді төбе колонкасы» тауары үшін «Номиналды дыбыс жиілігінің төменгі шегі» көрсеткішінің мәні
+    қандай (Гц)?
+  relevant:
+  - section: technical_ceiling_speaker.freq_min_hz
+    grade: 3
+  - section: technical_ceiling_speaker.freq_max_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ceiling_speaker.freq_min_hz; neighbouring freq_max_hz does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_frequency
+  need_key: technical.ceiling_speaker.freq_min_hz|current
+  required:
+  - fact: technical.ceiling_speaker.freq_min_hz
+    sections:
+    - technical_ceiling_speaker.freq_min_hz
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ceiling_speaker_freq_max_hz
+  category: hard
+  en: I am comparing specifications. Find the upper rated audio frequency for Powered ceiling speaker,
+    in Hz.
+  ru: Сравниваю характеристики. Нужен показатель «Верхняя номинальная звуковая частота» у «Активная потолочная
+    колонка», в Гц.
+  kk: Сипаттамаларды салыстырып отырмын. «Белсенді төбе колонкасы» үшін «Номиналды дыбыс жиілігінің жоғарғы
+    шегі» мәні қажет (Гц).
+  relevant:
+  - section: technical_ceiling_speaker.freq_max_hz
+    grade: 3
+  - section: technical_ceiling_speaker.impedance_ohm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ceiling_speaker.freq_max_hz; neighbouring impedance_ohm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_frequency
+  need_key: technical.ceiling_speaker.freq_max_hz|current
+  required:
+  - fact: technical.ceiling_speaker.freq_max_hz
+    sections:
+    - technical_ceiling_speaker.freq_max_hz
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ceiling_speaker_impedance_ohm
+  category: simple
+  en: 'Powered ceiling speaker: nominal impedance, ohm?'
+  ru: '«Активная потолочная колонка»: номинальное сопротивление, Ом?'
+  kk: '«Белсенді төбе колонкасы»: номиналды кедергі, Ом?'
+  relevant:
+  - section: technical_ceiling_speaker.impedance_ohm
+    grade: 3
+  - section: technical_ceiling_speaker.sensitivity_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ceiling_speaker.impedance_ohm; neighbouring sensitivity_db does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_impedance
+  need_key: technical.ceiling_speaker.impedance_ohm|current
+  required:
+  - fact: technical.ceiling_speaker.impedance_ohm
+    sections:
+    - technical_ceiling_speaker.impedance_ohm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ceiling_speaker_sensitivity_db
+  category: hard
+  en: The cards look similar. What rated audio sensitivity is listed for Powered ceiling speaker (dB)?
+  ru: Карточки похожи. Уточните показатель «Номинальная звуковая чувствительность» именно для «Активная
+    потолочная колонка» (дБ).
+  kk: Карточкалар ұқсас. «Белсенді төбе колонкасы» үшін нақты «Номиналды дыбыс сезімталдығы» көрсеткішін
+    айтыңыз (дБ).
+  relevant:
+  - section: technical_ceiling_speaker.sensitivity_db
+    grade: 3
+  - section: technical_ceiling_speaker.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ceiling_speaker.sensitivity_db; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_sensitivity
+  need_key: technical.ceiling_speaker.sensitivity_db|current
+  required:
+  - fact: technical.ceiling_speaker.sensitivity_db
+    sections:
+    - technical_ceiling_speaker.sensitivity_db
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ceiling_speaker_cable_cm
+  category: hard
+  en: Check the specifcation of Powered ceiling speaker for supplied cable length (cm), please.
+  ru: 'Проверьте характиристику «Активная потолочная колонка»: интересует «Длина комплектного кабеля»
+    (см).'
+  kk: «Белсенді төбе колонкасы» сипатамасынан «Жинақтағы кабель ұзындығы» мәнін тексеріңізші (см).
+  relevant:
+  - section: technical_ceiling_speaker.cable_cm
+    grade: 3
+  - section: technical_ceiling_speaker.drivers_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ceiling_speaker.cable_cm; neighbouring drivers_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.ceiling_speaker.cable_cm|current
+  required:
+  - fact: technical.ceiling_speaker.cable_cm
+    sections:
+    - technical_ceiling_speaker.cable_cm
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ceiling_speaker_drivers_count
+  category: simple
+  en: For Powered ceiling speaker, what is the specified number of acoustic drivers in units?
+  ru: Для «Активная потолочная колонка» какое значение указано для показателя «Число акустических излучателей»
+    (шт.)?
+  kk: «Белсенді төбе колонкасы» тауары үшін «Акустикалық сәуле шығарғыштардың саны» көрсеткішінің мәні
+    қандай (дана)?
+  relevant:
+  - section: technical_ceiling_speaker.drivers_count
+    grade: 3
+  - section: technical_ceiling_speaker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ceiling_speaker.drivers_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_drivers
+  need_key: technical.ceiling_speaker.drivers_count|current
+  required:
+  - fact: technical.ceiling_speaker.drivers_count
+    sections:
+    - technical_ceiling_speaker.drivers_count
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_ceiling_speaker_humidity_max_percent
+  category: unanswerable
+  en: For Powered ceiling speaker, what is the specified maximum permitted humidity in percent?
+  ru: Для «Активная потолочная колонка» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Белсенді төбе колонкасы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_ceiling_speaker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ceiling_speaker does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.ceiling_speaker.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_ceiling_speaker_drop_test_cm
+  category: unanswerable
+  en: For Powered ceiling speaker, what is the specified certified drop-test height in cm?
+  ru: Для «Активная потолочная колонка» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Белсенді төбе колонкасы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_ceiling_speaker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ceiling_speaker does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.ceiling_speaker.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_ceiling_speaker_repair_parts_price
+  category: unanswerable
+  en: For Powered ceiling speaker, what is the specified replacement-part price in KZT?
+  ru: Для «Активная потолочная колонка» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Белсенді төбе колонкасы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_ceiling_speaker.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ceiling_speaker does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.ceiling_speaker.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_ceiling_speaker_certification_id
+  category: unanswerable
+  en: For Powered ceiling speaker, what is the specified certification record number in record?
+  ru: Для «Активная потолочная колонка» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Белсенді төбе колонкасы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_ceiling_speaker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ceiling_speaker does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.ceiling_speaker.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_ceiling_speaker
+  category: multi_fragment
+  en: What does Powered ceiling speaker weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Активная потолочная колонка» и какой вес посылки допускают пункты самовывоза?
+  kk: «Белсенді төбе колонкасы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_ceiling_speaker.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.ceiling_speaker.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.ceiling_speaker.mass_g
+    sections:
+    - technical_ceiling_speaker.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_speaker_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Powered wall speaker, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Активная настенная колонка», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Белсенді қабырға колонкасы» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_wall_speaker.mass_g
+    grade: 3
+  - section: technical_wall_speaker.width_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: У «Активная настенная колонка» показатель «Масса» (г) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.wall_speaker.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.wall_speaker.mass_g|current
+  required:
+  - fact: technical.wall_speaker.mass_g
+    sections:
+    - technical_wall_speaker.mass_g
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_speaker_width_mm
+  category: simple
+  en: 'Powered wall speaker: width, mm?'
+  ru: '«Активная настенная колонка»: ширина, мм?'
+  kk: '«Белсенді қабырға колонкасы»: ені, мм?'
+  relevant:
+  - section: technical_wall_speaker.width_mm
+    grade: 3
+  - section: technical_wall_speaker.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wall_speaker.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.wall_speaker.width_mm|current
+  required:
+  - fact: technical.wall_speaker.width_mm
+    sections:
+    - technical_wall_speaker.width_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_speaker_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Powered wall speaker (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Активная настенная колонка» (мм).
+  kk: Карточкалар ұқсас. «Белсенді қабырға колонкасы» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_wall_speaker.height_mm
+    grade: 3
+  - section: technical_wall_speaker.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wall_speaker.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.wall_speaker.height_mm|current
+  required:
+  - fact: technical.wall_speaker.height_mm
+    sections:
+    - technical_wall_speaker.height_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_speaker_depth_mm
+  category: hard
+  en: Check the specifcation of Powered wall speaker for depth (mm), please.
+  ru: 'Проверьте характиристику «Активная настенная колонка»: интересует «Глубина» (мм).'
+  kk: «Белсенді қабырға колонкасы» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_wall_speaker.depth_mm
+    grade: 3
+  - section: technical_wall_speaker.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wall_speaker.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.wall_speaker.depth_mm|current
+  required:
+  - fact: technical.wall_speaker.depth_mm
+    sections:
+    - technical_wall_speaker.depth_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_speaker_operating_min_c
+  category: hard
+  en: For Powered wall speaker, what is the specified minimum operating ambient temperature in C?
+  ru: Для «Активная настенная колонка» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Белсенді қабырға колонкасы» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_wall_speaker.operating_min_c
+    grade: 3
+  - section: technical_wall_speaker.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wall_speaker.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.wall_speaker.operating_min_c|current
+  required:
+  - fact: technical.wall_speaker.operating_min_c
+    sections:
+    - technical_wall_speaker.operating_min_c
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_speaker_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Powered wall speaker,
+    in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Активная
+    настенная колонка», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Белсенді қабырға колонкасы» үшін «Жұмыс кезіндегі ауаның ең
+    жоғары температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_wall_speaker.operating_max_c
+    grade: 3
+  - section: technical_wall_speaker.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wall_speaker.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.wall_speaker.operating_max_c|current
+  required:
+  - fact: technical.wall_speaker.operating_max_c
+    sections:
+    - technical_wall_speaker.operating_max_c
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_speaker_power_w
+  category: simple
+  en: 'Powered wall speaker: rated power consumption, W?'
+  ru: '«Активная настенная колонка»: номинальная потребляемая мощность, Вт?'
+  kk: '«Белсенді қабырға колонкасы»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_wall_speaker.power_w
+    grade: 3
+  - section: technical_wall_speaker.freq_min_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wall_speaker.power_w; neighbouring freq_min_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.wall_speaker.power_w|current
+  required:
+  - fact: technical.wall_speaker.power_w
+    sections:
+    - technical_wall_speaker.power_w
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_speaker_freq_min_hz
+  category: hard
+  en: The cards look similar. What lower rated audio frequency is listed for Powered wall speaker (Hz)?
+  ru: Карточки похожи. Уточните показатель «Нижняя номинальная звуковая частота» именно для «Активная
+    настенная колонка» (Гц).
+  kk: Карточкалар ұқсас. «Белсенді қабырға колонкасы» үшін нақты «Номиналды дыбыс жиілігінің төменгі шегі»
+    көрсеткішін айтыңыз (Гц).
+  relevant:
+  - section: technical_wall_speaker.freq_min_hz
+    grade: 3
+  - section: technical_wall_speaker.freq_max_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Белсенді қабырға колонкасы» үшін «Номиналды дыбыс жиілігінің төменгі шегі» (Гц) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.wall_speaker.freq_min_hz; neighbouring freq_max_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_frequency
+  need_key: technical.wall_speaker.freq_min_hz|current
+  required:
+  - fact: technical.wall_speaker.freq_min_hz
+    sections:
+    - technical_wall_speaker.freq_min_hz
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_speaker_freq_max_hz
+  category: hard
+  en: Check the specifcation of Powered wall speaker for upper rated audio frequency (Hz), please.
+  ru: 'Проверьте характиристику «Активная настенная колонка»: интересует «Верхняя номинальная звуковая
+    частота» (Гц).'
+  kk: «Белсенді қабырға колонкасы» сипатамасынан «Номиналды дыбыс жиілігінің жоғарғы шегі» мәнін тексеріңізші
+    (Гц).
+  relevant:
+  - section: technical_wall_speaker.freq_max_hz
+    grade: 3
+  - section: technical_wall_speaker.impedance_ohm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wall_speaker.freq_max_hz; neighbouring impedance_ohm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_frequency
+  need_key: technical.wall_speaker.freq_max_hz|current
+  required:
+  - fact: technical.wall_speaker.freq_max_hz
+    sections:
+    - technical_wall_speaker.freq_max_hz
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_speaker_impedance_ohm
+  category: simple
+  en: For Powered wall speaker, what is the specified nominal impedance in ohm?
+  ru: Для «Активная настенная колонка» какое значение указано для показателя «Номинальное сопротивление»
+    (Ом)?
+  kk: «Белсенді қабырға колонкасы» тауары үшін «Номиналды кедергі» көрсеткішінің мәні қандай (Ом)?
+  relevant:
+  - section: technical_wall_speaker.impedance_ohm
+    grade: 3
+  - section: technical_wall_speaker.sensitivity_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wall_speaker.impedance_ohm; neighbouring sensitivity_db does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_impedance
+  need_key: technical.wall_speaker.impedance_ohm|current
+  required:
+  - fact: technical.wall_speaker.impedance_ohm
+    sections:
+    - technical_wall_speaker.impedance_ohm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_speaker_sensitivity_db
+  category: simple
+  en: I am comparing specifications. Find the rated audio sensitivity for Powered wall speaker, in dB.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная звуковая чувствительность» у «Активная настенная
+    колонка», в дБ.
+  kk: Сипаттамаларды салыстырып отырмын. «Белсенді қабырға колонкасы» үшін «Номиналды дыбыс сезімталдығы»
+    мәні қажет (дБ).
+  relevant:
+  - section: technical_wall_speaker.sensitivity_db
+    grade: 3
+  - section: technical_wall_speaker.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wall_speaker.sensitivity_db; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_sensitivity
+  need_key: technical.wall_speaker.sensitivity_db|current
+  required:
+  - fact: technical.wall_speaker.sensitivity_db
+    sections:
+    - technical_wall_speaker.sensitivity_db
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_speaker_cable_cm
+  category: simple
+  en: 'Powered wall speaker: supplied cable length, cm?'
+  ru: '«Активная настенная колонка»: длина комплектного кабеля, см?'
+  kk: '«Белсенді қабырға колонкасы»: жинақтағы кабель ұзындығы, см?'
+  relevant:
+  - section: technical_wall_speaker.cable_cm
+    grade: 3
+  - section: technical_wall_speaker.drivers_count
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wall_speaker.cable_cm; neighbouring drivers_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.wall_speaker.cable_cm|current
+  required:
+  - fact: technical.wall_speaker.cable_cm
+    sections:
+    - technical_wall_speaker.cable_cm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_speaker_drivers_count
+  category: hard
+  en: The cards look similar. What number of acoustic drivers is listed for Powered wall speaker (units)?
+  ru: Карточки похожи. Уточните показатель «Число акустических излучателей» именно для «Активная настенная
+    колонка» (шт.).
+  kk: Карточкалар ұқсас. «Белсенді қабырға колонкасы» үшін нақты «Акустикалық сәуле шығарғыштардың саны»
+    көрсеткішін айтыңыз (дана).
+  relevant:
+  - section: technical_wall_speaker.drivers_count
+    grade: 3
+  - section: technical_wall_speaker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wall_speaker.drivers_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_drivers
+  need_key: technical.wall_speaker.drivers_count|current
+  required:
+  - fact: technical.wall_speaker.drivers_count
+    sections:
+    - technical_wall_speaker.drivers_count
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_wall_speaker_humidity_max_percent
+  category: unanswerable
+  en: For Powered wall speaker, what is the specified maximum permitted humidity in percent?
+  ru: Для «Активная настенная колонка» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Белсенді қабырға колонкасы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_wall_speaker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for wall_speaker does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.wall_speaker.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_wall_speaker_drop_test_cm
+  category: unanswerable
+  en: For Powered wall speaker, what is the specified certified drop-test height in cm?
+  ru: Для «Активная настенная колонка» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Белсенді қабырға колонкасы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_wall_speaker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for wall_speaker does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.wall_speaker.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_wall_speaker_repair_parts_price
+  category: unanswerable
+  en: For Powered wall speaker, what is the specified replacement-part price in KZT?
+  ru: Для «Активная настенная колонка» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Белсенді қабырға колонкасы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_wall_speaker.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for wall_speaker does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.wall_speaker.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_wall_speaker_certification_id
+  category: unanswerable
+  en: For Powered wall speaker, what is the specified certification record number in record?
+  ru: Для «Активная настенная колонка» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Белсенді қабырға колонкасы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_wall_speaker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for wall_speaker does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.wall_speaker.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_subwoofer_mass_g
+  category: hard
+  en: Check the specifcation of Compact powered subwoofer for mass (g), please.
+  ru: 'Проверьте характиристику «Компактный активный сабвуфер»: интересует «Масса» (г).'
+  kk: «Ықшам белсенді сабвуфер» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_subwoofer.mass_g
+    grade: 3
+  - section: technical_subwoofer.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.subwoofer.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.subwoofer.mass_g|current
+  required:
+  - fact: technical.subwoofer.mass_g
+    sections:
+    - technical_subwoofer.mass_g
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_subwoofer_width_mm
+  category: simple
+  en: For Compact powered subwoofer, what is the specified width in mm?
+  ru: Для «Компактный активный сабвуфер» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Ықшам белсенді сабвуфер» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_subwoofer.width_mm
+    grade: 3
+  - section: technical_subwoofer.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Компактный активный сабвуфер» показатель «Ширина» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.subwoofer.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.subwoofer.width_mm|current
+  required:
+  - fact: technical.subwoofer.width_mm
+    sections:
+    - technical_subwoofer.width_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_subwoofer_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Compact powered subwoofer, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Компактный активный сабвуфер», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Ықшам белсенді сабвуфер» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_subwoofer.height_mm
+    grade: 3
+  - section: technical_subwoofer.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.subwoofer.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.subwoofer.height_mm|current
+  required:
+  - fact: technical.subwoofer.height_mm
+    sections:
+    - technical_subwoofer.height_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_subwoofer_depth_mm
+  category: simple
+  en: 'Compact powered subwoofer: depth, mm?'
+  ru: '«Компактный активный сабвуфер»: глубина, мм?'
+  kk: '«Ықшам белсенді сабвуфер»: тереңдігі, мм?'
+  relevant:
+  - section: technical_subwoofer.depth_mm
+    grade: 3
+  - section: technical_subwoofer.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.subwoofer.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.subwoofer.depth_mm|current
+  required:
+  - fact: technical.subwoofer.depth_mm
+    sections:
+    - technical_subwoofer.depth_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_subwoofer_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Compact powered
+    subwoofer (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Компактный
+    активный сабвуфер» (C).
+  kk: Карточкалар ұқсас. «Ықшам белсенді сабвуфер» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_subwoofer.operating_min_c
+    grade: 3
+  - section: technical_subwoofer.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.subwoofer.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.subwoofer.operating_min_c|current
+  required:
+  - fact: technical.subwoofer.operating_min_c
+    sections:
+    - technical_subwoofer.operating_min_c
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_subwoofer_operating_max_c
+  category: hard
+  en: Check the specifcation of Compact powered subwoofer for maximum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Компактный активный сабвуфер»: интересует «Максимальная температура воздуха
+    при работе» (C).'
+  kk: «Ықшам белсенді сабвуфер» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_subwoofer.operating_max_c
+    grade: 3
+  - section: technical_subwoofer.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.subwoofer.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.subwoofer.operating_max_c|current
+  required:
+  - fact: technical.subwoofer.operating_max_c
+    sections:
+    - technical_subwoofer.operating_max_c
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_subwoofer_power_w
+  category: simple
+  en: For Compact powered subwoofer, what is the specified rated power consumption in W?
+  ru: Для «Компактный активный сабвуфер» какое значение указано для показателя «Номинальная потребляемая
+    мощность» (Вт)?
+  kk: «Ықшам белсенді сабвуфер» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай (Вт)?
+  relevant:
+  - section: technical_subwoofer.power_w
+    grade: 3
+  - section: technical_subwoofer.freq_min_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.subwoofer.power_w; neighbouring freq_min_hz does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.subwoofer.power_w|current
+  required:
+  - fact: technical.subwoofer.power_w
+    sections:
+    - technical_subwoofer.power_w
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_subwoofer_freq_min_hz
+  category: hard
+  en: I am comparing specifications. Find the lower rated audio frequency for Compact powered subwoofer,
+    in Hz.
+  ru: Сравниваю характеристики. Нужен показатель «Нижняя номинальная звуковая частота» у «Компактный активный
+    сабвуфер», в Гц.
+  kk: Сипаттамаларды салыстырып отырмын. «Ықшам белсенді сабвуфер» үшін «Номиналды дыбыс жиілігінің төменгі
+    шегі» мәні қажет (Гц).
+  relevant:
+  - section: technical_subwoofer.freq_min_hz
+    grade: 3
+  - section: technical_subwoofer.freq_max_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.subwoofer.freq_min_hz; neighbouring freq_max_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_frequency
+  need_key: technical.subwoofer.freq_min_hz|current
+  required:
+  - fact: technical.subwoofer.freq_min_hz
+    sections:
+    - technical_subwoofer.freq_min_hz
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_subwoofer_freq_max_hz
+  category: hard
+  en: 'Compact powered subwoofer: upper rated audio frequency, Hz?'
+  ru: '«Компактный активный сабвуфер»: верхняя номинальная звуковая частота, Гц?'
+  kk: '«Ықшам белсенді сабвуфер»: номиналды дыбыс жиілігінің жоғарғы шегі, Гц?'
+  relevant:
+  - section: technical_subwoofer.freq_max_hz
+    grade: 3
+  - section: technical_subwoofer.impedance_ohm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Ықшам белсенді сабвуфер» үшін «Номиналды дыбыс жиілігінің жоғарғы шегі» (Гц) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.subwoofer.freq_max_hz; neighbouring impedance_ohm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_frequency
+  need_key: technical.subwoofer.freq_max_hz|current
+  required:
+  - fact: technical.subwoofer.freq_max_hz
+    sections:
+    - technical_subwoofer.freq_max_hz
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_subwoofer_impedance_ohm
+  category: hard
+  en: The cards look similar. What nominal impedance is listed for Compact powered subwoofer (ohm)?
+  ru: Карточки похожи. Уточните показатель «Номинальное сопротивление» именно для «Компактный активный
+    сабвуфер» (Ом).
+  kk: Карточкалар ұқсас. «Ықшам белсенді сабвуфер» үшін нақты «Номиналды кедергі» көрсеткішін айтыңыз
+    (Ом).
+  relevant:
+  - section: technical_subwoofer.impedance_ohm
+    grade: 3
+  - section: technical_subwoofer.sensitivity_db
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.subwoofer.impedance_ohm; neighbouring sensitivity_db does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_impedance
+  need_key: technical.subwoofer.impedance_ohm|current
+  required:
+  - fact: technical.subwoofer.impedance_ohm
+    sections:
+    - technical_subwoofer.impedance_ohm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_subwoofer_sensitivity_db
+  category: hard
+  en: Check the specifcation of Compact powered subwoofer for rated audio sensitivity (dB), please.
+  ru: 'Проверьте характиристику «Компактный активный сабвуфер»: интересует «Номинальная звуковая чувствительность»
+    (дБ).'
+  kk: «Ықшам белсенді сабвуфер» сипатамасынан «Номиналды дыбыс сезімталдығы» мәнін тексеріңізші (дБ).
+  relevant:
+  - section: technical_subwoofer.sensitivity_db
+    grade: 3
+  - section: technical_subwoofer.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.subwoofer.sensitivity_db; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_sensitivity
+  need_key: technical.subwoofer.sensitivity_db|current
+  required:
+  - fact: technical.subwoofer.sensitivity_db
+    sections:
+    - technical_subwoofer.sensitivity_db
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_subwoofer_cable_cm
+  category: simple
+  en: For Compact powered subwoofer, what is the specified supplied cable length in cm?
+  ru: Для «Компактный активный сабвуфер» какое значение указано для показателя «Длина комплектного кабеля»
+    (см)?
+  kk: «Ықшам белсенді сабвуфер» тауары үшін «Жинақтағы кабель ұзындығы» көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_subwoofer.cable_cm
+    grade: 3
+  - section: technical_subwoofer.drivers_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.subwoofer.cable_cm; neighbouring drivers_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.subwoofer.cable_cm|current
+  required:
+  - fact: technical.subwoofer.cable_cm
+    sections:
+    - technical_subwoofer.cable_cm
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_subwoofer_drivers_count
+  category: simple
+  en: I am comparing specifications. Find the number of acoustic drivers for Compact powered subwoofer,
+    in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число акустических излучателей» у «Компактный активный
+    сабвуфер», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Ықшам белсенді сабвуфер» үшін «Акустикалық сәуле шығарғыштардың
+    саны» мәні қажет (дана).
+  relevant:
+  - section: technical_subwoofer.drivers_count
+    grade: 3
+  - section: technical_subwoofer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.subwoofer.drivers_count; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_drivers
+  need_key: technical.subwoofer.drivers_count|current
+  required:
+  - fact: technical.subwoofer.drivers_count
+    sections:
+    - technical_subwoofer.drivers_count
+  tags:
+  - profile_derived
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_subwoofer_humidity_max_percent
+  category: unanswerable
+  en: For Compact powered subwoofer, what is the specified maximum permitted humidity in percent?
+  ru: Для «Компактный активный сабвуфер» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Ықшам белсенді сабвуфер» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_subwoofer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for subwoofer does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.subwoofer.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_subwoofer_drop_test_cm
+  category: unanswerable
+  en: For Compact powered subwoofer, what is the specified certified drop-test height in cm?
+  ru: Для «Компактный активный сабвуфер» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Ықшам белсенді сабвуфер» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_subwoofer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for subwoofer does not state drop_test_cm. Dimensions, the retail price or a diagnostic
+    fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.subwoofer.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_subwoofer_repair_parts_price
+  category: unanswerable
+  en: For Compact powered subwoofer, what is the specified replacement-part price in KZT?
+  ru: Для «Компактный активный сабвуфер» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Ықшам белсенді сабвуфер» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_subwoofer.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for subwoofer does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.subwoofer.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_subwoofer_certification_id
+  category: unanswerable
+  en: For Compact powered subwoofer, what is the specified certification record number in record?
+  ru: Для «Компактный активный сабвуфер» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Ықшам белсенді сабвуфер» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_subwoofer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for subwoofer does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.subwoofer.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_subwoofer
+  category: multi_fragment
+  en: What does Compact powered subwoofer weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Компактный активный сабвуфер» и какой вес посылки допускают пункты самовывоза?
+  kk: «Ықшам белсенді сабвуфер» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_subwoofer.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.subwoofer.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.subwoofer.mass_g
+    sections:
+    - technical_subwoofer.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_instrument_monitor_mass_g
+  category: simple
+  en: 'Personal instrument monitor: mass, g?'
+  ru: '«Персональный инструментальный монитор»: масса, г?'
+  kk: '«Жеке аспап мониторы»: салмағы, г?'
+  relevant:
+  - section: technical_instrument_monitor.mass_g
+    grade: 3
+  - section: technical_instrument_monitor.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.instrument_monitor.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.instrument_monitor.mass_g|current
+  required:
+  - fact: technical.instrument_monitor.mass_g
+    sections:
+    - technical_instrument_monitor.mass_g
+  tags:
+  - profile_derived
+  - domain_audio
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_instrument_monitor_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Personal instrument monitor (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Персональный инструментальный монитор»
+    (мм).
+  kk: Карточкалар ұқсас. «Жеке аспап мониторы» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_instrument_monitor.width_mm
+    grade: 3
+  - section: technical_instrument_monitor.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.instrument_monitor.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.instrument_monitor.width_mm|current
+  required:
+  - fact: technical.instrument_monitor.width_mm
+    sections:
+    - technical_instrument_monitor.width_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_instrument_monitor_height_mm
+  category: hard
+  en: Check the specifcation of Personal instrument monitor for height (mm), please.
+  ru: 'Проверьте характиристику «Персональный инструментальный монитор»: интересует «Высота» (мм).'
+  kk: «Жеке аспап мониторы» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_instrument_monitor.height_mm
+    grade: 3
+  - section: technical_instrument_monitor.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Персональный инструментальный монитор» показатель «Высота» (мм) нақтылап беріңізші, осы үлгі
+    үшін.
+  mix_kk: null
+  rationale: Authored target technical.instrument_monitor.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.instrument_monitor.height_mm|current
+  required:
+  - fact: technical.instrument_monitor.height_mm
+    sections:
+    - technical_instrument_monitor.height_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_instrument_monitor_depth_mm
+  category: simple
+  en: For Personal instrument monitor, what is the specified depth in mm?
+  ru: Для «Персональный инструментальный монитор» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Жеке аспап мониторы» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_instrument_monitor.depth_mm
+    grade: 3
+  - section: technical_instrument_monitor.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.instrument_monitor.depth_mm; neighbouring operating_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.instrument_monitor.depth_mm|current
+  required:
+  - fact: technical.instrument_monitor.depth_mm
+    sections:
+    - technical_instrument_monitor.depth_mm
+  tags:
+  - profile_derived
+  - domain_audio
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_instrument_monitor_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Personal instrument
+    monitor, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Персональный
+    инструментальный монитор», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Жеке аспап мониторы» үшін «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    мәні қажет (C).
+  relevant:
+  - section: technical_instrument_monitor.operating_min_c
+    grade: 3
+  - section: technical_instrument_monitor.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.instrument_monitor.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.instrument_monitor.operating_min_c|current
+  required:
+  - fact: technical.instrument_monitor.operating_min_c
+    sections:
+    - technical_instrument_monitor.operating_min_c
+  tags:
+  - profile_derived
+  - domain_audio
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_instrument_monitor_operating_max_c
+  category: hard
+  en: 'Personal instrument monitor: maximum operating ambient temperature, C?'
+  ru: '«Персональный инструментальный монитор»: максимальная температура воздуха при работе, C?'
+  kk: '«Жеке аспап мониторы»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_instrument_monitor.operating_max_c
+    grade: 3
+  - section: technical_instrument_monitor.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.instrument_monitor.operating_max_c; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.instrument_monitor.operating_max_c|current
+  required:
+  - fact: technical.instrument_monitor.operating_max_c
+    sections:
+    - technical_instrument_monitor.operating_max_c
+  tags:
+  - profile_derived
+  - domain_audio
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_instrument_monitor_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Personal instrument monitor (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Персональный
+    инструментальный монитор» (Вт).
+  kk: Карточкалар ұқсас. «Жеке аспап мониторы» үшін нақты «Номиналды тұтыну қуаты» көрсеткішін айтыңыз
+    (Вт).
+  relevant:
+  - section: technical_instrument_monitor.power_w
+    grade: 3
+  - section: technical_instrument_monitor.freq_min_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.instrument_monitor.power_w; neighbouring freq_min_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.instrument_monitor.power_w|current
+  required:
+  - fact: technical.instrument_monitor.power_w
+    sections:
+    - technical_instrument_monitor.power_w
+  tags:
+  - profile_derived
+  - domain_audio
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_instrument_monitor_freq_min_hz
+  category: hard
+  en: Check the specifcation of Personal instrument monitor for lower rated audio frequency (Hz), please.
+  ru: 'Проверьте характиристику «Персональный инструментальный монитор»: интересует «Нижняя номинальная
+    звуковая частота» (Гц).'
+  kk: «Жеке аспап мониторы» сипатамасынан «Номиналды дыбыс жиілігінің төменгі шегі» мәнін тексеріңізші
+    (Гц).
+  relevant:
+  - section: technical_instrument_monitor.freq_min_hz
+    grade: 3
+  - section: technical_instrument_monitor.freq_max_hz
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.instrument_monitor.freq_min_hz; neighbouring freq_max_hz does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_frequency
+  need_key: technical.instrument_monitor.freq_min_hz|current
+  required:
+  - fact: technical.instrument_monitor.freq_min_hz
+    sections:
+    - technical_instrument_monitor.freq_min_hz
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_instrument_monitor_freq_max_hz
+  category: hard
+  en: For Personal instrument monitor, what is the specified upper rated audio frequency in Hz?
+  ru: Для «Персональный инструментальный монитор» какое значение указано для показателя «Верхняя номинальная
+    звуковая частота» (Гц)?
+  kk: «Жеке аспап мониторы» тауары үшін «Номиналды дыбыс жиілігінің жоғарғы шегі» көрсеткішінің мәні қандай
+    (Гц)?
+  relevant:
+  - section: technical_instrument_monitor.freq_max_hz
+    grade: 3
+  - section: technical_instrument_monitor.impedance_ohm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.instrument_monitor.freq_max_hz; neighbouring impedance_ohm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_frequency
+  need_key: technical.instrument_monitor.freq_max_hz|current
+  required:
+  - fact: technical.instrument_monitor.freq_max_hz
+    sections:
+    - technical_instrument_monitor.freq_max_hz
+  tags:
+  - profile_derived
+  - domain_audio
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_instrument_monitor_impedance_ohm
+  category: simple
+  en: I am comparing specifications. Find the nominal impedance for Personal instrument monitor, in ohm.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное сопротивление» у «Персональный инструментальный
+    монитор», в Ом.
+  kk: Сипаттамаларды салыстырып отырмын. «Жеке аспап мониторы» үшін «Номиналды кедергі» мәні қажет (Ом).
+  relevant:
+  - section: technical_instrument_monitor.impedance_ohm
+    grade: 3
+  - section: technical_instrument_monitor.sensitivity_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Жеке аспап мониторы» үшін «Номиналды кедергі» (Ом) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.instrument_monitor.impedance_ohm; neighbouring sensitivity_db does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_impedance
+  need_key: technical.instrument_monitor.impedance_ohm|current
+  required:
+  - fact: technical.instrument_monitor.impedance_ohm
+    sections:
+    - technical_instrument_monitor.impedance_ohm
+  tags:
+  - profile_derived
+  - domain_audio
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_instrument_monitor_sensitivity_db
+  category: simple
+  en: 'Personal instrument monitor: rated audio sensitivity, dB?'
+  ru: '«Персональный инструментальный монитор»: номинальная звуковая чувствительность, дБ?'
+  kk: '«Жеке аспап мониторы»: номиналды дыбыс сезімталдығы, дБ?'
+  relevant:
+  - section: technical_instrument_monitor.sensitivity_db
+    grade: 3
+  - section: technical_instrument_monitor.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.instrument_monitor.sensitivity_db; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_sensitivity
+  need_key: technical.instrument_monitor.sensitivity_db|current
+  required:
+  - fact: technical.instrument_monitor.sensitivity_db
+    sections:
+    - technical_instrument_monitor.sensitivity_db
+  tags:
+  - profile_derived
+  - domain_audio
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_instrument_monitor_cable_cm
+  category: hard
+  en: The cards look similar. What supplied cable length is listed for Personal instrument monitor (cm)?
+  ru: Карточки похожи. Уточните показатель «Длина комплектного кабеля» именно для «Персональный инструментальный
+    монитор» (см).
+  kk: Карточкалар ұқсас. «Жеке аспап мониторы» үшін нақты «Жинақтағы кабель ұзындығы» көрсеткішін айтыңыз
+    (см).
+  relevant:
+  - section: technical_instrument_monitor.cable_cm
+    grade: 3
+  - section: technical_instrument_monitor.drivers_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.instrument_monitor.cable_cm; neighbouring drivers_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.instrument_monitor.cable_cm|current
+  required:
+  - fact: technical.instrument_monitor.cable_cm
+    sections:
+    - technical_instrument_monitor.cable_cm
+  tags:
+  - profile_derived
+  - domain_audio
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_instrument_monitor_drivers_count
+  category: hard
+  en: Check the specifcation of Personal instrument monitor for number of acoustic drivers (units), please.
+  ru: 'Проверьте характиристику «Персональный инструментальный монитор»: интересует «Число акустических
+    излучателей» (шт.).'
+  kk: «Жеке аспап мониторы» сипатамасынан «Акустикалық сәуле шығарғыштардың саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_instrument_monitor.drivers_count
+    grade: 3
+  - section: technical_instrument_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.instrument_monitor.drivers_count; neighbouring mass_g does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_audio_drivers
+  need_key: technical.instrument_monitor.drivers_count|current
+  required:
+  - fact: technical.instrument_monitor.drivers_count
+    sections:
+    - technical_instrument_monitor.drivers_count
+  tags:
+  - profile_derived
+  - domain_audio
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_instrument_monitor_humidity_max_percent
+  category: unanswerable
+  en: For Personal instrument monitor, what is the specified maximum permitted humidity in percent?
+  ru: Для «Персональный инструментальный монитор» какое значение указано для показателя «Максимальная
+    допустимая влажность» (процентов)?
+  kk: «Жеке аспап мониторы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_instrument_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for instrument_monitor does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.instrument_monitor.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_instrument_monitor_drop_test_cm
+  category: unanswerable
+  en: For Personal instrument monitor, what is the specified certified drop-test height in cm?
+  ru: Для «Персональный инструментальный монитор» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Жеке аспап мониторы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_instrument_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for instrument_monitor does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.instrument_monitor.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_instrument_monitor_repair_parts_price
+  category: unanswerable
+  en: For Personal instrument monitor, what is the specified replacement-part price in KZT?
+  ru: Для «Персональный инструментальный монитор» какое значение указано для показателя «Цена запасной
+    детали» (тенге)?
+  kk: «Жеке аспап мониторы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_instrument_monitor.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for instrument_monitor does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.instrument_monitor.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_instrument_monitor_certification_id
+  category: unanswerable
+  en: For Personal instrument monitor, what is the specified certification record number in record?
+  ru: Для «Персональный инструментальный монитор» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Жеке аспап мониторы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_instrument_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for instrument_monitor does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.instrument_monitor.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_audio
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact

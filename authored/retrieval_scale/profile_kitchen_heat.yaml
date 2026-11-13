@@ -1,0 +1,4894 @@
+# Compiled from explicit technical_profiles/1 facts and native LLM-authored templates.
+schema_version: retrieval_scale_source/1
+origin: llm_generated
+review_status: draft
+author: Codex (LLM); explicit profiles and native templates compiled deterministically
+allowed_use: eval_only
+licence_note: Original fictional store specifications for internal demo and evaluation; no external manufacturer
+  data or real customer data. Fluent human review pending.
+items:
+- id: catalog_mini_oven_mass_g
+  category: simple
+  en: For Countertop mini oven, what is the specified mass in g?
+  ru: Для «Настольная мини-печь» какое значение указано для показателя «Масса» (г)?
+  kk: «Үстел шағын пеші» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_mini_oven.mass_g
+    grade: 3
+  - section: technical_mini_oven.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_oven.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.mini_oven.mass_g|current
+  required:
+  - fact: technical.mini_oven.mass_g
+    sections:
+    - technical_mini_oven.mass_g
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_oven_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Countertop mini oven, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Настольная мини-печь», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел шағын пеші» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_mini_oven.width_mm
+    grade: 3
+  - section: technical_mini_oven.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Настольная мини-печь» показатель «Ширина» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.mini_oven.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.mini_oven.width_mm|current
+  required:
+  - fact: technical.mini_oven.width_mm
+    sections:
+    - technical_mini_oven.width_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_oven_height_mm
+  category: simple
+  en: 'Countertop mini oven: height, mm?'
+  ru: '«Настольная мини-печь»: высота, мм?'
+  kk: '«Үстел шағын пеші»: биіктігі, мм?'
+  relevant:
+  - section: technical_mini_oven.height_mm
+    grade: 3
+  - section: technical_mini_oven.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_oven.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.mini_oven.height_mm|current
+  required:
+  - fact: technical.mini_oven.height_mm
+    sections:
+    - technical_mini_oven.height_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_oven_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Countertop mini oven (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Настольная мини-печь» (мм).
+  kk: Карточкалар ұқсас. «Үстел шағын пеші» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_mini_oven.depth_mm
+    grade: 3
+  - section: technical_mini_oven.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_oven.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.mini_oven.depth_mm|current
+  required:
+  - fact: technical.mini_oven.depth_mm
+    sections:
+    - technical_mini_oven.depth_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_oven_operating_min_c
+  category: hard
+  en: Check the specifcation of Countertop mini oven for minimum operating ambient temperature (C), please.
+  ru: 'Проверьте характиристику «Настольная мини-печь»: интересует «Минимальная температура воздуха при
+    работе» (C).'
+  kk: «Үстел шағын пеші» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_mini_oven.operating_min_c
+    grade: 3
+  - section: technical_mini_oven.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_oven.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.mini_oven.operating_min_c|current
+  required:
+  - fact: technical.mini_oven.operating_min_c
+    sections:
+    - technical_mini_oven.operating_min_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_oven_operating_max_c
+  category: hard
+  en: For Countertop mini oven, what is the specified maximum operating ambient temperature in C?
+  ru: Для «Настольная мини-печь» какое значение указано для показателя «Максимальная температура воздуха
+    при работе» (C)?
+  kk: «Үстел шағын пеші» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің мәні
+    қандай (C)?
+  relevant:
+  - section: technical_mini_oven.operating_max_c
+    grade: 3
+  - section: technical_mini_oven.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_oven.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.mini_oven.operating_max_c|current
+  required:
+  - fact: technical.mini_oven.operating_max_c
+    sections:
+    - technical_mini_oven.operating_max_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_oven_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Countertop mini oven, in W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Настольная мини-печь»,
+    в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел шағын пеші» үшін «Номиналды тұтыну қуаты» мәні қажет (Вт).
+  relevant:
+  - section: technical_mini_oven.power_w
+    grade: 3
+  - section: technical_mini_oven.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_oven.power_w; neighbouring volume_ml does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.mini_oven.power_w|current
+  required:
+  - fact: technical.mini_oven.power_w
+    sections:
+    - technical_mini_oven.power_w
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_oven_volume_ml
+  category: simple
+  en: 'Countertop mini oven: usable volume, ml?'
+  ru: '«Настольная мини-печь»: полезный объём, мл?'
+  kk: '«Үстел шағын пеші»: пайдалы көлемі, мл?'
+  relevant:
+  - section: technical_mini_oven.volume_ml
+    grade: 3
+  - section: technical_mini_oven.min_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_oven.volume_ml; neighbouring min_temp_c does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.mini_oven.volume_ml|current
+  required:
+  - fact: technical.mini_oven.volume_ml
+    sections:
+    - technical_mini_oven.volume_ml
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_oven_min_temp_c
+  category: hard
+  en: The cards look similar. What minimum selectable process temperature is listed for Countertop mini
+    oven (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная выбираемая рабочая температура» именно для «Настольная
+    мини-печь» (C).
+  kk: Карточкалар ұқсас. «Үстел шағын пеші» үшін нақты «Таңдалатын өңдеу температурасының ең төмен мәні»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_mini_oven.min_temp_c
+    grade: 3
+  - section: technical_mini_oven.max_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Үстел шағын пеші» үшін «Таңдалатын өңдеу температурасының ең төмен мәні» (C) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.mini_oven.min_temp_c; neighbouring max_temp_c does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.mini_oven.min_temp_c|current
+  required:
+  - fact: technical.mini_oven.min_temp_c
+    sections:
+    - technical_mini_oven.min_temp_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_oven_max_temp_c
+  category: hard
+  en: Check the specifcation of Countertop mini oven for maximum selectable process temperature (C), please.
+  ru: 'Проверьте характиристику «Настольная мини-печь»: интересует «Максимальная выбираемая рабочая температура»
+    (C).'
+  kk: «Үстел шағын пеші» сипатамасынан «Таңдалатын өңдеу температурасының ең жоғары мәні» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_mini_oven.max_temp_c
+    grade: 3
+  - section: technical_mini_oven.timer_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_oven.max_temp_c; neighbouring timer_minutes does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.mini_oven.max_temp_c|current
+  required:
+  - fact: technical.mini_oven.max_temp_c
+    sections:
+    - technical_mini_oven.max_temp_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_oven_timer_minutes
+  category: hard
+  en: For Countertop mini oven, what is the specified maximum timer interval in minutes?
+  ru: Для «Настольная мини-печь» какое значение указано для показателя «Максимальный интервал таймера»
+    (минут)?
+  kk: «Үстел шағын пеші» тауары үшін «Таймердің ең ұзақ аралығы» көрсеткішінің мәні қандай (минут)?
+  relevant:
+  - section: technical_mini_oven.timer_minutes
+    grade: 3
+  - section: technical_mini_oven.cable_cm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_oven.timer_minutes; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_timer_interval
+  need_key: technical.mini_oven.timer_minutes|current
+  required:
+  - fact: technical.mini_oven.timer_minutes
+    sections:
+    - technical_mini_oven.timer_minutes
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_oven_cable_cm
+  category: simple
+  en: I am comparing specifications. Find the supplied cable length for Countertop mini oven, in cm.
+  ru: Сравниваю характеристики. Нужен показатель «Длина комплектного кабеля» у «Настольная мини-печь»,
+    в см.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел шағын пеші» үшін «Жинақтағы кабель ұзындығы» мәні қажет
+    (см).
+  relevant:
+  - section: technical_mini_oven.cable_cm
+    grade: 3
+  - section: technical_mini_oven.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_oven.cable_cm; neighbouring modes_count does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.mini_oven.cable_cm|current
+  required:
+  - fact: technical.mini_oven.cable_cm
+    sections:
+    - technical_mini_oven.cable_cm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_oven_modes_count
+  category: simple
+  en: 'Countertop mini oven: number of operating modes, units?'
+  ru: '«Настольная мини-печь»: число режимов работы, шт.?'
+  kk: '«Үстел шағын пеші»: жұмыс режимдерінің саны, дана?'
+  relevant:
+  - section: technical_mini_oven.modes_count
+    grade: 3
+  - section: technical_mini_oven.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_oven.modes_count; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.mini_oven.modes_count|current
+  required:
+  - fact: technical.mini_oven.modes_count
+    sections:
+    - technical_mini_oven.modes_count
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_mini_oven_humidity_max_percent
+  category: unanswerable
+  en: For Countertop mini oven, what is the specified maximum permitted humidity in percent?
+  ru: Для «Настольная мини-печь» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Үстел шағын пеші» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай (пайыз)?
+  relevant:
+  - section: technical_mini_oven.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mini_oven does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.mini_oven.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_mini_oven_drop_test_cm
+  category: unanswerable
+  en: For Countertop mini oven, what is the specified certified drop-test height in cm?
+  ru: Для «Настольная мини-печь» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Үстел шағын пеші» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні қандай
+    (см)?
+  relevant:
+  - section: technical_mini_oven.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mini_oven does not state drop_test_cm. Dimensions, the retail price or a diagnostic
+    fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.mini_oven.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_mini_oven_repair_parts_price
+  category: unanswerable
+  en: For Countertop mini oven, what is the specified replacement-part price in KZT?
+  ru: Для «Настольная мини-печь» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Үстел шағын пеші» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_mini_oven.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mini_oven does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.mini_oven.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_mini_oven_certification_id
+  category: unanswerable
+  en: For Countertop mini oven, what is the specified certification record number in record?
+  ru: Для «Настольная мини-печь» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Үстел шағын пеші» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_mini_oven.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mini_oven does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.mini_oven.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_mini_oven
+  category: multi_fragment
+  en: What does Countertop mini oven weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Настольная мини-печь» и какой вес посылки допускают пункты самовывоза?
+  kk: «Үстел шағын пеші» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат береді?
+  relevant:
+  - section: technical_mini_oven.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.mini_oven.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.mini_oven.mass_g
+    sections:
+    - technical_mini_oven.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_prepublication_mass_mini_oven
+  category: unanswerable
+  en: According to the instructions valid on 15 October 2026, what was the stated mass of Countertop mini
+    oven?
+  ru: По инструкциям, действовавшим 15 октября 2026 года, какая масса была указана для «Настольная мини-печь»?
+  kk: 2026 жылғы 15 қазанда қолданылған нұсқаулықтар бойынша «Үстел шағын пеші» үшін қандай салмақ көрсетілген
+    еді?
+  relevant:
+  - section: technical_mini_oven.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The technical source starts on 1 November 2026. Its current mass cannot establish a fact
+    at the requested earlier date.
+  family_id: profile_physical_mass
+  need_key: technical.mini_oven.mass_g|2026_10_15_before_document_validity
+  required: []
+  tags:
+  - profile_derived
+  - temporal
+  - outside_validity
+  - hard_negative
+  as_of: '2026-10-15'
+  all_versions: false
+  negative_reason: expired
+- id: catalog_rice_cooker_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Digital rice cooker (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Цифровая рисоварка» (г).
+  kk: Карточкалар ұқсас. «Цифрлық күріш пісіргіш» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_rice_cooker.mass_g
+    grade: 3
+  - section: technical_rice_cooker.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rice_cooker.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.rice_cooker.mass_g|current
+  required:
+  - fact: technical.rice_cooker.mass_g
+    sections:
+    - technical_rice_cooker.mass_g
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rice_cooker_width_mm
+  category: hard
+  en: Check the specifcation of Digital rice cooker for width (mm), please.
+  ru: 'Проверьте характиристику «Цифровая рисоварка»: интересует «Ширина» (мм).'
+  kk: «Цифрлық күріш пісіргіш» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_rice_cooker.width_mm
+    grade: 3
+  - section: technical_rice_cooker.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rice_cooker.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rice_cooker.width_mm|current
+  required:
+  - fact: technical.rice_cooker.width_mm
+    sections:
+    - technical_rice_cooker.width_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rice_cooker_height_mm
+  category: simple
+  en: For Digital rice cooker, what is the specified height in mm?
+  ru: Для «Цифровая рисоварка» какое значение указано для показателя «Высота» (мм)?
+  kk: «Цифрлық күріш пісіргіш» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_rice_cooker.height_mm
+    grade: 3
+  - section: technical_rice_cooker.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Цифровая рисоварка» показатель «Высота» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.rice_cooker.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rice_cooker.height_mm|current
+  required:
+  - fact: technical.rice_cooker.height_mm
+    sections:
+    - technical_rice_cooker.height_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rice_cooker_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Digital rice cooker, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Цифровая рисоварка», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Цифрлық күріш пісіргіш» үшін «Тереңдігі» мәні қажет (мм).
+  relevant:
+  - section: technical_rice_cooker.depth_mm
+    grade: 3
+  - section: technical_rice_cooker.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rice_cooker.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rice_cooker.depth_mm|current
+  required:
+  - fact: technical.rice_cooker.depth_mm
+    sections:
+    - technical_rice_cooker.depth_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rice_cooker_operating_min_c
+  category: hard
+  en: 'Digital rice cooker: minimum operating ambient temperature, C?'
+  ru: '«Цифровая рисоварка»: минимальная температура воздуха при работе, C?'
+  kk: '«Цифрлық күріш пісіргіш»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_rice_cooker.operating_min_c
+    grade: 3
+  - section: technical_rice_cooker.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rice_cooker.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rice_cooker.operating_min_c|current
+  required:
+  - fact: technical.rice_cooker.operating_min_c
+    sections:
+    - technical_rice_cooker.operating_min_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rice_cooker_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Digital rice cooker
+    (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Цифровая
+    рисоварка» (C).
+  kk: Карточкалар ұқсас. «Цифрлық күріш пісіргіш» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_rice_cooker.operating_max_c
+    grade: 3
+  - section: technical_rice_cooker.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rice_cooker.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rice_cooker.operating_max_c|current
+  required:
+  - fact: technical.rice_cooker.operating_max_c
+    sections:
+    - technical_rice_cooker.operating_max_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rice_cooker_power_w
+  category: hard
+  en: Check the specifcation of Digital rice cooker for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Цифровая рисоварка»: интересует «Номинальная потребляемая мощность» (Вт).'
+  kk: «Цифрлық күріш пісіргіш» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_rice_cooker.power_w
+    grade: 3
+  - section: technical_rice_cooker.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rice_cooker.power_w; neighbouring volume_ml does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.rice_cooker.power_w|current
+  required:
+  - fact: technical.rice_cooker.power_w
+    sections:
+    - technical_rice_cooker.power_w
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rice_cooker_volume_ml
+  category: simple
+  en: For Digital rice cooker, what is the specified usable volume in ml?
+  ru: Для «Цифровая рисоварка» какое значение указано для показателя «Полезный объём» (мл)?
+  kk: «Цифрлық күріш пісіргіш» тауары үшін «Пайдалы көлемі» көрсеткішінің мәні қандай (мл)?
+  relevant:
+  - section: technical_rice_cooker.volume_ml
+    grade: 3
+  - section: technical_rice_cooker.min_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rice_cooker.volume_ml; neighbouring min_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.rice_cooker.volume_ml|current
+  required:
+  - fact: technical.rice_cooker.volume_ml
+    sections:
+    - technical_rice_cooker.volume_ml
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rice_cooker_min_temp_c
+  category: hard
+  en: I am comparing specifications. Find the minimum selectable process temperature for Digital rice
+    cooker, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная выбираемая рабочая температура» у «Цифровая
+    рисоварка», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Цифрлық күріш пісіргіш» үшін «Таңдалатын өңдеу температурасының
+    ең төмен мәні» мәні қажет (C).
+  relevant:
+  - section: technical_rice_cooker.min_temp_c
+    grade: 3
+  - section: technical_rice_cooker.max_temp_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rice_cooker.min_temp_c; neighbouring max_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.rice_cooker.min_temp_c|current
+  required:
+  - fact: technical.rice_cooker.min_temp_c
+    sections:
+    - technical_rice_cooker.min_temp_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rice_cooker_max_temp_c
+  category: hard
+  en: 'Digital rice cooker: maximum selectable process temperature, C?'
+  ru: '«Цифровая рисоварка»: максимальная выбираемая рабочая температура, C?'
+  kk: '«Цифрлық күріш пісіргіш»: таңдалатын өңдеу температурасының ең жоғары мәні, C?'
+  relevant:
+  - section: technical_rice_cooker.max_temp_c
+    grade: 3
+  - section: technical_rice_cooker.timer_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Цифрлық күріш пісіргіш» үшін «Таңдалатын өңдеу температурасының ең жоғары мәні» (C) керек,
+    уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.rice_cooker.max_temp_c; neighbouring timer_minutes does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.rice_cooker.max_temp_c|current
+  required:
+  - fact: technical.rice_cooker.max_temp_c
+    sections:
+    - technical_rice_cooker.max_temp_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rice_cooker_timer_minutes
+  category: hard
+  en: The cards look similar. What maximum timer interval is listed for Digital rice cooker (minutes)?
+  ru: Карточки похожи. Уточните показатель «Максимальный интервал таймера» именно для «Цифровая рисоварка»
+    (минут).
+  kk: Карточкалар ұқсас. «Цифрлық күріш пісіргіш» үшін нақты «Таймердің ең ұзақ аралығы» көрсеткішін айтыңыз
+    (минут).
+  relevant:
+  - section: technical_rice_cooker.timer_minutes
+    grade: 3
+  - section: technical_rice_cooker.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rice_cooker.timer_minutes; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_timer_interval
+  need_key: technical.rice_cooker.timer_minutes|current
+  required:
+  - fact: technical.rice_cooker.timer_minutes
+    sections:
+    - technical_rice_cooker.timer_minutes
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rice_cooker_cable_cm
+  category: hard
+  en: Check the specifcation of Digital rice cooker for supplied cable length (cm), please.
+  ru: 'Проверьте характиристику «Цифровая рисоварка»: интересует «Длина комплектного кабеля» (см).'
+  kk: «Цифрлық күріш пісіргіш» сипатамасынан «Жинақтағы кабель ұзындығы» мәнін тексеріңізші (см).
+  relevant:
+  - section: technical_rice_cooker.cable_cm
+    grade: 3
+  - section: technical_rice_cooker.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rice_cooker.cable_cm; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.rice_cooker.cable_cm|current
+  required:
+  - fact: technical.rice_cooker.cable_cm
+    sections:
+    - technical_rice_cooker.cable_cm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rice_cooker_modes_count
+  category: simple
+  en: For Digital rice cooker, what is the specified number of operating modes in units?
+  ru: Для «Цифровая рисоварка» какое значение указано для показателя «Число режимов работы» (шт.)?
+  kk: «Цифрлық күріш пісіргіш» тауары үшін «Жұмыс режимдерінің саны» көрсеткішінің мәні қандай (дана)?
+  relevant:
+  - section: technical_rice_cooker.modes_count
+    grade: 3
+  - section: technical_rice_cooker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rice_cooker.modes_count; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.rice_cooker.modes_count|current
+  required:
+  - fact: technical.rice_cooker.modes_count
+    sections:
+    - technical_rice_cooker.modes_count
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_rice_cooker_humidity_max_percent
+  category: unanswerable
+  en: For Digital rice cooker, what is the specified maximum permitted humidity in percent?
+  ru: Для «Цифровая рисоварка» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Цифрлық күріш пісіргіш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_rice_cooker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rice_cooker does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.rice_cooker.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rice_cooker_drop_test_cm
+  category: unanswerable
+  en: For Digital rice cooker, what is the specified certified drop-test height in cm?
+  ru: Для «Цифровая рисоварка» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Цифрлық күріш пісіргіш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_rice_cooker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rice_cooker does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.rice_cooker.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rice_cooker_repair_parts_price
+  category: unanswerable
+  en: For Digital rice cooker, what is the specified replacement-part price in KZT?
+  ru: Для «Цифровая рисоварка» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Цифрлық күріш пісіргіш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_rice_cooker.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rice_cooker does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.rice_cooker.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_rice_cooker_certification_id
+  category: unanswerable
+  en: For Digital rice cooker, what is the specified certification record number in record?
+  ru: Для «Цифровая рисоварка» какое значение указано для показателя «Номер сертификационной записи» (запись)?
+  kk: «Цифрлық күріш пісіргіш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_rice_cooker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rice_cooker does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.rice_cooker.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_slow_cooker_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Ceramic slow cooker, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Керамическая медленноварка», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Керамикалық баяу пісіргіш» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_slow_cooker.mass_g
+    grade: 3
+  - section: technical_slow_cooker.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.slow_cooker.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.slow_cooker.mass_g|current
+  required:
+  - fact: technical.slow_cooker.mass_g
+    sections:
+    - technical_slow_cooker.mass_g
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_slow_cooker_width_mm
+  category: simple
+  en: 'Ceramic slow cooker: width, mm?'
+  ru: '«Керамическая медленноварка»: ширина, мм?'
+  kk: '«Керамикалық баяу пісіргіш»: ені, мм?'
+  relevant:
+  - section: technical_slow_cooker.width_mm
+    grade: 3
+  - section: technical_slow_cooker.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.slow_cooker.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.slow_cooker.width_mm|current
+  required:
+  - fact: technical.slow_cooker.width_mm
+    sections:
+    - technical_slow_cooker.width_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_slow_cooker_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Ceramic slow cooker (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Керамическая медленноварка» (мм).
+  kk: Карточкалар ұқсас. «Керамикалық баяу пісіргіш» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_slow_cooker.height_mm
+    grade: 3
+  - section: technical_slow_cooker.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.slow_cooker.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.slow_cooker.height_mm|current
+  required:
+  - fact: technical.slow_cooker.height_mm
+    sections:
+    - technical_slow_cooker.height_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_slow_cooker_depth_mm
+  category: hard
+  en: Check the specifcation of Ceramic slow cooker for depth (mm), please.
+  ru: 'Проверьте характиристику «Керамическая медленноварка»: интересует «Глубина» (мм).'
+  kk: «Керамикалық баяу пісіргіш» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_slow_cooker.depth_mm
+    grade: 3
+  - section: technical_slow_cooker.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Керамическая медленноварка» показатель «Глубина» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.slow_cooker.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.slow_cooker.depth_mm|current
+  required:
+  - fact: technical.slow_cooker.depth_mm
+    sections:
+    - technical_slow_cooker.depth_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_slow_cooker_operating_min_c
+  category: hard
+  en: For Ceramic slow cooker, what is the specified minimum operating ambient temperature in C?
+  ru: Для «Керамическая медленноварка» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Керамикалық баяу пісіргіш» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_slow_cooker.operating_min_c
+    grade: 3
+  - section: technical_slow_cooker.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.slow_cooker.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.slow_cooker.operating_min_c|current
+  required:
+  - fact: technical.slow_cooker.operating_min_c
+    sections:
+    - technical_slow_cooker.operating_min_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_slow_cooker_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Ceramic slow cooker,
+    in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Керамическая
+    медленноварка», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Керамикалық баяу пісіргіш» үшін «Жұмыс кезіндегі ауаның ең жоғары
+    температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_slow_cooker.operating_max_c
+    grade: 3
+  - section: technical_slow_cooker.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.slow_cooker.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.slow_cooker.operating_max_c|current
+  required:
+  - fact: technical.slow_cooker.operating_max_c
+    sections:
+    - technical_slow_cooker.operating_max_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_slow_cooker_power_w
+  category: simple
+  en: 'Ceramic slow cooker: rated power consumption, W?'
+  ru: '«Керамическая медленноварка»: номинальная потребляемая мощность, Вт?'
+  kk: '«Керамикалық баяу пісіргіш»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_slow_cooker.power_w
+    grade: 3
+  - section: technical_slow_cooker.volume_ml
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.slow_cooker.power_w; neighbouring volume_ml does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.slow_cooker.power_w|current
+  required:
+  - fact: technical.slow_cooker.power_w
+    sections:
+    - technical_slow_cooker.power_w
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_slow_cooker_volume_ml
+  category: hard
+  en: The cards look similar. What usable volume is listed for Ceramic slow cooker (ml)?
+  ru: Карточки похожи. Уточните показатель «Полезный объём» именно для «Керамическая медленноварка» (мл).
+  kk: Карточкалар ұқсас. «Керамикалық баяу пісіргіш» үшін нақты «Пайдалы көлемі» көрсеткішін айтыңыз (мл).
+  relevant:
+  - section: technical_slow_cooker.volume_ml
+    grade: 3
+  - section: technical_slow_cooker.min_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.slow_cooker.volume_ml; neighbouring min_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.slow_cooker.volume_ml|current
+  required:
+  - fact: technical.slow_cooker.volume_ml
+    sections:
+    - technical_slow_cooker.volume_ml
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_slow_cooker_min_temp_c
+  category: hard
+  en: Check the specifcation of Ceramic slow cooker for minimum selectable process temperature (C), please.
+  ru: 'Проверьте характиристику «Керамическая медленноварка»: интересует «Минимальная выбираемая рабочая
+    температура» (C).'
+  kk: «Керамикалық баяу пісіргіш» сипатамасынан «Таңдалатын өңдеу температурасының ең төмен мәні» мәнін
+    тексеріңізші (C).
+  relevant:
+  - section: technical_slow_cooker.min_temp_c
+    grade: 3
+  - section: technical_slow_cooker.max_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.slow_cooker.min_temp_c; neighbouring max_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.slow_cooker.min_temp_c|current
+  required:
+  - fact: technical.slow_cooker.min_temp_c
+    sections:
+    - technical_slow_cooker.min_temp_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_slow_cooker_max_temp_c
+  category: hard
+  en: For Ceramic slow cooker, what is the specified maximum selectable process temperature in C?
+  ru: Для «Керамическая медленноварка» какое значение указано для показателя «Максимальная выбираемая
+    рабочая температура» (C)?
+  kk: «Керамикалық баяу пісіргіш» тауары үшін «Таңдалатын өңдеу температурасының ең жоғары мәні» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_slow_cooker.max_temp_c
+    grade: 3
+  - section: technical_slow_cooker.timer_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.slow_cooker.max_temp_c; neighbouring timer_minutes does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.slow_cooker.max_temp_c|current
+  required:
+  - fact: technical.slow_cooker.max_temp_c
+    sections:
+    - technical_slow_cooker.max_temp_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_slow_cooker_timer_minutes
+  category: hard
+  en: I am comparing specifications. Find the maximum timer interval for Ceramic slow cooker, in minutes.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальный интервал таймера» у «Керамическая медленноварка»,
+    в минут.
+  kk: Сипаттамаларды салыстырып отырмын. «Керамикалық баяу пісіргіш» үшін «Таймердің ең ұзақ аралығы»
+    мәні қажет (минут).
+  relevant:
+  - section: technical_slow_cooker.timer_minutes
+    grade: 3
+  - section: technical_slow_cooker.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Керамикалық баяу пісіргіш» үшін «Таймердің ең ұзақ аралығы» (минут) керек, уточните по этой
+    модели, пожалуйста.
+  rationale: Authored target technical.slow_cooker.timer_minutes; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_timer_interval
+  need_key: technical.slow_cooker.timer_minutes|current
+  required:
+  - fact: technical.slow_cooker.timer_minutes
+    sections:
+    - technical_slow_cooker.timer_minutes
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_slow_cooker_cable_cm
+  category: simple
+  en: 'Ceramic slow cooker: supplied cable length, cm?'
+  ru: '«Керамическая медленноварка»: длина комплектного кабеля, см?'
+  kk: '«Керамикалық баяу пісіргіш»: жинақтағы кабель ұзындығы, см?'
+  relevant:
+  - section: technical_slow_cooker.cable_cm
+    grade: 3
+  - section: technical_slow_cooker.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.slow_cooker.cable_cm; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.slow_cooker.cable_cm|current
+  required:
+  - fact: technical.slow_cooker.cable_cm
+    sections:
+    - technical_slow_cooker.cable_cm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_slow_cooker_modes_count
+  category: hard
+  en: The cards look similar. What number of operating modes is listed for Ceramic slow cooker (units)?
+  ru: Карточки похожи. Уточните показатель «Число режимов работы» именно для «Керамическая медленноварка»
+    (шт.).
+  kk: Карточкалар ұқсас. «Керамикалық баяу пісіргіш» үшін нақты «Жұмыс режимдерінің саны» көрсеткішін
+    айтыңыз (дана).
+  relevant:
+  - section: technical_slow_cooker.modes_count
+    grade: 3
+  - section: technical_slow_cooker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.slow_cooker.modes_count; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.slow_cooker.modes_count|current
+  required:
+  - fact: technical.slow_cooker.modes_count
+    sections:
+    - technical_slow_cooker.modes_count
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_slow_cooker_humidity_max_percent
+  category: unanswerable
+  en: For Ceramic slow cooker, what is the specified maximum permitted humidity in percent?
+  ru: Для «Керамическая медленноварка» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Керамикалық баяу пісіргіш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_slow_cooker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for slow_cooker does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.slow_cooker.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_slow_cooker_drop_test_cm
+  category: unanswerable
+  en: For Ceramic slow cooker, what is the specified certified drop-test height in cm?
+  ru: Для «Керамическая медленноварка» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Керамикалық баяу пісіргіш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_slow_cooker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for slow_cooker does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.slow_cooker.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_slow_cooker_repair_parts_price
+  category: unanswerable
+  en: For Ceramic slow cooker, what is the specified replacement-part price in KZT?
+  ru: Для «Керамическая медленноварка» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Керамикалық баяу пісіргіш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_slow_cooker.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for slow_cooker does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.slow_cooker.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_slow_cooker_certification_id
+  category: unanswerable
+  en: For Ceramic slow cooker, what is the specified certification record number in record?
+  ru: Для «Керамическая медленноварка» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Керамикалық баяу пісіргіш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_slow_cooker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for slow_cooker does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.slow_cooker.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_slow_cooker
+  category: multi_fragment
+  en: What does Ceramic slow cooker weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Керамическая медленноварка» и какой вес посылки допускают пункты самовывоза?
+  kk: «Керамикалық баяу пісіргіш» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_slow_cooker.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.slow_cooker.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.slow_cooker.mass_g
+    sections:
+    - technical_slow_cooker.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_cooker_mass_g
+  category: hard
+  en: Check the specifcation of Electric steam cooker for mass (g), please.
+  ru: 'Проверьте характиристику «Электрическая пароварка»: интересует «Масса» (г).'
+  kk: «Электр бу пісіргіш» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_steam_cooker.mass_g
+    grade: 3
+  - section: technical_steam_cooker.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_cooker.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.steam_cooker.mass_g|current
+  required:
+  - fact: technical.steam_cooker.mass_g
+    sections:
+    - technical_steam_cooker.mass_g
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_cooker_width_mm
+  category: simple
+  en: For Electric steam cooker, what is the specified width in mm?
+  ru: Для «Электрическая пароварка» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Электр бу пісіргіш» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_steam_cooker.width_mm
+    grade: 3
+  - section: technical_steam_cooker.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_cooker.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.steam_cooker.width_mm|current
+  required:
+  - fact: technical.steam_cooker.width_mm
+    sections:
+    - technical_steam_cooker.width_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_cooker_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Electric steam cooker, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Электрическая пароварка», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Электр бу пісіргіш» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_steam_cooker.height_mm
+    grade: 3
+  - section: technical_steam_cooker.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_cooker.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.steam_cooker.height_mm|current
+  required:
+  - fact: technical.steam_cooker.height_mm
+    sections:
+    - technical_steam_cooker.height_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_cooker_depth_mm
+  category: simple
+  en: 'Electric steam cooker: depth, mm?'
+  ru: '«Электрическая пароварка»: глубина, мм?'
+  kk: '«Электр бу пісіргіш»: тереңдігі, мм?'
+  relevant:
+  - section: technical_steam_cooker.depth_mm
+    grade: 3
+  - section: technical_steam_cooker.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_cooker.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.steam_cooker.depth_mm|current
+  required:
+  - fact: technical.steam_cooker.depth_mm
+    sections:
+    - technical_steam_cooker.depth_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_cooker_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Electric steam
+    cooker (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Электрическая
+    пароварка» (C).
+  kk: Карточкалар ұқсас. «Электр бу пісіргіш» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_steam_cooker.operating_min_c
+    grade: 3
+  - section: technical_steam_cooker.operating_max_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: У «Электрическая пароварка» показатель «Минимальная температура воздуха при работе» (C) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.steam_cooker.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.steam_cooker.operating_min_c|current
+  required:
+  - fact: technical.steam_cooker.operating_min_c
+    sections:
+    - technical_steam_cooker.operating_min_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_cooker_operating_max_c
+  category: hard
+  en: Check the specifcation of Electric steam cooker for maximum operating ambient temperature (C), please.
+  ru: 'Проверьте характиристику «Электрическая пароварка»: интересует «Максимальная температура воздуха
+    при работе» (C).'
+  kk: «Электр бу пісіргіш» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_steam_cooker.operating_max_c
+    grade: 3
+  - section: technical_steam_cooker.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_cooker.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.steam_cooker.operating_max_c|current
+  required:
+  - fact: technical.steam_cooker.operating_max_c
+    sections:
+    - technical_steam_cooker.operating_max_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_cooker_power_w
+  category: simple
+  en: For Electric steam cooker, what is the specified rated power consumption in W?
+  ru: Для «Электрическая пароварка» какое значение указано для показателя «Номинальная потребляемая мощность»
+    (Вт)?
+  kk: «Электр бу пісіргіш» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай (Вт)?
+  relevant:
+  - section: technical_steam_cooker.power_w
+    grade: 3
+  - section: technical_steam_cooker.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_cooker.power_w; neighbouring volume_ml does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.steam_cooker.power_w|current
+  required:
+  - fact: technical.steam_cooker.power_w
+    sections:
+    - technical_steam_cooker.power_w
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_cooker_volume_ml
+  category: simple
+  en: I am comparing specifications. Find the usable volume for Electric steam cooker, in ml.
+  ru: Сравниваю характеристики. Нужен показатель «Полезный объём» у «Электрическая пароварка», в мл.
+  kk: Сипаттамаларды салыстырып отырмын. «Электр бу пісіргіш» үшін «Пайдалы көлемі» мәні қажет (мл).
+  relevant:
+  - section: technical_steam_cooker.volume_ml
+    grade: 3
+  - section: technical_steam_cooker.min_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_cooker.volume_ml; neighbouring min_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.steam_cooker.volume_ml|current
+  required:
+  - fact: technical.steam_cooker.volume_ml
+    sections:
+    - technical_steam_cooker.volume_ml
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_cooker_min_temp_c
+  category: hard
+  en: 'Electric steam cooker: minimum selectable process temperature, C?'
+  ru: '«Электрическая пароварка»: минимальная выбираемая рабочая температура, C?'
+  kk: '«Электр бу пісіргіш»: таңдалатын өңдеу температурасының ең төмен мәні, C?'
+  relevant:
+  - section: technical_steam_cooker.min_temp_c
+    grade: 3
+  - section: technical_steam_cooker.max_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_cooker.min_temp_c; neighbouring max_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.steam_cooker.min_temp_c|current
+  required:
+  - fact: technical.steam_cooker.min_temp_c
+    sections:
+    - technical_steam_cooker.min_temp_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_cooker_max_temp_c
+  category: hard
+  en: The cards look similar. What maximum selectable process temperature is listed for Electric steam
+    cooker (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная выбираемая рабочая температура» именно для «Электрическая
+    пароварка» (C).
+  kk: Карточкалар ұқсас. «Электр бу пісіргіш» үшін нақты «Таңдалатын өңдеу температурасының ең жоғары
+    мәні» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_steam_cooker.max_temp_c
+    grade: 3
+  - section: technical_steam_cooker.timer_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_cooker.max_temp_c; neighbouring timer_minutes does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.steam_cooker.max_temp_c|current
+  required:
+  - fact: technical.steam_cooker.max_temp_c
+    sections:
+    - technical_steam_cooker.max_temp_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_cooker_timer_minutes
+  category: hard
+  en: Check the specifcation of Electric steam cooker for maximum timer interval (minutes), please.
+  ru: 'Проверьте характиристику «Электрическая пароварка»: интересует «Максимальный интервал таймера»
+    (минут).'
+  kk: «Электр бу пісіргіш» сипатамасынан «Таймердің ең ұзақ аралығы» мәнін тексеріңізші (минут).
+  relevant:
+  - section: technical_steam_cooker.timer_minutes
+    grade: 3
+  - section: technical_steam_cooker.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_cooker.timer_minutes; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_timer_interval
+  need_key: technical.steam_cooker.timer_minutes|current
+  required:
+  - fact: technical.steam_cooker.timer_minutes
+    sections:
+    - technical_steam_cooker.timer_minutes
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_cooker_cable_cm
+  category: simple
+  en: For Electric steam cooker, what is the specified supplied cable length in cm?
+  ru: Для «Электрическая пароварка» какое значение указано для показателя «Длина комплектного кабеля»
+    (см)?
+  kk: «Электр бу пісіргіш» тауары үшін «Жинақтағы кабель ұзындығы» көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_steam_cooker.cable_cm
+    grade: 3
+  - section: technical_steam_cooker.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Электр бу пісіргіш» үшін «Жинақтағы кабель ұзындығы» (см) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.steam_cooker.cable_cm; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.steam_cooker.cable_cm|current
+  required:
+  - fact: technical.steam_cooker.cable_cm
+    sections:
+    - technical_steam_cooker.cable_cm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_cooker_modes_count
+  category: simple
+  en: I am comparing specifications. Find the number of operating modes for Electric steam cooker, in
+    units.
+  ru: Сравниваю характеристики. Нужен показатель «Число режимов работы» у «Электрическая пароварка», в
+    шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Электр бу пісіргіш» үшін «Жұмыс режимдерінің саны» мәні қажет
+    (дана).
+  relevant:
+  - section: technical_steam_cooker.modes_count
+    grade: 3
+  - section: technical_steam_cooker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_cooker.modes_count; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.steam_cooker.modes_count|current
+  required:
+  - fact: technical.steam_cooker.modes_count
+    sections:
+    - technical_steam_cooker.modes_count
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_steam_cooker_humidity_max_percent
+  category: unanswerable
+  en: For Electric steam cooker, what is the specified maximum permitted humidity in percent?
+  ru: Для «Электрическая пароварка» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Электр бу пісіргіш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_steam_cooker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for steam_cooker does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.steam_cooker.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_steam_cooker_drop_test_cm
+  category: unanswerable
+  en: For Electric steam cooker, what is the specified certified drop-test height in cm?
+  ru: Для «Электрическая пароварка» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Электр бу пісіргіш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_steam_cooker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for steam_cooker does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.steam_cooker.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_steam_cooker_repair_parts_price
+  category: unanswerable
+  en: For Electric steam cooker, what is the specified replacement-part price in KZT?
+  ru: Для «Электрическая пароварка» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Электр бу пісіргіш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_steam_cooker.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for steam_cooker does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.steam_cooker.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_steam_cooker_certification_id
+  category: unanswerable
+  en: For Electric steam cooker, what is the specified certification record number in record?
+  ru: Для «Электрическая пароварка» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Электр бу пісіргіш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_steam_cooker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for steam_cooker does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.steam_cooker.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_yogurt_maker_mass_g
+  category: simple
+  en: 'Jar yogurt maker: mass, g?'
+  ru: '«Баночная йогуртница»: масса, г?'
+  kk: '«Құтылы йогурт дайындағыш»: салмағы, г?'
+  relevant:
+  - section: technical_yogurt_maker.mass_g
+    grade: 3
+  - section: technical_yogurt_maker.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.yogurt_maker.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.yogurt_maker.mass_g|current
+  required:
+  - fact: technical.yogurt_maker.mass_g
+    sections:
+    - technical_yogurt_maker.mass_g
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_yogurt_maker_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Jar yogurt maker (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Баночная йогуртница» (мм).
+  kk: Карточкалар ұқсас. «Құтылы йогурт дайындағыш» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_yogurt_maker.width_mm
+    grade: 3
+  - section: technical_yogurt_maker.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.yogurt_maker.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.yogurt_maker.width_mm|current
+  required:
+  - fact: technical.yogurt_maker.width_mm
+    sections:
+    - technical_yogurt_maker.width_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_yogurt_maker_height_mm
+  category: hard
+  en: Check the specifcation of Jar yogurt maker for height (mm), please.
+  ru: 'Проверьте характиристику «Баночная йогуртница»: интересует «Высота» (мм).'
+  kk: «Құтылы йогурт дайындағыш» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_yogurt_maker.height_mm
+    grade: 3
+  - section: technical_yogurt_maker.depth_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.yogurt_maker.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.yogurt_maker.height_mm|current
+  required:
+  - fact: technical.yogurt_maker.height_mm
+    sections:
+    - technical_yogurt_maker.height_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_yogurt_maker_depth_mm
+  category: simple
+  en: For Jar yogurt maker, what is the specified depth in mm?
+  ru: Для «Баночная йогуртница» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Құтылы йогурт дайындағыш» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_yogurt_maker.depth_mm
+    grade: 3
+  - section: technical_yogurt_maker.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.yogurt_maker.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.yogurt_maker.depth_mm|current
+  required:
+  - fact: technical.yogurt_maker.depth_mm
+    sections:
+    - technical_yogurt_maker.depth_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_yogurt_maker_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Jar yogurt maker,
+    in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Баночная
+    йогуртница», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Құтылы йогурт дайындағыш» үшін «Жұмыс кезіндегі ауаның ең төмен
+    температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_yogurt_maker.operating_min_c
+    grade: 3
+  - section: technical_yogurt_maker.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.yogurt_maker.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.yogurt_maker.operating_min_c|current
+  required:
+  - fact: technical.yogurt_maker.operating_min_c
+    sections:
+    - technical_yogurt_maker.operating_min_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_yogurt_maker_operating_max_c
+  category: hard
+  en: 'Jar yogurt maker: maximum operating ambient temperature, C?'
+  ru: '«Баночная йогуртница»: максимальная температура воздуха при работе, C?'
+  kk: '«Құтылы йогурт дайындағыш»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_yogurt_maker.operating_max_c
+    grade: 3
+  - section: technical_yogurt_maker.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Баночная йогуртница» показатель «Максимальная температура воздуха при работе» (C) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.yogurt_maker.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.yogurt_maker.operating_max_c|current
+  required:
+  - fact: technical.yogurt_maker.operating_max_c
+    sections:
+    - technical_yogurt_maker.operating_max_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_yogurt_maker_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Jar yogurt maker (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Баночная йогуртница»
+    (Вт).
+  kk: Карточкалар ұқсас. «Құтылы йогурт дайындағыш» үшін нақты «Номиналды тұтыну қуаты» көрсеткішін айтыңыз
+    (Вт).
+  relevant:
+  - section: technical_yogurt_maker.power_w
+    grade: 3
+  - section: technical_yogurt_maker.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.yogurt_maker.power_w; neighbouring volume_ml does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.yogurt_maker.power_w|current
+  required:
+  - fact: technical.yogurt_maker.power_w
+    sections:
+    - technical_yogurt_maker.power_w
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_yogurt_maker_volume_ml
+  category: hard
+  en: Check the specifcation of Jar yogurt maker for usable volume (ml), please.
+  ru: 'Проверьте характиристику «Баночная йогуртница»: интересует «Полезный объём» (мл).'
+  kk: «Құтылы йогурт дайындағыш» сипатамасынан «Пайдалы көлемі» мәнін тексеріңізші (мл).
+  relevant:
+  - section: technical_yogurt_maker.volume_ml
+    grade: 3
+  - section: technical_yogurt_maker.min_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.yogurt_maker.volume_ml; neighbouring min_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.yogurt_maker.volume_ml|current
+  required:
+  - fact: technical.yogurt_maker.volume_ml
+    sections:
+    - technical_yogurt_maker.volume_ml
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_yogurt_maker_min_temp_c
+  category: hard
+  en: For Jar yogurt maker, what is the specified minimum selectable process temperature in C?
+  ru: Для «Баночная йогуртница» какое значение указано для показателя «Минимальная выбираемая рабочая
+    температура» (C)?
+  kk: «Құтылы йогурт дайындағыш» тауары үшін «Таңдалатын өңдеу температурасының ең төмен мәні» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_yogurt_maker.min_temp_c
+    grade: 3
+  - section: technical_yogurt_maker.max_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.yogurt_maker.min_temp_c; neighbouring max_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.yogurt_maker.min_temp_c|current
+  required:
+  - fact: technical.yogurt_maker.min_temp_c
+    sections:
+    - technical_yogurt_maker.min_temp_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_yogurt_maker_max_temp_c
+  category: hard
+  en: I am comparing specifications. Find the maximum selectable process temperature for Jar yogurt maker,
+    in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная выбираемая рабочая температура» у «Баночная
+    йогуртница», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Құтылы йогурт дайындағыш» үшін «Таңдалатын өңдеу температурасының
+    ең жоғары мәні» мәні қажет (C).
+  relevant:
+  - section: technical_yogurt_maker.max_temp_c
+    grade: 3
+  - section: technical_yogurt_maker.timer_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.yogurt_maker.max_temp_c; neighbouring timer_minutes does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.yogurt_maker.max_temp_c|current
+  required:
+  - fact: technical.yogurt_maker.max_temp_c
+    sections:
+    - technical_yogurt_maker.max_temp_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_yogurt_maker_timer_minutes
+  category: hard
+  en: 'Jar yogurt maker: maximum timer interval, minutes?'
+  ru: '«Баночная йогуртница»: максимальный интервал таймера, минут?'
+  kk: '«Құтылы йогурт дайындағыш»: таймердің ең ұзақ аралығы, минут?'
+  relevant:
+  - section: technical_yogurt_maker.timer_minutes
+    grade: 3
+  - section: technical_yogurt_maker.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.yogurt_maker.timer_minutes; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_timer_interval
+  need_key: technical.yogurt_maker.timer_minutes|current
+  required:
+  - fact: technical.yogurt_maker.timer_minutes
+    sections:
+    - technical_yogurt_maker.timer_minutes
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_yogurt_maker_cable_cm
+  category: hard
+  en: The cards look similar. What supplied cable length is listed for Jar yogurt maker (cm)?
+  ru: Карточки похожи. Уточните показатель «Длина комплектного кабеля» именно для «Баночная йогуртница»
+    (см).
+  kk: Карточкалар ұқсас. «Құтылы йогурт дайындағыш» үшін нақты «Жинақтағы кабель ұзындығы» көрсеткішін
+    айтыңыз (см).
+  relevant:
+  - section: technical_yogurt_maker.cable_cm
+    grade: 3
+  - section: technical_yogurt_maker.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.yogurt_maker.cable_cm; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.yogurt_maker.cable_cm|current
+  required:
+  - fact: technical.yogurt_maker.cable_cm
+    sections:
+    - technical_yogurt_maker.cable_cm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_yogurt_maker_modes_count
+  category: hard
+  en: Check the specifcation of Jar yogurt maker for number of operating modes (units), please.
+  ru: 'Проверьте характиристику «Баночная йогуртница»: интересует «Число режимов работы» (шт.).'
+  kk: «Құтылы йогурт дайындағыш» сипатамасынан «Жұмыс режимдерінің саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_yogurt_maker.modes_count
+    grade: 3
+  - section: technical_yogurt_maker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Құтылы йогурт дайындағыш» үшін «Жұмыс режимдерінің саны» (дана) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.yogurt_maker.modes_count; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.yogurt_maker.modes_count|current
+  required:
+  - fact: technical.yogurt_maker.modes_count
+    sections:
+    - technical_yogurt_maker.modes_count
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_yogurt_maker_humidity_max_percent
+  category: unanswerable
+  en: For Jar yogurt maker, what is the specified maximum permitted humidity in percent?
+  ru: Для «Баночная йогуртница» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Құтылы йогурт дайындағыш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_yogurt_maker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for yogurt_maker does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.yogurt_maker.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_yogurt_maker_drop_test_cm
+  category: unanswerable
+  en: For Jar yogurt maker, what is the specified certified drop-test height in cm?
+  ru: Для «Баночная йогуртница» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Құтылы йогурт дайындағыш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_yogurt_maker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for yogurt_maker does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.yogurt_maker.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_yogurt_maker_repair_parts_price
+  category: unanswerable
+  en: For Jar yogurt maker, what is the specified replacement-part price in KZT?
+  ru: Для «Баночная йогуртница» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Құтылы йогурт дайындағыш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_yogurt_maker.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for yogurt_maker does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.yogurt_maker.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_yogurt_maker_certification_id
+  category: unanswerable
+  en: For Jar yogurt maker, what is the specified certification record number in record?
+  ru: Для «Баночная йогуртница» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Құтылы йогурт дайындағыш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_yogurt_maker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for yogurt_maker does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.yogurt_maker.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_yogurt_maker
+  category: multi_fragment
+  en: What does Jar yogurt maker weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Баночная йогуртница» и какой вес посылки допускают пункты самовывоза?
+  kk: «Құтылы йогурт дайындағыш» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_yogurt_maker.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.yogurt_maker.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.yogurt_maker.mass_g
+    sections:
+    - technical_yogurt_maker.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_food_dehydrator_mass_g
+  category: simple
+  en: For Tray food dehydrator, what is the specified mass in g?
+  ru: Для «Лоточная сушилка продуктов» какое значение указано для показателя «Масса» (г)?
+  kk: «Науалы азық кептіргіш» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_food_dehydrator.mass_g
+    grade: 3
+  - section: technical_food_dehydrator.width_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.food_dehydrator.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.food_dehydrator.mass_g|current
+  required:
+  - fact: technical.food_dehydrator.mass_g
+    sections:
+    - technical_food_dehydrator.mass_g
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_food_dehydrator_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Tray food dehydrator, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Лоточная сушилка продуктов», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Науалы азық кептіргіш» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_food_dehydrator.width_mm
+    grade: 3
+  - section: technical_food_dehydrator.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.food_dehydrator.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.food_dehydrator.width_mm|current
+  required:
+  - fact: technical.food_dehydrator.width_mm
+    sections:
+    - technical_food_dehydrator.width_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_food_dehydrator_height_mm
+  category: simple
+  en: 'Tray food dehydrator: height, mm?'
+  ru: '«Лоточная сушилка продуктов»: высота, мм?'
+  kk: '«Науалы азық кептіргіш»: биіктігі, мм?'
+  relevant:
+  - section: technical_food_dehydrator.height_mm
+    grade: 3
+  - section: technical_food_dehydrator.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.food_dehydrator.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.food_dehydrator.height_mm|current
+  required:
+  - fact: technical.food_dehydrator.height_mm
+    sections:
+    - technical_food_dehydrator.height_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_food_dehydrator_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Tray food dehydrator (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Лоточная сушилка продуктов» (мм).
+  kk: Карточкалар ұқсас. «Науалы азық кептіргіш» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_food_dehydrator.depth_mm
+    grade: 3
+  - section: technical_food_dehydrator.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.food_dehydrator.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.food_dehydrator.depth_mm|current
+  required:
+  - fact: technical.food_dehydrator.depth_mm
+    sections:
+    - technical_food_dehydrator.depth_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_food_dehydrator_operating_min_c
+  category: hard
+  en: Check the specifcation of Tray food dehydrator for minimum operating ambient temperature (C), please.
+  ru: 'Проверьте характиристику «Лоточная сушилка продуктов»: интересует «Минимальная температура воздуха
+    при работе» (C).'
+  kk: «Науалы азық кептіргіш» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_food_dehydrator.operating_min_c
+    grade: 3
+  - section: technical_food_dehydrator.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.food_dehydrator.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.food_dehydrator.operating_min_c|current
+  required:
+  - fact: technical.food_dehydrator.operating_min_c
+    sections:
+    - technical_food_dehydrator.operating_min_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_food_dehydrator_operating_max_c
+  category: hard
+  en: For Tray food dehydrator, what is the specified maximum operating ambient temperature in C?
+  ru: Для «Лоточная сушилка продуктов» какое значение указано для показателя «Максимальная температура
+    воздуха при работе» (C)?
+  kk: «Науалы азық кептіргіш» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_food_dehydrator.operating_max_c
+    grade: 3
+  - section: technical_food_dehydrator.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.food_dehydrator.operating_max_c; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.food_dehydrator.operating_max_c|current
+  required:
+  - fact: technical.food_dehydrator.operating_max_c
+    sections:
+    - technical_food_dehydrator.operating_max_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_food_dehydrator_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Tray food dehydrator, in W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Лоточная сушилка
+    продуктов», в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Науалы азық кептіргіш» үшін «Номиналды тұтыну қуаты» мәні қажет
+    (Вт).
+  relevant:
+  - section: technical_food_dehydrator.power_w
+    grade: 3
+  - section: technical_food_dehydrator.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Лоточная сушилка продуктов» показатель «Номинальная потребляемая мощность» (Вт) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.food_dehydrator.power_w; neighbouring volume_ml does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.food_dehydrator.power_w|current
+  required:
+  - fact: technical.food_dehydrator.power_w
+    sections:
+    - technical_food_dehydrator.power_w
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_food_dehydrator_volume_ml
+  category: simple
+  en: 'Tray food dehydrator: usable volume, ml?'
+  ru: '«Лоточная сушилка продуктов»: полезный объём, мл?'
+  kk: '«Науалы азық кептіргіш»: пайдалы көлемі, мл?'
+  relevant:
+  - section: technical_food_dehydrator.volume_ml
+    grade: 3
+  - section: technical_food_dehydrator.min_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.food_dehydrator.volume_ml; neighbouring min_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.food_dehydrator.volume_ml|current
+  required:
+  - fact: technical.food_dehydrator.volume_ml
+    sections:
+    - technical_food_dehydrator.volume_ml
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_food_dehydrator_min_temp_c
+  category: hard
+  en: The cards look similar. What minimum selectable process temperature is listed for Tray food dehydrator
+    (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная выбираемая рабочая температура» именно для «Лоточная
+    сушилка продуктов» (C).
+  kk: Карточкалар ұқсас. «Науалы азық кептіргіш» үшін нақты «Таңдалатын өңдеу температурасының ең төмен
+    мәні» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_food_dehydrator.min_temp_c
+    grade: 3
+  - section: technical_food_dehydrator.max_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.food_dehydrator.min_temp_c; neighbouring max_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.food_dehydrator.min_temp_c|current
+  required:
+  - fact: technical.food_dehydrator.min_temp_c
+    sections:
+    - technical_food_dehydrator.min_temp_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_food_dehydrator_max_temp_c
+  category: hard
+  en: Check the specifcation of Tray food dehydrator for maximum selectable process temperature (C), please.
+  ru: 'Проверьте характиристику «Лоточная сушилка продуктов»: интересует «Максимальная выбираемая рабочая
+    температура» (C).'
+  kk: «Науалы азық кептіргіш» сипатамасынан «Таңдалатын өңдеу температурасының ең жоғары мәні» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_food_dehydrator.max_temp_c
+    grade: 3
+  - section: technical_food_dehydrator.timer_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.food_dehydrator.max_temp_c; neighbouring timer_minutes does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.food_dehydrator.max_temp_c|current
+  required:
+  - fact: technical.food_dehydrator.max_temp_c
+    sections:
+    - technical_food_dehydrator.max_temp_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_food_dehydrator_timer_minutes
+  category: hard
+  en: For Tray food dehydrator, what is the specified maximum timer interval in minutes?
+  ru: Для «Лоточная сушилка продуктов» какое значение указано для показателя «Максимальный интервал таймера»
+    (минут)?
+  kk: «Науалы азық кептіргіш» тауары үшін «Таймердің ең ұзақ аралығы» көрсеткішінің мәні қандай (минут)?
+  relevant:
+  - section: technical_food_dehydrator.timer_minutes
+    grade: 3
+  - section: technical_food_dehydrator.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.food_dehydrator.timer_minutes; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_timer_interval
+  need_key: technical.food_dehydrator.timer_minutes|current
+  required:
+  - fact: technical.food_dehydrator.timer_minutes
+    sections:
+    - technical_food_dehydrator.timer_minutes
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_food_dehydrator_cable_cm
+  category: simple
+  en: I am comparing specifications. Find the supplied cable length for Tray food dehydrator, in cm.
+  ru: Сравниваю характеристики. Нужен показатель «Длина комплектного кабеля» у «Лоточная сушилка продуктов»,
+    в см.
+  kk: Сипаттамаларды салыстырып отырмын. «Науалы азық кептіргіш» үшін «Жинақтағы кабель ұзындығы» мәні
+    қажет (см).
+  relevant:
+  - section: technical_food_dehydrator.cable_cm
+    grade: 3
+  - section: technical_food_dehydrator.modes_count
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.food_dehydrator.cable_cm; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.food_dehydrator.cable_cm|current
+  required:
+  - fact: technical.food_dehydrator.cable_cm
+    sections:
+    - technical_food_dehydrator.cable_cm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_food_dehydrator_modes_count
+  category: simple
+  en: 'Tray food dehydrator: number of operating modes, units?'
+  ru: '«Лоточная сушилка продуктов»: число режимов работы, шт.?'
+  kk: '«Науалы азық кептіргіш»: жұмыс режимдерінің саны, дана?'
+  relevant:
+  - section: technical_food_dehydrator.modes_count
+    grade: 3
+  - section: technical_food_dehydrator.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.food_dehydrator.modes_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.food_dehydrator.modes_count|current
+  required:
+  - fact: technical.food_dehydrator.modes_count
+    sections:
+    - technical_food_dehydrator.modes_count
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_food_dehydrator_humidity_max_percent
+  category: unanswerable
+  en: For Tray food dehydrator, what is the specified maximum permitted humidity in percent?
+  ru: Для «Лоточная сушилка продуктов» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Науалы азық кептіргіш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_food_dehydrator.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for food_dehydrator does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.food_dehydrator.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_food_dehydrator_drop_test_cm
+  category: unanswerable
+  en: For Tray food dehydrator, what is the specified certified drop-test height in cm?
+  ru: Для «Лоточная сушилка продуктов» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Науалы азық кептіргіш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_food_dehydrator.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for food_dehydrator does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.food_dehydrator.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_food_dehydrator_repair_parts_price
+  category: unanswerable
+  en: For Tray food dehydrator, what is the specified replacement-part price in KZT?
+  ru: Для «Лоточная сушилка продуктов» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Науалы азық кептіргіш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_food_dehydrator.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for food_dehydrator does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.food_dehydrator.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_food_dehydrator_certification_id
+  category: unanswerable
+  en: For Tray food dehydrator, what is the specified certification record number in record?
+  ru: Для «Лоточная сушилка продуктов» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Науалы азық кептіргіш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_food_dehydrator.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for food_dehydrator does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.food_dehydrator.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_soup_maker_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Heated soup blender (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Блендер-суповарка с нагревом» (г).
+  kk: Карточкалар ұқсас. «Қыздыратын сорпа блендері» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_soup_maker.mass_g
+    grade: 3
+  - section: technical_soup_maker.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Қыздыратын сорпа блендері» үшін «Салмағы» (г) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.soup_maker.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.soup_maker.mass_g|current
+  required:
+  - fact: technical.soup_maker.mass_g
+    sections:
+    - technical_soup_maker.mass_g
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_soup_maker_width_mm
+  category: hard
+  en: Check the specifcation of Heated soup blender for width (mm), please.
+  ru: 'Проверьте характиристику «Блендер-суповарка с нагревом»: интересует «Ширина» (мм).'
+  kk: «Қыздыратын сорпа блендері» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_soup_maker.width_mm
+    grade: 3
+  - section: technical_soup_maker.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.soup_maker.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.soup_maker.width_mm|current
+  required:
+  - fact: technical.soup_maker.width_mm
+    sections:
+    - technical_soup_maker.width_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_soup_maker_height_mm
+  category: simple
+  en: For Heated soup blender, what is the specified height in mm?
+  ru: Для «Блендер-суповарка с нагревом» какое значение указано для показателя «Высота» (мм)?
+  kk: «Қыздыратын сорпа блендері» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_soup_maker.height_mm
+    grade: 3
+  - section: technical_soup_maker.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.soup_maker.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.soup_maker.height_mm|current
+  required:
+  - fact: technical.soup_maker.height_mm
+    sections:
+    - technical_soup_maker.height_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_soup_maker_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Heated soup blender, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Блендер-суповарка с нагревом», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Қыздыратын сорпа блендері» үшін «Тереңдігі» мәні қажет (мм).
+  relevant:
+  - section: technical_soup_maker.depth_mm
+    grade: 3
+  - section: technical_soup_maker.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.soup_maker.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.soup_maker.depth_mm|current
+  required:
+  - fact: technical.soup_maker.depth_mm
+    sections:
+    - technical_soup_maker.depth_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_soup_maker_operating_min_c
+  category: hard
+  en: 'Heated soup blender: minimum operating ambient temperature, C?'
+  ru: '«Блендер-суповарка с нагревом»: минимальная температура воздуха при работе, C?'
+  kk: '«Қыздыратын сорпа блендері»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_soup_maker.operating_min_c
+    grade: 3
+  - section: technical_soup_maker.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.soup_maker.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.soup_maker.operating_min_c|current
+  required:
+  - fact: technical.soup_maker.operating_min_c
+    sections:
+    - technical_soup_maker.operating_min_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_soup_maker_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Heated soup blender
+    (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Блендер-суповарка
+    с нагревом» (C).
+  kk: Карточкалар ұқсас. «Қыздыратын сорпа блендері» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_soup_maker.operating_max_c
+    grade: 3
+  - section: technical_soup_maker.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.soup_maker.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.soup_maker.operating_max_c|current
+  required:
+  - fact: technical.soup_maker.operating_max_c
+    sections:
+    - technical_soup_maker.operating_max_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_soup_maker_power_w
+  category: hard
+  en: Check the specifcation of Heated soup blender for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Блендер-суповарка с нагревом»: интересует «Номинальная потребляемая мощность»
+    (Вт).'
+  kk: «Қыздыратын сорпа блендері» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_soup_maker.power_w
+    grade: 3
+  - section: technical_soup_maker.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.soup_maker.power_w; neighbouring volume_ml does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.soup_maker.power_w|current
+  required:
+  - fact: technical.soup_maker.power_w
+    sections:
+    - technical_soup_maker.power_w
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_soup_maker_volume_ml
+  category: simple
+  en: For Heated soup blender, what is the specified usable volume in ml?
+  ru: Для «Блендер-суповарка с нагревом» какое значение указано для показателя «Полезный объём» (мл)?
+  kk: «Қыздыратын сорпа блендері» тауары үшін «Пайдалы көлемі» көрсеткішінің мәні қандай (мл)?
+  relevant:
+  - section: technical_soup_maker.volume_ml
+    grade: 3
+  - section: technical_soup_maker.min_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Блендер-суповарка с нагревом» показатель «Полезный объём» (мл) нақтылап беріңізші, осы үлгі
+    үшін.
+  mix_kk: null
+  rationale: Authored target technical.soup_maker.volume_ml; neighbouring min_temp_c does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.soup_maker.volume_ml|current
+  required:
+  - fact: technical.soup_maker.volume_ml
+    sections:
+    - technical_soup_maker.volume_ml
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_soup_maker_min_temp_c
+  category: hard
+  en: I am comparing specifications. Find the minimum selectable process temperature for Heated soup blender,
+    in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная выбираемая рабочая температура» у «Блендер-суповарка
+    с нагревом», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Қыздыратын сорпа блендері» үшін «Таңдалатын өңдеу температурасының
+    ең төмен мәні» мәні қажет (C).
+  relevant:
+  - section: technical_soup_maker.min_temp_c
+    grade: 3
+  - section: technical_soup_maker.max_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.soup_maker.min_temp_c; neighbouring max_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.soup_maker.min_temp_c|current
+  required:
+  - fact: technical.soup_maker.min_temp_c
+    sections:
+    - technical_soup_maker.min_temp_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_soup_maker_max_temp_c
+  category: hard
+  en: 'Heated soup blender: maximum selectable process temperature, C?'
+  ru: '«Блендер-суповарка с нагревом»: максимальная выбираемая рабочая температура, C?'
+  kk: '«Қыздыратын сорпа блендері»: таңдалатын өңдеу температурасының ең жоғары мәні, C?'
+  relevant:
+  - section: technical_soup_maker.max_temp_c
+    grade: 3
+  - section: technical_soup_maker.timer_minutes
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.soup_maker.max_temp_c; neighbouring timer_minutes does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.soup_maker.max_temp_c|current
+  required:
+  - fact: technical.soup_maker.max_temp_c
+    sections:
+    - technical_soup_maker.max_temp_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_soup_maker_timer_minutes
+  category: hard
+  en: The cards look similar. What maximum timer interval is listed for Heated soup blender (minutes)?
+  ru: Карточки похожи. Уточните показатель «Максимальный интервал таймера» именно для «Блендер-суповарка
+    с нагревом» (минут).
+  kk: Карточкалар ұқсас. «Қыздыратын сорпа блендері» үшін нақты «Таймердің ең ұзақ аралығы» көрсеткішін
+    айтыңыз (минут).
+  relevant:
+  - section: technical_soup_maker.timer_minutes
+    grade: 3
+  - section: technical_soup_maker.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.soup_maker.timer_minutes; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_timer_interval
+  need_key: technical.soup_maker.timer_minutes|current
+  required:
+  - fact: technical.soup_maker.timer_minutes
+    sections:
+    - technical_soup_maker.timer_minutes
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_soup_maker_cable_cm
+  category: hard
+  en: Check the specifcation of Heated soup blender for supplied cable length (cm), please.
+  ru: 'Проверьте характиристику «Блендер-суповарка с нагревом»: интересует «Длина комплектного кабеля»
+    (см).'
+  kk: «Қыздыратын сорпа блендері» сипатамасынан «Жинақтағы кабель ұзындығы» мәнін тексеріңізші (см).
+  relevant:
+  - section: technical_soup_maker.cable_cm
+    grade: 3
+  - section: technical_soup_maker.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.soup_maker.cable_cm; neighbouring modes_count does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.soup_maker.cable_cm|current
+  required:
+  - fact: technical.soup_maker.cable_cm
+    sections:
+    - technical_soup_maker.cable_cm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_soup_maker_modes_count
+  category: simple
+  en: For Heated soup blender, what is the specified number of operating modes in units?
+  ru: Для «Блендер-суповарка с нагревом» какое значение указано для показателя «Число режимов работы»
+    (шт.)?
+  kk: «Қыздыратын сорпа блендері» тауары үшін «Жұмыс режимдерінің саны» көрсеткішінің мәні қандай (дана)?
+  relevant:
+  - section: technical_soup_maker.modes_count
+    grade: 3
+  - section: technical_soup_maker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.soup_maker.modes_count; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.soup_maker.modes_count|current
+  required:
+  - fact: technical.soup_maker.modes_count
+    sections:
+    - technical_soup_maker.modes_count
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_soup_maker_humidity_max_percent
+  category: unanswerable
+  en: For Heated soup blender, what is the specified maximum permitted humidity in percent?
+  ru: Для «Блендер-суповарка с нагревом» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Қыздыратын сорпа блендері» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_soup_maker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for soup_maker does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.soup_maker.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_soup_maker_drop_test_cm
+  category: unanswerable
+  en: For Heated soup blender, what is the specified certified drop-test height in cm?
+  ru: Для «Блендер-суповарка с нагревом» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Қыздыратын сорпа блендері» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_soup_maker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for soup_maker does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.soup_maker.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_soup_maker_repair_parts_price
+  category: unanswerable
+  en: For Heated soup blender, what is the specified replacement-part price in KZT?
+  ru: Для «Блендер-суповарка с нагревом» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Қыздыратын сорпа блендері» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_soup_maker.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for soup_maker does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.soup_maker.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_soup_maker_certification_id
+  category: unanswerable
+  en: For Heated soup blender, what is the specified certification record number in record?
+  ru: Для «Блендер-суповарка с нагревом» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Қыздыратын сорпа блендері» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_soup_maker.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for soup_maker does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.soup_maker.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_soup_maker
+  category: multi_fragment
+  en: What does Heated soup blender weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Блендер-суповарка с нагревом» и какой вес посылки допускают пункты самовывоза?
+  kk: «Қыздыратын сорпа блендері» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_soup_maker.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.soup_maker.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.soup_maker.mass_g
+    sections:
+    - technical_soup_maker.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sous_vide_bath_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Countertop water cooking bath, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Настольная водяная варочная ванна», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел су пісіру ваннасы» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_sous_vide_bath.mass_g
+    grade: 3
+  - section: technical_sous_vide_bath.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sous_vide_bath.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.sous_vide_bath.mass_g|current
+  required:
+  - fact: technical.sous_vide_bath.mass_g
+    sections:
+    - technical_sous_vide_bath.mass_g
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sous_vide_bath_width_mm
+  category: simple
+  en: 'Countertop water cooking bath: width, mm?'
+  ru: '«Настольная водяная варочная ванна»: ширина, мм?'
+  kk: '«Үстел су пісіру ваннасы»: ені, мм?'
+  relevant:
+  - section: technical_sous_vide_bath.width_mm
+    grade: 3
+  - section: technical_sous_vide_bath.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Үстел су пісіру ваннасы» үшін «Ені» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.sous_vide_bath.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.sous_vide_bath.width_mm|current
+  required:
+  - fact: technical.sous_vide_bath.width_mm
+    sections:
+    - technical_sous_vide_bath.width_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sous_vide_bath_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Countertop water cooking bath (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Настольная водяная варочная ванна» (мм).
+  kk: Карточкалар ұқсас. «Үстел су пісіру ваннасы» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_sous_vide_bath.height_mm
+    grade: 3
+  - section: technical_sous_vide_bath.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sous_vide_bath.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.sous_vide_bath.height_mm|current
+  required:
+  - fact: technical.sous_vide_bath.height_mm
+    sections:
+    - technical_sous_vide_bath.height_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sous_vide_bath_depth_mm
+  category: hard
+  en: Check the specifcation of Countertop water cooking bath for depth (mm), please.
+  ru: 'Проверьте характиристику «Настольная водяная варочная ванна»: интересует «Глубина» (мм).'
+  kk: «Үстел су пісіру ваннасы» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_sous_vide_bath.depth_mm
+    grade: 3
+  - section: technical_sous_vide_bath.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sous_vide_bath.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.sous_vide_bath.depth_mm|current
+  required:
+  - fact: technical.sous_vide_bath.depth_mm
+    sections:
+    - technical_sous_vide_bath.depth_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sous_vide_bath_operating_min_c
+  category: hard
+  en: For Countertop water cooking bath, what is the specified minimum operating ambient temperature in
+    C?
+  ru: Для «Настольная водяная варочная ванна» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Үстел су пісіру ваннасы» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_sous_vide_bath.operating_min_c
+    grade: 3
+  - section: technical_sous_vide_bath.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sous_vide_bath.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.sous_vide_bath.operating_min_c|current
+  required:
+  - fact: technical.sous_vide_bath.operating_min_c
+    sections:
+    - technical_sous_vide_bath.operating_min_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sous_vide_bath_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Countertop water
+    cooking bath, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Настольная
+    водяная варочная ванна», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел су пісіру ваннасы» үшін «Жұмыс кезіндегі ауаның ең жоғары
+    температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_sous_vide_bath.operating_max_c
+    grade: 3
+  - section: technical_sous_vide_bath.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sous_vide_bath.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.sous_vide_bath.operating_max_c|current
+  required:
+  - fact: technical.sous_vide_bath.operating_max_c
+    sections:
+    - technical_sous_vide_bath.operating_max_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sous_vide_bath_power_w
+  category: simple
+  en: 'Countertop water cooking bath: rated power consumption, W?'
+  ru: '«Настольная водяная варочная ванна»: номинальная потребляемая мощность, Вт?'
+  kk: '«Үстел су пісіру ваннасы»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_sous_vide_bath.power_w
+    grade: 3
+  - section: technical_sous_vide_bath.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sous_vide_bath.power_w; neighbouring volume_ml does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.sous_vide_bath.power_w|current
+  required:
+  - fact: technical.sous_vide_bath.power_w
+    sections:
+    - technical_sous_vide_bath.power_w
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sous_vide_bath_volume_ml
+  category: hard
+  en: The cards look similar. What usable volume is listed for Countertop water cooking bath (ml)?
+  ru: Карточки похожи. Уточните показатель «Полезный объём» именно для «Настольная водяная варочная ванна»
+    (мл).
+  kk: Карточкалар ұқсас. «Үстел су пісіру ваннасы» үшін нақты «Пайдалы көлемі» көрсеткішін айтыңыз (мл).
+  relevant:
+  - section: technical_sous_vide_bath.volume_ml
+    grade: 3
+  - section: technical_sous_vide_bath.min_temp_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sous_vide_bath.volume_ml; neighbouring min_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.sous_vide_bath.volume_ml|current
+  required:
+  - fact: technical.sous_vide_bath.volume_ml
+    sections:
+    - technical_sous_vide_bath.volume_ml
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sous_vide_bath_min_temp_c
+  category: hard
+  en: Check the specifcation of Countertop water cooking bath for minimum selectable process temperature
+    (C), please.
+  ru: 'Проверьте характиристику «Настольная водяная варочная ванна»: интересует «Минимальная выбираемая
+    рабочая температура» (C).'
+  kk: «Үстел су пісіру ваннасы» сипатамасынан «Таңдалатын өңдеу температурасының ең төмен мәні» мәнін
+    тексеріңізші (C).
+  relevant:
+  - section: technical_sous_vide_bath.min_temp_c
+    grade: 3
+  - section: technical_sous_vide_bath.max_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Настольная водяная варочная ванна» показатель «Минимальная выбираемая рабочая температура»
+    (C) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.sous_vide_bath.min_temp_c; neighbouring max_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.sous_vide_bath.min_temp_c|current
+  required:
+  - fact: technical.sous_vide_bath.min_temp_c
+    sections:
+    - technical_sous_vide_bath.min_temp_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sous_vide_bath_max_temp_c
+  category: hard
+  en: For Countertop water cooking bath, what is the specified maximum selectable process temperature
+    in C?
+  ru: Для «Настольная водяная варочная ванна» какое значение указано для показателя «Максимальная выбираемая
+    рабочая температура» (C)?
+  kk: «Үстел су пісіру ваннасы» тауары үшін «Таңдалатын өңдеу температурасының ең жоғары мәні» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_sous_vide_bath.max_temp_c
+    grade: 3
+  - section: technical_sous_vide_bath.timer_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sous_vide_bath.max_temp_c; neighbouring timer_minutes does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.sous_vide_bath.max_temp_c|current
+  required:
+  - fact: technical.sous_vide_bath.max_temp_c
+    sections:
+    - technical_sous_vide_bath.max_temp_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sous_vide_bath_timer_minutes
+  category: hard
+  en: I am comparing specifications. Find the maximum timer interval for Countertop water cooking bath,
+    in minutes.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальный интервал таймера» у «Настольная водяная
+    варочная ванна», в минут.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел су пісіру ваннасы» үшін «Таймердің ең ұзақ аралығы» мәні
+    қажет (минут).
+  relevant:
+  - section: technical_sous_vide_bath.timer_minutes
+    grade: 3
+  - section: technical_sous_vide_bath.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sous_vide_bath.timer_minutes; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_timer_interval
+  need_key: technical.sous_vide_bath.timer_minutes|current
+  required:
+  - fact: technical.sous_vide_bath.timer_minutes
+    sections:
+    - technical_sous_vide_bath.timer_minutes
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sous_vide_bath_cable_cm
+  category: simple
+  en: 'Countertop water cooking bath: supplied cable length, cm?'
+  ru: '«Настольная водяная варочная ванна»: длина комплектного кабеля, см?'
+  kk: '«Үстел су пісіру ваннасы»: жинақтағы кабель ұзындығы, см?'
+  relevant:
+  - section: technical_sous_vide_bath.cable_cm
+    grade: 3
+  - section: technical_sous_vide_bath.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sous_vide_bath.cable_cm; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.sous_vide_bath.cable_cm|current
+  required:
+  - fact: technical.sous_vide_bath.cable_cm
+    sections:
+    - technical_sous_vide_bath.cable_cm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sous_vide_bath_modes_count
+  category: hard
+  en: The cards look similar. What number of operating modes is listed for Countertop water cooking bath
+    (units)?
+  ru: Карточки похожи. Уточните показатель «Число режимов работы» именно для «Настольная водяная варочная
+    ванна» (шт.).
+  kk: Карточкалар ұқсас. «Үстел су пісіру ваннасы» үшін нақты «Жұмыс режимдерінің саны» көрсеткішін айтыңыз
+    (дана).
+  relevant:
+  - section: technical_sous_vide_bath.modes_count
+    grade: 3
+  - section: technical_sous_vide_bath.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sous_vide_bath.modes_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.sous_vide_bath.modes_count|current
+  required:
+  - fact: technical.sous_vide_bath.modes_count
+    sections:
+    - technical_sous_vide_bath.modes_count
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_sous_vide_bath_humidity_max_percent
+  category: unanswerable
+  en: For Countertop water cooking bath, what is the specified maximum permitted humidity in percent?
+  ru: Для «Настольная водяная варочная ванна» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Үстел су пісіру ваннасы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_sous_vide_bath.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for sous_vide_bath does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.sous_vide_bath.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_sous_vide_bath_drop_test_cm
+  category: unanswerable
+  en: For Countertop water cooking bath, what is the specified certified drop-test height in cm?
+  ru: Для «Настольная водяная варочная ванна» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Үстел су пісіру ваннасы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_sous_vide_bath.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for sous_vide_bath does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.sous_vide_bath.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_sous_vide_bath_repair_parts_price
+  category: unanswerable
+  en: For Countertop water cooking bath, what is the specified replacement-part price in KZT?
+  ru: Для «Настольная водяная варочная ванна» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Үстел су пісіру ваннасы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_sous_vide_bath.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for sous_vide_bath does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.sous_vide_bath.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_sous_vide_bath_certification_id
+  category: unanswerable
+  en: For Countertop water cooking bath, what is the specified certification record number in record?
+  ru: Для «Настольная водяная варочная ванна» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Үстел су пісіру ваннасы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_sous_vide_bath.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for sous_vide_bath does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.sous_vide_bath.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_heated_lunch_box_mass_g
+  category: hard
+  en: Check the specifcation of Heated lunch container for mass (g), please.
+  ru: 'Проверьте характиристику «Контейнер для обеда с подогревом»: интересует «Масса» (г).'
+  kk: «Қыздыратын түскі ас контейнері» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_heated_lunch_box.mass_g
+    grade: 3
+  - section: technical_heated_lunch_box.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_lunch_box.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.heated_lunch_box.mass_g|current
+  required:
+  - fact: technical.heated_lunch_box.mass_g
+    sections:
+    - technical_heated_lunch_box.mass_g
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_lunch_box_width_mm
+  category: simple
+  en: For Heated lunch container, what is the specified width in mm?
+  ru: Для «Контейнер для обеда с подогревом» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Қыздыратын түскі ас контейнері» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_heated_lunch_box.width_mm
+    grade: 3
+  - section: technical_heated_lunch_box.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_lunch_box.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.heated_lunch_box.width_mm|current
+  required:
+  - fact: technical.heated_lunch_box.width_mm
+    sections:
+    - technical_heated_lunch_box.width_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_lunch_box_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Heated lunch container, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Контейнер для обеда с подогревом», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Қыздыратын түскі ас контейнері» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_heated_lunch_box.height_mm
+    grade: 3
+  - section: technical_heated_lunch_box.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Қыздыратын түскі ас контейнері» үшін «Биіктігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.heated_lunch_box.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.heated_lunch_box.height_mm|current
+  required:
+  - fact: technical.heated_lunch_box.height_mm
+    sections:
+    - technical_heated_lunch_box.height_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_lunch_box_depth_mm
+  category: simple
+  en: 'Heated lunch container: depth, mm?'
+  ru: '«Контейнер для обеда с подогревом»: глубина, мм?'
+  kk: '«Қыздыратын түскі ас контейнері»: тереңдігі, мм?'
+  relevant:
+  - section: technical_heated_lunch_box.depth_mm
+    grade: 3
+  - section: technical_heated_lunch_box.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_lunch_box.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.heated_lunch_box.depth_mm|current
+  required:
+  - fact: technical.heated_lunch_box.depth_mm
+    sections:
+    - technical_heated_lunch_box.depth_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_lunch_box_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Heated lunch container
+    (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Контейнер
+    для обеда с подогревом» (C).
+  kk: Карточкалар ұқсас. «Қыздыратын түскі ас контейнері» үшін нақты «Жұмыс кезіндегі ауаның ең төмен
+    температурасы» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_heated_lunch_box.operating_min_c
+    grade: 3
+  - section: technical_heated_lunch_box.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_lunch_box.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.heated_lunch_box.operating_min_c|current
+  required:
+  - fact: technical.heated_lunch_box.operating_min_c
+    sections:
+    - technical_heated_lunch_box.operating_min_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_lunch_box_operating_max_c
+  category: hard
+  en: Check the specifcation of Heated lunch container for maximum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Контейнер для обеда с подогревом»: интересует «Максимальная температура
+    воздуха при работе» (C).'
+  kk: «Қыздыратын түскі ас контейнері» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    мәнін тексеріңізші (C).
+  relevant:
+  - section: technical_heated_lunch_box.operating_max_c
+    grade: 3
+  - section: technical_heated_lunch_box.power_w
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_lunch_box.operating_max_c; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.heated_lunch_box.operating_max_c|current
+  required:
+  - fact: technical.heated_lunch_box.operating_max_c
+    sections:
+    - technical_heated_lunch_box.operating_max_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_lunch_box_power_w
+  category: simple
+  en: For Heated lunch container, what is the specified rated power consumption in W?
+  ru: Для «Контейнер для обеда с подогревом» какое значение указано для показателя «Номинальная потребляемая
+    мощность» (Вт)?
+  kk: «Қыздыратын түскі ас контейнері» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай
+    (Вт)?
+  relevant:
+  - section: technical_heated_lunch_box.power_w
+    grade: 3
+  - section: technical_heated_lunch_box.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_lunch_box.power_w; neighbouring volume_ml does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.heated_lunch_box.power_w|current
+  required:
+  - fact: technical.heated_lunch_box.power_w
+    sections:
+    - technical_heated_lunch_box.power_w
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_lunch_box_volume_ml
+  category: simple
+  en: I am comparing specifications. Find the usable volume for Heated lunch container, in ml.
+  ru: Сравниваю характеристики. Нужен показатель «Полезный объём» у «Контейнер для обеда с подогревом»,
+    в мл.
+  kk: Сипаттамаларды салыстырып отырмын. «Қыздыратын түскі ас контейнері» үшін «Пайдалы көлемі» мәні қажет
+    (мл).
+  relevant:
+  - section: technical_heated_lunch_box.volume_ml
+    grade: 3
+  - section: technical_heated_lunch_box.min_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_lunch_box.volume_ml; neighbouring min_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.heated_lunch_box.volume_ml|current
+  required:
+  - fact: technical.heated_lunch_box.volume_ml
+    sections:
+    - technical_heated_lunch_box.volume_ml
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_lunch_box_min_temp_c
+  category: hard
+  en: 'Heated lunch container: minimum selectable process temperature, C?'
+  ru: '«Контейнер для обеда с подогревом»: минимальная выбираемая рабочая температура, C?'
+  kk: '«Қыздыратын түскі ас контейнері»: таңдалатын өңдеу температурасының ең төмен мәні, C?'
+  relevant:
+  - section: technical_heated_lunch_box.min_temp_c
+    grade: 3
+  - section: technical_heated_lunch_box.max_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_lunch_box.min_temp_c; neighbouring max_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.heated_lunch_box.min_temp_c|current
+  required:
+  - fact: technical.heated_lunch_box.min_temp_c
+    sections:
+    - technical_heated_lunch_box.min_temp_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_lunch_box_max_temp_c
+  category: hard
+  en: The cards look similar. What maximum selectable process temperature is listed for Heated lunch container
+    (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная выбираемая рабочая температура» именно для «Контейнер
+    для обеда с подогревом» (C).
+  kk: Карточкалар ұқсас. «Қыздыратын түскі ас контейнері» үшін нақты «Таңдалатын өңдеу температурасының
+    ең жоғары мәні» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_heated_lunch_box.max_temp_c
+    grade: 3
+  - section: technical_heated_lunch_box.timer_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Контейнер для обеда с подогревом» показатель «Максимальная выбираемая рабочая температура»
+    (C) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.heated_lunch_box.max_temp_c; neighbouring timer_minutes does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.heated_lunch_box.max_temp_c|current
+  required:
+  - fact: technical.heated_lunch_box.max_temp_c
+    sections:
+    - technical_heated_lunch_box.max_temp_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_lunch_box_timer_minutes
+  category: hard
+  en: Check the specifcation of Heated lunch container for maximum timer interval (minutes), please.
+  ru: 'Проверьте характиристику «Контейнер для обеда с подогревом»: интересует «Максимальный интервал
+    таймера» (минут).'
+  kk: «Қыздыратын түскі ас контейнері» сипатамасынан «Таймердің ең ұзақ аралығы» мәнін тексеріңізші (минут).
+  relevant:
+  - section: technical_heated_lunch_box.timer_minutes
+    grade: 3
+  - section: technical_heated_lunch_box.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_lunch_box.timer_minutes; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_timer_interval
+  need_key: technical.heated_lunch_box.timer_minutes|current
+  required:
+  - fact: technical.heated_lunch_box.timer_minutes
+    sections:
+    - technical_heated_lunch_box.timer_minutes
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_lunch_box_cable_cm
+  category: simple
+  en: For Heated lunch container, what is the specified supplied cable length in cm?
+  ru: Для «Контейнер для обеда с подогревом» какое значение указано для показателя «Длина комплектного
+    кабеля» (см)?
+  kk: «Қыздыратын түскі ас контейнері» тауары үшін «Жинақтағы кабель ұзындығы» көрсеткішінің мәні қандай
+    (см)?
+  relevant:
+  - section: technical_heated_lunch_box.cable_cm
+    grade: 3
+  - section: technical_heated_lunch_box.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_lunch_box.cable_cm; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.heated_lunch_box.cable_cm|current
+  required:
+  - fact: technical.heated_lunch_box.cable_cm
+    sections:
+    - technical_heated_lunch_box.cable_cm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_lunch_box_modes_count
+  category: simple
+  en: I am comparing specifications. Find the number of operating modes for Heated lunch container, in
+    units.
+  ru: Сравниваю характеристики. Нужен показатель «Число режимов работы» у «Контейнер для обеда с подогревом»,
+    в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Қыздыратын түскі ас контейнері» үшін «Жұмыс режимдерінің саны»
+    мәні қажет (дана).
+  relevant:
+  - section: technical_heated_lunch_box.modes_count
+    grade: 3
+  - section: technical_heated_lunch_box.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_lunch_box.modes_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.heated_lunch_box.modes_count|current
+  required:
+  - fact: technical.heated_lunch_box.modes_count
+    sections:
+    - technical_heated_lunch_box.modes_count
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_heated_lunch_box_humidity_max_percent
+  category: unanswerable
+  en: For Heated lunch container, what is the specified maximum permitted humidity in percent?
+  ru: Для «Контейнер для обеда с подогревом» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Қыздыратын түскі ас контейнері» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_heated_lunch_box.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for heated_lunch_box does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.heated_lunch_box.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_heated_lunch_box_drop_test_cm
+  category: unanswerable
+  en: For Heated lunch container, what is the specified certified drop-test height in cm?
+  ru: Для «Контейнер для обеда с подогревом» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Қыздыратын түскі ас контейнері» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_heated_lunch_box.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for heated_lunch_box does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.heated_lunch_box.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_heated_lunch_box_repair_parts_price
+  category: unanswerable
+  en: For Heated lunch container, what is the specified replacement-part price in KZT?
+  ru: Для «Контейнер для обеда с подогревом» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Қыздыратын түскі ас контейнері» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_heated_lunch_box.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for heated_lunch_box does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.heated_lunch_box.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_heated_lunch_box_certification_id
+  category: unanswerable
+  en: For Heated lunch container, what is the specified certification record number in record?
+  ru: Для «Контейнер для обеда с подогревом» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Қыздыратын түскі ас контейнері» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_heated_lunch_box.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for heated_lunch_box does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.heated_lunch_box.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_heated_lunch_box
+  category: multi_fragment
+  en: What does Heated lunch container weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Контейнер для обеда с подогревом» и какой вес посылки допускают пункты самовывоза?
+  kk: «Қыздыратын түскі ас контейнері» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_heated_lunch_box.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.heated_lunch_box.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.heated_lunch_box.mass_g
+    sections:
+    - technical_heated_lunch_box.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_counter_fryer_mass_g
+  category: simple
+  en: 'Compact countertop fryer: mass, g?'
+  ru: '«Компактная настольная фритюрница»: масса, г?'
+  kk: '«Ықшам үстел фритюрі»: салмағы, г?'
+  relevant:
+  - section: technical_counter_fryer.mass_g
+    grade: 3
+  - section: technical_counter_fryer.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.counter_fryer.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.counter_fryer.mass_g|current
+  required:
+  - fact: technical.counter_fryer.mass_g
+    sections:
+    - technical_counter_fryer.mass_g
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_counter_fryer_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Compact countertop fryer (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Компактная настольная фритюрница» (мм).
+  kk: Карточкалар ұқсас. «Ықшам үстел фритюрі» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_counter_fryer.width_mm
+    grade: 3
+  - section: technical_counter_fryer.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.counter_fryer.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.counter_fryer.width_mm|current
+  required:
+  - fact: technical.counter_fryer.width_mm
+    sections:
+    - technical_counter_fryer.width_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_counter_fryer_height_mm
+  category: hard
+  en: Check the specifcation of Compact countertop fryer for height (mm), please.
+  ru: 'Проверьте характиристику «Компактная настольная фритюрница»: интересует «Высота» (мм).'
+  kk: «Ықшам үстел фритюрі» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_counter_fryer.height_mm
+    grade: 3
+  - section: technical_counter_fryer.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.counter_fryer.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.counter_fryer.height_mm|current
+  required:
+  - fact: technical.counter_fryer.height_mm
+    sections:
+    - technical_counter_fryer.height_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_counter_fryer_depth_mm
+  category: simple
+  en: For Compact countertop fryer, what is the specified depth in mm?
+  ru: Для «Компактная настольная фритюрница» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Ықшам үстел фритюрі» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_counter_fryer.depth_mm
+    grade: 3
+  - section: technical_counter_fryer.operating_min_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: «Ықшам үстел фритюрі» үшін «Тереңдігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.counter_fryer.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.counter_fryer.depth_mm|current
+  required:
+  - fact: technical.counter_fryer.depth_mm
+    sections:
+    - technical_counter_fryer.depth_mm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_counter_fryer_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Compact countertop
+    fryer, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Компактная
+    настольная фритюрница», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Ықшам үстел фритюрі» үшін «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    мәні қажет (C).
+  relevant:
+  - section: technical_counter_fryer.operating_min_c
+    grade: 3
+  - section: technical_counter_fryer.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.counter_fryer.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.counter_fryer.operating_min_c|current
+  required:
+  - fact: technical.counter_fryer.operating_min_c
+    sections:
+    - technical_counter_fryer.operating_min_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_counter_fryer_operating_max_c
+  category: hard
+  en: 'Compact countertop fryer: maximum operating ambient temperature, C?'
+  ru: '«Компактная настольная фритюрница»: максимальная температура воздуха при работе, C?'
+  kk: '«Ықшам үстел фритюрі»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_counter_fryer.operating_max_c
+    grade: 3
+  - section: technical_counter_fryer.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.counter_fryer.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.counter_fryer.operating_max_c|current
+  required:
+  - fact: technical.counter_fryer.operating_max_c
+    sections:
+    - technical_counter_fryer.operating_max_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_counter_fryer_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Compact countertop fryer (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Компактная
+    настольная фритюрница» (Вт).
+  kk: Карточкалар ұқсас. «Ықшам үстел фритюрі» үшін нақты «Номиналды тұтыну қуаты» көрсеткішін айтыңыз
+    (Вт).
+  relevant:
+  - section: technical_counter_fryer.power_w
+    grade: 3
+  - section: technical_counter_fryer.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.counter_fryer.power_w; neighbouring volume_ml does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.counter_fryer.power_w|current
+  required:
+  - fact: technical.counter_fryer.power_w
+    sections:
+    - technical_counter_fryer.power_w
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_counter_fryer_volume_ml
+  category: hard
+  en: Check the specifcation of Compact countertop fryer for usable volume (ml), please.
+  ru: 'Проверьте характиристику «Компактная настольная фритюрница»: интересует «Полезный объём» (мл).'
+  kk: «Ықшам үстел фритюрі» сипатамасынан «Пайдалы көлемі» мәнін тексеріңізші (мл).
+  relevant:
+  - section: technical_counter_fryer.volume_ml
+    grade: 3
+  - section: technical_counter_fryer.min_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.counter_fryer.volume_ml; neighbouring min_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.counter_fryer.volume_ml|current
+  required:
+  - fact: technical.counter_fryer.volume_ml
+    sections:
+    - technical_counter_fryer.volume_ml
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_counter_fryer_min_temp_c
+  category: hard
+  en: For Compact countertop fryer, what is the specified minimum selectable process temperature in C?
+  ru: Для «Компактная настольная фритюрница» какое значение указано для показателя «Минимальная выбираемая
+    рабочая температура» (C)?
+  kk: «Ықшам үстел фритюрі» тауары үшін «Таңдалатын өңдеу температурасының ең төмен мәні» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_counter_fryer.min_temp_c
+    grade: 3
+  - section: technical_counter_fryer.max_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.counter_fryer.min_temp_c; neighbouring max_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.counter_fryer.min_temp_c|current
+  required:
+  - fact: technical.counter_fryer.min_temp_c
+    sections:
+    - technical_counter_fryer.min_temp_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_counter_fryer_max_temp_c
+  category: hard
+  en: I am comparing specifications. Find the maximum selectable process temperature for Compact countertop
+    fryer, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная выбираемая рабочая температура» у «Компактная
+    настольная фритюрница», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Ықшам үстел фритюрі» үшін «Таңдалатын өңдеу температурасының
+    ең жоғары мәні» мәні қажет (C).
+  relevant:
+  - section: technical_counter_fryer.max_temp_c
+    grade: 3
+  - section: technical_counter_fryer.timer_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.counter_fryer.max_temp_c; neighbouring timer_minutes does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.counter_fryer.max_temp_c|current
+  required:
+  - fact: technical.counter_fryer.max_temp_c
+    sections:
+    - technical_counter_fryer.max_temp_c
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_counter_fryer_timer_minutes
+  category: hard
+  en: 'Compact countertop fryer: maximum timer interval, minutes?'
+  ru: '«Компактная настольная фритюрница»: максимальный интервал таймера, минут?'
+  kk: '«Ықшам үстел фритюрі»: таймердің ең ұзақ аралығы, минут?'
+  relevant:
+  - section: technical_counter_fryer.timer_minutes
+    grade: 3
+  - section: technical_counter_fryer.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Компактная настольная фритюрница» показатель «Максимальный интервал таймера» (минут) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.counter_fryer.timer_minutes; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_timer_interval
+  need_key: technical.counter_fryer.timer_minutes|current
+  required:
+  - fact: technical.counter_fryer.timer_minutes
+    sections:
+    - technical_counter_fryer.timer_minutes
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_counter_fryer_cable_cm
+  category: hard
+  en: The cards look similar. What supplied cable length is listed for Compact countertop fryer (cm)?
+  ru: Карточки похожи. Уточните показатель «Длина комплектного кабеля» именно для «Компактная настольная
+    фритюрница» (см).
+  kk: Карточкалар ұқсас. «Ықшам үстел фритюрі» үшін нақты «Жинақтағы кабель ұзындығы» көрсеткішін айтыңыз
+    (см).
+  relevant:
+  - section: technical_counter_fryer.cable_cm
+    grade: 3
+  - section: technical_counter_fryer.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.counter_fryer.cable_cm; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.counter_fryer.cable_cm|current
+  required:
+  - fact: technical.counter_fryer.cable_cm
+    sections:
+    - technical_counter_fryer.cable_cm
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_counter_fryer_modes_count
+  category: hard
+  en: Check the specifcation of Compact countertop fryer for number of operating modes (units), please.
+  ru: 'Проверьте характиристику «Компактная настольная фритюрница»: интересует «Число режимов работы»
+    (шт.).'
+  kk: «Ықшам үстел фритюрі» сипатамасынан «Жұмыс режимдерінің саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_counter_fryer.modes_count
+    grade: 3
+  - section: technical_counter_fryer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.counter_fryer.modes_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.counter_fryer.modes_count|current
+  required:
+  - fact: technical.counter_fryer.modes_count
+    sections:
+    - technical_counter_fryer.modes_count
+  tags:
+  - profile_derived
+  - domain_kitchen_heat
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_counter_fryer_humidity_max_percent
+  category: unanswerable
+  en: For Compact countertop fryer, what is the specified maximum permitted humidity in percent?
+  ru: Для «Компактная настольная фритюрница» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Ықшам үстел фритюрі» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_counter_fryer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for counter_fryer does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.counter_fryer.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_counter_fryer_drop_test_cm
+  category: unanswerable
+  en: For Compact countertop fryer, what is the specified certified drop-test height in cm?
+  ru: Для «Компактная настольная фритюрница» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Ықшам үстел фритюрі» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_counter_fryer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for counter_fryer does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.counter_fryer.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_counter_fryer_repair_parts_price
+  category: unanswerable
+  en: For Compact countertop fryer, what is the specified replacement-part price in KZT?
+  ru: Для «Компактная настольная фритюрница» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Ықшам үстел фритюрі» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_counter_fryer.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for counter_fryer does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.counter_fryer.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_counter_fryer_certification_id
+  category: unanswerable
+  en: For Compact countertop fryer, what is the specified certification record number in record?
+  ru: Для «Компактная настольная фритюрница» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Ықшам үстел фритюрі» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_counter_fryer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for counter_fryer does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.counter_fryer.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_kitchen_heat
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact

@@ -49,6 +49,7 @@ class RegisterEntry(_Model):
     format: DocFormat
     title: NonEmptyStr
     effective_from: date
+    effective_to: date | None = None
     sha256: Sha256
     bytes: NonNegativeInt
     key_column: NonNegativeInt | None = None  # record documents
@@ -74,6 +75,7 @@ class ExpectedPlacement(_Model):
 class ExpectedDoc(_Model):
     title: NonEmptyStr
     effective_from: date
+    effective_to: date | None = None
     placements: list[ExpectedPlacement]
     content: list[str]
 

@@ -30,9 +30,14 @@ from supportpilot.retrieval.sparse import sparse_vector
 def qdrant_filter(filters: SearchFilters, kb_version: str) -> qm.Filter:
     must: list[Any] = [
         qm.FieldCondition(key="kb_version", match=qm.MatchValue(value=kb_version)),
-        qm.FieldCondition(key="valid_from", range=qm.Range(lte=filters.as_of.toordinal())),
-        qm.FieldCondition(key="valid_to", range=qm.Range(gte=filters.as_of.toordinal())),
     ]
+    if not filters.all_versions:
+        must.extend(
+            [
+                qm.FieldCondition(key="valid_from", range=qm.Range(lte=filters.as_of.toordinal())),
+                qm.FieldCondition(key="valid_to", range=qm.Range(gte=filters.as_of.toordinal())),
+            ]
+        )
     if filters.corpus_lang:
         must.append(qm.FieldCondition(key="lang", match=qm.MatchValue(value=filters.corpus_lang)))
     for key, values in (("doc_id", filters.doc_ids), ("doc_type", filters.doc_types)):
@@ -195,6 +200,8 @@ def assemble_context(
         metadata = {
             "chunk_id": row.chunk_id,
             "doc_id": row.chunk.doc_id,
+            "effective_from": row.chunk.effective_from.isoformat(),
+            "effective_to": row.chunk.effective_to.isoformat() if row.chunk.effective_to else None,
             "source_path": row.chunk.source_path,
             "locator": row.chunk.locator.model_dump(exclude_none=True),
         }

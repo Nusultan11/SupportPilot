@@ -1,0 +1,25 @@
+# Original fictional demo care labels, authored by Codex (LLM). Review: draft.
+schema_version: kb_doc/1
+doc_id: textile_care
+doc_type: policy
+format: txt
+title: {en: 'Care labels for clothing and home textiles', ru: 'Уход за одеждой и домашним текстилем', kk: 'Киім мен үй тоқыма бұйымдарын күту'}
+sections:
+  - id: dress
+    heading: {en: 'DR-1131 dress', ru: 'Платье DR-1131', kk: 'DR-1131 көйлегі'}
+    paragraphs: [{en: '{care_dress}', ru: '{care_dress}', kk: '{care_dress}'}]
+  - id: shirt
+    heading: {en: 'SH-0410 shirt', ru: 'Рубашка SH-0410', kk: 'SH-0410 жейдесі'}
+    paragraphs: [{en: '{care_shirt}', ru: '{care_shirt}', kk: '{care_shirt}'}]
+  - id: jeans
+    heading: {en: 'JN-2232 jeans', ru: 'Джинсы JN-2232', kk: 'JN-2232 шалбары'}
+    paragraphs: [{en: '{care_jeans}', ru: '{care_jeans}', kk: '{care_jeans}'}]
+  - id: backpack
+    heading: {en: 'BG-0711 leather backpack', ru: 'Кожаный рюкзак BG-0711', kk: 'BG-0711 былғары сөмкесі'}
+    paragraphs: [{en: '{care_backpack}', ru: '{care_backpack}', kk: '{care_backpack}'}]
+  - id: blanket
+    heading: {en: 'BL-1515 blanket', ru: 'Одеяло BL-1515', kk: 'BL-1515 көрпесі'}
+    paragraphs: [{en: '{care_blanket}', ru: '{care_blanket}', kk: '{care_blanket}'}]
+  - id: jacket
+    heading: {en: 'JK-0560 down jacket', ru: 'Пуховик JK-0560', kk: 'JK-0560 мамық күртесі'}
+    paragraphs: [{en: '{care_jacket}', ru: '{care_jacket}', kk: '{care_jacket}'}]

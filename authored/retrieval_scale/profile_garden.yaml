@@ -1,0 +1,4930 @@
+# Compiled from explicit technical_profiles/1 facts and native LLM-authored templates.
+schema_version: retrieval_scale_source/1
+origin: llm_generated
+review_status: draft
+author: Codex (LLM); explicit profiles and native templates compiled deterministically
+allowed_use: eval_only
+licence_note: Original fictional store specifications for internal demo and evaluation; no external manufacturer
+  data or real customer data. Fluent human review pending.
+items:
+- id: catalog_garden_sprayer_mass_g
+  category: simple
+  en: For Powered garden sprayer, what is the specified mass in g?
+  ru: Для «Электрический садовый опрыскиватель» какое значение указано для показателя «Масса» (г)?
+  kk: «Электр бақ бүріккіші» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_garden_sprayer.mass_g
+    grade: 3
+  - section: technical_garden_sprayer.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.garden_sprayer.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.garden_sprayer.mass_g|current
+  required:
+  - fact: technical.garden_sprayer.mass_g
+    sections:
+    - technical_garden_sprayer.mass_g
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_garden_sprayer_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Powered garden sprayer, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Электрический садовый опрыскиватель», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Электр бақ бүріккіші» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_garden_sprayer.width_mm
+    grade: 3
+  - section: technical_garden_sprayer.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.garden_sprayer.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.garden_sprayer.width_mm|current
+  required:
+  - fact: technical.garden_sprayer.width_mm
+    sections:
+    - technical_garden_sprayer.width_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_garden_sprayer_height_mm
+  category: simple
+  en: 'Powered garden sprayer: height, mm?'
+  ru: '«Электрический садовый опрыскиватель»: высота, мм?'
+  kk: '«Электр бақ бүріккіші»: биіктігі, мм?'
+  relevant:
+  - section: technical_garden_sprayer.height_mm
+    grade: 3
+  - section: technical_garden_sprayer.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.garden_sprayer.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.garden_sprayer.height_mm|current
+  required:
+  - fact: technical.garden_sprayer.height_mm
+    sections:
+    - technical_garden_sprayer.height_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_garden_sprayer_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Powered garden sprayer (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Электрический садовый опрыскиватель»
+    (мм).
+  kk: Карточкалар ұқсас. «Электр бақ бүріккіші» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_garden_sprayer.depth_mm
+    grade: 3
+  - section: technical_garden_sprayer.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.garden_sprayer.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.garden_sprayer.depth_mm|current
+  required:
+  - fact: technical.garden_sprayer.depth_mm
+    sections:
+    - technical_garden_sprayer.depth_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_garden_sprayer_operating_min_c
+  category: hard
+  en: Check the specifcation of Powered garden sprayer for minimum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Электрический садовый опрыскиватель»: интересует «Минимальная температура
+    воздуха при работе» (C).'
+  kk: «Электр бақ бүріккіші» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_garden_sprayer.operating_min_c
+    grade: 3
+  - section: technical_garden_sprayer.operating_max_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: «Электр бақ бүріккіші» үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» (C) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.garden_sprayer.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.garden_sprayer.operating_min_c|current
+  required:
+  - fact: technical.garden_sprayer.operating_min_c
+    sections:
+    - technical_garden_sprayer.operating_min_c
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_garden_sprayer_operating_max_c
+  category: hard
+  en: For Powered garden sprayer, what is the specified maximum operating ambient temperature in C?
+  ru: Для «Электрический садовый опрыскиватель» какое значение указано для показателя «Максимальная температура
+    воздуха при работе» (C)?
+  kk: «Электр бақ бүріккіші» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_garden_sprayer.operating_max_c
+    grade: 3
+  - section: technical_garden_sprayer.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.garden_sprayer.operating_max_c; neighbouring volume_ml does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.garden_sprayer.operating_max_c|current
+  required:
+  - fact: technical.garden_sprayer.operating_max_c
+    sections:
+    - technical_garden_sprayer.operating_max_c
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_garden_sprayer_volume_ml
+  category: simple
+  en: I am comparing specifications. Find the usable volume for Powered garden sprayer, in ml.
+  ru: Сравниваю характеристики. Нужен показатель «Полезный объём» у «Электрический садовый опрыскиватель»,
+    в мл.
+  kk: Сипаттамаларды салыстырып отырмын. «Электр бақ бүріккіші» үшін «Пайдалы көлемі» мәні қажет (мл).
+  relevant:
+  - section: technical_garden_sprayer.volume_ml
+    grade: 3
+  - section: technical_garden_sprayer.pressure_bar
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.garden_sprayer.volume_ml; neighbouring pressure_bar does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.garden_sprayer.volume_ml|current
+  required:
+  - fact: technical.garden_sprayer.volume_ml
+    sections:
+    - technical_garden_sprayer.volume_ml
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_garden_sprayer_pressure_bar
+  category: simple
+  en: 'Powered garden sprayer: rated delivery pressure, bar?'
+  ru: '«Электрический садовый опрыскиватель»: номинальное давление подачи, бар?'
+  kk: '«Электр бақ бүріккіші»: номиналды беру қысымы, бар?'
+  relevant:
+  - section: technical_garden_sprayer.pressure_bar
+    grade: 3
+  - section: technical_garden_sprayer.flow_ml_min
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.garden_sprayer.pressure_bar; neighbouring flow_ml_min does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_pump_pressure
+  need_key: technical.garden_sprayer.pressure_bar|current
+  required:
+  - fact: technical.garden_sprayer.pressure_bar
+    sections:
+    - technical_garden_sprayer.pressure_bar
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_garden_sprayer_flow_ml_min
+  category: hard
+  en: The cards look similar. What rated liquid delivery rate is listed for Powered garden sprayer (ml/min)?
+  ru: Карточки похожи. Уточните показатель «Номинальный расход подаваемой жидкости» именно для «Электрический
+    садовый опрыскиватель» (мл/мин).
+  kk: Карточкалар ұқсас. «Электр бақ бүріккіші» үшін нақты «Берілетін сұйықтықтың номиналды шығыны» көрсеткішін
+    айтыңыз (мл/мин).
+  relevant:
+  - section: technical_garden_sprayer.flow_ml_min
+    grade: 3
+  - section: technical_garden_sprayer.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.garden_sprayer.flow_ml_min; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_liquid_flow
+  need_key: technical.garden_sprayer.flow_ml_min|current
+  required:
+  - fact: technical.garden_sprayer.flow_ml_min
+    sections:
+    - technical_garden_sprayer.flow_ml_min
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_garden_sprayer_cable_cm
+  category: hard
+  en: Check the specifcation of Powered garden sprayer for supplied cable length (cm), please.
+  ru: 'Проверьте характиристику «Электрический садовый опрыскиватель»: интересует «Длина комплектного
+    кабеля» (см).'
+  kk: «Электр бақ бүріккіші» сипатамасынан «Жинақтағы кабель ұзындығы» мәнін тексеріңізші (см).
+  relevant:
+  - section: technical_garden_sprayer.cable_cm
+    grade: 3
+  - section: technical_garden_sprayer.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.garden_sprayer.cable_cm; neighbouring power_w does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.garden_sprayer.cable_cm|current
+  required:
+  - fact: technical.garden_sprayer.cable_cm
+    sections:
+    - technical_garden_sprayer.cable_cm
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_garden_sprayer_power_w
+  category: simple
+  en: For Powered garden sprayer, what is the specified rated power consumption in W?
+  ru: Для «Электрический садовый опрыскиватель» какое значение указано для показателя «Номинальная потребляемая
+    мощность» (Вт)?
+  kk: «Электр бақ бүріккіші» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай (Вт)?
+  relevant:
+  - section: technical_garden_sprayer.power_w
+    grade: 3
+  - section: technical_garden_sprayer.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.garden_sprayer.power_w; neighbouring noise_db does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.garden_sprayer.power_w|current
+  required:
+  - fact: technical.garden_sprayer.power_w
+    sections:
+    - technical_garden_sprayer.power_w
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_garden_sprayer_noise_db
+  category: simple
+  en: I am comparing specifications. Find the rated sound pressure level for Powered garden sprayer, in
+    dB.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальный уровень звукового давления» у «Электрический
+    садовый опрыскиватель», в дБ.
+  kk: Сипаттамаларды салыстырып отырмын. «Электр бақ бүріккіші» үшін «Номиналды дыбыс қысымының деңгейі»
+    мәні қажет (дБ).
+  relevant:
+  - section: technical_garden_sprayer.noise_db
+    grade: 3
+  - section: technical_garden_sprayer.spray_width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Электрический садовый опрыскиватель» показатель «Номинальный уровень звукового давления»
+    (дБ) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.garden_sprayer.noise_db; neighbouring spray_width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.garden_sprayer.noise_db|current
+  required:
+  - fact: technical.garden_sprayer.noise_db
+    sections:
+    - technical_garden_sprayer.noise_db
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_garden_sprayer_spray_width_mm
+  category: simple
+  en: 'Powered garden sprayer: rated spray width, mm?'
+  ru: '«Электрический садовый опрыскиватель»: номинальная ширина распыления, мм?'
+  kk: '«Электр бақ бүріккіші»: номиналды бүрку ені, мм?'
+  relevant:
+  - section: technical_garden_sprayer.spray_width_mm
+    grade: 3
+  - section: technical_garden_sprayer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.garden_sprayer.spray_width_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spray_geometry
+  need_key: technical.garden_sprayer.spray_width_mm|current
+  required:
+  - fact: technical.garden_sprayer.spray_width_mm
+    sections:
+    - technical_garden_sprayer.spray_width_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_garden_sprayer_humidity_max_percent
+  category: unanswerable
+  en: For Powered garden sprayer, what is the specified maximum permitted humidity in percent?
+  ru: Для «Электрический садовый опрыскиватель» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Электр бақ бүріккіші» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_garden_sprayer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for garden_sprayer does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.garden_sprayer.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_garden_sprayer_drop_test_cm
+  category: unanswerable
+  en: For Powered garden sprayer, what is the specified certified drop-test height in cm?
+  ru: Для «Электрический садовый опрыскиватель» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Электр бақ бүріккіші» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_garden_sprayer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for garden_sprayer does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.garden_sprayer.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_garden_sprayer_repair_parts_price
+  category: unanswerable
+  en: For Powered garden sprayer, what is the specified replacement-part price in KZT?
+  ru: Для «Электрический садовый опрыскиватель» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Электр бақ бүріккіші» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_garden_sprayer.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for garden_sprayer does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.garden_sprayer.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_garden_sprayer_certification_id
+  category: unanswerable
+  en: For Powered garden sprayer, what is the specified certification record number in record?
+  ru: Для «Электрический садовый опрыскиватель» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Электр бақ бүріккіші» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_garden_sprayer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for garden_sprayer does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.garden_sprayer.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_garden_sprayer
+  category: multi_fragment
+  en: What does Powered garden sprayer weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Электрический садовый опрыскиватель» и какой вес посылки допускают пункты самовывоза?
+  kk: «Электр бақ бүріккіші» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат береді?
+  relevant:
+  - section: technical_garden_sprayer.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.garden_sprayer.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.garden_sprayer.mass_g
+    sections:
+    - technical_garden_sprayer.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_prepublication_mass_garden_sprayer
+  category: unanswerable
+  en: According to the instructions valid on 15 October 2026, what was the stated mass of Powered garden
+    sprayer?
+  ru: По инструкциям, действовавшим 15 октября 2026 года, какая масса была указана для «Электрический
+    садовый опрыскиватель»?
+  kk: 2026 жылғы 15 қазанда қолданылған нұсқаулықтар бойынша «Электр бақ бүріккіші» үшін қандай салмақ
+    көрсетілген еді?
+  relevant:
+  - section: technical_garden_sprayer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The technical source starts on 1 November 2026. Its current mass cannot establish a fact
+    at the requested earlier date.
+  family_id: profile_physical_mass
+  need_key: technical.garden_sprayer.mass_g|2026_10_15_before_document_validity
+  required: []
+  tags:
+  - profile_derived
+  - temporal
+  - outside_validity
+  - hard_negative
+  as_of: '2026-10-15'
+  all_versions: false
+  negative_reason: expired
+- id: catalog_greenhouse_mister_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Greenhouse misting unit (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Тепличный туманообразователь» (г).
+  kk: Карточкалар ұқсас. «Жылыжай тұман құрылғысы» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_greenhouse_mister.mass_g
+    grade: 3
+  - section: technical_greenhouse_mister.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.greenhouse_mister.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.greenhouse_mister.mass_g|current
+  required:
+  - fact: technical.greenhouse_mister.mass_g
+    sections:
+    - technical_greenhouse_mister.mass_g
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_greenhouse_mister_width_mm
+  category: hard
+  en: Check the specifcation of Greenhouse misting unit for width (mm), please.
+  ru: 'Проверьте характиристику «Тепличный туманообразователь»: интересует «Ширина» (мм).'
+  kk: «Жылыжай тұман құрылғысы» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_greenhouse_mister.width_mm
+    grade: 3
+  - section: technical_greenhouse_mister.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.greenhouse_mister.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.greenhouse_mister.width_mm|current
+  required:
+  - fact: technical.greenhouse_mister.width_mm
+    sections:
+    - technical_greenhouse_mister.width_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_greenhouse_mister_height_mm
+  category: simple
+  en: For Greenhouse misting unit, what is the specified height in mm?
+  ru: Для «Тепличный туманообразователь» какое значение указано для показателя «Высота» (мм)?
+  kk: «Жылыжай тұман құрылғысы» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_greenhouse_mister.height_mm
+    grade: 3
+  - section: technical_greenhouse_mister.depth_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.greenhouse_mister.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.greenhouse_mister.height_mm|current
+  required:
+  - fact: technical.greenhouse_mister.height_mm
+    sections:
+    - technical_greenhouse_mister.height_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_greenhouse_mister_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Greenhouse misting unit, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Тепличный туманообразователь», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Жылыжай тұман құрылғысы» үшін «Тереңдігі» мәні қажет (мм).
+  relevant:
+  - section: technical_greenhouse_mister.depth_mm
+    grade: 3
+  - section: technical_greenhouse_mister.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.greenhouse_mister.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.greenhouse_mister.depth_mm|current
+  required:
+  - fact: technical.greenhouse_mister.depth_mm
+    sections:
+    - technical_greenhouse_mister.depth_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_greenhouse_mister_operating_min_c
+  category: hard
+  en: 'Greenhouse misting unit: minimum operating ambient temperature, C?'
+  ru: '«Тепличный туманообразователь»: минимальная температура воздуха при работе, C?'
+  kk: '«Жылыжай тұман құрылғысы»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_greenhouse_mister.operating_min_c
+    grade: 3
+  - section: technical_greenhouse_mister.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.greenhouse_mister.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.greenhouse_mister.operating_min_c|current
+  required:
+  - fact: technical.greenhouse_mister.operating_min_c
+    sections:
+    - technical_greenhouse_mister.operating_min_c
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_greenhouse_mister_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Greenhouse misting
+    unit (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Тепличный
+    туманообразователь» (C).
+  kk: Карточкалар ұқсас. «Жылыжай тұман құрылғысы» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_greenhouse_mister.operating_max_c
+    grade: 3
+  - section: technical_greenhouse_mister.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Жылыжай тұман құрылғысы» үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» (C) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.greenhouse_mister.operating_max_c; neighbouring volume_ml does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.greenhouse_mister.operating_max_c|current
+  required:
+  - fact: technical.greenhouse_mister.operating_max_c
+    sections:
+    - technical_greenhouse_mister.operating_max_c
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_greenhouse_mister_volume_ml
+  category: hard
+  en: Check the specifcation of Greenhouse misting unit for usable volume (ml), please.
+  ru: 'Проверьте характиристику «Тепличный туманообразователь»: интересует «Полезный объём» (мл).'
+  kk: «Жылыжай тұман құрылғысы» сипатамасынан «Пайдалы көлемі» мәнін тексеріңізші (мл).
+  relevant:
+  - section: technical_greenhouse_mister.volume_ml
+    grade: 3
+  - section: technical_greenhouse_mister.pressure_bar
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.greenhouse_mister.volume_ml; neighbouring pressure_bar does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.greenhouse_mister.volume_ml|current
+  required:
+  - fact: technical.greenhouse_mister.volume_ml
+    sections:
+    - technical_greenhouse_mister.volume_ml
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_greenhouse_mister_pressure_bar
+  category: simple
+  en: For Greenhouse misting unit, what is the specified rated delivery pressure in bar?
+  ru: Для «Тепличный туманообразователь» какое значение указано для показателя «Номинальное давление подачи»
+    (бар)?
+  kk: «Жылыжай тұман құрылғысы» тауары үшін «Номиналды беру қысымы» көрсеткішінің мәні қандай (бар)?
+  relevant:
+  - section: technical_greenhouse_mister.pressure_bar
+    grade: 3
+  - section: technical_greenhouse_mister.flow_ml_min
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.greenhouse_mister.pressure_bar; neighbouring flow_ml_min does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_pump_pressure
+  need_key: technical.greenhouse_mister.pressure_bar|current
+  required:
+  - fact: technical.greenhouse_mister.pressure_bar
+    sections:
+    - technical_greenhouse_mister.pressure_bar
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_greenhouse_mister_flow_ml_min
+  category: hard
+  en: I am comparing specifications. Find the rated liquid delivery rate for Greenhouse misting unit,
+    in ml/min.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальный расход подаваемой жидкости» у «Тепличный
+    туманообразователь», в мл/мин.
+  kk: Сипаттамаларды салыстырып отырмын. «Жылыжай тұман құрылғысы» үшін «Берілетін сұйықтықтың номиналды
+    шығыны» мәні қажет (мл/мин).
+  relevant:
+  - section: technical_greenhouse_mister.flow_ml_min
+    grade: 3
+  - section: technical_greenhouse_mister.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.greenhouse_mister.flow_ml_min; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_liquid_flow
+  need_key: technical.greenhouse_mister.flow_ml_min|current
+  required:
+  - fact: technical.greenhouse_mister.flow_ml_min
+    sections:
+    - technical_greenhouse_mister.flow_ml_min
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_greenhouse_mister_cable_cm
+  category: simple
+  en: 'Greenhouse misting unit: supplied cable length, cm?'
+  ru: '«Тепличный туманообразователь»: длина комплектного кабеля, см?'
+  kk: '«Жылыжай тұман құрылғысы»: жинақтағы кабель ұзындығы, см?'
+  relevant:
+  - section: technical_greenhouse_mister.cable_cm
+    grade: 3
+  - section: technical_greenhouse_mister.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.greenhouse_mister.cable_cm; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.greenhouse_mister.cable_cm|current
+  required:
+  - fact: technical.greenhouse_mister.cable_cm
+    sections:
+    - technical_greenhouse_mister.cable_cm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_greenhouse_mister_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Greenhouse misting unit (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Тепличный туманообразователь»
+    (Вт).
+  kk: Карточкалар ұқсас. «Жылыжай тұман құрылғысы» үшін нақты «Номиналды тұтыну қуаты» көрсеткішін айтыңыз
+    (Вт).
+  relevant:
+  - section: technical_greenhouse_mister.power_w
+    grade: 3
+  - section: technical_greenhouse_mister.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.greenhouse_mister.power_w; neighbouring noise_db does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.greenhouse_mister.power_w|current
+  required:
+  - fact: technical.greenhouse_mister.power_w
+    sections:
+    - technical_greenhouse_mister.power_w
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_greenhouse_mister_noise_db
+  category: hard
+  en: Check the specifcation of Greenhouse misting unit for rated sound pressure level (dB), please.
+  ru: 'Проверьте характиристику «Тепличный туманообразователь»: интересует «Номинальный уровень звукового
+    давления» (дБ).'
+  kk: «Жылыжай тұман құрылғысы» сипатамасынан «Номиналды дыбыс қысымының деңгейі» мәнін тексеріңізші (дБ).
+  relevant:
+  - section: technical_greenhouse_mister.noise_db
+    grade: 3
+  - section: technical_greenhouse_mister.spray_width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.greenhouse_mister.noise_db; neighbouring spray_width_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.greenhouse_mister.noise_db|current
+  required:
+  - fact: technical.greenhouse_mister.noise_db
+    sections:
+    - technical_greenhouse_mister.noise_db
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_greenhouse_mister_spray_width_mm
+  category: simple
+  en: For Greenhouse misting unit, what is the specified rated spray width in mm?
+  ru: Для «Тепличный туманообразователь» какое значение указано для показателя «Номинальная ширина распыления»
+    (мм)?
+  kk: «Жылыжай тұман құрылғысы» тауары үшін «Номиналды бүрку ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_greenhouse_mister.spray_width_mm
+    grade: 3
+  - section: technical_greenhouse_mister.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Тепличный туманообразователь» показатель «Номинальная ширина распыления» (мм) нақтылап беріңізші,
+    осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.greenhouse_mister.spray_width_mm; neighbouring mass_g does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spray_geometry
+  need_key: technical.greenhouse_mister.spray_width_mm|current
+  required:
+  - fact: technical.greenhouse_mister.spray_width_mm
+    sections:
+    - technical_greenhouse_mister.spray_width_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_greenhouse_mister_humidity_max_percent
+  category: unanswerable
+  en: For Greenhouse misting unit, what is the specified maximum permitted humidity in percent?
+  ru: Для «Тепличный туманообразователь» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Жылыжай тұман құрылғысы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_greenhouse_mister.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for greenhouse_mister does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.greenhouse_mister.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_greenhouse_mister_drop_test_cm
+  category: unanswerable
+  en: For Greenhouse misting unit, what is the specified certified drop-test height in cm?
+  ru: Для «Тепличный туманообразователь» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Жылыжай тұман құрылғысы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_greenhouse_mister.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for greenhouse_mister does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.greenhouse_mister.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_greenhouse_mister_repair_parts_price
+  category: unanswerable
+  en: For Greenhouse misting unit, what is the specified replacement-part price in KZT?
+  ru: Для «Тепличный туманообразователь» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Жылыжай тұман құрылғысы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_greenhouse_mister.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for greenhouse_mister does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.greenhouse_mister.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_greenhouse_mister_certification_id
+  category: unanswerable
+  en: For Greenhouse misting unit, what is the specified certification record number in record?
+  ru: Для «Тепличный туманообразователь» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Жылыжай тұман құрылғысы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_greenhouse_mister.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for greenhouse_mister does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.greenhouse_mister.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_portable_washer_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Tank-fed portable garden washer, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Переносная садовая мойка с баком», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Бакты тасымалды бақ жуғышы» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_portable_washer.mass_g
+    grade: 3
+  - section: technical_portable_washer.width_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_washer.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.portable_washer.mass_g|current
+  required:
+  - fact: technical.portable_washer.mass_g
+    sections:
+    - technical_portable_washer.mass_g
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_washer_width_mm
+  category: simple
+  en: 'Tank-fed portable garden washer: width, mm?'
+  ru: '«Переносная садовая мойка с баком»: ширина, мм?'
+  kk: '«Бакты тасымалды бақ жуғышы»: ені, мм?'
+  relevant:
+  - section: technical_portable_washer.width_mm
+    grade: 3
+  - section: technical_portable_washer.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_washer.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.portable_washer.width_mm|current
+  required:
+  - fact: technical.portable_washer.width_mm
+    sections:
+    - technical_portable_washer.width_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_washer_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Tank-fed portable garden washer (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Переносная садовая мойка с баком» (мм).
+  kk: Карточкалар ұқсас. «Бакты тасымалды бақ жуғышы» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_portable_washer.height_mm
+    grade: 3
+  - section: technical_portable_washer.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_washer.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.portable_washer.height_mm|current
+  required:
+  - fact: technical.portable_washer.height_mm
+    sections:
+    - technical_portable_washer.height_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_washer_depth_mm
+  category: hard
+  en: Check the specifcation of Tank-fed portable garden washer for depth (mm), please.
+  ru: 'Проверьте характиристику «Переносная садовая мойка с баком»: интересует «Глубина» (мм).'
+  kk: «Бакты тасымалды бақ жуғышы» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_portable_washer.depth_mm
+    grade: 3
+  - section: technical_portable_washer.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_washer.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.portable_washer.depth_mm|current
+  required:
+  - fact: technical.portable_washer.depth_mm
+    sections:
+    - technical_portable_washer.depth_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_washer_operating_min_c
+  category: hard
+  en: For Tank-fed portable garden washer, what is the specified minimum operating ambient temperature
+    in C?
+  ru: Для «Переносная садовая мойка с баком» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Бакты тасымалды бақ жуғышы» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_portable_washer.operating_min_c
+    grade: 3
+  - section: technical_portable_washer.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_washer.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.portable_washer.operating_min_c|current
+  required:
+  - fact: technical.portable_washer.operating_min_c
+    sections:
+    - technical_portable_washer.operating_min_c
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_washer_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Tank-fed portable
+    garden washer, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Переносная
+    садовая мойка с баком», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Бакты тасымалды бақ жуғышы» үшін «Жұмыс кезіндегі ауаның ең
+    жоғары температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_portable_washer.operating_max_c
+    grade: 3
+  - section: technical_portable_washer.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_washer.operating_max_c; neighbouring volume_ml does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.portable_washer.operating_max_c|current
+  required:
+  - fact: technical.portable_washer.operating_max_c
+    sections:
+    - technical_portable_washer.operating_max_c
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_washer_volume_ml
+  category: simple
+  en: 'Tank-fed portable garden washer: usable volume, ml?'
+  ru: '«Переносная садовая мойка с баком»: полезный объём, мл?'
+  kk: '«Бакты тасымалды бақ жуғышы»: пайдалы көлемі, мл?'
+  relevant:
+  - section: technical_portable_washer.volume_ml
+    grade: 3
+  - section: technical_portable_washer.pressure_bar
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Бакты тасымалды бақ жуғышы» үшін «Пайдалы көлемі» (мл) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.portable_washer.volume_ml; neighbouring pressure_bar does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.portable_washer.volume_ml|current
+  required:
+  - fact: technical.portable_washer.volume_ml
+    sections:
+    - technical_portable_washer.volume_ml
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_washer_pressure_bar
+  category: hard
+  en: The cards look similar. What rated delivery pressure is listed for Tank-fed portable garden washer
+    (bar)?
+  ru: Карточки похожи. Уточните показатель «Номинальное давление подачи» именно для «Переносная садовая
+    мойка с баком» (бар).
+  kk: Карточкалар ұқсас. «Бакты тасымалды бақ жуғышы» үшін нақты «Номиналды беру қысымы» көрсеткішін айтыңыз
+    (бар).
+  relevant:
+  - section: technical_portable_washer.pressure_bar
+    grade: 3
+  - section: technical_portable_washer.flow_ml_min
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_washer.pressure_bar; neighbouring flow_ml_min does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_pump_pressure
+  need_key: technical.portable_washer.pressure_bar|current
+  required:
+  - fact: technical.portable_washer.pressure_bar
+    sections:
+    - technical_portable_washer.pressure_bar
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_washer_flow_ml_min
+  category: hard
+  en: Check the specifcation of Tank-fed portable garden washer for rated liquid delivery rate (ml/min),
+    please.
+  ru: 'Проверьте характиристику «Переносная садовая мойка с баком»: интересует «Номинальный расход подаваемой
+    жидкости» (мл/мин).'
+  kk: «Бакты тасымалды бақ жуғышы» сипатамасынан «Берілетін сұйықтықтың номиналды шығыны» мәнін тексеріңізші
+    (мл/мин).
+  relevant:
+  - section: technical_portable_washer.flow_ml_min
+    grade: 3
+  - section: technical_portable_washer.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_washer.flow_ml_min; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_liquid_flow
+  need_key: technical.portable_washer.flow_ml_min|current
+  required:
+  - fact: technical.portable_washer.flow_ml_min
+    sections:
+    - technical_portable_washer.flow_ml_min
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_washer_cable_cm
+  category: simple
+  en: For Tank-fed portable garden washer, what is the specified supplied cable length in cm?
+  ru: Для «Переносная садовая мойка с баком» какое значение указано для показателя «Длина комплектного
+    кабеля» (см)?
+  kk: «Бакты тасымалды бақ жуғышы» тауары үшін «Жинақтағы кабель ұзындығы» көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_portable_washer.cable_cm
+    grade: 3
+  - section: technical_portable_washer.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_washer.cable_cm; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.portable_washer.cable_cm|current
+  required:
+  - fact: technical.portable_washer.cable_cm
+    sections:
+    - technical_portable_washer.cable_cm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_washer_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Tank-fed portable garden washer,
+    in W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Переносная садовая
+    мойка с баком», в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Бакты тасымалды бақ жуғышы» үшін «Номиналды тұтыну қуаты» мәні
+    қажет (Вт).
+  relevant:
+  - section: technical_portable_washer.power_w
+    grade: 3
+  - section: technical_portable_washer.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_washer.power_w; neighbouring noise_db does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.portable_washer.power_w|current
+  required:
+  - fact: technical.portable_washer.power_w
+    sections:
+    - technical_portable_washer.power_w
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_washer_noise_db
+  category: simple
+  en: 'Tank-fed portable garden washer: rated sound pressure level, dB?'
+  ru: '«Переносная садовая мойка с баком»: номинальный уровень звукового давления, дБ?'
+  kk: '«Бакты тасымалды бақ жуғышы»: номиналды дыбыс қысымының деңгейі, дБ?'
+  relevant:
+  - section: technical_portable_washer.noise_db
+    grade: 3
+  - section: technical_portable_washer.spray_width_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_washer.noise_db; neighbouring spray_width_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.portable_washer.noise_db|current
+  required:
+  - fact: technical.portable_washer.noise_db
+    sections:
+    - technical_portable_washer.noise_db
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_washer_spray_width_mm
+  category: hard
+  en: The cards look similar. What rated spray width is listed for Tank-fed portable garden washer (mm)?
+  ru: Карточки похожи. Уточните показатель «Номинальная ширина распыления» именно для «Переносная садовая
+    мойка с баком» (мм).
+  kk: Карточкалар ұқсас. «Бакты тасымалды бақ жуғышы» үшін нақты «Номиналды бүрку ені» көрсеткішін айтыңыз
+    (мм).
+  relevant:
+  - section: technical_portable_washer.spray_width_mm
+    grade: 3
+  - section: technical_portable_washer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_washer.spray_width_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spray_geometry
+  need_key: technical.portable_washer.spray_width_mm|current
+  required:
+  - fact: technical.portable_washer.spray_width_mm
+    sections:
+    - technical_portable_washer.spray_width_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_portable_washer_humidity_max_percent
+  category: unanswerable
+  en: For Tank-fed portable garden washer, what is the specified maximum permitted humidity in percent?
+  ru: Для «Переносная садовая мойка с баком» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Бакты тасымалды бақ жуғышы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_portable_washer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for portable_washer does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.portable_washer.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_portable_washer_drop_test_cm
+  category: unanswerable
+  en: For Tank-fed portable garden washer, what is the specified certified drop-test height in cm?
+  ru: Для «Переносная садовая мойка с баком» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Бакты тасымалды бақ жуғышы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_portable_washer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for portable_washer does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.portable_washer.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_portable_washer_repair_parts_price
+  category: unanswerable
+  en: For Tank-fed portable garden washer, what is the specified replacement-part price in KZT?
+  ru: Для «Переносная садовая мойка с баком» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Бакты тасымалды бақ жуғышы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_portable_washer.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for portable_washer does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.portable_washer.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_portable_washer_certification_id
+  category: unanswerable
+  en: For Tank-fed portable garden washer, what is the specified certification record number in record?
+  ru: Для «Переносная садовая мойка с баком» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Бакты тасымалды бақ жуғышы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_portable_washer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for portable_washer does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.portable_washer.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_portable_washer
+  category: multi_fragment
+  en: What does Tank-fed portable garden washer weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Переносная садовая мойка с баком» и какой вес посылки допускают пункты самовывоза?
+  kk: «Бакты тасымалды бақ жуғышы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_portable_washer.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.portable_washer.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.portable_washer.mass_g
+    sections:
+    - technical_portable_washer.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_seedling_waterer_mass_g
+  category: hard
+  en: Check the specifcation of Seedling watering station for mass (g), please.
+  ru: 'Проверьте характиристику «Станция полива рассады»: интересует «Масса» (г).'
+  kk: «Көшет суару станциясы» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_seedling_waterer.mass_g
+    grade: 3
+  - section: technical_seedling_waterer.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Станция полива рассады» показатель «Масса» (г) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.seedling_waterer.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.seedling_waterer.mass_g|current
+  required:
+  - fact: technical.seedling_waterer.mass_g
+    sections:
+    - technical_seedling_waterer.mass_g
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_seedling_waterer_width_mm
+  category: simple
+  en: For Seedling watering station, what is the specified width in mm?
+  ru: Для «Станция полива рассады» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Көшет суару станциясы» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_seedling_waterer.width_mm
+    grade: 3
+  - section: technical_seedling_waterer.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.seedling_waterer.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.seedling_waterer.width_mm|current
+  required:
+  - fact: technical.seedling_waterer.width_mm
+    sections:
+    - technical_seedling_waterer.width_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_seedling_waterer_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Seedling watering station, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Станция полива рассады», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Көшет суару станциясы» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_seedling_waterer.height_mm
+    grade: 3
+  - section: technical_seedling_waterer.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.seedling_waterer.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.seedling_waterer.height_mm|current
+  required:
+  - fact: technical.seedling_waterer.height_mm
+    sections:
+    - technical_seedling_waterer.height_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_seedling_waterer_depth_mm
+  category: simple
+  en: 'Seedling watering station: depth, mm?'
+  ru: '«Станция полива рассады»: глубина, мм?'
+  kk: '«Көшет суару станциясы»: тереңдігі, мм?'
+  relevant:
+  - section: technical_seedling_waterer.depth_mm
+    grade: 3
+  - section: technical_seedling_waterer.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.seedling_waterer.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.seedling_waterer.depth_mm|current
+  required:
+  - fact: technical.seedling_waterer.depth_mm
+    sections:
+    - technical_seedling_waterer.depth_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_seedling_waterer_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Seedling watering
+    station (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Станция
+    полива рассады» (C).
+  kk: Карточкалар ұқсас. «Көшет суару станциясы» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_seedling_waterer.operating_min_c
+    grade: 3
+  - section: technical_seedling_waterer.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.seedling_waterer.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.seedling_waterer.operating_min_c|current
+  required:
+  - fact: technical.seedling_waterer.operating_min_c
+    sections:
+    - technical_seedling_waterer.operating_min_c
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_seedling_waterer_operating_max_c
+  category: hard
+  en: Check the specifcation of Seedling watering station for maximum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Станция полива рассады»: интересует «Максимальная температура воздуха
+    при работе» (C).'
+  kk: «Көшет суару станциясы» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_seedling_waterer.operating_max_c
+    grade: 3
+  - section: technical_seedling_waterer.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.seedling_waterer.operating_max_c; neighbouring volume_ml does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.seedling_waterer.operating_max_c|current
+  required:
+  - fact: technical.seedling_waterer.operating_max_c
+    sections:
+    - technical_seedling_waterer.operating_max_c
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_seedling_waterer_volume_ml
+  category: simple
+  en: For Seedling watering station, what is the specified usable volume in ml?
+  ru: Для «Станция полива рассады» какое значение указано для показателя «Полезный объём» (мл)?
+  kk: «Көшет суару станциясы» тауары үшін «Пайдалы көлемі» көрсеткішінің мәні қандай (мл)?
+  relevant:
+  - section: technical_seedling_waterer.volume_ml
+    grade: 3
+  - section: technical_seedling_waterer.pressure_bar
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.seedling_waterer.volume_ml; neighbouring pressure_bar does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.seedling_waterer.volume_ml|current
+  required:
+  - fact: technical.seedling_waterer.volume_ml
+    sections:
+    - technical_seedling_waterer.volume_ml
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_seedling_waterer_pressure_bar
+  category: simple
+  en: I am comparing specifications. Find the rated delivery pressure for Seedling watering station, in
+    bar.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное давление подачи» у «Станция полива рассады»,
+    в бар.
+  kk: Сипаттамаларды салыстырып отырмын. «Көшет суару станциясы» үшін «Номиналды беру қысымы» мәні қажет
+    (бар).
+  relevant:
+  - section: technical_seedling_waterer.pressure_bar
+    grade: 3
+  - section: technical_seedling_waterer.flow_ml_min
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Көшет суару станциясы» үшін «Номиналды беру қысымы» (бар) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.seedling_waterer.pressure_bar; neighbouring flow_ml_min does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_pump_pressure
+  need_key: technical.seedling_waterer.pressure_bar|current
+  required:
+  - fact: technical.seedling_waterer.pressure_bar
+    sections:
+    - technical_seedling_waterer.pressure_bar
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_seedling_waterer_flow_ml_min
+  category: hard
+  en: 'Seedling watering station: rated liquid delivery rate, ml/min?'
+  ru: '«Станция полива рассады»: номинальный расход подаваемой жидкости, мл/мин?'
+  kk: '«Көшет суару станциясы»: берілетін сұйықтықтың номиналды шығыны, мл/мин?'
+  relevant:
+  - section: technical_seedling_waterer.flow_ml_min
+    grade: 3
+  - section: technical_seedling_waterer.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.seedling_waterer.flow_ml_min; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_liquid_flow
+  need_key: technical.seedling_waterer.flow_ml_min|current
+  required:
+  - fact: technical.seedling_waterer.flow_ml_min
+    sections:
+    - technical_seedling_waterer.flow_ml_min
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_seedling_waterer_cable_cm
+  category: hard
+  en: The cards look similar. What supplied cable length is listed for Seedling watering station (cm)?
+  ru: Карточки похожи. Уточните показатель «Длина комплектного кабеля» именно для «Станция полива рассады»
+    (см).
+  kk: Карточкалар ұқсас. «Көшет суару станциясы» үшін нақты «Жинақтағы кабель ұзындығы» көрсеткішін айтыңыз
+    (см).
+  relevant:
+  - section: technical_seedling_waterer.cable_cm
+    grade: 3
+  - section: technical_seedling_waterer.power_w
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.seedling_waterer.cable_cm; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.seedling_waterer.cable_cm|current
+  required:
+  - fact: technical.seedling_waterer.cable_cm
+    sections:
+    - technical_seedling_waterer.cable_cm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_seedling_waterer_power_w
+  category: hard
+  en: Check the specifcation of Seedling watering station for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Станция полива рассады»: интересует «Номинальная потребляемая мощность»
+    (Вт).'
+  kk: «Көшет суару станциясы» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_seedling_waterer.power_w
+    grade: 3
+  - section: technical_seedling_waterer.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.seedling_waterer.power_w; neighbouring noise_db does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.seedling_waterer.power_w|current
+  required:
+  - fact: technical.seedling_waterer.power_w
+    sections:
+    - technical_seedling_waterer.power_w
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_seedling_waterer_noise_db
+  category: simple
+  en: For Seedling watering station, what is the specified rated sound pressure level in dB?
+  ru: Для «Станция полива рассады» какое значение указано для показателя «Номинальный уровень звукового
+    давления» (дБ)?
+  kk: «Көшет суару станциясы» тауары үшін «Номиналды дыбыс қысымының деңгейі» көрсеткішінің мәні қандай
+    (дБ)?
+  relevant:
+  - section: technical_seedling_waterer.noise_db
+    grade: 3
+  - section: technical_seedling_waterer.spray_width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.seedling_waterer.noise_db; neighbouring spray_width_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.seedling_waterer.noise_db|current
+  required:
+  - fact: technical.seedling_waterer.noise_db
+    sections:
+    - technical_seedling_waterer.noise_db
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_seedling_waterer_spray_width_mm
+  category: simple
+  en: I am comparing specifications. Find the rated spray width for Seedling watering station, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная ширина распыления» у «Станция полива рассады»,
+    в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Көшет суару станциясы» үшін «Номиналды бүрку ені» мәні қажет
+    (мм).
+  relevant:
+  - section: technical_seedling_waterer.spray_width_mm
+    grade: 3
+  - section: technical_seedling_waterer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.seedling_waterer.spray_width_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spray_geometry
+  need_key: technical.seedling_waterer.spray_width_mm|current
+  required:
+  - fact: technical.seedling_waterer.spray_width_mm
+    sections:
+    - technical_seedling_waterer.spray_width_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_seedling_waterer_humidity_max_percent
+  category: unanswerable
+  en: For Seedling watering station, what is the specified maximum permitted humidity in percent?
+  ru: Для «Станция полива рассады» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Көшет суару станциясы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_seedling_waterer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for seedling_waterer does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.seedling_waterer.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_seedling_waterer_drop_test_cm
+  category: unanswerable
+  en: For Seedling watering station, what is the specified certified drop-test height in cm?
+  ru: Для «Станция полива рассады» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Көшет суару станциясы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_seedling_waterer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for seedling_waterer does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.seedling_waterer.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_seedling_waterer_repair_parts_price
+  category: unanswerable
+  en: For Seedling watering station, what is the specified replacement-part price in KZT?
+  ru: Для «Станция полива рассады» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Көшет суару станциясы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_seedling_waterer.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for seedling_waterer does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.seedling_waterer.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_seedling_waterer_certification_id
+  category: unanswerable
+  en: For Seedling watering station, what is the specified certification record number in record?
+  ru: Для «Станция полива рассады» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Көшет суару станциясы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_seedling_waterer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for seedling_waterer does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.seedling_waterer.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_backpack_sprayer_mass_g
+  category: simple
+  en: 'Powered backpack sprayer: mass, g?'
+  ru: '«Электрический ранцевый опрыскиватель»: масса, г?'
+  kk: '«Электр арқа бүріккіші»: салмағы, г?'
+  relevant:
+  - section: technical_backpack_sprayer.mass_g
+    grade: 3
+  - section: technical_backpack_sprayer.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.backpack_sprayer.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.backpack_sprayer.mass_g|current
+  required:
+  - fact: technical.backpack_sprayer.mass_g
+    sections:
+    - technical_backpack_sprayer.mass_g
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_backpack_sprayer_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Powered backpack sprayer (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Электрический ранцевый опрыскиватель»
+    (мм).
+  kk: Карточкалар ұқсас. «Электр арқа бүріккіші» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_backpack_sprayer.width_mm
+    grade: 3
+  - section: technical_backpack_sprayer.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Электрический ранцевый опрыскиватель» показатель «Ширина» (мм) нақтылап беріңізші, осы үлгі
+    үшін.
+  mix_kk: null
+  rationale: Authored target technical.backpack_sprayer.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.backpack_sprayer.width_mm|current
+  required:
+  - fact: technical.backpack_sprayer.width_mm
+    sections:
+    - technical_backpack_sprayer.width_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_backpack_sprayer_height_mm
+  category: hard
+  en: Check the specifcation of Powered backpack sprayer for height (mm), please.
+  ru: 'Проверьте характиристику «Электрический ранцевый опрыскиватель»: интересует «Высота» (мм).'
+  kk: «Электр арқа бүріккіші» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_backpack_sprayer.height_mm
+    grade: 3
+  - section: technical_backpack_sprayer.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.backpack_sprayer.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.backpack_sprayer.height_mm|current
+  required:
+  - fact: technical.backpack_sprayer.height_mm
+    sections:
+    - technical_backpack_sprayer.height_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_backpack_sprayer_depth_mm
+  category: simple
+  en: For Powered backpack sprayer, what is the specified depth in mm?
+  ru: Для «Электрический ранцевый опрыскиватель» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Электр арқа бүріккіші» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_backpack_sprayer.depth_mm
+    grade: 3
+  - section: technical_backpack_sprayer.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.backpack_sprayer.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.backpack_sprayer.depth_mm|current
+  required:
+  - fact: technical.backpack_sprayer.depth_mm
+    sections:
+    - technical_backpack_sprayer.depth_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_backpack_sprayer_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Powered backpack
+    sprayer, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Электрический
+    ранцевый опрыскиватель», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Электр арқа бүріккіші» үшін «Жұмыс кезіндегі ауаның ең төмен
+    температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_backpack_sprayer.operating_min_c
+    grade: 3
+  - section: technical_backpack_sprayer.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.backpack_sprayer.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.backpack_sprayer.operating_min_c|current
+  required:
+  - fact: technical.backpack_sprayer.operating_min_c
+    sections:
+    - technical_backpack_sprayer.operating_min_c
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_backpack_sprayer_operating_max_c
+  category: hard
+  en: 'Powered backpack sprayer: maximum operating ambient temperature, C?'
+  ru: '«Электрический ранцевый опрыскиватель»: максимальная температура воздуха при работе, C?'
+  kk: '«Электр арқа бүріккіші»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_backpack_sprayer.operating_max_c
+    grade: 3
+  - section: technical_backpack_sprayer.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.backpack_sprayer.operating_max_c; neighbouring volume_ml does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.backpack_sprayer.operating_max_c|current
+  required:
+  - fact: technical.backpack_sprayer.operating_max_c
+    sections:
+    - technical_backpack_sprayer.operating_max_c
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_backpack_sprayer_volume_ml
+  category: hard
+  en: The cards look similar. What usable volume is listed for Powered backpack sprayer (ml)?
+  ru: Карточки похожи. Уточните показатель «Полезный объём» именно для «Электрический ранцевый опрыскиватель»
+    (мл).
+  kk: Карточкалар ұқсас. «Электр арқа бүріккіші» үшін нақты «Пайдалы көлемі» көрсеткішін айтыңыз (мл).
+  relevant:
+  - section: technical_backpack_sprayer.volume_ml
+    grade: 3
+  - section: technical_backpack_sprayer.pressure_bar
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.backpack_sprayer.volume_ml; neighbouring pressure_bar does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.backpack_sprayer.volume_ml|current
+  required:
+  - fact: technical.backpack_sprayer.volume_ml
+    sections:
+    - technical_backpack_sprayer.volume_ml
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_backpack_sprayer_pressure_bar
+  category: hard
+  en: Check the specifcation of Powered backpack sprayer for rated delivery pressure (bar), please.
+  ru: 'Проверьте характиристику «Электрический ранцевый опрыскиватель»: интересует «Номинальное давление
+    подачи» (бар).'
+  kk: «Электр арқа бүріккіші» сипатамасынан «Номиналды беру қысымы» мәнін тексеріңізші (бар).
+  relevant:
+  - section: technical_backpack_sprayer.pressure_bar
+    grade: 3
+  - section: technical_backpack_sprayer.flow_ml_min
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.backpack_sprayer.pressure_bar; neighbouring flow_ml_min does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_pump_pressure
+  need_key: technical.backpack_sprayer.pressure_bar|current
+  required:
+  - fact: technical.backpack_sprayer.pressure_bar
+    sections:
+    - technical_backpack_sprayer.pressure_bar
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_backpack_sprayer_flow_ml_min
+  category: hard
+  en: For Powered backpack sprayer, what is the specified rated liquid delivery rate in ml/min?
+  ru: Для «Электрический ранцевый опрыскиватель» какое значение указано для показателя «Номинальный расход
+    подаваемой жидкости» (мл/мин)?
+  kk: «Электр арқа бүріккіші» тауары үшін «Берілетін сұйықтықтың номиналды шығыны» көрсеткішінің мәні
+    қандай (мл/мин)?
+  relevant:
+  - section: technical_backpack_sprayer.flow_ml_min
+    grade: 3
+  - section: technical_backpack_sprayer.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Электр арқа бүріккіші» үшін «Берілетін сұйықтықтың номиналды шығыны» (мл/мин) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.backpack_sprayer.flow_ml_min; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_liquid_flow
+  need_key: technical.backpack_sprayer.flow_ml_min|current
+  required:
+  - fact: technical.backpack_sprayer.flow_ml_min
+    sections:
+    - technical_backpack_sprayer.flow_ml_min
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_backpack_sprayer_cable_cm
+  category: simple
+  en: I am comparing specifications. Find the supplied cable length for Powered backpack sprayer, in cm.
+  ru: Сравниваю характеристики. Нужен показатель «Длина комплектного кабеля» у «Электрический ранцевый
+    опрыскиватель», в см.
+  kk: Сипаттамаларды салыстырып отырмын. «Электр арқа бүріккіші» үшін «Жинақтағы кабель ұзындығы» мәні
+    қажет (см).
+  relevant:
+  - section: technical_backpack_sprayer.cable_cm
+    grade: 3
+  - section: technical_backpack_sprayer.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.backpack_sprayer.cable_cm; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.backpack_sprayer.cable_cm|current
+  required:
+  - fact: technical.backpack_sprayer.cable_cm
+    sections:
+    - technical_backpack_sprayer.cable_cm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_backpack_sprayer_power_w
+  category: simple
+  en: 'Powered backpack sprayer: rated power consumption, W?'
+  ru: '«Электрический ранцевый опрыскиватель»: номинальная потребляемая мощность, Вт?'
+  kk: '«Электр арқа бүріккіші»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_backpack_sprayer.power_w
+    grade: 3
+  - section: technical_backpack_sprayer.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.backpack_sprayer.power_w; neighbouring noise_db does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.backpack_sprayer.power_w|current
+  required:
+  - fact: technical.backpack_sprayer.power_w
+    sections:
+    - technical_backpack_sprayer.power_w
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_backpack_sprayer_noise_db
+  category: hard
+  en: The cards look similar. What rated sound pressure level is listed for Powered backpack sprayer (dB)?
+  ru: Карточки похожи. Уточните показатель «Номинальный уровень звукового давления» именно для «Электрический
+    ранцевый опрыскиватель» (дБ).
+  kk: Карточкалар ұқсас. «Электр арқа бүріккіші» үшін нақты «Номиналды дыбыс қысымының деңгейі» көрсеткішін
+    айтыңыз (дБ).
+  relevant:
+  - section: technical_backpack_sprayer.noise_db
+    grade: 3
+  - section: technical_backpack_sprayer.spray_width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.backpack_sprayer.noise_db; neighbouring spray_width_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.backpack_sprayer.noise_db|current
+  required:
+  - fact: technical.backpack_sprayer.noise_db
+    sections:
+    - technical_backpack_sprayer.noise_db
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_backpack_sprayer_spray_width_mm
+  category: hard
+  en: Check the specifcation of Powered backpack sprayer for rated spray width (mm), please.
+  ru: 'Проверьте характиристику «Электрический ранцевый опрыскиватель»: интересует «Номинальная ширина
+    распыления» (мм).'
+  kk: «Электр арқа бүріккіші» сипатамасынан «Номиналды бүрку ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_backpack_sprayer.spray_width_mm
+    grade: 3
+  - section: technical_backpack_sprayer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.backpack_sprayer.spray_width_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spray_geometry
+  need_key: technical.backpack_sprayer.spray_width_mm|current
+  required:
+  - fact: technical.backpack_sprayer.spray_width_mm
+    sections:
+    - technical_backpack_sprayer.spray_width_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_backpack_sprayer_humidity_max_percent
+  category: unanswerable
+  en: For Powered backpack sprayer, what is the specified maximum permitted humidity in percent?
+  ru: Для «Электрический ранцевый опрыскиватель» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Электр арқа бүріккіші» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_backpack_sprayer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for backpack_sprayer does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.backpack_sprayer.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_backpack_sprayer_drop_test_cm
+  category: unanswerable
+  en: For Powered backpack sprayer, what is the specified certified drop-test height in cm?
+  ru: Для «Электрический ранцевый опрыскиватель» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Электр арқа бүріккіші» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_backpack_sprayer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for backpack_sprayer does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.backpack_sprayer.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_backpack_sprayer_repair_parts_price
+  category: unanswerable
+  en: For Powered backpack sprayer, what is the specified replacement-part price in KZT?
+  ru: Для «Электрический ранцевый опрыскиватель» какое значение указано для показателя «Цена запасной
+    детали» (тенге)?
+  kk: «Электр арқа бүріккіші» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_backpack_sprayer.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for backpack_sprayer does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.backpack_sprayer.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_backpack_sprayer_certification_id
+  category: unanswerable
+  en: For Powered backpack sprayer, what is the specified certification record number in record?
+  ru: Для «Электрический ранцевый опрыскиватель» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Электр арқа бүріккіші» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_backpack_sprayer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for backpack_sprayer does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.backpack_sprayer.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_backpack_sprayer
+  category: multi_fragment
+  en: What does Powered backpack sprayer weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Электрический ранцевый опрыскиватель» и какой вес посылки допускают пункты самовывоза?
+  kk: «Электр арқа бүріккіші» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_backpack_sprayer.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.backpack_sprayer.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.backpack_sprayer.mass_g
+    sections:
+    - technical_backpack_sprayer.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pot_irrigation_unit_mass_g
+  category: simple
+  en: For Balcony pot irrigation unit, what is the specified mass in g?
+  ru: Для «Балконный блок полива горшков» какое значение указано для показателя «Масса» (г)?
+  kk: «Балкон құмыраларын суару блогы» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_pot_irrigation_unit.mass_g
+    grade: 3
+  - section: technical_pot_irrigation_unit.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pot_irrigation_unit.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.pot_irrigation_unit.mass_g|current
+  required:
+  - fact: technical.pot_irrigation_unit.mass_g
+    sections:
+    - technical_pot_irrigation_unit.mass_g
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pot_irrigation_unit_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Balcony pot irrigation unit, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Балконный блок полива горшков», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Балкон құмыраларын суару блогы» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_pot_irrigation_unit.width_mm
+    grade: 3
+  - section: technical_pot_irrigation_unit.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pot_irrigation_unit.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.pot_irrigation_unit.width_mm|current
+  required:
+  - fact: technical.pot_irrigation_unit.width_mm
+    sections:
+    - technical_pot_irrigation_unit.width_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pot_irrigation_unit_height_mm
+  category: simple
+  en: 'Balcony pot irrigation unit: height, mm?'
+  ru: '«Балконный блок полива горшков»: высота, мм?'
+  kk: '«Балкон құмыраларын суару блогы»: биіктігі, мм?'
+  relevant:
+  - section: technical_pot_irrigation_unit.height_mm
+    grade: 3
+  - section: technical_pot_irrigation_unit.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Балконный блок полива горшков» показатель «Высота» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.pot_irrigation_unit.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.pot_irrigation_unit.height_mm|current
+  required:
+  - fact: technical.pot_irrigation_unit.height_mm
+    sections:
+    - technical_pot_irrigation_unit.height_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pot_irrigation_unit_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Balcony pot irrigation unit (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Балконный блок полива горшков» (мм).
+  kk: Карточкалар ұқсас. «Балкон құмыраларын суару блогы» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_pot_irrigation_unit.depth_mm
+    grade: 3
+  - section: technical_pot_irrigation_unit.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pot_irrigation_unit.depth_mm; neighbouring operating_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.pot_irrigation_unit.depth_mm|current
+  required:
+  - fact: technical.pot_irrigation_unit.depth_mm
+    sections:
+    - technical_pot_irrigation_unit.depth_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pot_irrigation_unit_operating_min_c
+  category: hard
+  en: Check the specifcation of Balcony pot irrigation unit for minimum operating ambient temperature
+    (C), please.
+  ru: 'Проверьте характиристику «Балконный блок полива горшков»: интересует «Минимальная температура воздуха
+    при работе» (C).'
+  kk: «Балкон құмыраларын суару блогы» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін
+    тексеріңізші (C).
+  relevant:
+  - section: technical_pot_irrigation_unit.operating_min_c
+    grade: 3
+  - section: technical_pot_irrigation_unit.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pot_irrigation_unit.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.pot_irrigation_unit.operating_min_c|current
+  required:
+  - fact: technical.pot_irrigation_unit.operating_min_c
+    sections:
+    - technical_pot_irrigation_unit.operating_min_c
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pot_irrigation_unit_operating_max_c
+  category: hard
+  en: For Balcony pot irrigation unit, what is the specified maximum operating ambient temperature in
+    C?
+  ru: Для «Балконный блок полива горшков» какое значение указано для показателя «Максимальная температура
+    воздуха при работе» (C)?
+  kk: «Балкон құмыраларын суару блогы» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_pot_irrigation_unit.operating_max_c
+    grade: 3
+  - section: technical_pot_irrigation_unit.volume_ml
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pot_irrigation_unit.operating_max_c; neighbouring volume_ml does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.pot_irrigation_unit.operating_max_c|current
+  required:
+  - fact: technical.pot_irrigation_unit.operating_max_c
+    sections:
+    - technical_pot_irrigation_unit.operating_max_c
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pot_irrigation_unit_volume_ml
+  category: simple
+  en: I am comparing specifications. Find the usable volume for Balcony pot irrigation unit, in ml.
+  ru: Сравниваю характеристики. Нужен показатель «Полезный объём» у «Балконный блок полива горшков», в
+    мл.
+  kk: Сипаттамаларды салыстырып отырмын. «Балкон құмыраларын суару блогы» үшін «Пайдалы көлемі» мәні қажет
+    (мл).
+  relevant:
+  - section: technical_pot_irrigation_unit.volume_ml
+    grade: 3
+  - section: technical_pot_irrigation_unit.pressure_bar
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pot_irrigation_unit.volume_ml; neighbouring pressure_bar does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.pot_irrigation_unit.volume_ml|current
+  required:
+  - fact: technical.pot_irrigation_unit.volume_ml
+    sections:
+    - technical_pot_irrigation_unit.volume_ml
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pot_irrigation_unit_pressure_bar
+  category: simple
+  en: 'Balcony pot irrigation unit: rated delivery pressure, bar?'
+  ru: '«Балконный блок полива горшков»: номинальное давление подачи, бар?'
+  kk: '«Балкон құмыраларын суару блогы»: номиналды беру қысымы, бар?'
+  relevant:
+  - section: technical_pot_irrigation_unit.pressure_bar
+    grade: 3
+  - section: technical_pot_irrigation_unit.flow_ml_min
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pot_irrigation_unit.pressure_bar; neighbouring flow_ml_min does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_pump_pressure
+  need_key: technical.pot_irrigation_unit.pressure_bar|current
+  required:
+  - fact: technical.pot_irrigation_unit.pressure_bar
+    sections:
+    - technical_pot_irrigation_unit.pressure_bar
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pot_irrigation_unit_flow_ml_min
+  category: hard
+  en: The cards look similar. What rated liquid delivery rate is listed for Balcony pot irrigation unit
+    (ml/min)?
+  ru: Карточки похожи. Уточните показатель «Номинальный расход подаваемой жидкости» именно для «Балконный
+    блок полива горшков» (мл/мин).
+  kk: Карточкалар ұқсас. «Балкон құмыраларын суару блогы» үшін нақты «Берілетін сұйықтықтың номиналды
+    шығыны» көрсеткішін айтыңыз (мл/мин).
+  relevant:
+  - section: technical_pot_irrigation_unit.flow_ml_min
+    grade: 3
+  - section: technical_pot_irrigation_unit.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pot_irrigation_unit.flow_ml_min; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_liquid_flow
+  need_key: technical.pot_irrigation_unit.flow_ml_min|current
+  required:
+  - fact: technical.pot_irrigation_unit.flow_ml_min
+    sections:
+    - technical_pot_irrigation_unit.flow_ml_min
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pot_irrigation_unit_cable_cm
+  category: hard
+  en: Check the specifcation of Balcony pot irrigation unit for supplied cable length (cm), please.
+  ru: 'Проверьте характиристику «Балконный блок полива горшков»: интересует «Длина комплектного кабеля»
+    (см).'
+  kk: «Балкон құмыраларын суару блогы» сипатамасынан «Жинақтағы кабель ұзындығы» мәнін тексеріңізші (см).
+  relevant:
+  - section: technical_pot_irrigation_unit.cable_cm
+    grade: 3
+  - section: technical_pot_irrigation_unit.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Балкон құмыраларын суару блогы» үшін «Жинақтағы кабель ұзындығы» (см) керек, уточните по этой
+    модели, пожалуйста.
+  rationale: Authored target technical.pot_irrigation_unit.cable_cm; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.pot_irrigation_unit.cable_cm|current
+  required:
+  - fact: technical.pot_irrigation_unit.cable_cm
+    sections:
+    - technical_pot_irrigation_unit.cable_cm
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pot_irrigation_unit_power_w
+  category: simple
+  en: For Balcony pot irrigation unit, what is the specified rated power consumption in W?
+  ru: Для «Балконный блок полива горшков» какое значение указано для показателя «Номинальная потребляемая
+    мощность» (Вт)?
+  kk: «Балкон құмыраларын суару блогы» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай
+    (Вт)?
+  relevant:
+  - section: technical_pot_irrigation_unit.power_w
+    grade: 3
+  - section: technical_pot_irrigation_unit.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pot_irrigation_unit.power_w; neighbouring noise_db does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.pot_irrigation_unit.power_w|current
+  required:
+  - fact: technical.pot_irrigation_unit.power_w
+    sections:
+    - technical_pot_irrigation_unit.power_w
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pot_irrigation_unit_noise_db
+  category: simple
+  en: I am comparing specifications. Find the rated sound pressure level for Balcony pot irrigation unit,
+    in dB.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальный уровень звукового давления» у «Балконный
+    блок полива горшков», в дБ.
+  kk: Сипаттамаларды салыстырып отырмын. «Балкон құмыраларын суару блогы» үшін «Номиналды дыбыс қысымының
+    деңгейі» мәні қажет (дБ).
+  relevant:
+  - section: technical_pot_irrigation_unit.noise_db
+    grade: 3
+  - section: technical_pot_irrigation_unit.spray_width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pot_irrigation_unit.noise_db; neighbouring spray_width_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.pot_irrigation_unit.noise_db|current
+  required:
+  - fact: technical.pot_irrigation_unit.noise_db
+    sections:
+    - technical_pot_irrigation_unit.noise_db
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pot_irrigation_unit_spray_width_mm
+  category: simple
+  en: 'Balcony pot irrigation unit: rated spray width, mm?'
+  ru: '«Балконный блок полива горшков»: номинальная ширина распыления, мм?'
+  kk: '«Балкон құмыраларын суару блогы»: номиналды бүрку ені, мм?'
+  relevant:
+  - section: technical_pot_irrigation_unit.spray_width_mm
+    grade: 3
+  - section: technical_pot_irrigation_unit.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pot_irrigation_unit.spray_width_mm; neighbouring mass_g does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spray_geometry
+  need_key: technical.pot_irrigation_unit.spray_width_mm|current
+  required:
+  - fact: technical.pot_irrigation_unit.spray_width_mm
+    sections:
+    - technical_pot_irrigation_unit.spray_width_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_pot_irrigation_unit_humidity_max_percent
+  category: unanswerable
+  en: For Balcony pot irrigation unit, what is the specified maximum permitted humidity in percent?
+  ru: Для «Балконный блок полива горшков» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Балкон құмыраларын суару блогы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_pot_irrigation_unit.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for pot_irrigation_unit does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.pot_irrigation_unit.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_pot_irrigation_unit_drop_test_cm
+  category: unanswerable
+  en: For Balcony pot irrigation unit, what is the specified certified drop-test height in cm?
+  ru: Для «Балконный блок полива горшков» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Балкон құмыраларын суару блогы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_pot_irrigation_unit.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for pot_irrigation_unit does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.pot_irrigation_unit.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_pot_irrigation_unit_repair_parts_price
+  category: unanswerable
+  en: For Balcony pot irrigation unit, what is the specified replacement-part price in KZT?
+  ru: Для «Балконный блок полива горшков» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Балкон құмыраларын суару блогы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_pot_irrigation_unit.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for pot_irrigation_unit does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.pot_irrigation_unit.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_pot_irrigation_unit_certification_id
+  category: unanswerable
+  en: For Balcony pot irrigation unit, what is the specified certification record number in record?
+  ru: Для «Балконный блок полива горшков» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Балкон құмыраларын суару блогы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_pot_irrigation_unit.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for pot_irrigation_unit does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.pot_irrigation_unit.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_orchard_sprayer_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Small orchard sprayer (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Малый садовый опрыскиватель деревьев» (г).
+  kk: Карточкалар ұқсас. «Ағаштарға арналған шағын бақ бүріккіші» үшін нақты «Салмағы» көрсеткішін айтыңыз
+    (г).
+  relevant:
+  - section: technical_orchard_sprayer.mass_g
+    grade: 3
+  - section: technical_orchard_sprayer.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orchard_sprayer.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.orchard_sprayer.mass_g|current
+  required:
+  - fact: technical.orchard_sprayer.mass_g
+    sections:
+    - technical_orchard_sprayer.mass_g
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orchard_sprayer_width_mm
+  category: hard
+  en: Check the specifcation of Small orchard sprayer for width (mm), please.
+  ru: 'Проверьте характиристику «Малый садовый опрыскиватель деревьев»: интересует «Ширина» (мм).'
+  kk: «Ағаштарға арналған шағын бақ бүріккіші» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_orchard_sprayer.width_mm
+    grade: 3
+  - section: technical_orchard_sprayer.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orchard_sprayer.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.orchard_sprayer.width_mm|current
+  required:
+  - fact: technical.orchard_sprayer.width_mm
+    sections:
+    - technical_orchard_sprayer.width_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orchard_sprayer_height_mm
+  category: simple
+  en: For Small orchard sprayer, what is the specified height in mm?
+  ru: Для «Малый садовый опрыскиватель деревьев» какое значение указано для показателя «Высота» (мм)?
+  kk: «Ағаштарға арналған шағын бақ бүріккіші» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_orchard_sprayer.height_mm
+    grade: 3
+  - section: technical_orchard_sprayer.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orchard_sprayer.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.orchard_sprayer.height_mm|current
+  required:
+  - fact: technical.orchard_sprayer.height_mm
+    sections:
+    - technical_orchard_sprayer.height_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orchard_sprayer_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Small orchard sprayer, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Малый садовый опрыскиватель деревьев», в
+    мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Ағаштарға арналған шағын бақ бүріккіші» үшін «Тереңдігі» мәні
+    қажет (мм).
+  relevant:
+  - section: technical_orchard_sprayer.depth_mm
+    grade: 3
+  - section: technical_orchard_sprayer.operating_min_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: У «Малый садовый опрыскиватель деревьев» показатель «Глубина» (мм) нақтылап беріңізші, осы үлгі
+    үшін.
+  mix_kk: null
+  rationale: Authored target technical.orchard_sprayer.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.orchard_sprayer.depth_mm|current
+  required:
+  - fact: technical.orchard_sprayer.depth_mm
+    sections:
+    - technical_orchard_sprayer.depth_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orchard_sprayer_operating_min_c
+  category: hard
+  en: 'Small orchard sprayer: minimum operating ambient temperature, C?'
+  ru: '«Малый садовый опрыскиватель деревьев»: минимальная температура воздуха при работе, C?'
+  kk: '«Ағаштарға арналған шағын бақ бүріккіші»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_orchard_sprayer.operating_min_c
+    grade: 3
+  - section: technical_orchard_sprayer.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orchard_sprayer.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.orchard_sprayer.operating_min_c|current
+  required:
+  - fact: technical.orchard_sprayer.operating_min_c
+    sections:
+    - technical_orchard_sprayer.operating_min_c
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orchard_sprayer_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Small orchard sprayer
+    (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Малый
+    садовый опрыскиватель деревьев» (C).
+  kk: Карточкалар ұқсас. «Ағаштарға арналған шағын бақ бүріккіші» үшін нақты «Жұмыс кезіндегі ауаның ең
+    жоғары температурасы» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_orchard_sprayer.operating_max_c
+    grade: 3
+  - section: technical_orchard_sprayer.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orchard_sprayer.operating_max_c; neighbouring volume_ml does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.orchard_sprayer.operating_max_c|current
+  required:
+  - fact: technical.orchard_sprayer.operating_max_c
+    sections:
+    - technical_orchard_sprayer.operating_max_c
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orchard_sprayer_volume_ml
+  category: hard
+  en: Check the specifcation of Small orchard sprayer for usable volume (ml), please.
+  ru: 'Проверьте характиристику «Малый садовый опрыскиватель деревьев»: интересует «Полезный объём» (мл).'
+  kk: «Ағаштарға арналған шағын бақ бүріккіші» сипатамасынан «Пайдалы көлемі» мәнін тексеріңізші (мл).
+  relevant:
+  - section: technical_orchard_sprayer.volume_ml
+    grade: 3
+  - section: technical_orchard_sprayer.pressure_bar
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orchard_sprayer.volume_ml; neighbouring pressure_bar does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.orchard_sprayer.volume_ml|current
+  required:
+  - fact: technical.orchard_sprayer.volume_ml
+    sections:
+    - technical_orchard_sprayer.volume_ml
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orchard_sprayer_pressure_bar
+  category: simple
+  en: For Small orchard sprayer, what is the specified rated delivery pressure in bar?
+  ru: Для «Малый садовый опрыскиватель деревьев» какое значение указано для показателя «Номинальное давление
+    подачи» (бар)?
+  kk: «Ағаштарға арналған шағын бақ бүріккіші» тауары үшін «Номиналды беру қысымы» көрсеткішінің мәні
+    қандай (бар)?
+  relevant:
+  - section: technical_orchard_sprayer.pressure_bar
+    grade: 3
+  - section: technical_orchard_sprayer.flow_ml_min
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orchard_sprayer.pressure_bar; neighbouring flow_ml_min does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_pump_pressure
+  need_key: technical.orchard_sprayer.pressure_bar|current
+  required:
+  - fact: technical.orchard_sprayer.pressure_bar
+    sections:
+    - technical_orchard_sprayer.pressure_bar
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orchard_sprayer_flow_ml_min
+  category: hard
+  en: I am comparing specifications. Find the rated liquid delivery rate for Small orchard sprayer, in
+    ml/min.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальный расход подаваемой жидкости» у «Малый садовый
+    опрыскиватель деревьев», в мл/мин.
+  kk: Сипаттамаларды салыстырып отырмын. «Ағаштарға арналған шағын бақ бүріккіші» үшін «Берілетін сұйықтықтың
+    номиналды шығыны» мәні қажет (мл/мин).
+  relevant:
+  - section: technical_orchard_sprayer.flow_ml_min
+    grade: 3
+  - section: technical_orchard_sprayer.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orchard_sprayer.flow_ml_min; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_liquid_flow
+  need_key: technical.orchard_sprayer.flow_ml_min|current
+  required:
+  - fact: technical.orchard_sprayer.flow_ml_min
+    sections:
+    - technical_orchard_sprayer.flow_ml_min
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orchard_sprayer_cable_cm
+  category: simple
+  en: 'Small orchard sprayer: supplied cable length, cm?'
+  ru: '«Малый садовый опрыскиватель деревьев»: длина комплектного кабеля, см?'
+  kk: '«Ағаштарға арналған шағын бақ бүріккіші»: жинақтағы кабель ұзындығы, см?'
+  relevant:
+  - section: technical_orchard_sprayer.cable_cm
+    grade: 3
+  - section: technical_orchard_sprayer.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orchard_sprayer.cable_cm; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.orchard_sprayer.cable_cm|current
+  required:
+  - fact: technical.orchard_sprayer.cable_cm
+    sections:
+    - technical_orchard_sprayer.cable_cm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orchard_sprayer_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Small orchard sprayer (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Малый садовый
+    опрыскиватель деревьев» (Вт).
+  kk: Карточкалар ұқсас. «Ағаштарға арналған шағын бақ бүріккіші» үшін нақты «Номиналды тұтыну қуаты»
+    көрсеткішін айтыңыз (Вт).
+  relevant:
+  - section: technical_orchard_sprayer.power_w
+    grade: 3
+  - section: technical_orchard_sprayer.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Ағаштарға арналған шағын бақ бүріккіші» үшін «Номиналды тұтыну қуаты» (Вт) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.orchard_sprayer.power_w; neighbouring noise_db does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.orchard_sprayer.power_w|current
+  required:
+  - fact: technical.orchard_sprayer.power_w
+    sections:
+    - technical_orchard_sprayer.power_w
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orchard_sprayer_noise_db
+  category: hard
+  en: Check the specifcation of Small orchard sprayer for rated sound pressure level (dB), please.
+  ru: 'Проверьте характиристику «Малый садовый опрыскиватель деревьев»: интересует «Номинальный уровень
+    звукового давления» (дБ).'
+  kk: «Ағаштарға арналған шағын бақ бүріккіші» сипатамасынан «Номиналды дыбыс қысымының деңгейі» мәнін
+    тексеріңізші (дБ).
+  relevant:
+  - section: technical_orchard_sprayer.noise_db
+    grade: 3
+  - section: technical_orchard_sprayer.spray_width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orchard_sprayer.noise_db; neighbouring spray_width_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.orchard_sprayer.noise_db|current
+  required:
+  - fact: technical.orchard_sprayer.noise_db
+    sections:
+    - technical_orchard_sprayer.noise_db
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orchard_sprayer_spray_width_mm
+  category: simple
+  en: For Small orchard sprayer, what is the specified rated spray width in mm?
+  ru: Для «Малый садовый опрыскиватель деревьев» какое значение указано для показателя «Номинальная ширина
+    распыления» (мм)?
+  kk: «Ағаштарға арналған шағын бақ бүріккіші» тауары үшін «Номиналды бүрку ені» көрсеткішінің мәні қандай
+    (мм)?
+  relevant:
+  - section: technical_orchard_sprayer.spray_width_mm
+    grade: 3
+  - section: technical_orchard_sprayer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orchard_sprayer.spray_width_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spray_geometry
+  need_key: technical.orchard_sprayer.spray_width_mm|current
+  required:
+  - fact: technical.orchard_sprayer.spray_width_mm
+    sections:
+    - technical_orchard_sprayer.spray_width_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_orchard_sprayer_humidity_max_percent
+  category: unanswerable
+  en: For Small orchard sprayer, what is the specified maximum permitted humidity in percent?
+  ru: Для «Малый садовый опрыскиватель деревьев» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Ағаштарға арналған шағын бақ бүріккіші» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_orchard_sprayer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for orchard_sprayer does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.orchard_sprayer.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_orchard_sprayer_drop_test_cm
+  category: unanswerable
+  en: For Small orchard sprayer, what is the specified certified drop-test height in cm?
+  ru: Для «Малый садовый опрыскиватель деревьев» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Ағаштарға арналған шағын бақ бүріккіші» тауары үшін «Құлауды сынаудың сертификатталған биіктігі»
+    көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_orchard_sprayer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for orchard_sprayer does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.orchard_sprayer.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_orchard_sprayer_repair_parts_price
+  category: unanswerable
+  en: For Small orchard sprayer, what is the specified replacement-part price in KZT?
+  ru: Для «Малый садовый опрыскиватель деревьев» какое значение указано для показателя «Цена запасной
+    детали» (тенге)?
+  kk: «Ағаштарға арналған шағын бақ бүріккіші» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні
+    қандай (теңге)?
+  relevant:
+  - section: technical_orchard_sprayer.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for orchard_sprayer does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.orchard_sprayer.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_orchard_sprayer_certification_id
+  category: unanswerable
+  en: For Small orchard sprayer, what is the specified certification record number in record?
+  ru: Для «Малый садовый опрыскиватель деревьев» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Ағаштарға арналған шағын бақ бүріккіші» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_orchard_sprayer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for orchard_sprayer does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.orchard_sprayer.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_orchard_sprayer
+  category: multi_fragment
+  en: What does Small orchard sprayer weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Малый садовый опрыскиватель деревьев» и какой вес посылки допускают пункты самовывоза?
+  kk: «Ағаштарға арналған шағын бақ бүріккіші» салмағы қандай және беру пункттері сәлемдеменің қандай
+    салмағына рұқсат береді?
+  relevant:
+  - section: technical_orchard_sprayer.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.orchard_sprayer.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.orchard_sprayer.mass_g
+    sections:
+    - technical_orchard_sprayer.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_patio_mister_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Patio cooling mist unit, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Дворовый блок охлаждающего тумана», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Ауланы салқындататын тұман блогы» үшін «Салмағы» мәні қажет
+    (г).
+  relevant:
+  - section: technical_patio_mister.mass_g
+    grade: 3
+  - section: technical_patio_mister.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.patio_mister.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.patio_mister.mass_g|current
+  required:
+  - fact: technical.patio_mister.mass_g
+    sections:
+    - technical_patio_mister.mass_g
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_patio_mister_width_mm
+  category: simple
+  en: 'Patio cooling mist unit: width, mm?'
+  ru: '«Дворовый блок охлаждающего тумана»: ширина, мм?'
+  kk: '«Ауланы салқындататын тұман блогы»: ені, мм?'
+  relevant:
+  - section: technical_patio_mister.width_mm
+    grade: 3
+  - section: technical_patio_mister.height_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.patio_mister.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.patio_mister.width_mm|current
+  required:
+  - fact: technical.patio_mister.width_mm
+    sections:
+    - technical_patio_mister.width_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_patio_mister_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Patio cooling mist unit (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Дворовый блок охлаждающего тумана» (мм).
+  kk: Карточкалар ұқсас. «Ауланы салқындататын тұман блогы» үшін нақты «Биіктігі» көрсеткішін айтыңыз
+    (мм).
+  relevant:
+  - section: technical_patio_mister.height_mm
+    grade: 3
+  - section: technical_patio_mister.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.patio_mister.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.patio_mister.height_mm|current
+  required:
+  - fact: technical.patio_mister.height_mm
+    sections:
+    - technical_patio_mister.height_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_patio_mister_depth_mm
+  category: hard
+  en: Check the specifcation of Patio cooling mist unit for depth (mm), please.
+  ru: 'Проверьте характиристику «Дворовый блок охлаждающего тумана»: интересует «Глубина» (мм).'
+  kk: «Ауланы салқындататын тұман блогы» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_patio_mister.depth_mm
+    grade: 3
+  - section: technical_patio_mister.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.patio_mister.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.patio_mister.depth_mm|current
+  required:
+  - fact: technical.patio_mister.depth_mm
+    sections:
+    - technical_patio_mister.depth_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_patio_mister_operating_min_c
+  category: hard
+  en: For Patio cooling mist unit, what is the specified minimum operating ambient temperature in C?
+  ru: Для «Дворовый блок охлаждающего тумана» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Ауланы салқындататын тұман блогы» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_patio_mister.operating_min_c
+    grade: 3
+  - section: technical_patio_mister.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Дворовый блок охлаждающего тумана» показатель «Минимальная температура воздуха при работе»
+    (C) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.patio_mister.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.patio_mister.operating_min_c|current
+  required:
+  - fact: technical.patio_mister.operating_min_c
+    sections:
+    - technical_patio_mister.operating_min_c
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_patio_mister_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Patio cooling
+    mist unit, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Дворовый
+    блок охлаждающего тумана», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Ауланы салқындататын тұман блогы» үшін «Жұмыс кезіндегі ауаның
+    ең жоғары температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_patio_mister.operating_max_c
+    grade: 3
+  - section: technical_patio_mister.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.patio_mister.operating_max_c; neighbouring volume_ml does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.patio_mister.operating_max_c|current
+  required:
+  - fact: technical.patio_mister.operating_max_c
+    sections:
+    - technical_patio_mister.operating_max_c
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_patio_mister_volume_ml
+  category: simple
+  en: 'Patio cooling mist unit: usable volume, ml?'
+  ru: '«Дворовый блок охлаждающего тумана»: полезный объём, мл?'
+  kk: '«Ауланы салқындататын тұман блогы»: пайдалы көлемі, мл?'
+  relevant:
+  - section: technical_patio_mister.volume_ml
+    grade: 3
+  - section: technical_patio_mister.pressure_bar
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.patio_mister.volume_ml; neighbouring pressure_bar does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.patio_mister.volume_ml|current
+  required:
+  - fact: technical.patio_mister.volume_ml
+    sections:
+    - technical_patio_mister.volume_ml
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_patio_mister_pressure_bar
+  category: hard
+  en: The cards look similar. What rated delivery pressure is listed for Patio cooling mist unit (bar)?
+  ru: Карточки похожи. Уточните показатель «Номинальное давление подачи» именно для «Дворовый блок охлаждающего
+    тумана» (бар).
+  kk: Карточкалар ұқсас. «Ауланы салқындататын тұман блогы» үшін нақты «Номиналды беру қысымы» көрсеткішін
+    айтыңыз (бар).
+  relevant:
+  - section: technical_patio_mister.pressure_bar
+    grade: 3
+  - section: technical_patio_mister.flow_ml_min
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.patio_mister.pressure_bar; neighbouring flow_ml_min does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_pump_pressure
+  need_key: technical.patio_mister.pressure_bar|current
+  required:
+  - fact: technical.patio_mister.pressure_bar
+    sections:
+    - technical_patio_mister.pressure_bar
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_patio_mister_flow_ml_min
+  category: hard
+  en: Check the specifcation of Patio cooling mist unit for rated liquid delivery rate (ml/min), please.
+  ru: 'Проверьте характиристику «Дворовый блок охлаждающего тумана»: интересует «Номинальный расход подаваемой
+    жидкости» (мл/мин).'
+  kk: «Ауланы салқындататын тұман блогы» сипатамасынан «Берілетін сұйықтықтың номиналды шығыны» мәнін
+    тексеріңізші (мл/мин).
+  relevant:
+  - section: technical_patio_mister.flow_ml_min
+    grade: 3
+  - section: technical_patio_mister.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.patio_mister.flow_ml_min; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_liquid_flow
+  need_key: technical.patio_mister.flow_ml_min|current
+  required:
+  - fact: technical.patio_mister.flow_ml_min
+    sections:
+    - technical_patio_mister.flow_ml_min
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_patio_mister_cable_cm
+  category: simple
+  en: For Patio cooling mist unit, what is the specified supplied cable length in cm?
+  ru: Для «Дворовый блок охлаждающего тумана» какое значение указано для показателя «Длина комплектного
+    кабеля» (см)?
+  kk: «Ауланы салқындататын тұман блогы» тауары үшін «Жинақтағы кабель ұзындығы» көрсеткішінің мәні қандай
+    (см)?
+  relevant:
+  - section: technical_patio_mister.cable_cm
+    grade: 3
+  - section: technical_patio_mister.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.patio_mister.cable_cm; neighbouring power_w does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.patio_mister.cable_cm|current
+  required:
+  - fact: technical.patio_mister.cable_cm
+    sections:
+    - technical_patio_mister.cable_cm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_patio_mister_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Patio cooling mist unit, in
+    W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Дворовый блок
+    охлаждающего тумана», в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Ауланы салқындататын тұман блогы» үшін «Номиналды тұтыну қуаты»
+    мәні қажет (Вт).
+  relevant:
+  - section: technical_patio_mister.power_w
+    grade: 3
+  - section: technical_patio_mister.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.patio_mister.power_w; neighbouring noise_db does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.patio_mister.power_w|current
+  required:
+  - fact: technical.patio_mister.power_w
+    sections:
+    - technical_patio_mister.power_w
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_patio_mister_noise_db
+  category: simple
+  en: 'Patio cooling mist unit: rated sound pressure level, dB?'
+  ru: '«Дворовый блок охлаждающего тумана»: номинальный уровень звукового давления, дБ?'
+  kk: '«Ауланы салқындататын тұман блогы»: номиналды дыбыс қысымының деңгейі, дБ?'
+  relevant:
+  - section: technical_patio_mister.noise_db
+    grade: 3
+  - section: technical_patio_mister.spray_width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Ауланы салқындататын тұман блогы» үшін «Номиналды дыбыс қысымының деңгейі» (дБ) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.patio_mister.noise_db; neighbouring spray_width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.patio_mister.noise_db|current
+  required:
+  - fact: technical.patio_mister.noise_db
+    sections:
+    - technical_patio_mister.noise_db
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_patio_mister_spray_width_mm
+  category: hard
+  en: The cards look similar. What rated spray width is listed for Patio cooling mist unit (mm)?
+  ru: Карточки похожи. Уточните показатель «Номинальная ширина распыления» именно для «Дворовый блок охлаждающего
+    тумана» (мм).
+  kk: Карточкалар ұқсас. «Ауланы салқындататын тұман блогы» үшін нақты «Номиналды бүрку ені» көрсеткішін
+    айтыңыз (мм).
+  relevant:
+  - section: technical_patio_mister.spray_width_mm
+    grade: 3
+  - section: technical_patio_mister.mass_g
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.patio_mister.spray_width_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spray_geometry
+  need_key: technical.patio_mister.spray_width_mm|current
+  required:
+  - fact: technical.patio_mister.spray_width_mm
+    sections:
+    - technical_patio_mister.spray_width_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_patio_mister_humidity_max_percent
+  category: unanswerable
+  en: For Patio cooling mist unit, what is the specified maximum permitted humidity in percent?
+  ru: Для «Дворовый блок охлаждающего тумана» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Ауланы салқындататын тұман блогы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_patio_mister.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for patio_mister does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.patio_mister.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_patio_mister_drop_test_cm
+  category: unanswerable
+  en: For Patio cooling mist unit, what is the specified certified drop-test height in cm?
+  ru: Для «Дворовый блок охлаждающего тумана» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Ауланы салқындататын тұман блогы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_patio_mister.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for patio_mister does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.patio_mister.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_patio_mister_repair_parts_price
+  category: unanswerable
+  en: For Patio cooling mist unit, what is the specified replacement-part price in KZT?
+  ru: Для «Дворовый блок охлаждающего тумана» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Ауланы салқындататын тұман блогы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_patio_mister.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for patio_mister does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.patio_mister.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_patio_mister_certification_id
+  category: unanswerable
+  en: For Patio cooling mist unit, what is the specified certification record number in record?
+  ru: Для «Дворовый блок охлаждающего тумана» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Ауланы салқындататын тұман блогы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_patio_mister.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for patio_mister does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.patio_mister.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_root_feed_pump_mass_g
+  category: hard
+  en: Check the specifcation of Tank root-feed dosing unit for mass (g), please.
+  ru: 'Проверьте характиристику «Баковый дозирующий блок корневого полива»: интересует «Масса» (г).'
+  kk: «Бакты тамыр суару мөлшерлегіші» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_root_feed_pump.mass_g
+    grade: 3
+  - section: technical_root_feed_pump.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.root_feed_pump.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.root_feed_pump.mass_g|current
+  required:
+  - fact: technical.root_feed_pump.mass_g
+    sections:
+    - technical_root_feed_pump.mass_g
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_root_feed_pump_width_mm
+  category: simple
+  en: For Tank root-feed dosing unit, what is the specified width in mm?
+  ru: Для «Баковый дозирующий блок корневого полива» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Бакты тамыр суару мөлшерлегіші» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_root_feed_pump.width_mm
+    grade: 3
+  - section: technical_root_feed_pump.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.root_feed_pump.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.root_feed_pump.width_mm|current
+  required:
+  - fact: technical.root_feed_pump.width_mm
+    sections:
+    - technical_root_feed_pump.width_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_root_feed_pump_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Tank root-feed dosing unit, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Баковый дозирующий блок корневого полива»,
+    в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Бакты тамыр суару мөлшерлегіші» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_root_feed_pump.height_mm
+    grade: 3
+  - section: technical_root_feed_pump.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.root_feed_pump.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.root_feed_pump.height_mm|current
+  required:
+  - fact: technical.root_feed_pump.height_mm
+    sections:
+    - technical_root_feed_pump.height_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_root_feed_pump_depth_mm
+  category: simple
+  en: 'Tank root-feed dosing unit: depth, mm?'
+  ru: '«Баковый дозирующий блок корневого полива»: глубина, мм?'
+  kk: '«Бакты тамыр суару мөлшерлегіші»: тереңдігі, мм?'
+  relevant:
+  - section: technical_root_feed_pump.depth_mm
+    grade: 3
+  - section: technical_root_feed_pump.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.root_feed_pump.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.root_feed_pump.depth_mm|current
+  required:
+  - fact: technical.root_feed_pump.depth_mm
+    sections:
+    - technical_root_feed_pump.depth_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_root_feed_pump_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Tank root-feed
+    dosing unit (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Баковый
+    дозирующий блок корневого полива» (C).
+  kk: Карточкалар ұқсас. «Бакты тамыр суару мөлшерлегіші» үшін нақты «Жұмыс кезіндегі ауаның ең төмен
+    температурасы» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_root_feed_pump.operating_min_c
+    grade: 3
+  - section: technical_root_feed_pump.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.root_feed_pump.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.root_feed_pump.operating_min_c|current
+  required:
+  - fact: technical.root_feed_pump.operating_min_c
+    sections:
+    - technical_root_feed_pump.operating_min_c
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_root_feed_pump_operating_max_c
+  category: hard
+  en: Check the specifcation of Tank root-feed dosing unit for maximum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Баковый дозирующий блок корневого полива»: интересует «Максимальная температура
+    воздуха при работе» (C).'
+  kk: «Бакты тамыр суару мөлшерлегіші» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    мәнін тексеріңізші (C).
+  relevant:
+  - section: technical_root_feed_pump.operating_max_c
+    grade: 3
+  - section: technical_root_feed_pump.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Баковый дозирующий блок корневого полива» показатель «Максимальная температура воздуха при
+    работе» (C) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.root_feed_pump.operating_max_c; neighbouring volume_ml does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.root_feed_pump.operating_max_c|current
+  required:
+  - fact: technical.root_feed_pump.operating_max_c
+    sections:
+    - technical_root_feed_pump.operating_max_c
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_root_feed_pump_volume_ml
+  category: simple
+  en: For Tank root-feed dosing unit, what is the specified usable volume in ml?
+  ru: Для «Баковый дозирующий блок корневого полива» какое значение указано для показателя «Полезный объём»
+    (мл)?
+  kk: «Бакты тамыр суару мөлшерлегіші» тауары үшін «Пайдалы көлемі» көрсеткішінің мәні қандай (мл)?
+  relevant:
+  - section: technical_root_feed_pump.volume_ml
+    grade: 3
+  - section: technical_root_feed_pump.pressure_bar
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.root_feed_pump.volume_ml; neighbouring pressure_bar does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.root_feed_pump.volume_ml|current
+  required:
+  - fact: technical.root_feed_pump.volume_ml
+    sections:
+    - technical_root_feed_pump.volume_ml
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_root_feed_pump_pressure_bar
+  category: simple
+  en: I am comparing specifications. Find the rated delivery pressure for Tank root-feed dosing unit,
+    in bar.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное давление подачи» у «Баковый дозирующий блок
+    корневого полива», в бар.
+  kk: Сипаттамаларды салыстырып отырмын. «Бакты тамыр суару мөлшерлегіші» үшін «Номиналды беру қысымы»
+    мәні қажет (бар).
+  relevant:
+  - section: technical_root_feed_pump.pressure_bar
+    grade: 3
+  - section: technical_root_feed_pump.flow_ml_min
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.root_feed_pump.pressure_bar; neighbouring flow_ml_min does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_pump_pressure
+  need_key: technical.root_feed_pump.pressure_bar|current
+  required:
+  - fact: technical.root_feed_pump.pressure_bar
+    sections:
+    - technical_root_feed_pump.pressure_bar
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_root_feed_pump_flow_ml_min
+  category: hard
+  en: 'Tank root-feed dosing unit: rated liquid delivery rate, ml/min?'
+  ru: '«Баковый дозирующий блок корневого полива»: номинальный расход подаваемой жидкости, мл/мин?'
+  kk: '«Бакты тамыр суару мөлшерлегіші»: берілетін сұйықтықтың номиналды шығыны, мл/мин?'
+  relevant:
+  - section: technical_root_feed_pump.flow_ml_min
+    grade: 3
+  - section: technical_root_feed_pump.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.root_feed_pump.flow_ml_min; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_liquid_flow
+  need_key: technical.root_feed_pump.flow_ml_min|current
+  required:
+  - fact: technical.root_feed_pump.flow_ml_min
+    sections:
+    - technical_root_feed_pump.flow_ml_min
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_root_feed_pump_cable_cm
+  category: hard
+  en: The cards look similar. What supplied cable length is listed for Tank root-feed dosing unit (cm)?
+  ru: Карточки похожи. Уточните показатель «Длина комплектного кабеля» именно для «Баковый дозирующий
+    блок корневого полива» (см).
+  kk: Карточкалар ұқсас. «Бакты тамыр суару мөлшерлегіші» үшін нақты «Жинақтағы кабель ұзындығы» көрсеткішін
+    айтыңыз (см).
+  relevant:
+  - section: technical_root_feed_pump.cable_cm
+    grade: 3
+  - section: technical_root_feed_pump.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.root_feed_pump.cable_cm; neighbouring power_w does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.root_feed_pump.cable_cm|current
+  required:
+  - fact: technical.root_feed_pump.cable_cm
+    sections:
+    - technical_root_feed_pump.cable_cm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_root_feed_pump_power_w
+  category: hard
+  en: Check the specifcation of Tank root-feed dosing unit for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Баковый дозирующий блок корневого полива»: интересует «Номинальная потребляемая
+    мощность» (Вт).'
+  kk: «Бакты тамыр суару мөлшерлегіші» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_root_feed_pump.power_w
+    grade: 3
+  - section: technical_root_feed_pump.noise_db
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.root_feed_pump.power_w; neighbouring noise_db does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.root_feed_pump.power_w|current
+  required:
+  - fact: technical.root_feed_pump.power_w
+    sections:
+    - technical_root_feed_pump.power_w
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_root_feed_pump_noise_db
+  category: simple
+  en: For Tank root-feed dosing unit, what is the specified rated sound pressure level in dB?
+  ru: Для «Баковый дозирующий блок корневого полива» какое значение указано для показателя «Номинальный
+    уровень звукового давления» (дБ)?
+  kk: «Бакты тамыр суару мөлшерлегіші» тауары үшін «Номиналды дыбыс қысымының деңгейі» көрсеткішінің мәні
+    қандай (дБ)?
+  relevant:
+  - section: technical_root_feed_pump.noise_db
+    grade: 3
+  - section: technical_root_feed_pump.spray_width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.root_feed_pump.noise_db; neighbouring spray_width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.root_feed_pump.noise_db|current
+  required:
+  - fact: technical.root_feed_pump.noise_db
+    sections:
+    - technical_root_feed_pump.noise_db
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_root_feed_pump_spray_width_mm
+  category: simple
+  en: I am comparing specifications. Find the rated spray width for Tank root-feed dosing unit, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная ширина распыления» у «Баковый дозирующий
+    блок корневого полива», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Бакты тамыр суару мөлшерлегіші» үшін «Номиналды бүрку ені» мәні
+    қажет (мм).
+  relevant:
+  - section: technical_root_feed_pump.spray_width_mm
+    grade: 3
+  - section: technical_root_feed_pump.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Бакты тамыр суару мөлшерлегіші» үшін «Номиналды бүрку ені» (мм) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.root_feed_pump.spray_width_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spray_geometry
+  need_key: technical.root_feed_pump.spray_width_mm|current
+  required:
+  - fact: technical.root_feed_pump.spray_width_mm
+    sections:
+    - technical_root_feed_pump.spray_width_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_root_feed_pump_humidity_max_percent
+  category: unanswerable
+  en: For Tank root-feed dosing unit, what is the specified maximum permitted humidity in percent?
+  ru: Для «Баковый дозирующий блок корневого полива» какое значение указано для показателя «Максимальная
+    допустимая влажность» (процентов)?
+  kk: «Бакты тамыр суару мөлшерлегіші» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_root_feed_pump.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for root_feed_pump does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.root_feed_pump.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_root_feed_pump_drop_test_cm
+  category: unanswerable
+  en: For Tank root-feed dosing unit, what is the specified certified drop-test height in cm?
+  ru: Для «Баковый дозирующий блок корневого полива» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Бакты тамыр суару мөлшерлегіші» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_root_feed_pump.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for root_feed_pump does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.root_feed_pump.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_root_feed_pump_repair_parts_price
+  category: unanswerable
+  en: For Tank root-feed dosing unit, what is the specified replacement-part price in KZT?
+  ru: Для «Баковый дозирующий блок корневого полива» какое значение указано для показателя «Цена запасной
+    детали» (тенге)?
+  kk: «Бакты тамыр суару мөлшерлегіші» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_root_feed_pump.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for root_feed_pump does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.root_feed_pump.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_root_feed_pump_certification_id
+  category: unanswerable
+  en: For Tank root-feed dosing unit, what is the specified certification record number in record?
+  ru: Для «Баковый дозирующий блок корневого полива» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Бакты тамыр суару мөлшерлегіші» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_root_feed_pump.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for root_feed_pump does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.root_feed_pump.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_root_feed_pump
+  category: multi_fragment
+  en: What does Tank root-feed dosing unit weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Баковый дозирующий блок корневого полива» и какой вес посылки допускают пункты самовывоза?
+  kk: «Бакты тамыр суару мөлшерлегіші» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_root_feed_pump.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.root_feed_pump.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.root_feed_pump.mass_g
+    sections:
+    - technical_root_feed_pump.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mobile_flower_waterer_mass_g
+  category: simple
+  en: 'Mobile flower watering cart: mass, g?'
+  ru: '«Передвижная тележка полива цветов»: масса, г?'
+  kk: '«Гүл суаратын жылжымалы арба»: салмағы, г?'
+  relevant:
+  - section: technical_mobile_flower_waterer.mass_g
+    grade: 3
+  - section: technical_mobile_flower_waterer.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mobile_flower_waterer.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.mobile_flower_waterer.mass_g|current
+  required:
+  - fact: technical.mobile_flower_waterer.mass_g
+    sections:
+    - technical_mobile_flower_waterer.mass_g
+  tags:
+  - profile_derived
+  - domain_garden
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mobile_flower_waterer_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Mobile flower watering cart (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Передвижная тележка полива цветов» (мм).
+  kk: Карточкалар ұқсас. «Гүл суаратын жылжымалы арба» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_mobile_flower_waterer.width_mm
+    grade: 3
+  - section: technical_mobile_flower_waterer.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mobile_flower_waterer.width_mm; neighbouring height_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.mobile_flower_waterer.width_mm|current
+  required:
+  - fact: technical.mobile_flower_waterer.width_mm
+    sections:
+    - technical_mobile_flower_waterer.width_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mobile_flower_waterer_height_mm
+  category: hard
+  en: Check the specifcation of Mobile flower watering cart for height (mm), please.
+  ru: 'Проверьте характиристику «Передвижная тележка полива цветов»: интересует «Высота» (мм).'
+  kk: «Гүл суаратын жылжымалы арба» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_mobile_flower_waterer.height_mm
+    grade: 3
+  - section: technical_mobile_flower_waterer.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mobile_flower_waterer.height_mm; neighbouring depth_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.mobile_flower_waterer.height_mm|current
+  required:
+  - fact: technical.mobile_flower_waterer.height_mm
+    sections:
+    - technical_mobile_flower_waterer.height_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mobile_flower_waterer_depth_mm
+  category: simple
+  en: For Mobile flower watering cart, what is the specified depth in mm?
+  ru: Для «Передвижная тележка полива цветов» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Гүл суаратын жылжымалы арба» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_mobile_flower_waterer.depth_mm
+    grade: 3
+  - section: technical_mobile_flower_waterer.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mobile_flower_waterer.depth_mm; neighbouring operating_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.mobile_flower_waterer.depth_mm|current
+  required:
+  - fact: technical.mobile_flower_waterer.depth_mm
+    sections:
+    - technical_mobile_flower_waterer.depth_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mobile_flower_waterer_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Mobile flower
+    watering cart, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Передвижная
+    тележка полива цветов», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Гүл суаратын жылжымалы арба» үшін «Жұмыс кезіндегі ауаның ең
+    төмен температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_mobile_flower_waterer.operating_min_c
+    grade: 3
+  - section: technical_mobile_flower_waterer.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mobile_flower_waterer.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.mobile_flower_waterer.operating_min_c|current
+  required:
+  - fact: technical.mobile_flower_waterer.operating_min_c
+    sections:
+    - technical_mobile_flower_waterer.operating_min_c
+  tags:
+  - profile_derived
+  - domain_garden
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mobile_flower_waterer_operating_max_c
+  category: hard
+  en: 'Mobile flower watering cart: maximum operating ambient temperature, C?'
+  ru: '«Передвижная тележка полива цветов»: максимальная температура воздуха при работе, C?'
+  kk: '«Гүл суаратын жылжымалы арба»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_mobile_flower_waterer.operating_max_c
+    grade: 3
+  - section: technical_mobile_flower_waterer.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mobile_flower_waterer.operating_max_c; neighbouring volume_ml does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.mobile_flower_waterer.operating_max_c|current
+  required:
+  - fact: technical.mobile_flower_waterer.operating_max_c
+    sections:
+    - technical_mobile_flower_waterer.operating_max_c
+  tags:
+  - profile_derived
+  - domain_garden
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mobile_flower_waterer_volume_ml
+  category: hard
+  en: The cards look similar. What usable volume is listed for Mobile flower watering cart (ml)?
+  ru: Карточки похожи. Уточните показатель «Полезный объём» именно для «Передвижная тележка полива цветов»
+    (мл).
+  kk: Карточкалар ұқсас. «Гүл суаратын жылжымалы арба» үшін нақты «Пайдалы көлемі» көрсеткішін айтыңыз
+    (мл).
+  relevant:
+  - section: technical_mobile_flower_waterer.volume_ml
+    grade: 3
+  - section: technical_mobile_flower_waterer.pressure_bar
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Передвижная тележка полива цветов» показатель «Полезный объём» (мл) нақтылап беріңізші, осы
+    үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.mobile_flower_waterer.volume_ml; neighbouring pressure_bar does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.mobile_flower_waterer.volume_ml|current
+  required:
+  - fact: technical.mobile_flower_waterer.volume_ml
+    sections:
+    - technical_mobile_flower_waterer.volume_ml
+  tags:
+  - profile_derived
+  - domain_garden
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mobile_flower_waterer_pressure_bar
+  category: hard
+  en: Check the specifcation of Mobile flower watering cart for rated delivery pressure (bar), please.
+  ru: 'Проверьте характиристику «Передвижная тележка полива цветов»: интересует «Номинальное давление
+    подачи» (бар).'
+  kk: «Гүл суаратын жылжымалы арба» сипатамасынан «Номиналды беру қысымы» мәнін тексеріңізші (бар).
+  relevant:
+  - section: technical_mobile_flower_waterer.pressure_bar
+    grade: 3
+  - section: technical_mobile_flower_waterer.flow_ml_min
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mobile_flower_waterer.pressure_bar; neighbouring flow_ml_min does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_pump_pressure
+  need_key: technical.mobile_flower_waterer.pressure_bar|current
+  required:
+  - fact: technical.mobile_flower_waterer.pressure_bar
+    sections:
+    - technical_mobile_flower_waterer.pressure_bar
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mobile_flower_waterer_flow_ml_min
+  category: hard
+  en: For Mobile flower watering cart, what is the specified rated liquid delivery rate in ml/min?
+  ru: Для «Передвижная тележка полива цветов» какое значение указано для показателя «Номинальный расход
+    подаваемой жидкости» (мл/мин)?
+  kk: «Гүл суаратын жылжымалы арба» тауары үшін «Берілетін сұйықтықтың номиналды шығыны» көрсеткішінің
+    мәні қандай (мл/мин)?
+  relevant:
+  - section: technical_mobile_flower_waterer.flow_ml_min
+    grade: 3
+  - section: technical_mobile_flower_waterer.cable_cm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mobile_flower_waterer.flow_ml_min; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_liquid_flow
+  need_key: technical.mobile_flower_waterer.flow_ml_min|current
+  required:
+  - fact: technical.mobile_flower_waterer.flow_ml_min
+    sections:
+    - technical_mobile_flower_waterer.flow_ml_min
+  tags:
+  - profile_derived
+  - domain_garden
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mobile_flower_waterer_cable_cm
+  category: simple
+  en: I am comparing specifications. Find the supplied cable length for Mobile flower watering cart, in
+    cm.
+  ru: Сравниваю характеристики. Нужен показатель «Длина комплектного кабеля» у «Передвижная тележка полива
+    цветов», в см.
+  kk: Сипаттамаларды салыстырып отырмын. «Гүл суаратын жылжымалы арба» үшін «Жинақтағы кабель ұзындығы»
+    мәні қажет (см).
+  relevant:
+  - section: technical_mobile_flower_waterer.cable_cm
+    grade: 3
+  - section: technical_mobile_flower_waterer.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mobile_flower_waterer.cable_cm; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.mobile_flower_waterer.cable_cm|current
+  required:
+  - fact: technical.mobile_flower_waterer.cable_cm
+    sections:
+    - technical_mobile_flower_waterer.cable_cm
+  tags:
+  - profile_derived
+  - domain_garden
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mobile_flower_waterer_power_w
+  category: simple
+  en: 'Mobile flower watering cart: rated power consumption, W?'
+  ru: '«Передвижная тележка полива цветов»: номинальная потребляемая мощность, Вт?'
+  kk: '«Гүл суаратын жылжымалы арба»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_mobile_flower_waterer.power_w
+    grade: 3
+  - section: technical_mobile_flower_waterer.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mobile_flower_waterer.power_w; neighbouring noise_db does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.mobile_flower_waterer.power_w|current
+  required:
+  - fact: technical.mobile_flower_waterer.power_w
+    sections:
+    - technical_mobile_flower_waterer.power_w
+  tags:
+  - profile_derived
+  - domain_garden
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mobile_flower_waterer_noise_db
+  category: hard
+  en: The cards look similar. What rated sound pressure level is listed for Mobile flower watering cart
+    (dB)?
+  ru: Карточки похожи. Уточните показатель «Номинальный уровень звукового давления» именно для «Передвижная
+    тележка полива цветов» (дБ).
+  kk: Карточкалар ұқсас. «Гүл суаратын жылжымалы арба» үшін нақты «Номиналды дыбыс қысымының деңгейі»
+    көрсеткішін айтыңыз (дБ).
+  relevant:
+  - section: technical_mobile_flower_waterer.noise_db
+    grade: 3
+  - section: technical_mobile_flower_waterer.spray_width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mobile_flower_waterer.noise_db; neighbouring spray_width_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.mobile_flower_waterer.noise_db|current
+  required:
+  - fact: technical.mobile_flower_waterer.noise_db
+    sections:
+    - technical_mobile_flower_waterer.noise_db
+  tags:
+  - profile_derived
+  - domain_garden
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mobile_flower_waterer_spray_width_mm
+  category: hard
+  en: Check the specifcation of Mobile flower watering cart for rated spray width (mm), please.
+  ru: 'Проверьте характиристику «Передвижная тележка полива цветов»: интересует «Номинальная ширина распыления»
+    (мм).'
+  kk: «Гүл суаратын жылжымалы арба» сипатамасынан «Номиналды бүрку ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_mobile_flower_waterer.spray_width_mm
+    grade: 3
+  - section: technical_mobile_flower_waterer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mobile_flower_waterer.spray_width_mm; neighbouring mass_g does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spray_geometry
+  need_key: technical.mobile_flower_waterer.spray_width_mm|current
+  required:
+  - fact: technical.mobile_flower_waterer.spray_width_mm
+    sections:
+    - technical_mobile_flower_waterer.spray_width_mm
+  tags:
+  - profile_derived
+  - domain_garden
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_mobile_flower_waterer_humidity_max_percent
+  category: unanswerable
+  en: For Mobile flower watering cart, what is the specified maximum permitted humidity in percent?
+  ru: Для «Передвижная тележка полива цветов» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Гүл суаратын жылжымалы арба» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_mobile_flower_waterer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mobile_flower_waterer does not state humidity_max_percent. Dimensions, the
+    retail price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.mobile_flower_waterer.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_mobile_flower_waterer_drop_test_cm
+  category: unanswerable
+  en: For Mobile flower watering cart, what is the specified certified drop-test height in cm?
+  ru: Для «Передвижная тележка полива цветов» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Гүл суаратын жылжымалы арба» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_mobile_flower_waterer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mobile_flower_waterer does not state drop_test_cm. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.mobile_flower_waterer.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_mobile_flower_waterer_repair_parts_price
+  category: unanswerable
+  en: For Mobile flower watering cart, what is the specified replacement-part price in KZT?
+  ru: Для «Передвижная тележка полива цветов» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Гүл суаратын жылжымалы арба» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_mobile_flower_waterer.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mobile_flower_waterer does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.mobile_flower_waterer.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_mobile_flower_waterer_certification_id
+  category: unanswerable
+  en: For Mobile flower watering cart, what is the specified certification record number in record?
+  ru: Для «Передвижная тележка полива цветов» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Гүл суаратын жылжымалы арба» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_mobile_flower_waterer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mobile_flower_waterer does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.mobile_flower_waterer.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_garden
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact

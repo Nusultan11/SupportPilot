@@ -1,0 +1,4539 @@
+# Compiled from explicit technical_profiles/1 facts and native LLM-authored templates.
+schema_version: retrieval_scale_source/1
+origin: llm_generated
+review_status: draft
+author: Codex (LLM); explicit profiles and native templates compiled deterministically
+allowed_use: eval_only
+licence_note: Original fictional store specifications for internal demo and evaluation; no external manufacturer
+  data or real customer data. Fluent human review pending.
+items:
+- id: catalog_writing_desk_mass_g
+  category: simple
+  en: For Compact writing desk, what is the specified mass in g?
+  ru: Для «Компактный письменный стол» какое значение указано для показателя «Масса» (г)?
+  kk: «Ықшам жазу үстелі» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_writing_desk.mass_g
+    grade: 3
+  - section: technical_writing_desk.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.writing_desk.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.writing_desk.mass_g|current
+  required:
+  - fact: technical.writing_desk.mass_g
+    sections:
+    - technical_writing_desk.mass_g
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_writing_desk_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Compact writing desk, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Компактный письменный стол», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Ықшам жазу үстелі» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_writing_desk.width_mm
+    grade: 3
+  - section: technical_writing_desk.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.writing_desk.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.writing_desk.width_mm|current
+  required:
+  - fact: technical.writing_desk.width_mm
+    sections:
+    - technical_writing_desk.width_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_writing_desk_height_mm
+  category: simple
+  en: 'Compact writing desk: height, mm?'
+  ru: '«Компактный письменный стол»: высота, мм?'
+  kk: '«Ықшам жазу үстелі»: биіктігі, мм?'
+  relevant:
+  - section: technical_writing_desk.height_mm
+    grade: 3
+  - section: technical_writing_desk.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.writing_desk.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.writing_desk.height_mm|current
+  required:
+  - fact: technical.writing_desk.height_mm
+    sections:
+    - technical_writing_desk.height_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_writing_desk_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Compact writing desk (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Компактный письменный стол» (мм).
+  kk: Карточкалар ұқсас. «Ықшам жазу үстелі» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_writing_desk.depth_mm
+    grade: 3
+  - section: technical_writing_desk.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.writing_desk.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.writing_desk.depth_mm|current
+  required:
+  - fact: technical.writing_desk.depth_mm
+    sections:
+    - technical_writing_desk.depth_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_writing_desk_operating_min_c
+  category: hard
+  en: Check the specifcation of Compact writing desk for minimum operating ambient temperature (C), please.
+  ru: 'Проверьте характиристику «Компактный письменный стол»: интересует «Минимальная температура воздуха
+    при работе» (C).'
+  kk: «Ықшам жазу үстелі» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_writing_desk.operating_min_c
+    grade: 3
+  - section: technical_writing_desk.max_load_kg
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.writing_desk.operating_min_c; neighbouring max_load_kg does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.writing_desk.operating_min_c|current
+  required:
+  - fact: technical.writing_desk.operating_min_c
+    sections:
+    - technical_writing_desk.operating_min_c
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_writing_desk_max_load_kg
+  category: hard
+  en: For Compact writing desk, what is the specified maximum rated load in kg?
+  ru: Для «Компактный письменный стол» какое значение указано для показателя «Максимальная допустимая
+    нагрузка» (кг)?
+  kk: «Ықшам жазу үстелі» тауары үшін «Ең жоғары рұқсат етілген жүктеме» көрсеткішінің мәні қандай (кг)?
+  relevant:
+  - section: technical_writing_desk.max_load_kg
+    grade: 3
+  - section: technical_writing_desk.panel_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.writing_desk.max_load_kg; neighbouring panel_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_load_limit
+  need_key: technical.writing_desk.max_load_kg|current
+  required:
+  - fact: technical.writing_desk.max_load_kg
+    sections:
+    - technical_writing_desk.max_load_kg
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_writing_desk_panel_mm
+  category: simple
+  en: I am comparing specifications. Find the panel thickness for Compact writing desk, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Толщина панели» у «Компактный письменный стол», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Ықшам жазу үстелі» үшін «Панель қалыңдығы» мәні қажет (мм).
+  relevant:
+  - section: technical_writing_desk.panel_mm
+    grade: 3
+  - section: technical_writing_desk.shelves_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Ықшам жазу үстелі» үшін «Панель қалыңдығы» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.writing_desk.panel_mm; neighbouring shelves_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_panel_geometry
+  need_key: technical.writing_desk.panel_mm|current
+  required:
+  - fact: technical.writing_desk.panel_mm
+    sections:
+    - technical_writing_desk.panel_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_writing_desk_shelves_count
+  category: simple
+  en: 'Compact writing desk: number of shelves, units?'
+  ru: '«Компактный письменный стол»: число полок, шт.?'
+  kk: '«Ықшам жазу үстелі»: сөрелер саны, дана?'
+  relevant:
+  - section: technical_writing_desk.shelves_count
+    grade: 3
+  - section: technical_writing_desk.assembly_minutes
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.writing_desk.shelves_count; neighbouring assembly_minutes does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_layout
+  need_key: technical.writing_desk.shelves_count|current
+  required:
+  - fact: technical.writing_desk.shelves_count
+    sections:
+    - technical_writing_desk.shelves_count
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_writing_desk_assembly_minutes
+  category: hard
+  en: The cards look similar. What rated assembly time is listed for Compact writing desk (minutes)?
+  ru: Карточки похожи. Уточните показатель «Расчётное время сборки» именно для «Компактный письменный
+    стол» (минут).
+  kk: Карточкалар ұқсас. «Ықшам жазу үстелі» үшін нақты «Жинаудың есептік уақыты» көрсеткішін айтыңыз
+    (минут).
+  relevant:
+  - section: technical_writing_desk.assembly_minutes
+    grade: 3
+  - section: technical_writing_desk.package_width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.writing_desk.assembly_minutes; neighbouring package_width_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_assembly_process
+  need_key: technical.writing_desk.assembly_minutes|current
+  required:
+  - fact: technical.writing_desk.assembly_minutes
+    sections:
+    - technical_writing_desk.assembly_minutes
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_writing_desk_package_width_mm
+  category: hard
+  en: Check the specifcation of Compact writing desk for packed width (mm), please.
+  ru: 'Проверьте характиристику «Компактный письменный стол»: интересует «Ширина упаковки» (мм).'
+  kk: «Ықшам жазу үстелі» сипатамасынан «Қаптама ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_writing_desk.package_width_mm
+    grade: 3
+  - section: technical_writing_desk.package_height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.writing_desk.package_width_mm; neighbouring package_height_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.writing_desk.package_width_mm|current
+  required:
+  - fact: technical.writing_desk.package_width_mm
+    sections:
+    - technical_writing_desk.package_width_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_writing_desk_package_height_mm
+  category: simple
+  en: For Compact writing desk, what is the specified packed height in mm?
+  ru: Для «Компактный письменный стол» какое значение указано для показателя «Высота упаковки» (мм)?
+  kk: «Ықшам жазу үстелі» тауары үшін «Қаптама биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_writing_desk.package_height_mm
+    grade: 3
+  - section: technical_writing_desk.package_depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.writing_desk.package_height_mm; neighbouring package_depth_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.writing_desk.package_height_mm|current
+  required:
+  - fact: technical.writing_desk.package_height_mm
+    sections:
+    - technical_writing_desk.package_height_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_writing_desk_package_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the packed depth for Compact writing desk, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина упаковки» у «Компактный письменный стол», в
+    мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Ықшам жазу үстелі» үшін «Қаптама тереңдігі» мәні қажет (мм).
+  relevant:
+  - section: technical_writing_desk.package_depth_mm
+    grade: 3
+  - section: technical_writing_desk.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.writing_desk.package_depth_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.writing_desk.package_depth_mm|current
+  required:
+  - fact: technical.writing_desk.package_depth_mm
+    sections:
+    - technical_writing_desk.package_depth_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_writing_desk_humidity_max_percent
+  category: unanswerable
+  en: For Compact writing desk, what is the specified maximum permitted humidity in percent?
+  ru: Для «Компактный письменный стол» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Ықшам жазу үстелі» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_writing_desk.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for writing_desk does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.writing_desk.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_writing_desk_drop_test_cm
+  category: unanswerable
+  en: For Compact writing desk, what is the specified certified drop-test height in cm?
+  ru: Для «Компактный письменный стол» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Ықшам жазу үстелі» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_writing_desk.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for writing_desk does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.writing_desk.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_writing_desk_repair_parts_price
+  category: unanswerable
+  en: For Compact writing desk, what is the specified replacement-part price in KZT?
+  ru: Для «Компактный письменный стол» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Ықшам жазу үстелі» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_writing_desk.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for writing_desk does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.writing_desk.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_writing_desk_certification_id
+  category: unanswerable
+  en: For Compact writing desk, what is the specified certification record number in record?
+  ru: Для «Компактный письменный стол» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Ықшам жазу үстелі» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_writing_desk.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for writing_desk does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.writing_desk.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_writing_desk
+  category: multi_fragment
+  en: What does Compact writing desk weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Компактный письменный стол» и какой вес посылки допускают пункты самовывоза?
+  kk: «Ықшам жазу үстелі» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат береді?
+  relevant:
+  - section: technical_writing_desk.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.writing_desk.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.writing_desk.mass_g
+    sections:
+    - technical_writing_desk.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_prepublication_mass_writing_desk
+  category: unanswerable
+  en: According to the instructions valid on 15 October 2026, what was the stated mass of Compact writing
+    desk?
+  ru: По инструкциям, действовавшим 15 октября 2026 года, какая масса была указана для «Компактный письменный
+    стол»?
+  kk: 2026 жылғы 15 қазанда қолданылған нұсқаулықтар бойынша «Ықшам жазу үстелі» үшін қандай салмақ көрсетілген
+    еді?
+  relevant:
+  - section: technical_writing_desk.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The technical source starts on 1 November 2026. Its current mass cannot establish a fact
+    at the requested earlier date.
+  family_id: profile_physical_mass
+  need_key: technical.writing_desk.mass_g|2026_10_15_before_document_validity
+  required: []
+  tags:
+  - profile_derived
+  - temporal
+  - outside_validity
+  - hard_negative
+  as_of: '2026-10-15'
+  all_versions: false
+  negative_reason: expired
+- id: catalog_bookcase_mass_g
+  category: simple
+  en: 'Narrow bookcase: mass, g?'
+  ru: '«Узкий книжный шкаф»: масса, г?'
+  kk: '«Жіңішке кітап шкафы»: салмағы, г?'
+  relevant:
+  - section: technical_bookcase.mass_g
+    grade: 3
+  - section: technical_bookcase.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bookcase.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.bookcase.mass_g|current
+  required:
+  - fact: technical.bookcase.mass_g
+    sections:
+    - technical_bookcase.mass_g
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookcase_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Narrow bookcase (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Узкий книжный шкаф» (мм).
+  kk: Карточкалар ұқсас. «Жіңішке кітап шкафы» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_bookcase.width_mm
+    grade: 3
+  - section: technical_bookcase.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Узкий книжный шкаф» показатель «Ширина» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.bookcase.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.bookcase.width_mm|current
+  required:
+  - fact: technical.bookcase.width_mm
+    sections:
+    - technical_bookcase.width_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookcase_height_mm
+  category: hard
+  en: Check the specifcation of Narrow bookcase for height (mm), please.
+  ru: 'Проверьте характиристику «Узкий книжный шкаф»: интересует «Высота» (мм).'
+  kk: «Жіңішке кітап шкафы» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_bookcase.height_mm
+    grade: 3
+  - section: technical_bookcase.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bookcase.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.bookcase.height_mm|current
+  required:
+  - fact: technical.bookcase.height_mm
+    sections:
+    - technical_bookcase.height_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookcase_depth_mm
+  category: simple
+  en: For Narrow bookcase, what is the specified depth in mm?
+  ru: Для «Узкий книжный шкаф» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Жіңішке кітап шкафы» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_bookcase.depth_mm
+    grade: 3
+  - section: technical_bookcase.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bookcase.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.bookcase.depth_mm|current
+  required:
+  - fact: technical.bookcase.depth_mm
+    sections:
+    - technical_bookcase.depth_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookcase_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Narrow bookcase,
+    in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Узкий
+    книжный шкаф», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Жіңішке кітап шкафы» үшін «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    мәні қажет (C).
+  relevant:
+  - section: technical_bookcase.operating_min_c
+    grade: 3
+  - section: technical_bookcase.max_load_kg
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bookcase.operating_min_c; neighbouring max_load_kg does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.bookcase.operating_min_c|current
+  required:
+  - fact: technical.bookcase.operating_min_c
+    sections:
+    - technical_bookcase.operating_min_c
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookcase_max_load_kg
+  category: hard
+  en: 'Narrow bookcase: maximum rated load, kg?'
+  ru: '«Узкий книжный шкаф»: максимальная допустимая нагрузка, кг?'
+  kk: '«Жіңішке кітап шкафы»: ең жоғары рұқсат етілген жүктеме, кг?'
+  relevant:
+  - section: technical_bookcase.max_load_kg
+    grade: 3
+  - section: technical_bookcase.panel_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bookcase.max_load_kg; neighbouring panel_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_load_limit
+  need_key: technical.bookcase.max_load_kg|current
+  required:
+  - fact: technical.bookcase.max_load_kg
+    sections:
+    - technical_bookcase.max_load_kg
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookcase_panel_mm
+  category: hard
+  en: The cards look similar. What panel thickness is listed for Narrow bookcase (mm)?
+  ru: Карточки похожи. Уточните показатель «Толщина панели» именно для «Узкий книжный шкаф» (мм).
+  kk: Карточкалар ұқсас. «Жіңішке кітап шкафы» үшін нақты «Панель қалыңдығы» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_bookcase.panel_mm
+    grade: 3
+  - section: technical_bookcase.shelves_count
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bookcase.panel_mm; neighbouring shelves_count does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_panel_geometry
+  need_key: technical.bookcase.panel_mm|current
+  required:
+  - fact: technical.bookcase.panel_mm
+    sections:
+    - technical_bookcase.panel_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookcase_shelves_count
+  category: hard
+  en: Check the specifcation of Narrow bookcase for number of shelves (units), please.
+  ru: 'Проверьте характиристику «Узкий книжный шкаф»: интересует «Число полок» (шт.).'
+  kk: «Жіңішке кітап шкафы» сипатамасынан «Сөрелер саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_bookcase.shelves_count
+    grade: 3
+  - section: technical_bookcase.assembly_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bookcase.shelves_count; neighbouring assembly_minutes does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_layout
+  need_key: technical.bookcase.shelves_count|current
+  required:
+  - fact: technical.bookcase.shelves_count
+    sections:
+    - technical_bookcase.shelves_count
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookcase_assembly_minutes
+  category: hard
+  en: For Narrow bookcase, what is the specified rated assembly time in minutes?
+  ru: Для «Узкий книжный шкаф» какое значение указано для показателя «Расчётное время сборки» (минут)?
+  kk: «Жіңішке кітап шкафы» тауары үшін «Жинаудың есептік уақыты» көрсеткішінің мәні қандай (минут)?
+  relevant:
+  - section: technical_bookcase.assembly_minutes
+    grade: 3
+  - section: technical_bookcase.package_width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Жіңішке кітап шкафы» үшін «Жинаудың есептік уақыты» (минут) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.bookcase.assembly_minutes; neighbouring package_width_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_assembly_process
+  need_key: technical.bookcase.assembly_minutes|current
+  required:
+  - fact: technical.bookcase.assembly_minutes
+    sections:
+    - technical_bookcase.assembly_minutes
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookcase_package_width_mm
+  category: simple
+  en: I am comparing specifications. Find the packed width for Narrow bookcase, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина упаковки» у «Узкий книжный шкаф», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Жіңішке кітап шкафы» үшін «Қаптама ені» мәні қажет (мм).
+  relevant:
+  - section: technical_bookcase.package_width_mm
+    grade: 3
+  - section: technical_bookcase.package_height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bookcase.package_width_mm; neighbouring package_height_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.bookcase.package_width_mm|current
+  required:
+  - fact: technical.bookcase.package_width_mm
+    sections:
+    - technical_bookcase.package_width_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookcase_package_height_mm
+  category: simple
+  en: 'Narrow bookcase: packed height, mm?'
+  ru: '«Узкий книжный шкаф»: высота упаковки, мм?'
+  kk: '«Жіңішке кітап шкафы»: қаптама биіктігі, мм?'
+  relevant:
+  - section: technical_bookcase.package_height_mm
+    grade: 3
+  - section: technical_bookcase.package_depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bookcase.package_height_mm; neighbouring package_depth_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.bookcase.package_height_mm|current
+  required:
+  - fact: technical.bookcase.package_height_mm
+    sections:
+    - technical_bookcase.package_height_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bookcase_package_depth_mm
+  category: hard
+  en: The cards look similar. What packed depth is listed for Narrow bookcase (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина упаковки» именно для «Узкий книжный шкаф» (мм).
+  kk: Карточкалар ұқсас. «Жіңішке кітап шкафы» үшін нақты «Қаптама тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_bookcase.package_depth_mm
+    grade: 3
+  - section: technical_bookcase.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bookcase.package_depth_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.bookcase.package_depth_mm|current
+  required:
+  - fact: technical.bookcase.package_depth_mm
+    sections:
+    - technical_bookcase.package_depth_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_bookcase_humidity_max_percent
+  category: unanswerable
+  en: For Narrow bookcase, what is the specified maximum permitted humidity in percent?
+  ru: Для «Узкий книжный шкаф» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Жіңішке кітап шкафы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_bookcase.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for bookcase does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.bookcase.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_bookcase_drop_test_cm
+  category: unanswerable
+  en: For Narrow bookcase, what is the specified certified drop-test height in cm?
+  ru: Для «Узкий книжный шкаф» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Жіңішке кітап шкафы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_bookcase.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for bookcase does not state drop_test_cm. Dimensions, the retail price or a diagnostic
+    fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.bookcase.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_bookcase_repair_parts_price
+  category: unanswerable
+  en: For Narrow bookcase, what is the specified replacement-part price in KZT?
+  ru: Для «Узкий книжный шкаф» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Жіңішке кітап шкафы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_bookcase.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for bookcase does not state repair_parts_price. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.bookcase.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_bookcase_certification_id
+  category: unanswerable
+  en: For Narrow bookcase, what is the specified certification record number in record?
+  ru: Для «Узкий книжный шкаф» какое значение указано для показателя «Номер сертификационной записи» (запись)?
+  kk: «Жіңішке кітап шкафы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_bookcase.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for bookcase does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.bookcase.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_coffee_table_mass_g
+  category: hard
+  en: Check the specifcation of Rectangular coffee table for mass (g), please.
+  ru: 'Проверьте характиристику «Прямоугольный журнальный стол»: интересует «Масса» (г).'
+  kk: «Тікбұрышты журнал үстелі» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_coffee_table.mass_g
+    grade: 3
+  - section: technical_coffee_table.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.coffee_table.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.coffee_table.mass_g|current
+  required:
+  - fact: technical.coffee_table.mass_g
+    sections:
+    - technical_coffee_table.mass_g
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_coffee_table_width_mm
+  category: simple
+  en: For Rectangular coffee table, what is the specified width in mm?
+  ru: Для «Прямоугольный журнальный стол» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Тікбұрышты журнал үстелі» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_coffee_table.width_mm
+    grade: 3
+  - section: technical_coffee_table.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.coffee_table.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.coffee_table.width_mm|current
+  required:
+  - fact: technical.coffee_table.width_mm
+    sections:
+    - technical_coffee_table.width_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_coffee_table_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Rectangular coffee table, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Прямоугольный журнальный стол», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Тікбұрышты журнал үстелі» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_coffee_table.height_mm
+    grade: 3
+  - section: technical_coffee_table.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.coffee_table.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.coffee_table.height_mm|current
+  required:
+  - fact: technical.coffee_table.height_mm
+    sections:
+    - technical_coffee_table.height_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_coffee_table_depth_mm
+  category: simple
+  en: 'Rectangular coffee table: depth, mm?'
+  ru: '«Прямоугольный журнальный стол»: глубина, мм?'
+  kk: '«Тікбұрышты журнал үстелі»: тереңдігі, мм?'
+  relevant:
+  - section: technical_coffee_table.depth_mm
+    grade: 3
+  - section: technical_coffee_table.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Прямоугольный журнальный стол» показатель «Глубина» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.coffee_table.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.coffee_table.depth_mm|current
+  required:
+  - fact: technical.coffee_table.depth_mm
+    sections:
+    - technical_coffee_table.depth_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_coffee_table_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Rectangular coffee
+    table (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Прямоугольный
+    журнальный стол» (C).
+  kk: Карточкалар ұқсас. «Тікбұрышты журнал үстелі» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_coffee_table.operating_min_c
+    grade: 3
+  - section: technical_coffee_table.max_load_kg
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.coffee_table.operating_min_c; neighbouring max_load_kg does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.coffee_table.operating_min_c|current
+  required:
+  - fact: technical.coffee_table.operating_min_c
+    sections:
+    - technical_coffee_table.operating_min_c
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_coffee_table_max_load_kg
+  category: hard
+  en: Check the specifcation of Rectangular coffee table for maximum rated load (kg), please.
+  ru: 'Проверьте характиристику «Прямоугольный журнальный стол»: интересует «Максимальная допустимая нагрузка»
+    (кг).'
+  kk: «Тікбұрышты журнал үстелі» сипатамасынан «Ең жоғары рұқсат етілген жүктеме» мәнін тексеріңізші (кг).
+  relevant:
+  - section: technical_coffee_table.max_load_kg
+    grade: 3
+  - section: technical_coffee_table.panel_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.coffee_table.max_load_kg; neighbouring panel_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_load_limit
+  need_key: technical.coffee_table.max_load_kg|current
+  required:
+  - fact: technical.coffee_table.max_load_kg
+    sections:
+    - technical_coffee_table.max_load_kg
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_coffee_table_panel_mm
+  category: simple
+  en: For Rectangular coffee table, what is the specified panel thickness in mm?
+  ru: Для «Прямоугольный журнальный стол» какое значение указано для показателя «Толщина панели» (мм)?
+  kk: «Тікбұрышты журнал үстелі» тауары үшін «Панель қалыңдығы» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_coffee_table.panel_mm
+    grade: 3
+  - section: technical_coffee_table.shelves_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.coffee_table.panel_mm; neighbouring shelves_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_panel_geometry
+  need_key: technical.coffee_table.panel_mm|current
+  required:
+  - fact: technical.coffee_table.panel_mm
+    sections:
+    - technical_coffee_table.panel_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_coffee_table_shelves_count
+  category: simple
+  en: I am comparing specifications. Find the number of shelves for Rectangular coffee table, in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число полок» у «Прямоугольный журнальный стол», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Тікбұрышты журнал үстелі» үшін «Сөрелер саны» мәні қажет (дана).
+  relevant:
+  - section: technical_coffee_table.shelves_count
+    grade: 3
+  - section: technical_coffee_table.assembly_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.coffee_table.shelves_count; neighbouring assembly_minutes does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_layout
+  need_key: technical.coffee_table.shelves_count|current
+  required:
+  - fact: technical.coffee_table.shelves_count
+    sections:
+    - technical_coffee_table.shelves_count
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_coffee_table_assembly_minutes
+  category: hard
+  en: 'Rectangular coffee table: rated assembly time, minutes?'
+  ru: '«Прямоугольный журнальный стол»: расчётное время сборки, минут?'
+  kk: '«Тікбұрышты журнал үстелі»: жинаудың есептік уақыты, минут?'
+  relevant:
+  - section: technical_coffee_table.assembly_minutes
+    grade: 3
+  - section: technical_coffee_table.package_width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.coffee_table.assembly_minutes; neighbouring package_width_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_assembly_process
+  need_key: technical.coffee_table.assembly_minutes|current
+  required:
+  - fact: technical.coffee_table.assembly_minutes
+    sections:
+    - technical_coffee_table.assembly_minutes
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_coffee_table_package_width_mm
+  category: hard
+  en: The cards look similar. What packed width is listed for Rectangular coffee table (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина упаковки» именно для «Прямоугольный журнальный стол»
+    (мм).
+  kk: Карточкалар ұқсас. «Тікбұрышты журнал үстелі» үшін нақты «Қаптама ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_coffee_table.package_width_mm
+    grade: 3
+  - section: technical_coffee_table.package_height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.coffee_table.package_width_mm; neighbouring package_height_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.coffee_table.package_width_mm|current
+  required:
+  - fact: technical.coffee_table.package_width_mm
+    sections:
+    - technical_coffee_table.package_width_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_coffee_table_package_height_mm
+  category: hard
+  en: Check the specifcation of Rectangular coffee table for packed height (mm), please.
+  ru: 'Проверьте характиристику «Прямоугольный журнальный стол»: интересует «Высота упаковки» (мм).'
+  kk: «Тікбұрышты журнал үстелі» сипатамасынан «Қаптама биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_coffee_table.package_height_mm
+    grade: 3
+  - section: technical_coffee_table.package_depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Тікбұрышты журнал үстелі» үшін «Қаптама биіктігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.coffee_table.package_height_mm; neighbouring package_depth_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.coffee_table.package_height_mm|current
+  required:
+  - fact: technical.coffee_table.package_height_mm
+    sections:
+    - technical_coffee_table.package_height_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_coffee_table_package_depth_mm
+  category: simple
+  en: For Rectangular coffee table, what is the specified packed depth in mm?
+  ru: Для «Прямоугольный журнальный стол» какое значение указано для показателя «Глубина упаковки» (мм)?
+  kk: «Тікбұрышты журнал үстелі» тауары үшін «Қаптама тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_coffee_table.package_depth_mm
+    grade: 3
+  - section: technical_coffee_table.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.coffee_table.package_depth_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.coffee_table.package_depth_mm|current
+  required:
+  - fact: technical.coffee_table.package_depth_mm
+    sections:
+    - technical_coffee_table.package_depth_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_coffee_table_humidity_max_percent
+  category: unanswerable
+  en: For Rectangular coffee table, what is the specified maximum permitted humidity in percent?
+  ru: Для «Прямоугольный журнальный стол» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Тікбұрышты журнал үстелі» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_coffee_table.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for coffee_table does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.coffee_table.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_coffee_table_drop_test_cm
+  category: unanswerable
+  en: For Rectangular coffee table, what is the specified certified drop-test height in cm?
+  ru: Для «Прямоугольный журнальный стол» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Тікбұрышты журнал үстелі» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_coffee_table.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for coffee_table does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.coffee_table.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_coffee_table_repair_parts_price
+  category: unanswerable
+  en: For Rectangular coffee table, what is the specified replacement-part price in KZT?
+  ru: Для «Прямоугольный журнальный стол» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Тікбұрышты журнал үстелі» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_coffee_table.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for coffee_table does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.coffee_table.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_coffee_table_certification_id
+  category: unanswerable
+  en: For Rectangular coffee table, what is the specified certification record number in record?
+  ru: Для «Прямоугольный журнальный стол» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Тікбұрышты журнал үстелі» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_coffee_table.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for coffee_table does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.coffee_table.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_coffee_table
+  category: multi_fragment
+  en: What does Rectangular coffee table weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Прямоугольный журнальный стол» и какой вес посылки допускают пункты самовывоза?
+  kk: «Тікбұрышты журнал үстелі» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_coffee_table.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.coffee_table.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.coffee_table.mass_g
+    sections:
+    - technical_coffee_table.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_side_table_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Bedside side table, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Прикроватный приставной столик», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Төсек жанындағы қосалқы үстел» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_side_table.mass_g
+    grade: 3
+  - section: technical_side_table.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.side_table.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.side_table.mass_g|current
+  required:
+  - fact: technical.side_table.mass_g
+    sections:
+    - technical_side_table.mass_g
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_side_table_width_mm
+  category: simple
+  en: 'Bedside side table: width, mm?'
+  ru: '«Прикроватный приставной столик»: ширина, мм?'
+  kk: '«Төсек жанындағы қосалқы үстел»: ені, мм?'
+  relevant:
+  - section: technical_side_table.width_mm
+    grade: 3
+  - section: technical_side_table.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.side_table.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.side_table.width_mm|current
+  required:
+  - fact: technical.side_table.width_mm
+    sections:
+    - technical_side_table.width_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_side_table_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Bedside side table (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Прикроватный приставной столик» (мм).
+  kk: Карточкалар ұқсас. «Төсек жанындағы қосалқы үстел» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_side_table.height_mm
+    grade: 3
+  - section: technical_side_table.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.side_table.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.side_table.height_mm|current
+  required:
+  - fact: technical.side_table.height_mm
+    sections:
+    - technical_side_table.height_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_side_table_depth_mm
+  category: hard
+  en: Check the specifcation of Bedside side table for depth (mm), please.
+  ru: 'Проверьте характиристику «Прикроватный приставной столик»: интересует «Глубина» (мм).'
+  kk: «Төсек жанындағы қосалқы үстел» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_side_table.depth_mm
+    grade: 3
+  - section: technical_side_table.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.side_table.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.side_table.depth_mm|current
+  required:
+  - fact: technical.side_table.depth_mm
+    sections:
+    - technical_side_table.depth_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_side_table_operating_min_c
+  category: hard
+  en: For Bedside side table, what is the specified minimum operating ambient temperature in C?
+  ru: Для «Прикроватный приставной столик» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Төсек жанындағы қосалқы үстел» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_side_table.operating_min_c
+    grade: 3
+  - section: technical_side_table.max_load_kg
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.side_table.operating_min_c; neighbouring max_load_kg does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.side_table.operating_min_c|current
+  required:
+  - fact: technical.side_table.operating_min_c
+    sections:
+    - technical_side_table.operating_min_c
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_side_table_max_load_kg
+  category: hard
+  en: I am comparing specifications. Find the maximum rated load for Bedside side table, in kg.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная допустимая нагрузка» у «Прикроватный приставной
+    столик», в кг.
+  kk: Сипаттамаларды салыстырып отырмын. «Төсек жанындағы қосалқы үстел» үшін «Ең жоғары рұқсат етілген
+    жүктеме» мәні қажет (кг).
+  relevant:
+  - section: technical_side_table.max_load_kg
+    grade: 3
+  - section: technical_side_table.panel_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Прикроватный приставной столик» показатель «Максимальная допустимая нагрузка» (кг) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.side_table.max_load_kg; neighbouring panel_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_load_limit
+  need_key: technical.side_table.max_load_kg|current
+  required:
+  - fact: technical.side_table.max_load_kg
+    sections:
+    - technical_side_table.max_load_kg
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_side_table_panel_mm
+  category: simple
+  en: 'Bedside side table: panel thickness, mm?'
+  ru: '«Прикроватный приставной столик»: толщина панели, мм?'
+  kk: '«Төсек жанындағы қосалқы үстел»: панель қалыңдығы, мм?'
+  relevant:
+  - section: technical_side_table.panel_mm
+    grade: 3
+  - section: technical_side_table.shelves_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.side_table.panel_mm; neighbouring shelves_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_panel_geometry
+  need_key: technical.side_table.panel_mm|current
+  required:
+  - fact: technical.side_table.panel_mm
+    sections:
+    - technical_side_table.panel_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_side_table_shelves_count
+  category: hard
+  en: The cards look similar. What number of shelves is listed for Bedside side table (units)?
+  ru: Карточки похожи. Уточните показатель «Число полок» именно для «Прикроватный приставной столик» (шт.).
+  kk: Карточкалар ұқсас. «Төсек жанындағы қосалқы үстел» үшін нақты «Сөрелер саны» көрсеткішін айтыңыз
+    (дана).
+  relevant:
+  - section: technical_side_table.shelves_count
+    grade: 3
+  - section: technical_side_table.assembly_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.side_table.shelves_count; neighbouring assembly_minutes does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_layout
+  need_key: technical.side_table.shelves_count|current
+  required:
+  - fact: technical.side_table.shelves_count
+    sections:
+    - technical_side_table.shelves_count
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_side_table_assembly_minutes
+  category: hard
+  en: Check the specifcation of Bedside side table for rated assembly time (minutes), please.
+  ru: 'Проверьте характиристику «Прикроватный приставной столик»: интересует «Расчётное время сборки»
+    (минут).'
+  kk: «Төсек жанындағы қосалқы үстел» сипатамасынан «Жинаудың есептік уақыты» мәнін тексеріңізші (минут).
+  relevant:
+  - section: technical_side_table.assembly_minutes
+    grade: 3
+  - section: technical_side_table.package_width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.side_table.assembly_minutes; neighbouring package_width_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_assembly_process
+  need_key: technical.side_table.assembly_minutes|current
+  required:
+  - fact: technical.side_table.assembly_minutes
+    sections:
+    - technical_side_table.assembly_minutes
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_side_table_package_width_mm
+  category: simple
+  en: For Bedside side table, what is the specified packed width in mm?
+  ru: Для «Прикроватный приставной столик» какое значение указано для показателя «Ширина упаковки» (мм)?
+  kk: «Төсек жанындағы қосалқы үстел» тауары үшін «Қаптама ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_side_table.package_width_mm
+    grade: 3
+  - section: technical_side_table.package_height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.side_table.package_width_mm; neighbouring package_height_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.side_table.package_width_mm|current
+  required:
+  - fact: technical.side_table.package_width_mm
+    sections:
+    - technical_side_table.package_width_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_side_table_package_height_mm
+  category: simple
+  en: I am comparing specifications. Find the packed height for Bedside side table, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота упаковки» у «Прикроватный приставной столик»,
+    в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Төсек жанындағы қосалқы үстел» үшін «Қаптама биіктігі» мәні
+    қажет (мм).
+  relevant:
+  - section: technical_side_table.package_height_mm
+    grade: 3
+  - section: technical_side_table.package_depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.side_table.package_height_mm; neighbouring package_depth_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.side_table.package_height_mm|current
+  required:
+  - fact: technical.side_table.package_height_mm
+    sections:
+    - technical_side_table.package_height_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_side_table_package_depth_mm
+  category: simple
+  en: 'Bedside side table: packed depth, mm?'
+  ru: '«Прикроватный приставной столик»: глубина упаковки, мм?'
+  kk: '«Төсек жанындағы қосалқы үстел»: қаптама тереңдігі, мм?'
+  relevant:
+  - section: technical_side_table.package_depth_mm
+    grade: 3
+  - section: technical_side_table.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.side_table.package_depth_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.side_table.package_depth_mm|current
+  required:
+  - fact: technical.side_table.package_depth_mm
+    sections:
+    - technical_side_table.package_depth_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_side_table_humidity_max_percent
+  category: unanswerable
+  en: For Bedside side table, what is the specified maximum permitted humidity in percent?
+  ru: Для «Прикроватный приставной столик» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Төсек жанындағы қосалқы үстел» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_side_table.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for side_table does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.side_table.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_side_table_drop_test_cm
+  category: unanswerable
+  en: For Bedside side table, what is the specified certified drop-test height in cm?
+  ru: Для «Прикроватный приставной столик» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Төсек жанындағы қосалқы үстел» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_side_table.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for side_table does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.side_table.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_side_table_repair_parts_price
+  category: unanswerable
+  en: For Bedside side table, what is the specified replacement-part price in KZT?
+  ru: Для «Прикроватный приставной столик» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Төсек жанындағы қосалқы үстел» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_side_table.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for side_table does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.side_table.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_side_table_certification_id
+  category: unanswerable
+  en: For Bedside side table, what is the specified certification record number in record?
+  ru: Для «Прикроватный приставной столик» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Төсек жанындағы қосалқы үстел» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_side_table.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for side_table does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.side_table.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_shoe_rack_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Hall shoe rack (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Прихожая обувная полка» (г).
+  kk: Карточкалар ұқсас. «Дәліз аяқ киім сөресі» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_shoe_rack.mass_g
+    grade: 3
+  - section: technical_shoe_rack.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Дәліз аяқ киім сөресі» үшін «Салмағы» (г) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.shoe_rack.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.shoe_rack.mass_g|current
+  required:
+  - fact: technical.shoe_rack.mass_g
+    sections:
+    - technical_shoe_rack.mass_g
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_rack_width_mm
+  category: hard
+  en: Check the specifcation of Hall shoe rack for width (mm), please.
+  ru: 'Проверьте характиристику «Прихожая обувная полка»: интересует «Ширина» (мм).'
+  kk: «Дәліз аяқ киім сөресі» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_shoe_rack.width_mm
+    grade: 3
+  - section: technical_shoe_rack.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.shoe_rack.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.shoe_rack.width_mm|current
+  required:
+  - fact: technical.shoe_rack.width_mm
+    sections:
+    - technical_shoe_rack.width_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_rack_height_mm
+  category: simple
+  en: For Hall shoe rack, what is the specified height in mm?
+  ru: Для «Прихожая обувная полка» какое значение указано для показателя «Высота» (мм)?
+  kk: «Дәліз аяқ киім сөресі» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_shoe_rack.height_mm
+    grade: 3
+  - section: technical_shoe_rack.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.shoe_rack.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.shoe_rack.height_mm|current
+  required:
+  - fact: technical.shoe_rack.height_mm
+    sections:
+    - technical_shoe_rack.height_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_rack_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Hall shoe rack, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Прихожая обувная полка», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Дәліз аяқ киім сөресі» үшін «Тереңдігі» мәні қажет (мм).
+  relevant:
+  - section: technical_shoe_rack.depth_mm
+    grade: 3
+  - section: technical_shoe_rack.operating_min_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.shoe_rack.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.shoe_rack.depth_mm|current
+  required:
+  - fact: technical.shoe_rack.depth_mm
+    sections:
+    - technical_shoe_rack.depth_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_rack_operating_min_c
+  category: hard
+  en: 'Hall shoe rack: minimum operating ambient temperature, C?'
+  ru: '«Прихожая обувная полка»: минимальная температура воздуха при работе, C?'
+  kk: '«Дәліз аяқ киім сөресі»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_shoe_rack.operating_min_c
+    grade: 3
+  - section: technical_shoe_rack.max_load_kg
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.shoe_rack.operating_min_c; neighbouring max_load_kg does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.shoe_rack.operating_min_c|current
+  required:
+  - fact: technical.shoe_rack.operating_min_c
+    sections:
+    - technical_shoe_rack.operating_min_c
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_rack_max_load_kg
+  category: hard
+  en: The cards look similar. What maximum rated load is listed for Hall shoe rack (kg)?
+  ru: Карточки похожи. Уточните показатель «Максимальная допустимая нагрузка» именно для «Прихожая обувная
+    полка» (кг).
+  kk: Карточкалар ұқсас. «Дәліз аяқ киім сөресі» үшін нақты «Ең жоғары рұқсат етілген жүктеме» көрсеткішін
+    айтыңыз (кг).
+  relevant:
+  - section: technical_shoe_rack.max_load_kg
+    grade: 3
+  - section: technical_shoe_rack.panel_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.shoe_rack.max_load_kg; neighbouring panel_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_load_limit
+  need_key: technical.shoe_rack.max_load_kg|current
+  required:
+  - fact: technical.shoe_rack.max_load_kg
+    sections:
+    - technical_shoe_rack.max_load_kg
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_rack_panel_mm
+  category: hard
+  en: Check the specifcation of Hall shoe rack for panel thickness (mm), please.
+  ru: 'Проверьте характиристику «Прихожая обувная полка»: интересует «Толщина панели» (мм).'
+  kk: «Дәліз аяқ киім сөресі» сипатамасынан «Панель қалыңдығы» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_shoe_rack.panel_mm
+    grade: 3
+  - section: technical_shoe_rack.shelves_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.shoe_rack.panel_mm; neighbouring shelves_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_panel_geometry
+  need_key: technical.shoe_rack.panel_mm|current
+  required:
+  - fact: technical.shoe_rack.panel_mm
+    sections:
+    - technical_shoe_rack.panel_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_rack_shelves_count
+  category: simple
+  en: For Hall shoe rack, what is the specified number of shelves in units?
+  ru: Для «Прихожая обувная полка» какое значение указано для показателя «Число полок» (шт.)?
+  kk: «Дәліз аяқ киім сөресі» тауары үшін «Сөрелер саны» көрсеткішінің мәні қандай (дана)?
+  relevant:
+  - section: technical_shoe_rack.shelves_count
+    grade: 3
+  - section: technical_shoe_rack.assembly_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Прихожая обувная полка» показатель «Число полок» (шт.) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.shoe_rack.shelves_count; neighbouring assembly_minutes does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_layout
+  need_key: technical.shoe_rack.shelves_count|current
+  required:
+  - fact: technical.shoe_rack.shelves_count
+    sections:
+    - technical_shoe_rack.shelves_count
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_rack_assembly_minutes
+  category: hard
+  en: I am comparing specifications. Find the rated assembly time for Hall shoe rack, in minutes.
+  ru: Сравниваю характеристики. Нужен показатель «Расчётное время сборки» у «Прихожая обувная полка»,
+    в минут.
+  kk: Сипаттамаларды салыстырып отырмын. «Дәліз аяқ киім сөресі» үшін «Жинаудың есептік уақыты» мәні қажет
+    (минут).
+  relevant:
+  - section: technical_shoe_rack.assembly_minutes
+    grade: 3
+  - section: technical_shoe_rack.package_width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.shoe_rack.assembly_minutes; neighbouring package_width_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_assembly_process
+  need_key: technical.shoe_rack.assembly_minutes|current
+  required:
+  - fact: technical.shoe_rack.assembly_minutes
+    sections:
+    - technical_shoe_rack.assembly_minutes
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_rack_package_width_mm
+  category: simple
+  en: 'Hall shoe rack: packed width, mm?'
+  ru: '«Прихожая обувная полка»: ширина упаковки, мм?'
+  kk: '«Дәліз аяқ киім сөресі»: қаптама ені, мм?'
+  relevant:
+  - section: technical_shoe_rack.package_width_mm
+    grade: 3
+  - section: technical_shoe_rack.package_height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.shoe_rack.package_width_mm; neighbouring package_height_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.shoe_rack.package_width_mm|current
+  required:
+  - fact: technical.shoe_rack.package_width_mm
+    sections:
+    - technical_shoe_rack.package_width_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_rack_package_height_mm
+  category: hard
+  en: The cards look similar. What packed height is listed for Hall shoe rack (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота упаковки» именно для «Прихожая обувная полка» (мм).
+  kk: Карточкалар ұқсас. «Дәліз аяқ киім сөресі» үшін нақты «Қаптама биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_shoe_rack.package_height_mm
+    grade: 3
+  - section: technical_shoe_rack.package_depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.shoe_rack.package_height_mm; neighbouring package_depth_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.shoe_rack.package_height_mm|current
+  required:
+  - fact: technical.shoe_rack.package_height_mm
+    sections:
+    - technical_shoe_rack.package_height_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_rack_package_depth_mm
+  category: hard
+  en: Check the specifcation of Hall shoe rack for packed depth (mm), please.
+  ru: 'Проверьте характиристику «Прихожая обувная полка»: интересует «Глубина упаковки» (мм).'
+  kk: «Дәліз аяқ киім сөресі» сипатамасынан «Қаптама тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_shoe_rack.package_depth_mm
+    grade: 3
+  - section: technical_shoe_rack.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.shoe_rack.package_depth_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.shoe_rack.package_depth_mm|current
+  required:
+  - fact: technical.shoe_rack.package_depth_mm
+    sections:
+    - technical_shoe_rack.package_depth_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_shoe_rack_humidity_max_percent
+  category: unanswerable
+  en: For Hall shoe rack, what is the specified maximum permitted humidity in percent?
+  ru: Для «Прихожая обувная полка» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Дәліз аяқ киім сөресі» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_shoe_rack.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for shoe_rack does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.shoe_rack.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_shoe_rack_drop_test_cm
+  category: unanswerable
+  en: For Hall shoe rack, what is the specified certified drop-test height in cm?
+  ru: Для «Прихожая обувная полка» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Дәліз аяқ киім сөресі» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_shoe_rack.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for shoe_rack does not state drop_test_cm. Dimensions, the retail price or a diagnostic
+    fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.shoe_rack.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_shoe_rack_repair_parts_price
+  category: unanswerable
+  en: For Hall shoe rack, what is the specified replacement-part price in KZT?
+  ru: Для «Прихожая обувная полка» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Дәліз аяқ киім сөресі» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_shoe_rack.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for shoe_rack does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.shoe_rack.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_shoe_rack_certification_id
+  category: unanswerable
+  en: For Hall shoe rack, what is the specified certification record number in record?
+  ru: Для «Прихожая обувная полка» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Дәліз аяқ киім сөресі» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_shoe_rack.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for shoe_rack does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.shoe_rack.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_shoe_rack
+  category: multi_fragment
+  en: What does Hall shoe rack weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Прихожая обувная полка» и какой вес посылки допускают пункты самовывоза?
+  kk: «Дәліз аяқ киім сөресі» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_shoe_rack.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.shoe_rack.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.shoe_rack.mass_g
+    sections:
+    - technical_shoe_rack.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tv_stand_mass_g
+  category: simple
+  en: For Low television stand, what is the specified mass in g?
+  ru: Для «Низкая телевизионная тумба» какое значение указано для показателя «Масса» (г)?
+  kk: «Төмен теледидар тұғыры» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_tv_stand.mass_g
+    grade: 3
+  - section: technical_tv_stand.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.tv_stand.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.tv_stand.mass_g|current
+  required:
+  - fact: technical.tv_stand.mass_g
+    sections:
+    - technical_tv_stand.mass_g
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tv_stand_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Low television stand, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Низкая телевизионная тумба», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Төмен теледидар тұғыры» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_tv_stand.width_mm
+    grade: 3
+  - section: technical_tv_stand.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.tv_stand.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.tv_stand.width_mm|current
+  required:
+  - fact: technical.tv_stand.width_mm
+    sections:
+    - technical_tv_stand.width_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tv_stand_height_mm
+  category: simple
+  en: 'Low television stand: height, mm?'
+  ru: '«Низкая телевизионная тумба»: высота, мм?'
+  kk: '«Төмен теледидар тұғыры»: биіктігі, мм?'
+  relevant:
+  - section: technical_tv_stand.height_mm
+    grade: 3
+  - section: technical_tv_stand.depth_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: «Төмен теледидар тұғыры» үшін «Биіктігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.tv_stand.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.tv_stand.height_mm|current
+  required:
+  - fact: technical.tv_stand.height_mm
+    sections:
+    - technical_tv_stand.height_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tv_stand_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Low television stand (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Низкая телевизионная тумба» (мм).
+  kk: Карточкалар ұқсас. «Төмен теледидар тұғыры» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_tv_stand.depth_mm
+    grade: 3
+  - section: technical_tv_stand.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.tv_stand.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.tv_stand.depth_mm|current
+  required:
+  - fact: technical.tv_stand.depth_mm
+    sections:
+    - technical_tv_stand.depth_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tv_stand_operating_min_c
+  category: hard
+  en: Check the specifcation of Low television stand for minimum operating ambient temperature (C), please.
+  ru: 'Проверьте характиристику «Низкая телевизионная тумба»: интересует «Минимальная температура воздуха
+    при работе» (C).'
+  kk: «Төмен теледидар тұғыры» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_tv_stand.operating_min_c
+    grade: 3
+  - section: technical_tv_stand.max_load_kg
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.tv_stand.operating_min_c; neighbouring max_load_kg does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.tv_stand.operating_min_c|current
+  required:
+  - fact: technical.tv_stand.operating_min_c
+    sections:
+    - technical_tv_stand.operating_min_c
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tv_stand_max_load_kg
+  category: hard
+  en: For Low television stand, what is the specified maximum rated load in kg?
+  ru: Для «Низкая телевизионная тумба» какое значение указано для показателя «Максимальная допустимая
+    нагрузка» (кг)?
+  kk: «Төмен теледидар тұғыры» тауары үшін «Ең жоғары рұқсат етілген жүктеме» көрсеткішінің мәні қандай
+    (кг)?
+  relevant:
+  - section: technical_tv_stand.max_load_kg
+    grade: 3
+  - section: technical_tv_stand.panel_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.tv_stand.max_load_kg; neighbouring panel_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_load_limit
+  need_key: technical.tv_stand.max_load_kg|current
+  required:
+  - fact: technical.tv_stand.max_load_kg
+    sections:
+    - technical_tv_stand.max_load_kg
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tv_stand_panel_mm
+  category: simple
+  en: I am comparing specifications. Find the panel thickness for Low television stand, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Толщина панели» у «Низкая телевизионная тумба», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Төмен теледидар тұғыры» үшін «Панель қалыңдығы» мәні қажет (мм).
+  relevant:
+  - section: technical_tv_stand.panel_mm
+    grade: 3
+  - section: technical_tv_stand.shelves_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.tv_stand.panel_mm; neighbouring shelves_count does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_panel_geometry
+  need_key: technical.tv_stand.panel_mm|current
+  required:
+  - fact: technical.tv_stand.panel_mm
+    sections:
+    - technical_tv_stand.panel_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tv_stand_shelves_count
+  category: simple
+  en: 'Low television stand: number of shelves, units?'
+  ru: '«Низкая телевизионная тумба»: число полок, шт.?'
+  kk: '«Төмен теледидар тұғыры»: сөрелер саны, дана?'
+  relevant:
+  - section: technical_tv_stand.shelves_count
+    grade: 3
+  - section: technical_tv_stand.assembly_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.tv_stand.shelves_count; neighbouring assembly_minutes does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_layout
+  need_key: technical.tv_stand.shelves_count|current
+  required:
+  - fact: technical.tv_stand.shelves_count
+    sections:
+    - technical_tv_stand.shelves_count
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tv_stand_assembly_minutes
+  category: hard
+  en: The cards look similar. What rated assembly time is listed for Low television stand (minutes)?
+  ru: Карточки похожи. Уточните показатель «Расчётное время сборки» именно для «Низкая телевизионная тумба»
+    (минут).
+  kk: Карточкалар ұқсас. «Төмен теледидар тұғыры» үшін нақты «Жинаудың есептік уақыты» көрсеткішін айтыңыз
+    (минут).
+  relevant:
+  - section: technical_tv_stand.assembly_minutes
+    grade: 3
+  - section: technical_tv_stand.package_width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.tv_stand.assembly_minutes; neighbouring package_width_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_assembly_process
+  need_key: technical.tv_stand.assembly_minutes|current
+  required:
+  - fact: technical.tv_stand.assembly_minutes
+    sections:
+    - technical_tv_stand.assembly_minutes
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tv_stand_package_width_mm
+  category: hard
+  en: Check the specifcation of Low television stand for packed width (mm), please.
+  ru: 'Проверьте характиристику «Низкая телевизионная тумба»: интересует «Ширина упаковки» (мм).'
+  kk: «Төмен теледидар тұғыры» сипатамасынан «Қаптама ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_tv_stand.package_width_mm
+    grade: 3
+  - section: technical_tv_stand.package_height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Низкая телевизионная тумба» показатель «Ширина упаковки» (мм) нақтылап беріңізші, осы үлгі
+    үшін.
+  mix_kk: null
+  rationale: Authored target technical.tv_stand.package_width_mm; neighbouring package_height_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.tv_stand.package_width_mm|current
+  required:
+  - fact: technical.tv_stand.package_width_mm
+    sections:
+    - technical_tv_stand.package_width_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tv_stand_package_height_mm
+  category: simple
+  en: For Low television stand, what is the specified packed height in mm?
+  ru: Для «Низкая телевизионная тумба» какое значение указано для показателя «Высота упаковки» (мм)?
+  kk: «Төмен теледидар тұғыры» тауары үшін «Қаптама биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_tv_stand.package_height_mm
+    grade: 3
+  - section: technical_tv_stand.package_depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.tv_stand.package_height_mm; neighbouring package_depth_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.tv_stand.package_height_mm|current
+  required:
+  - fact: technical.tv_stand.package_height_mm
+    sections:
+    - technical_tv_stand.package_height_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tv_stand_package_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the packed depth for Low television stand, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина упаковки» у «Низкая телевизионная тумба», в
+    мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Төмен теледидар тұғыры» үшін «Қаптама тереңдігі» мәні қажет
+    (мм).
+  relevant:
+  - section: technical_tv_stand.package_depth_mm
+    grade: 3
+  - section: technical_tv_stand.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.tv_stand.package_depth_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.tv_stand.package_depth_mm|current
+  required:
+  - fact: technical.tv_stand.package_depth_mm
+    sections:
+    - technical_tv_stand.package_depth_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_tv_stand_humidity_max_percent
+  category: unanswerable
+  en: For Low television stand, what is the specified maximum permitted humidity in percent?
+  ru: Для «Низкая телевизионная тумба» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Төмен теледидар тұғыры» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_tv_stand.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for tv_stand does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.tv_stand.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_tv_stand_drop_test_cm
+  category: unanswerable
+  en: For Low television stand, what is the specified certified drop-test height in cm?
+  ru: Для «Низкая телевизионная тумба» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Төмен теледидар тұғыры» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_tv_stand.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for tv_stand does not state drop_test_cm. Dimensions, the retail price or a diagnostic
+    fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.tv_stand.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_tv_stand_repair_parts_price
+  category: unanswerable
+  en: For Low television stand, what is the specified replacement-part price in KZT?
+  ru: Для «Низкая телевизионная тумба» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Төмен теледидар тұғыры» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_tv_stand.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for tv_stand does not state repair_parts_price. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.tv_stand.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_tv_stand_certification_id
+  category: unanswerable
+  en: For Low television stand, what is the specified certification record number in record?
+  ru: Для «Низкая телевизионная тумба» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Төмен теледидар тұғыры» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_tv_stand.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for tv_stand does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.tv_stand.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_wood_stool_mass_g
+  category: simple
+  en: 'Solid-panel wooden stool: mass, g?'
+  ru: '«Деревянный табурет со сплошным сиденьем»: масса, г?'
+  kk: '«Тұтас отырғышты ағаш орындық»: салмағы, г?'
+  relevant:
+  - section: technical_wood_stool.mass_g
+    grade: 3
+  - section: technical_wood_stool.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wood_stool.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.wood_stool.mass_g|current
+  required:
+  - fact: technical.wood_stool.mass_g
+    sections:
+    - technical_wood_stool.mass_g
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wood_stool_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Solid-panel wooden stool (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Деревянный табурет со сплошным сиденьем»
+    (мм).
+  kk: Карточкалар ұқсас. «Тұтас отырғышты ағаш орындық» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_wood_stool.width_mm
+    grade: 3
+  - section: technical_wood_stool.height_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wood_stool.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.wood_stool.width_mm|current
+  required:
+  - fact: technical.wood_stool.width_mm
+    sections:
+    - technical_wood_stool.width_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wood_stool_height_mm
+  category: hard
+  en: Check the specifcation of Solid-panel wooden stool for height (mm), please.
+  ru: 'Проверьте характиристику «Деревянный табурет со сплошным сиденьем»: интересует «Высота» (мм).'
+  kk: «Тұтас отырғышты ағаш орындық» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_wood_stool.height_mm
+    grade: 3
+  - section: technical_wood_stool.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wood_stool.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.wood_stool.height_mm|current
+  required:
+  - fact: technical.wood_stool.height_mm
+    sections:
+    - technical_wood_stool.height_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wood_stool_depth_mm
+  category: simple
+  en: For Solid-panel wooden stool, what is the specified depth in mm?
+  ru: Для «Деревянный табурет со сплошным сиденьем» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Тұтас отырғышты ағаш орындық» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_wood_stool.depth_mm
+    grade: 3
+  - section: technical_wood_stool.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wood_stool.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.wood_stool.depth_mm|current
+  required:
+  - fact: technical.wood_stool.depth_mm
+    sections:
+    - technical_wood_stool.depth_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wood_stool_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Solid-panel wooden
+    stool, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Деревянный
+    табурет со сплошным сиденьем», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Тұтас отырғышты ағаш орындық» үшін «Жұмыс кезіндегі ауаның ең
+    төмен температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_wood_stool.operating_min_c
+    grade: 3
+  - section: technical_wood_stool.max_load_kg
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Тұтас отырғышты ағаш орындық» үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» (C) керек,
+    уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.wood_stool.operating_min_c; neighbouring max_load_kg does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.wood_stool.operating_min_c|current
+  required:
+  - fact: technical.wood_stool.operating_min_c
+    sections:
+    - technical_wood_stool.operating_min_c
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wood_stool_max_load_kg
+  category: hard
+  en: 'Solid-panel wooden stool: maximum rated load, kg?'
+  ru: '«Деревянный табурет со сплошным сиденьем»: максимальная допустимая нагрузка, кг?'
+  kk: '«Тұтас отырғышты ағаш орындық»: ең жоғары рұқсат етілген жүктеме, кг?'
+  relevant:
+  - section: technical_wood_stool.max_load_kg
+    grade: 3
+  - section: technical_wood_stool.panel_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wood_stool.max_load_kg; neighbouring panel_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_load_limit
+  need_key: technical.wood_stool.max_load_kg|current
+  required:
+  - fact: technical.wood_stool.max_load_kg
+    sections:
+    - technical_wood_stool.max_load_kg
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wood_stool_panel_mm
+  category: hard
+  en: The cards look similar. What panel thickness is listed for Solid-panel wooden stool (mm)?
+  ru: Карточки похожи. Уточните показатель «Толщина панели» именно для «Деревянный табурет со сплошным
+    сиденьем» (мм).
+  kk: Карточкалар ұқсас. «Тұтас отырғышты ағаш орындық» үшін нақты «Панель қалыңдығы» көрсеткішін айтыңыз
+    (мм).
+  relevant:
+  - section: technical_wood_stool.panel_mm
+    grade: 3
+  - section: technical_wood_stool.shelves_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wood_stool.panel_mm; neighbouring shelves_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_panel_geometry
+  need_key: technical.wood_stool.panel_mm|current
+  required:
+  - fact: technical.wood_stool.panel_mm
+    sections:
+    - technical_wood_stool.panel_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wood_stool_shelves_count
+  category: hard
+  en: Check the specifcation of Solid-panel wooden stool for number of shelves (units), please.
+  ru: 'Проверьте характиристику «Деревянный табурет со сплошным сиденьем»: интересует «Число полок» (шт.).'
+  kk: «Тұтас отырғышты ағаш орындық» сипатамасынан «Сөрелер саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_wood_stool.shelves_count
+    grade: 3
+  - section: technical_wood_stool.assembly_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wood_stool.shelves_count; neighbouring assembly_minutes does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_layout
+  need_key: technical.wood_stool.shelves_count|current
+  required:
+  - fact: technical.wood_stool.shelves_count
+    sections:
+    - technical_wood_stool.shelves_count
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wood_stool_assembly_minutes
+  category: hard
+  en: For Solid-panel wooden stool, what is the specified rated assembly time in minutes?
+  ru: Для «Деревянный табурет со сплошным сиденьем» какое значение указано для показателя «Расчётное время
+    сборки» (минут)?
+  kk: «Тұтас отырғышты ағаш орындық» тауары үшін «Жинаудың есептік уақыты» көрсеткішінің мәні қандай (минут)?
+  relevant:
+  - section: technical_wood_stool.assembly_minutes
+    grade: 3
+  - section: technical_wood_stool.package_width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wood_stool.assembly_minutes; neighbouring package_width_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_assembly_process
+  need_key: technical.wood_stool.assembly_minutes|current
+  required:
+  - fact: technical.wood_stool.assembly_minutes
+    sections:
+    - technical_wood_stool.assembly_minutes
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wood_stool_package_width_mm
+  category: simple
+  en: I am comparing specifications. Find the packed width for Solid-panel wooden stool, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина упаковки» у «Деревянный табурет со сплошным сиденьем»,
+    в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Тұтас отырғышты ағаш орындық» үшін «Қаптама ені» мәні қажет
+    (мм).
+  relevant:
+  - section: technical_wood_stool.package_width_mm
+    grade: 3
+  - section: technical_wood_stool.package_height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wood_stool.package_width_mm; neighbouring package_height_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.wood_stool.package_width_mm|current
+  required:
+  - fact: technical.wood_stool.package_width_mm
+    sections:
+    - technical_wood_stool.package_width_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wood_stool_package_height_mm
+  category: simple
+  en: 'Solid-panel wooden stool: packed height, mm?'
+  ru: '«Деревянный табурет со сплошным сиденьем»: высота упаковки, мм?'
+  kk: '«Тұтас отырғышты ағаш орындық»: қаптама биіктігі, мм?'
+  relevant:
+  - section: technical_wood_stool.package_height_mm
+    grade: 3
+  - section: technical_wood_stool.package_depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wood_stool.package_height_mm; neighbouring package_depth_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.wood_stool.package_height_mm|current
+  required:
+  - fact: technical.wood_stool.package_height_mm
+    sections:
+    - technical_wood_stool.package_height_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wood_stool_package_depth_mm
+  category: hard
+  en: The cards look similar. What packed depth is listed for Solid-panel wooden stool (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина упаковки» именно для «Деревянный табурет со сплошным
+    сиденьем» (мм).
+  kk: Карточкалар ұқсас. «Тұтас отырғышты ағаш орындық» үшін нақты «Қаптама тереңдігі» көрсеткішін айтыңыз
+    (мм).
+  relevant:
+  - section: technical_wood_stool.package_depth_mm
+    grade: 3
+  - section: technical_wood_stool.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Деревянный табурет со сплошным сиденьем» показатель «Глубина упаковки» (мм) нақтылап беріңізші,
+    осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.wood_stool.package_depth_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.wood_stool.package_depth_mm|current
+  required:
+  - fact: technical.wood_stool.package_depth_mm
+    sections:
+    - technical_wood_stool.package_depth_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_wood_stool_humidity_max_percent
+  category: unanswerable
+  en: For Solid-panel wooden stool, what is the specified maximum permitted humidity in percent?
+  ru: Для «Деревянный табурет со сплошным сиденьем» какое значение указано для показателя «Максимальная
+    допустимая влажность» (процентов)?
+  kk: «Тұтас отырғышты ағаш орындық» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_wood_stool.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for wood_stool does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.wood_stool.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_wood_stool_drop_test_cm
+  category: unanswerable
+  en: For Solid-panel wooden stool, what is the specified certified drop-test height in cm?
+  ru: Для «Деревянный табурет со сплошным сиденьем» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Тұтас отырғышты ағаш орындық» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_wood_stool.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for wood_stool does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.wood_stool.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_wood_stool_repair_parts_price
+  category: unanswerable
+  en: For Solid-panel wooden stool, what is the specified replacement-part price in KZT?
+  ru: Для «Деревянный табурет со сплошным сиденьем» какое значение указано для показателя «Цена запасной
+    детали» (тенге)?
+  kk: «Тұтас отырғышты ағаш орындық» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_wood_stool.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for wood_stool does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.wood_stool.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_wood_stool_certification_id
+  category: unanswerable
+  en: For Solid-panel wooden stool, what is the specified certification record number in record?
+  ru: Для «Деревянный табурет со сплошным сиденьем» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Тұтас отырғышты ағаш орындық» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_wood_stool.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for wood_stool does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.wood_stool.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_wood_stool
+  category: multi_fragment
+  en: What does Solid-panel wooden stool weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Деревянный табурет со сплошным сиденьем» и какой вес посылки допускают пункты самовывоза?
+  kk: «Тұтас отырғышты ағаш орындық» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_wood_stool.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.wood_stool.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.wood_stool.mass_g
+    sections:
+    - technical_wood_stool.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hall_bench_mass_g
+  category: hard
+  en: Check the specifcation of Hall storage bench for mass (g), please.
+  ru: 'Проверьте характиристику «Прихожая скамья для хранения»: интересует «Масса» (г).'
+  kk: «Дәліз сақтау орындығы» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_hall_bench.mass_g
+    grade: 3
+  - section: technical_hall_bench.width_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hall_bench.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.hall_bench.mass_g|current
+  required:
+  - fact: technical.hall_bench.mass_g
+    sections:
+    - technical_hall_bench.mass_g
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hall_bench_width_mm
+  category: simple
+  en: For Hall storage bench, what is the specified width in mm?
+  ru: Для «Прихожая скамья для хранения» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Дәліз сақтау орындығы» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_hall_bench.width_mm
+    grade: 3
+  - section: technical_hall_bench.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hall_bench.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.hall_bench.width_mm|current
+  required:
+  - fact: technical.hall_bench.width_mm
+    sections:
+    - technical_hall_bench.width_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hall_bench_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Hall storage bench, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Прихожая скамья для хранения», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Дәліз сақтау орындығы» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_hall_bench.height_mm
+    grade: 3
+  - section: technical_hall_bench.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hall_bench.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.hall_bench.height_mm|current
+  required:
+  - fact: technical.hall_bench.height_mm
+    sections:
+    - technical_hall_bench.height_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hall_bench_depth_mm
+  category: simple
+  en: 'Hall storage bench: depth, mm?'
+  ru: '«Прихожая скамья для хранения»: глубина, мм?'
+  kk: '«Дәліз сақтау орындығы»: тереңдігі, мм?'
+  relevant:
+  - section: technical_hall_bench.depth_mm
+    grade: 3
+  - section: technical_hall_bench.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hall_bench.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.hall_bench.depth_mm|current
+  required:
+  - fact: technical.hall_bench.depth_mm
+    sections:
+    - technical_hall_bench.depth_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hall_bench_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Hall storage bench
+    (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Прихожая
+    скамья для хранения» (C).
+  kk: Карточкалар ұқсас. «Дәліз сақтау орындығы» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_hall_bench.operating_min_c
+    grade: 3
+  - section: technical_hall_bench.max_load_kg
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hall_bench.operating_min_c; neighbouring max_load_kg does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.hall_bench.operating_min_c|current
+  required:
+  - fact: technical.hall_bench.operating_min_c
+    sections:
+    - technical_hall_bench.operating_min_c
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hall_bench_max_load_kg
+  category: hard
+  en: Check the specifcation of Hall storage bench for maximum rated load (kg), please.
+  ru: 'Проверьте характиристику «Прихожая скамья для хранения»: интересует «Максимальная допустимая нагрузка»
+    (кг).'
+  kk: «Дәліз сақтау орындығы» сипатамасынан «Ең жоғары рұқсат етілген жүктеме» мәнін тексеріңізші (кг).
+  relevant:
+  - section: technical_hall_bench.max_load_kg
+    grade: 3
+  - section: technical_hall_bench.panel_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hall_bench.max_load_kg; neighbouring panel_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_load_limit
+  need_key: technical.hall_bench.max_load_kg|current
+  required:
+  - fact: technical.hall_bench.max_load_kg
+    sections:
+    - technical_hall_bench.max_load_kg
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hall_bench_panel_mm
+  category: simple
+  en: For Hall storage bench, what is the specified panel thickness in mm?
+  ru: Для «Прихожая скамья для хранения» какое значение указано для показателя «Толщина панели» (мм)?
+  kk: «Дәліз сақтау орындығы» тауары үшін «Панель қалыңдығы» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_hall_bench.panel_mm
+    grade: 3
+  - section: technical_hall_bench.shelves_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Дәліз сақтау орындығы» үшін «Панель қалыңдығы» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.hall_bench.panel_mm; neighbouring shelves_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_panel_geometry
+  need_key: technical.hall_bench.panel_mm|current
+  required:
+  - fact: technical.hall_bench.panel_mm
+    sections:
+    - technical_hall_bench.panel_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hall_bench_shelves_count
+  category: simple
+  en: I am comparing specifications. Find the number of shelves for Hall storage bench, in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число полок» у «Прихожая скамья для хранения», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Дәліз сақтау орындығы» үшін «Сөрелер саны» мәні қажет (дана).
+  relevant:
+  - section: technical_hall_bench.shelves_count
+    grade: 3
+  - section: technical_hall_bench.assembly_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hall_bench.shelves_count; neighbouring assembly_minutes does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_layout
+  need_key: technical.hall_bench.shelves_count|current
+  required:
+  - fact: technical.hall_bench.shelves_count
+    sections:
+    - technical_hall_bench.shelves_count
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hall_bench_assembly_minutes
+  category: hard
+  en: 'Hall storage bench: rated assembly time, minutes?'
+  ru: '«Прихожая скамья для хранения»: расчётное время сборки, минут?'
+  kk: '«Дәліз сақтау орындығы»: жинаудың есептік уақыты, минут?'
+  relevant:
+  - section: technical_hall_bench.assembly_minutes
+    grade: 3
+  - section: technical_hall_bench.package_width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hall_bench.assembly_minutes; neighbouring package_width_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_assembly_process
+  need_key: technical.hall_bench.assembly_minutes|current
+  required:
+  - fact: technical.hall_bench.assembly_minutes
+    sections:
+    - technical_hall_bench.assembly_minutes
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hall_bench_package_width_mm
+  category: hard
+  en: The cards look similar. What packed width is listed for Hall storage bench (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина упаковки» именно для «Прихожая скамья для хранения»
+    (мм).
+  kk: Карточкалар ұқсас. «Дәліз сақтау орындығы» үшін нақты «Қаптама ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_hall_bench.package_width_mm
+    grade: 3
+  - section: technical_hall_bench.package_height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hall_bench.package_width_mm; neighbouring package_height_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.hall_bench.package_width_mm|current
+  required:
+  - fact: technical.hall_bench.package_width_mm
+    sections:
+    - technical_hall_bench.package_width_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hall_bench_package_height_mm
+  category: hard
+  en: Check the specifcation of Hall storage bench for packed height (mm), please.
+  ru: 'Проверьте характиристику «Прихожая скамья для хранения»: интересует «Высота упаковки» (мм).'
+  kk: «Дәліз сақтау орындығы» сипатамасынан «Қаптама биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_hall_bench.package_height_mm
+    grade: 3
+  - section: technical_hall_bench.package_depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hall_bench.package_height_mm; neighbouring package_depth_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.hall_bench.package_height_mm|current
+  required:
+  - fact: technical.hall_bench.package_height_mm
+    sections:
+    - technical_hall_bench.package_height_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hall_bench_package_depth_mm
+  category: simple
+  en: For Hall storage bench, what is the specified packed depth in mm?
+  ru: Для «Прихожая скамья для хранения» какое значение указано для показателя «Глубина упаковки» (мм)?
+  kk: «Дәліз сақтау орындығы» тауары үшін «Қаптама тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_hall_bench.package_depth_mm
+    grade: 3
+  - section: technical_hall_bench.mass_g
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hall_bench.package_depth_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.hall_bench.package_depth_mm|current
+  required:
+  - fact: technical.hall_bench.package_depth_mm
+    sections:
+    - technical_hall_bench.package_depth_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_hall_bench_humidity_max_percent
+  category: unanswerable
+  en: For Hall storage bench, what is the specified maximum permitted humidity in percent?
+  ru: Для «Прихожая скамья для хранения» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Дәліз сақтау орындығы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_hall_bench.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hall_bench does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.hall_bench.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_hall_bench_drop_test_cm
+  category: unanswerable
+  en: For Hall storage bench, what is the specified certified drop-test height in cm?
+  ru: Для «Прихожая скамья для хранения» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Дәліз сақтау орындығы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_hall_bench.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hall_bench does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.hall_bench.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_hall_bench_repair_parts_price
+  category: unanswerable
+  en: For Hall storage bench, what is the specified replacement-part price in KZT?
+  ru: Для «Прихожая скамья для хранения» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Дәліз сақтау орындығы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_hall_bench.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hall_bench does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.hall_bench.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_hall_bench_certification_id
+  category: unanswerable
+  en: For Hall storage bench, what is the specified certification record number in record?
+  ru: Для «Прихожая скамья для хранения» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Дәліз сақтау орындығы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_hall_bench.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hall_bench does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.hall_bench.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_wall_shelf_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Wall-mounted display shelf, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Настенная выставочная полка», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Қабырға көрме сөресі» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_wall_shelf.mass_g
+    grade: 3
+  - section: technical_wall_shelf.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wall_shelf.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.wall_shelf.mass_g|current
+  required:
+  - fact: technical.wall_shelf.mass_g
+    sections:
+    - technical_wall_shelf.mass_g
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_shelf_width_mm
+  category: simple
+  en: 'Wall-mounted display shelf: width, mm?'
+  ru: '«Настенная выставочная полка»: ширина, мм?'
+  kk: '«Қабырға көрме сөресі»: ені, мм?'
+  relevant:
+  - section: technical_wall_shelf.width_mm
+    grade: 3
+  - section: technical_wall_shelf.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Настенная выставочная полка» показатель «Ширина» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.wall_shelf.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.wall_shelf.width_mm|current
+  required:
+  - fact: technical.wall_shelf.width_mm
+    sections:
+    - technical_wall_shelf.width_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_shelf_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Wall-mounted display shelf (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Настенная выставочная полка» (мм).
+  kk: Карточкалар ұқсас. «Қабырға көрме сөресі» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_wall_shelf.height_mm
+    grade: 3
+  - section: technical_wall_shelf.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wall_shelf.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.wall_shelf.height_mm|current
+  required:
+  - fact: technical.wall_shelf.height_mm
+    sections:
+    - technical_wall_shelf.height_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_shelf_depth_mm
+  category: hard
+  en: Check the specifcation of Wall-mounted display shelf for depth (mm), please.
+  ru: 'Проверьте характиристику «Настенная выставочная полка»: интересует «Глубина» (мм).'
+  kk: «Қабырға көрме сөресі» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_wall_shelf.depth_mm
+    grade: 3
+  - section: technical_wall_shelf.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wall_shelf.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.wall_shelf.depth_mm|current
+  required:
+  - fact: technical.wall_shelf.depth_mm
+    sections:
+    - technical_wall_shelf.depth_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_shelf_operating_min_c
+  category: hard
+  en: For Wall-mounted display shelf, what is the specified minimum operating ambient temperature in C?
+  ru: Для «Настенная выставочная полка» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Қабырға көрме сөресі» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_wall_shelf.operating_min_c
+    grade: 3
+  - section: technical_wall_shelf.max_load_kg
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wall_shelf.operating_min_c; neighbouring max_load_kg does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.wall_shelf.operating_min_c|current
+  required:
+  - fact: technical.wall_shelf.operating_min_c
+    sections:
+    - technical_wall_shelf.operating_min_c
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_shelf_max_load_kg
+  category: hard
+  en: I am comparing specifications. Find the maximum rated load for Wall-mounted display shelf, in kg.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная допустимая нагрузка» у «Настенная выставочная
+    полка», в кг.
+  kk: Сипаттамаларды салыстырып отырмын. «Қабырға көрме сөресі» үшін «Ең жоғары рұқсат етілген жүктеме»
+    мәні қажет (кг).
+  relevant:
+  - section: technical_wall_shelf.max_load_kg
+    grade: 3
+  - section: technical_wall_shelf.panel_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wall_shelf.max_load_kg; neighbouring panel_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_load_limit
+  need_key: technical.wall_shelf.max_load_kg|current
+  required:
+  - fact: technical.wall_shelf.max_load_kg
+    sections:
+    - technical_wall_shelf.max_load_kg
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_shelf_panel_mm
+  category: simple
+  en: 'Wall-mounted display shelf: panel thickness, mm?'
+  ru: '«Настенная выставочная полка»: толщина панели, мм?'
+  kk: '«Қабырға көрме сөресі»: панель қалыңдығы, мм?'
+  relevant:
+  - section: technical_wall_shelf.panel_mm
+    grade: 3
+  - section: technical_wall_shelf.shelves_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wall_shelf.panel_mm; neighbouring shelves_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_panel_geometry
+  need_key: technical.wall_shelf.panel_mm|current
+  required:
+  - fact: technical.wall_shelf.panel_mm
+    sections:
+    - technical_wall_shelf.panel_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_shelf_shelves_count
+  category: hard
+  en: The cards look similar. What number of shelves is listed for Wall-mounted display shelf (units)?
+  ru: Карточки похожи. Уточните показатель «Число полок» именно для «Настенная выставочная полка» (шт.).
+  kk: Карточкалар ұқсас. «Қабырға көрме сөресі» үшін нақты «Сөрелер саны» көрсеткішін айтыңыз (дана).
+  relevant:
+  - section: technical_wall_shelf.shelves_count
+    grade: 3
+  - section: technical_wall_shelf.assembly_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wall_shelf.shelves_count; neighbouring assembly_minutes does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_layout
+  need_key: technical.wall_shelf.shelves_count|current
+  required:
+  - fact: technical.wall_shelf.shelves_count
+    sections:
+    - technical_wall_shelf.shelves_count
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_shelf_assembly_minutes
+  category: hard
+  en: Check the specifcation of Wall-mounted display shelf for rated assembly time (minutes), please.
+  ru: 'Проверьте характиристику «Настенная выставочная полка»: интересует «Расчётное время сборки» (минут).'
+  kk: «Қабырға көрме сөресі» сипатамасынан «Жинаудың есептік уақыты» мәнін тексеріңізші (минут).
+  relevant:
+  - section: technical_wall_shelf.assembly_minutes
+    grade: 3
+  - section: technical_wall_shelf.package_width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Қабырға көрме сөресі» үшін «Жинаудың есептік уақыты» (минут) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.wall_shelf.assembly_minutes; neighbouring package_width_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_assembly_process
+  need_key: technical.wall_shelf.assembly_minutes|current
+  required:
+  - fact: technical.wall_shelf.assembly_minutes
+    sections:
+    - technical_wall_shelf.assembly_minutes
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_shelf_package_width_mm
+  category: simple
+  en: For Wall-mounted display shelf, what is the specified packed width in mm?
+  ru: Для «Настенная выставочная полка» какое значение указано для показателя «Ширина упаковки» (мм)?
+  kk: «Қабырға көрме сөресі» тауары үшін «Қаптама ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_wall_shelf.package_width_mm
+    grade: 3
+  - section: technical_wall_shelf.package_height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wall_shelf.package_width_mm; neighbouring package_height_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.wall_shelf.package_width_mm|current
+  required:
+  - fact: technical.wall_shelf.package_width_mm
+    sections:
+    - technical_wall_shelf.package_width_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_shelf_package_height_mm
+  category: simple
+  en: I am comparing specifications. Find the packed height for Wall-mounted display shelf, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота упаковки» у «Настенная выставочная полка», в
+    мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Қабырға көрме сөресі» үшін «Қаптама биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_wall_shelf.package_height_mm
+    grade: 3
+  - section: technical_wall_shelf.package_depth_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wall_shelf.package_height_mm; neighbouring package_depth_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.wall_shelf.package_height_mm|current
+  required:
+  - fact: technical.wall_shelf.package_height_mm
+    sections:
+    - technical_wall_shelf.package_height_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wall_shelf_package_depth_mm
+  category: simple
+  en: 'Wall-mounted display shelf: packed depth, mm?'
+  ru: '«Настенная выставочная полка»: глубина упаковки, мм?'
+  kk: '«Қабырға көрме сөресі»: қаптама тереңдігі, мм?'
+  relevant:
+  - section: technical_wall_shelf.package_depth_mm
+    grade: 3
+  - section: technical_wall_shelf.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wall_shelf.package_depth_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.wall_shelf.package_depth_mm|current
+  required:
+  - fact: technical.wall_shelf.package_depth_mm
+    sections:
+    - technical_wall_shelf.package_depth_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_wall_shelf_humidity_max_percent
+  category: unanswerable
+  en: For Wall-mounted display shelf, what is the specified maximum permitted humidity in percent?
+  ru: Для «Настенная выставочная полка» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Қабырға көрме сөресі» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_wall_shelf.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for wall_shelf does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.wall_shelf.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_wall_shelf_drop_test_cm
+  category: unanswerable
+  en: For Wall-mounted display shelf, what is the specified certified drop-test height in cm?
+  ru: Для «Настенная выставочная полка» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Қабырға көрме сөресі» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_wall_shelf.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for wall_shelf does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.wall_shelf.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_wall_shelf_repair_parts_price
+  category: unanswerable
+  en: For Wall-mounted display shelf, what is the specified replacement-part price in KZT?
+  ru: Для «Настенная выставочная полка» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Қабырға көрме сөресі» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_wall_shelf.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for wall_shelf does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.wall_shelf.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_wall_shelf_certification_id
+  category: unanswerable
+  en: For Wall-mounted display shelf, what is the specified certification record number in record?
+  ru: Для «Настенная выставочная полка» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Қабырға көрме сөресі» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_wall_shelf.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for wall_shelf does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.wall_shelf.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_wall_shelf
+  category: multi_fragment
+  en: What does Wall-mounted display shelf weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Настенная выставочная полка» и какой вес посылки допускают пункты самовывоза?
+  kk: «Қабырға көрме сөресі» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат береді?
+  relevant:
+  - section: technical_wall_shelf.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.wall_shelf.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.wall_shelf.mass_g
+    sections:
+    - technical_wall_shelf.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corner_shelf_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Freestanding corner shelf (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Напольная угловая этажерка» (г).
+  kk: Карточкалар ұқсас. «Еден бұрыштық сөресі» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_corner_shelf.mass_g
+    grade: 3
+  - section: technical_corner_shelf.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.corner_shelf.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.corner_shelf.mass_g|current
+  required:
+  - fact: technical.corner_shelf.mass_g
+    sections:
+    - technical_corner_shelf.mass_g
+  tags:
+  - profile_derived
+  - domain_furniture
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corner_shelf_width_mm
+  category: hard
+  en: Check the specifcation of Freestanding corner shelf for width (mm), please.
+  ru: 'Проверьте характиристику «Напольная угловая этажерка»: интересует «Ширина» (мм).'
+  kk: «Еден бұрыштық сөресі» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_corner_shelf.width_mm
+    grade: 3
+  - section: technical_corner_shelf.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.corner_shelf.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.corner_shelf.width_mm|current
+  required:
+  - fact: technical.corner_shelf.width_mm
+    sections:
+    - technical_corner_shelf.width_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corner_shelf_height_mm
+  category: simple
+  en: For Freestanding corner shelf, what is the specified height in mm?
+  ru: Для «Напольная угловая этажерка» какое значение указано для показателя «Высота» (мм)?
+  kk: «Еден бұрыштық сөресі» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_corner_shelf.height_mm
+    grade: 3
+  - section: technical_corner_shelf.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.corner_shelf.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.corner_shelf.height_mm|current
+  required:
+  - fact: technical.corner_shelf.height_mm
+    sections:
+    - technical_corner_shelf.height_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corner_shelf_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Freestanding corner shelf, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Напольная угловая этажерка», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Еден бұрыштық сөресі» үшін «Тереңдігі» мәні қажет (мм).
+  relevant:
+  - section: technical_corner_shelf.depth_mm
+    grade: 3
+  - section: technical_corner_shelf.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Напольная угловая этажерка» показатель «Глубина» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.corner_shelf.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.corner_shelf.depth_mm|current
+  required:
+  - fact: technical.corner_shelf.depth_mm
+    sections:
+    - technical_corner_shelf.depth_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corner_shelf_operating_min_c
+  category: hard
+  en: 'Freestanding corner shelf: minimum operating ambient temperature, C?'
+  ru: '«Напольная угловая этажерка»: минимальная температура воздуха при работе, C?'
+  kk: '«Еден бұрыштық сөресі»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_corner_shelf.operating_min_c
+    grade: 3
+  - section: technical_corner_shelf.max_load_kg
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.corner_shelf.operating_min_c; neighbouring max_load_kg does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.corner_shelf.operating_min_c|current
+  required:
+  - fact: technical.corner_shelf.operating_min_c
+    sections:
+    - technical_corner_shelf.operating_min_c
+  tags:
+  - profile_derived
+  - domain_furniture
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corner_shelf_max_load_kg
+  category: hard
+  en: The cards look similar. What maximum rated load is listed for Freestanding corner shelf (kg)?
+  ru: Карточки похожи. Уточните показатель «Максимальная допустимая нагрузка» именно для «Напольная угловая
+    этажерка» (кг).
+  kk: Карточкалар ұқсас. «Еден бұрыштық сөресі» үшін нақты «Ең жоғары рұқсат етілген жүктеме» көрсеткішін
+    айтыңыз (кг).
+  relevant:
+  - section: technical_corner_shelf.max_load_kg
+    grade: 3
+  - section: technical_corner_shelf.panel_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.corner_shelf.max_load_kg; neighbouring panel_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_load_limit
+  need_key: technical.corner_shelf.max_load_kg|current
+  required:
+  - fact: technical.corner_shelf.max_load_kg
+    sections:
+    - technical_corner_shelf.max_load_kg
+  tags:
+  - profile_derived
+  - domain_furniture
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corner_shelf_panel_mm
+  category: hard
+  en: Check the specifcation of Freestanding corner shelf for panel thickness (mm), please.
+  ru: 'Проверьте характиристику «Напольная угловая этажерка»: интересует «Толщина панели» (мм).'
+  kk: «Еден бұрыштық сөресі» сипатамасынан «Панель қалыңдығы» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_corner_shelf.panel_mm
+    grade: 3
+  - section: technical_corner_shelf.shelves_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.corner_shelf.panel_mm; neighbouring shelves_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_panel_geometry
+  need_key: technical.corner_shelf.panel_mm|current
+  required:
+  - fact: technical.corner_shelf.panel_mm
+    sections:
+    - technical_corner_shelf.panel_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corner_shelf_shelves_count
+  category: simple
+  en: For Freestanding corner shelf, what is the specified number of shelves in units?
+  ru: Для «Напольная угловая этажерка» какое значение указано для показателя «Число полок» (шт.)?
+  kk: «Еден бұрыштық сөресі» тауары үшін «Сөрелер саны» көрсеткішінің мәні қандай (дана)?
+  relevant:
+  - section: technical_corner_shelf.shelves_count
+    grade: 3
+  - section: technical_corner_shelf.assembly_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.corner_shelf.shelves_count; neighbouring assembly_minutes does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_layout
+  need_key: technical.corner_shelf.shelves_count|current
+  required:
+  - fact: technical.corner_shelf.shelves_count
+    sections:
+    - technical_corner_shelf.shelves_count
+  tags:
+  - profile_derived
+  - domain_furniture
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corner_shelf_assembly_minutes
+  category: hard
+  en: I am comparing specifications. Find the rated assembly time for Freestanding corner shelf, in minutes.
+  ru: Сравниваю характеристики. Нужен показатель «Расчётное время сборки» у «Напольная угловая этажерка»,
+    в минут.
+  kk: Сипаттамаларды салыстырып отырмын. «Еден бұрыштық сөресі» үшін «Жинаудың есептік уақыты» мәні қажет
+    (минут).
+  relevant:
+  - section: technical_corner_shelf.assembly_minutes
+    grade: 3
+  - section: technical_corner_shelf.package_width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.corner_shelf.assembly_minutes; neighbouring package_width_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_assembly_process
+  need_key: technical.corner_shelf.assembly_minutes|current
+  required:
+  - fact: technical.corner_shelf.assembly_minutes
+    sections:
+    - technical_corner_shelf.assembly_minutes
+  tags:
+  - profile_derived
+  - domain_furniture
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corner_shelf_package_width_mm
+  category: simple
+  en: 'Freestanding corner shelf: packed width, mm?'
+  ru: '«Напольная угловая этажерка»: ширина упаковки, мм?'
+  kk: '«Еден бұрыштық сөресі»: қаптама ені, мм?'
+  relevant:
+  - section: technical_corner_shelf.package_width_mm
+    grade: 3
+  - section: technical_corner_shelf.package_height_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.corner_shelf.package_width_mm; neighbouring package_height_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.corner_shelf.package_width_mm|current
+  required:
+  - fact: technical.corner_shelf.package_width_mm
+    sections:
+    - technical_corner_shelf.package_width_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corner_shelf_package_height_mm
+  category: hard
+  en: The cards look similar. What packed height is listed for Freestanding corner shelf (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота упаковки» именно для «Напольная угловая этажерка» (мм).
+  kk: Карточкалар ұқсас. «Еден бұрыштық сөресі» үшін нақты «Қаптама биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_corner_shelf.package_height_mm
+    grade: 3
+  - section: technical_corner_shelf.package_depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Еден бұрыштық сөресі» үшін «Қаптама биіктігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.corner_shelf.package_height_mm; neighbouring package_depth_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.corner_shelf.package_height_mm|current
+  required:
+  - fact: technical.corner_shelf.package_height_mm
+    sections:
+    - technical_corner_shelf.package_height_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corner_shelf_package_depth_mm
+  category: hard
+  en: Check the specifcation of Freestanding corner shelf for packed depth (mm), please.
+  ru: 'Проверьте характиристику «Напольная угловая этажерка»: интересует «Глубина упаковки» (мм).'
+  kk: «Еден бұрыштық сөресі» сипатамасынан «Қаптама тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_corner_shelf.package_depth_mm
+    grade: 3
+  - section: technical_corner_shelf.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.corner_shelf.package_depth_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_packed_dimensions
+  need_key: technical.corner_shelf.package_depth_mm|current
+  required:
+  - fact: technical.corner_shelf.package_depth_mm
+    sections:
+    - technical_corner_shelf.package_depth_mm
+  tags:
+  - profile_derived
+  - domain_furniture
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_corner_shelf_humidity_max_percent
+  category: unanswerable
+  en: For Freestanding corner shelf, what is the specified maximum permitted humidity in percent?
+  ru: Для «Напольная угловая этажерка» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Еден бұрыштық сөресі» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_corner_shelf.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for corner_shelf does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.corner_shelf.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_corner_shelf_drop_test_cm
+  category: unanswerable
+  en: For Freestanding corner shelf, what is the specified certified drop-test height in cm?
+  ru: Для «Напольная угловая этажерка» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Еден бұрыштық сөресі» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_corner_shelf.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for corner_shelf does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.corner_shelf.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_corner_shelf_repair_parts_price
+  category: unanswerable
+  en: For Freestanding corner shelf, what is the specified replacement-part price in KZT?
+  ru: Для «Напольная угловая этажерка» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Еден бұрыштық сөресі» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_corner_shelf.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for corner_shelf does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.corner_shelf.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_corner_shelf_certification_id
+  category: unanswerable
+  en: For Freestanding corner shelf, what is the specified certification record number in record?
+  ru: Для «Напольная угловая этажерка» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Еден бұрыштық сөресі» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_corner_shelf.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for corner_shelf does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.corner_shelf.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_furniture
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact

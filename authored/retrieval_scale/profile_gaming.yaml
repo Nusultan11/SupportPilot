@@ -1,0 +1,4948 @@
+# Compiled from explicit technical_profiles/1 facts and native LLM-authored templates.
+schema_version: retrieval_scale_source/1
+origin: llm_generated
+review_status: draft
+author: Codex (LLM); explicit profiles and native templates compiled deterministically
+allowed_use: eval_only
+licence_note: Original fictional store specifications for internal demo and evaluation; no external manufacturer
+  data or real customer data. Fluent human review pending.
+items:
+- id: catalog_wired_gamepad_mass_g
+  category: simple
+  en: For Wired analogue gamepad, what is the specified mass in g?
+  ru: Для «Проводной аналоговый геймпад» какое значение указано для показателя «Масса» (г)?
+  kk: «Сымды аналогтік геймпад» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_wired_gamepad.mass_g
+    grade: 3
+  - section: technical_wired_gamepad.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wired_gamepad.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.wired_gamepad.mass_g|current
+  required:
+  - fact: technical.wired_gamepad.mass_g
+    sections:
+    - technical_wired_gamepad.mass_g
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wired_gamepad_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Wired analogue gamepad, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Проводной аналоговый геймпад», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Сымды аналогтік геймпад» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_wired_gamepad.width_mm
+    grade: 3
+  - section: technical_wired_gamepad.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Проводной аналоговый геймпад» показатель «Ширина» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.wired_gamepad.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.wired_gamepad.width_mm|current
+  required:
+  - fact: technical.wired_gamepad.width_mm
+    sections:
+    - technical_wired_gamepad.width_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wired_gamepad_height_mm
+  category: simple
+  en: 'Wired analogue gamepad: height, mm?'
+  ru: '«Проводной аналоговый геймпад»: высота, мм?'
+  kk: '«Сымды аналогтік геймпад»: биіктігі, мм?'
+  relevant:
+  - section: technical_wired_gamepad.height_mm
+    grade: 3
+  - section: technical_wired_gamepad.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wired_gamepad.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.wired_gamepad.height_mm|current
+  required:
+  - fact: technical.wired_gamepad.height_mm
+    sections:
+    - technical_wired_gamepad.height_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wired_gamepad_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Wired analogue gamepad (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Проводной аналоговый геймпад» (мм).
+  kk: Карточкалар ұқсас. «Сымды аналогтік геймпад» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_wired_gamepad.depth_mm
+    grade: 3
+  - section: technical_wired_gamepad.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wired_gamepad.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.wired_gamepad.depth_mm|current
+  required:
+  - fact: technical.wired_gamepad.depth_mm
+    sections:
+    - technical_wired_gamepad.depth_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wired_gamepad_operating_min_c
+  category: hard
+  en: Check the specifcation of Wired analogue gamepad for minimum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Проводной аналоговый геймпад»: интересует «Минимальная температура воздуха
+    при работе» (C).'
+  kk: «Сымды аналогтік геймпад» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_wired_gamepad.operating_min_c
+    grade: 3
+  - section: technical_wired_gamepad.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wired_gamepad.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.wired_gamepad.operating_min_c|current
+  required:
+  - fact: technical.wired_gamepad.operating_min_c
+    sections:
+    - technical_wired_gamepad.operating_min_c
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wired_gamepad_operating_max_c
+  category: hard
+  en: For Wired analogue gamepad, what is the specified maximum operating ambient temperature in C?
+  ru: Для «Проводной аналоговый геймпад» какое значение указано для показателя «Максимальная температура
+    воздуха при работе» (C)?
+  kk: «Сымды аналогтік геймпад» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_wired_gamepad.operating_max_c
+    grade: 3
+  - section: technical_wired_gamepad.controls_count
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wired_gamepad.operating_max_c; neighbouring controls_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.wired_gamepad.operating_max_c|current
+  required:
+  - fact: technical.wired_gamepad.operating_max_c
+    sections:
+    - technical_wired_gamepad.operating_max_c
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wired_gamepad_controls_count
+  category: simple
+  en: I am comparing specifications. Find the number of physical controls for Wired analogue gamepad,
+    in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число физических органов управления» у «Проводной аналоговый
+    геймпад», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Сымды аналогтік геймпад» үшін «Физикалық басқару элементтерінің
+    саны» мәні қажет (дана).
+  relevant:
+  - section: technical_wired_gamepad.controls_count
+    grade: 3
+  - section: technical_wired_gamepad.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wired_gamepad.controls_count; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.wired_gamepad.controls_count|current
+  required:
+  - fact: technical.wired_gamepad.controls_count
+    sections:
+    - technical_wired_gamepad.controls_count
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wired_gamepad_cable_cm
+  category: simple
+  en: 'Wired analogue gamepad: supplied cable length, cm?'
+  ru: '«Проводной аналоговый геймпад»: длина комплектного кабеля, см?'
+  kk: '«Сымды аналогтік геймпад»: жинақтағы кабель ұзындығы, см?'
+  relevant:
+  - section: technical_wired_gamepad.cable_cm
+    grade: 3
+  - section: technical_wired_gamepad.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wired_gamepad.cable_cm; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.wired_gamepad.cable_cm|current
+  required:
+  - fact: technical.wired_gamepad.cable_cm
+    sections:
+    - technical_wired_gamepad.cable_cm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wired_gamepad_voltage_v
+  category: hard
+  en: The cards look similar. What rated supply voltage is listed for Wired analogue gamepad (V)?
+  ru: Карточки похожи. Уточните показатель «Номинальное напряжение питания» именно для «Проводной аналоговый
+    геймпад» (В).
+  kk: Карточкалар ұқсас. «Сымды аналогтік геймпад» үшін нақты «Номиналды қорек кернеуі» көрсеткішін айтыңыз
+    (В).
+  relevant:
+  - section: technical_wired_gamepad.voltage_v
+    grade: 3
+  - section: technical_wired_gamepad.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Сымды аналогтік геймпад» үшін «Номиналды қорек кернеуі» (В) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.wired_gamepad.voltage_v; neighbouring power_w does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.wired_gamepad.voltage_v|current
+  required:
+  - fact: technical.wired_gamepad.voltage_v
+    sections:
+    - technical_wired_gamepad.voltage_v
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wired_gamepad_power_w
+  category: hard
+  en: Check the specifcation of Wired analogue gamepad for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Проводной аналоговый геймпад»: интересует «Номинальная потребляемая мощность»
+    (Вт).'
+  kk: «Сымды аналогтік геймпад» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_wired_gamepad.power_w
+    grade: 3
+  - section: technical_wired_gamepad.polling_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wired_gamepad.power_w; neighbouring polling_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.wired_gamepad.power_w|current
+  required:
+  - fact: technical.wired_gamepad.power_w
+    sections:
+    - technical_wired_gamepad.power_w
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wired_gamepad_polling_hz
+  category: simple
+  en: For Wired analogue gamepad, what is the specified rated input polling frequency in Hz?
+  ru: Для «Проводной аналоговый геймпад» какое значение указано для показателя «Номинальная частота опроса
+    ввода» (Гц)?
+  kk: «Сымды аналогтік геймпад» тауары үшін «Енгізуді сұраудың номиналды жиілігі» көрсеткішінің мәні қандай
+    (Гц)?
+  relevant:
+  - section: technical_wired_gamepad.polling_hz
+    grade: 3
+  - section: technical_wired_gamepad.axis_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wired_gamepad.polling_hz; neighbouring axis_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_polling
+  need_key: technical.wired_gamepad.polling_hz|current
+  required:
+  - fact: technical.wired_gamepad.polling_hz
+    sections:
+    - technical_wired_gamepad.polling_hz
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wired_gamepad_axis_count
+  category: simple
+  en: I am comparing specifications. Find the number of analogue axes for Wired analogue gamepad, in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число аналоговых осей» у «Проводной аналоговый геймпад»,
+    в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Сымды аналогтік геймпад» үшін «Аналогтік осьтер саны» мәні қажет
+    (дана).
+  relevant:
+  - section: technical_wired_gamepad.axis_count
+    grade: 3
+  - section: technical_wired_gamepad.travel_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wired_gamepad.axis_count; neighbouring travel_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_axes
+  need_key: technical.wired_gamepad.axis_count|current
+  required:
+  - fact: technical.wired_gamepad.axis_count
+    sections:
+    - technical_wired_gamepad.axis_count
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wired_gamepad_travel_mm
+  category: simple
+  en: 'Wired analogue gamepad: rated input mechanism travel, mm?'
+  ru: '«Проводной аналоговый геймпад»: номинальный ход механизма ввода, мм?'
+  kk: '«Сымды аналогтік геймпад»: енгізу тетігінің номиналды жүрісі, мм?'
+  relevant:
+  - section: technical_wired_gamepad.travel_mm
+    grade: 3
+  - section: technical_wired_gamepad.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wired_gamepad.travel_mm; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_travel
+  need_key: technical.wired_gamepad.travel_mm|current
+  required:
+  - fact: technical.wired_gamepad.travel_mm
+    sections:
+    - technical_wired_gamepad.travel_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_wired_gamepad_humidity_max_percent
+  category: unanswerable
+  en: For Wired analogue gamepad, what is the specified maximum permitted humidity in percent?
+  ru: Для «Проводной аналоговый геймпад» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Сымды аналогтік геймпад» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_wired_gamepad.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for wired_gamepad does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.wired_gamepad.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_wired_gamepad_drop_test_cm
+  category: unanswerable
+  en: For Wired analogue gamepad, what is the specified certified drop-test height in cm?
+  ru: Для «Проводной аналоговый геймпад» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Сымды аналогтік геймпад» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_wired_gamepad.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for wired_gamepad does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.wired_gamepad.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_wired_gamepad_repair_parts_price
+  category: unanswerable
+  en: For Wired analogue gamepad, what is the specified replacement-part price in KZT?
+  ru: Для «Проводной аналоговый геймпад» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Сымды аналогтік геймпад» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_wired_gamepad.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for wired_gamepad does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.wired_gamepad.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_wired_gamepad_certification_id
+  category: unanswerable
+  en: For Wired analogue gamepad, what is the specified certification record number in record?
+  ru: Для «Проводной аналоговый геймпад» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Сымды аналогтік геймпад» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_wired_gamepad.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for wired_gamepad does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.wired_gamepad.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_wired_gamepad
+  category: multi_fragment
+  en: What does Wired analogue gamepad weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Проводной аналоговый геймпад» и какой вес посылки допускают пункты самовывоза?
+  kk: «Сымды аналогтік геймпад» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_wired_gamepad.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.wired_gamepad.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.wired_gamepad.mass_g
+    sections:
+    - technical_wired_gamepad.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_prepublication_mass_wired_gamepad
+  category: unanswerable
+  en: According to the instructions valid on 15 October 2026, what was the stated mass of Wired analogue
+    gamepad?
+  ru: По инструкциям, действовавшим 15 октября 2026 года, какая масса была указана для «Проводной аналоговый
+    геймпад»?
+  kk: 2026 жылғы 15 қазанда қолданылған нұсқаулықтар бойынша «Сымды аналогтік геймпад» үшін қандай салмақ
+    көрсетілген еді?
+  relevant:
+  - section: technical_wired_gamepad.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The technical source starts on 1 November 2026. Its current mass cannot establish a fact
+    at the requested earlier date.
+  family_id: profile_physical_mass
+  need_key: technical.wired_gamepad.mass_g|2026_10_15_before_document_validity
+  required: []
+  tags:
+  - profile_derived
+  - temporal
+  - outside_validity
+  - hard_negative
+  as_of: '2026-10-15'
+  all_versions: false
+  negative_reason: expired
+- id: catalog_flight_joystick_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Desktop flight joystick (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Настольный авиационный джойстик» (г).
+  kk: Карточкалар ұқсас. «Үстел ұшу джойстигі» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_flight_joystick.mass_g
+    grade: 3
+  - section: technical_flight_joystick.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_joystick.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.flight_joystick.mass_g|current
+  required:
+  - fact: technical.flight_joystick.mass_g
+    sections:
+    - technical_flight_joystick.mass_g
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_joystick_width_mm
+  category: hard
+  en: Check the specifcation of Desktop flight joystick for width (mm), please.
+  ru: 'Проверьте характиристику «Настольный авиационный джойстик»: интересует «Ширина» (мм).'
+  kk: «Үстел ұшу джойстигі» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_flight_joystick.width_mm
+    grade: 3
+  - section: technical_flight_joystick.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_joystick.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.flight_joystick.width_mm|current
+  required:
+  - fact: technical.flight_joystick.width_mm
+    sections:
+    - technical_flight_joystick.width_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_joystick_height_mm
+  category: simple
+  en: For Desktop flight joystick, what is the specified height in mm?
+  ru: Для «Настольный авиационный джойстик» какое значение указано для показателя «Высота» (мм)?
+  kk: «Үстел ұшу джойстигі» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_flight_joystick.height_mm
+    grade: 3
+  - section: technical_flight_joystick.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Настольный авиационный джойстик» показатель «Высота» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.flight_joystick.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.flight_joystick.height_mm|current
+  required:
+  - fact: technical.flight_joystick.height_mm
+    sections:
+    - technical_flight_joystick.height_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_joystick_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Desktop flight joystick, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Настольный авиационный джойстик», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел ұшу джойстигі» үшін «Тереңдігі» мәні қажет (мм).
+  relevant:
+  - section: technical_flight_joystick.depth_mm
+    grade: 3
+  - section: technical_flight_joystick.operating_min_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_joystick.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.flight_joystick.depth_mm|current
+  required:
+  - fact: technical.flight_joystick.depth_mm
+    sections:
+    - technical_flight_joystick.depth_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_joystick_operating_min_c
+  category: hard
+  en: 'Desktop flight joystick: minimum operating ambient temperature, C?'
+  ru: '«Настольный авиационный джойстик»: минимальная температура воздуха при работе, C?'
+  kk: '«Үстел ұшу джойстигі»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_flight_joystick.operating_min_c
+    grade: 3
+  - section: technical_flight_joystick.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_joystick.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.flight_joystick.operating_min_c|current
+  required:
+  - fact: technical.flight_joystick.operating_min_c
+    sections:
+    - technical_flight_joystick.operating_min_c
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_joystick_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Desktop flight
+    joystick (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Настольный
+    авиационный джойстик» (C).
+  kk: Карточкалар ұқсас. «Үстел ұшу джойстигі» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_flight_joystick.operating_max_c
+    grade: 3
+  - section: technical_flight_joystick.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_joystick.operating_max_c; neighbouring controls_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.flight_joystick.operating_max_c|current
+  required:
+  - fact: technical.flight_joystick.operating_max_c
+    sections:
+    - technical_flight_joystick.operating_max_c
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_joystick_controls_count
+  category: hard
+  en: Check the specifcation of Desktop flight joystick for number of physical controls (units), please.
+  ru: 'Проверьте характиристику «Настольный авиационный джойстик»: интересует «Число физических органов
+    управления» (шт.).'
+  kk: «Үстел ұшу джойстигі» сипатамасынан «Физикалық басқару элементтерінің саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_flight_joystick.controls_count
+    grade: 3
+  - section: technical_flight_joystick.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_joystick.controls_count; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.flight_joystick.controls_count|current
+  required:
+  - fact: technical.flight_joystick.controls_count
+    sections:
+    - technical_flight_joystick.controls_count
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_joystick_cable_cm
+  category: simple
+  en: For Desktop flight joystick, what is the specified supplied cable length in cm?
+  ru: Для «Настольный авиационный джойстик» какое значение указано для показателя «Длина комплектного
+    кабеля» (см)?
+  kk: «Үстел ұшу джойстигі» тауары үшін «Жинақтағы кабель ұзындығы» көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_flight_joystick.cable_cm
+    grade: 3
+  - section: technical_flight_joystick.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_joystick.cable_cm; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.flight_joystick.cable_cm|current
+  required:
+  - fact: technical.flight_joystick.cable_cm
+    sections:
+    - technical_flight_joystick.cable_cm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_joystick_voltage_v
+  category: simple
+  en: I am comparing specifications. Find the rated supply voltage for Desktop flight joystick, in V.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное напряжение питания» у «Настольный авиационный
+    джойстик», в В.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел ұшу джойстигі» үшін «Номиналды қорек кернеуі» мәні қажет
+    (В).
+  relevant:
+  - section: technical_flight_joystick.voltage_v
+    grade: 3
+  - section: technical_flight_joystick.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_joystick.voltage_v; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.flight_joystick.voltage_v|current
+  required:
+  - fact: technical.flight_joystick.voltage_v
+    sections:
+    - technical_flight_joystick.voltage_v
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_joystick_power_w
+  category: simple
+  en: 'Desktop flight joystick: rated power consumption, W?'
+  ru: '«Настольный авиационный джойстик»: номинальная потребляемая мощность, Вт?'
+  kk: '«Үстел ұшу джойстигі»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_flight_joystick.power_w
+    grade: 3
+  - section: technical_flight_joystick.polling_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Үстел ұшу джойстигі» үшін «Номиналды тұтыну қуаты» (Вт) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.flight_joystick.power_w; neighbouring polling_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.flight_joystick.power_w|current
+  required:
+  - fact: technical.flight_joystick.power_w
+    sections:
+    - technical_flight_joystick.power_w
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_joystick_polling_hz
+  category: hard
+  en: The cards look similar. What rated input polling frequency is listed for Desktop flight joystick
+    (Hz)?
+  ru: Карточки похожи. Уточните показатель «Номинальная частота опроса ввода» именно для «Настольный авиационный
+    джойстик» (Гц).
+  kk: Карточкалар ұқсас. «Үстел ұшу джойстигі» үшін нақты «Енгізуді сұраудың номиналды жиілігі» көрсеткішін
+    айтыңыз (Гц).
+  relevant:
+  - section: technical_flight_joystick.polling_hz
+    grade: 3
+  - section: technical_flight_joystick.axis_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_joystick.polling_hz; neighbouring axis_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_polling
+  need_key: technical.flight_joystick.polling_hz|current
+  required:
+  - fact: technical.flight_joystick.polling_hz
+    sections:
+    - technical_flight_joystick.polling_hz
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_joystick_axis_count
+  category: hard
+  en: Check the specifcation of Desktop flight joystick for number of analogue axes (units), please.
+  ru: 'Проверьте характиристику «Настольный авиационный джойстик»: интересует «Число аналоговых осей»
+    (шт.).'
+  kk: «Үстел ұшу джойстигі» сипатамасынан «Аналогтік осьтер саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_flight_joystick.axis_count
+    grade: 3
+  - section: technical_flight_joystick.travel_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_joystick.axis_count; neighbouring travel_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_axes
+  need_key: technical.flight_joystick.axis_count|current
+  required:
+  - fact: technical.flight_joystick.axis_count
+    sections:
+    - technical_flight_joystick.axis_count
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_joystick_travel_mm
+  category: simple
+  en: For Desktop flight joystick, what is the specified rated input mechanism travel in mm?
+  ru: Для «Настольный авиационный джойстик» какое значение указано для показателя «Номинальный ход механизма
+    ввода» (мм)?
+  kk: «Үстел ұшу джойстигі» тауары үшін «Енгізу тетігінің номиналды жүрісі» көрсеткішінің мәні қандай
+    (мм)?
+  relevant:
+  - section: technical_flight_joystick.travel_mm
+    grade: 3
+  - section: technical_flight_joystick.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_joystick.travel_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_travel
+  need_key: technical.flight_joystick.travel_mm|current
+  required:
+  - fact: technical.flight_joystick.travel_mm
+    sections:
+    - technical_flight_joystick.travel_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_flight_joystick_humidity_max_percent
+  category: unanswerable
+  en: For Desktop flight joystick, what is the specified maximum permitted humidity in percent?
+  ru: Для «Настольный авиационный джойстик» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Үстел ұшу джойстигі» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_flight_joystick.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for flight_joystick does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.flight_joystick.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_flight_joystick_drop_test_cm
+  category: unanswerable
+  en: For Desktop flight joystick, what is the specified certified drop-test height in cm?
+  ru: Для «Настольный авиационный джойстик» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Үстел ұшу джойстигі» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_flight_joystick.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for flight_joystick does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.flight_joystick.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_flight_joystick_repair_parts_price
+  category: unanswerable
+  en: For Desktop flight joystick, what is the specified replacement-part price in KZT?
+  ru: Для «Настольный авиационный джойстик» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Үстел ұшу джойстигі» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_flight_joystick.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for flight_joystick does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.flight_joystick.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_flight_joystick_certification_id
+  category: unanswerable
+  en: For Desktop flight joystick, what is the specified certification record number in record?
+  ru: Для «Настольный авиационный джойстик» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Үстел ұшу джойстигі» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_flight_joystick.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for flight_joystick does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.flight_joystick.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_flight_yoke_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Simulator flight yoke, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Штурвал авиасимулятора», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Ұшу симуляторының штурвалы» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_flight_yoke.mass_g
+    grade: 3
+  - section: technical_flight_yoke.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_yoke.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.flight_yoke.mass_g|current
+  required:
+  - fact: technical.flight_yoke.mass_g
+    sections:
+    - technical_flight_yoke.mass_g
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_yoke_width_mm
+  category: simple
+  en: 'Simulator flight yoke: width, mm?'
+  ru: '«Штурвал авиасимулятора»: ширина, мм?'
+  kk: '«Ұшу симуляторының штурвалы»: ені, мм?'
+  relevant:
+  - section: technical_flight_yoke.width_mm
+    grade: 3
+  - section: technical_flight_yoke.height_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_yoke.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.flight_yoke.width_mm|current
+  required:
+  - fact: technical.flight_yoke.width_mm
+    sections:
+    - technical_flight_yoke.width_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_yoke_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Simulator flight yoke (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Штурвал авиасимулятора» (мм).
+  kk: Карточкалар ұқсас. «Ұшу симуляторының штурвалы» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_flight_yoke.height_mm
+    grade: 3
+  - section: technical_flight_yoke.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_yoke.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.flight_yoke.height_mm|current
+  required:
+  - fact: technical.flight_yoke.height_mm
+    sections:
+    - technical_flight_yoke.height_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_yoke_depth_mm
+  category: hard
+  en: Check the specifcation of Simulator flight yoke for depth (mm), please.
+  ru: 'Проверьте характиристику «Штурвал авиасимулятора»: интересует «Глубина» (мм).'
+  kk: «Ұшу симуляторының штурвалы» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_flight_yoke.depth_mm
+    grade: 3
+  - section: technical_flight_yoke.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Штурвал авиасимулятора» показатель «Глубина» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.flight_yoke.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.flight_yoke.depth_mm|current
+  required:
+  - fact: technical.flight_yoke.depth_mm
+    sections:
+    - technical_flight_yoke.depth_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_yoke_operating_min_c
+  category: hard
+  en: For Simulator flight yoke, what is the specified minimum operating ambient temperature in C?
+  ru: Для «Штурвал авиасимулятора» какое значение указано для показателя «Минимальная температура воздуха
+    при работе» (C)?
+  kk: «Ұшу симуляторының штурвалы» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_flight_yoke.operating_min_c
+    grade: 3
+  - section: technical_flight_yoke.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_yoke.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.flight_yoke.operating_min_c|current
+  required:
+  - fact: technical.flight_yoke.operating_min_c
+    sections:
+    - technical_flight_yoke.operating_min_c
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_yoke_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Simulator flight
+    yoke, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Штурвал
+    авиасимулятора», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Ұшу симуляторының штурвалы» үшін «Жұмыс кезіндегі ауаның ең
+    жоғары температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_flight_yoke.operating_max_c
+    grade: 3
+  - section: technical_flight_yoke.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_yoke.operating_max_c; neighbouring controls_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.flight_yoke.operating_max_c|current
+  required:
+  - fact: technical.flight_yoke.operating_max_c
+    sections:
+    - technical_flight_yoke.operating_max_c
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_yoke_controls_count
+  category: simple
+  en: 'Simulator flight yoke: number of physical controls, units?'
+  ru: '«Штурвал авиасимулятора»: число физических органов управления, шт.?'
+  kk: '«Ұшу симуляторының штурвалы»: физикалық басқару элементтерінің саны, дана?'
+  relevant:
+  - section: technical_flight_yoke.controls_count
+    grade: 3
+  - section: technical_flight_yoke.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_yoke.controls_count; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.flight_yoke.controls_count|current
+  required:
+  - fact: technical.flight_yoke.controls_count
+    sections:
+    - technical_flight_yoke.controls_count
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_yoke_cable_cm
+  category: hard
+  en: The cards look similar. What supplied cable length is listed for Simulator flight yoke (cm)?
+  ru: Карточки похожи. Уточните показатель «Длина комплектного кабеля» именно для «Штурвал авиасимулятора»
+    (см).
+  kk: Карточкалар ұқсас. «Ұшу симуляторының штурвалы» үшін нақты «Жинақтағы кабель ұзындығы» көрсеткішін
+    айтыңыз (см).
+  relevant:
+  - section: technical_flight_yoke.cable_cm
+    grade: 3
+  - section: technical_flight_yoke.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_yoke.cable_cm; neighbouring voltage_v does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.flight_yoke.cable_cm|current
+  required:
+  - fact: technical.flight_yoke.cable_cm
+    sections:
+    - technical_flight_yoke.cable_cm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_yoke_voltage_v
+  category: hard
+  en: Check the specifcation of Simulator flight yoke for rated supply voltage (V), please.
+  ru: 'Проверьте характиристику «Штурвал авиасимулятора»: интересует «Номинальное напряжение питания»
+    (В).'
+  kk: «Ұшу симуляторының штурвалы» сипатамасынан «Номиналды қорек кернеуі» мәнін тексеріңізші (В).
+  relevant:
+  - section: technical_flight_yoke.voltage_v
+    grade: 3
+  - section: technical_flight_yoke.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_yoke.voltage_v; neighbouring power_w does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.flight_yoke.voltage_v|current
+  required:
+  - fact: technical.flight_yoke.voltage_v
+    sections:
+    - technical_flight_yoke.voltage_v
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_yoke_power_w
+  category: simple
+  en: For Simulator flight yoke, what is the specified rated power consumption in W?
+  ru: Для «Штурвал авиасимулятора» какое значение указано для показателя «Номинальная потребляемая мощность»
+    (Вт)?
+  kk: «Ұшу симуляторының штурвалы» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай (Вт)?
+  relevant:
+  - section: technical_flight_yoke.power_w
+    grade: 3
+  - section: technical_flight_yoke.polling_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_yoke.power_w; neighbouring polling_hz does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.flight_yoke.power_w|current
+  required:
+  - fact: technical.flight_yoke.power_w
+    sections:
+    - technical_flight_yoke.power_w
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_yoke_polling_hz
+  category: simple
+  en: I am comparing specifications. Find the rated input polling frequency for Simulator flight yoke,
+    in Hz.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная частота опроса ввода» у «Штурвал авиасимулятора»,
+    в Гц.
+  kk: Сипаттамаларды салыстырып отырмын. «Ұшу симуляторының штурвалы» үшін «Енгізуді сұраудың номиналды
+    жиілігі» мәні қажет (Гц).
+  relevant:
+  - section: technical_flight_yoke.polling_hz
+    grade: 3
+  - section: technical_flight_yoke.axis_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Ұшу симуляторының штурвалы» үшін «Енгізуді сұраудың номиналды жиілігі» (Гц) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.flight_yoke.polling_hz; neighbouring axis_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_polling
+  need_key: technical.flight_yoke.polling_hz|current
+  required:
+  - fact: technical.flight_yoke.polling_hz
+    sections:
+    - technical_flight_yoke.polling_hz
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_yoke_axis_count
+  category: simple
+  en: 'Simulator flight yoke: number of analogue axes, units?'
+  ru: '«Штурвал авиасимулятора»: число аналоговых осей, шт.?'
+  kk: '«Ұшу симуляторының штурвалы»: аналогтік осьтер саны, дана?'
+  relevant:
+  - section: technical_flight_yoke.axis_count
+    grade: 3
+  - section: technical_flight_yoke.travel_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_yoke.axis_count; neighbouring travel_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_axes
+  need_key: technical.flight_yoke.axis_count|current
+  required:
+  - fact: technical.flight_yoke.axis_count
+    sections:
+    - technical_flight_yoke.axis_count
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flight_yoke_travel_mm
+  category: hard
+  en: The cards look similar. What rated input mechanism travel is listed for Simulator flight yoke (mm)?
+  ru: Карточки похожи. Уточните показатель «Номинальный ход механизма ввода» именно для «Штурвал авиасимулятора»
+    (мм).
+  kk: Карточкалар ұқсас. «Ұшу симуляторының штурвалы» үшін нақты «Енгізу тетігінің номиналды жүрісі» көрсеткішін
+    айтыңыз (мм).
+  relevant:
+  - section: technical_flight_yoke.travel_mm
+    grade: 3
+  - section: technical_flight_yoke.mass_g
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flight_yoke.travel_mm; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_travel
+  need_key: technical.flight_yoke.travel_mm|current
+  required:
+  - fact: technical.flight_yoke.travel_mm
+    sections:
+    - technical_flight_yoke.travel_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_flight_yoke_humidity_max_percent
+  category: unanswerable
+  en: For Simulator flight yoke, what is the specified maximum permitted humidity in percent?
+  ru: Для «Штурвал авиасимулятора» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Ұшу симуляторының штурвалы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_flight_yoke.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for flight_yoke does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.flight_yoke.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_flight_yoke_drop_test_cm
+  category: unanswerable
+  en: For Simulator flight yoke, what is the specified certified drop-test height in cm?
+  ru: Для «Штурвал авиасимулятора» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Ұшу симуляторының штурвалы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_flight_yoke.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for flight_yoke does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.flight_yoke.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_flight_yoke_repair_parts_price
+  category: unanswerable
+  en: For Simulator flight yoke, what is the specified replacement-part price in KZT?
+  ru: Для «Штурвал авиасимулятора» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Ұшу симуляторының штурвалы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_flight_yoke.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for flight_yoke does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.flight_yoke.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_flight_yoke_certification_id
+  category: unanswerable
+  en: For Simulator flight yoke, what is the specified certification record number in record?
+  ru: Для «Штурвал авиасимулятора» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Ұшу симуляторының штурвалы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_flight_yoke.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for flight_yoke does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.flight_yoke.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_flight_yoke
+  category: multi_fragment
+  en: What does Simulator flight yoke weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Штурвал авиасимулятора» и какой вес посылки допускают пункты самовывоза?
+  kk: «Ұшу симуляторының штурвалы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_flight_yoke.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.flight_yoke.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.flight_yoke.mass_g
+    sections:
+    - technical_flight_yoke.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_racing_wheel_mass_g
+  category: hard
+  en: Check the specifcation of Simulator racing wheel for mass (g), please.
+  ru: 'Проверьте характиристику «Руль гоночного симулятора»: интересует «Масса» (г).'
+  kk: «Жарыс симуляторының рулі» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_racing_wheel.mass_g
+    grade: 3
+  - section: technical_racing_wheel.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.racing_wheel.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.racing_wheel.mass_g|current
+  required:
+  - fact: technical.racing_wheel.mass_g
+    sections:
+    - technical_racing_wheel.mass_g
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_racing_wheel_width_mm
+  category: simple
+  en: For Simulator racing wheel, what is the specified width in mm?
+  ru: Для «Руль гоночного симулятора» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Жарыс симуляторының рулі» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_racing_wheel.width_mm
+    grade: 3
+  - section: technical_racing_wheel.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.racing_wheel.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.racing_wheel.width_mm|current
+  required:
+  - fact: technical.racing_wheel.width_mm
+    sections:
+    - technical_racing_wheel.width_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_racing_wheel_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Simulator racing wheel, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Руль гоночного симулятора», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Жарыс симуляторының рулі» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_racing_wheel.height_mm
+    grade: 3
+  - section: technical_racing_wheel.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.racing_wheel.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.racing_wheel.height_mm|current
+  required:
+  - fact: technical.racing_wheel.height_mm
+    sections:
+    - technical_racing_wheel.height_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_racing_wheel_depth_mm
+  category: simple
+  en: 'Simulator racing wheel: depth, mm?'
+  ru: '«Руль гоночного симулятора»: глубина, мм?'
+  kk: '«Жарыс симуляторының рулі»: тереңдігі, мм?'
+  relevant:
+  - section: technical_racing_wheel.depth_mm
+    grade: 3
+  - section: technical_racing_wheel.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.racing_wheel.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.racing_wheel.depth_mm|current
+  required:
+  - fact: technical.racing_wheel.depth_mm
+    sections:
+    - technical_racing_wheel.depth_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_racing_wheel_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Simulator racing
+    wheel (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Руль
+    гоночного симулятора» (C).
+  kk: Карточкалар ұқсас. «Жарыс симуляторының рулі» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_racing_wheel.operating_min_c
+    grade: 3
+  - section: technical_racing_wheel.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Руль гоночного симулятора» показатель «Минимальная температура воздуха при работе» (C) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.racing_wheel.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.racing_wheel.operating_min_c|current
+  required:
+  - fact: technical.racing_wheel.operating_min_c
+    sections:
+    - technical_racing_wheel.operating_min_c
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_racing_wheel_operating_max_c
+  category: hard
+  en: Check the specifcation of Simulator racing wheel for maximum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Руль гоночного симулятора»: интересует «Максимальная температура воздуха
+    при работе» (C).'
+  kk: «Жарыс симуляторының рулі» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы» мәнін
+    тексеріңізші (C).
+  relevant:
+  - section: technical_racing_wheel.operating_max_c
+    grade: 3
+  - section: technical_racing_wheel.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.racing_wheel.operating_max_c; neighbouring controls_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.racing_wheel.operating_max_c|current
+  required:
+  - fact: technical.racing_wheel.operating_max_c
+    sections:
+    - technical_racing_wheel.operating_max_c
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_racing_wheel_controls_count
+  category: simple
+  en: For Simulator racing wheel, what is the specified number of physical controls in units?
+  ru: Для «Руль гоночного симулятора» какое значение указано для показателя «Число физических органов
+    управления» (шт.)?
+  kk: «Жарыс симуляторының рулі» тауары үшін «Физикалық басқару элементтерінің саны» көрсеткішінің мәні
+    қандай (дана)?
+  relevant:
+  - section: technical_racing_wheel.controls_count
+    grade: 3
+  - section: technical_racing_wheel.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.racing_wheel.controls_count; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.racing_wheel.controls_count|current
+  required:
+  - fact: technical.racing_wheel.controls_count
+    sections:
+    - technical_racing_wheel.controls_count
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_racing_wheel_cable_cm
+  category: simple
+  en: I am comparing specifications. Find the supplied cable length for Simulator racing wheel, in cm.
+  ru: Сравниваю характеристики. Нужен показатель «Длина комплектного кабеля» у «Руль гоночного симулятора»,
+    в см.
+  kk: Сипаттамаларды салыстырып отырмын. «Жарыс симуляторының рулі» үшін «Жинақтағы кабель ұзындығы» мәні
+    қажет (см).
+  relevant:
+  - section: technical_racing_wheel.cable_cm
+    grade: 3
+  - section: technical_racing_wheel.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.racing_wheel.cable_cm; neighbouring voltage_v does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.racing_wheel.cable_cm|current
+  required:
+  - fact: technical.racing_wheel.cable_cm
+    sections:
+    - technical_racing_wheel.cable_cm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_racing_wheel_voltage_v
+  category: simple
+  en: 'Simulator racing wheel: rated supply voltage, V?'
+  ru: '«Руль гоночного симулятора»: номинальное напряжение питания, В?'
+  kk: '«Жарыс симуляторының рулі»: номиналды қорек кернеуі, В?'
+  relevant:
+  - section: technical_racing_wheel.voltage_v
+    grade: 3
+  - section: technical_racing_wheel.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.racing_wheel.voltage_v; neighbouring power_w does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.racing_wheel.voltage_v|current
+  required:
+  - fact: technical.racing_wheel.voltage_v
+    sections:
+    - technical_racing_wheel.voltage_v
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_racing_wheel_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Simulator racing wheel (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Руль гоночного
+    симулятора» (Вт).
+  kk: Карточкалар ұқсас. «Жарыс симуляторының рулі» үшін нақты «Номиналды тұтыну қуаты» көрсеткішін айтыңыз
+    (Вт).
+  relevant:
+  - section: technical_racing_wheel.power_w
+    grade: 3
+  - section: technical_racing_wheel.polling_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.racing_wheel.power_w; neighbouring polling_hz does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.racing_wheel.power_w|current
+  required:
+  - fact: technical.racing_wheel.power_w
+    sections:
+    - technical_racing_wheel.power_w
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_racing_wheel_polling_hz
+  category: hard
+  en: Check the specifcation of Simulator racing wheel for rated input polling frequency (Hz), please.
+  ru: 'Проверьте характиристику «Руль гоночного симулятора»: интересует «Номинальная частота опроса ввода»
+    (Гц).'
+  kk: «Жарыс симуляторының рулі» сипатамасынан «Енгізуді сұраудың номиналды жиілігі» мәнін тексеріңізші
+    (Гц).
+  relevant:
+  - section: technical_racing_wheel.polling_hz
+    grade: 3
+  - section: technical_racing_wheel.axis_count
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.racing_wheel.polling_hz; neighbouring axis_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_polling
+  need_key: technical.racing_wheel.polling_hz|current
+  required:
+  - fact: technical.racing_wheel.polling_hz
+    sections:
+    - technical_racing_wheel.polling_hz
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_racing_wheel_axis_count
+  category: simple
+  en: For Simulator racing wheel, what is the specified number of analogue axes in units?
+  ru: Для «Руль гоночного симулятора» какое значение указано для показателя «Число аналоговых осей» (шт.)?
+  kk: «Жарыс симуляторының рулі» тауары үшін «Аналогтік осьтер саны» көрсеткішінің мәні қандай (дана)?
+  relevant:
+  - section: technical_racing_wheel.axis_count
+    grade: 3
+  - section: technical_racing_wheel.travel_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Жарыс симуляторының рулі» үшін «Аналогтік осьтер саны» (дана) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.racing_wheel.axis_count; neighbouring travel_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_axes
+  need_key: technical.racing_wheel.axis_count|current
+  required:
+  - fact: technical.racing_wheel.axis_count
+    sections:
+    - technical_racing_wheel.axis_count
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_racing_wheel_travel_mm
+  category: simple
+  en: I am comparing specifications. Find the rated input mechanism travel for Simulator racing wheel,
+    in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальный ход механизма ввода» у «Руль гоночного симулятора»,
+    в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Жарыс симуляторының рулі» үшін «Енгізу тетігінің номиналды жүрісі»
+    мәні қажет (мм).
+  relevant:
+  - section: technical_racing_wheel.travel_mm
+    grade: 3
+  - section: technical_racing_wheel.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.racing_wheel.travel_mm; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_travel
+  need_key: technical.racing_wheel.travel_mm|current
+  required:
+  - fact: technical.racing_wheel.travel_mm
+    sections:
+    - technical_racing_wheel.travel_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_racing_wheel_humidity_max_percent
+  category: unanswerable
+  en: For Simulator racing wheel, what is the specified maximum permitted humidity in percent?
+  ru: Для «Руль гоночного симулятора» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Жарыс симуляторының рулі» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_racing_wheel.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for racing_wheel does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.racing_wheel.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_racing_wheel_drop_test_cm
+  category: unanswerable
+  en: For Simulator racing wheel, what is the specified certified drop-test height in cm?
+  ru: Для «Руль гоночного симулятора» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Жарыс симуляторының рулі» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_racing_wheel.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for racing_wheel does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.racing_wheel.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_racing_wheel_repair_parts_price
+  category: unanswerable
+  en: For Simulator racing wheel, what is the specified replacement-part price in KZT?
+  ru: Для «Руль гоночного симулятора» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Жарыс симуляторының рулі» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_racing_wheel.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for racing_wheel does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.racing_wheel.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_racing_wheel_certification_id
+  category: unanswerable
+  en: For Simulator racing wheel, what is the specified certification record number in record?
+  ru: Для «Руль гоночного симулятора» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Жарыс симуляторының рулі» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_racing_wheel.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for racing_wheel does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.racing_wheel.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_rudder_pedals_mass_g
+  category: simple
+  en: 'Flight simulator rudder pedals: mass, g?'
+  ru: '«Педали руля авиасимулятора»: масса, г?'
+  kk: '«Ұшу симуляторының бағыт педальдары»: салмағы, г?'
+  relevant:
+  - section: technical_rudder_pedals.mass_g
+    grade: 3
+  - section: technical_rudder_pedals.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rudder_pedals.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.rudder_pedals.mass_g|current
+  required:
+  - fact: technical.rudder_pedals.mass_g
+    sections:
+    - technical_rudder_pedals.mass_g
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rudder_pedals_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Flight simulator rudder pedals (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Педали руля авиасимулятора» (мм).
+  kk: Карточкалар ұқсас. «Ұшу симуляторының бағыт педальдары» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_rudder_pedals.width_mm
+    grade: 3
+  - section: technical_rudder_pedals.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rudder_pedals.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rudder_pedals.width_mm|current
+  required:
+  - fact: technical.rudder_pedals.width_mm
+    sections:
+    - technical_rudder_pedals.width_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rudder_pedals_height_mm
+  category: hard
+  en: Check the specifcation of Flight simulator rudder pedals for height (mm), please.
+  ru: 'Проверьте характиристику «Педали руля авиасимулятора»: интересует «Высота» (мм).'
+  kk: «Ұшу симуляторының бағыт педальдары» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_rudder_pedals.height_mm
+    grade: 3
+  - section: technical_rudder_pedals.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rudder_pedals.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rudder_pedals.height_mm|current
+  required:
+  - fact: technical.rudder_pedals.height_mm
+    sections:
+    - technical_rudder_pedals.height_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rudder_pedals_depth_mm
+  category: simple
+  en: For Flight simulator rudder pedals, what is the specified depth in mm?
+  ru: Для «Педали руля авиасимулятора» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Ұшу симуляторының бағыт педальдары» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_rudder_pedals.depth_mm
+    grade: 3
+  - section: technical_rudder_pedals.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rudder_pedals.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rudder_pedals.depth_mm|current
+  required:
+  - fact: technical.rudder_pedals.depth_mm
+    sections:
+    - technical_rudder_pedals.depth_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rudder_pedals_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Flight simulator
+    rudder pedals, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Педали
+    руля авиасимулятора», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Ұшу симуляторының бағыт педальдары» үшін «Жұмыс кезіндегі ауаның
+    ең төмен температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_rudder_pedals.operating_min_c
+    grade: 3
+  - section: technical_rudder_pedals.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rudder_pedals.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rudder_pedals.operating_min_c|current
+  required:
+  - fact: technical.rudder_pedals.operating_min_c
+    sections:
+    - technical_rudder_pedals.operating_min_c
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rudder_pedals_operating_max_c
+  category: hard
+  en: 'Flight simulator rudder pedals: maximum operating ambient temperature, C?'
+  ru: '«Педали руля авиасимулятора»: максимальная температура воздуха при работе, C?'
+  kk: '«Ұшу симуляторының бағыт педальдары»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_rudder_pedals.operating_max_c
+    grade: 3
+  - section: technical_rudder_pedals.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Педали руля авиасимулятора» показатель «Максимальная температура воздуха при работе» (C)
+    нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.rudder_pedals.operating_max_c; neighbouring controls_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rudder_pedals.operating_max_c|current
+  required:
+  - fact: technical.rudder_pedals.operating_max_c
+    sections:
+    - technical_rudder_pedals.operating_max_c
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rudder_pedals_controls_count
+  category: hard
+  en: The cards look similar. What number of physical controls is listed for Flight simulator rudder pedals
+    (units)?
+  ru: Карточки похожи. Уточните показатель «Число физических органов управления» именно для «Педали руля
+    авиасимулятора» (шт.).
+  kk: Карточкалар ұқсас. «Ұшу симуляторының бағыт педальдары» үшін нақты «Физикалық басқару элементтерінің
+    саны» көрсеткішін айтыңыз (дана).
+  relevant:
+  - section: technical_rudder_pedals.controls_count
+    grade: 3
+  - section: technical_rudder_pedals.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rudder_pedals.controls_count; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.rudder_pedals.controls_count|current
+  required:
+  - fact: technical.rudder_pedals.controls_count
+    sections:
+    - technical_rudder_pedals.controls_count
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rudder_pedals_cable_cm
+  category: hard
+  en: Check the specifcation of Flight simulator rudder pedals for supplied cable length (cm), please.
+  ru: 'Проверьте характиристику «Педали руля авиасимулятора»: интересует «Длина комплектного кабеля» (см).'
+  kk: «Ұшу симуляторының бағыт педальдары» сипатамасынан «Жинақтағы кабель ұзындығы» мәнін тексеріңізші
+    (см).
+  relevant:
+  - section: technical_rudder_pedals.cable_cm
+    grade: 3
+  - section: technical_rudder_pedals.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rudder_pedals.cable_cm; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.rudder_pedals.cable_cm|current
+  required:
+  - fact: technical.rudder_pedals.cable_cm
+    sections:
+    - technical_rudder_pedals.cable_cm
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rudder_pedals_voltage_v
+  category: simple
+  en: For Flight simulator rudder pedals, what is the specified rated supply voltage in V?
+  ru: Для «Педали руля авиасимулятора» какое значение указано для показателя «Номинальное напряжение питания»
+    (В)?
+  kk: «Ұшу симуляторының бағыт педальдары» тауары үшін «Номиналды қорек кернеуі» көрсеткішінің мәні қандай
+    (В)?
+  relevant:
+  - section: technical_rudder_pedals.voltage_v
+    grade: 3
+  - section: technical_rudder_pedals.power_w
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rudder_pedals.voltage_v; neighbouring power_w does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.rudder_pedals.voltage_v|current
+  required:
+  - fact: technical.rudder_pedals.voltage_v
+    sections:
+    - technical_rudder_pedals.voltage_v
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rudder_pedals_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Flight simulator rudder pedals,
+    in W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Педали руля авиасимулятора»,
+    в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Ұшу симуляторының бағыт педальдары» үшін «Номиналды тұтыну қуаты»
+    мәні қажет (Вт).
+  relevant:
+  - section: technical_rudder_pedals.power_w
+    grade: 3
+  - section: technical_rudder_pedals.polling_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rudder_pedals.power_w; neighbouring polling_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.rudder_pedals.power_w|current
+  required:
+  - fact: technical.rudder_pedals.power_w
+    sections:
+    - technical_rudder_pedals.power_w
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rudder_pedals_polling_hz
+  category: simple
+  en: 'Flight simulator rudder pedals: rated input polling frequency, Hz?'
+  ru: '«Педали руля авиасимулятора»: номинальная частота опроса ввода, Гц?'
+  kk: '«Ұшу симуляторының бағыт педальдары»: енгізуді сұраудың номиналды жиілігі, Гц?'
+  relevant:
+  - section: technical_rudder_pedals.polling_hz
+    grade: 3
+  - section: technical_rudder_pedals.axis_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rudder_pedals.polling_hz; neighbouring axis_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_polling
+  need_key: technical.rudder_pedals.polling_hz|current
+  required:
+  - fact: technical.rudder_pedals.polling_hz
+    sections:
+    - technical_rudder_pedals.polling_hz
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rudder_pedals_axis_count
+  category: hard
+  en: The cards look similar. What number of analogue axes is listed for Flight simulator rudder pedals
+    (units)?
+  ru: Карточки похожи. Уточните показатель «Число аналоговых осей» именно для «Педали руля авиасимулятора»
+    (шт.).
+  kk: Карточкалар ұқсас. «Ұшу симуляторының бағыт педальдары» үшін нақты «Аналогтік осьтер саны» көрсеткішін
+    айтыңыз (дана).
+  relevant:
+  - section: technical_rudder_pedals.axis_count
+    grade: 3
+  - section: technical_rudder_pedals.travel_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rudder_pedals.axis_count; neighbouring travel_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_axes
+  need_key: technical.rudder_pedals.axis_count|current
+  required:
+  - fact: technical.rudder_pedals.axis_count
+    sections:
+    - technical_rudder_pedals.axis_count
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rudder_pedals_travel_mm
+  category: hard
+  en: Check the specifcation of Flight simulator rudder pedals for rated input mechanism travel (mm),
+    please.
+  ru: 'Проверьте характиристику «Педали руля авиасимулятора»: интересует «Номинальный ход механизма ввода»
+    (мм).'
+  kk: «Ұшу симуляторының бағыт педальдары» сипатамасынан «Енгізу тетігінің номиналды жүрісі» мәнін тексеріңізші
+    (мм).
+  relevant:
+  - section: technical_rudder_pedals.travel_mm
+    grade: 3
+  - section: technical_rudder_pedals.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Ұшу симуляторының бағыт педальдары» үшін «Енгізу тетігінің номиналды жүрісі» (мм) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.rudder_pedals.travel_mm; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_travel
+  need_key: technical.rudder_pedals.travel_mm|current
+  required:
+  - fact: technical.rudder_pedals.travel_mm
+    sections:
+    - technical_rudder_pedals.travel_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_rudder_pedals_humidity_max_percent
+  category: unanswerable
+  en: For Flight simulator rudder pedals, what is the specified maximum permitted humidity in percent?
+  ru: Для «Педали руля авиасимулятора» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Ұшу симуляторының бағыт педальдары» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_rudder_pedals.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rudder_pedals does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.rudder_pedals.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rudder_pedals_drop_test_cm
+  category: unanswerable
+  en: For Flight simulator rudder pedals, what is the specified certified drop-test height in cm?
+  ru: Для «Педали руля авиасимулятора» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Ұшу симуляторының бағыт педальдары» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_rudder_pedals.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rudder_pedals does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.rudder_pedals.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rudder_pedals_repair_parts_price
+  category: unanswerable
+  en: For Flight simulator rudder pedals, what is the specified replacement-part price in KZT?
+  ru: Для «Педали руля авиасимулятора» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Ұшу симуляторының бағыт педальдары» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_rudder_pedals.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rudder_pedals does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.rudder_pedals.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_rudder_pedals_certification_id
+  category: unanswerable
+  en: For Flight simulator rudder pedals, what is the specified certification record number in record?
+  ru: Для «Педали руля авиасимулятора» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Ұшу симуляторының бағыт педальдары» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_rudder_pedals.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rudder_pedals does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.rudder_pedals.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_rudder_pedals
+  category: multi_fragment
+  en: What does Flight simulator rudder pedals weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Педали руля авиасимулятора» и какой вес посылки допускают пункты самовывоза?
+  kk: «Ұшу симуляторының бағыт педальдары» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_rudder_pedals.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.rudder_pedals.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.rudder_pedals.mass_g
+    sections:
+    - technical_rudder_pedals.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_throttle_quadrant_mass_g
+  category: simple
+  en: For Multi-lever throttle quadrant, what is the specified mass in g?
+  ru: Для «Многорычажный блок тяги» какое значение указано для показателя «Масса» (г)?
+  kk: «Көп тұтқалы тарту блогы» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_throttle_quadrant.mass_g
+    grade: 3
+  - section: technical_throttle_quadrant.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.throttle_quadrant.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.throttle_quadrant.mass_g|current
+  required:
+  - fact: technical.throttle_quadrant.mass_g
+    sections:
+    - technical_throttle_quadrant.mass_g
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_throttle_quadrant_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Multi-lever throttle quadrant, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Многорычажный блок тяги», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Көп тұтқалы тарту блогы» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_throttle_quadrant.width_mm
+    grade: 3
+  - section: technical_throttle_quadrant.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.throttle_quadrant.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.throttle_quadrant.width_mm|current
+  required:
+  - fact: technical.throttle_quadrant.width_mm
+    sections:
+    - technical_throttle_quadrant.width_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_throttle_quadrant_height_mm
+  category: simple
+  en: 'Multi-lever throttle quadrant: height, mm?'
+  ru: '«Многорычажный блок тяги»: высота, мм?'
+  kk: '«Көп тұтқалы тарту блогы»: биіктігі, мм?'
+  relevant:
+  - section: technical_throttle_quadrant.height_mm
+    grade: 3
+  - section: technical_throttle_quadrant.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.throttle_quadrant.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.throttle_quadrant.height_mm|current
+  required:
+  - fact: technical.throttle_quadrant.height_mm
+    sections:
+    - technical_throttle_quadrant.height_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_throttle_quadrant_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Multi-lever throttle quadrant (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Многорычажный блок тяги» (мм).
+  kk: Карточкалар ұқсас. «Көп тұтқалы тарту блогы» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_throttle_quadrant.depth_mm
+    grade: 3
+  - section: technical_throttle_quadrant.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.throttle_quadrant.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.throttle_quadrant.depth_mm|current
+  required:
+  - fact: technical.throttle_quadrant.depth_mm
+    sections:
+    - technical_throttle_quadrant.depth_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_throttle_quadrant_operating_min_c
+  category: hard
+  en: Check the specifcation of Multi-lever throttle quadrant for minimum operating ambient temperature
+    (C), please.
+  ru: 'Проверьте характиристику «Многорычажный блок тяги»: интересует «Минимальная температура воздуха
+    при работе» (C).'
+  kk: «Көп тұтқалы тарту блогы» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_throttle_quadrant.operating_min_c
+    grade: 3
+  - section: technical_throttle_quadrant.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.throttle_quadrant.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.throttle_quadrant.operating_min_c|current
+  required:
+  - fact: technical.throttle_quadrant.operating_min_c
+    sections:
+    - technical_throttle_quadrant.operating_min_c
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_throttle_quadrant_operating_max_c
+  category: hard
+  en: For Multi-lever throttle quadrant, what is the specified maximum operating ambient temperature in
+    C?
+  ru: Для «Многорычажный блок тяги» какое значение указано для показателя «Максимальная температура воздуха
+    при работе» (C)?
+  kk: «Көп тұтқалы тарту блогы» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_throttle_quadrant.operating_max_c
+    grade: 3
+  - section: technical_throttle_quadrant.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.throttle_quadrant.operating_max_c; neighbouring controls_count
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.throttle_quadrant.operating_max_c|current
+  required:
+  - fact: technical.throttle_quadrant.operating_max_c
+    sections:
+    - technical_throttle_quadrant.operating_max_c
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_throttle_quadrant_controls_count
+  category: simple
+  en: I am comparing specifications. Find the number of physical controls for Multi-lever throttle quadrant,
+    in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число физических органов управления» у «Многорычажный
+    блок тяги», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Көп тұтқалы тарту блогы» үшін «Физикалық басқару элементтерінің
+    саны» мәні қажет (дана).
+  relevant:
+  - section: technical_throttle_quadrant.controls_count
+    grade: 3
+  - section: technical_throttle_quadrant.cable_cm
+    grade: 0
+  cross_lingual: true
+  mix_ru: У «Многорычажный блок тяги» показатель «Число физических органов управления» (шт.) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.throttle_quadrant.controls_count; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.throttle_quadrant.controls_count|current
+  required:
+  - fact: technical.throttle_quadrant.controls_count
+    sections:
+    - technical_throttle_quadrant.controls_count
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_throttle_quadrant_cable_cm
+  category: simple
+  en: 'Multi-lever throttle quadrant: supplied cable length, cm?'
+  ru: '«Многорычажный блок тяги»: длина комплектного кабеля, см?'
+  kk: '«Көп тұтқалы тарту блогы»: жинақтағы кабель ұзындығы, см?'
+  relevant:
+  - section: technical_throttle_quadrant.cable_cm
+    grade: 3
+  - section: technical_throttle_quadrant.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.throttle_quadrant.cable_cm; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.throttle_quadrant.cable_cm|current
+  required:
+  - fact: technical.throttle_quadrant.cable_cm
+    sections:
+    - technical_throttle_quadrant.cable_cm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_throttle_quadrant_voltage_v
+  category: hard
+  en: The cards look similar. What rated supply voltage is listed for Multi-lever throttle quadrant (V)?
+  ru: Карточки похожи. Уточните показатель «Номинальное напряжение питания» именно для «Многорычажный
+    блок тяги» (В).
+  kk: Карточкалар ұқсас. «Көп тұтқалы тарту блогы» үшін нақты «Номиналды қорек кернеуі» көрсеткішін айтыңыз
+    (В).
+  relevant:
+  - section: technical_throttle_quadrant.voltage_v
+    grade: 3
+  - section: technical_throttle_quadrant.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.throttle_quadrant.voltage_v; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.throttle_quadrant.voltage_v|current
+  required:
+  - fact: technical.throttle_quadrant.voltage_v
+    sections:
+    - technical_throttle_quadrant.voltage_v
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_throttle_quadrant_power_w
+  category: hard
+  en: Check the specifcation of Multi-lever throttle quadrant for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Многорычажный блок тяги»: интересует «Номинальная потребляемая мощность»
+    (Вт).'
+  kk: «Көп тұтқалы тарту блогы» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_throttle_quadrant.power_w
+    grade: 3
+  - section: technical_throttle_quadrant.polling_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.throttle_quadrant.power_w; neighbouring polling_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.throttle_quadrant.power_w|current
+  required:
+  - fact: technical.throttle_quadrant.power_w
+    sections:
+    - technical_throttle_quadrant.power_w
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_throttle_quadrant_polling_hz
+  category: simple
+  en: For Multi-lever throttle quadrant, what is the specified rated input polling frequency in Hz?
+  ru: Для «Многорычажный блок тяги» какое значение указано для показателя «Номинальная частота опроса
+    ввода» (Гц)?
+  kk: «Көп тұтқалы тарту блогы» тауары үшін «Енгізуді сұраудың номиналды жиілігі» көрсеткішінің мәні қандай
+    (Гц)?
+  relevant:
+  - section: technical_throttle_quadrant.polling_hz
+    grade: 3
+  - section: technical_throttle_quadrant.axis_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.throttle_quadrant.polling_hz; neighbouring axis_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_polling
+  need_key: technical.throttle_quadrant.polling_hz|current
+  required:
+  - fact: technical.throttle_quadrant.polling_hz
+    sections:
+    - technical_throttle_quadrant.polling_hz
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_throttle_quadrant_axis_count
+  category: simple
+  en: I am comparing specifications. Find the number of analogue axes for Multi-lever throttle quadrant,
+    in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число аналоговых осей» у «Многорычажный блок тяги»,
+    в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Көп тұтқалы тарту блогы» үшін «Аналогтік осьтер саны» мәні қажет
+    (дана).
+  relevant:
+  - section: technical_throttle_quadrant.axis_count
+    grade: 3
+  - section: technical_throttle_quadrant.travel_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.throttle_quadrant.axis_count; neighbouring travel_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_axes
+  need_key: technical.throttle_quadrant.axis_count|current
+  required:
+  - fact: technical.throttle_quadrant.axis_count
+    sections:
+    - technical_throttle_quadrant.axis_count
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_throttle_quadrant_travel_mm
+  category: simple
+  en: 'Multi-lever throttle quadrant: rated input mechanism travel, mm?'
+  ru: '«Многорычажный блок тяги»: номинальный ход механизма ввода, мм?'
+  kk: '«Көп тұтқалы тарту блогы»: енгізу тетігінің номиналды жүрісі, мм?'
+  relevant:
+  - section: technical_throttle_quadrant.travel_mm
+    grade: 3
+  - section: technical_throttle_quadrant.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.throttle_quadrant.travel_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_travel
+  need_key: technical.throttle_quadrant.travel_mm|current
+  required:
+  - fact: technical.throttle_quadrant.travel_mm
+    sections:
+    - technical_throttle_quadrant.travel_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_throttle_quadrant_humidity_max_percent
+  category: unanswerable
+  en: For Multi-lever throttle quadrant, what is the specified maximum permitted humidity in percent?
+  ru: Для «Многорычажный блок тяги» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Көп тұтқалы тарту блогы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_throttle_quadrant.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for throttle_quadrant does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.throttle_quadrant.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_throttle_quadrant_drop_test_cm
+  category: unanswerable
+  en: For Multi-lever throttle quadrant, what is the specified certified drop-test height in cm?
+  ru: Для «Многорычажный блок тяги» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Көп тұтқалы тарту блогы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_throttle_quadrant.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for throttle_quadrant does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.throttle_quadrant.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_throttle_quadrant_repair_parts_price
+  category: unanswerable
+  en: For Multi-lever throttle quadrant, what is the specified replacement-part price in KZT?
+  ru: Для «Многорычажный блок тяги» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Көп тұтқалы тарту блогы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_throttle_quadrant.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for throttle_quadrant does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.throttle_quadrant.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_throttle_quadrant_certification_id
+  category: unanswerable
+  en: For Multi-lever throttle quadrant, what is the specified certification record number in record?
+  ru: Для «Многорычажный блок тяги» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Көп тұтқалы тарту блогы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_throttle_quadrant.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for throttle_quadrant does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.throttle_quadrant.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_farm_control_panel_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Farm simulator control panel (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Панель управления фермерского симулятора»
+    (г).
+  kk: Карточкалар ұқсас. «Ферма симуляторының басқару панелі» үшін нақты «Салмағы» көрсеткішін айтыңыз
+    (г).
+  relevant:
+  - section: technical_farm_control_panel.mass_g
+    grade: 3
+  - section: technical_farm_control_panel.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Ферма симуляторының басқару панелі» үшін «Салмағы» (г) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.farm_control_panel.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.farm_control_panel.mass_g|current
+  required:
+  - fact: technical.farm_control_panel.mass_g
+    sections:
+    - technical_farm_control_panel.mass_g
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_farm_control_panel_width_mm
+  category: hard
+  en: Check the specifcation of Farm simulator control panel for width (mm), please.
+  ru: 'Проверьте характиристику «Панель управления фермерского симулятора»: интересует «Ширина» (мм).'
+  kk: «Ферма симуляторының басқару панелі» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_farm_control_panel.width_mm
+    grade: 3
+  - section: technical_farm_control_panel.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.farm_control_panel.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.farm_control_panel.width_mm|current
+  required:
+  - fact: technical.farm_control_panel.width_mm
+    sections:
+    - technical_farm_control_panel.width_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_farm_control_panel_height_mm
+  category: simple
+  en: For Farm simulator control panel, what is the specified height in mm?
+  ru: Для «Панель управления фермерского симулятора» какое значение указано для показателя «Высота» (мм)?
+  kk: «Ферма симуляторының басқару панелі» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_farm_control_panel.height_mm
+    grade: 3
+  - section: technical_farm_control_panel.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.farm_control_panel.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.farm_control_panel.height_mm|current
+  required:
+  - fact: technical.farm_control_panel.height_mm
+    sections:
+    - technical_farm_control_panel.height_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_farm_control_panel_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Farm simulator control panel, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Панель управления фермерского симулятора»,
+    в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Ферма симуляторының басқару панелі» үшін «Тереңдігі» мәні қажет
+    (мм).
+  relevant:
+  - section: technical_farm_control_panel.depth_mm
+    grade: 3
+  - section: technical_farm_control_panel.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.farm_control_panel.depth_mm; neighbouring operating_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.farm_control_panel.depth_mm|current
+  required:
+  - fact: technical.farm_control_panel.depth_mm
+    sections:
+    - technical_farm_control_panel.depth_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_farm_control_panel_operating_min_c
+  category: hard
+  en: 'Farm simulator control panel: minimum operating ambient temperature, C?'
+  ru: '«Панель управления фермерского симулятора»: минимальная температура воздуха при работе, C?'
+  kk: '«Ферма симуляторының басқару панелі»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_farm_control_panel.operating_min_c
+    grade: 3
+  - section: technical_farm_control_panel.operating_max_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.farm_control_panel.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.farm_control_panel.operating_min_c|current
+  required:
+  - fact: technical.farm_control_panel.operating_min_c
+    sections:
+    - technical_farm_control_panel.operating_min_c
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_farm_control_panel_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Farm simulator
+    control panel (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Панель
+    управления фермерского симулятора» (C).
+  kk: Карточкалар ұқсас. «Ферма симуляторының басқару панелі» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары
+    температурасы» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_farm_control_panel.operating_max_c
+    grade: 3
+  - section: technical_farm_control_panel.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.farm_control_panel.operating_max_c; neighbouring controls_count
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.farm_control_panel.operating_max_c|current
+  required:
+  - fact: technical.farm_control_panel.operating_max_c
+    sections:
+    - technical_farm_control_panel.operating_max_c
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_farm_control_panel_controls_count
+  category: hard
+  en: Check the specifcation of Farm simulator control panel for number of physical controls (units),
+    please.
+  ru: 'Проверьте характиристику «Панель управления фермерского симулятора»: интересует «Число физических
+    органов управления» (шт.).'
+  kk: «Ферма симуляторының басқару панелі» сипатамасынан «Физикалық басқару элементтерінің саны» мәнін
+    тексеріңізші (дана).
+  relevant:
+  - section: technical_farm_control_panel.controls_count
+    grade: 3
+  - section: technical_farm_control_panel.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.farm_control_panel.controls_count; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.farm_control_panel.controls_count|current
+  required:
+  - fact: technical.farm_control_panel.controls_count
+    sections:
+    - technical_farm_control_panel.controls_count
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_farm_control_panel_cable_cm
+  category: simple
+  en: For Farm simulator control panel, what is the specified supplied cable length in cm?
+  ru: Для «Панель управления фермерского симулятора» какое значение указано для показателя «Длина комплектного
+    кабеля» (см)?
+  kk: «Ферма симуляторының басқару панелі» тауары үшін «Жинақтағы кабель ұзындығы» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_farm_control_panel.cable_cm
+    grade: 3
+  - section: technical_farm_control_panel.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Панель управления фермерского симулятора» показатель «Длина комплектного кабеля» (см) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.farm_control_panel.cable_cm; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.farm_control_panel.cable_cm|current
+  required:
+  - fact: technical.farm_control_panel.cable_cm
+    sections:
+    - technical_farm_control_panel.cable_cm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_farm_control_panel_voltage_v
+  category: simple
+  en: I am comparing specifications. Find the rated supply voltage for Farm simulator control panel, in
+    V.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное напряжение питания» у «Панель управления
+    фермерского симулятора», в В.
+  kk: Сипаттамаларды салыстырып отырмын. «Ферма симуляторының басқару панелі» үшін «Номиналды қорек кернеуі»
+    мәні қажет (В).
+  relevant:
+  - section: technical_farm_control_panel.voltage_v
+    grade: 3
+  - section: technical_farm_control_panel.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.farm_control_panel.voltage_v; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.farm_control_panel.voltage_v|current
+  required:
+  - fact: technical.farm_control_panel.voltage_v
+    sections:
+    - technical_farm_control_panel.voltage_v
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_farm_control_panel_power_w
+  category: simple
+  en: 'Farm simulator control panel: rated power consumption, W?'
+  ru: '«Панель управления фермерского симулятора»: номинальная потребляемая мощность, Вт?'
+  kk: '«Ферма симуляторының басқару панелі»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_farm_control_panel.power_w
+    grade: 3
+  - section: technical_farm_control_panel.polling_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.farm_control_panel.power_w; neighbouring polling_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.farm_control_panel.power_w|current
+  required:
+  - fact: technical.farm_control_panel.power_w
+    sections:
+    - technical_farm_control_panel.power_w
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_farm_control_panel_polling_hz
+  category: hard
+  en: The cards look similar. What rated input polling frequency is listed for Farm simulator control
+    panel (Hz)?
+  ru: Карточки похожи. Уточните показатель «Номинальная частота опроса ввода» именно для «Панель управления
+    фермерского симулятора» (Гц).
+  kk: Карточкалар ұқсас. «Ферма симуляторының басқару панелі» үшін нақты «Енгізуді сұраудың номиналды
+    жиілігі» көрсеткішін айтыңыз (Гц).
+  relevant:
+  - section: technical_farm_control_panel.polling_hz
+    grade: 3
+  - section: technical_farm_control_panel.axis_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.farm_control_panel.polling_hz; neighbouring axis_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_polling
+  need_key: technical.farm_control_panel.polling_hz|current
+  required:
+  - fact: technical.farm_control_panel.polling_hz
+    sections:
+    - technical_farm_control_panel.polling_hz
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_farm_control_panel_axis_count
+  category: hard
+  en: Check the specifcation of Farm simulator control panel for number of analogue axes (units), please.
+  ru: 'Проверьте характиристику «Панель управления фермерского симулятора»: интересует «Число аналоговых
+    осей» (шт.).'
+  kk: «Ферма симуляторының басқару панелі» сипатамасынан «Аналогтік осьтер саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_farm_control_panel.axis_count
+    grade: 3
+  - section: technical_farm_control_panel.travel_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.farm_control_panel.axis_count; neighbouring travel_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_axes
+  need_key: technical.farm_control_panel.axis_count|current
+  required:
+  - fact: technical.farm_control_panel.axis_count
+    sections:
+    - technical_farm_control_panel.axis_count
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_farm_control_panel_travel_mm
+  category: simple
+  en: For Farm simulator control panel, what is the specified rated input mechanism travel in mm?
+  ru: Для «Панель управления фермерского симулятора» какое значение указано для показателя «Номинальный
+    ход механизма ввода» (мм)?
+  kk: «Ферма симуляторының басқару панелі» тауары үшін «Енгізу тетігінің номиналды жүрісі» көрсеткішінің
+    мәні қандай (мм)?
+  relevant:
+  - section: technical_farm_control_panel.travel_mm
+    grade: 3
+  - section: technical_farm_control_panel.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.farm_control_panel.travel_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_travel
+  need_key: technical.farm_control_panel.travel_mm|current
+  required:
+  - fact: technical.farm_control_panel.travel_mm
+    sections:
+    - technical_farm_control_panel.travel_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_farm_control_panel_humidity_max_percent
+  category: unanswerable
+  en: For Farm simulator control panel, what is the specified maximum permitted humidity in percent?
+  ru: Для «Панель управления фермерского симулятора» какое значение указано для показателя «Максимальная
+    допустимая влажность» (процентов)?
+  kk: «Ферма симуляторының басқару панелі» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_farm_control_panel.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for farm_control_panel does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.farm_control_panel.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_farm_control_panel_drop_test_cm
+  category: unanswerable
+  en: For Farm simulator control panel, what is the specified certified drop-test height in cm?
+  ru: Для «Панель управления фермерского симулятора» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Ферма симуляторының басқару панелі» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_farm_control_panel.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for farm_control_panel does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.farm_control_panel.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_farm_control_panel_repair_parts_price
+  category: unanswerable
+  en: For Farm simulator control panel, what is the specified replacement-part price in KZT?
+  ru: Для «Панель управления фермерского симулятора» какое значение указано для показателя «Цена запасной
+    детали» (тенге)?
+  kk: «Ферма симуляторының басқару панелі» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_farm_control_panel.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for farm_control_panel does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.farm_control_panel.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_farm_control_panel_certification_id
+  category: unanswerable
+  en: For Farm simulator control panel, what is the specified certification record number in record?
+  ru: Для «Панель управления фермерского симулятора» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Ферма симуляторының басқару панелі» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_farm_control_panel.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for farm_control_panel does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.farm_control_panel.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_farm_control_panel
+  category: multi_fragment
+  en: What does Farm simulator control panel weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Панель управления фермерского симулятора» и какой вес посылки допускают пункты самовывоза?
+  kk: «Ферма симуляторының басқару панелі» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_farm_control_panel.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.farm_control_panel.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.farm_control_panel.mass_g
+    sections:
+    - technical_farm_control_panel.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_space_controller_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Space simulator hand controller, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Ручной контроллер космического симулятора»,
+    в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Ғарыш симуляторының қол контроллері» үшін «Салмағы» мәні қажет
+    (г).
+  relevant:
+  - section: technical_space_controller.mass_g
+    grade: 3
+  - section: technical_space_controller.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.space_controller.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.space_controller.mass_g|current
+  required:
+  - fact: technical.space_controller.mass_g
+    sections:
+    - technical_space_controller.mass_g
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_space_controller_width_mm
+  category: simple
+  en: 'Space simulator hand controller: width, mm?'
+  ru: '«Ручной контроллер космического симулятора»: ширина, мм?'
+  kk: '«Ғарыш симуляторының қол контроллері»: ені, мм?'
+  relevant:
+  - section: technical_space_controller.width_mm
+    grade: 3
+  - section: technical_space_controller.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Ғарыш симуляторының қол контроллері» үшін «Ені» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.space_controller.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.space_controller.width_mm|current
+  required:
+  - fact: technical.space_controller.width_mm
+    sections:
+    - technical_space_controller.width_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_space_controller_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Space simulator hand controller (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Ручной контроллер космического симулятора»
+    (мм).
+  kk: Карточкалар ұқсас. «Ғарыш симуляторының қол контроллері» үшін нақты «Биіктігі» көрсеткішін айтыңыз
+    (мм).
+  relevant:
+  - section: technical_space_controller.height_mm
+    grade: 3
+  - section: technical_space_controller.depth_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.space_controller.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.space_controller.height_mm|current
+  required:
+  - fact: technical.space_controller.height_mm
+    sections:
+    - technical_space_controller.height_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_space_controller_depth_mm
+  category: hard
+  en: Check the specifcation of Space simulator hand controller for depth (mm), please.
+  ru: 'Проверьте характиристику «Ручной контроллер космического симулятора»: интересует «Глубина» (мм).'
+  kk: «Ғарыш симуляторының қол контроллері» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_space_controller.depth_mm
+    grade: 3
+  - section: technical_space_controller.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.space_controller.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.space_controller.depth_mm|current
+  required:
+  - fact: technical.space_controller.depth_mm
+    sections:
+    - technical_space_controller.depth_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_space_controller_operating_min_c
+  category: hard
+  en: For Space simulator hand controller, what is the specified minimum operating ambient temperature
+    in C?
+  ru: Для «Ручной контроллер космического симулятора» какое значение указано для показателя «Минимальная
+    температура воздуха при работе» (C)?
+  kk: «Ғарыш симуляторының қол контроллері» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішінің мәні қандай (C)?
+  relevant:
+  - section: technical_space_controller.operating_min_c
+    grade: 3
+  - section: technical_space_controller.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.space_controller.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.space_controller.operating_min_c|current
+  required:
+  - fact: technical.space_controller.operating_min_c
+    sections:
+    - technical_space_controller.operating_min_c
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_space_controller_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Space simulator
+    hand controller, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Ручной
+    контроллер космического симулятора», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Ғарыш симуляторының қол контроллері» үшін «Жұмыс кезіндегі ауаның
+    ең жоғары температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_space_controller.operating_max_c
+    grade: 3
+  - section: technical_space_controller.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.space_controller.operating_max_c; neighbouring controls_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.space_controller.operating_max_c|current
+  required:
+  - fact: technical.space_controller.operating_max_c
+    sections:
+    - technical_space_controller.operating_max_c
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_space_controller_controls_count
+  category: simple
+  en: 'Space simulator hand controller: number of physical controls, units?'
+  ru: '«Ручной контроллер космического симулятора»: число физических органов управления, шт.?'
+  kk: '«Ғарыш симуляторының қол контроллері»: физикалық басқару элементтерінің саны, дана?'
+  relevant:
+  - section: technical_space_controller.controls_count
+    grade: 3
+  - section: technical_space_controller.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.space_controller.controls_count; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.space_controller.controls_count|current
+  required:
+  - fact: technical.space_controller.controls_count
+    sections:
+    - technical_space_controller.controls_count
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_space_controller_cable_cm
+  category: hard
+  en: The cards look similar. What supplied cable length is listed for Space simulator hand controller
+    (cm)?
+  ru: Карточки похожи. Уточните показатель «Длина комплектного кабеля» именно для «Ручной контроллер космического
+    симулятора» (см).
+  kk: Карточкалар ұқсас. «Ғарыш симуляторының қол контроллері» үшін нақты «Жинақтағы кабель ұзындығы»
+    көрсеткішін айтыңыз (см).
+  relevant:
+  - section: technical_space_controller.cable_cm
+    grade: 3
+  - section: technical_space_controller.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.space_controller.cable_cm; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.space_controller.cable_cm|current
+  required:
+  - fact: technical.space_controller.cable_cm
+    sections:
+    - technical_space_controller.cable_cm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_space_controller_voltage_v
+  category: hard
+  en: Check the specifcation of Space simulator hand controller for rated supply voltage (V), please.
+  ru: 'Проверьте характиристику «Ручной контроллер космического симулятора»: интересует «Номинальное напряжение
+    питания» (В).'
+  kk: «Ғарыш симуляторының қол контроллері» сипатамасынан «Номиналды қорек кернеуі» мәнін тексеріңізші
+    (В).
+  relevant:
+  - section: technical_space_controller.voltage_v
+    grade: 3
+  - section: technical_space_controller.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Ручной контроллер космического симулятора» показатель «Номинальное напряжение питания» (В)
+    нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.space_controller.voltage_v; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.space_controller.voltage_v|current
+  required:
+  - fact: technical.space_controller.voltage_v
+    sections:
+    - technical_space_controller.voltage_v
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_space_controller_power_w
+  category: simple
+  en: For Space simulator hand controller, what is the specified rated power consumption in W?
+  ru: Для «Ручной контроллер космического симулятора» какое значение указано для показателя «Номинальная
+    потребляемая мощность» (Вт)?
+  kk: «Ғарыш симуляторының қол контроллері» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай
+    (Вт)?
+  relevant:
+  - section: technical_space_controller.power_w
+    grade: 3
+  - section: technical_space_controller.polling_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.space_controller.power_w; neighbouring polling_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.space_controller.power_w|current
+  required:
+  - fact: technical.space_controller.power_w
+    sections:
+    - technical_space_controller.power_w
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_space_controller_polling_hz
+  category: simple
+  en: I am comparing specifications. Find the rated input polling frequency for Space simulator hand controller,
+    in Hz.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная частота опроса ввода» у «Ручной контроллер
+    космического симулятора», в Гц.
+  kk: Сипаттамаларды салыстырып отырмын. «Ғарыш симуляторының қол контроллері» үшін «Енгізуді сұраудың
+    номиналды жиілігі» мәні қажет (Гц).
+  relevant:
+  - section: technical_space_controller.polling_hz
+    grade: 3
+  - section: technical_space_controller.axis_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.space_controller.polling_hz; neighbouring axis_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_polling
+  need_key: technical.space_controller.polling_hz|current
+  required:
+  - fact: technical.space_controller.polling_hz
+    sections:
+    - technical_space_controller.polling_hz
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_space_controller_axis_count
+  category: simple
+  en: 'Space simulator hand controller: number of analogue axes, units?'
+  ru: '«Ручной контроллер космического симулятора»: число аналоговых осей, шт.?'
+  kk: '«Ғарыш симуляторының қол контроллері»: аналогтік осьтер саны, дана?'
+  relevant:
+  - section: technical_space_controller.axis_count
+    grade: 3
+  - section: technical_space_controller.travel_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.space_controller.axis_count; neighbouring travel_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_axes
+  need_key: technical.space_controller.axis_count|current
+  required:
+  - fact: technical.space_controller.axis_count
+    sections:
+    - technical_space_controller.axis_count
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_space_controller_travel_mm
+  category: hard
+  en: The cards look similar. What rated input mechanism travel is listed for Space simulator hand controller
+    (mm)?
+  ru: Карточки похожи. Уточните показатель «Номинальный ход механизма ввода» именно для «Ручной контроллер
+    космического симулятора» (мм).
+  kk: Карточкалар ұқсас. «Ғарыш симуляторының қол контроллері» үшін нақты «Енгізу тетігінің номиналды
+    жүрісі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_space_controller.travel_mm
+    grade: 3
+  - section: technical_space_controller.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.space_controller.travel_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_travel
+  need_key: technical.space_controller.travel_mm|current
+  required:
+  - fact: technical.space_controller.travel_mm
+    sections:
+    - technical_space_controller.travel_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_space_controller_humidity_max_percent
+  category: unanswerable
+  en: For Space simulator hand controller, what is the specified maximum permitted humidity in percent?
+  ru: Для «Ручной контроллер космического симулятора» какое значение указано для показателя «Максимальная
+    допустимая влажность» (процентов)?
+  kk: «Ғарыш симуляторының қол контроллері» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_space_controller.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for space_controller does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.space_controller.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_space_controller_drop_test_cm
+  category: unanswerable
+  en: For Space simulator hand controller, what is the specified certified drop-test height in cm?
+  ru: Для «Ручной контроллер космического симулятора» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Ғарыш симуляторының қол контроллері» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_space_controller.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for space_controller does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.space_controller.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_space_controller_repair_parts_price
+  category: unanswerable
+  en: For Space simulator hand controller, what is the specified replacement-part price in KZT?
+  ru: Для «Ручной контроллер космического симулятора» какое значение указано для показателя «Цена запасной
+    детали» (тенге)?
+  kk: «Ғарыш симуляторының қол контроллері» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_space_controller.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for space_controller does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.space_controller.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_space_controller_certification_id
+  category: unanswerable
+  en: For Space simulator hand controller, what is the specified certification record number in record?
+  ru: Для «Ручной контроллер космического симулятора» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Ғарыш симуляторының қол контроллері» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_space_controller.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for space_controller does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.space_controller.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_analogue_arcade_stick_mass_g
+  category: hard
+  en: Check the specifcation of Analogue arcade control stick for mass (g), please.
+  ru: 'Проверьте характиристику «Аналоговый аркадный контроллер»: интересует «Масса» (г).'
+  kk: «Аналогтік аркада контроллері» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_analogue_arcade_stick.mass_g
+    grade: 3
+  - section: technical_analogue_arcade_stick.width_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.analogue_arcade_stick.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.analogue_arcade_stick.mass_g|current
+  required:
+  - fact: technical.analogue_arcade_stick.mass_g
+    sections:
+    - technical_analogue_arcade_stick.mass_g
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_analogue_arcade_stick_width_mm
+  category: simple
+  en: For Analogue arcade control stick, what is the specified width in mm?
+  ru: Для «Аналоговый аркадный контроллер» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Аналогтік аркада контроллері» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_analogue_arcade_stick.width_mm
+    grade: 3
+  - section: technical_analogue_arcade_stick.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.analogue_arcade_stick.width_mm; neighbouring height_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.analogue_arcade_stick.width_mm|current
+  required:
+  - fact: technical.analogue_arcade_stick.width_mm
+    sections:
+    - technical_analogue_arcade_stick.width_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_analogue_arcade_stick_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Analogue arcade control stick, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Аналоговый аркадный контроллер», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Аналогтік аркада контроллері» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_analogue_arcade_stick.height_mm
+    grade: 3
+  - section: technical_analogue_arcade_stick.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Аналогтік аркада контроллері» үшін «Биіктігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.analogue_arcade_stick.height_mm; neighbouring depth_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.analogue_arcade_stick.height_mm|current
+  required:
+  - fact: technical.analogue_arcade_stick.height_mm
+    sections:
+    - technical_analogue_arcade_stick.height_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_analogue_arcade_stick_depth_mm
+  category: simple
+  en: 'Analogue arcade control stick: depth, mm?'
+  ru: '«Аналоговый аркадный контроллер»: глубина, мм?'
+  kk: '«Аналогтік аркада контроллері»: тереңдігі, мм?'
+  relevant:
+  - section: technical_analogue_arcade_stick.depth_mm
+    grade: 3
+  - section: technical_analogue_arcade_stick.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.analogue_arcade_stick.depth_mm; neighbouring operating_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.analogue_arcade_stick.depth_mm|current
+  required:
+  - fact: technical.analogue_arcade_stick.depth_mm
+    sections:
+    - technical_analogue_arcade_stick.depth_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_analogue_arcade_stick_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Analogue arcade
+    control stick (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Аналоговый
+    аркадный контроллер» (C).
+  kk: Карточкалар ұқсас. «Аналогтік аркада контроллері» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_analogue_arcade_stick.operating_min_c
+    grade: 3
+  - section: technical_analogue_arcade_stick.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.analogue_arcade_stick.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.analogue_arcade_stick.operating_min_c|current
+  required:
+  - fact: technical.analogue_arcade_stick.operating_min_c
+    sections:
+    - technical_analogue_arcade_stick.operating_min_c
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_analogue_arcade_stick_operating_max_c
+  category: hard
+  en: Check the specifcation of Analogue arcade control stick for maximum operating ambient temperature
+    (C), please.
+  ru: 'Проверьте характиристику «Аналоговый аркадный контроллер»: интересует «Максимальная температура
+    воздуха при работе» (C).'
+  kk: «Аналогтік аркада контроллері» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы» мәнін
+    тексеріңізші (C).
+  relevant:
+  - section: technical_analogue_arcade_stick.operating_max_c
+    grade: 3
+  - section: technical_analogue_arcade_stick.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.analogue_arcade_stick.operating_max_c; neighbouring controls_count
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.analogue_arcade_stick.operating_max_c|current
+  required:
+  - fact: technical.analogue_arcade_stick.operating_max_c
+    sections:
+    - technical_analogue_arcade_stick.operating_max_c
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_analogue_arcade_stick_controls_count
+  category: simple
+  en: For Analogue arcade control stick, what is the specified number of physical controls in units?
+  ru: Для «Аналоговый аркадный контроллер» какое значение указано для показателя «Число физических органов
+    управления» (шт.)?
+  kk: «Аналогтік аркада контроллері» тауары үшін «Физикалық басқару элементтерінің саны» көрсеткішінің
+    мәні қандай (дана)?
+  relevant:
+  - section: technical_analogue_arcade_stick.controls_count
+    grade: 3
+  - section: technical_analogue_arcade_stick.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.analogue_arcade_stick.controls_count; neighbouring cable_cm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.analogue_arcade_stick.controls_count|current
+  required:
+  - fact: technical.analogue_arcade_stick.controls_count
+    sections:
+    - technical_analogue_arcade_stick.controls_count
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_analogue_arcade_stick_cable_cm
+  category: simple
+  en: I am comparing specifications. Find the supplied cable length for Analogue arcade control stick,
+    in cm.
+  ru: Сравниваю характеристики. Нужен показатель «Длина комплектного кабеля» у «Аналоговый аркадный контроллер»,
+    в см.
+  kk: Сипаттамаларды салыстырып отырмын. «Аналогтік аркада контроллері» үшін «Жинақтағы кабель ұзындығы»
+    мәні қажет (см).
+  relevant:
+  - section: technical_analogue_arcade_stick.cable_cm
+    grade: 3
+  - section: technical_analogue_arcade_stick.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.analogue_arcade_stick.cable_cm; neighbouring voltage_v does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.analogue_arcade_stick.cable_cm|current
+  required:
+  - fact: technical.analogue_arcade_stick.cable_cm
+    sections:
+    - technical_analogue_arcade_stick.cable_cm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_analogue_arcade_stick_voltage_v
+  category: simple
+  en: 'Analogue arcade control stick: rated supply voltage, V?'
+  ru: '«Аналоговый аркадный контроллер»: номинальное напряжение питания, В?'
+  kk: '«Аналогтік аркада контроллері»: номиналды қорек кернеуі, В?'
+  relevant:
+  - section: technical_analogue_arcade_stick.voltage_v
+    grade: 3
+  - section: technical_analogue_arcade_stick.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.analogue_arcade_stick.voltage_v; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.analogue_arcade_stick.voltage_v|current
+  required:
+  - fact: technical.analogue_arcade_stick.voltage_v
+    sections:
+    - technical_analogue_arcade_stick.voltage_v
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_analogue_arcade_stick_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Analogue arcade control stick
+    (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Аналоговый
+    аркадный контроллер» (Вт).
+  kk: Карточкалар ұқсас. «Аналогтік аркада контроллері» үшін нақты «Номиналды тұтыну қуаты» көрсеткішін
+    айтыңыз (Вт).
+  relevant:
+  - section: technical_analogue_arcade_stick.power_w
+    grade: 3
+  - section: technical_analogue_arcade_stick.polling_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Аналоговый аркадный контроллер» показатель «Номинальная потребляемая мощность» (Вт) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.analogue_arcade_stick.power_w; neighbouring polling_hz does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.analogue_arcade_stick.power_w|current
+  required:
+  - fact: technical.analogue_arcade_stick.power_w
+    sections:
+    - technical_analogue_arcade_stick.power_w
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_analogue_arcade_stick_polling_hz
+  category: hard
+  en: Check the specifcation of Analogue arcade control stick for rated input polling frequency (Hz),
+    please.
+  ru: 'Проверьте характиристику «Аналоговый аркадный контроллер»: интересует «Номинальная частота опроса
+    ввода» (Гц).'
+  kk: «Аналогтік аркада контроллері» сипатамасынан «Енгізуді сұраудың номиналды жиілігі» мәнін тексеріңізші
+    (Гц).
+  relevant:
+  - section: technical_analogue_arcade_stick.polling_hz
+    grade: 3
+  - section: technical_analogue_arcade_stick.axis_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.analogue_arcade_stick.polling_hz; neighbouring axis_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_polling
+  need_key: technical.analogue_arcade_stick.polling_hz|current
+  required:
+  - fact: technical.analogue_arcade_stick.polling_hz
+    sections:
+    - technical_analogue_arcade_stick.polling_hz
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_analogue_arcade_stick_axis_count
+  category: simple
+  en: For Analogue arcade control stick, what is the specified number of analogue axes in units?
+  ru: Для «Аналоговый аркадный контроллер» какое значение указано для показателя «Число аналоговых осей»
+    (шт.)?
+  kk: «Аналогтік аркада контроллері» тауары үшін «Аналогтік осьтер саны» көрсеткішінің мәні қандай (дана)?
+  relevant:
+  - section: technical_analogue_arcade_stick.axis_count
+    grade: 3
+  - section: technical_analogue_arcade_stick.travel_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.analogue_arcade_stick.axis_count; neighbouring travel_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_axes
+  need_key: technical.analogue_arcade_stick.axis_count|current
+  required:
+  - fact: technical.analogue_arcade_stick.axis_count
+    sections:
+    - technical_analogue_arcade_stick.axis_count
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_analogue_arcade_stick_travel_mm
+  category: simple
+  en: I am comparing specifications. Find the rated input mechanism travel for Analogue arcade control
+    stick, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальный ход механизма ввода» у «Аналоговый аркадный
+    контроллер», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Аналогтік аркада контроллері» үшін «Енгізу тетігінің номиналды
+    жүрісі» мәні қажет (мм).
+  relevant:
+  - section: technical_analogue_arcade_stick.travel_mm
+    grade: 3
+  - section: technical_analogue_arcade_stick.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.analogue_arcade_stick.travel_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_travel
+  need_key: technical.analogue_arcade_stick.travel_mm|current
+  required:
+  - fact: technical.analogue_arcade_stick.travel_mm
+    sections:
+    - technical_analogue_arcade_stick.travel_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_analogue_arcade_stick_humidity_max_percent
+  category: unanswerable
+  en: For Analogue arcade control stick, what is the specified maximum permitted humidity in percent?
+  ru: Для «Аналоговый аркадный контроллер» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Аналогтік аркада контроллері» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_analogue_arcade_stick.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for analogue_arcade_stick does not state humidity_max_percent. Dimensions, the
+    retail price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.analogue_arcade_stick.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_analogue_arcade_stick_drop_test_cm
+  category: unanswerable
+  en: For Analogue arcade control stick, what is the specified certified drop-test height in cm?
+  ru: Для «Аналоговый аркадный контроллер» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Аналогтік аркада контроллері» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_analogue_arcade_stick.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for analogue_arcade_stick does not state drop_test_cm. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.analogue_arcade_stick.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_analogue_arcade_stick_repair_parts_price
+  category: unanswerable
+  en: For Analogue arcade control stick, what is the specified replacement-part price in KZT?
+  ru: Для «Аналоговый аркадный контроллер» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Аналогтік аркада контроллері» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_analogue_arcade_stick.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for analogue_arcade_stick does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.analogue_arcade_stick.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_analogue_arcade_stick_certification_id
+  category: unanswerable
+  en: For Analogue arcade control stick, what is the specified certification record number in record?
+  ru: Для «Аналоговый аркадный контроллер» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Аналогтік аркада контроллері» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_analogue_arcade_stick.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for analogue_arcade_stick does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.analogue_arcade_stick.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_analogue_arcade_stick
+  category: multi_fragment
+  en: What does Analogue arcade control stick weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Аналоговый аркадный контроллер» и какой вес посылки допускают пункты самовывоза?
+  kk: «Аналогтік аркада контроллері» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_analogue_arcade_stick.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.analogue_arcade_stick.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.analogue_arcade_stick.mass_g
+    sections:
+    - technical_analogue_arcade_stick.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_pedal_controller_mass_g
+  category: simple
+  en: 'Dual-pedal simulator controller: mass, g?'
+  ru: '«Двухпедальный контроллер симулятора»: масса, г?'
+  kk: '«Қос педальді симулятор контроллері»: салмағы, г?'
+  relevant:
+  - section: technical_dual_pedal_controller.mass_g
+    grade: 3
+  - section: technical_dual_pedal_controller.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_pedal_controller.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.dual_pedal_controller.mass_g|current
+  required:
+  - fact: technical.dual_pedal_controller.mass_g
+    sections:
+    - technical_dual_pedal_controller.mass_g
+  tags:
+  - profile_derived
+  - domain_gaming
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_pedal_controller_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Dual-pedal simulator controller (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Двухпедальный контроллер симулятора» (мм).
+  kk: Карточкалар ұқсас. «Қос педальді симулятор контроллері» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_dual_pedal_controller.width_mm
+    grade: 3
+  - section: technical_dual_pedal_controller.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_pedal_controller.width_mm; neighbouring height_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.dual_pedal_controller.width_mm|current
+  required:
+  - fact: technical.dual_pedal_controller.width_mm
+    sections:
+    - technical_dual_pedal_controller.width_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_pedal_controller_height_mm
+  category: hard
+  en: Check the specifcation of Dual-pedal simulator controller for height (mm), please.
+  ru: 'Проверьте характиристику «Двухпедальный контроллер симулятора»: интересует «Высота» (мм).'
+  kk: «Қос педальді симулятор контроллері» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_dual_pedal_controller.height_mm
+    grade: 3
+  - section: technical_dual_pedal_controller.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_pedal_controller.height_mm; neighbouring depth_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.dual_pedal_controller.height_mm|current
+  required:
+  - fact: technical.dual_pedal_controller.height_mm
+    sections:
+    - technical_dual_pedal_controller.height_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_pedal_controller_depth_mm
+  category: simple
+  en: For Dual-pedal simulator controller, what is the specified depth in mm?
+  ru: Для «Двухпедальный контроллер симулятора» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Қос педальді симулятор контроллері» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_dual_pedal_controller.depth_mm
+    grade: 3
+  - section: technical_dual_pedal_controller.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Қос педальді симулятор контроллері» үшін «Тереңдігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.dual_pedal_controller.depth_mm; neighbouring operating_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.dual_pedal_controller.depth_mm|current
+  required:
+  - fact: technical.dual_pedal_controller.depth_mm
+    sections:
+    - technical_dual_pedal_controller.depth_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_pedal_controller_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Dual-pedal simulator
+    controller, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Двухпедальный
+    контроллер симулятора», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Қос педальді симулятор контроллері» үшін «Жұмыс кезіндегі ауаның
+    ең төмен температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_dual_pedal_controller.operating_min_c
+    grade: 3
+  - section: technical_dual_pedal_controller.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_pedal_controller.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.dual_pedal_controller.operating_min_c|current
+  required:
+  - fact: technical.dual_pedal_controller.operating_min_c
+    sections:
+    - technical_dual_pedal_controller.operating_min_c
+  tags:
+  - profile_derived
+  - domain_gaming
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_pedal_controller_operating_max_c
+  category: hard
+  en: 'Dual-pedal simulator controller: maximum operating ambient temperature, C?'
+  ru: '«Двухпедальный контроллер симулятора»: максимальная температура воздуха при работе, C?'
+  kk: '«Қос педальді симулятор контроллері»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_dual_pedal_controller.operating_max_c
+    grade: 3
+  - section: technical_dual_pedal_controller.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_pedal_controller.operating_max_c; neighbouring controls_count
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.dual_pedal_controller.operating_max_c|current
+  required:
+  - fact: technical.dual_pedal_controller.operating_max_c
+    sections:
+    - technical_dual_pedal_controller.operating_max_c
+  tags:
+  - profile_derived
+  - domain_gaming
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_pedal_controller_controls_count
+  category: hard
+  en: The cards look similar. What number of physical controls is listed for Dual-pedal simulator controller
+    (units)?
+  ru: Карточки похожи. Уточните показатель «Число физических органов управления» именно для «Двухпедальный
+    контроллер симулятора» (шт.).
+  kk: Карточкалар ұқсас. «Қос педальді симулятор контроллері» үшін нақты «Физикалық басқару элементтерінің
+    саны» көрсеткішін айтыңыз (дана).
+  relevant:
+  - section: technical_dual_pedal_controller.controls_count
+    grade: 3
+  - section: technical_dual_pedal_controller.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_pedal_controller.controls_count; neighbouring cable_cm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.dual_pedal_controller.controls_count|current
+  required:
+  - fact: technical.dual_pedal_controller.controls_count
+    sections:
+    - technical_dual_pedal_controller.controls_count
+  tags:
+  - profile_derived
+  - domain_gaming
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_pedal_controller_cable_cm
+  category: hard
+  en: Check the specifcation of Dual-pedal simulator controller for supplied cable length (cm), please.
+  ru: 'Проверьте характиристику «Двухпедальный контроллер симулятора»: интересует «Длина комплектного
+    кабеля» (см).'
+  kk: «Қос педальді симулятор контроллері» сипатамасынан «Жинақтағы кабель ұзындығы» мәнін тексеріңізші
+    (см).
+  relevant:
+  - section: technical_dual_pedal_controller.cable_cm
+    grade: 3
+  - section: technical_dual_pedal_controller.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_pedal_controller.cable_cm; neighbouring voltage_v does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.dual_pedal_controller.cable_cm|current
+  required:
+  - fact: technical.dual_pedal_controller.cable_cm
+    sections:
+    - technical_dual_pedal_controller.cable_cm
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_pedal_controller_voltage_v
+  category: simple
+  en: For Dual-pedal simulator controller, what is the specified rated supply voltage in V?
+  ru: Для «Двухпедальный контроллер симулятора» какое значение указано для показателя «Номинальное напряжение
+    питания» (В)?
+  kk: «Қос педальді симулятор контроллері» тауары үшін «Номиналды қорек кернеуі» көрсеткішінің мәні қандай
+    (В)?
+  relevant:
+  - section: technical_dual_pedal_controller.voltage_v
+    grade: 3
+  - section: technical_dual_pedal_controller.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_pedal_controller.voltage_v; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.dual_pedal_controller.voltage_v|current
+  required:
+  - fact: technical.dual_pedal_controller.voltage_v
+    sections:
+    - technical_dual_pedal_controller.voltage_v
+  tags:
+  - profile_derived
+  - domain_gaming
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_pedal_controller_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Dual-pedal simulator controller,
+    in W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Двухпедальный
+    контроллер симулятора», в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Қос педальді симулятор контроллері» үшін «Номиналды тұтыну қуаты»
+    мәні қажет (Вт).
+  relevant:
+  - section: technical_dual_pedal_controller.power_w
+    grade: 3
+  - section: technical_dual_pedal_controller.polling_hz
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_pedal_controller.power_w; neighbouring polling_hz does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.dual_pedal_controller.power_w|current
+  required:
+  - fact: technical.dual_pedal_controller.power_w
+    sections:
+    - technical_dual_pedal_controller.power_w
+  tags:
+  - profile_derived
+  - domain_gaming
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_pedal_controller_polling_hz
+  category: simple
+  en: 'Dual-pedal simulator controller: rated input polling frequency, Hz?'
+  ru: '«Двухпедальный контроллер симулятора»: номинальная частота опроса ввода, Гц?'
+  kk: '«Қос педальді симулятор контроллері»: енгізуді сұраудың номиналды жиілігі, Гц?'
+  relevant:
+  - section: technical_dual_pedal_controller.polling_hz
+    grade: 3
+  - section: technical_dual_pedal_controller.axis_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Двухпедальный контроллер симулятора» показатель «Номинальная частота опроса ввода» (Гц) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.dual_pedal_controller.polling_hz; neighbouring axis_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_polling
+  need_key: technical.dual_pedal_controller.polling_hz|current
+  required:
+  - fact: technical.dual_pedal_controller.polling_hz
+    sections:
+    - technical_dual_pedal_controller.polling_hz
+  tags:
+  - profile_derived
+  - domain_gaming
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_pedal_controller_axis_count
+  category: hard
+  en: The cards look similar. What number of analogue axes is listed for Dual-pedal simulator controller
+    (units)?
+  ru: Карточки похожи. Уточните показатель «Число аналоговых осей» именно для «Двухпедальный контроллер
+    симулятора» (шт.).
+  kk: Карточкалар ұқсас. «Қос педальді симулятор контроллері» үшін нақты «Аналогтік осьтер саны» көрсеткішін
+    айтыңыз (дана).
+  relevant:
+  - section: technical_dual_pedal_controller.axis_count
+    grade: 3
+  - section: technical_dual_pedal_controller.travel_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_pedal_controller.axis_count; neighbouring travel_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_axes
+  need_key: technical.dual_pedal_controller.axis_count|current
+  required:
+  - fact: technical.dual_pedal_controller.axis_count
+    sections:
+    - technical_dual_pedal_controller.axis_count
+  tags:
+  - profile_derived
+  - domain_gaming
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_pedal_controller_travel_mm
+  category: hard
+  en: Check the specifcation of Dual-pedal simulator controller for rated input mechanism travel (mm),
+    please.
+  ru: 'Проверьте характиристику «Двухпедальный контроллер симулятора»: интересует «Номинальный ход механизма
+    ввода» (мм).'
+  kk: «Қос педальді симулятор контроллері» сипатамасынан «Енгізу тетігінің номиналды жүрісі» мәнін тексеріңізші
+    (мм).
+  relevant:
+  - section: technical_dual_pedal_controller.travel_mm
+    grade: 3
+  - section: technical_dual_pedal_controller.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_pedal_controller.travel_mm; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_input_travel
+  need_key: technical.dual_pedal_controller.travel_mm|current
+  required:
+  - fact: technical.dual_pedal_controller.travel_mm
+    sections:
+    - technical_dual_pedal_controller.travel_mm
+  tags:
+  - profile_derived
+  - domain_gaming
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_dual_pedal_controller_humidity_max_percent
+  category: unanswerable
+  en: For Dual-pedal simulator controller, what is the specified maximum permitted humidity in percent?
+  ru: Для «Двухпедальный контроллер симулятора» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Қос педальді симулятор контроллері» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_dual_pedal_controller.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for dual_pedal_controller does not state humidity_max_percent. Dimensions, the
+    retail price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.dual_pedal_controller.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_dual_pedal_controller_drop_test_cm
+  category: unanswerable
+  en: For Dual-pedal simulator controller, what is the specified certified drop-test height in cm?
+  ru: Для «Двухпедальный контроллер симулятора» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Қос педальді симулятор контроллері» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_dual_pedal_controller.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for dual_pedal_controller does not state drop_test_cm. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.dual_pedal_controller.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_dual_pedal_controller_repair_parts_price
+  category: unanswerable
+  en: For Dual-pedal simulator controller, what is the specified replacement-part price in KZT?
+  ru: Для «Двухпедальный контроллер симулятора» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Қос педальді симулятор контроллері» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_dual_pedal_controller.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for dual_pedal_controller does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.dual_pedal_controller.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_dual_pedal_controller_certification_id
+  category: unanswerable
+  en: For Dual-pedal simulator controller, what is the specified certification record number in record?
+  ru: Для «Двухпедальный контроллер симулятора» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Қос педальді симулятор контроллері» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_dual_pedal_controller.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for dual_pedal_controller does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.dual_pedal_controller.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_gaming
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact

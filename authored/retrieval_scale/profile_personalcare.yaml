@@ -1,0 +1,4931 @@
+# Compiled from explicit technical_profiles/1 facts and native LLM-authored templates.
+schema_version: retrieval_scale_source/1
+origin: llm_generated
+review_status: draft
+author: Codex (LLM); explicit profiles and native templates compiled deterministically
+allowed_use: eval_only
+licence_note: Original fictional store specifications for internal demo and evaluation; no external manufacturer
+  data or real customer data. Fluent human review pending.
+items:
+- id: catalog_hair_straightener_mass_g
+  category: simple
+  en: For Ceramic hair straightener, what is the specified mass in g?
+  ru: Для «Керамический выпрямитель волос» какое значение указано для показателя «Масса» (г)?
+  kk: «Керамикалық шаш түзеткіш» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_hair_straightener.mass_g
+    grade: 3
+  - section: technical_hair_straightener.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_straightener.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.hair_straightener.mass_g|current
+  required:
+  - fact: technical.hair_straightener.mass_g
+    sections:
+    - technical_hair_straightener.mass_g
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_straightener_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Ceramic hair straightener, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Керамический выпрямитель волос», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Керамикалық шаш түзеткіш» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_hair_straightener.width_mm
+    grade: 3
+  - section: technical_hair_straightener.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_straightener.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.hair_straightener.width_mm|current
+  required:
+  - fact: technical.hair_straightener.width_mm
+    sections:
+    - technical_hair_straightener.width_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_straightener_height_mm
+  category: simple
+  en: 'Ceramic hair straightener: height, mm?'
+  ru: '«Керамический выпрямитель волос»: высота, мм?'
+  kk: '«Керамикалық шаш түзеткіш»: биіктігі, мм?'
+  relevant:
+  - section: technical_hair_straightener.height_mm
+    grade: 3
+  - section: technical_hair_straightener.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_straightener.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.hair_straightener.height_mm|current
+  required:
+  - fact: technical.hair_straightener.height_mm
+    sections:
+    - technical_hair_straightener.height_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_straightener_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Ceramic hair straightener (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Керамический выпрямитель волос» (мм).
+  kk: Карточкалар ұқсас. «Керамикалық шаш түзеткіш» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_hair_straightener.depth_mm
+    grade: 3
+  - section: technical_hair_straightener.operating_min_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_straightener.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.hair_straightener.depth_mm|current
+  required:
+  - fact: technical.hair_straightener.depth_mm
+    sections:
+    - technical_hair_straightener.depth_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_straightener_operating_min_c
+  category: hard
+  en: Check the specifcation of Ceramic hair straightener for minimum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Керамический выпрямитель волос»: интересует «Минимальная температура
+    воздуха при работе» (C).'
+  kk: «Керамикалық шаш түзеткіш» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_hair_straightener.operating_min_c
+    grade: 3
+  - section: technical_hair_straightener.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_straightener.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.hair_straightener.operating_min_c|current
+  required:
+  - fact: technical.hair_straightener.operating_min_c
+    sections:
+    - technical_hair_straightener.operating_min_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_straightener_operating_max_c
+  category: hard
+  en: For Ceramic hair straightener, what is the specified maximum operating ambient temperature in C?
+  ru: Для «Керамический выпрямитель волос» какое значение указано для показателя «Максимальная температура
+    воздуха при работе» (C)?
+  kk: «Керамикалық шаш түзеткіш» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_hair_straightener.operating_max_c
+    grade: 3
+  - section: technical_hair_straightener.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Керамический выпрямитель волос» показатель «Максимальная температура воздуха при работе»
+    (C) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.hair_straightener.operating_max_c; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.hair_straightener.operating_max_c|current
+  required:
+  - fact: technical.hair_straightener.operating_max_c
+    sections:
+    - technical_hair_straightener.operating_max_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_straightener_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Ceramic hair straightener, in
+    W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Керамический выпрямитель
+    волос», в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Керамикалық шаш түзеткіш» үшін «Номиналды тұтыну қуаты» мәні
+    қажет (Вт).
+  relevant:
+  - section: technical_hair_straightener.power_w
+    grade: 3
+  - section: technical_hair_straightener.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_straightener.power_w; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.hair_straightener.power_w|current
+  required:
+  - fact: technical.hair_straightener.power_w
+    sections:
+    - technical_hair_straightener.power_w
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_straightener_voltage_v
+  category: simple
+  en: 'Ceramic hair straightener: rated supply voltage, V?'
+  ru: '«Керамический выпрямитель волос»: номинальное напряжение питания, В?'
+  kk: '«Керамикалық шаш түзеткіш»: номиналды қорек кернеуі, В?'
+  relevant:
+  - section: technical_hair_straightener.voltage_v
+    grade: 3
+  - section: technical_hair_straightener.max_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_straightener.voltage_v; neighbouring max_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.hair_straightener.voltage_v|current
+  required:
+  - fact: technical.hair_straightener.voltage_v
+    sections:
+    - technical_hair_straightener.voltage_v
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_straightener_max_temp_c
+  category: hard
+  en: The cards look similar. What maximum selectable process temperature is listed for Ceramic hair straightener
+    (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная выбираемая рабочая температура» именно для «Керамический
+    выпрямитель волос» (C).
+  kk: Карточкалар ұқсас. «Керамикалық шаш түзеткіш» үшін нақты «Таңдалатын өңдеу температурасының ең жоғары
+    мәні» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_hair_straightener.max_temp_c
+    grade: 3
+  - section: technical_hair_straightener.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_straightener.max_temp_c; neighbouring modes_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.hair_straightener.max_temp_c|current
+  required:
+  - fact: technical.hair_straightener.max_temp_c
+    sections:
+    - technical_hair_straightener.max_temp_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_straightener_modes_count
+  category: hard
+  en: Check the specifcation of Ceramic hair straightener for number of operating modes (units), please.
+  ru: 'Проверьте характиристику «Керамический выпрямитель волос»: интересует «Число режимов работы» (шт.).'
+  kk: «Керамикалық шаш түзеткіш» сипатамасынан «Жұмыс режимдерінің саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_hair_straightener.modes_count
+    grade: 3
+  - section: technical_hair_straightener.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_straightener.modes_count; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.hair_straightener.modes_count|current
+  required:
+  - fact: technical.hair_straightener.modes_count
+    sections:
+    - technical_hair_straightener.modes_count
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_straightener_cable_cm
+  category: simple
+  en: For Ceramic hair straightener, what is the specified supplied cable length in cm?
+  ru: Для «Керамический выпрямитель волос» какое значение указано для показателя «Длина комплектного кабеля»
+    (см)?
+  kk: «Керамикалық шаш түзеткіш» тауары үшін «Жинақтағы кабель ұзындығы» көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_hair_straightener.cable_cm
+    grade: 3
+  - section: technical_hair_straightener.accessories_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_straightener.cable_cm; neighbouring accessories_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.hair_straightener.cable_cm|current
+  required:
+  - fact: technical.hair_straightener.cable_cm
+    sections:
+    - technical_hair_straightener.cable_cm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_straightener_accessories_count
+  category: simple
+  en: I am comparing specifications. Find the number of supplied accessories for Ceramic hair straightener,
+    in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число комплектных принадлежностей» у «Керамический выпрямитель
+    волос», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Керамикалық шаш түзеткіш» үшін «Жинақтағы керек-жарақтар саны»
+    мәні қажет (дана).
+  relevant:
+  - section: technical_hair_straightener.accessories_count
+    grade: 3
+  - section: technical_hair_straightener.timer_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_straightener.accessories_count; neighbouring timer_minutes
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_accessories
+  need_key: technical.hair_straightener.accessories_count|current
+  required:
+  - fact: technical.hair_straightener.accessories_count
+    sections:
+    - technical_hair_straightener.accessories_count
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_straightener_timer_minutes
+  category: hard
+  en: 'Ceramic hair straightener: maximum timer interval, minutes?'
+  ru: '«Керамический выпрямитель волос»: максимальный интервал таймера, минут?'
+  kk: '«Керамикалық шаш түзеткіш»: таймердің ең ұзақ аралығы, минут?'
+  relevant:
+  - section: technical_hair_straightener.timer_minutes
+    grade: 3
+  - section: technical_hair_straightener.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Керамикалық шаш түзеткіш» үшін «Таймердің ең ұзақ аралығы» (минут) керек, уточните по этой
+    модели, пожалуйста.
+  rationale: Authored target technical.hair_straightener.timer_minutes; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_timer_interval
+  need_key: technical.hair_straightener.timer_minutes|current
+  required:
+  - fact: technical.hair_straightener.timer_minutes
+    sections:
+    - technical_hair_straightener.timer_minutes
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_hair_straightener_humidity_max_percent
+  category: unanswerable
+  en: For Ceramic hair straightener, what is the specified maximum permitted humidity in percent?
+  ru: Для «Керамический выпрямитель волос» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Керамикалық шаш түзеткіш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_hair_straightener.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hair_straightener does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.hair_straightener.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_hair_straightener_drop_test_cm
+  category: unanswerable
+  en: For Ceramic hair straightener, what is the specified certified drop-test height in cm?
+  ru: Для «Керамический выпрямитель волос» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Керамикалық шаш түзеткіш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_hair_straightener.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hair_straightener does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.hair_straightener.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_hair_straightener_repair_parts_price
+  category: unanswerable
+  en: For Ceramic hair straightener, what is the specified replacement-part price in KZT?
+  ru: Для «Керамический выпрямитель волос» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Керамикалық шаш түзеткіш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_hair_straightener.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hair_straightener does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.hair_straightener.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_hair_straightener_certification_id
+  category: unanswerable
+  en: For Ceramic hair straightener, what is the specified certification record number in record?
+  ru: Для «Керамический выпрямитель волос» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Керамикалық шаш түзеткіш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_hair_straightener.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hair_straightener does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.hair_straightener.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_hair_straightener
+  category: multi_fragment
+  en: What does Ceramic hair straightener weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Керамический выпрямитель волос» и какой вес посылки допускают пункты самовывоза?
+  kk: «Керамикалық шаш түзеткіш» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_hair_straightener.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.hair_straightener.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.hair_straightener.mass_g
+    sections:
+    - technical_hair_straightener.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_prepublication_mass_hair_straightener
+  category: unanswerable
+  en: According to the instructions valid on 15 October 2026, what was the stated mass of Ceramic hair
+    straightener?
+  ru: По инструкциям, действовавшим 15 октября 2026 года, какая масса была указана для «Керамический выпрямитель
+    волос»?
+  kk: 2026 жылғы 15 қазанда қолданылған нұсқаулықтар бойынша «Керамикалық шаш түзеткіш» үшін қандай салмақ
+    көрсетілген еді?
+  relevant:
+  - section: technical_hair_straightener.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The technical source starts on 1 November 2026. Its current mass cannot establish a fact
+    at the requested earlier date.
+  family_id: profile_physical_mass
+  need_key: technical.hair_straightener.mass_g|2026_10_15_before_document_validity
+  required: []
+  tags:
+  - profile_derived
+  - temporal
+  - outside_validity
+  - hard_negative
+  as_of: '2026-10-15'
+  all_versions: false
+  negative_reason: expired
+- id: catalog_curling_wand_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Tapered curling wand (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Конусная плойка» (г).
+  kk: Карточкалар ұқсас. «Конустық бұйралағыш» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_curling_wand.mass_g
+    grade: 3
+  - section: technical_curling_wand.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.curling_wand.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.curling_wand.mass_g|current
+  required:
+  - fact: technical.curling_wand.mass_g
+    sections:
+    - technical_curling_wand.mass_g
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_curling_wand_width_mm
+  category: hard
+  en: Check the specifcation of Tapered curling wand for width (mm), please.
+  ru: 'Проверьте характиристику «Конусная плойка»: интересует «Ширина» (мм).'
+  kk: «Конустық бұйралағыш» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_curling_wand.width_mm
+    grade: 3
+  - section: technical_curling_wand.height_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.curling_wand.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.curling_wand.width_mm|current
+  required:
+  - fact: technical.curling_wand.width_mm
+    sections:
+    - technical_curling_wand.width_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_curling_wand_height_mm
+  category: simple
+  en: For Tapered curling wand, what is the specified height in mm?
+  ru: Для «Конусная плойка» какое значение указано для показателя «Высота» (мм)?
+  kk: «Конустық бұйралағыш» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_curling_wand.height_mm
+    grade: 3
+  - section: technical_curling_wand.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.curling_wand.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.curling_wand.height_mm|current
+  required:
+  - fact: technical.curling_wand.height_mm
+    sections:
+    - technical_curling_wand.height_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_curling_wand_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Tapered curling wand, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Конусная плойка», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Конустық бұйралағыш» үшін «Тереңдігі» мәні қажет (мм).
+  relevant:
+  - section: technical_curling_wand.depth_mm
+    grade: 3
+  - section: technical_curling_wand.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.curling_wand.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.curling_wand.depth_mm|current
+  required:
+  - fact: technical.curling_wand.depth_mm
+    sections:
+    - technical_curling_wand.depth_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_curling_wand_operating_min_c
+  category: hard
+  en: 'Tapered curling wand: minimum operating ambient temperature, C?'
+  ru: '«Конусная плойка»: минимальная температура воздуха при работе, C?'
+  kk: '«Конустық бұйралағыш»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_curling_wand.operating_min_c
+    grade: 3
+  - section: technical_curling_wand.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.curling_wand.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.curling_wand.operating_min_c|current
+  required:
+  - fact: technical.curling_wand.operating_min_c
+    sections:
+    - technical_curling_wand.operating_min_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_curling_wand_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Tapered curling
+    wand (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Конусная
+    плойка» (C).
+  kk: Карточкалар ұқсас. «Конустық бұйралағыш» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_curling_wand.operating_max_c
+    grade: 3
+  - section: technical_curling_wand.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.curling_wand.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.curling_wand.operating_max_c|current
+  required:
+  - fact: technical.curling_wand.operating_max_c
+    sections:
+    - technical_curling_wand.operating_max_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_curling_wand_power_w
+  category: hard
+  en: Check the specifcation of Tapered curling wand for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Конусная плойка»: интересует «Номинальная потребляемая мощность» (Вт).'
+  kk: «Конустық бұйралағыш» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_curling_wand.power_w
+    grade: 3
+  - section: technical_curling_wand.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Конусная плойка» показатель «Номинальная потребляемая мощность» (Вт) нақтылап беріңізші,
+    осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.curling_wand.power_w; neighbouring voltage_v does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.curling_wand.power_w|current
+  required:
+  - fact: technical.curling_wand.power_w
+    sections:
+    - technical_curling_wand.power_w
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_curling_wand_voltage_v
+  category: simple
+  en: For Tapered curling wand, what is the specified rated supply voltage in V?
+  ru: Для «Конусная плойка» какое значение указано для показателя «Номинальное напряжение питания» (В)?
+  kk: «Конустық бұйралағыш» тауары үшін «Номиналды қорек кернеуі» көрсеткішінің мәні қандай (В)?
+  relevant:
+  - section: technical_curling_wand.voltage_v
+    grade: 3
+  - section: technical_curling_wand.max_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.curling_wand.voltage_v; neighbouring max_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.curling_wand.voltage_v|current
+  required:
+  - fact: technical.curling_wand.voltage_v
+    sections:
+    - technical_curling_wand.voltage_v
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_curling_wand_max_temp_c
+  category: hard
+  en: I am comparing specifications. Find the maximum selectable process temperature for Tapered curling
+    wand, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная выбираемая рабочая температура» у «Конусная
+    плойка», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Конустық бұйралағыш» үшін «Таңдалатын өңдеу температурасының
+    ең жоғары мәні» мәні қажет (C).
+  relevant:
+  - section: technical_curling_wand.max_temp_c
+    grade: 3
+  - section: technical_curling_wand.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.curling_wand.max_temp_c; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.curling_wand.max_temp_c|current
+  required:
+  - fact: technical.curling_wand.max_temp_c
+    sections:
+    - technical_curling_wand.max_temp_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_curling_wand_modes_count
+  category: simple
+  en: 'Tapered curling wand: number of operating modes, units?'
+  ru: '«Конусная плойка»: число режимов работы, шт.?'
+  kk: '«Конустық бұйралағыш»: жұмыс режимдерінің саны, дана?'
+  relevant:
+  - section: technical_curling_wand.modes_count
+    grade: 3
+  - section: technical_curling_wand.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.curling_wand.modes_count; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.curling_wand.modes_count|current
+  required:
+  - fact: technical.curling_wand.modes_count
+    sections:
+    - technical_curling_wand.modes_count
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_curling_wand_cable_cm
+  category: hard
+  en: The cards look similar. What supplied cable length is listed for Tapered curling wand (cm)?
+  ru: Карточки похожи. Уточните показатель «Длина комплектного кабеля» именно для «Конусная плойка» (см).
+  kk: Карточкалар ұқсас. «Конустық бұйралағыш» үшін нақты «Жинақтағы кабель ұзындығы» көрсеткішін айтыңыз
+    (см).
+  relevant:
+  - section: technical_curling_wand.cable_cm
+    grade: 3
+  - section: technical_curling_wand.accessories_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.curling_wand.cable_cm; neighbouring accessories_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.curling_wand.cable_cm|current
+  required:
+  - fact: technical.curling_wand.cable_cm
+    sections:
+    - technical_curling_wand.cable_cm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_curling_wand_accessories_count
+  category: hard
+  en: Check the specifcation of Tapered curling wand for number of supplied accessories (units), please.
+  ru: 'Проверьте характиристику «Конусная плойка»: интересует «Число комплектных принадлежностей» (шт.).'
+  kk: «Конустық бұйралағыш» сипатамасынан «Жинақтағы керек-жарақтар саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_curling_wand.accessories_count
+    grade: 3
+  - section: technical_curling_wand.timer_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.curling_wand.accessories_count; neighbouring timer_minutes does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_accessories
+  need_key: technical.curling_wand.accessories_count|current
+  required:
+  - fact: technical.curling_wand.accessories_count
+    sections:
+    - technical_curling_wand.accessories_count
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_curling_wand_timer_minutes
+  category: hard
+  en: For Tapered curling wand, what is the specified maximum timer interval in minutes?
+  ru: Для «Конусная плойка» какое значение указано для показателя «Максимальный интервал таймера» (минут)?
+  kk: «Конустық бұйралағыш» тауары үшін «Таймердің ең ұзақ аралығы» көрсеткішінің мәні қандай (минут)?
+  relevant:
+  - section: technical_curling_wand.timer_minutes
+    grade: 3
+  - section: technical_curling_wand.mass_g
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.curling_wand.timer_minutes; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_timer_interval
+  need_key: technical.curling_wand.timer_minutes|current
+  required:
+  - fact: technical.curling_wand.timer_minutes
+    sections:
+    - technical_curling_wand.timer_minutes
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_curling_wand_humidity_max_percent
+  category: unanswerable
+  en: For Tapered curling wand, what is the specified maximum permitted humidity in percent?
+  ru: Для «Конусная плойка» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Конустық бұйралағыш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_curling_wand.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for curling_wand does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.curling_wand.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_curling_wand_drop_test_cm
+  category: unanswerable
+  en: For Tapered curling wand, what is the specified certified drop-test height in cm?
+  ru: Для «Конусная плойка» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Конустық бұйралағыш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_curling_wand.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for curling_wand does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.curling_wand.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_curling_wand_repair_parts_price
+  category: unanswerable
+  en: For Tapered curling wand, what is the specified replacement-part price in KZT?
+  ru: Для «Конусная плойка» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Конустық бұйралағыш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_curling_wand.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for curling_wand does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.curling_wand.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_curling_wand_certification_id
+  category: unanswerable
+  en: For Tapered curling wand, what is the specified certification record number in record?
+  ru: Для «Конусная плойка» какое значение указано для показателя «Номер сертификационной записи» (запись)?
+  kk: «Конустық бұйралағыш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_curling_wand.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for curling_wand does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.curling_wand.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_hot_brush_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Heated styling brush, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Нагреваемая щётка для укладки», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Қыздырылатын сәндеу щеткасы» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_hot_brush.mass_g
+    grade: 3
+  - section: technical_hot_brush.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Қыздырылатын сәндеу щеткасы» үшін «Салмағы» (г) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.hot_brush.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.hot_brush.mass_g|current
+  required:
+  - fact: technical.hot_brush.mass_g
+    sections:
+    - technical_hot_brush.mass_g
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_brush_width_mm
+  category: simple
+  en: 'Heated styling brush: width, mm?'
+  ru: '«Нагреваемая щётка для укладки»: ширина, мм?'
+  kk: '«Қыздырылатын сәндеу щеткасы»: ені, мм?'
+  relevant:
+  - section: technical_hot_brush.width_mm
+    grade: 3
+  - section: technical_hot_brush.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_brush.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.hot_brush.width_mm|current
+  required:
+  - fact: technical.hot_brush.width_mm
+    sections:
+    - technical_hot_brush.width_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_brush_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Heated styling brush (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Нагреваемая щётка для укладки» (мм).
+  kk: Карточкалар ұқсас. «Қыздырылатын сәндеу щеткасы» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_hot_brush.height_mm
+    grade: 3
+  - section: technical_hot_brush.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_brush.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.hot_brush.height_mm|current
+  required:
+  - fact: technical.hot_brush.height_mm
+    sections:
+    - technical_hot_brush.height_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_brush_depth_mm
+  category: hard
+  en: Check the specifcation of Heated styling brush for depth (mm), please.
+  ru: 'Проверьте характиристику «Нагреваемая щётка для укладки»: интересует «Глубина» (мм).'
+  kk: «Қыздырылатын сәндеу щеткасы» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_hot_brush.depth_mm
+    grade: 3
+  - section: technical_hot_brush.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_brush.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.hot_brush.depth_mm|current
+  required:
+  - fact: technical.hot_brush.depth_mm
+    sections:
+    - technical_hot_brush.depth_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_brush_operating_min_c
+  category: hard
+  en: For Heated styling brush, what is the specified minimum operating ambient temperature in C?
+  ru: Для «Нагреваемая щётка для укладки» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Қыздырылатын сәндеу щеткасы» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_hot_brush.operating_min_c
+    grade: 3
+  - section: technical_hot_brush.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_brush.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.hot_brush.operating_min_c|current
+  required:
+  - fact: technical.hot_brush.operating_min_c
+    sections:
+    - technical_hot_brush.operating_min_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_brush_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Heated styling
+    brush, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Нагреваемая
+    щётка для укладки», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Қыздырылатын сәндеу щеткасы» үшін «Жұмыс кезіндегі ауаның ең
+    жоғары температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_hot_brush.operating_max_c
+    grade: 3
+  - section: technical_hot_brush.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_brush.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.hot_brush.operating_max_c|current
+  required:
+  - fact: technical.hot_brush.operating_max_c
+    sections:
+    - technical_hot_brush.operating_max_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_brush_power_w
+  category: simple
+  en: 'Heated styling brush: rated power consumption, W?'
+  ru: '«Нагреваемая щётка для укладки»: номинальная потребляемая мощность, Вт?'
+  kk: '«Қыздырылатын сәндеу щеткасы»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_hot_brush.power_w
+    grade: 3
+  - section: technical_hot_brush.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_brush.power_w; neighbouring voltage_v does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.hot_brush.power_w|current
+  required:
+  - fact: technical.hot_brush.power_w
+    sections:
+    - technical_hot_brush.power_w
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_brush_voltage_v
+  category: hard
+  en: The cards look similar. What rated supply voltage is listed for Heated styling brush (V)?
+  ru: Карточки похожи. Уточните показатель «Номинальное напряжение питания» именно для «Нагреваемая щётка
+    для укладки» (В).
+  kk: Карточкалар ұқсас. «Қыздырылатын сәндеу щеткасы» үшін нақты «Номиналды қорек кернеуі» көрсеткішін
+    айтыңыз (В).
+  relevant:
+  - section: technical_hot_brush.voltage_v
+    grade: 3
+  - section: technical_hot_brush.max_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Нагреваемая щётка для укладки» показатель «Номинальное напряжение питания» (В) нақтылап беріңізші,
+    осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.hot_brush.voltage_v; neighbouring max_temp_c does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.hot_brush.voltage_v|current
+  required:
+  - fact: technical.hot_brush.voltage_v
+    sections:
+    - technical_hot_brush.voltage_v
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_brush_max_temp_c
+  category: hard
+  en: Check the specifcation of Heated styling brush for maximum selectable process temperature (C), please.
+  ru: 'Проверьте характиристику «Нагреваемая щётка для укладки»: интересует «Максимальная выбираемая рабочая
+    температура» (C).'
+  kk: «Қыздырылатын сәндеу щеткасы» сипатамасынан «Таңдалатын өңдеу температурасының ең жоғары мәні» мәнін
+    тексеріңізші (C).
+  relevant:
+  - section: technical_hot_brush.max_temp_c
+    grade: 3
+  - section: technical_hot_brush.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_brush.max_temp_c; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.hot_brush.max_temp_c|current
+  required:
+  - fact: technical.hot_brush.max_temp_c
+    sections:
+    - technical_hot_brush.max_temp_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_brush_modes_count
+  category: simple
+  en: For Heated styling brush, what is the specified number of operating modes in units?
+  ru: Для «Нагреваемая щётка для укладки» какое значение указано для показателя «Число режимов работы»
+    (шт.)?
+  kk: «Қыздырылатын сәндеу щеткасы» тауары үшін «Жұмыс режимдерінің саны» көрсеткішінің мәні қандай (дана)?
+  relevant:
+  - section: technical_hot_brush.modes_count
+    grade: 3
+  - section: technical_hot_brush.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_brush.modes_count; neighbouring cable_cm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.hot_brush.modes_count|current
+  required:
+  - fact: technical.hot_brush.modes_count
+    sections:
+    - technical_hot_brush.modes_count
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_brush_cable_cm
+  category: simple
+  en: I am comparing specifications. Find the supplied cable length for Heated styling brush, in cm.
+  ru: Сравниваю характеристики. Нужен показатель «Длина комплектного кабеля» у «Нагреваемая щётка для
+    укладки», в см.
+  kk: Сипаттамаларды салыстырып отырмын. «Қыздырылатын сәндеу щеткасы» үшін «Жинақтағы кабель ұзындығы»
+    мәні қажет (см).
+  relevant:
+  - section: technical_hot_brush.cable_cm
+    grade: 3
+  - section: technical_hot_brush.accessories_count
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_brush.cable_cm; neighbouring accessories_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.hot_brush.cable_cm|current
+  required:
+  - fact: technical.hot_brush.cable_cm
+    sections:
+    - technical_hot_brush.cable_cm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_brush_accessories_count
+  category: simple
+  en: 'Heated styling brush: number of supplied accessories, units?'
+  ru: '«Нагреваемая щётка для укладки»: число комплектных принадлежностей, шт.?'
+  kk: '«Қыздырылатын сәндеу щеткасы»: жинақтағы керек-жарақтар саны, дана?'
+  relevant:
+  - section: technical_hot_brush.accessories_count
+    grade: 3
+  - section: technical_hot_brush.timer_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_brush.accessories_count; neighbouring timer_minutes does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_accessories
+  need_key: technical.hot_brush.accessories_count|current
+  required:
+  - fact: technical.hot_brush.accessories_count
+    sections:
+    - technical_hot_brush.accessories_count
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_brush_timer_minutes
+  category: hard
+  en: The cards look similar. What maximum timer interval is listed for Heated styling brush (minutes)?
+  ru: Карточки похожи. Уточните показатель «Максимальный интервал таймера» именно для «Нагреваемая щётка
+    для укладки» (минут).
+  kk: Карточкалар ұқсас. «Қыздырылатын сәндеу щеткасы» үшін нақты «Таймердің ең ұзақ аралығы» көрсеткішін
+    айтыңыз (минут).
+  relevant:
+  - section: technical_hot_brush.timer_minutes
+    grade: 3
+  - section: technical_hot_brush.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_brush.timer_minutes; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_timer_interval
+  need_key: technical.hot_brush.timer_minutes|current
+  required:
+  - fact: technical.hot_brush.timer_minutes
+    sections:
+    - technical_hot_brush.timer_minutes
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_hot_brush_humidity_max_percent
+  category: unanswerable
+  en: For Heated styling brush, what is the specified maximum permitted humidity in percent?
+  ru: Для «Нагреваемая щётка для укладки» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Қыздырылатын сәндеу щеткасы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_hot_brush.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hot_brush does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.hot_brush.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_hot_brush_drop_test_cm
+  category: unanswerable
+  en: For Heated styling brush, what is the specified certified drop-test height in cm?
+  ru: Для «Нагреваемая щётка для укладки» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Қыздырылатын сәндеу щеткасы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_hot_brush.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hot_brush does not state drop_test_cm. Dimensions, the retail price or a diagnostic
+    fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.hot_brush.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_hot_brush_repair_parts_price
+  category: unanswerable
+  en: For Heated styling brush, what is the specified replacement-part price in KZT?
+  ru: Для «Нагреваемая щётка для укладки» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Қыздырылатын сәндеу щеткасы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_hot_brush.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hot_brush does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.hot_brush.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_hot_brush_certification_id
+  category: unanswerable
+  en: For Heated styling brush, what is the specified certification record number in record?
+  ru: Для «Нагреваемая щётка для укладки» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Қыздырылатын сәндеу щеткасы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_hot_brush.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hot_brush does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.hot_brush.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_hot_brush
+  category: multi_fragment
+  en: What does Heated styling brush weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Нагреваемая щётка для укладки» и какой вес посылки допускают пункты самовывоза?
+  kk: «Қыздырылатын сәндеу щеткасы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_hot_brush.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.hot_brush.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.hot_brush.mass_g
+    sections:
+    - technical_hot_brush.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_crimping_iron_mass_g
+  category: hard
+  en: Check the specifcation of Textured hair crimping iron for mass (g), please.
+  ru: 'Проверьте характиристику «Щипцы для гофрирования волос»: интересует «Масса» (г).'
+  kk: «Шашты бедерлеу қысқышы» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_crimping_iron.mass_g
+    grade: 3
+  - section: technical_crimping_iron.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.crimping_iron.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.crimping_iron.mass_g|current
+  required:
+  - fact: technical.crimping_iron.mass_g
+    sections:
+    - technical_crimping_iron.mass_g
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_crimping_iron_width_mm
+  category: simple
+  en: For Textured hair crimping iron, what is the specified width in mm?
+  ru: Для «Щипцы для гофрирования волос» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Шашты бедерлеу қысқышы» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_crimping_iron.width_mm
+    grade: 3
+  - section: technical_crimping_iron.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Шашты бедерлеу қысқышы» үшін «Ені» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.crimping_iron.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.crimping_iron.width_mm|current
+  required:
+  - fact: technical.crimping_iron.width_mm
+    sections:
+    - technical_crimping_iron.width_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_crimping_iron_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Textured hair crimping iron, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Щипцы для гофрирования волос», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Шашты бедерлеу қысқышы» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_crimping_iron.height_mm
+    grade: 3
+  - section: technical_crimping_iron.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.crimping_iron.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.crimping_iron.height_mm|current
+  required:
+  - fact: technical.crimping_iron.height_mm
+    sections:
+    - technical_crimping_iron.height_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_crimping_iron_depth_mm
+  category: simple
+  en: 'Textured hair crimping iron: depth, mm?'
+  ru: '«Щипцы для гофрирования волос»: глубина, мм?'
+  kk: '«Шашты бедерлеу қысқышы»: тереңдігі, мм?'
+  relevant:
+  - section: technical_crimping_iron.depth_mm
+    grade: 3
+  - section: technical_crimping_iron.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.crimping_iron.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.crimping_iron.depth_mm|current
+  required:
+  - fact: technical.crimping_iron.depth_mm
+    sections:
+    - technical_crimping_iron.depth_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_crimping_iron_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Textured hair crimping
+    iron (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Щипцы
+    для гофрирования волос» (C).
+  kk: Карточкалар ұқсас. «Шашты бедерлеу қысқышы» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_crimping_iron.operating_min_c
+    grade: 3
+  - section: technical_crimping_iron.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.crimping_iron.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.crimping_iron.operating_min_c|current
+  required:
+  - fact: technical.crimping_iron.operating_min_c
+    sections:
+    - technical_crimping_iron.operating_min_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_crimping_iron_operating_max_c
+  category: hard
+  en: Check the specifcation of Textured hair crimping iron for maximum operating ambient temperature
+    (C), please.
+  ru: 'Проверьте характиристику «Щипцы для гофрирования волос»: интересует «Максимальная температура воздуха
+    при работе» (C).'
+  kk: «Шашты бедерлеу қысқышы» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_crimping_iron.operating_max_c
+    grade: 3
+  - section: technical_crimping_iron.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.crimping_iron.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.crimping_iron.operating_max_c|current
+  required:
+  - fact: technical.crimping_iron.operating_max_c
+    sections:
+    - technical_crimping_iron.operating_max_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_crimping_iron_power_w
+  category: simple
+  en: For Textured hair crimping iron, what is the specified rated power consumption in W?
+  ru: Для «Щипцы для гофрирования волос» какое значение указано для показателя «Номинальная потребляемая
+    мощность» (Вт)?
+  kk: «Шашты бедерлеу қысқышы» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай (Вт)?
+  relevant:
+  - section: technical_crimping_iron.power_w
+    grade: 3
+  - section: technical_crimping_iron.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.crimping_iron.power_w; neighbouring voltage_v does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.crimping_iron.power_w|current
+  required:
+  - fact: technical.crimping_iron.power_w
+    sections:
+    - technical_crimping_iron.power_w
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_crimping_iron_voltage_v
+  category: simple
+  en: I am comparing specifications. Find the rated supply voltage for Textured hair crimping iron, in
+    V.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное напряжение питания» у «Щипцы для гофрирования
+    волос», в В.
+  kk: Сипаттамаларды салыстырып отырмын. «Шашты бедерлеу қысқышы» үшін «Номиналды қорек кернеуі» мәні
+    қажет (В).
+  relevant:
+  - section: technical_crimping_iron.voltage_v
+    grade: 3
+  - section: technical_crimping_iron.max_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.crimping_iron.voltage_v; neighbouring max_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.crimping_iron.voltage_v|current
+  required:
+  - fact: technical.crimping_iron.voltage_v
+    sections:
+    - technical_crimping_iron.voltage_v
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_crimping_iron_max_temp_c
+  category: hard
+  en: 'Textured hair crimping iron: maximum selectable process temperature, C?'
+  ru: '«Щипцы для гофрирования волос»: максимальная выбираемая рабочая температура, C?'
+  kk: '«Шашты бедерлеу қысқышы»: таңдалатын өңдеу температурасының ең жоғары мәні, C?'
+  relevant:
+  - section: technical_crimping_iron.max_temp_c
+    grade: 3
+  - section: technical_crimping_iron.modes_count
+    grade: 0
+  cross_lingual: true
+  mix_ru: У «Щипцы для гофрирования волос» показатель «Максимальная выбираемая рабочая температура» (C)
+    нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.crimping_iron.max_temp_c; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.crimping_iron.max_temp_c|current
+  required:
+  - fact: technical.crimping_iron.max_temp_c
+    sections:
+    - technical_crimping_iron.max_temp_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_crimping_iron_modes_count
+  category: hard
+  en: The cards look similar. What number of operating modes is listed for Textured hair crimping iron
+    (units)?
+  ru: Карточки похожи. Уточните показатель «Число режимов работы» именно для «Щипцы для гофрирования волос»
+    (шт.).
+  kk: Карточкалар ұқсас. «Шашты бедерлеу қысқышы» үшін нақты «Жұмыс режимдерінің саны» көрсеткішін айтыңыз
+    (дана).
+  relevant:
+  - section: technical_crimping_iron.modes_count
+    grade: 3
+  - section: technical_crimping_iron.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.crimping_iron.modes_count; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.crimping_iron.modes_count|current
+  required:
+  - fact: technical.crimping_iron.modes_count
+    sections:
+    - technical_crimping_iron.modes_count
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_crimping_iron_cable_cm
+  category: hard
+  en: Check the specifcation of Textured hair crimping iron for supplied cable length (cm), please.
+  ru: 'Проверьте характиристику «Щипцы для гофрирования волос»: интересует «Длина комплектного кабеля»
+    (см).'
+  kk: «Шашты бедерлеу қысқышы» сипатамасынан «Жинақтағы кабель ұзындығы» мәнін тексеріңізші (см).
+  relevant:
+  - section: technical_crimping_iron.cable_cm
+    grade: 3
+  - section: technical_crimping_iron.accessories_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.crimping_iron.cable_cm; neighbouring accessories_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.crimping_iron.cable_cm|current
+  required:
+  - fact: technical.crimping_iron.cable_cm
+    sections:
+    - technical_crimping_iron.cable_cm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_crimping_iron_accessories_count
+  category: simple
+  en: For Textured hair crimping iron, what is the specified number of supplied accessories in units?
+  ru: Для «Щипцы для гофрирования волос» какое значение указано для показателя «Число комплектных принадлежностей»
+    (шт.)?
+  kk: «Шашты бедерлеу қысқышы» тауары үшін «Жинақтағы керек-жарақтар саны» көрсеткішінің мәні қандай (дана)?
+  relevant:
+  - section: technical_crimping_iron.accessories_count
+    grade: 3
+  - section: technical_crimping_iron.timer_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.crimping_iron.accessories_count; neighbouring timer_minutes does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_accessories
+  need_key: technical.crimping_iron.accessories_count|current
+  required:
+  - fact: technical.crimping_iron.accessories_count
+    sections:
+    - technical_crimping_iron.accessories_count
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_crimping_iron_timer_minutes
+  category: hard
+  en: I am comparing specifications. Find the maximum timer interval for Textured hair crimping iron,
+    in minutes.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальный интервал таймера» у «Щипцы для гофрирования
+    волос», в минут.
+  kk: Сипаттамаларды салыстырып отырмын. «Шашты бедерлеу қысқышы» үшін «Таймердің ең ұзақ аралығы» мәні
+    қажет (минут).
+  relevant:
+  - section: technical_crimping_iron.timer_minutes
+    grade: 3
+  - section: technical_crimping_iron.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.crimping_iron.timer_minutes; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_timer_interval
+  need_key: technical.crimping_iron.timer_minutes|current
+  required:
+  - fact: technical.crimping_iron.timer_minutes
+    sections:
+    - technical_crimping_iron.timer_minutes
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_crimping_iron_humidity_max_percent
+  category: unanswerable
+  en: For Textured hair crimping iron, what is the specified maximum permitted humidity in percent?
+  ru: Для «Щипцы для гофрирования волос» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Шашты бедерлеу қысқышы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_crimping_iron.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for crimping_iron does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.crimping_iron.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_crimping_iron_drop_test_cm
+  category: unanswerable
+  en: For Textured hair crimping iron, what is the specified certified drop-test height in cm?
+  ru: Для «Щипцы для гофрирования волос» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Шашты бедерлеу қысқышы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_crimping_iron.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for crimping_iron does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.crimping_iron.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_crimping_iron_repair_parts_price
+  category: unanswerable
+  en: For Textured hair crimping iron, what is the specified replacement-part price in KZT?
+  ru: Для «Щипцы для гофрирования волос» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Шашты бедерлеу қысқышы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_crimping_iron.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for crimping_iron does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.crimping_iron.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_crimping_iron_certification_id
+  category: unanswerable
+  en: For Textured hair crimping iron, what is the specified certification record number in record?
+  ru: Для «Щипцы для гофрирования волос» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Шашты бедерлеу қысқышы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_crimping_iron.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for crimping_iron does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.crimping_iron.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_triple_barrel_curler_mass_g
+  category: simple
+  en: 'Triple-barrel hair waver: mass, g?'
+  ru: '«Трёхствольные щипцы для волн»: масса, г?'
+  kk: '«Үш өзекті шаш толқындатқышы»: салмағы, г?'
+  relevant:
+  - section: technical_triple_barrel_curler.mass_g
+    grade: 3
+  - section: technical_triple_barrel_curler.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.triple_barrel_curler.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.triple_barrel_curler.mass_g|current
+  required:
+  - fact: technical.triple_barrel_curler.mass_g
+    sections:
+    - technical_triple_barrel_curler.mass_g
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_triple_barrel_curler_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Triple-barrel hair waver (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Трёхствольные щипцы для волн» (мм).
+  kk: Карточкалар ұқсас. «Үш өзекті шаш толқындатқышы» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_triple_barrel_curler.width_mm
+    grade: 3
+  - section: technical_triple_barrel_curler.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.triple_barrel_curler.width_mm; neighbouring height_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.triple_barrel_curler.width_mm|current
+  required:
+  - fact: technical.triple_barrel_curler.width_mm
+    sections:
+    - technical_triple_barrel_curler.width_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_triple_barrel_curler_height_mm
+  category: hard
+  en: Check the specifcation of Triple-barrel hair waver for height (mm), please.
+  ru: 'Проверьте характиристику «Трёхствольные щипцы для волн»: интересует «Высота» (мм).'
+  kk: «Үш өзекті шаш толқындатқышы» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_triple_barrel_curler.height_mm
+    grade: 3
+  - section: technical_triple_barrel_curler.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Үш өзекті шаш толқындатқышы» үшін «Биіктігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.triple_barrel_curler.height_mm; neighbouring depth_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.triple_barrel_curler.height_mm|current
+  required:
+  - fact: technical.triple_barrel_curler.height_mm
+    sections:
+    - technical_triple_barrel_curler.height_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_triple_barrel_curler_depth_mm
+  category: simple
+  en: For Triple-barrel hair waver, what is the specified depth in mm?
+  ru: Для «Трёхствольные щипцы для волн» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Үш өзекті шаш толқындатқышы» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_triple_barrel_curler.depth_mm
+    grade: 3
+  - section: technical_triple_barrel_curler.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.triple_barrel_curler.depth_mm; neighbouring operating_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.triple_barrel_curler.depth_mm|current
+  required:
+  - fact: technical.triple_barrel_curler.depth_mm
+    sections:
+    - technical_triple_barrel_curler.depth_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_triple_barrel_curler_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Triple-barrel
+    hair waver, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Трёхствольные
+    щипцы для волн», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Үш өзекті шаш толқындатқышы» үшін «Жұмыс кезіндегі ауаның ең
+    төмен температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_triple_barrel_curler.operating_min_c
+    grade: 3
+  - section: technical_triple_barrel_curler.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.triple_barrel_curler.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.triple_barrel_curler.operating_min_c|current
+  required:
+  - fact: technical.triple_barrel_curler.operating_min_c
+    sections:
+    - technical_triple_barrel_curler.operating_min_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_triple_barrel_curler_operating_max_c
+  category: hard
+  en: 'Triple-barrel hair waver: maximum operating ambient temperature, C?'
+  ru: '«Трёхствольные щипцы для волн»: максимальная температура воздуха при работе, C?'
+  kk: '«Үш өзекті шаш толқындатқышы»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_triple_barrel_curler.operating_max_c
+    grade: 3
+  - section: technical_triple_barrel_curler.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.triple_barrel_curler.operating_max_c; neighbouring power_w does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.triple_barrel_curler.operating_max_c|current
+  required:
+  - fact: technical.triple_barrel_curler.operating_max_c
+    sections:
+    - technical_triple_barrel_curler.operating_max_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_triple_barrel_curler_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Triple-barrel hair waver (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Трёхствольные
+    щипцы для волн» (Вт).
+  kk: Карточкалар ұқсас. «Үш өзекті шаш толқындатқышы» үшін нақты «Номиналды тұтыну қуаты» көрсеткішін
+    айтыңыз (Вт).
+  relevant:
+  - section: technical_triple_barrel_curler.power_w
+    grade: 3
+  - section: technical_triple_barrel_curler.voltage_v
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.triple_barrel_curler.power_w; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.triple_barrel_curler.power_w|current
+  required:
+  - fact: technical.triple_barrel_curler.power_w
+    sections:
+    - technical_triple_barrel_curler.power_w
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_triple_barrel_curler_voltage_v
+  category: hard
+  en: Check the specifcation of Triple-barrel hair waver for rated supply voltage (V), please.
+  ru: 'Проверьте характиристику «Трёхствольные щипцы для волн»: интересует «Номинальное напряжение питания»
+    (В).'
+  kk: «Үш өзекті шаш толқындатқышы» сипатамасынан «Номиналды қорек кернеуі» мәнін тексеріңізші (В).
+  relevant:
+  - section: technical_triple_barrel_curler.voltage_v
+    grade: 3
+  - section: technical_triple_barrel_curler.max_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.triple_barrel_curler.voltage_v; neighbouring max_temp_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.triple_barrel_curler.voltage_v|current
+  required:
+  - fact: technical.triple_barrel_curler.voltage_v
+    sections:
+    - technical_triple_barrel_curler.voltage_v
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_triple_barrel_curler_max_temp_c
+  category: hard
+  en: For Triple-barrel hair waver, what is the specified maximum selectable process temperature in C?
+  ru: Для «Трёхствольные щипцы для волн» какое значение указано для показателя «Максимальная выбираемая
+    рабочая температура» (C)?
+  kk: «Үш өзекті шаш толқындатқышы» тауары үшін «Таңдалатын өңдеу температурасының ең жоғары мәні» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_triple_barrel_curler.max_temp_c
+    grade: 3
+  - section: technical_triple_barrel_curler.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.triple_barrel_curler.max_temp_c; neighbouring modes_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.triple_barrel_curler.max_temp_c|current
+  required:
+  - fact: technical.triple_barrel_curler.max_temp_c
+    sections:
+    - technical_triple_barrel_curler.max_temp_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_triple_barrel_curler_modes_count
+  category: simple
+  en: I am comparing specifications. Find the number of operating modes for Triple-barrel hair waver,
+    in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число режимов работы» у «Трёхствольные щипцы для волн»,
+    в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Үш өзекті шаш толқындатқышы» үшін «Жұмыс режимдерінің саны»
+    мәні қажет (дана).
+  relevant:
+  - section: technical_triple_barrel_curler.modes_count
+    grade: 3
+  - section: technical_triple_barrel_curler.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Трёхствольные щипцы для волн» показатель «Число режимов работы» (шт.) нақтылап беріңізші,
+    осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.triple_barrel_curler.modes_count; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.triple_barrel_curler.modes_count|current
+  required:
+  - fact: technical.triple_barrel_curler.modes_count
+    sections:
+    - technical_triple_barrel_curler.modes_count
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_triple_barrel_curler_cable_cm
+  category: simple
+  en: 'Triple-barrel hair waver: supplied cable length, cm?'
+  ru: '«Трёхствольные щипцы для волн»: длина комплектного кабеля, см?'
+  kk: '«Үш өзекті шаш толқындатқышы»: жинақтағы кабель ұзындығы, см?'
+  relevant:
+  - section: technical_triple_barrel_curler.cable_cm
+    grade: 3
+  - section: technical_triple_barrel_curler.accessories_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.triple_barrel_curler.cable_cm; neighbouring accessories_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.triple_barrel_curler.cable_cm|current
+  required:
+  - fact: technical.triple_barrel_curler.cable_cm
+    sections:
+    - technical_triple_barrel_curler.cable_cm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_triple_barrel_curler_accessories_count
+  category: hard
+  en: The cards look similar. What number of supplied accessories is listed for Triple-barrel hair waver
+    (units)?
+  ru: Карточки похожи. Уточните показатель «Число комплектных принадлежностей» именно для «Трёхствольные
+    щипцы для волн» (шт.).
+  kk: Карточкалар ұқсас. «Үш өзекті шаш толқындатқышы» үшін нақты «Жинақтағы керек-жарақтар саны» көрсеткішін
+    айтыңыз (дана).
+  relevant:
+  - section: technical_triple_barrel_curler.accessories_count
+    grade: 3
+  - section: technical_triple_barrel_curler.timer_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.triple_barrel_curler.accessories_count; neighbouring timer_minutes
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_accessories
+  need_key: technical.triple_barrel_curler.accessories_count|current
+  required:
+  - fact: technical.triple_barrel_curler.accessories_count
+    sections:
+    - technical_triple_barrel_curler.accessories_count
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_triple_barrel_curler_timer_minutes
+  category: hard
+  en: Check the specifcation of Triple-barrel hair waver for maximum timer interval (minutes), please.
+  ru: 'Проверьте характиристику «Трёхствольные щипцы для волн»: интересует «Максимальный интервал таймера»
+    (минут).'
+  kk: «Үш өзекті шаш толқындатқышы» сипатамасынан «Таймердің ең ұзақ аралығы» мәнін тексеріңізші (минут).
+  relevant:
+  - section: technical_triple_barrel_curler.timer_minutes
+    grade: 3
+  - section: technical_triple_barrel_curler.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.triple_barrel_curler.timer_minutes; neighbouring mass_g does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_timer_interval
+  need_key: technical.triple_barrel_curler.timer_minutes|current
+  required:
+  - fact: technical.triple_barrel_curler.timer_minutes
+    sections:
+    - technical_triple_barrel_curler.timer_minutes
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_triple_barrel_curler_humidity_max_percent
+  category: unanswerable
+  en: For Triple-barrel hair waver, what is the specified maximum permitted humidity in percent?
+  ru: Для «Трёхствольные щипцы для волн» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Үш өзекті шаш толқындатқышы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_triple_barrel_curler.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for triple_barrel_curler does not state humidity_max_percent. Dimensions, the
+    retail price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.triple_barrel_curler.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_triple_barrel_curler_drop_test_cm
+  category: unanswerable
+  en: For Triple-barrel hair waver, what is the specified certified drop-test height in cm?
+  ru: Для «Трёхствольные щипцы для волн» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Үш өзекті шаш толқындатқышы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_triple_barrel_curler.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for triple_barrel_curler does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.triple_barrel_curler.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_triple_barrel_curler_repair_parts_price
+  category: unanswerable
+  en: For Triple-barrel hair waver, what is the specified replacement-part price in KZT?
+  ru: Для «Трёхствольные щипцы для волн» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Үш өзекті шаш толқындатқышы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_triple_barrel_curler.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for triple_barrel_curler does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.triple_barrel_curler.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_triple_barrel_curler_certification_id
+  category: unanswerable
+  en: For Triple-barrel hair waver, what is the specified certification record number in record?
+  ru: Для «Трёхствольные щипцы для волн» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Үш өзекті шаш толқындатқышы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_triple_barrel_curler.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for triple_barrel_curler does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.triple_barrel_curler.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_triple_barrel_curler
+  category: multi_fragment
+  en: What does Triple-barrel hair waver weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Трёхствольные щипцы для волн» и какой вес посылки допускают пункты самовывоза?
+  kk: «Үш өзекті шаш толқындатқышы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_triple_barrel_curler.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.triple_barrel_curler.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.triple_barrel_curler.mass_g
+    sections:
+    - technical_triple_barrel_curler.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_rollers_mass_g
+  category: simple
+  en: For Heated hair roller set, what is the specified mass in g?
+  ru: Для «Набор нагреваемых бигуди» какое значение указано для показателя «Масса» (г)?
+  kk: «Қыздырылатын шаш бұйралағыштар жиынтығы» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_heated_rollers.mass_g
+    grade: 3
+  - section: technical_heated_rollers.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_rollers.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.heated_rollers.mass_g|current
+  required:
+  - fact: technical.heated_rollers.mass_g
+    sections:
+    - technical_heated_rollers.mass_g
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_rollers_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Heated hair roller set, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Набор нагреваемых бигуди», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Қыздырылатын шаш бұйралағыштар жиынтығы» үшін «Ені» мәні қажет
+    (мм).
+  relevant:
+  - section: technical_heated_rollers.width_mm
+    grade: 3
+  - section: technical_heated_rollers.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_rollers.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.heated_rollers.width_mm|current
+  required:
+  - fact: technical.heated_rollers.width_mm
+    sections:
+    - technical_heated_rollers.width_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_rollers_height_mm
+  category: simple
+  en: 'Heated hair roller set: height, mm?'
+  ru: '«Набор нагреваемых бигуди»: высота, мм?'
+  kk: '«Қыздырылатын шаш бұйралағыштар жиынтығы»: биіктігі, мм?'
+  relevant:
+  - section: technical_heated_rollers.height_mm
+    grade: 3
+  - section: technical_heated_rollers.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_rollers.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.heated_rollers.height_mm|current
+  required:
+  - fact: technical.heated_rollers.height_mm
+    sections:
+    - technical_heated_rollers.height_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_rollers_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Heated hair roller set (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Набор нагреваемых бигуди» (мм).
+  kk: Карточкалар ұқсас. «Қыздырылатын шаш бұйралағыштар жиынтығы» үшін нақты «Тереңдігі» көрсеткішін
+    айтыңыз (мм).
+  relevant:
+  - section: technical_heated_rollers.depth_mm
+    grade: 3
+  - section: technical_heated_rollers.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Қыздырылатын шаш бұйралағыштар жиынтығы» үшін «Тереңдігі» (мм) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.heated_rollers.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.heated_rollers.depth_mm|current
+  required:
+  - fact: technical.heated_rollers.depth_mm
+    sections:
+    - technical_heated_rollers.depth_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_rollers_operating_min_c
+  category: hard
+  en: Check the specifcation of Heated hair roller set for minimum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Набор нагреваемых бигуди»: интересует «Минимальная температура воздуха
+    при работе» (C).'
+  kk: «Қыздырылатын шаш бұйралағыштар жиынтығы» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    мәнін тексеріңізші (C).
+  relevant:
+  - section: technical_heated_rollers.operating_min_c
+    grade: 3
+  - section: technical_heated_rollers.operating_max_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_rollers.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.heated_rollers.operating_min_c|current
+  required:
+  - fact: technical.heated_rollers.operating_min_c
+    sections:
+    - technical_heated_rollers.operating_min_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_rollers_operating_max_c
+  category: hard
+  en: For Heated hair roller set, what is the specified maximum operating ambient temperature in C?
+  ru: Для «Набор нагреваемых бигуди» какое значение указано для показателя «Максимальная температура воздуха
+    при работе» (C)?
+  kk: «Қыздырылатын шаш бұйралағыштар жиынтығы» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    көрсеткішінің мәні қандай (C)?
+  relevant:
+  - section: technical_heated_rollers.operating_max_c
+    grade: 3
+  - section: technical_heated_rollers.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_rollers.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.heated_rollers.operating_max_c|current
+  required:
+  - fact: technical.heated_rollers.operating_max_c
+    sections:
+    - technical_heated_rollers.operating_max_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_rollers_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Heated hair roller set, in W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Набор нагреваемых
+    бигуди», в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Қыздырылатын шаш бұйралағыштар жиынтығы» үшін «Номиналды тұтыну
+    қуаты» мәні қажет (Вт).
+  relevant:
+  - section: technical_heated_rollers.power_w
+    grade: 3
+  - section: technical_heated_rollers.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_rollers.power_w; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.heated_rollers.power_w|current
+  required:
+  - fact: technical.heated_rollers.power_w
+    sections:
+    - technical_heated_rollers.power_w
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_rollers_voltage_v
+  category: simple
+  en: 'Heated hair roller set: rated supply voltage, V?'
+  ru: '«Набор нагреваемых бигуди»: номинальное напряжение питания, В?'
+  kk: '«Қыздырылатын шаш бұйралағыштар жиынтығы»: номиналды қорек кернеуі, В?'
+  relevant:
+  - section: technical_heated_rollers.voltage_v
+    grade: 3
+  - section: technical_heated_rollers.max_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_rollers.voltage_v; neighbouring max_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.heated_rollers.voltage_v|current
+  required:
+  - fact: technical.heated_rollers.voltage_v
+    sections:
+    - technical_heated_rollers.voltage_v
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_rollers_max_temp_c
+  category: hard
+  en: The cards look similar. What maximum selectable process temperature is listed for Heated hair roller
+    set (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная выбираемая рабочая температура» именно для «Набор
+    нагреваемых бигуди» (C).
+  kk: Карточкалар ұқсас. «Қыздырылатын шаш бұйралағыштар жиынтығы» үшін нақты «Таңдалатын өңдеу температурасының
+    ең жоғары мәні» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_heated_rollers.max_temp_c
+    grade: 3
+  - section: technical_heated_rollers.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_rollers.max_temp_c; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.heated_rollers.max_temp_c|current
+  required:
+  - fact: technical.heated_rollers.max_temp_c
+    sections:
+    - technical_heated_rollers.max_temp_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_rollers_modes_count
+  category: hard
+  en: Check the specifcation of Heated hair roller set for number of operating modes (units), please.
+  ru: 'Проверьте характиристику «Набор нагреваемых бигуди»: интересует «Число режимов работы» (шт.).'
+  kk: «Қыздырылатын шаш бұйралағыштар жиынтығы» сипатамасынан «Жұмыс режимдерінің саны» мәнін тексеріңізші
+    (дана).
+  relevant:
+  - section: technical_heated_rollers.modes_count
+    grade: 3
+  - section: technical_heated_rollers.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_rollers.modes_count; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.heated_rollers.modes_count|current
+  required:
+  - fact: technical.heated_rollers.modes_count
+    sections:
+    - technical_heated_rollers.modes_count
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_rollers_cable_cm
+  category: simple
+  en: For Heated hair roller set, what is the specified supplied cable length in cm?
+  ru: Для «Набор нагреваемых бигуди» какое значение указано для показателя «Длина комплектного кабеля»
+    (см)?
+  kk: «Қыздырылатын шаш бұйралағыштар жиынтығы» тауары үшін «Жинақтағы кабель ұзындығы» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_heated_rollers.cable_cm
+    grade: 3
+  - section: technical_heated_rollers.accessories_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Набор нагреваемых бигуди» показатель «Длина комплектного кабеля» (см) нақтылап беріңізші,
+    осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.heated_rollers.cable_cm; neighbouring accessories_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.heated_rollers.cable_cm|current
+  required:
+  - fact: technical.heated_rollers.cable_cm
+    sections:
+    - technical_heated_rollers.cable_cm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_rollers_accessories_count
+  category: simple
+  en: I am comparing specifications. Find the number of supplied accessories for Heated hair roller set,
+    in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число комплектных принадлежностей» у «Набор нагреваемых
+    бигуди», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Қыздырылатын шаш бұйралағыштар жиынтығы» үшін «Жинақтағы керек-жарақтар
+    саны» мәні қажет (дана).
+  relevant:
+  - section: technical_heated_rollers.accessories_count
+    grade: 3
+  - section: technical_heated_rollers.timer_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_rollers.accessories_count; neighbouring timer_minutes does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_accessories
+  need_key: technical.heated_rollers.accessories_count|current
+  required:
+  - fact: technical.heated_rollers.accessories_count
+    sections:
+    - technical_heated_rollers.accessories_count
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_heated_rollers_timer_minutes
+  category: hard
+  en: 'Heated hair roller set: maximum timer interval, minutes?'
+  ru: '«Набор нагреваемых бигуди»: максимальный интервал таймера, минут?'
+  kk: '«Қыздырылатын шаш бұйралағыштар жиынтығы»: таймердің ең ұзақ аралығы, минут?'
+  relevant:
+  - section: technical_heated_rollers.timer_minutes
+    grade: 3
+  - section: technical_heated_rollers.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.heated_rollers.timer_minutes; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_timer_interval
+  need_key: technical.heated_rollers.timer_minutes|current
+  required:
+  - fact: technical.heated_rollers.timer_minutes
+    sections:
+    - technical_heated_rollers.timer_minutes
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_heated_rollers_humidity_max_percent
+  category: unanswerable
+  en: For Heated hair roller set, what is the specified maximum permitted humidity in percent?
+  ru: Для «Набор нагреваемых бигуди» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Қыздырылатын шаш бұйралағыштар жиынтығы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_heated_rollers.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for heated_rollers does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.heated_rollers.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_heated_rollers_drop_test_cm
+  category: unanswerable
+  en: For Heated hair roller set, what is the specified certified drop-test height in cm?
+  ru: Для «Набор нагреваемых бигуди» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Қыздырылатын шаш бұйралағыштар жиынтығы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі»
+    көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_heated_rollers.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for heated_rollers does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.heated_rollers.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_heated_rollers_repair_parts_price
+  category: unanswerable
+  en: For Heated hair roller set, what is the specified replacement-part price in KZT?
+  ru: Для «Набор нагреваемых бигуди» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Қыздырылатын шаш бұйралағыштар жиынтығы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні
+    қандай (теңге)?
+  relevant:
+  - section: technical_heated_rollers.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for heated_rollers does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.heated_rollers.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_heated_rollers_certification_id
+  category: unanswerable
+  en: For Heated hair roller set, what is the specified certification record number in record?
+  ru: Для «Набор нагреваемых бигуди» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Қыздырылатын шаш бұйралағыштар жиынтығы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_heated_rollers.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for heated_rollers does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.heated_rollers.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_hot_comb_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Electric hot styling comb (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Электрическая горячая расчёска» (г).
+  kk: Карточкалар ұқсас. «Электр ыстық сәндеу тарағы» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_hot_comb.mass_g
+    grade: 3
+  - section: technical_hot_comb.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_comb.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.hot_comb.mass_g|current
+  required:
+  - fact: technical.hot_comb.mass_g
+    sections:
+    - technical_hot_comb.mass_g
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_comb_width_mm
+  category: hard
+  en: Check the specifcation of Electric hot styling comb for width (mm), please.
+  ru: 'Проверьте характиристику «Электрическая горячая расчёска»: интересует «Ширина» (мм).'
+  kk: «Электр ыстық сәндеу тарағы» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_hot_comb.width_mm
+    grade: 3
+  - section: technical_hot_comb.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_comb.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.hot_comb.width_mm|current
+  required:
+  - fact: technical.hot_comb.width_mm
+    sections:
+    - technical_hot_comb.width_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_comb_height_mm
+  category: simple
+  en: For Electric hot styling comb, what is the specified height in mm?
+  ru: Для «Электрическая горячая расчёска» какое значение указано для показателя «Высота» (мм)?
+  kk: «Электр ыстық сәндеу тарағы» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_hot_comb.height_mm
+    grade: 3
+  - section: technical_hot_comb.depth_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_comb.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.hot_comb.height_mm|current
+  required:
+  - fact: technical.hot_comb.height_mm
+    sections:
+    - technical_hot_comb.height_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_comb_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Electric hot styling comb, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Электрическая горячая расчёска», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Электр ыстық сәндеу тарағы» үшін «Тереңдігі» мәні қажет (мм).
+  relevant:
+  - section: technical_hot_comb.depth_mm
+    grade: 3
+  - section: technical_hot_comb.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_comb.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.hot_comb.depth_mm|current
+  required:
+  - fact: technical.hot_comb.depth_mm
+    sections:
+    - technical_hot_comb.depth_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_comb_operating_min_c
+  category: hard
+  en: 'Electric hot styling comb: minimum operating ambient temperature, C?'
+  ru: '«Электрическая горячая расчёска»: минимальная температура воздуха при работе, C?'
+  kk: '«Электр ыстық сәндеу тарағы»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_hot_comb.operating_min_c
+    grade: 3
+  - section: technical_hot_comb.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Электр ыстық сәндеу тарағы» үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» (C) керек,
+    уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.hot_comb.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.hot_comb.operating_min_c|current
+  required:
+  - fact: technical.hot_comb.operating_min_c
+    sections:
+    - technical_hot_comb.operating_min_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_comb_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Electric hot styling
+    comb (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Электрическая
+    горячая расчёска» (C).
+  kk: Карточкалар ұқсас. «Электр ыстық сәндеу тарағы» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_hot_comb.operating_max_c
+    grade: 3
+  - section: technical_hot_comb.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_comb.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.hot_comb.operating_max_c|current
+  required:
+  - fact: technical.hot_comb.operating_max_c
+    sections:
+    - technical_hot_comb.operating_max_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_comb_power_w
+  category: hard
+  en: Check the specifcation of Electric hot styling comb for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Электрическая горячая расчёска»: интересует «Номинальная потребляемая
+    мощность» (Вт).'
+  kk: «Электр ыстық сәндеу тарағы» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_hot_comb.power_w
+    grade: 3
+  - section: technical_hot_comb.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_comb.power_w; neighbouring voltage_v does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.hot_comb.power_w|current
+  required:
+  - fact: technical.hot_comb.power_w
+    sections:
+    - technical_hot_comb.power_w
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_comb_voltage_v
+  category: simple
+  en: For Electric hot styling comb, what is the specified rated supply voltage in V?
+  ru: Для «Электрическая горячая расчёска» какое значение указано для показателя «Номинальное напряжение
+    питания» (В)?
+  kk: «Электр ыстық сәндеу тарағы» тауары үшін «Номиналды қорек кернеуі» көрсеткішінің мәні қандай (В)?
+  relevant:
+  - section: technical_hot_comb.voltage_v
+    grade: 3
+  - section: technical_hot_comb.max_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_comb.voltage_v; neighbouring max_temp_c does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.hot_comb.voltage_v|current
+  required:
+  - fact: technical.hot_comb.voltage_v
+    sections:
+    - technical_hot_comb.voltage_v
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_comb_max_temp_c
+  category: hard
+  en: I am comparing specifications. Find the maximum selectable process temperature for Electric hot
+    styling comb, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная выбираемая рабочая температура» у «Электрическая
+    горячая расчёска», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Электр ыстық сәндеу тарағы» үшін «Таңдалатын өңдеу температурасының
+    ең жоғары мәні» мәні қажет (C).
+  relevant:
+  - section: technical_hot_comb.max_temp_c
+    grade: 3
+  - section: technical_hot_comb.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_comb.max_temp_c; neighbouring modes_count does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.hot_comb.max_temp_c|current
+  required:
+  - fact: technical.hot_comb.max_temp_c
+    sections:
+    - technical_hot_comb.max_temp_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_comb_modes_count
+  category: simple
+  en: 'Electric hot styling comb: number of operating modes, units?'
+  ru: '«Электрическая горячая расчёска»: число режимов работы, шт.?'
+  kk: '«Электр ыстық сәндеу тарағы»: жұмыс режимдерінің саны, дана?'
+  relevant:
+  - section: technical_hot_comb.modes_count
+    grade: 3
+  - section: technical_hot_comb.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_comb.modes_count; neighbouring cable_cm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.hot_comb.modes_count|current
+  required:
+  - fact: technical.hot_comb.modes_count
+    sections:
+    - technical_hot_comb.modes_count
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_comb_cable_cm
+  category: hard
+  en: The cards look similar. What supplied cable length is listed for Electric hot styling comb (cm)?
+  ru: Карточки похожи. Уточните показатель «Длина комплектного кабеля» именно для «Электрическая горячая
+    расчёска» (см).
+  kk: Карточкалар ұқсас. «Электр ыстық сәндеу тарағы» үшін нақты «Жинақтағы кабель ұзындығы» көрсеткішін
+    айтыңыз (см).
+  relevant:
+  - section: technical_hot_comb.cable_cm
+    grade: 3
+  - section: technical_hot_comb.accessories_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_comb.cable_cm; neighbouring accessories_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.hot_comb.cable_cm|current
+  required:
+  - fact: technical.hot_comb.cable_cm
+    sections:
+    - technical_hot_comb.cable_cm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_comb_accessories_count
+  category: hard
+  en: Check the specifcation of Electric hot styling comb for number of supplied accessories (units),
+    please.
+  ru: 'Проверьте характиристику «Электрическая горячая расчёска»: интересует «Число комплектных принадлежностей»
+    (шт.).'
+  kk: «Электр ыстық сәндеу тарағы» сипатамасынан «Жинақтағы керек-жарақтар саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_hot_comb.accessories_count
+    grade: 3
+  - section: technical_hot_comb.timer_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Электрическая горячая расчёска» показатель «Число комплектных принадлежностей» (шт.) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.hot_comb.accessories_count; neighbouring timer_minutes does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_accessories
+  need_key: technical.hot_comb.accessories_count|current
+  required:
+  - fact: technical.hot_comb.accessories_count
+    sections:
+    - technical_hot_comb.accessories_count
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hot_comb_timer_minutes
+  category: hard
+  en: For Electric hot styling comb, what is the specified maximum timer interval in minutes?
+  ru: Для «Электрическая горячая расчёска» какое значение указано для показателя «Максимальный интервал
+    таймера» (минут)?
+  kk: «Электр ыстық сәндеу тарағы» тауары үшін «Таймердің ең ұзақ аралығы» көрсеткішінің мәні қандай (минут)?
+  relevant:
+  - section: technical_hot_comb.timer_minutes
+    grade: 3
+  - section: technical_hot_comb.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hot_comb.timer_minutes; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_timer_interval
+  need_key: technical.hot_comb.timer_minutes|current
+  required:
+  - fact: technical.hot_comb.timer_minutes
+    sections:
+    - technical_hot_comb.timer_minutes
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_hot_comb_humidity_max_percent
+  category: unanswerable
+  en: For Electric hot styling comb, what is the specified maximum permitted humidity in percent?
+  ru: Для «Электрическая горячая расчёска» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Электр ыстық сәндеу тарағы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_hot_comb.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hot_comb does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.hot_comb.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_hot_comb_drop_test_cm
+  category: unanswerable
+  en: For Electric hot styling comb, what is the specified certified drop-test height in cm?
+  ru: Для «Электрическая горячая расчёска» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Электр ыстық сәндеу тарағы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_hot_comb.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hot_comb does not state drop_test_cm. Dimensions, the retail price or a diagnostic
+    fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.hot_comb.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_hot_comb_repair_parts_price
+  category: unanswerable
+  en: For Electric hot styling comb, what is the specified replacement-part price in KZT?
+  ru: Для «Электрическая горячая расчёска» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Электр ыстық сәндеу тарағы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_hot_comb.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hot_comb does not state repair_parts_price. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.hot_comb.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_hot_comb_certification_id
+  category: unanswerable
+  en: For Electric hot styling comb, what is the specified certification record number in record?
+  ru: Для «Электрическая горячая расчёска» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Электр ыстық сәндеу тарағы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_hot_comb.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hot_comb does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.hot_comb.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_hot_comb
+  category: multi_fragment
+  en: What does Electric hot styling comb weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Электрическая горячая расчёска» и какой вес посылки допускают пункты самовывоза?
+  kk: «Электр ыстық сәндеу тарағы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_hot_comb.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.hot_comb.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.hot_comb.mass_g
+    sections:
+    - technical_hot_comb.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_automatic_curler_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Automatic rotating hair curler, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Автоматическая вращающаяся плойка», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Автоматты айналмалы бұйралағыш» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_automatic_curler.mass_g
+    grade: 3
+  - section: technical_automatic_curler.width_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.automatic_curler.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.automatic_curler.mass_g|current
+  required:
+  - fact: technical.automatic_curler.mass_g
+    sections:
+    - technical_automatic_curler.mass_g
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_automatic_curler_width_mm
+  category: simple
+  en: 'Automatic rotating hair curler: width, mm?'
+  ru: '«Автоматическая вращающаяся плойка»: ширина, мм?'
+  kk: '«Автоматты айналмалы бұйралағыш»: ені, мм?'
+  relevant:
+  - section: technical_automatic_curler.width_mm
+    grade: 3
+  - section: technical_automatic_curler.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.automatic_curler.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.automatic_curler.width_mm|current
+  required:
+  - fact: technical.automatic_curler.width_mm
+    sections:
+    - technical_automatic_curler.width_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_automatic_curler_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Automatic rotating hair curler (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Автоматическая вращающаяся плойка» (мм).
+  kk: Карточкалар ұқсас. «Автоматты айналмалы бұйралағыш» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_automatic_curler.height_mm
+    grade: 3
+  - section: technical_automatic_curler.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.automatic_curler.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.automatic_curler.height_mm|current
+  required:
+  - fact: technical.automatic_curler.height_mm
+    sections:
+    - technical_automatic_curler.height_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_automatic_curler_depth_mm
+  category: hard
+  en: Check the specifcation of Automatic rotating hair curler for depth (mm), please.
+  ru: 'Проверьте характиристику «Автоматическая вращающаяся плойка»: интересует «Глубина» (мм).'
+  kk: «Автоматты айналмалы бұйралағыш» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_automatic_curler.depth_mm
+    grade: 3
+  - section: technical_automatic_curler.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.automatic_curler.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.automatic_curler.depth_mm|current
+  required:
+  - fact: technical.automatic_curler.depth_mm
+    sections:
+    - technical_automatic_curler.depth_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_automatic_curler_operating_min_c
+  category: hard
+  en: For Automatic rotating hair curler, what is the specified minimum operating ambient temperature
+    in C?
+  ru: Для «Автоматическая вращающаяся плойка» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Автоматты айналмалы бұйралағыш» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_automatic_curler.operating_min_c
+    grade: 3
+  - section: technical_automatic_curler.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.automatic_curler.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.automatic_curler.operating_min_c|current
+  required:
+  - fact: technical.automatic_curler.operating_min_c
+    sections:
+    - technical_automatic_curler.operating_min_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_automatic_curler_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Automatic rotating
+    hair curler, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Автоматическая
+    вращающаяся плойка», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Автоматты айналмалы бұйралағыш» үшін «Жұмыс кезіндегі ауаның
+    ең жоғары температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_automatic_curler.operating_max_c
+    grade: 3
+  - section: technical_automatic_curler.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Автоматты айналмалы бұйралағыш» үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» (C) керек,
+    уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.automatic_curler.operating_max_c; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.automatic_curler.operating_max_c|current
+  required:
+  - fact: technical.automatic_curler.operating_max_c
+    sections:
+    - technical_automatic_curler.operating_max_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_automatic_curler_power_w
+  category: simple
+  en: 'Automatic rotating hair curler: rated power consumption, W?'
+  ru: '«Автоматическая вращающаяся плойка»: номинальная потребляемая мощность, Вт?'
+  kk: '«Автоматты айналмалы бұйралағыш»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_automatic_curler.power_w
+    grade: 3
+  - section: technical_automatic_curler.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.automatic_curler.power_w; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.automatic_curler.power_w|current
+  required:
+  - fact: technical.automatic_curler.power_w
+    sections:
+    - technical_automatic_curler.power_w
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_automatic_curler_voltage_v
+  category: hard
+  en: The cards look similar. What rated supply voltage is listed for Automatic rotating hair curler (V)?
+  ru: Карточки похожи. Уточните показатель «Номинальное напряжение питания» именно для «Автоматическая
+    вращающаяся плойка» (В).
+  kk: Карточкалар ұқсас. «Автоматты айналмалы бұйралағыш» үшін нақты «Номиналды қорек кернеуі» көрсеткішін
+    айтыңыз (В).
+  relevant:
+  - section: technical_automatic_curler.voltage_v
+    grade: 3
+  - section: technical_automatic_curler.max_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.automatic_curler.voltage_v; neighbouring max_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.automatic_curler.voltage_v|current
+  required:
+  - fact: technical.automatic_curler.voltage_v
+    sections:
+    - technical_automatic_curler.voltage_v
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_automatic_curler_max_temp_c
+  category: hard
+  en: Check the specifcation of Automatic rotating hair curler for maximum selectable process temperature
+    (C), please.
+  ru: 'Проверьте характиристику «Автоматическая вращающаяся плойка»: интересует «Максимальная выбираемая
+    рабочая температура» (C).'
+  kk: «Автоматты айналмалы бұйралағыш» сипатамасынан «Таңдалатын өңдеу температурасының ең жоғары мәні»
+    мәнін тексеріңізші (C).
+  relevant:
+  - section: technical_automatic_curler.max_temp_c
+    grade: 3
+  - section: technical_automatic_curler.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.automatic_curler.max_temp_c; neighbouring modes_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.automatic_curler.max_temp_c|current
+  required:
+  - fact: technical.automatic_curler.max_temp_c
+    sections:
+    - technical_automatic_curler.max_temp_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_automatic_curler_modes_count
+  category: simple
+  en: For Automatic rotating hair curler, what is the specified number of operating modes in units?
+  ru: Для «Автоматическая вращающаяся плойка» какое значение указано для показателя «Число режимов работы»
+    (шт.)?
+  kk: «Автоматты айналмалы бұйралағыш» тауары үшін «Жұмыс режимдерінің саны» көрсеткішінің мәні қандай
+    (дана)?
+  relevant:
+  - section: technical_automatic_curler.modes_count
+    grade: 3
+  - section: technical_automatic_curler.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.automatic_curler.modes_count; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.automatic_curler.modes_count|current
+  required:
+  - fact: technical.automatic_curler.modes_count
+    sections:
+    - technical_automatic_curler.modes_count
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_automatic_curler_cable_cm
+  category: simple
+  en: I am comparing specifications. Find the supplied cable length for Automatic rotating hair curler,
+    in cm.
+  ru: Сравниваю характеристики. Нужен показатель «Длина комплектного кабеля» у «Автоматическая вращающаяся
+    плойка», в см.
+  kk: Сипаттамаларды салыстырып отырмын. «Автоматты айналмалы бұйралағыш» үшін «Жинақтағы кабель ұзындығы»
+    мәні қажет (см).
+  relevant:
+  - section: technical_automatic_curler.cable_cm
+    grade: 3
+  - section: technical_automatic_curler.accessories_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.automatic_curler.cable_cm; neighbouring accessories_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.automatic_curler.cable_cm|current
+  required:
+  - fact: technical.automatic_curler.cable_cm
+    sections:
+    - technical_automatic_curler.cable_cm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_automatic_curler_accessories_count
+  category: simple
+  en: 'Automatic rotating hair curler: number of supplied accessories, units?'
+  ru: '«Автоматическая вращающаяся плойка»: число комплектных принадлежностей, шт.?'
+  kk: '«Автоматты айналмалы бұйралағыш»: жинақтағы керек-жарақтар саны, дана?'
+  relevant:
+  - section: technical_automatic_curler.accessories_count
+    grade: 3
+  - section: technical_automatic_curler.timer_minutes
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.automatic_curler.accessories_count; neighbouring timer_minutes
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_accessories
+  need_key: technical.automatic_curler.accessories_count|current
+  required:
+  - fact: technical.automatic_curler.accessories_count
+    sections:
+    - technical_automatic_curler.accessories_count
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_automatic_curler_timer_minutes
+  category: hard
+  en: The cards look similar. What maximum timer interval is listed for Automatic rotating hair curler
+    (minutes)?
+  ru: Карточки похожи. Уточните показатель «Максимальный интервал таймера» именно для «Автоматическая
+    вращающаяся плойка» (минут).
+  kk: Карточкалар ұқсас. «Автоматты айналмалы бұйралағыш» үшін нақты «Таймердің ең ұзақ аралығы» көрсеткішін
+    айтыңыз (минут).
+  relevant:
+  - section: technical_automatic_curler.timer_minutes
+    grade: 3
+  - section: technical_automatic_curler.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Автоматическая вращающаяся плойка» показатель «Максимальный интервал таймера» (минут) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.automatic_curler.timer_minutes; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_timer_interval
+  need_key: technical.automatic_curler.timer_minutes|current
+  required:
+  - fact: technical.automatic_curler.timer_minutes
+    sections:
+    - technical_automatic_curler.timer_minutes
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_automatic_curler_humidity_max_percent
+  category: unanswerable
+  en: For Automatic rotating hair curler, what is the specified maximum permitted humidity in percent?
+  ru: Для «Автоматическая вращающаяся плойка» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Автоматты айналмалы бұйралағыш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_automatic_curler.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for automatic_curler does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.automatic_curler.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_automatic_curler_drop_test_cm
+  category: unanswerable
+  en: For Automatic rotating hair curler, what is the specified certified drop-test height in cm?
+  ru: Для «Автоматическая вращающаяся плойка» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Автоматты айналмалы бұйралағыш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_automatic_curler.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for automatic_curler does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.automatic_curler.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_automatic_curler_repair_parts_price
+  category: unanswerable
+  en: For Automatic rotating hair curler, what is the specified replacement-part price in KZT?
+  ru: Для «Автоматическая вращающаяся плойка» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Автоматты айналмалы бұйралағыш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_automatic_curler.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for automatic_curler does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.automatic_curler.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_automatic_curler_certification_id
+  category: unanswerable
+  en: For Automatic rotating hair curler, what is the specified certification record number in record?
+  ru: Для «Автоматическая вращающаяся плойка» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Автоматты айналмалы бұйралағыш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_automatic_curler.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for automatic_curler does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.automatic_curler.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_mini_straightener_mass_g
+  category: hard
+  en: Check the specifcation of Travel mini hair straightener for mass (g), please.
+  ru: 'Проверьте характиристику «Дорожный мини-выпрямитель волос»: интересует «Масса» (г).'
+  kk: «Жол шағын шаш түзеткіші» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_mini_straightener.mass_g
+    grade: 3
+  - section: technical_mini_straightener.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_straightener.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.mini_straightener.mass_g|current
+  required:
+  - fact: technical.mini_straightener.mass_g
+    sections:
+    - technical_mini_straightener.mass_g
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_straightener_width_mm
+  category: simple
+  en: For Travel mini hair straightener, what is the specified width in mm?
+  ru: Для «Дорожный мини-выпрямитель волос» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Жол шағын шаш түзеткіші» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_mini_straightener.width_mm
+    grade: 3
+  - section: technical_mini_straightener.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_straightener.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.mini_straightener.width_mm|current
+  required:
+  - fact: technical.mini_straightener.width_mm
+    sections:
+    - technical_mini_straightener.width_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_straightener_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Travel mini hair straightener, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Дорожный мини-выпрямитель волос», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Жол шағын шаш түзеткіші» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_mini_straightener.height_mm
+    grade: 3
+  - section: technical_mini_straightener.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_straightener.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.mini_straightener.height_mm|current
+  required:
+  - fact: technical.mini_straightener.height_mm
+    sections:
+    - technical_mini_straightener.height_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_straightener_depth_mm
+  category: simple
+  en: 'Travel mini hair straightener: depth, mm?'
+  ru: '«Дорожный мини-выпрямитель волос»: глубина, мм?'
+  kk: '«Жол шағын шаш түзеткіші»: тереңдігі, мм?'
+  relevant:
+  - section: technical_mini_straightener.depth_mm
+    grade: 3
+  - section: technical_mini_straightener.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_straightener.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.mini_straightener.depth_mm|current
+  required:
+  - fact: technical.mini_straightener.depth_mm
+    sections:
+    - technical_mini_straightener.depth_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_straightener_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Travel mini hair
+    straightener (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Дорожный
+    мини-выпрямитель волос» (C).
+  kk: Карточкалар ұқсас. «Жол шағын шаш түзеткіші» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_mini_straightener.operating_min_c
+    grade: 3
+  - section: technical_mini_straightener.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_straightener.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.mini_straightener.operating_min_c|current
+  required:
+  - fact: technical.mini_straightener.operating_min_c
+    sections:
+    - technical_mini_straightener.operating_min_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_straightener_operating_max_c
+  category: hard
+  en: Check the specifcation of Travel mini hair straightener for maximum operating ambient temperature
+    (C), please.
+  ru: 'Проверьте характиристику «Дорожный мини-выпрямитель волос»: интересует «Максимальная температура
+    воздуха при работе» (C).'
+  kk: «Жол шағын шаш түзеткіші» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_mini_straightener.operating_max_c
+    grade: 3
+  - section: technical_mini_straightener.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_straightener.operating_max_c; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.mini_straightener.operating_max_c|current
+  required:
+  - fact: technical.mini_straightener.operating_max_c
+    sections:
+    - technical_mini_straightener.operating_max_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_straightener_power_w
+  category: simple
+  en: For Travel mini hair straightener, what is the specified rated power consumption in W?
+  ru: Для «Дорожный мини-выпрямитель волос» какое значение указано для показателя «Номинальная потребляемая
+    мощность» (Вт)?
+  kk: «Жол шағын шаш түзеткіші» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай (Вт)?
+  relevant:
+  - section: technical_mini_straightener.power_w
+    grade: 3
+  - section: technical_mini_straightener.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Жол шағын шаш түзеткіші» үшін «Номиналды тұтыну қуаты» (Вт) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.mini_straightener.power_w; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.mini_straightener.power_w|current
+  required:
+  - fact: technical.mini_straightener.power_w
+    sections:
+    - technical_mini_straightener.power_w
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_straightener_voltage_v
+  category: simple
+  en: I am comparing specifications. Find the rated supply voltage for Travel mini hair straightener,
+    in V.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное напряжение питания» у «Дорожный мини-выпрямитель
+    волос», в В.
+  kk: Сипаттамаларды салыстырып отырмын. «Жол шағын шаш түзеткіші» үшін «Номиналды қорек кернеуі» мәні
+    қажет (В).
+  relevant:
+  - section: technical_mini_straightener.voltage_v
+    grade: 3
+  - section: technical_mini_straightener.max_temp_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_straightener.voltage_v; neighbouring max_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.mini_straightener.voltage_v|current
+  required:
+  - fact: technical.mini_straightener.voltage_v
+    sections:
+    - technical_mini_straightener.voltage_v
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_straightener_max_temp_c
+  category: hard
+  en: 'Travel mini hair straightener: maximum selectable process temperature, C?'
+  ru: '«Дорожный мини-выпрямитель волос»: максимальная выбираемая рабочая температура, C?'
+  kk: '«Жол шағын шаш түзеткіші»: таңдалатын өңдеу температурасының ең жоғары мәні, C?'
+  relevant:
+  - section: technical_mini_straightener.max_temp_c
+    grade: 3
+  - section: technical_mini_straightener.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_straightener.max_temp_c; neighbouring modes_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.mini_straightener.max_temp_c|current
+  required:
+  - fact: technical.mini_straightener.max_temp_c
+    sections:
+    - technical_mini_straightener.max_temp_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_straightener_modes_count
+  category: hard
+  en: The cards look similar. What number of operating modes is listed for Travel mini hair straightener
+    (units)?
+  ru: Карточки похожи. Уточните показатель «Число режимов работы» именно для «Дорожный мини-выпрямитель
+    волос» (шт.).
+  kk: Карточкалар ұқсас. «Жол шағын шаш түзеткіші» үшін нақты «Жұмыс режимдерінің саны» көрсеткішін айтыңыз
+    (дана).
+  relevant:
+  - section: technical_mini_straightener.modes_count
+    grade: 3
+  - section: technical_mini_straightener.cable_cm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_straightener.modes_count; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.mini_straightener.modes_count|current
+  required:
+  - fact: technical.mini_straightener.modes_count
+    sections:
+    - technical_mini_straightener.modes_count
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_straightener_cable_cm
+  category: hard
+  en: Check the specifcation of Travel mini hair straightener for supplied cable length (cm), please.
+  ru: 'Проверьте характиристику «Дорожный мини-выпрямитель волос»: интересует «Длина комплектного кабеля»
+    (см).'
+  kk: «Жол шағын шаш түзеткіші» сипатамасынан «Жинақтағы кабель ұзындығы» мәнін тексеріңізші (см).
+  relevant:
+  - section: technical_mini_straightener.cable_cm
+    grade: 3
+  - section: technical_mini_straightener.accessories_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_straightener.cable_cm; neighbouring accessories_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.mini_straightener.cable_cm|current
+  required:
+  - fact: technical.mini_straightener.cable_cm
+    sections:
+    - technical_mini_straightener.cable_cm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_straightener_accessories_count
+  category: simple
+  en: For Travel mini hair straightener, what is the specified number of supplied accessories in units?
+  ru: Для «Дорожный мини-выпрямитель волос» какое значение указано для показателя «Число комплектных принадлежностей»
+    (шт.)?
+  kk: «Жол шағын шаш түзеткіші» тауары үшін «Жинақтағы керек-жарақтар саны» көрсеткішінің мәні қандай
+    (дана)?
+  relevant:
+  - section: technical_mini_straightener.accessories_count
+    grade: 3
+  - section: technical_mini_straightener.timer_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_straightener.accessories_count; neighbouring timer_minutes
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_accessories
+  need_key: technical.mini_straightener.accessories_count|current
+  required:
+  - fact: technical.mini_straightener.accessories_count
+    sections:
+    - technical_mini_straightener.accessories_count
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_straightener_timer_minutes
+  category: hard
+  en: I am comparing specifications. Find the maximum timer interval for Travel mini hair straightener,
+    in minutes.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальный интервал таймера» у «Дорожный мини-выпрямитель
+    волос», в минут.
+  kk: Сипаттамаларды салыстырып отырмын. «Жол шағын шаш түзеткіші» үшін «Таймердің ең ұзақ аралығы» мәні
+    қажет (минут).
+  relevant:
+  - section: technical_mini_straightener.timer_minutes
+    grade: 3
+  - section: technical_mini_straightener.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_straightener.timer_minutes; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_timer_interval
+  need_key: technical.mini_straightener.timer_minutes|current
+  required:
+  - fact: technical.mini_straightener.timer_minutes
+    sections:
+    - technical_mini_straightener.timer_minutes
+  tags:
+  - profile_derived
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_mini_straightener_humidity_max_percent
+  category: unanswerable
+  en: For Travel mini hair straightener, what is the specified maximum permitted humidity in percent?
+  ru: Для «Дорожный мини-выпрямитель волос» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Жол шағын шаш түзеткіші» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_mini_straightener.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mini_straightener does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.mini_straightener.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_mini_straightener_drop_test_cm
+  category: unanswerable
+  en: For Travel mini hair straightener, what is the specified certified drop-test height in cm?
+  ru: Для «Дорожный мини-выпрямитель волос» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Жол шағын шаш түзеткіші» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_mini_straightener.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mini_straightener does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.mini_straightener.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_mini_straightener_repair_parts_price
+  category: unanswerable
+  en: For Travel mini hair straightener, what is the specified replacement-part price in KZT?
+  ru: Для «Дорожный мини-выпрямитель волос» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Жол шағын шаш түзеткіші» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_mini_straightener.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mini_straightener does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.mini_straightener.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_mini_straightener_certification_id
+  category: unanswerable
+  en: For Travel mini hair straightener, what is the specified certification record number in record?
+  ru: Для «Дорожный мини-выпрямитель волос» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Жол шағын шаш түзеткіші» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_mini_straightener.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mini_straightener does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.mini_straightener.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_mini_straightener
+  category: multi_fragment
+  en: What does Travel mini hair straightener weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Дорожный мини-выпрямитель волос» и какой вес посылки допускают пункты самовывоза?
+  kk: «Жол шағын шаш түзеткіші» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_mini_straightener.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.mini_straightener.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.mini_straightener.mass_g
+    sections:
+    - technical_mini_straightener.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_roller_base_mass_g
+  category: simple
+  en: 'Temperature-controlled roller base: mass, g?'
+  ru: '«Терморегулируемая база бигуди»: масса, г?'
+  kk: '«Температурасы реттелетін бұйралағыш негізі»: салмағы, г?'
+  relevant:
+  - section: technical_hair_roller_base.mass_g
+    grade: 3
+  - section: technical_hair_roller_base.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Терморегулируемая база бигуди» показатель «Масса» (г) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.hair_roller_base.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.hair_roller_base.mass_g|current
+  required:
+  - fact: technical.hair_roller_base.mass_g
+    sections:
+    - technical_hair_roller_base.mass_g
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_roller_base_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Temperature-controlled roller base (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Терморегулируемая база бигуди» (мм).
+  kk: Карточкалар ұқсас. «Температурасы реттелетін бұйралағыш негізі» үшін нақты «Ені» көрсеткішін айтыңыз
+    (мм).
+  relevant:
+  - section: technical_hair_roller_base.width_mm
+    grade: 3
+  - section: technical_hair_roller_base.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_roller_base.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.hair_roller_base.width_mm|current
+  required:
+  - fact: technical.hair_roller_base.width_mm
+    sections:
+    - technical_hair_roller_base.width_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_roller_base_height_mm
+  category: hard
+  en: Check the specifcation of Temperature-controlled roller base for height (mm), please.
+  ru: 'Проверьте характиристику «Терморегулируемая база бигуди»: интересует «Высота» (мм).'
+  kk: «Температурасы реттелетін бұйралағыш негізі» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_hair_roller_base.height_mm
+    grade: 3
+  - section: technical_hair_roller_base.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_roller_base.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.hair_roller_base.height_mm|current
+  required:
+  - fact: technical.hair_roller_base.height_mm
+    sections:
+    - technical_hair_roller_base.height_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_roller_base_depth_mm
+  category: simple
+  en: For Temperature-controlled roller base, what is the specified depth in mm?
+  ru: Для «Терморегулируемая база бигуди» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Температурасы реттелетін бұйралағыш негізі» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_hair_roller_base.depth_mm
+    grade: 3
+  - section: technical_hair_roller_base.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_roller_base.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.hair_roller_base.depth_mm|current
+  required:
+  - fact: technical.hair_roller_base.depth_mm
+    sections:
+    - technical_hair_roller_base.depth_mm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_roller_base_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Temperature-controlled
+    roller base, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Терморегулируемая
+    база бигуди», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Температурасы реттелетін бұйралағыш негізі» үшін «Жұмыс кезіндегі
+    ауаның ең төмен температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_hair_roller_base.operating_min_c
+    grade: 3
+  - section: technical_hair_roller_base.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_roller_base.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.hair_roller_base.operating_min_c|current
+  required:
+  - fact: technical.hair_roller_base.operating_min_c
+    sections:
+    - technical_hair_roller_base.operating_min_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_roller_base_operating_max_c
+  category: hard
+  en: 'Temperature-controlled roller base: maximum operating ambient temperature, C?'
+  ru: '«Терморегулируемая база бигуди»: максимальная температура воздуха при работе, C?'
+  kk: '«Температурасы реттелетін бұйралағыш негізі»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_hair_roller_base.operating_max_c
+    grade: 3
+  - section: technical_hair_roller_base.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_roller_base.operating_max_c; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.hair_roller_base.operating_max_c|current
+  required:
+  - fact: technical.hair_roller_base.operating_max_c
+    sections:
+    - technical_hair_roller_base.operating_max_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_roller_base_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Temperature-controlled roller
+    base (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Терморегулируемая
+    база бигуди» (Вт).
+  kk: Карточкалар ұқсас. «Температурасы реттелетін бұйралағыш негізі» үшін нақты «Номиналды тұтыну қуаты»
+    көрсеткішін айтыңыз (Вт).
+  relevant:
+  - section: technical_hair_roller_base.power_w
+    grade: 3
+  - section: technical_hair_roller_base.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_roller_base.power_w; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.hair_roller_base.power_w|current
+  required:
+  - fact: technical.hair_roller_base.power_w
+    sections:
+    - technical_hair_roller_base.power_w
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_roller_base_voltage_v
+  category: hard
+  en: Check the specifcation of Temperature-controlled roller base for rated supply voltage (V), please.
+  ru: 'Проверьте характиристику «Терморегулируемая база бигуди»: интересует «Номинальное напряжение питания»
+    (В).'
+  kk: «Температурасы реттелетін бұйралағыш негізі» сипатамасынан «Номиналды қорек кернеуі» мәнін тексеріңізші
+    (В).
+  relevant:
+  - section: technical_hair_roller_base.voltage_v
+    grade: 3
+  - section: technical_hair_roller_base.max_temp_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: «Температурасы реттелетін бұйралағыш негізі» үшін «Номиналды қорек кернеуі» (В) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.hair_roller_base.voltage_v; neighbouring max_temp_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.hair_roller_base.voltage_v|current
+  required:
+  - fact: technical.hair_roller_base.voltage_v
+    sections:
+    - technical_hair_roller_base.voltage_v
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_roller_base_max_temp_c
+  category: hard
+  en: For Temperature-controlled roller base, what is the specified maximum selectable process temperature
+    in C?
+  ru: Для «Терморегулируемая база бигуди» какое значение указано для показателя «Максимальная выбираемая
+    рабочая температура» (C)?
+  kk: «Температурасы реттелетін бұйралағыш негізі» тауары үшін «Таңдалатын өңдеу температурасының ең жоғары
+    мәні» көрсеткішінің мәні қандай (C)?
+  relevant:
+  - section: technical_hair_roller_base.max_temp_c
+    grade: 3
+  - section: technical_hair_roller_base.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_roller_base.max_temp_c; neighbouring modes_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_process_temperature
+  need_key: technical.hair_roller_base.max_temp_c|current
+  required:
+  - fact: technical.hair_roller_base.max_temp_c
+    sections:
+    - technical_hair_roller_base.max_temp_c
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_roller_base_modes_count
+  category: simple
+  en: I am comparing specifications. Find the number of operating modes for Temperature-controlled roller
+    base, in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число режимов работы» у «Терморегулируемая база бигуди»,
+    в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Температурасы реттелетін бұйралағыш негізі» үшін «Жұмыс режимдерінің
+    саны» мәні қажет (дана).
+  relevant:
+  - section: technical_hair_roller_base.modes_count
+    grade: 3
+  - section: technical_hair_roller_base.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_roller_base.modes_count; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.hair_roller_base.modes_count|current
+  required:
+  - fact: technical.hair_roller_base.modes_count
+    sections:
+    - technical_hair_roller_base.modes_count
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_roller_base_cable_cm
+  category: simple
+  en: 'Temperature-controlled roller base: supplied cable length, cm?'
+  ru: '«Терморегулируемая база бигуди»: длина комплектного кабеля, см?'
+  kk: '«Температурасы реттелетін бұйралағыш негізі»: жинақтағы кабель ұзындығы, см?'
+  relevant:
+  - section: technical_hair_roller_base.cable_cm
+    grade: 3
+  - section: technical_hair_roller_base.accessories_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_roller_base.cable_cm; neighbouring accessories_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.hair_roller_base.cable_cm|current
+  required:
+  - fact: technical.hair_roller_base.cable_cm
+    sections:
+    - technical_hair_roller_base.cable_cm
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_roller_base_accessories_count
+  category: hard
+  en: The cards look similar. What number of supplied accessories is listed for Temperature-controlled
+    roller base (units)?
+  ru: Карточки похожи. Уточните показатель «Число комплектных принадлежностей» именно для «Терморегулируемая
+    база бигуди» (шт.).
+  kk: Карточкалар ұқсас. «Температурасы реттелетін бұйралағыш негізі» үшін нақты «Жинақтағы керек-жарақтар
+    саны» көрсеткішін айтыңыз (дана).
+  relevant:
+  - section: technical_hair_roller_base.accessories_count
+    grade: 3
+  - section: technical_hair_roller_base.timer_minutes
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_roller_base.accessories_count; neighbouring timer_minutes
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_accessories
+  need_key: technical.hair_roller_base.accessories_count|current
+  required:
+  - fact: technical.hair_roller_base.accessories_count
+    sections:
+    - technical_hair_roller_base.accessories_count
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hair_roller_base_timer_minutes
+  category: hard
+  en: Check the specifcation of Temperature-controlled roller base for maximum timer interval (minutes),
+    please.
+  ru: 'Проверьте характиристику «Терморегулируемая база бигуди»: интересует «Максимальный интервал таймера»
+    (минут).'
+  kk: «Температурасы реттелетін бұйралағыш негізі» сипатамасынан «Таймердің ең ұзақ аралығы» мәнін тексеріңізші
+    (минут).
+  relevant:
+  - section: technical_hair_roller_base.timer_minutes
+    grade: 3
+  - section: technical_hair_roller_base.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hair_roller_base.timer_minutes; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_timer_interval
+  need_key: technical.hair_roller_base.timer_minutes|current
+  required:
+  - fact: technical.hair_roller_base.timer_minutes
+    sections:
+    - technical_hair_roller_base.timer_minutes
+  tags:
+  - profile_derived
+  - domain_personalcare
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_hair_roller_base_humidity_max_percent
+  category: unanswerable
+  en: For Temperature-controlled roller base, what is the specified maximum permitted humidity in percent?
+  ru: Для «Терморегулируемая база бигуди» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Температурасы реттелетін бұйралағыш негізі» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_hair_roller_base.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hair_roller_base does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.hair_roller_base.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_hair_roller_base_drop_test_cm
+  category: unanswerable
+  en: For Temperature-controlled roller base, what is the specified certified drop-test height in cm?
+  ru: Для «Терморегулируемая база бигуди» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Температурасы реттелетін бұйралағыш негізі» тауары үшін «Құлауды сынаудың сертификатталған биіктігі»
+    көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_hair_roller_base.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hair_roller_base does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.hair_roller_base.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_hair_roller_base_repair_parts_price
+  category: unanswerable
+  en: For Temperature-controlled roller base, what is the specified replacement-part price in KZT?
+  ru: Для «Терморегулируемая база бигуди» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Температурасы реттелетін бұйралағыш негізі» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні
+    қандай (теңге)?
+  relevant:
+  - section: technical_hair_roller_base.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hair_roller_base does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.hair_roller_base.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_hair_roller_base_certification_id
+  category: unanswerable
+  en: For Temperature-controlled roller base, what is the specified certification record number in record?
+  ru: Для «Терморегулируемая база бигуди» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Температурасы реттелетін бұйралағыш негізі» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_hair_roller_base.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hair_roller_base does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.hair_roller_base.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_personalcare
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact

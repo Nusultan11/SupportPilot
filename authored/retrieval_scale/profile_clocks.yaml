@@ -1,0 +1,4929 @@
+# Compiled from explicit technical_profiles/1 facts and native LLM-authored templates.
+schema_version: retrieval_scale_source/1
+origin: llm_generated
+review_status: draft
+author: Codex (LLM); explicit profiles and native templates compiled deterministically
+allowed_use: eval_only
+licence_note: Original fictional store specifications for internal demo and evaluation; no external manufacturer
+  data or real customer data. Fluent human review pending.
+items:
+- id: catalog_bedside_clock_mass_g
+  category: simple
+  en: For Digital bedside clock, what is the specified mass in g?
+  ru: Для «Цифровые прикроватные часы» какое значение указано для показателя «Масса» (г)?
+  kk: «Цифрлық төсек жанындағы сағат» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_bedside_clock.mass_g
+    grade: 3
+  - section: technical_bedside_clock.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bedside_clock.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.bedside_clock.mass_g|current
+  required:
+  - fact: technical.bedside_clock.mass_g
+    sections:
+    - technical_bedside_clock.mass_g
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bedside_clock_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Digital bedside clock, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Цифровые прикроватные часы», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Цифрлық төсек жанындағы сағат» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_bedside_clock.width_mm
+    grade: 3
+  - section: technical_bedside_clock.height_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bedside_clock.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.bedside_clock.width_mm|current
+  required:
+  - fact: technical.bedside_clock.width_mm
+    sections:
+    - technical_bedside_clock.width_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bedside_clock_height_mm
+  category: simple
+  en: 'Digital bedside clock: height, mm?'
+  ru: '«Цифровые прикроватные часы»: высота, мм?'
+  kk: '«Цифрлық төсек жанындағы сағат»: биіктігі, мм?'
+  relevant:
+  - section: technical_bedside_clock.height_mm
+    grade: 3
+  - section: technical_bedside_clock.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Цифрлық төсек жанындағы сағат» үшін «Биіктігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.bedside_clock.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.bedside_clock.height_mm|current
+  required:
+  - fact: technical.bedside_clock.height_mm
+    sections:
+    - technical_bedside_clock.height_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bedside_clock_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Digital bedside clock (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Цифровые прикроватные часы» (мм).
+  kk: Карточкалар ұқсас. «Цифрлық төсек жанындағы сағат» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_bedside_clock.depth_mm
+    grade: 3
+  - section: technical_bedside_clock.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bedside_clock.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.bedside_clock.depth_mm|current
+  required:
+  - fact: technical.bedside_clock.depth_mm
+    sections:
+    - technical_bedside_clock.depth_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bedside_clock_operating_min_c
+  category: hard
+  en: Check the specifcation of Digital bedside clock for minimum operating ambient temperature (C), please.
+  ru: 'Проверьте характиристику «Цифровые прикроватные часы»: интересует «Минимальная температура воздуха
+    при работе» (C).'
+  kk: «Цифрлық төсек жанындағы сағат» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін
+    тексеріңізші (C).
+  relevant:
+  - section: technical_bedside_clock.operating_min_c
+    grade: 3
+  - section: technical_bedside_clock.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bedside_clock.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.bedside_clock.operating_min_c|current
+  required:
+  - fact: technical.bedside_clock.operating_min_c
+    sections:
+    - technical_bedside_clock.operating_min_c
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bedside_clock_operating_max_c
+  category: hard
+  en: For Digital bedside clock, what is the specified maximum operating ambient temperature in C?
+  ru: Для «Цифровые прикроватные часы» какое значение указано для показателя «Максимальная температура
+    воздуха при работе» (C)?
+  kk: «Цифрлық төсек жанындағы сағат» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_bedside_clock.operating_max_c
+    grade: 3
+  - section: technical_bedside_clock.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bedside_clock.operating_max_c; neighbouring voltage_v does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.bedside_clock.operating_max_c|current
+  required:
+  - fact: technical.bedside_clock.operating_max_c
+    sections:
+    - technical_bedside_clock.operating_max_c
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bedside_clock_voltage_v
+  category: simple
+  en: I am comparing specifications. Find the rated supply voltage for Digital bedside clock, in V.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное напряжение питания» у «Цифровые прикроватные
+    часы», в В.
+  kk: Сипаттамаларды салыстырып отырмын. «Цифрлық төсек жанындағы сағат» үшін «Номиналды қорек кернеуі»
+    мәні қажет (В).
+  relevant:
+  - section: technical_bedside_clock.voltage_v
+    grade: 3
+  - section: technical_bedside_clock.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bedside_clock.voltage_v; neighbouring power_w does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.bedside_clock.voltage_v|current
+  required:
+  - fact: technical.bedside_clock.voltage_v
+    sections:
+    - technical_bedside_clock.voltage_v
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bedside_clock_power_w
+  category: simple
+  en: 'Digital bedside clock: rated power consumption, W?'
+  ru: '«Цифровые прикроватные часы»: номинальная потребляемая мощность, Вт?'
+  kk: '«Цифрлық төсек жанындағы сағат»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_bedside_clock.power_w
+    grade: 3
+  - section: technical_bedside_clock.display_digits
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bedside_clock.power_w; neighbouring display_digits does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.bedside_clock.power_w|current
+  required:
+  - fact: technical.bedside_clock.power_w
+    sections:
+    - technical_bedside_clock.power_w
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bedside_clock_display_digits
+  category: hard
+  en: The cards look similar. What number of displayed digits is listed for Digital bedside clock (units)?
+  ru: Карточки похожи. Уточните показатель «Число отображаемых цифр» именно для «Цифровые прикроватные
+    часы» (шт.).
+  kk: Карточкалар ұқсас. «Цифрлық төсек жанындағы сағат» үшін нақты «Көрсетілетін цифрлар саны» көрсеткішін
+    айтыңыз (дана).
+  relevant:
+  - section: technical_bedside_clock.display_digits
+    grade: 3
+  - section: technical_bedside_clock.alarm_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bedside_clock.display_digits; neighbouring alarm_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_display
+  need_key: technical.bedside_clock.display_digits|current
+  required:
+  - fact: technical.bedside_clock.display_digits
+    sections:
+    - technical_bedside_clock.display_digits
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bedside_clock_alarm_count
+  category: hard
+  en: Check the specifcation of Digital bedside clock for number of independent alarms (units), please.
+  ru: 'Проверьте характиристику «Цифровые прикроватные часы»: интересует «Число независимых будильников»
+    (шт.).'
+  kk: «Цифрлық төсек жанындағы сағат» сипатамасынан «Тәуелсіз оятқыштар саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_bedside_clock.alarm_count
+    grade: 3
+  - section: technical_bedside_clock.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Цифровые прикроватные часы» показатель «Число независимых будильников» (шт.) нақтылап беріңізші,
+    осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.bedside_clock.alarm_count; neighbouring controls_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_alarm_settings
+  need_key: technical.bedside_clock.alarm_count|current
+  required:
+  - fact: technical.bedside_clock.alarm_count
+    sections:
+    - technical_bedside_clock.alarm_count
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bedside_clock_controls_count
+  category: simple
+  en: For Digital bedside clock, what is the specified number of physical controls in units?
+  ru: Для «Цифровые прикроватные часы» какое значение указано для показателя «Число физических органов
+    управления» (шт.)?
+  kk: «Цифрлық төсек жанындағы сағат» тауары үшін «Физикалық басқару элементтерінің саны» көрсеткішінің
+    мәні қандай (дана)?
+  relevant:
+  - section: technical_bedside_clock.controls_count
+    grade: 3
+  - section: technical_bedside_clock.backup_hours
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bedside_clock.controls_count; neighbouring backup_hours does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.bedside_clock.controls_count|current
+  required:
+  - fact: technical.bedside_clock.controls_count
+    sections:
+    - technical_bedside_clock.controls_count
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bedside_clock_backup_hours
+  category: simple
+  en: I am comparing specifications. Find the rated clock backup duration for Digital bedside clock, in
+    hours.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная длительность резервного хода часов» у «Цифровые
+    прикроватные часы», в часов.
+  kk: Сипаттамаларды салыстырып отырмын. «Цифрлық төсек жанындағы сағат» үшін «Сағаттың сақтық жұмысының
+    номиналды ұзақтығы» мәні қажет (сағат).
+  relevant:
+  - section: technical_bedside_clock.backup_hours
+    grade: 3
+  - section: technical_bedside_clock.drift_seconds_month
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bedside_clock.backup_hours; neighbouring drift_seconds_month does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_backup
+  need_key: technical.bedside_clock.backup_hours|current
+  required:
+  - fact: technical.bedside_clock.backup_hours
+    sections:
+    - technical_bedside_clock.backup_hours
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bedside_clock_drift_seconds_month
+  category: simple
+  en: 'Digital bedside clock: maximum monthly clock drift, seconds/month?'
+  ru: '«Цифровые прикроватные часы»: максимальный месячный уход часов, секунд/месяц?'
+  kk: '«Цифрлық төсек жанындағы сағат»: сағаттың айлық ең жоғары ауытқуы, секунд/ай?'
+  relevant:
+  - section: technical_bedside_clock.drift_seconds_month
+    grade: 3
+  - section: technical_bedside_clock.mass_g
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bedside_clock.drift_seconds_month; neighbouring mass_g does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_accuracy
+  need_key: technical.bedside_clock.drift_seconds_month|current
+  required:
+  - fact: technical.bedside_clock.drift_seconds_month
+    sections:
+    - technical_bedside_clock.drift_seconds_month
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_bedside_clock_humidity_max_percent
+  category: unanswerable
+  en: For Digital bedside clock, what is the specified maximum permitted humidity in percent?
+  ru: Для «Цифровые прикроватные часы» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Цифрлық төсек жанындағы сағат» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_bedside_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for bedside_clock does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.bedside_clock.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_bedside_clock_drop_test_cm
+  category: unanswerable
+  en: For Digital bedside clock, what is the specified certified drop-test height in cm?
+  ru: Для «Цифровые прикроватные часы» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Цифрлық төсек жанындағы сағат» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_bedside_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for bedside_clock does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.bedside_clock.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_bedside_clock_repair_parts_price
+  category: unanswerable
+  en: For Digital bedside clock, what is the specified replacement-part price in KZT?
+  ru: Для «Цифровые прикроватные часы» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Цифрлық төсек жанындағы сағат» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_bedside_clock.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for bedside_clock does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.bedside_clock.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_bedside_clock_certification_id
+  category: unanswerable
+  en: For Digital bedside clock, what is the specified certification record number in record?
+  ru: Для «Цифровые прикроватные часы» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Цифрлық төсек жанындағы сағат» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_bedside_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for bedside_clock does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.bedside_clock.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_bedside_clock
+  category: multi_fragment
+  en: What does Digital bedside clock weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Цифровые прикроватные часы» и какой вес посылки допускают пункты самовывоза?
+  kk: «Цифрлық төсек жанындағы сағат» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_bedside_clock.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.bedside_clock.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.bedside_clock.mass_g
+    sections:
+    - technical_bedside_clock.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_prepublication_mass_bedside_clock
+  category: unanswerable
+  en: According to the instructions valid on 15 October 2026, what was the stated mass of Digital bedside
+    clock?
+  ru: По инструкциям, действовавшим 15 октября 2026 года, какая масса была указана для «Цифровые прикроватные
+    часы»?
+  kk: 2026 жылғы 15 қазанда қолданылған нұсқаулықтар бойынша «Цифрлық төсек жанындағы сағат» үшін қандай
+    салмақ көрсетілген еді?
+  relevant:
+  - section: technical_bedside_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The technical source starts on 1 November 2026. Its current mass cannot establish a fact
+    at the requested earlier date.
+  family_id: profile_physical_mass
+  need_key: technical.bedside_clock.mass_g|2026_10_15_before_document_validity
+  required: []
+  tags:
+  - profile_derived
+  - temporal
+  - outside_validity
+  - hard_negative
+  as_of: '2026-10-15'
+  all_versions: false
+  negative_reason: expired
+- id: catalog_projection_clock_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Ceiling projection clock (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Часы с проекцией на потолок» (г).
+  kk: Карточкалар ұқсас. «Төбеге кескін түсіретін сағат» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_projection_clock.mass_g
+    grade: 3
+  - section: technical_projection_clock.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.projection_clock.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.projection_clock.mass_g|current
+  required:
+  - fact: technical.projection_clock.mass_g
+    sections:
+    - technical_projection_clock.mass_g
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_projection_clock_width_mm
+  category: hard
+  en: Check the specifcation of Ceiling projection clock for width (mm), please.
+  ru: 'Проверьте характиристику «Часы с проекцией на потолок»: интересует «Ширина» (мм).'
+  kk: «Төбеге кескін түсіретін сағат» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_projection_clock.width_mm
+    grade: 3
+  - section: technical_projection_clock.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.projection_clock.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.projection_clock.width_mm|current
+  required:
+  - fact: technical.projection_clock.width_mm
+    sections:
+    - technical_projection_clock.width_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_projection_clock_height_mm
+  category: simple
+  en: For Ceiling projection clock, what is the specified height in mm?
+  ru: Для «Часы с проекцией на потолок» какое значение указано для показателя «Высота» (мм)?
+  kk: «Төбеге кескін түсіретін сағат» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_projection_clock.height_mm
+    grade: 3
+  - section: technical_projection_clock.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.projection_clock.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.projection_clock.height_mm|current
+  required:
+  - fact: technical.projection_clock.height_mm
+    sections:
+    - technical_projection_clock.height_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_projection_clock_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Ceiling projection clock, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Часы с проекцией на потолок», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Төбеге кескін түсіретін сағат» үшін «Тереңдігі» мәні қажет (мм).
+  relevant:
+  - section: technical_projection_clock.depth_mm
+    grade: 3
+  - section: technical_projection_clock.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Төбеге кескін түсіретін сағат» үшін «Тереңдігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.projection_clock.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.projection_clock.depth_mm|current
+  required:
+  - fact: technical.projection_clock.depth_mm
+    sections:
+    - technical_projection_clock.depth_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_projection_clock_operating_min_c
+  category: hard
+  en: 'Ceiling projection clock: minimum operating ambient temperature, C?'
+  ru: '«Часы с проекцией на потолок»: минимальная температура воздуха при работе, C?'
+  kk: '«Төбеге кескін түсіретін сағат»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_projection_clock.operating_min_c
+    grade: 3
+  - section: technical_projection_clock.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.projection_clock.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.projection_clock.operating_min_c|current
+  required:
+  - fact: technical.projection_clock.operating_min_c
+    sections:
+    - technical_projection_clock.operating_min_c
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_projection_clock_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Ceiling projection
+    clock (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Часы
+    с проекцией на потолок» (C).
+  kk: Карточкалар ұқсас. «Төбеге кескін түсіретін сағат» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары
+    температурасы» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_projection_clock.operating_max_c
+    grade: 3
+  - section: technical_projection_clock.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.projection_clock.operating_max_c; neighbouring voltage_v does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.projection_clock.operating_max_c|current
+  required:
+  - fact: technical.projection_clock.operating_max_c
+    sections:
+    - technical_projection_clock.operating_max_c
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_projection_clock_voltage_v
+  category: hard
+  en: Check the specifcation of Ceiling projection clock for rated supply voltage (V), please.
+  ru: 'Проверьте характиристику «Часы с проекцией на потолок»: интересует «Номинальное напряжение питания»
+    (В).'
+  kk: «Төбеге кескін түсіретін сағат» сипатамасынан «Номиналды қорек кернеуі» мәнін тексеріңізші (В).
+  relevant:
+  - section: technical_projection_clock.voltage_v
+    grade: 3
+  - section: technical_projection_clock.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.projection_clock.voltage_v; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.projection_clock.voltage_v|current
+  required:
+  - fact: technical.projection_clock.voltage_v
+    sections:
+    - technical_projection_clock.voltage_v
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_projection_clock_power_w
+  category: simple
+  en: For Ceiling projection clock, what is the specified rated power consumption in W?
+  ru: Для «Часы с проекцией на потолок» какое значение указано для показателя «Номинальная потребляемая
+    мощность» (Вт)?
+  kk: «Төбеге кескін түсіретін сағат» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай (Вт)?
+  relevant:
+  - section: technical_projection_clock.power_w
+    grade: 3
+  - section: technical_projection_clock.display_digits
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.projection_clock.power_w; neighbouring display_digits does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.projection_clock.power_w|current
+  required:
+  - fact: technical.projection_clock.power_w
+    sections:
+    - technical_projection_clock.power_w
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_projection_clock_display_digits
+  category: simple
+  en: I am comparing specifications. Find the number of displayed digits for Ceiling projection clock,
+    in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число отображаемых цифр» у «Часы с проекцией на потолок»,
+    в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Төбеге кескін түсіретін сағат» үшін «Көрсетілетін цифрлар саны»
+    мәні қажет (дана).
+  relevant:
+  - section: technical_projection_clock.display_digits
+    grade: 3
+  - section: technical_projection_clock.alarm_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.projection_clock.display_digits; neighbouring alarm_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_display
+  need_key: technical.projection_clock.display_digits|current
+  required:
+  - fact: technical.projection_clock.display_digits
+    sections:
+    - technical_projection_clock.display_digits
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_projection_clock_alarm_count
+  category: simple
+  en: 'Ceiling projection clock: number of independent alarms, units?'
+  ru: '«Часы с проекцией на потолок»: число независимых будильников, шт.?'
+  kk: '«Төбеге кескін түсіретін сағат»: тәуелсіз оятқыштар саны, дана?'
+  relevant:
+  - section: technical_projection_clock.alarm_count
+    grade: 3
+  - section: technical_projection_clock.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.projection_clock.alarm_count; neighbouring controls_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_alarm_settings
+  need_key: technical.projection_clock.alarm_count|current
+  required:
+  - fact: technical.projection_clock.alarm_count
+    sections:
+    - technical_projection_clock.alarm_count
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_projection_clock_controls_count
+  category: hard
+  en: The cards look similar. What number of physical controls is listed for Ceiling projection clock
+    (units)?
+  ru: Карточки похожи. Уточните показатель «Число физических органов управления» именно для «Часы с проекцией
+    на потолок» (шт.).
+  kk: Карточкалар ұқсас. «Төбеге кескін түсіретін сағат» үшін нақты «Физикалық басқару элементтерінің
+    саны» көрсеткішін айтыңыз (дана).
+  relevant:
+  - section: technical_projection_clock.controls_count
+    grade: 3
+  - section: technical_projection_clock.backup_hours
+    grade: 0
+  cross_lingual: true
+  mix_ru: У «Часы с проекцией на потолок» показатель «Число физических органов управления» (шт.) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.projection_clock.controls_count; neighbouring backup_hours does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.projection_clock.controls_count|current
+  required:
+  - fact: technical.projection_clock.controls_count
+    sections:
+    - technical_projection_clock.controls_count
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_projection_clock_backup_hours
+  category: hard
+  en: Check the specifcation of Ceiling projection clock for rated clock backup duration (hours), please.
+  ru: 'Проверьте характиристику «Часы с проекцией на потолок»: интересует «Номинальная длительность резервного
+    хода часов» (часов).'
+  kk: «Төбеге кескін түсіретін сағат» сипатамасынан «Сағаттың сақтық жұмысының номиналды ұзақтығы» мәнін
+    тексеріңізші (сағат).
+  relevant:
+  - section: technical_projection_clock.backup_hours
+    grade: 3
+  - section: technical_projection_clock.drift_seconds_month
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.projection_clock.backup_hours; neighbouring drift_seconds_month
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_backup
+  need_key: technical.projection_clock.backup_hours|current
+  required:
+  - fact: technical.projection_clock.backup_hours
+    sections:
+    - technical_projection_clock.backup_hours
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_projection_clock_drift_seconds_month
+  category: simple
+  en: For Ceiling projection clock, what is the specified maximum monthly clock drift in seconds/month?
+  ru: Для «Часы с проекцией на потолок» какое значение указано для показателя «Максимальный месячный уход
+    часов» (секунд/месяц)?
+  kk: «Төбеге кескін түсіретін сағат» тауары үшін «Сағаттың айлық ең жоғары ауытқуы» көрсеткішінің мәні
+    қандай (секунд/ай)?
+  relevant:
+  - section: technical_projection_clock.drift_seconds_month
+    grade: 3
+  - section: technical_projection_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.projection_clock.drift_seconds_month; neighbouring mass_g does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_accuracy
+  need_key: technical.projection_clock.drift_seconds_month|current
+  required:
+  - fact: technical.projection_clock.drift_seconds_month
+    sections:
+    - technical_projection_clock.drift_seconds_month
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_projection_clock_humidity_max_percent
+  category: unanswerable
+  en: For Ceiling projection clock, what is the specified maximum permitted humidity in percent?
+  ru: Для «Часы с проекцией на потолок» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Төбеге кескін түсіретін сағат» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_projection_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for projection_clock does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.projection_clock.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_projection_clock_drop_test_cm
+  category: unanswerable
+  en: For Ceiling projection clock, what is the specified certified drop-test height in cm?
+  ru: Для «Часы с проекцией на потолок» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Төбеге кескін түсіретін сағат» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_projection_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for projection_clock does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.projection_clock.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_projection_clock_repair_parts_price
+  category: unanswerable
+  en: For Ceiling projection clock, what is the specified replacement-part price in KZT?
+  ru: Для «Часы с проекцией на потолок» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Төбеге кескін түсіретін сағат» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_projection_clock.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for projection_clock does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.projection_clock.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_projection_clock_certification_id
+  category: unanswerable
+  en: For Ceiling projection clock, what is the specified certification record number in record?
+  ru: Для «Часы с проекцией на потолок» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Төбеге кескін түсіретін сағат» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_projection_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for projection_clock does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.projection_clock.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_large_wall_clock_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Large digital wall clock, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Большие цифровые настенные часы», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Үлкен цифрлық қабырға сағаты» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_large_wall_clock.mass_g
+    grade: 3
+  - section: technical_large_wall_clock.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.large_wall_clock.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.large_wall_clock.mass_g|current
+  required:
+  - fact: technical.large_wall_clock.mass_g
+    sections:
+    - technical_large_wall_clock.mass_g
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_large_wall_clock_width_mm
+  category: simple
+  en: 'Large digital wall clock: width, mm?'
+  ru: '«Большие цифровые настенные часы»: ширина, мм?'
+  kk: '«Үлкен цифрлық қабырға сағаты»: ені, мм?'
+  relevant:
+  - section: technical_large_wall_clock.width_mm
+    grade: 3
+  - section: technical_large_wall_clock.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.large_wall_clock.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.large_wall_clock.width_mm|current
+  required:
+  - fact: technical.large_wall_clock.width_mm
+    sections:
+    - technical_large_wall_clock.width_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_large_wall_clock_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Large digital wall clock (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Большие цифровые настенные часы» (мм).
+  kk: Карточкалар ұқсас. «Үлкен цифрлық қабырға сағаты» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_large_wall_clock.height_mm
+    grade: 3
+  - section: technical_large_wall_clock.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.large_wall_clock.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.large_wall_clock.height_mm|current
+  required:
+  - fact: technical.large_wall_clock.height_mm
+    sections:
+    - technical_large_wall_clock.height_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_large_wall_clock_depth_mm
+  category: hard
+  en: Check the specifcation of Large digital wall clock for depth (mm), please.
+  ru: 'Проверьте характиристику «Большие цифровые настенные часы»: интересует «Глубина» (мм).'
+  kk: «Үлкен цифрлық қабырға сағаты» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_large_wall_clock.depth_mm
+    grade: 3
+  - section: technical_large_wall_clock.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.large_wall_clock.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.large_wall_clock.depth_mm|current
+  required:
+  - fact: technical.large_wall_clock.depth_mm
+    sections:
+    - technical_large_wall_clock.depth_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_large_wall_clock_operating_min_c
+  category: hard
+  en: For Large digital wall clock, what is the specified minimum operating ambient temperature in C?
+  ru: Для «Большие цифровые настенные часы» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Үлкен цифрлық қабырға сағаты» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_large_wall_clock.operating_min_c
+    grade: 3
+  - section: technical_large_wall_clock.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Үлкен цифрлық қабырға сағаты» үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» (C) керек,
+    уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.large_wall_clock.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.large_wall_clock.operating_min_c|current
+  required:
+  - fact: technical.large_wall_clock.operating_min_c
+    sections:
+    - technical_large_wall_clock.operating_min_c
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_large_wall_clock_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Large digital
+    wall clock, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Большие
+    цифровые настенные часы», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Үлкен цифрлық қабырға сағаты» үшін «Жұмыс кезіндегі ауаның ең
+    жоғары температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_large_wall_clock.operating_max_c
+    grade: 3
+  - section: technical_large_wall_clock.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.large_wall_clock.operating_max_c; neighbouring voltage_v does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.large_wall_clock.operating_max_c|current
+  required:
+  - fact: technical.large_wall_clock.operating_max_c
+    sections:
+    - technical_large_wall_clock.operating_max_c
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_large_wall_clock_voltage_v
+  category: simple
+  en: 'Large digital wall clock: rated supply voltage, V?'
+  ru: '«Большие цифровые настенные часы»: номинальное напряжение питания, В?'
+  kk: '«Үлкен цифрлық қабырға сағаты»: номиналды қорек кернеуі, В?'
+  relevant:
+  - section: technical_large_wall_clock.voltage_v
+    grade: 3
+  - section: technical_large_wall_clock.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.large_wall_clock.voltage_v; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.large_wall_clock.voltage_v|current
+  required:
+  - fact: technical.large_wall_clock.voltage_v
+    sections:
+    - technical_large_wall_clock.voltage_v
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_large_wall_clock_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Large digital wall clock (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Большие цифровые
+    настенные часы» (Вт).
+  kk: Карточкалар ұқсас. «Үлкен цифрлық қабырға сағаты» үшін нақты «Номиналды тұтыну қуаты» көрсеткішін
+    айтыңыз (Вт).
+  relevant:
+  - section: technical_large_wall_clock.power_w
+    grade: 3
+  - section: technical_large_wall_clock.display_digits
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.large_wall_clock.power_w; neighbouring display_digits does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.large_wall_clock.power_w|current
+  required:
+  - fact: technical.large_wall_clock.power_w
+    sections:
+    - technical_large_wall_clock.power_w
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_large_wall_clock_display_digits
+  category: hard
+  en: Check the specifcation of Large digital wall clock for number of displayed digits (units), please.
+  ru: 'Проверьте характиристику «Большие цифровые настенные часы»: интересует «Число отображаемых цифр»
+    (шт.).'
+  kk: «Үлкен цифрлық қабырға сағаты» сипатамасынан «Көрсетілетін цифрлар саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_large_wall_clock.display_digits
+    grade: 3
+  - section: technical_large_wall_clock.alarm_count
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.large_wall_clock.display_digits; neighbouring alarm_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_display
+  need_key: technical.large_wall_clock.display_digits|current
+  required:
+  - fact: technical.large_wall_clock.display_digits
+    sections:
+    - technical_large_wall_clock.display_digits
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_large_wall_clock_alarm_count
+  category: simple
+  en: For Large digital wall clock, what is the specified number of independent alarms in units?
+  ru: Для «Большие цифровые настенные часы» какое значение указано для показателя «Число независимых будильников»
+    (шт.)?
+  kk: «Үлкен цифрлық қабырға сағаты» тауары үшін «Тәуелсіз оятқыштар саны» көрсеткішінің мәні қандай (дана)?
+  relevant:
+  - section: technical_large_wall_clock.alarm_count
+    grade: 3
+  - section: technical_large_wall_clock.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.large_wall_clock.alarm_count; neighbouring controls_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_alarm_settings
+  need_key: technical.large_wall_clock.alarm_count|current
+  required:
+  - fact: technical.large_wall_clock.alarm_count
+    sections:
+    - technical_large_wall_clock.alarm_count
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_large_wall_clock_controls_count
+  category: simple
+  en: I am comparing specifications. Find the number of physical controls for Large digital wall clock,
+    in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число физических органов управления» у «Большие цифровые
+    настенные часы», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Үлкен цифрлық қабырға сағаты» үшін «Физикалық басқару элементтерінің
+    саны» мәні қажет (дана).
+  relevant:
+  - section: technical_large_wall_clock.controls_count
+    grade: 3
+  - section: technical_large_wall_clock.backup_hours
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.large_wall_clock.controls_count; neighbouring backup_hours does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.large_wall_clock.controls_count|current
+  required:
+  - fact: technical.large_wall_clock.controls_count
+    sections:
+    - technical_large_wall_clock.controls_count
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_large_wall_clock_backup_hours
+  category: simple
+  en: 'Large digital wall clock: rated clock backup duration, hours?'
+  ru: '«Большие цифровые настенные часы»: номинальная длительность резервного хода часов, часов?'
+  kk: '«Үлкен цифрлық қабырға сағаты»: сағаттың сақтық жұмысының номиналды ұзақтығы, сағат?'
+  relevant:
+  - section: technical_large_wall_clock.backup_hours
+    grade: 3
+  - section: technical_large_wall_clock.drift_seconds_month
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Большие цифровые настенные часы» показатель «Номинальная длительность резервного хода часов»
+    (часов) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.large_wall_clock.backup_hours; neighbouring drift_seconds_month
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_backup
+  need_key: technical.large_wall_clock.backup_hours|current
+  required:
+  - fact: technical.large_wall_clock.backup_hours
+    sections:
+    - technical_large_wall_clock.backup_hours
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_large_wall_clock_drift_seconds_month
+  category: hard
+  en: The cards look similar. What maximum monthly clock drift is listed for Large digital wall clock
+    (seconds/month)?
+  ru: Карточки похожи. Уточните показатель «Максимальный месячный уход часов» именно для «Большие цифровые
+    настенные часы» (секунд/месяц).
+  kk: Карточкалар ұқсас. «Үлкен цифрлық қабырға сағаты» үшін нақты «Сағаттың айлық ең жоғары ауытқуы»
+    көрсеткішін айтыңыз (секунд/ай).
+  relevant:
+  - section: technical_large_wall_clock.drift_seconds_month
+    grade: 3
+  - section: technical_large_wall_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.large_wall_clock.drift_seconds_month; neighbouring mass_g does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_accuracy
+  need_key: technical.large_wall_clock.drift_seconds_month|current
+  required:
+  - fact: technical.large_wall_clock.drift_seconds_month
+    sections:
+    - technical_large_wall_clock.drift_seconds_month
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_large_wall_clock_humidity_max_percent
+  category: unanswerable
+  en: For Large digital wall clock, what is the specified maximum permitted humidity in percent?
+  ru: Для «Большие цифровые настенные часы» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Үлкен цифрлық қабырға сағаты» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_large_wall_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for large_wall_clock does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.large_wall_clock.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_large_wall_clock_drop_test_cm
+  category: unanswerable
+  en: For Large digital wall clock, what is the specified certified drop-test height in cm?
+  ru: Для «Большие цифровые настенные часы» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Үлкен цифрлық қабырға сағаты» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_large_wall_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for large_wall_clock does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.large_wall_clock.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_large_wall_clock_repair_parts_price
+  category: unanswerable
+  en: For Large digital wall clock, what is the specified replacement-part price in KZT?
+  ru: Для «Большие цифровые настенные часы» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Үлкен цифрлық қабырға сағаты» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_large_wall_clock.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for large_wall_clock does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.large_wall_clock.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_large_wall_clock_certification_id
+  category: unanswerable
+  en: For Large digital wall clock, what is the specified certification record number in record?
+  ru: Для «Большие цифровые настенные часы» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Үлкен цифрлық қабырға сағаты» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_large_wall_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for large_wall_clock does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.large_wall_clock.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_large_wall_clock
+  category: multi_fragment
+  en: What does Large digital wall clock weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Большие цифровые настенные часы» и какой вес посылки допускают пункты самовывоза?
+  kk: «Үлкен цифрлық қабырға сағаты» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_large_wall_clock.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.large_wall_clock.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.large_wall_clock.mass_g
+    sections:
+    - technical_large_wall_clock.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_travel_alarm_clock_mass_g
+  category: hard
+  en: Check the specifcation of Folding travel alarm clock for mass (g), please.
+  ru: 'Проверьте характиристику «Складной дорожный будильник»: интересует «Масса» (г).'
+  kk: «Жиналмалы жол оятқышы» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_travel_alarm_clock.mass_g
+    grade: 3
+  - section: technical_travel_alarm_clock.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.travel_alarm_clock.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.travel_alarm_clock.mass_g|current
+  required:
+  - fact: technical.travel_alarm_clock.mass_g
+    sections:
+    - technical_travel_alarm_clock.mass_g
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_travel_alarm_clock_width_mm
+  category: simple
+  en: For Folding travel alarm clock, what is the specified width in mm?
+  ru: Для «Складной дорожный будильник» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Жиналмалы жол оятқышы» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_travel_alarm_clock.width_mm
+    grade: 3
+  - section: technical_travel_alarm_clock.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.travel_alarm_clock.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.travel_alarm_clock.width_mm|current
+  required:
+  - fact: technical.travel_alarm_clock.width_mm
+    sections:
+    - technical_travel_alarm_clock.width_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_travel_alarm_clock_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Folding travel alarm clock, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Складной дорожный будильник», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Жиналмалы жол оятқышы» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_travel_alarm_clock.height_mm
+    grade: 3
+  - section: technical_travel_alarm_clock.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.travel_alarm_clock.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.travel_alarm_clock.height_mm|current
+  required:
+  - fact: technical.travel_alarm_clock.height_mm
+    sections:
+    - technical_travel_alarm_clock.height_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_travel_alarm_clock_depth_mm
+  category: simple
+  en: 'Folding travel alarm clock: depth, mm?'
+  ru: '«Складной дорожный будильник»: глубина, мм?'
+  kk: '«Жиналмалы жол оятқышы»: тереңдігі, мм?'
+  relevant:
+  - section: technical_travel_alarm_clock.depth_mm
+    grade: 3
+  - section: technical_travel_alarm_clock.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.travel_alarm_clock.depth_mm; neighbouring operating_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.travel_alarm_clock.depth_mm|current
+  required:
+  - fact: technical.travel_alarm_clock.depth_mm
+    sections:
+    - technical_travel_alarm_clock.depth_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_travel_alarm_clock_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Folding travel
+    alarm clock (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Складной
+    дорожный будильник» (C).
+  kk: Карточкалар ұқсас. «Жиналмалы жол оятқышы» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_travel_alarm_clock.operating_min_c
+    grade: 3
+  - section: technical_travel_alarm_clock.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.travel_alarm_clock.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.travel_alarm_clock.operating_min_c|current
+  required:
+  - fact: technical.travel_alarm_clock.operating_min_c
+    sections:
+    - technical_travel_alarm_clock.operating_min_c
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_travel_alarm_clock_operating_max_c
+  category: hard
+  en: Check the specifcation of Folding travel alarm clock for maximum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Складной дорожный будильник»: интересует «Максимальная температура воздуха
+    при работе» (C).'
+  kk: «Жиналмалы жол оятқышы» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_travel_alarm_clock.operating_max_c
+    grade: 3
+  - section: technical_travel_alarm_clock.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Жиналмалы жол оятқышы» үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» (C) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.travel_alarm_clock.operating_max_c; neighbouring voltage_v does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.travel_alarm_clock.operating_max_c|current
+  required:
+  - fact: technical.travel_alarm_clock.operating_max_c
+    sections:
+    - technical_travel_alarm_clock.operating_max_c
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_travel_alarm_clock_voltage_v
+  category: simple
+  en: For Folding travel alarm clock, what is the specified rated supply voltage in V?
+  ru: Для «Складной дорожный будильник» какое значение указано для показателя «Номинальное напряжение
+    питания» (В)?
+  kk: «Жиналмалы жол оятқышы» тауары үшін «Номиналды қорек кернеуі» көрсеткішінің мәні қандай (В)?
+  relevant:
+  - section: technical_travel_alarm_clock.voltage_v
+    grade: 3
+  - section: technical_travel_alarm_clock.power_w
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.travel_alarm_clock.voltage_v; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.travel_alarm_clock.voltage_v|current
+  required:
+  - fact: technical.travel_alarm_clock.voltage_v
+    sections:
+    - technical_travel_alarm_clock.voltage_v
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_travel_alarm_clock_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Folding travel alarm clock,
+    in W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Складной дорожный
+    будильник», в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Жиналмалы жол оятқышы» үшін «Номиналды тұтыну қуаты» мәні қажет
+    (Вт).
+  relevant:
+  - section: technical_travel_alarm_clock.power_w
+    grade: 3
+  - section: technical_travel_alarm_clock.display_digits
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.travel_alarm_clock.power_w; neighbouring display_digits does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.travel_alarm_clock.power_w|current
+  required:
+  - fact: technical.travel_alarm_clock.power_w
+    sections:
+    - technical_travel_alarm_clock.power_w
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_travel_alarm_clock_display_digits
+  category: simple
+  en: 'Folding travel alarm clock: number of displayed digits, units?'
+  ru: '«Складной дорожный будильник»: число отображаемых цифр, шт.?'
+  kk: '«Жиналмалы жол оятқышы»: көрсетілетін цифрлар саны, дана?'
+  relevant:
+  - section: technical_travel_alarm_clock.display_digits
+    grade: 3
+  - section: technical_travel_alarm_clock.alarm_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.travel_alarm_clock.display_digits; neighbouring alarm_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_display
+  need_key: technical.travel_alarm_clock.display_digits|current
+  required:
+  - fact: technical.travel_alarm_clock.display_digits
+    sections:
+    - technical_travel_alarm_clock.display_digits
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_travel_alarm_clock_alarm_count
+  category: hard
+  en: The cards look similar. What number of independent alarms is listed for Folding travel alarm clock
+    (units)?
+  ru: Карточки похожи. Уточните показатель «Число независимых будильников» именно для «Складной дорожный
+    будильник» (шт.).
+  kk: Карточкалар ұқсас. «Жиналмалы жол оятқышы» үшін нақты «Тәуелсіз оятқыштар саны» көрсеткішін айтыңыз
+    (дана).
+  relevant:
+  - section: technical_travel_alarm_clock.alarm_count
+    grade: 3
+  - section: technical_travel_alarm_clock.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.travel_alarm_clock.alarm_count; neighbouring controls_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_alarm_settings
+  need_key: technical.travel_alarm_clock.alarm_count|current
+  required:
+  - fact: technical.travel_alarm_clock.alarm_count
+    sections:
+    - technical_travel_alarm_clock.alarm_count
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_travel_alarm_clock_controls_count
+  category: hard
+  en: Check the specifcation of Folding travel alarm clock for number of physical controls (units), please.
+  ru: 'Проверьте характиристику «Складной дорожный будильник»: интересует «Число физических органов управления»
+    (шт.).'
+  kk: «Жиналмалы жол оятқышы» сипатамасынан «Физикалық басқару элементтерінің саны» мәнін тексеріңізші
+    (дана).
+  relevant:
+  - section: technical_travel_alarm_clock.controls_count
+    grade: 3
+  - section: technical_travel_alarm_clock.backup_hours
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.travel_alarm_clock.controls_count; neighbouring backup_hours does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.travel_alarm_clock.controls_count|current
+  required:
+  - fact: technical.travel_alarm_clock.controls_count
+    sections:
+    - technical_travel_alarm_clock.controls_count
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_travel_alarm_clock_backup_hours
+  category: simple
+  en: For Folding travel alarm clock, what is the specified rated clock backup duration in hours?
+  ru: Для «Складной дорожный будильник» какое значение указано для показателя «Номинальная длительность
+    резервного хода часов» (часов)?
+  kk: «Жиналмалы жол оятқышы» тауары үшін «Сағаттың сақтық жұмысының номиналды ұзақтығы» көрсеткішінің
+    мәні қандай (сағат)?
+  relevant:
+  - section: technical_travel_alarm_clock.backup_hours
+    grade: 3
+  - section: technical_travel_alarm_clock.drift_seconds_month
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.travel_alarm_clock.backup_hours; neighbouring drift_seconds_month
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_backup
+  need_key: technical.travel_alarm_clock.backup_hours|current
+  required:
+  - fact: technical.travel_alarm_clock.backup_hours
+    sections:
+    - technical_travel_alarm_clock.backup_hours
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_travel_alarm_clock_drift_seconds_month
+  category: simple
+  en: I am comparing specifications. Find the maximum monthly clock drift for Folding travel alarm clock,
+    in seconds/month.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальный месячный уход часов» у «Складной дорожный
+    будильник», в секунд/месяц.
+  kk: Сипаттамаларды салыстырып отырмын. «Жиналмалы жол оятқышы» үшін «Сағаттың айлық ең жоғары ауытқуы»
+    мәні қажет (секунд/ай).
+  relevant:
+  - section: technical_travel_alarm_clock.drift_seconds_month
+    grade: 3
+  - section: technical_travel_alarm_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Складной дорожный будильник» показатель «Максимальный месячный уход часов» (секунд/месяц)
+    нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.travel_alarm_clock.drift_seconds_month; neighbouring mass_g does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_accuracy
+  need_key: technical.travel_alarm_clock.drift_seconds_month|current
+  required:
+  - fact: technical.travel_alarm_clock.drift_seconds_month
+    sections:
+    - technical_travel_alarm_clock.drift_seconds_month
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_travel_alarm_clock_humidity_max_percent
+  category: unanswerable
+  en: For Folding travel alarm clock, what is the specified maximum permitted humidity in percent?
+  ru: Для «Складной дорожный будильник» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Жиналмалы жол оятқышы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_travel_alarm_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for travel_alarm_clock does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.travel_alarm_clock.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_travel_alarm_clock_drop_test_cm
+  category: unanswerable
+  en: For Folding travel alarm clock, what is the specified certified drop-test height in cm?
+  ru: Для «Складной дорожный будильник» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Жиналмалы жол оятқышы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_travel_alarm_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for travel_alarm_clock does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.travel_alarm_clock.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_travel_alarm_clock_repair_parts_price
+  category: unanswerable
+  en: For Folding travel alarm clock, what is the specified replacement-part price in KZT?
+  ru: Для «Складной дорожный будильник» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Жиналмалы жол оятқышы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_travel_alarm_clock.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for travel_alarm_clock does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.travel_alarm_clock.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_travel_alarm_clock_certification_id
+  category: unanswerable
+  en: For Folding travel alarm clock, what is the specified certification record number in record?
+  ru: Для «Складной дорожный будильник» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Жиналмалы жол оятқышы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_travel_alarm_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for travel_alarm_clock does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.travel_alarm_clock.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_calendar_clock_mass_g
+  category: simple
+  en: 'Desk calendar clock: mass, g?'
+  ru: '«Настольные часы-календарь»: масса, г?'
+  kk: '«Үстел күнтізбелі сағаты»: салмағы, г?'
+  relevant:
+  - section: technical_calendar_clock.mass_g
+    grade: 3
+  - section: technical_calendar_clock.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.calendar_clock.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.calendar_clock.mass_g|current
+  required:
+  - fact: technical.calendar_clock.mass_g
+    sections:
+    - technical_calendar_clock.mass_g
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_calendar_clock_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Desk calendar clock (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Настольные часы-календарь» (мм).
+  kk: Карточкалар ұқсас. «Үстел күнтізбелі сағаты» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_calendar_clock.width_mm
+    grade: 3
+  - section: technical_calendar_clock.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.calendar_clock.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.calendar_clock.width_mm|current
+  required:
+  - fact: technical.calendar_clock.width_mm
+    sections:
+    - technical_calendar_clock.width_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_calendar_clock_height_mm
+  category: hard
+  en: Check the specifcation of Desk calendar clock for height (mm), please.
+  ru: 'Проверьте характиристику «Настольные часы-календарь»: интересует «Высота» (мм).'
+  kk: «Үстел күнтізбелі сағаты» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_calendar_clock.height_mm
+    grade: 3
+  - section: technical_calendar_clock.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.calendar_clock.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.calendar_clock.height_mm|current
+  required:
+  - fact: technical.calendar_clock.height_mm
+    sections:
+    - technical_calendar_clock.height_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_calendar_clock_depth_mm
+  category: simple
+  en: For Desk calendar clock, what is the specified depth in mm?
+  ru: Для «Настольные часы-календарь» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Үстел күнтізбелі сағаты» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_calendar_clock.depth_mm
+    grade: 3
+  - section: technical_calendar_clock.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.calendar_clock.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.calendar_clock.depth_mm|current
+  required:
+  - fact: technical.calendar_clock.depth_mm
+    sections:
+    - technical_calendar_clock.depth_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_calendar_clock_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Desk calendar
+    clock, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Настольные
+    часы-календарь», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел күнтізбелі сағаты» үшін «Жұмыс кезіндегі ауаның ең төмен
+    температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_calendar_clock.operating_min_c
+    grade: 3
+  - section: technical_calendar_clock.operating_max_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.calendar_clock.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.calendar_clock.operating_min_c|current
+  required:
+  - fact: technical.calendar_clock.operating_min_c
+    sections:
+    - technical_calendar_clock.operating_min_c
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_calendar_clock_operating_max_c
+  category: hard
+  en: 'Desk calendar clock: maximum operating ambient temperature, C?'
+  ru: '«Настольные часы-календарь»: максимальная температура воздуха при работе, C?'
+  kk: '«Үстел күнтізбелі сағаты»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_calendar_clock.operating_max_c
+    grade: 3
+  - section: technical_calendar_clock.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.calendar_clock.operating_max_c; neighbouring voltage_v does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.calendar_clock.operating_max_c|current
+  required:
+  - fact: technical.calendar_clock.operating_max_c
+    sections:
+    - technical_calendar_clock.operating_max_c
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_calendar_clock_voltage_v
+  category: hard
+  en: The cards look similar. What rated supply voltage is listed for Desk calendar clock (V)?
+  ru: Карточки похожи. Уточните показатель «Номинальное напряжение питания» именно для «Настольные часы-календарь»
+    (В).
+  kk: Карточкалар ұқсас. «Үстел күнтізбелі сағаты» үшін нақты «Номиналды қорек кернеуі» көрсеткішін айтыңыз
+    (В).
+  relevant:
+  - section: technical_calendar_clock.voltage_v
+    grade: 3
+  - section: technical_calendar_clock.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Үстел күнтізбелі сағаты» үшін «Номиналды қорек кернеуі» (В) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.calendar_clock.voltage_v; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.calendar_clock.voltage_v|current
+  required:
+  - fact: technical.calendar_clock.voltage_v
+    sections:
+    - technical_calendar_clock.voltage_v
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_calendar_clock_power_w
+  category: hard
+  en: Check the specifcation of Desk calendar clock for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Настольные часы-календарь»: интересует «Номинальная потребляемая мощность»
+    (Вт).'
+  kk: «Үстел күнтізбелі сағаты» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_calendar_clock.power_w
+    grade: 3
+  - section: technical_calendar_clock.display_digits
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.calendar_clock.power_w; neighbouring display_digits does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.calendar_clock.power_w|current
+  required:
+  - fact: technical.calendar_clock.power_w
+    sections:
+    - technical_calendar_clock.power_w
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_calendar_clock_display_digits
+  category: simple
+  en: For Desk calendar clock, what is the specified number of displayed digits in units?
+  ru: Для «Настольные часы-календарь» какое значение указано для показателя «Число отображаемых цифр»
+    (шт.)?
+  kk: «Үстел күнтізбелі сағаты» тауары үшін «Көрсетілетін цифрлар саны» көрсеткішінің мәні қандай (дана)?
+  relevant:
+  - section: technical_calendar_clock.display_digits
+    grade: 3
+  - section: technical_calendar_clock.alarm_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.calendar_clock.display_digits; neighbouring alarm_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_display
+  need_key: technical.calendar_clock.display_digits|current
+  required:
+  - fact: technical.calendar_clock.display_digits
+    sections:
+    - technical_calendar_clock.display_digits
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_calendar_clock_alarm_count
+  category: simple
+  en: I am comparing specifications. Find the number of independent alarms for Desk calendar clock, in
+    units.
+  ru: Сравниваю характеристики. Нужен показатель «Число независимых будильников» у «Настольные часы-календарь»,
+    в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел күнтізбелі сағаты» үшін «Тәуелсіз оятқыштар саны» мәні
+    қажет (дана).
+  relevant:
+  - section: technical_calendar_clock.alarm_count
+    grade: 3
+  - section: technical_calendar_clock.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.calendar_clock.alarm_count; neighbouring controls_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_alarm_settings
+  need_key: technical.calendar_clock.alarm_count|current
+  required:
+  - fact: technical.calendar_clock.alarm_count
+    sections:
+    - technical_calendar_clock.alarm_count
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_calendar_clock_controls_count
+  category: simple
+  en: 'Desk calendar clock: number of physical controls, units?'
+  ru: '«Настольные часы-календарь»: число физических органов управления, шт.?'
+  kk: '«Үстел күнтізбелі сағаты»: физикалық басқару элементтерінің саны, дана?'
+  relevant:
+  - section: technical_calendar_clock.controls_count
+    grade: 3
+  - section: technical_calendar_clock.backup_hours
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.calendar_clock.controls_count; neighbouring backup_hours does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.calendar_clock.controls_count|current
+  required:
+  - fact: technical.calendar_clock.controls_count
+    sections:
+    - technical_calendar_clock.controls_count
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_calendar_clock_backup_hours
+  category: hard
+  en: The cards look similar. What rated clock backup duration is listed for Desk calendar clock (hours)?
+  ru: Карточки похожи. Уточните показатель «Номинальная длительность резервного хода часов» именно для
+    «Настольные часы-календарь» (часов).
+  kk: Карточкалар ұқсас. «Үстел күнтізбелі сағаты» үшін нақты «Сағаттың сақтық жұмысының номиналды ұзақтығы»
+    көрсеткішін айтыңыз (сағат).
+  relevant:
+  - section: technical_calendar_clock.backup_hours
+    grade: 3
+  - section: technical_calendar_clock.drift_seconds_month
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.calendar_clock.backup_hours; neighbouring drift_seconds_month does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_backup
+  need_key: technical.calendar_clock.backup_hours|current
+  required:
+  - fact: technical.calendar_clock.backup_hours
+    sections:
+    - technical_calendar_clock.backup_hours
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_calendar_clock_drift_seconds_month
+  category: hard
+  en: Check the specifcation of Desk calendar clock for maximum monthly clock drift (seconds/month), please.
+  ru: 'Проверьте характиристику «Настольные часы-календарь»: интересует «Максимальный месячный уход часов»
+    (секунд/месяц).'
+  kk: «Үстел күнтізбелі сағаты» сипатамасынан «Сағаттың айлық ең жоғары ауытқуы» мәнін тексеріңізші (секунд/ай).
+  relevant:
+  - section: technical_calendar_clock.drift_seconds_month
+    grade: 3
+  - section: technical_calendar_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.calendar_clock.drift_seconds_month; neighbouring mass_g does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_accuracy
+  need_key: technical.calendar_clock.drift_seconds_month|current
+  required:
+  - fact: technical.calendar_clock.drift_seconds_month
+    sections:
+    - technical_calendar_clock.drift_seconds_month
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_calendar_clock_humidity_max_percent
+  category: unanswerable
+  en: For Desk calendar clock, what is the specified maximum permitted humidity in percent?
+  ru: Для «Настольные часы-календарь» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Үстел күнтізбелі сағаты» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_calendar_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for calendar_clock does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.calendar_clock.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_calendar_clock_drop_test_cm
+  category: unanswerable
+  en: For Desk calendar clock, what is the specified certified drop-test height in cm?
+  ru: Для «Настольные часы-календарь» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Үстел күнтізбелі сағаты» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_calendar_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for calendar_clock does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.calendar_clock.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_calendar_clock_repair_parts_price
+  category: unanswerable
+  en: For Desk calendar clock, what is the specified replacement-part price in KZT?
+  ru: Для «Настольные часы-календарь» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Үстел күнтізбелі сағаты» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_calendar_clock.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for calendar_clock does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.calendar_clock.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_calendar_clock_certification_id
+  category: unanswerable
+  en: For Desk calendar clock, what is the specified certification record number in record?
+  ru: Для «Настольные часы-календарь» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Үстел күнтізбелі сағаты» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_calendar_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for calendar_clock does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.calendar_clock.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_calendar_clock
+  category: multi_fragment
+  en: What does Desk calendar clock weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Настольные часы-календарь» и какой вес посылки допускают пункты самовывоза?
+  kk: «Үстел күнтізбелі сағаты» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_calendar_clock.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.calendar_clock.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.calendar_clock.mass_g
+    sections:
+    - technical_calendar_clock.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workshop_timer_clock_mass_g
+  category: simple
+  en: For Workshop clock with timer, what is the specified mass in g?
+  ru: Для «Мастерские часы с таймером» какое значение указано для показателя «Масса» (г)?
+  kk: «Таймері бар шеберхана сағаты» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_workshop_timer_clock.mass_g
+    grade: 3
+  - section: technical_workshop_timer_clock.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Мастерские часы с таймером» показатель «Масса» (г) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.workshop_timer_clock.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.workshop_timer_clock.mass_g|current
+  required:
+  - fact: technical.workshop_timer_clock.mass_g
+    sections:
+    - technical_workshop_timer_clock.mass_g
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workshop_timer_clock_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Workshop clock with timer, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Мастерские часы с таймером», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Таймері бар шеберхана сағаты» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_workshop_timer_clock.width_mm
+    grade: 3
+  - section: technical_workshop_timer_clock.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workshop_timer_clock.width_mm; neighbouring height_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.workshop_timer_clock.width_mm|current
+  required:
+  - fact: technical.workshop_timer_clock.width_mm
+    sections:
+    - technical_workshop_timer_clock.width_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workshop_timer_clock_height_mm
+  category: simple
+  en: 'Workshop clock with timer: height, mm?'
+  ru: '«Мастерские часы с таймером»: высота, мм?'
+  kk: '«Таймері бар шеберхана сағаты»: биіктігі, мм?'
+  relevant:
+  - section: technical_workshop_timer_clock.height_mm
+    grade: 3
+  - section: technical_workshop_timer_clock.depth_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workshop_timer_clock.height_mm; neighbouring depth_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.workshop_timer_clock.height_mm|current
+  required:
+  - fact: technical.workshop_timer_clock.height_mm
+    sections:
+    - technical_workshop_timer_clock.height_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workshop_timer_clock_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Workshop clock with timer (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Мастерские часы с таймером» (мм).
+  kk: Карточкалар ұқсас. «Таймері бар шеберхана сағаты» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_workshop_timer_clock.depth_mm
+    grade: 3
+  - section: technical_workshop_timer_clock.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workshop_timer_clock.depth_mm; neighbouring operating_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.workshop_timer_clock.depth_mm|current
+  required:
+  - fact: technical.workshop_timer_clock.depth_mm
+    sections:
+    - technical_workshop_timer_clock.depth_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workshop_timer_clock_operating_min_c
+  category: hard
+  en: Check the specifcation of Workshop clock with timer for minimum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Мастерские часы с таймером»: интересует «Минимальная температура воздуха
+    при работе» (C).'
+  kk: «Таймері бар шеберхана сағаты» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін
+    тексеріңізші (C).
+  relevant:
+  - section: technical_workshop_timer_clock.operating_min_c
+    grade: 3
+  - section: technical_workshop_timer_clock.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workshop_timer_clock.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.workshop_timer_clock.operating_min_c|current
+  required:
+  - fact: technical.workshop_timer_clock.operating_min_c
+    sections:
+    - technical_workshop_timer_clock.operating_min_c
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workshop_timer_clock_operating_max_c
+  category: hard
+  en: For Workshop clock with timer, what is the specified maximum operating ambient temperature in C?
+  ru: Для «Мастерские часы с таймером» какое значение указано для показателя «Максимальная температура
+    воздуха при работе» (C)?
+  kk: «Таймері бар шеберхана сағаты» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_workshop_timer_clock.operating_max_c
+    grade: 3
+  - section: technical_workshop_timer_clock.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workshop_timer_clock.operating_max_c; neighbouring voltage_v does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.workshop_timer_clock.operating_max_c|current
+  required:
+  - fact: technical.workshop_timer_clock.operating_max_c
+    sections:
+    - technical_workshop_timer_clock.operating_max_c
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workshop_timer_clock_voltage_v
+  category: simple
+  en: I am comparing specifications. Find the rated supply voltage for Workshop clock with timer, in V.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное напряжение питания» у «Мастерские часы с
+    таймером», в В.
+  kk: Сипаттамаларды салыстырып отырмын. «Таймері бар шеберхана сағаты» үшін «Номиналды қорек кернеуі»
+    мәні қажет (В).
+  relevant:
+  - section: technical_workshop_timer_clock.voltage_v
+    grade: 3
+  - section: technical_workshop_timer_clock.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workshop_timer_clock.voltage_v; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.workshop_timer_clock.voltage_v|current
+  required:
+  - fact: technical.workshop_timer_clock.voltage_v
+    sections:
+    - technical_workshop_timer_clock.voltage_v
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workshop_timer_clock_power_w
+  category: simple
+  en: 'Workshop clock with timer: rated power consumption, W?'
+  ru: '«Мастерские часы с таймером»: номинальная потребляемая мощность, Вт?'
+  kk: '«Таймері бар шеберхана сағаты»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_workshop_timer_clock.power_w
+    grade: 3
+  - section: technical_workshop_timer_clock.display_digits
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Таймері бар шеберхана сағаты» үшін «Номиналды тұтыну қуаты» (Вт) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.workshop_timer_clock.power_w; neighbouring display_digits does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.workshop_timer_clock.power_w|current
+  required:
+  - fact: technical.workshop_timer_clock.power_w
+    sections:
+    - technical_workshop_timer_clock.power_w
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workshop_timer_clock_display_digits
+  category: hard
+  en: The cards look similar. What number of displayed digits is listed for Workshop clock with timer
+    (units)?
+  ru: Карточки похожи. Уточните показатель «Число отображаемых цифр» именно для «Мастерские часы с таймером»
+    (шт.).
+  kk: Карточкалар ұқсас. «Таймері бар шеберхана сағаты» үшін нақты «Көрсетілетін цифрлар саны» көрсеткішін
+    айтыңыз (дана).
+  relevant:
+  - section: technical_workshop_timer_clock.display_digits
+    grade: 3
+  - section: technical_workshop_timer_clock.alarm_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workshop_timer_clock.display_digits; neighbouring alarm_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_display
+  need_key: technical.workshop_timer_clock.display_digits|current
+  required:
+  - fact: technical.workshop_timer_clock.display_digits
+    sections:
+    - technical_workshop_timer_clock.display_digits
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workshop_timer_clock_alarm_count
+  category: hard
+  en: Check the specifcation of Workshop clock with timer for number of independent alarms (units), please.
+  ru: 'Проверьте характиристику «Мастерские часы с таймером»: интересует «Число независимых будильников»
+    (шт.).'
+  kk: «Таймері бар шеберхана сағаты» сипатамасынан «Тәуелсіз оятқыштар саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_workshop_timer_clock.alarm_count
+    grade: 3
+  - section: technical_workshop_timer_clock.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workshop_timer_clock.alarm_count; neighbouring controls_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_alarm_settings
+  need_key: technical.workshop_timer_clock.alarm_count|current
+  required:
+  - fact: technical.workshop_timer_clock.alarm_count
+    sections:
+    - technical_workshop_timer_clock.alarm_count
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workshop_timer_clock_controls_count
+  category: simple
+  en: For Workshop clock with timer, what is the specified number of physical controls in units?
+  ru: Для «Мастерские часы с таймером» какое значение указано для показателя «Число физических органов
+    управления» (шт.)?
+  kk: «Таймері бар шеберхана сағаты» тауары үшін «Физикалық басқару элементтерінің саны» көрсеткішінің
+    мәні қандай (дана)?
+  relevant:
+  - section: technical_workshop_timer_clock.controls_count
+    grade: 3
+  - section: technical_workshop_timer_clock.backup_hours
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workshop_timer_clock.controls_count; neighbouring backup_hours
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.workshop_timer_clock.controls_count|current
+  required:
+  - fact: technical.workshop_timer_clock.controls_count
+    sections:
+    - technical_workshop_timer_clock.controls_count
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workshop_timer_clock_backup_hours
+  category: simple
+  en: I am comparing specifications. Find the rated clock backup duration for Workshop clock with timer,
+    in hours.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная длительность резервного хода часов» у «Мастерские
+    часы с таймером», в часов.
+  kk: Сипаттамаларды салыстырып отырмын. «Таймері бар шеберхана сағаты» үшін «Сағаттың сақтық жұмысының
+    номиналды ұзақтығы» мәні қажет (сағат).
+  relevant:
+  - section: technical_workshop_timer_clock.backup_hours
+    grade: 3
+  - section: technical_workshop_timer_clock.drift_seconds_month
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workshop_timer_clock.backup_hours; neighbouring drift_seconds_month
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_backup
+  need_key: technical.workshop_timer_clock.backup_hours|current
+  required:
+  - fact: technical.workshop_timer_clock.backup_hours
+    sections:
+    - technical_workshop_timer_clock.backup_hours
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workshop_timer_clock_drift_seconds_month
+  category: simple
+  en: 'Workshop clock with timer: maximum monthly clock drift, seconds/month?'
+  ru: '«Мастерские часы с таймером»: максимальный месячный уход часов, секунд/месяц?'
+  kk: '«Таймері бар шеберхана сағаты»: сағаттың айлық ең жоғары ауытқуы, секунд/ай?'
+  relevant:
+  - section: technical_workshop_timer_clock.drift_seconds_month
+    grade: 3
+  - section: technical_workshop_timer_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workshop_timer_clock.drift_seconds_month; neighbouring mass_g does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_accuracy
+  need_key: technical.workshop_timer_clock.drift_seconds_month|current
+  required:
+  - fact: technical.workshop_timer_clock.drift_seconds_month
+    sections:
+    - technical_workshop_timer_clock.drift_seconds_month
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_workshop_timer_clock_humidity_max_percent
+  category: unanswerable
+  en: For Workshop clock with timer, what is the specified maximum permitted humidity in percent?
+  ru: Для «Мастерские часы с таймером» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Таймері бар шеберхана сағаты» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_workshop_timer_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for workshop_timer_clock does not state humidity_max_percent. Dimensions, the
+    retail price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.workshop_timer_clock.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_workshop_timer_clock_drop_test_cm
+  category: unanswerable
+  en: For Workshop clock with timer, what is the specified certified drop-test height in cm?
+  ru: Для «Мастерские часы с таймером» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Таймері бар шеберхана сағаты» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_workshop_timer_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for workshop_timer_clock does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.workshop_timer_clock.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_workshop_timer_clock_repair_parts_price
+  category: unanswerable
+  en: For Workshop clock with timer, what is the specified replacement-part price in KZT?
+  ru: Для «Мастерские часы с таймером» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Таймері бар шеберхана сағаты» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_workshop_timer_clock.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for workshop_timer_clock does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.workshop_timer_clock.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_workshop_timer_clock_certification_id
+  category: unanswerable
+  en: For Workshop clock with timer, what is the specified certification record number in record?
+  ru: Для «Мастерские часы с таймером» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Таймері бар шеберхана сағаты» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_workshop_timer_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for workshop_timer_clock does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.workshop_timer_clock.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_dual_zone_clock_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Dual-zone desk clock (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Настольные часы двух часовых поясов» (г).
+  kk: Карточкалар ұқсас. «Екі белдеулі үстел сағаты» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_dual_zone_clock.mass_g
+    grade: 3
+  - section: technical_dual_zone_clock.width_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_zone_clock.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.dual_zone_clock.mass_g|current
+  required:
+  - fact: technical.dual_zone_clock.mass_g
+    sections:
+    - technical_dual_zone_clock.mass_g
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_zone_clock_width_mm
+  category: hard
+  en: Check the specifcation of Dual-zone desk clock for width (mm), please.
+  ru: 'Проверьте характиристику «Настольные часы двух часовых поясов»: интересует «Ширина» (мм).'
+  kk: «Екі белдеулі үстел сағаты» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_dual_zone_clock.width_mm
+    grade: 3
+  - section: technical_dual_zone_clock.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Настольные часы двух часовых поясов» показатель «Ширина» (мм) нақтылап беріңізші, осы үлгі
+    үшін.
+  mix_kk: null
+  rationale: Authored target technical.dual_zone_clock.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.dual_zone_clock.width_mm|current
+  required:
+  - fact: technical.dual_zone_clock.width_mm
+    sections:
+    - technical_dual_zone_clock.width_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_zone_clock_height_mm
+  category: simple
+  en: For Dual-zone desk clock, what is the specified height in mm?
+  ru: Для «Настольные часы двух часовых поясов» какое значение указано для показателя «Высота» (мм)?
+  kk: «Екі белдеулі үстел сағаты» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_dual_zone_clock.height_mm
+    grade: 3
+  - section: technical_dual_zone_clock.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_zone_clock.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.dual_zone_clock.height_mm|current
+  required:
+  - fact: technical.dual_zone_clock.height_mm
+    sections:
+    - technical_dual_zone_clock.height_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_zone_clock_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Dual-zone desk clock, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Настольные часы двух часовых поясов», в
+    мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Екі белдеулі үстел сағаты» үшін «Тереңдігі» мәні қажет (мм).
+  relevant:
+  - section: technical_dual_zone_clock.depth_mm
+    grade: 3
+  - section: technical_dual_zone_clock.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_zone_clock.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.dual_zone_clock.depth_mm|current
+  required:
+  - fact: technical.dual_zone_clock.depth_mm
+    sections:
+    - technical_dual_zone_clock.depth_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_zone_clock_operating_min_c
+  category: hard
+  en: 'Dual-zone desk clock: minimum operating ambient temperature, C?'
+  ru: '«Настольные часы двух часовых поясов»: минимальная температура воздуха при работе, C?'
+  kk: '«Екі белдеулі үстел сағаты»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_dual_zone_clock.operating_min_c
+    grade: 3
+  - section: technical_dual_zone_clock.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_zone_clock.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.dual_zone_clock.operating_min_c|current
+  required:
+  - fact: technical.dual_zone_clock.operating_min_c
+    sections:
+    - technical_dual_zone_clock.operating_min_c
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_zone_clock_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Dual-zone desk
+    clock (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Настольные
+    часы двух часовых поясов» (C).
+  kk: Карточкалар ұқсас. «Екі белдеулі үстел сағаты» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_dual_zone_clock.operating_max_c
+    grade: 3
+  - section: technical_dual_zone_clock.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_zone_clock.operating_max_c; neighbouring voltage_v does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.dual_zone_clock.operating_max_c|current
+  required:
+  - fact: technical.dual_zone_clock.operating_max_c
+    sections:
+    - technical_dual_zone_clock.operating_max_c
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_zone_clock_voltage_v
+  category: hard
+  en: Check the specifcation of Dual-zone desk clock for rated supply voltage (V), please.
+  ru: 'Проверьте характиристику «Настольные часы двух часовых поясов»: интересует «Номинальное напряжение
+    питания» (В).'
+  kk: «Екі белдеулі үстел сағаты» сипатамасынан «Номиналды қорек кернеуі» мәнін тексеріңізші (В).
+  relevant:
+  - section: technical_dual_zone_clock.voltage_v
+    grade: 3
+  - section: technical_dual_zone_clock.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_zone_clock.voltage_v; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.dual_zone_clock.voltage_v|current
+  required:
+  - fact: technical.dual_zone_clock.voltage_v
+    sections:
+    - technical_dual_zone_clock.voltage_v
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_zone_clock_power_w
+  category: simple
+  en: For Dual-zone desk clock, what is the specified rated power consumption in W?
+  ru: Для «Настольные часы двух часовых поясов» какое значение указано для показателя «Номинальная потребляемая
+    мощность» (Вт)?
+  kk: «Екі белдеулі үстел сағаты» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай (Вт)?
+  relevant:
+  - section: technical_dual_zone_clock.power_w
+    grade: 3
+  - section: technical_dual_zone_clock.display_digits
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_zone_clock.power_w; neighbouring display_digits does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.dual_zone_clock.power_w|current
+  required:
+  - fact: technical.dual_zone_clock.power_w
+    sections:
+    - technical_dual_zone_clock.power_w
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_zone_clock_display_digits
+  category: simple
+  en: I am comparing specifications. Find the number of displayed digits for Dual-zone desk clock, in
+    units.
+  ru: Сравниваю характеристики. Нужен показатель «Число отображаемых цифр» у «Настольные часы двух часовых
+    поясов», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Екі белдеулі үстел сағаты» үшін «Көрсетілетін цифрлар саны»
+    мәні қажет (дана).
+  relevant:
+  - section: technical_dual_zone_clock.display_digits
+    grade: 3
+  - section: technical_dual_zone_clock.alarm_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Екі белдеулі үстел сағаты» үшін «Көрсетілетін цифрлар саны» (дана) керек, уточните по этой
+    модели, пожалуйста.
+  rationale: Authored target technical.dual_zone_clock.display_digits; neighbouring alarm_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_display
+  need_key: technical.dual_zone_clock.display_digits|current
+  required:
+  - fact: technical.dual_zone_clock.display_digits
+    sections:
+    - technical_dual_zone_clock.display_digits
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_zone_clock_alarm_count
+  category: simple
+  en: 'Dual-zone desk clock: number of independent alarms, units?'
+  ru: '«Настольные часы двух часовых поясов»: число независимых будильников, шт.?'
+  kk: '«Екі белдеулі үстел сағаты»: тәуелсіз оятқыштар саны, дана?'
+  relevant:
+  - section: technical_dual_zone_clock.alarm_count
+    grade: 3
+  - section: technical_dual_zone_clock.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_zone_clock.alarm_count; neighbouring controls_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_alarm_settings
+  need_key: technical.dual_zone_clock.alarm_count|current
+  required:
+  - fact: technical.dual_zone_clock.alarm_count
+    sections:
+    - technical_dual_zone_clock.alarm_count
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_zone_clock_controls_count
+  category: hard
+  en: The cards look similar. What number of physical controls is listed for Dual-zone desk clock (units)?
+  ru: Карточки похожи. Уточните показатель «Число физических органов управления» именно для «Настольные
+    часы двух часовых поясов» (шт.).
+  kk: Карточкалар ұқсас. «Екі белдеулі үстел сағаты» үшін нақты «Физикалық басқару элементтерінің саны»
+    көрсеткішін айтыңыз (дана).
+  relevant:
+  - section: technical_dual_zone_clock.controls_count
+    grade: 3
+  - section: technical_dual_zone_clock.backup_hours
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_zone_clock.controls_count; neighbouring backup_hours does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.dual_zone_clock.controls_count|current
+  required:
+  - fact: technical.dual_zone_clock.controls_count
+    sections:
+    - technical_dual_zone_clock.controls_count
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_zone_clock_backup_hours
+  category: hard
+  en: Check the specifcation of Dual-zone desk clock for rated clock backup duration (hours), please.
+  ru: 'Проверьте характиристику «Настольные часы двух часовых поясов»: интересует «Номинальная длительность
+    резервного хода часов» (часов).'
+  kk: «Екі белдеулі үстел сағаты» сипатамасынан «Сағаттың сақтық жұмысының номиналды ұзақтығы» мәнін тексеріңізші
+    (сағат).
+  relevant:
+  - section: technical_dual_zone_clock.backup_hours
+    grade: 3
+  - section: technical_dual_zone_clock.drift_seconds_month
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_zone_clock.backup_hours; neighbouring drift_seconds_month
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_backup
+  need_key: technical.dual_zone_clock.backup_hours|current
+  required:
+  - fact: technical.dual_zone_clock.backup_hours
+    sections:
+    - technical_dual_zone_clock.backup_hours
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_dual_zone_clock_drift_seconds_month
+  category: simple
+  en: For Dual-zone desk clock, what is the specified maximum monthly clock drift in seconds/month?
+  ru: Для «Настольные часы двух часовых поясов» какое значение указано для показателя «Максимальный месячный
+    уход часов» (секунд/месяц)?
+  kk: «Екі белдеулі үстел сағаты» тауары үшін «Сағаттың айлық ең жоғары ауытқуы» көрсеткішінің мәні қандай
+    (секунд/ай)?
+  relevant:
+  - section: technical_dual_zone_clock.drift_seconds_month
+    grade: 3
+  - section: technical_dual_zone_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.dual_zone_clock.drift_seconds_month; neighbouring mass_g does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_accuracy
+  need_key: technical.dual_zone_clock.drift_seconds_month|current
+  required:
+  - fact: technical.dual_zone_clock.drift_seconds_month
+    sections:
+    - technical_dual_zone_clock.drift_seconds_month
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_dual_zone_clock_humidity_max_percent
+  category: unanswerable
+  en: For Dual-zone desk clock, what is the specified maximum permitted humidity in percent?
+  ru: Для «Настольные часы двух часовых поясов» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Екі белдеулі үстел сағаты» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_dual_zone_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for dual_zone_clock does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.dual_zone_clock.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_dual_zone_clock_drop_test_cm
+  category: unanswerable
+  en: For Dual-zone desk clock, what is the specified certified drop-test height in cm?
+  ru: Для «Настольные часы двух часовых поясов» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Екі белдеулі үстел сағаты» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_dual_zone_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for dual_zone_clock does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.dual_zone_clock.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_dual_zone_clock_repair_parts_price
+  category: unanswerable
+  en: For Dual-zone desk clock, what is the specified replacement-part price in KZT?
+  ru: Для «Настольные часы двух часовых поясов» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Екі белдеулі үстел сағаты» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_dual_zone_clock.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for dual_zone_clock does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.dual_zone_clock.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_dual_zone_clock_certification_id
+  category: unanswerable
+  en: For Dual-zone desk clock, what is the specified certification record number in record?
+  ru: Для «Настольные часы двух часовых поясов» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Екі белдеулі үстел сағаты» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_dual_zone_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for dual_zone_clock does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.dual_zone_clock.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_dual_zone_clock
+  category: multi_fragment
+  en: What does Dual-zone desk clock weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Настольные часы двух часовых поясов» и какой вес посылки допускают пункты самовывоза?
+  kk: «Екі белдеулі үстел сағаты» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_dual_zone_clock.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.dual_zone_clock.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.dual_zone_clock.mass_g
+    sections:
+    - technical_dual_zone_clock.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_countdown_clock_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Event countdown clock, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Часы обратного отсчёта события», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Оқиғаның кері санау сағаты» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_countdown_clock.mass_g
+    grade: 3
+  - section: technical_countdown_clock.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.countdown_clock.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.countdown_clock.mass_g|current
+  required:
+  - fact: technical.countdown_clock.mass_g
+    sections:
+    - technical_countdown_clock.mass_g
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_countdown_clock_width_mm
+  category: simple
+  en: 'Event countdown clock: width, mm?'
+  ru: '«Часы обратного отсчёта события»: ширина, мм?'
+  kk: '«Оқиғаның кері санау сағаты»: ені, мм?'
+  relevant:
+  - section: technical_countdown_clock.width_mm
+    grade: 3
+  - section: technical_countdown_clock.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.countdown_clock.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.countdown_clock.width_mm|current
+  required:
+  - fact: technical.countdown_clock.width_mm
+    sections:
+    - technical_countdown_clock.width_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_countdown_clock_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Event countdown clock (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Часы обратного отсчёта события» (мм).
+  kk: Карточкалар ұқсас. «Оқиғаның кері санау сағаты» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_countdown_clock.height_mm
+    grade: 3
+  - section: technical_countdown_clock.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Часы обратного отсчёта события» показатель «Высота» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.countdown_clock.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.countdown_clock.height_mm|current
+  required:
+  - fact: technical.countdown_clock.height_mm
+    sections:
+    - technical_countdown_clock.height_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_countdown_clock_depth_mm
+  category: hard
+  en: Check the specifcation of Event countdown clock for depth (mm), please.
+  ru: 'Проверьте характиристику «Часы обратного отсчёта события»: интересует «Глубина» (мм).'
+  kk: «Оқиғаның кері санау сағаты» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_countdown_clock.depth_mm
+    grade: 3
+  - section: technical_countdown_clock.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.countdown_clock.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.countdown_clock.depth_mm|current
+  required:
+  - fact: technical.countdown_clock.depth_mm
+    sections:
+    - technical_countdown_clock.depth_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_countdown_clock_operating_min_c
+  category: hard
+  en: For Event countdown clock, what is the specified minimum operating ambient temperature in C?
+  ru: Для «Часы обратного отсчёта события» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Оқиғаның кері санау сағаты» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_countdown_clock.operating_min_c
+    grade: 3
+  - section: technical_countdown_clock.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.countdown_clock.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.countdown_clock.operating_min_c|current
+  required:
+  - fact: technical.countdown_clock.operating_min_c
+    sections:
+    - technical_countdown_clock.operating_min_c
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_countdown_clock_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Event countdown
+    clock, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Часы
+    обратного отсчёта события», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Оқиғаның кері санау сағаты» үшін «Жұмыс кезіндегі ауаның ең
+    жоғары температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_countdown_clock.operating_max_c
+    grade: 3
+  - section: technical_countdown_clock.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.countdown_clock.operating_max_c; neighbouring voltage_v does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.countdown_clock.operating_max_c|current
+  required:
+  - fact: technical.countdown_clock.operating_max_c
+    sections:
+    - technical_countdown_clock.operating_max_c
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_countdown_clock_voltage_v
+  category: simple
+  en: 'Event countdown clock: rated supply voltage, V?'
+  ru: '«Часы обратного отсчёта события»: номинальное напряжение питания, В?'
+  kk: '«Оқиғаның кері санау сағаты»: номиналды қорек кернеуі, В?'
+  relevant:
+  - section: technical_countdown_clock.voltage_v
+    grade: 3
+  - section: technical_countdown_clock.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.countdown_clock.voltage_v; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.countdown_clock.voltage_v|current
+  required:
+  - fact: technical.countdown_clock.voltage_v
+    sections:
+    - technical_countdown_clock.voltage_v
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_countdown_clock_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Event countdown clock (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Часы обратного
+    отсчёта события» (Вт).
+  kk: Карточкалар ұқсас. «Оқиғаның кері санау сағаты» үшін нақты «Номиналды тұтыну қуаты» көрсеткішін
+    айтыңыз (Вт).
+  relevant:
+  - section: technical_countdown_clock.power_w
+    grade: 3
+  - section: technical_countdown_clock.display_digits
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.countdown_clock.power_w; neighbouring display_digits does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.countdown_clock.power_w|current
+  required:
+  - fact: technical.countdown_clock.power_w
+    sections:
+    - technical_countdown_clock.power_w
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_countdown_clock_display_digits
+  category: hard
+  en: Check the specifcation of Event countdown clock for number of displayed digits (units), please.
+  ru: 'Проверьте характиристику «Часы обратного отсчёта события»: интересует «Число отображаемых цифр»
+    (шт.).'
+  kk: «Оқиғаның кері санау сағаты» сипатамасынан «Көрсетілетін цифрлар саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_countdown_clock.display_digits
+    grade: 3
+  - section: technical_countdown_clock.alarm_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.countdown_clock.display_digits; neighbouring alarm_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_display
+  need_key: technical.countdown_clock.display_digits|current
+  required:
+  - fact: technical.countdown_clock.display_digits
+    sections:
+    - technical_countdown_clock.display_digits
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_countdown_clock_alarm_count
+  category: simple
+  en: For Event countdown clock, what is the specified number of independent alarms in units?
+  ru: Для «Часы обратного отсчёта события» какое значение указано для показателя «Число независимых будильников»
+    (шт.)?
+  kk: «Оқиғаның кері санау сағаты» тауары үшін «Тәуелсіз оятқыштар саны» көрсеткішінің мәні қандай (дана)?
+  relevant:
+  - section: technical_countdown_clock.alarm_count
+    grade: 3
+  - section: technical_countdown_clock.controls_count
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: «Оқиғаның кері санау сағаты» үшін «Тәуелсіз оятқыштар саны» (дана) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.countdown_clock.alarm_count; neighbouring controls_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_alarm_settings
+  need_key: technical.countdown_clock.alarm_count|current
+  required:
+  - fact: technical.countdown_clock.alarm_count
+    sections:
+    - technical_countdown_clock.alarm_count
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_countdown_clock_controls_count
+  category: simple
+  en: I am comparing specifications. Find the number of physical controls for Event countdown clock, in
+    units.
+  ru: Сравниваю характеристики. Нужен показатель «Число физических органов управления» у «Часы обратного
+    отсчёта события», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Оқиғаның кері санау сағаты» үшін «Физикалық басқару элементтерінің
+    саны» мәні қажет (дана).
+  relevant:
+  - section: technical_countdown_clock.controls_count
+    grade: 3
+  - section: technical_countdown_clock.backup_hours
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.countdown_clock.controls_count; neighbouring backup_hours does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.countdown_clock.controls_count|current
+  required:
+  - fact: technical.countdown_clock.controls_count
+    sections:
+    - technical_countdown_clock.controls_count
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_countdown_clock_backup_hours
+  category: simple
+  en: 'Event countdown clock: rated clock backup duration, hours?'
+  ru: '«Часы обратного отсчёта события»: номинальная длительность резервного хода часов, часов?'
+  kk: '«Оқиғаның кері санау сағаты»: сағаттың сақтық жұмысының номиналды ұзақтығы, сағат?'
+  relevant:
+  - section: technical_countdown_clock.backup_hours
+    grade: 3
+  - section: technical_countdown_clock.drift_seconds_month
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.countdown_clock.backup_hours; neighbouring drift_seconds_month
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_backup
+  need_key: technical.countdown_clock.backup_hours|current
+  required:
+  - fact: technical.countdown_clock.backup_hours
+    sections:
+    - technical_countdown_clock.backup_hours
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_countdown_clock_drift_seconds_month
+  category: hard
+  en: The cards look similar. What maximum monthly clock drift is listed for Event countdown clock (seconds/month)?
+  ru: Карточки похожи. Уточните показатель «Максимальный месячный уход часов» именно для «Часы обратного
+    отсчёта события» (секунд/месяц).
+  kk: Карточкалар ұқсас. «Оқиғаның кері санау сағаты» үшін нақты «Сағаттың айлық ең жоғары ауытқуы» көрсеткішін
+    айтыңыз (секунд/ай).
+  relevant:
+  - section: technical_countdown_clock.drift_seconds_month
+    grade: 3
+  - section: technical_countdown_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.countdown_clock.drift_seconds_month; neighbouring mass_g does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_accuracy
+  need_key: technical.countdown_clock.drift_seconds_month|current
+  required:
+  - fact: technical.countdown_clock.drift_seconds_month
+    sections:
+    - technical_countdown_clock.drift_seconds_month
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_countdown_clock_humidity_max_percent
+  category: unanswerable
+  en: For Event countdown clock, what is the specified maximum permitted humidity in percent?
+  ru: Для «Часы обратного отсчёта события» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Оқиғаның кері санау сағаты» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_countdown_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for countdown_clock does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.countdown_clock.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_countdown_clock_drop_test_cm
+  category: unanswerable
+  en: For Event countdown clock, what is the specified certified drop-test height in cm?
+  ru: Для «Часы обратного отсчёта события» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Оқиғаның кері санау сағаты» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_countdown_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for countdown_clock does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.countdown_clock.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_countdown_clock_repair_parts_price
+  category: unanswerable
+  en: For Event countdown clock, what is the specified replacement-part price in KZT?
+  ru: Для «Часы обратного отсчёта события» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Оқиғаның кері санау сағаты» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_countdown_clock.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for countdown_clock does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.countdown_clock.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_countdown_clock_certification_id
+  category: unanswerable
+  en: For Event countdown clock, what is the specified certification record number in record?
+  ru: Для «Часы обратного отсчёта события» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Оқиғаның кері санау сағаты» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_countdown_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for countdown_clock does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.countdown_clock.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_mirror_clock_mass_g
+  category: hard
+  en: Check the specifcation of Mirror-front digital clock for mass (g), please.
+  ru: 'Проверьте характиристику «Цифровые часы с зеркальным фасадом»: интересует «Масса» (г).'
+  kk: «Айна бетті цифрлық сағат» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_mirror_clock.mass_g
+    grade: 3
+  - section: technical_mirror_clock.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mirror_clock.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.mirror_clock.mass_g|current
+  required:
+  - fact: technical.mirror_clock.mass_g
+    sections:
+    - technical_mirror_clock.mass_g
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mirror_clock_width_mm
+  category: simple
+  en: For Mirror-front digital clock, what is the specified width in mm?
+  ru: Для «Цифровые часы с зеркальным фасадом» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Айна бетті цифрлық сағат» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_mirror_clock.width_mm
+    grade: 3
+  - section: technical_mirror_clock.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mirror_clock.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.mirror_clock.width_mm|current
+  required:
+  - fact: technical.mirror_clock.width_mm
+    sections:
+    - technical_mirror_clock.width_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mirror_clock_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Mirror-front digital clock, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Цифровые часы с зеркальным фасадом», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Айна бетті цифрлық сағат» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_mirror_clock.height_mm
+    grade: 3
+  - section: technical_mirror_clock.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mirror_clock.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.mirror_clock.height_mm|current
+  required:
+  - fact: technical.mirror_clock.height_mm
+    sections:
+    - technical_mirror_clock.height_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mirror_clock_depth_mm
+  category: simple
+  en: 'Mirror-front digital clock: depth, mm?'
+  ru: '«Цифровые часы с зеркальным фасадом»: глубина, мм?'
+  kk: '«Айна бетті цифрлық сағат»: тереңдігі, мм?'
+  relevant:
+  - section: technical_mirror_clock.depth_mm
+    grade: 3
+  - section: technical_mirror_clock.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Цифровые часы с зеркальным фасадом» показатель «Глубина» (мм) нақтылап беріңізші, осы үлгі
+    үшін.
+  mix_kk: null
+  rationale: Authored target technical.mirror_clock.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.mirror_clock.depth_mm|current
+  required:
+  - fact: technical.mirror_clock.depth_mm
+    sections:
+    - technical_mirror_clock.depth_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mirror_clock_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Mirror-front digital
+    clock (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Цифровые
+    часы с зеркальным фасадом» (C).
+  kk: Карточкалар ұқсас. «Айна бетті цифрлық сағат» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_mirror_clock.operating_min_c
+    grade: 3
+  - section: technical_mirror_clock.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mirror_clock.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.mirror_clock.operating_min_c|current
+  required:
+  - fact: technical.mirror_clock.operating_min_c
+    sections:
+    - technical_mirror_clock.operating_min_c
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mirror_clock_operating_max_c
+  category: hard
+  en: Check the specifcation of Mirror-front digital clock for maximum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Цифровые часы с зеркальным фасадом»: интересует «Максимальная температура
+    воздуха при работе» (C).'
+  kk: «Айна бетті цифрлық сағат» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы» мәнін
+    тексеріңізші (C).
+  relevant:
+  - section: technical_mirror_clock.operating_max_c
+    grade: 3
+  - section: technical_mirror_clock.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mirror_clock.operating_max_c; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.mirror_clock.operating_max_c|current
+  required:
+  - fact: technical.mirror_clock.operating_max_c
+    sections:
+    - technical_mirror_clock.operating_max_c
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mirror_clock_voltage_v
+  category: simple
+  en: For Mirror-front digital clock, what is the specified rated supply voltage in V?
+  ru: Для «Цифровые часы с зеркальным фасадом» какое значение указано для показателя «Номинальное напряжение
+    питания» (В)?
+  kk: «Айна бетті цифрлық сағат» тауары үшін «Номиналды қорек кернеуі» көрсеткішінің мәні қандай (В)?
+  relevant:
+  - section: technical_mirror_clock.voltage_v
+    grade: 3
+  - section: technical_mirror_clock.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mirror_clock.voltage_v; neighbouring power_w does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.mirror_clock.voltage_v|current
+  required:
+  - fact: technical.mirror_clock.voltage_v
+    sections:
+    - technical_mirror_clock.voltage_v
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mirror_clock_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Mirror-front digital clock,
+    in W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Цифровые часы
+    с зеркальным фасадом», в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Айна бетті цифрлық сағат» үшін «Номиналды тұтыну қуаты» мәні
+    қажет (Вт).
+  relevant:
+  - section: technical_mirror_clock.power_w
+    grade: 3
+  - section: technical_mirror_clock.display_digits
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mirror_clock.power_w; neighbouring display_digits does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.mirror_clock.power_w|current
+  required:
+  - fact: technical.mirror_clock.power_w
+    sections:
+    - technical_mirror_clock.power_w
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mirror_clock_display_digits
+  category: simple
+  en: 'Mirror-front digital clock: number of displayed digits, units?'
+  ru: '«Цифровые часы с зеркальным фасадом»: число отображаемых цифр, шт.?'
+  kk: '«Айна бетті цифрлық сағат»: көрсетілетін цифрлар саны, дана?'
+  relevant:
+  - section: technical_mirror_clock.display_digits
+    grade: 3
+  - section: technical_mirror_clock.alarm_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mirror_clock.display_digits; neighbouring alarm_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_display
+  need_key: technical.mirror_clock.display_digits|current
+  required:
+  - fact: technical.mirror_clock.display_digits
+    sections:
+    - technical_mirror_clock.display_digits
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mirror_clock_alarm_count
+  category: hard
+  en: The cards look similar. What number of independent alarms is listed for Mirror-front digital clock
+    (units)?
+  ru: Карточки похожи. Уточните показатель «Число независимых будильников» именно для «Цифровые часы с
+    зеркальным фасадом» (шт.).
+  kk: Карточкалар ұқсас. «Айна бетті цифрлық сағат» үшін нақты «Тәуелсіз оятқыштар саны» көрсеткішін айтыңыз
+    (дана).
+  relevant:
+  - section: technical_mirror_clock.alarm_count
+    grade: 3
+  - section: technical_mirror_clock.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mirror_clock.alarm_count; neighbouring controls_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_alarm_settings
+  need_key: technical.mirror_clock.alarm_count|current
+  required:
+  - fact: technical.mirror_clock.alarm_count
+    sections:
+    - technical_mirror_clock.alarm_count
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mirror_clock_controls_count
+  category: hard
+  en: Check the specifcation of Mirror-front digital clock for number of physical controls (units), please.
+  ru: 'Проверьте характиристику «Цифровые часы с зеркальным фасадом»: интересует «Число физических органов
+    управления» (шт.).'
+  kk: «Айна бетті цифрлық сағат» сипатамасынан «Физикалық басқару элементтерінің саны» мәнін тексеріңізші
+    (дана).
+  relevant:
+  - section: technical_mirror_clock.controls_count
+    grade: 3
+  - section: technical_mirror_clock.backup_hours
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Айна бетті цифрлық сағат» үшін «Физикалық басқару элементтерінің саны» (дана) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.mirror_clock.controls_count; neighbouring backup_hours does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.mirror_clock.controls_count|current
+  required:
+  - fact: technical.mirror_clock.controls_count
+    sections:
+    - technical_mirror_clock.controls_count
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mirror_clock_backup_hours
+  category: simple
+  en: For Mirror-front digital clock, what is the specified rated clock backup duration in hours?
+  ru: Для «Цифровые часы с зеркальным фасадом» какое значение указано для показателя «Номинальная длительность
+    резервного хода часов» (часов)?
+  kk: «Айна бетті цифрлық сағат» тауары үшін «Сағаттың сақтық жұмысының номиналды ұзақтығы» көрсеткішінің
+    мәні қандай (сағат)?
+  relevant:
+  - section: technical_mirror_clock.backup_hours
+    grade: 3
+  - section: technical_mirror_clock.drift_seconds_month
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mirror_clock.backup_hours; neighbouring drift_seconds_month does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_backup
+  need_key: technical.mirror_clock.backup_hours|current
+  required:
+  - fact: technical.mirror_clock.backup_hours
+    sections:
+    - technical_mirror_clock.backup_hours
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mirror_clock_drift_seconds_month
+  category: simple
+  en: I am comparing specifications. Find the maximum monthly clock drift for Mirror-front digital clock,
+    in seconds/month.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальный месячный уход часов» у «Цифровые часы с
+    зеркальным фасадом», в секунд/месяц.
+  kk: Сипаттамаларды салыстырып отырмын. «Айна бетті цифрлық сағат» үшін «Сағаттың айлық ең жоғары ауытқуы»
+    мәні қажет (секунд/ай).
+  relevant:
+  - section: technical_mirror_clock.drift_seconds_month
+    grade: 3
+  - section: technical_mirror_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mirror_clock.drift_seconds_month; neighbouring mass_g does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_accuracy
+  need_key: technical.mirror_clock.drift_seconds_month|current
+  required:
+  - fact: technical.mirror_clock.drift_seconds_month
+    sections:
+    - technical_mirror_clock.drift_seconds_month
+  tags:
+  - profile_derived
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_mirror_clock_humidity_max_percent
+  category: unanswerable
+  en: For Mirror-front digital clock, what is the specified maximum permitted humidity in percent?
+  ru: Для «Цифровые часы с зеркальным фасадом» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Айна бетті цифрлық сағат» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_mirror_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mirror_clock does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.mirror_clock.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_mirror_clock_drop_test_cm
+  category: unanswerable
+  en: For Mirror-front digital clock, what is the specified certified drop-test height in cm?
+  ru: Для «Цифровые часы с зеркальным фасадом» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Айна бетті цифрлық сағат» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_mirror_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mirror_clock does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.mirror_clock.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_mirror_clock_repair_parts_price
+  category: unanswerable
+  en: For Mirror-front digital clock, what is the specified replacement-part price in KZT?
+  ru: Для «Цифровые часы с зеркальным фасадом» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Айна бетті цифрлық сағат» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_mirror_clock.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mirror_clock does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.mirror_clock.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_mirror_clock_certification_id
+  category: unanswerable
+  en: For Mirror-front digital clock, what is the specified certification record number in record?
+  ru: Для «Цифровые часы с зеркальным фасадом» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Айна бетті цифрлық сағат» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_mirror_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mirror_clock does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.mirror_clock.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_mirror_clock
+  category: multi_fragment
+  en: What does Mirror-front digital clock weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Цифровые часы с зеркальным фасадом» и какой вес посылки допускают пункты самовывоза?
+  kk: «Айна бетті цифрлық сағат» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_mirror_clock.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.mirror_clock.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.mirror_clock.mass_g
+    sections:
+    - technical_mirror_clock.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_silent_night_clock_mass_g
+  category: simple
+  en: 'Low-brightness night clock: mass, g?'
+  ru: '«Ночные часы пониженной яркости»: масса, г?'
+  kk: '«Жарықтығы төмен түнгі сағат»: салмағы, г?'
+  relevant:
+  - section: technical_silent_night_clock.mass_g
+    grade: 3
+  - section: technical_silent_night_clock.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.silent_night_clock.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.silent_night_clock.mass_g|current
+  required:
+  - fact: technical.silent_night_clock.mass_g
+    sections:
+    - technical_silent_night_clock.mass_g
+  tags:
+  - profile_derived
+  - domain_clocks
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_silent_night_clock_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Low-brightness night clock (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Ночные часы пониженной яркости» (мм).
+  kk: Карточкалар ұқсас. «Жарықтығы төмен түнгі сағат» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_silent_night_clock.width_mm
+    grade: 3
+  - section: technical_silent_night_clock.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.silent_night_clock.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.silent_night_clock.width_mm|current
+  required:
+  - fact: technical.silent_night_clock.width_mm
+    sections:
+    - technical_silent_night_clock.width_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_silent_night_clock_height_mm
+  category: hard
+  en: Check the specifcation of Low-brightness night clock for height (mm), please.
+  ru: 'Проверьте характиристику «Ночные часы пониженной яркости»: интересует «Высота» (мм).'
+  kk: «Жарықтығы төмен түнгі сағат» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_silent_night_clock.height_mm
+    grade: 3
+  - section: technical_silent_night_clock.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.silent_night_clock.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.silent_night_clock.height_mm|current
+  required:
+  - fact: technical.silent_night_clock.height_mm
+    sections:
+    - technical_silent_night_clock.height_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_silent_night_clock_depth_mm
+  category: simple
+  en: For Low-brightness night clock, what is the specified depth in mm?
+  ru: Для «Ночные часы пониженной яркости» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Жарықтығы төмен түнгі сағат» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_silent_night_clock.depth_mm
+    grade: 3
+  - section: technical_silent_night_clock.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.silent_night_clock.depth_mm; neighbouring operating_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.silent_night_clock.depth_mm|current
+  required:
+  - fact: technical.silent_night_clock.depth_mm
+    sections:
+    - technical_silent_night_clock.depth_mm
+  tags:
+  - profile_derived
+  - domain_clocks
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_silent_night_clock_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Low-brightness
+    night clock, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Ночные
+    часы пониженной яркости», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Жарықтығы төмен түнгі сағат» үшін «Жұмыс кезіндегі ауаның ең
+    төмен температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_silent_night_clock.operating_min_c
+    grade: 3
+  - section: technical_silent_night_clock.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Ночные часы пониженной яркости» показатель «Минимальная температура воздуха при работе» (C)
+    нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.silent_night_clock.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.silent_night_clock.operating_min_c|current
+  required:
+  - fact: technical.silent_night_clock.operating_min_c
+    sections:
+    - technical_silent_night_clock.operating_min_c
+  tags:
+  - profile_derived
+  - domain_clocks
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_silent_night_clock_operating_max_c
+  category: hard
+  en: 'Low-brightness night clock: maximum operating ambient temperature, C?'
+  ru: '«Ночные часы пониженной яркости»: максимальная температура воздуха при работе, C?'
+  kk: '«Жарықтығы төмен түнгі сағат»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_silent_night_clock.operating_max_c
+    grade: 3
+  - section: technical_silent_night_clock.voltage_v
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.silent_night_clock.operating_max_c; neighbouring voltage_v does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.silent_night_clock.operating_max_c|current
+  required:
+  - fact: technical.silent_night_clock.operating_max_c
+    sections:
+    - technical_silent_night_clock.operating_max_c
+  tags:
+  - profile_derived
+  - domain_clocks
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_silent_night_clock_voltage_v
+  category: hard
+  en: The cards look similar. What rated supply voltage is listed for Low-brightness night clock (V)?
+  ru: Карточки похожи. Уточните показатель «Номинальное напряжение питания» именно для «Ночные часы пониженной
+    яркости» (В).
+  kk: Карточкалар ұқсас. «Жарықтығы төмен түнгі сағат» үшін нақты «Номиналды қорек кернеуі» көрсеткішін
+    айтыңыз (В).
+  relevant:
+  - section: technical_silent_night_clock.voltage_v
+    grade: 3
+  - section: technical_silent_night_clock.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.silent_night_clock.voltage_v; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.silent_night_clock.voltage_v|current
+  required:
+  - fact: technical.silent_night_clock.voltage_v
+    sections:
+    - technical_silent_night_clock.voltage_v
+  tags:
+  - profile_derived
+  - domain_clocks
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_silent_night_clock_power_w
+  category: hard
+  en: Check the specifcation of Low-brightness night clock for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Ночные часы пониженной яркости»: интересует «Номинальная потребляемая
+    мощность» (Вт).'
+  kk: «Жарықтығы төмен түнгі сағат» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_silent_night_clock.power_w
+    grade: 3
+  - section: technical_silent_night_clock.display_digits
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.silent_night_clock.power_w; neighbouring display_digits does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.silent_night_clock.power_w|current
+  required:
+  - fact: technical.silent_night_clock.power_w
+    sections:
+    - technical_silent_night_clock.power_w
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_silent_night_clock_display_digits
+  category: simple
+  en: For Low-brightness night clock, what is the specified number of displayed digits in units?
+  ru: Для «Ночные часы пониженной яркости» какое значение указано для показателя «Число отображаемых цифр»
+    (шт.)?
+  kk: «Жарықтығы төмен түнгі сағат» тауары үшін «Көрсетілетін цифрлар саны» көрсеткішінің мәні қандай
+    (дана)?
+  relevant:
+  - section: technical_silent_night_clock.display_digits
+    grade: 3
+  - section: technical_silent_night_clock.alarm_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.silent_night_clock.display_digits; neighbouring alarm_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_display
+  need_key: technical.silent_night_clock.display_digits|current
+  required:
+  - fact: technical.silent_night_clock.display_digits
+    sections:
+    - technical_silent_night_clock.display_digits
+  tags:
+  - profile_derived
+  - domain_clocks
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_silent_night_clock_alarm_count
+  category: simple
+  en: I am comparing specifications. Find the number of independent alarms for Low-brightness night clock,
+    in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число независимых будильников» у «Ночные часы пониженной
+    яркости», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Жарықтығы төмен түнгі сағат» үшін «Тәуелсіз оятқыштар саны»
+    мәні қажет (дана).
+  relevant:
+  - section: technical_silent_night_clock.alarm_count
+    grade: 3
+  - section: technical_silent_night_clock.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.silent_night_clock.alarm_count; neighbouring controls_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_alarm_settings
+  need_key: technical.silent_night_clock.alarm_count|current
+  required:
+  - fact: technical.silent_night_clock.alarm_count
+    sections:
+    - technical_silent_night_clock.alarm_count
+  tags:
+  - profile_derived
+  - domain_clocks
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_silent_night_clock_controls_count
+  category: simple
+  en: 'Low-brightness night clock: number of physical controls, units?'
+  ru: '«Ночные часы пониженной яркости»: число физических органов управления, шт.?'
+  kk: '«Жарықтығы төмен түнгі сағат»: физикалық басқару элементтерінің саны, дана?'
+  relevant:
+  - section: technical_silent_night_clock.controls_count
+    grade: 3
+  - section: technical_silent_night_clock.backup_hours
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.silent_night_clock.controls_count; neighbouring backup_hours does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.silent_night_clock.controls_count|current
+  required:
+  - fact: technical.silent_night_clock.controls_count
+    sections:
+    - technical_silent_night_clock.controls_count
+  tags:
+  - profile_derived
+  - domain_clocks
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_silent_night_clock_backup_hours
+  category: hard
+  en: The cards look similar. What rated clock backup duration is listed for Low-brightness night clock
+    (hours)?
+  ru: Карточки похожи. Уточните показатель «Номинальная длительность резервного хода часов» именно для
+    «Ночные часы пониженной яркости» (часов).
+  kk: Карточкалар ұқсас. «Жарықтығы төмен түнгі сағат» үшін нақты «Сағаттың сақтық жұмысының номиналды
+    ұзақтығы» көрсеткішін айтыңыз (сағат).
+  relevant:
+  - section: technical_silent_night_clock.backup_hours
+    grade: 3
+  - section: technical_silent_night_clock.drift_seconds_month
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Жарықтығы төмен түнгі сағат» үшін «Сағаттың сақтық жұмысының номиналды ұзақтығы» (сағат) керек,
+    уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.silent_night_clock.backup_hours; neighbouring drift_seconds_month
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_backup
+  need_key: technical.silent_night_clock.backup_hours|current
+  required:
+  - fact: technical.silent_night_clock.backup_hours
+    sections:
+    - technical_silent_night_clock.backup_hours
+  tags:
+  - profile_derived
+  - domain_clocks
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_silent_night_clock_drift_seconds_month
+  category: hard
+  en: Check the specifcation of Low-brightness night clock for maximum monthly clock drift (seconds/month),
+    please.
+  ru: 'Проверьте характиристику «Ночные часы пониженной яркости»: интересует «Максимальный месячный уход
+    часов» (секунд/месяц).'
+  kk: «Жарықтығы төмен түнгі сағат» сипатамасынан «Сағаттың айлық ең жоғары ауытқуы» мәнін тексеріңізші
+    (секунд/ай).
+  relevant:
+  - section: technical_silent_night_clock.drift_seconds_month
+    grade: 3
+  - section: technical_silent_night_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.silent_night_clock.drift_seconds_month; neighbouring mass_g does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_clock_accuracy
+  need_key: technical.silent_night_clock.drift_seconds_month|current
+  required:
+  - fact: technical.silent_night_clock.drift_seconds_month
+    sections:
+    - technical_silent_night_clock.drift_seconds_month
+  tags:
+  - profile_derived
+  - domain_clocks
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_silent_night_clock_humidity_max_percent
+  category: unanswerable
+  en: For Low-brightness night clock, what is the specified maximum permitted humidity in percent?
+  ru: Для «Ночные часы пониженной яркости» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Жарықтығы төмен түнгі сағат» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_silent_night_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for silent_night_clock does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.silent_night_clock.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_silent_night_clock_drop_test_cm
+  category: unanswerable
+  en: For Low-brightness night clock, what is the specified certified drop-test height in cm?
+  ru: Для «Ночные часы пониженной яркости» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Жарықтығы төмен түнгі сағат» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_silent_night_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for silent_night_clock does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.silent_night_clock.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_silent_night_clock_repair_parts_price
+  category: unanswerable
+  en: For Low-brightness night clock, what is the specified replacement-part price in KZT?
+  ru: Для «Ночные часы пониженной яркости» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Жарықтығы төмен түнгі сағат» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_silent_night_clock.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for silent_night_clock does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.silent_night_clock.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_silent_night_clock_certification_id
+  category: unanswerable
+  en: For Low-brightness night clock, what is the specified certification record number in record?
+  ru: Для «Ночные часы пониженной яркости» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Жарықтығы төмен түнгі сағат» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_silent_night_clock.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for silent_night_clock does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.silent_night_clock.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_clocks
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact

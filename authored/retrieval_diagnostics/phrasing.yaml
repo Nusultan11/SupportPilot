@@ -1,0 +1,40 @@
+schema_version: retrieval_diagnostic_source/1
+origin: llm_generated
+review_status: draft
+author: Codex (LLM), 2026-11-13
+allowed_use: eval_only
+licence_note: Original fictional-store diagnostic phrasing; no external data. Fluent human review pending.
+scope: Post-selection development-only diagnostic. Variants reuse existing needs and never increase independent need counts; no retuning or fresh holdout claim.
+templates:
+  mass_g:
+    en: 'How heavy is "{product}" in grams, according to its card?'
+    ru: 'Сколько «{product}» в граммах потянет? Нужен вес по карточке.'
+    kk: 'Мына «{product}» неше грамм тартады? Карточкадағы санын айтыңызшы.'
+  width_mm:
+    en: 'How wide is "{product}"? Please give the millimetre measurement from its card.'
+    ru: 'Какую ширину в миллиметрах указали для «{product}»? Подскажите по карточке.'
+    kk: '«{product}» енін миллиметрмен айта аласыз ба? Карточкадағы мәлімет керек.'
+  height_mm:
+    en: 'How tall is "{product}" in millimetres, as specified?'
+    ru: 'Насколько высокий «{product}», если считать в миллиметрах? Нужна цифра из описания.'
+    kk: '«{product}» қаншалықты биік? Сипаттамадағы мәнін миллиметрмен айтыңызшы.'
+  operating_min_c:
+    en: 'What is the coldest surrounding air permitted while "{product}" operates, in Celsius?'
+    ru: 'Какой самый холодный окружающий воздух допускается, когда «{product}» работает? Нужны градусы Цельсия.'
+    kk: '«{product}» жұмыс істеп тұрғанда айналасындағы ауаның ең суық рұқсат етілген мәні неше градус Цельсий?'
+  operating_max_c:
+    en: 'What is the hottest surrounding air permitted while "{product}" operates, in Celsius?'
+    ru: 'Какой самый горячий окружающий воздух допускается для работающего «{product}»? Нужны градусы Цельсия.'
+    kk: '«{product}» жұмыс істеп тұрғанда айналасындағы ауаның ең ыстық рұқсат етілген мәні неше градус Цельсий?'
+  power_w:
+    en: 'How many watts does "{product}" draw at its rated operating point?'
+    ru: 'Сколько ватт берёт «{product}» при работе? Интересует номинальное потребление по карточке.'
+    kk: '«{product}» номиналды жұмыс режимінде қанша ватт тұтынады? Карточка бойынша айтыңызшы.'
+  storage_max_c:
+    en: 'What upper Celsius limit is stated for keeping "{product}" in storage?'
+    ru: 'До какого градуса Цельсия разрешено хранить «{product}»? Нужен верхний порог из карточки.'
+    kk: '«{product}» сақтауға рұқсат етілетін ең жоғары шек неше градус Цельсий? Карточкадан айтыңызшы.'
+  cable_cm:
+    en: 'How many centimetres is the lead supplied with "{product}"?'
+    ru: 'Какой протяжённости провод идёт в комплекте с «{product}»? Скажите в сантиметрах.'
+    kk: '«{product}» жинағындағы сым неше сантиметрге жетеді? Жинақтағы сым туралы сұрап тұрмын.'

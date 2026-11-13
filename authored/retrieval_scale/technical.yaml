@@ -1,0 +1,238 @@
+schema_version: retrieval_scale_source/1
+origin: llm_generated
+review_status: draft
+author: Codex (LLM), 2026-11-13
+allowed_use: eval_only
+licence_note: Original fictional demo-store questions, internal evaluation; no independent human review or dataset redistribution licence.
+items:
+  - id: scale_tv55_arc
+    family_id: television_audio_return
+    need_key: tv5501_arc_socket_not_total_hdmi_count
+    category: hard
+    en: 'My soundbar needs audio return, not just a spare input. Which TV-5501 socket should I use?'
+    ru: 'Саундбару нужен обратный звук, а не просто свободный вход. В какой разъём TV-5501 его подключить?'
+    kk: 'Саундбарға жай бос кіріс емес, кері дыбыс арнасы керек. TV-5501 үлгісінің қай ұясына қосамын?'
+    mix_kk: 'TV-5501 үшін саундбардың обратный звук арнасына қай HDMI керек?'
+    relevant: [{section: display_connections.tv55_arc, grade: 3}, {section: display_connections.tv43_arc, grade: 0}]
+    required: [{fact: display_tv55_arc, sections: [display_connections.tv55_arc]}]
+    rationale: ARC socket is HDMI 2 on this exact model; the HDMI count and the smaller TV are insufficient.
+    tags: [compatibility, hard_negative]
+    cross_lingual: true
+  - id: scale_tv43_arc
+    family_id: television_audio_return
+    need_key: tv4302_arc_socket_despite_included_bracket
+    category: hard
+    en: 'I bought the smaller TV-4302 with its bracket. Does that tell me where the soundbar return channel connects?'
+    ru: 'Купил небольшой TV-4302 с кронштейном. Куда подключается обратный аудиоканал саундбара у этой модели?'
+    kk: 'Кронштейні бар шағын TV-4302 сатып алдым. Осы үлгіде саундбардың кері дыбыс арнасы қайда қосылады?'
+    relevant: [{section: display_connections.tv43_arc, grade: 3}, {section: display_connections.tv55_arc, grade: 0}]
+    required: [{fact: display_tv43_arc, sections: [display_connections.tv43_arc]}]
+    rationale: The smaller model uses HDMI 1; bracket inclusion is an intentionally irrelevant cue.
+    tags: [compatibility, hard_negative]
+  - id: scale_tv55_mount
+    family_id: television_mounting
+    need_key: tv5501_mount_pattern_and_bracket_inclusion
+    category: simple
+    en: 'For a TV-5501 wall installation, what screw-hole spacing and bracket contents are actually specified?'
+    ru: 'Что именно указано для настенного крепления TV-5501: расстояние между отверстиями и наличие кронштейна?'
+    kk: 'TV-5501 қабырға бекіткіші үшін тесіктер аралығы мен кронштейннің жинақта болуы қалай көрсетілген?'
+    relevant: [{section: display_connections.tv55_mount, grade: 3}]
+    required: [{fact: display_tv55_mount, sections: [display_connections.tv55_mount]}]
+    rationale: The named source states both 200 x 200 mm and exclusion of a wall bracket.
+    tags: [product_dimensions]
+    cross_lingual: true
+  - id: scale_tv43_mount
+    family_id: television_mounting
+    need_key: tv4302_mount_pattern_not_tv5501
+    category: hard
+    en: 'Will a mount described only as 200 by 200 match the mounting pattern listed for TV-4302?'
+    ru: 'Совпадает ли крепление с маркировкой только 200 на 200 со схемой отверстий, указанной у TV-4302?'
+    kk: 'Тек 200 де 200 деп белгіленген бекіткіш TV-4302 үшін көрсетілген тесік сызбасына сәйкес пе?'
+    mix_ru: 'Для TV-4302 тесік аралығы қандай: 200 на 200 ма, әлде другое?'
+    relevant: [{section: display_connections.tv43_mount, grade: 3}, {section: display_connections.tv55_mount, grade: 0}]
+    required: [{fact: display_tv43_mount, sections: [display_connections.tv43_mount]}]
+    rationale: TV-4302 specifies 200 x 100, so a sole 200 x 200 marking is insufficient to establish fit.
+    tags: [product_dimensions, hard_negative]
+  - id: scale_laptop_video
+    family_id: laptop_connector_capabilities
+    need_key: lp1406_usb_c_data_does_not_imply_video
+    category: hard
+    en: 'LP-1406 has USB-C, so can I run a DisplayPort screen from it instead of using HDMI?'
+    ru: 'У LP-1406 есть USB-C: значит, можно вывести через него DisplayPort на монитор вместо HDMI?'
+    kk: 'LP-1406 үлгісінде USB-C бар: демек, HDMI орнына мониторға DisplayPort бейнесін сол арқылы шығаруға бола ма?'
+    relevant: [{section: display_connections.laptop_video, grade: 3}]
+    required: [{fact: display_laptop_video, sections: [display_connections.laptop_video]}]
+    rationale: A data connector does not imply video capability; the source explicitly excludes DisplayPort.
+    tags: [compatibility, misleading_premise]
+    cross_lingual: true
+  - id: scale_laptop_power
+    family_id: laptop_connector_capabilities
+    need_key: lp1406_usb_c_charge_adapter_exception
+    category: hard
+    en: 'Could a video adapter let the LP-1406 charge from my USB-C charger, or is its power connector still required?'
+    ru: 'Видеоадаптер позволит зарядить LP-1406 от моей зарядки USB-C или всё равно нужен его разъём питания?'
+    kk: 'Бейне адаптері LP-1406 үлгісін USB-C зарядтағышымен зарядтауға мүмкіндік бере ме, әлде өз қуат ұясы қажет пе?'
+    relevant: [{section: display_connections.laptop_power, grade: 3}]
+    required: [{fact: display_laptop_power, sections: [display_connections.laptop_power]}]
+    rationale: The power requirement is explicitly unchanged by a video adapter.
+    tags: [compatibility, exception]
+  - id: scale_pb20_shared
+    family_id: shared_charging_power
+    need_key: pb2010_two_devices_aggregate_power
+    category: hard
+    en: 'Two phones will be connected to PB-2010 at once. Is the advertised single-device wattage available to each one?'
+    ru: 'К PB-2010 одновременно подключу два телефона. Каждый получит заявленную мощность для одного устройства?'
+    kk: 'PB-2010 құрылғысына екі телефонды қатар қосамын. Бір құрылғыға көрсетілген қуат әрқайсысына беріле ме?'
+    mix_kk: 'PB-2010 арқылы екі телефонды бірге зарядтасам, суммарная мощность қанша болады?'
+    relevant: [{section: portable_charging.pb20_shared, grade: 3}, {section: portable_charging.pb10_shared, grade: 0}]
+    required: [{fact: charging_pb20_shared, sections: [portable_charging.pb20_shared]}]
+    rationale: Single-device 22.5 W differs from the shared 15 W ceiling.
+    tags: [conditional_limit, hard_negative]
+    cross_lingual: true
+  - id: scale_pb10_shared
+    family_id: shared_charging_power
+    need_key: pb1005_usb_a_plus_c_aggregate_limit
+    category: hard
+    en: 'For PB-1005, what changes in the output limit if USB-A and USB-C are both occupied?'
+    ru: 'Как меняется ограничение PB-1005, если заняты и USB-A, и USB-C?'
+    kk: 'PB-1005 үлгісінде USB-A мен USB-C екеуі де қолданылса, шығыс шегі қалай өзгереді?'
+    relevant: [{section: portable_charging.pb10_shared, grade: 3}]
+    required: [{fact: charging_pb10_shared, sections: [portable_charging.pb10_shared]}]
+    rationale: Shared output is 12 W, not the 18 W single-output rating.
+    tags: [conditional_limit]
+  - id: scale_pb20_wireless
+    family_id: charging_input_direction
+    need_key: pb2010_recharge_socket_and_no_wireless_coil
+    category: simple
+    en: 'Can PB-2010 refill its battery on a wireless pad, or do its input instructions require a cable?'
+    ru: 'PB-2010 можно зарядить на беспроводной площадке или в инструкции по входу требуется кабель?'
+    kk: 'PB-2010 аккумуляторын сымсыз төсемде толтыруға бола ма, әлде кіріс нұсқаулығы кабельді талап ете ме?'
+    relevant: [{section: portable_charging.pb20_input, grade: 3}]
+    required: [{fact: charging_pb20_input, sections: [portable_charging.pb20_input]}]
+    rationale: The source excludes a wireless coil and names either USB-C socket as input.
+    tags: [compatibility]
+  - id: scale_pb10_input
+    family_id: charging_input_direction
+    need_key: pb1005_usb_a_not_recharge_input
+    category: hard
+    en: 'My cable fits the PB-1005 USB-A socket. Does a fitting plug mean it can recharge the power bank there?'
+    ru: 'Кабель подходит к USB-A у PB-1005. Раз штекер подходит, можно через этот порт зарядить сам пауэрбанк?'
+    kk: 'Кабелім PB-1005 құрылғысының USB-A ұясына сыяды. Ашасы сәйкес келсе, сол портпен пауэрбанктің өзін зарядтауға бола ма?'
+    relevant: [{section: portable_charging.pb10_input, grade: 3}]
+    required: [{fact: charging_pb10_input, sections: [portable_charging.pb10_input]}]
+    rationale: Physical fit does not change the USB-A output-only direction.
+    tags: [misleading_premise]
+    cross_lingual: true
+  - id: scale_wired_audio
+    family_id: headphone_connection_type
+    need_key: hp0312_digital_connector_and_battery_requirement
+    category: simple
+    en: 'Before taking HP-0312 on a trip, do I need to charge it or find a round analogue headphone jack?'
+    ru: 'Перед поездкой с HP-0312 нужно зарядить их или найти круглый аналоговый разъём для наушников?'
+    kk: 'HP-0312 құлаққабымен жолға шығар алдында оны зарядтау немесе дөңгелек аналогтік құлаққап ұясын табу керек пе?'
+    relevant: [{section: portable_charging.wired_audio, grade: 3}]
+    required: [{fact: charging_hp_wired, sections: [portable_charging.wired_audio]}]
+    rationale: Digital USB-C and no charging requirement are both explicitly stated for HP-0312.
+    tags: [rare_document, compatibility]
+  - id: scale_wireless_audio
+    family_id: headphone_connection_type
+    need_key: hp0305_bluetooth_not_wireless_charging
+    category: hard
+    en: 'The HP-0305 description says Bluetooth. Can I infer charging without a cable from that?'
+    ru: 'В описании HP-0305 написано Bluetooth. Можно из этого сделать вывод, что кабель для зарядки не нужен?'
+    kk: 'HP-0305 сипаттамасында Bluetooth жазылған. Осыдан зарядтауға кабель қажет емес деп қорытынды жасауға бола ма?'
+    relevant: [{section: portable_charging.wireless_audio, grade: 3}]
+    required: [{fact: charging_hp_wireless, sections: [portable_charging.wireless_audio]}]
+    rationale: Playback transport and charging method are separate capabilities.
+    tags: [misleading_premise]
+  - id: scale_dress_care
+    family_id: cotton_care_conditions
+    need_key: dr1131_delicate_temperature_bleach_drying
+    category: simple
+    en: 'What does the DR-1131 care label say about a wash cycle, bleach and drying in direct sun?'
+    ru: 'Что на ярлыке DR-1131 указано про режим стирки, отбеливатель и сушку под прямым солнцем?'
+    kk: 'DR-1131 күтім жапсырмасында жуу режимі, ағартқыш және тікелей күнде кептіру туралы не жазылған?'
+    relevant: [{section: textile_care.dress, grade: 3}]
+    required: [{fact: care_dress, sections: [textile_care.dress]}]
+    rationale: The exact SKU care label covers all requested conditions.
+    tags: [conditions]
+    cross_lingual: true
+  - id: scale_shirt_care
+    family_id: cotton_care_conditions
+    need_key: sh0410_dark_colour_separation_buttons_temperature
+    category: hard
+    en: 'A dark SH-0410 is going into the wash. Which preparation and temperature does its own label specify?'
+    ru: 'Собираюсь стирать тёмную SH-0410. Какая подготовка и температура указаны именно для этой рубашки?'
+    kk: 'Қара SH-0410 жейдесін жумақпын. Дәл осы жейдеге қандай дайындық пен температура көрсетілген?'
+    relevant: [{section: textile_care.shirt, grade: 3}, {section: textile_care.dress, grade: 0}]
+    required: [{fact: care_shirt, sections: [textile_care.shirt]}]
+    rationale: A shared cotton material does not imply the dress temperature applies to the shirt.
+    tags: [hard_negative]
+  - id: scale_jeans_care
+    family_id: denim_care
+    need_key: jn2232_inside_out_chlorine_and_temperature
+    category: simple
+    en: 'How should JN-2232 be turned and sorted before washing, and is chlorine allowed?'
+    ru: 'Как вывернуть и с чем рассортировать JN-2232 перед стиркой, допускается ли хлор?'
+    kk: 'JN-2232 шалбарын жуар алдында қалай айналдырып, немен сұрыптау керек және хлорға рұқсат па?'
+    relevant: [{section: textile_care.jeans, grade: 3}]
+    required: [{fact: care_jeans, sections: [textile_care.jeans]}]
+    rationale: The jeans care source states turning, colour grouping and chlorine exclusion.
+    tags: [rare_document]
+  - id: scale_backpack_care
+    family_id: leather_care
+    need_key: bg0711_wipe_vs_immersion_machine
+    category: hard
+    en: 'BG-0711 looks dirty inside. Is immersing it or using a washing machine compatible with its cleaning instructions?'
+    ru: 'BG-0711 загрязнился внутри. Можно ли по инструкции погрузить его в воду или отправить в стиральную машину?'
+    kk: 'BG-0711 сөмкесінің іші ластанды. Нұсқаулық бойынша оны суға батыруға немесе кір жуғыш машинаға салуға бола ма?'
+    mix_kk: 'BG-0711 сөмкесін стиралкаға салмай, қалай тазалау керек?'
+    relevant: [{section: textile_care.backpack, grade: 3}]
+    required: [{fact: care_backpack, sections: [textile_care.backpack]}]
+    rationale: Both immersion and machine washing are explicitly excluded for this leather item.
+    tags: [exception, rare_document]
+  - id: scale_blanket_care
+    family_id: bedding_care
+    need_key: bl1515_wash_and_closed_storage_drying
+    category: simple
+    en: 'After machine-washing BL-1515, can it go straight into a closed bag while damp?'
+    ru: 'После машинной стирки BL-1515 можно сразу убрать во влажном виде в закрытый чехол?'
+    kk: 'BL-1515 көрпесін машинада жуғаннан кейін дымқыл күйінде бірден жабық қапқа салуға бола ма?'
+    relevant: [{section: textile_care.blanket, grade: 3}]
+    required: [{fact: care_blanket, sections: [textile_care.blanket]}]
+    rationale: Permitted machine washing does not waive complete drying before closed storage.
+    tags: [conditions]
+    cross_lingual: true
+  - id: scale_jacket_care
+    family_id: down_care
+    need_key: jk0560_professional_wet_cleaning_not_home_wash
+    category: hard
+    en: 'Does wet cleaning on the JK-0560 label mean a household washer is an approved substitute?'
+    ru: 'Аквачистка на ярлыке JK-0560 означает, что вместо неё разрешена обычная домашняя стиральная машина?'
+    kk: 'JK-0560 жапсырмасындағы сумен тазалау кәдімгі үй кір жуғыш машинасын қолдануға рұқсат береді ме?'
+    relevant: [{section: textile_care.jacket, grade: 3}]
+    required: [{fact: care_jacket, sections: [textile_care.jacket]}]
+    rationale: Professional wet cleaning is explicitly distinguished from excluded household washing.
+    tags: [terminology, exception]
+  - id: scale_battery_handover
+    family_id: unsafe_battery_transport
+    need_key: swollen_power_bank_shipping_requires_operator
+    category: hard
+    en: 'A power bank case has swollen. Does the service guide authorise putting it in an ordinary postal parcel?'
+    ru: 'Корпус пауэрбанка вздулся. Инструкция сервиса разрешает отправить его обычной почтовой посылкой?'
+    kk: 'Пауэрбанктің корпусы ісінді. Сервис нұсқаулығы оны кәдімгі пошта сәлемдемесімен жіберуге рұқсат бере ме?'
+    relevant: [{section: service_intake.battery, grade: 3}]
+    required: [{fact: packing_battery, sections: [service_intake.battery]}]
+    rationale: The source requires an operator before arranging transport and does not authorise normal post.
+    tags: [safety_escalation, exception]
+  - id: scale_repair_consent
+    family_id: repair_consent
+    need_key: handover_not_unspecified_paid_repair_approval
+    category: hard
+    en: 'I handed the item to service but have not accepted a quote. Does the handover itself approve a paid repair?'
+    ru: 'Товар передан в сервис, но смету я не подтверждал. Сама передача уже считается согласием на платный ремонт?'
+    kk: 'Тауарды сервиске тапсырдым, бірақ сметаны бекітпедім. Тапсырудың өзі ақылы жөндеуге келісім болып санала ма?'
+    relevant: [{section: service_intake.paid_consent, grade: 3}]
+    required: [{fact: packing_repair_consent, sections: [service_intake.paid_consent]}]
+    rationale: A separate approval after diagnostics and a quote is required.
+    tags: [exception]

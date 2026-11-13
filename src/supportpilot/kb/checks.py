@@ -23,6 +23,7 @@ import re
 import unicodedata
 from collections import Counter, defaultdict
 from collections.abc import Iterable, Mapping
+from decimal import Decimal
 from pathlib import Path
 from typing import Any
 
@@ -37,6 +38,9 @@ from supportpilot.kb.register import Expected, ExpectedPlacement, Register
 MAX_FAILURES = 50
 _WORD = re.compile(r"\w+")
 _NUMBER = re.compile(r"\d{1,3}(?:[ ,]\d{3})+(?!\d)|\d+(?:\.\d+)?")
+_SIGNED_NUMBER = re.compile(
+    r"(?<![\w.+\-\u2212])[-+\u2212]?(?:\d{1,3}(?:[ ,]\d{3})+|\d+)(?:\.\d+)?(?!\d|\.\d)"
+)
 _EMAIL = re.compile(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+")
 _PHONE = re.compile(r"\+?\d[\d ()-]{8,}\d")
 _LETTER = re.compile(r"[^\W\d_]")
@@ -141,6 +145,8 @@ def gate_metadata(docs: list[KBDocument], register: Register, expected: Expected
             fails.append(f"{e.path}: title {d.title!r} != {x.title!r}")
         if d.effective_from != x.effective_from:
             fails.append(f"{e.path}: effective_from {d.effective_from} != {x.effective_from}")
+        if d.effective_to != x.effective_to or d.effective_to != e.effective_to:
+            fails.append(f"{e.path}: effective_to differs from the source register")
         if (d.doc_id, d.lang, d.doc_type, d.format) != (e.doc_id, e.lang, e.doc_type, e.format):
             fails.append(f"{e.path}: identity differs from the register")
     return _gate(fails, documents=len(by_path))
@@ -179,9 +185,12 @@ def _find(p: ExpectedPlacement, cands: list[KBChunk]) -> KBChunk | None:
     for c in cands:
         text = norm(c.text)
         if surface in text and (
-            not isinstance(p.value, int)
+            not isinstance(p.value, int | float)
             or isinstance(p.value, bool)
-            or numbers(text)[str(p.value)] > 0
+            or any(
+                Decimal(re.sub(r"[ ,]", "", token).replace("\u2212", "-")) == Decimal(str(p.value))
+                for token in _SIGNED_NUMBER.findall(text)
+            )
         ):
             return c
     return None

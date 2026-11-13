@@ -135,6 +135,7 @@ def _register_entry(doc: RenderedDoc, data: bytes) -> RegisterEntry:
         format=doc.format,
         title=doc.title,
         effective_from=doc.effective_from,
+        effective_to=doc.effective_to,
         sha256=sha256_bytes(data),
         bytes=len(data),
         key_column=0 if doc.records is not None else None,
@@ -164,6 +165,7 @@ def render(cfg: KBConfig) -> dict[str, Any]:
         expected[d.path] = ExpectedDoc(
             title=d.title,
             effective_from=d.effective_from,
+            effective_to=d.effective_to,
             placements=[ExpectedPlacement(**p.__dict__) for p in d.placements],
             content=d.content_strings(),
         )
@@ -176,9 +178,17 @@ def render(cfg: KBConfig) -> dict[str, Any]:
             removed.append(rel)
     params = {"writers": writer_params(), "spec_files": _spec_hashes(cfg.source_root)}
     register = Register(kb=cfg.name, render_params=params, documents=entries)
-    write_json(out / REGISTER, register.model_dump(mode="json"))
+    register_data = register.model_dump(mode="json")
+    for entry in register_data["documents"]:
+        if entry["effective_to"] is None:
+            del entry["effective_to"]
+    write_json(out / REGISTER, register_data)
     exp = Expected(facts=fact_registry(sources), documents=expected)
-    write_json(out / EXPECTED, exp.model_dump(mode="json"))
+    expected_data = exp.model_dump(mode="json")
+    for entry in expected_data["documents"].values():
+        if entry["effective_to"] is None:
+            del entry["effective_to"]
+    write_json(out / EXPECTED, expected_data)
     return {"documents": len(entries), "written": written, "removed": removed,
             "unchanged": len(entries) - len(written)}  # fmt: skip
 
@@ -329,7 +339,9 @@ def build(
         key = (e.doc_id, e.lang)
         old = prev_docs.get(key)
         if (not force and old is not None and old.version == e.sha256
-                and prev_params.get(f"{e.doc_id}|{e.lang}") == psha):  # fmt: skip
+                and prev_params.get(f"{e.doc_id}|{e.lang}") == psha
+                and (old.effective_from, old.effective_to, old.doc_type)
+                == (e.effective_from, e.effective_to, e.doc_type)):  # fmt: skip
             docs.append(old)
             chunks.extend(prev_chunks.get(key, []))
             status["unchanged"].append(e.path)

@@ -1,0 +1,153 @@
+schema_version: retrieval_scale_source/1
+origin: llm_generated
+review_status: draft
+author: Codex (LLM), 2026-11-13
+allowed_use: eval_only
+licence_note: Original fictional historical policy cases; internal evaluation. No independent human verification.
+items:
+  - id: history_payment_retry
+    family_id: dated_payment_retry
+    need_key: payment_retry_interval|2026_10_15
+    category: hard
+    as_of: '2026-10-15'
+    en: 'For a failed authorisation on 15 October 2026, which retry interval applied under the instruction valid that day?'
+    ru: 'Для неудачной авторизации 15 октября 2026 года какой интервал повтора действовал по инструкции того дня?'
+    kk: '2026 жылғы 15 қазандағы сәтсіз авторизацияға сол күнгі нұсқаулық бойынша қандай қайталау аралығы қолданылды?'
+    relevant: [{section: payment_retry_archive.retry, grade: 3}, {section: payment_policy.failed_payment, grade: 0}]
+    required: [{fact: archive_payment_retry_minutes, sections: [payment_retry_archive.retry]}]
+    rationale: The request date falls inside the archived interval and before the successor policy; the current value cannot be backdated.
+    tags: [temporal, historical, hard_negative]
+    cross_lingual: true
+  - id: current_payment_retry
+    family_id: dated_payment_retry
+    need_key: payment_retry_interval|2026_11_12
+    category: hard
+    as_of: '2026-11-12'
+    en: 'For a failed authorisation on 12 November 2026, which waiting interval applies, rather than the expired payment instruction?'
+    ru: 'Для неудачной авторизации 12 ноября 2026 года какой интервал ожидания применяется вместо просроченной инструкции оплаты?'
+    kk: '2026 жылғы 12 қарашадағы сәтсіз авторизацияға мерзімі өткен төлем нұсқаулығының орнына қандай күту аралығы қолданылады?'
+    relevant: [{section: payment_policy.failed_payment, grade: 3}, {section: payment_retry_archive.retry, grade: 0}]
+    required: [{fact: payment_retry_minutes, sections: [payment_policy.failed_payment]}]
+    rationale: The current policy applies and the historical ten-minute interval is expired for this attempt.
+    tags: [temporal, current_policy, hard_negative]
+  - id: compare_payment_retry_dates
+    family_id: dated_payment_retry
+    need_key: compare_payment_retry_intervals|october_november_2026
+    category: multi_fragment
+    all_versions: true
+    en: 'How did the payment retry interval change between 15 October and 12 November 2026? Give both dated values.'
+    ru: 'Как изменился интервал повторной оплаты между 15 октября и 12 ноября 2026 года? Нужны оба значения с датами.'
+    kk: '2026 жылғы 15 қазан мен 12 қараша арасында төлемді қайталау аралығы қалай өзгерді? Екі мәнді де күнімен көрсетіңіз.'
+    relevant: [{section: payment_retry_archive.retry, grade: 3}, {section: payment_policy.failed_payment, grade: 3}]
+    required: [{fact: archive_payment_retry_minutes, sections: [payment_retry_archive.retry]}, {fact: payment_retry_minutes, sections: [payment_policy.failed_payment]}]
+    rationale: Both temporal scopes are explicitly requested; all-versions retrieval retains validity metadata and must cover both facts.
+    tags: [temporal, multi_document, multi_fragment]
+  - id: history_cancel_window
+    family_id: dated_cancellation
+    need_key: undispatched_cancellation_window|2026_10_15
+    category: hard
+    as_of: '2026-10-15'
+    en: 'An order was placed on 15 October 2026. What cancellation window applied if it had not been dispatched?'
+    ru: 'Заказ оформлен 15 октября 2026 года. Какое окно отмены действовало, если его ещё не отправили?'
+    kk: 'Тапсырыс 2026 жылғы 15 қазанда рәсімделді. Әлі жөнелтілмесе, қандай болдырмау мерзімі қолданылды?'
+    relevant: [{section: order_cancel_archive.window, grade: 3}, {section: orders_policy.cancel, grade: 0}]
+    required: [{fact: archive_cancel_hours, sections: [order_cancel_archive.window]}]
+    rationale: The historical order-date condition selects the old two-hour window; dispatch is a stated hypothetical, not inferred customer state.
+    tags: [temporal, historical, conditional_limit]
+  - id: current_cancel_window
+    family_id: dated_cancellation
+    need_key: undispatched_cancellation_window|2026_11_12
+    category: hard
+    as_of: '2026-11-12'
+    en: 'For an undispatched order placed on 12 November 2026, is the old October cancellation interval still the applicable limit?'
+    ru: 'Для ещё не отправленного заказа от 12 ноября 2026 года применяется прежний октябрьский интервал отмены или новый срок?'
+    kk: '2026 жылғы 12 қарашадағы әлі жөнелтілмеген тапсырысқа қазандағы бұрынғы болдырмау аралығы ма, әлде жаңа мерзім бе?'
+    relevant: [{section: orders_policy.cancel, grade: 3}, {section: order_cancel_archive.window, grade: 0}]
+    required: [{fact: cancel_hours, sections: [orders_policy.cancel]}]
+    rationale: Current three-hour policy applies to the new placement date, not the archived two-hour policy.
+    tags: [temporal, current_policy, conditional_limit]
+  - id: compare_cancel_dates
+    family_id: dated_cancellation
+    need_key: compare_cancellation_windows|october_november_2026
+    category: multi_fragment
+    all_versions: true
+    en: 'Compare the free cancellation window for an undispatched order dated 15 October with one dated 12 November 2026.'
+    ru: 'Сравните бесплатное окно отмены ещё не отправленного заказа от 15 октября и такого же заказа от 12 ноября 2026 года.'
+    kk: '2026 жылғы 15 қазандағы және 12 қарашадағы әлі жөнелтілмеген тапсырыстардың тегін болдырмау мерзімдерін салыстырыңыз.'
+    relevant: [{section: order_cancel_archive.window, grade: 3}, {section: orders_policy.cancel, grade: 3}]
+    required: [{fact: archive_cancel_hours, sections: [order_cancel_archive.window]}, {fact: cancel_hours, sections: [orders_policy.cancel]}]
+    rationale: The two request dates need two independently dated policy facts; neither alone is sufficient.
+    tags: [temporal, multi_document, multi_fragment]
+  - id: history_pickup_storage
+    family_id: dated_pickup_storage
+    need_key: pickup_arrival_storage_period|2026_10_15
+    category: hard
+    as_of: '2026-10-15'
+    en: 'A parcel arrived at pickup on 15 October 2026. What storage period was stated for arrivals then?'
+    ru: 'Посылка поступила в пункт выдачи 15 октября 2026 года. Какой срок хранения был указан для таких поступлений?'
+    kk: 'Сәлемдеме беру пунктіне 2026 жылғы 15 қазанда келді. Сол кездегі келулер үшін қандай сақтау мерзімі көрсетілді?'
+    relevant: [{section: pickup_storage_archive.days, grade: 3}, {section: delivery_faq.pickup_storage, grade: 0}]
+    required: [{fact: archive_pickup_keep_days, sections: [pickup_storage_archive.days]}]
+    rationale: The old three-day storage rule applies to the hypothetical historical arrival date.
+    tags: [temporal, historical]
+    cross_lingual: true
+  - id: current_pickup_storage
+    family_id: dated_pickup_storage
+    need_key: pickup_arrival_storage_period|2026_11_12
+    category: hard
+    as_of: '2026-11-12'
+    en: 'For a pickup arrival dated 12 November 2026, what storage period is current, without reusing the October leaflet?'
+    ru: 'Для поступления в пункт выдачи 12 ноября 2026 года какой срок хранения актуален, без переноса правила из октябрьской памятки?'
+    kk: '2026 жылғы 12 қарашада беру пунктіне келген сәлемдеме үшін қазандағы жадынаманы көшірмей, қазіргі сақтау мерзімін айтыңыз.'
+    relevant: [{section: delivery_faq.pickup_storage, grade: 3}, {section: pickup_storage_archive.days, grade: 0}]
+    required: [{fact: pickup_keep_days, sections: [delivery_faq.pickup_storage]}]
+    rationale: The live policy value is five days for the stated current arrival scope.
+    tags: [temporal, current_policy]
+  - id: compare_pickup_storage_dates
+    family_id: dated_pickup_storage
+    need_key: compare_pickup_storage|october_november_2026
+    category: multi_fragment
+    all_versions: true
+    en: 'What is the difference between the pickup storage rules for an arrival on 15 October and one on 12 November 2026?'
+    ru: 'Чем отличаются правила хранения самовывоза для поступления 15 октября и поступления 12 ноября 2026 года?'
+    kk: '2026 жылғы 15 қазанда және 12 қарашада келген сәлемдемелерді беру пунктінде сақтау ережелерінің айырмасы қандай?'
+    relevant: [{section: pickup_storage_archive.days, grade: 3}, {section: delivery_faq.pickup_storage, grade: 3}]
+    required: [{fact: archive_pickup_keep_days, sections: [pickup_storage_archive.days]}, {fact: pickup_keep_days, sections: [delivery_faq.pickup_storage]}]
+    rationale: Both archive and successor storage facts are jointly required for the comparison.
+    tags: [temporal, multi_document, multi_fragment]
+  - id: history_repair_period
+    family_id: dated_repair_period
+    need_key: repair_policy_limit_for_intake|2026_10_15
+    category: hard
+    as_of: '2026-10-15'
+    en: 'For a covered repair accepted on 15 October 2026, which maximum policy period applied to that intake?'
+    ru: 'Для гарантийного ремонта, принятого 15 октября 2026 года, какой предельный срок правила действовал для такого обращения?'
+    kk: '2026 жылғы 15 қазанда қабылданған кепілдік жөндеуге сол өтініш үшін қандай шекті ереже мерзімі қолданылды?'
+    relevant: [{section: repair_period_archive.period, grade: 3}, {section: warranty_service.repair_period, grade: 0}]
+    required: [{fact: archive_repair_days, sections: [repair_period_archive.period]}]
+    rationale: The archived repair limit was 45 days for the historical intake, not a promised actual completion date.
+    tags: [temporal, historical]
+  - id: current_repair_period
+    family_id: dated_repair_period
+    need_key: repair_policy_limit_for_intake|2026_11_12
+    category: hard
+    as_of: '2026-11-12'
+    en: 'For a covered repair accepted on 12 November 2026, which maximum period is in the current service policy?'
+    ru: 'Для гарантийного ремонта, принятого 12 ноября 2026 года, какой предельный срок указан в текущей сервисной политике?'
+    kk: '2026 жылғы 12 қарашада қабылданған кепілдік жөндеуге қазіргі сервис ережесінде қандай ең ұзақ мерзім көрсетілген?'
+    relevant: [{section: warranty_service.repair_period, grade: 3}, {section: repair_period_archive.period, grade: 0}]
+    required: [{fact: warranty_repair_days, sections: [warranty_service.repair_period]}]
+    rationale: The current thirty-day policy applies; the old forty-five-day value is a temporal hard negative.
+    tags: [temporal, current_policy]
+  - id: compare_repair_period_dates
+    family_id: dated_repair_period
+    need_key: compare_repair_policy_limit|october_november_2026
+    category: multi_fragment
+    all_versions: true
+    en: 'How did the maximum covered repair period change between service intakes on 15 October and 12 November 2026?'
+    ru: 'Как изменился предельный срок гарантийного ремонта между обращениями от 15 октября и 12 ноября 2026 года?'
+    kk: '2026 жылғы 15 қазан мен 12 қарашадағы сервис өтініштері арасында кепілдік жөндеудің шекті мерзімі қалай өзгерді?'
+    relevant: [{section: repair_period_archive.period, grade: 3}, {section: warranty_service.repair_period, grade: 3}]
+    required: [{fact: archive_repair_days, sections: [repair_period_archive.period]}, {fact: warranty_repair_days, sections: [warranty_service.repair_period]}]
+    rationale: Two dated limits are needed; mixing them without scope would be a factual error.
+    tags: [temporal, multi_document, multi_fragment]

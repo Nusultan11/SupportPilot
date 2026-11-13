@@ -1,0 +1,221 @@
+schema_version: retrieval_scale_source/1
+origin: llm_generated
+review_status: draft
+author: Codex (LLM), 2026-11-13
+allowed_use: eval_only
+licence_note: Original fictional demo-store questions, internal evaluation; no independent human review or dataset redistribution licence.
+items:
+  - id: scale_two_tv_arc
+    family_id: television_audio_return
+    need_key: compare_tv5501_tv4302_arc_sockets
+    category: multi_fragment
+    en: 'We own TV-5501 and TV-4302. Which ARC socket belongs to each, so we do not copy one wiring setup to the other?'
+    ru: 'Дома TV-5501 и TV-4302. Какой разъём ARC у каждого, чтобы не перенести схему подключения одного на другой?'
+    kk: 'Үйде TV-5501 және TV-4302 бар. Бірінің қосу сызбасын екіншісіне көшірмеу үшін әрқайсысының ARC ұясы қайсы?'
+    relevant: [{section: display_connections.tv55_arc, grade: 3}, {section: display_connections.tv43_arc, grade: 3}]
+    required: [{fact: display_tv55_arc, sections: [display_connections.tv55_arc]}, {fact: display_tv43_arc, sections: [display_connections.tv43_arc]}]
+    rationale: Both model-specific socket facts are jointly needed; one correctly retrieved model is only partial evidence.
+    tags: [multi_fragment, model_comparison]
+    cross_lingual: true
+  - id: scale_laptop_desk
+    family_id: laptop_connector_capabilities
+    need_key: lp1406_monitor_and_power_two_separate_connections
+    category: multi_fragment
+    en: 'For an LP-1406 desk setup, can one USB-C lead handle both the monitor image and charging? Explain both requirements.'
+    ru: 'Для рабочего места с LP-1406 один провод USB-C обеспечит и изображение на мониторе, и зарядку? Нужны оба условия.'
+    kk: 'LP-1406 жұмыс орны үшін бір USB-C кабелі монитор бейнесін де, зарядтауды да қамтамасыз ете ме? Екі талапты да түсіндіріңіз.'
+    relevant: [{section: display_connections.laptop_video, grade: 3}, {section: display_connections.laptop_power, grade: 3}]
+    required: [{fact: display_laptop_video, sections: [display_connections.laptop_video]}, {fact: display_laptop_power, sections: [display_connections.laptop_power]}]
+    rationale: Data-only video limitations and the round power connector are two distinct support groups.
+    tags: [multi_fragment, compatibility]
+  - id: scale_repair_quote_and_charge
+    family_id: repair_consent
+    need_key: uncovered_repair_diagnostic_cost_and_separate_consent
+    category: multi_fragment
+    en: 'For an uncovered fault, what diagnostic charge is stated, and does handing over the device also approve the later repair quote?'
+    ru: 'Для негарантийной неисправности какая указана цена диагностики и означает ли передача устройства согласие с будущей сметой ремонта?'
+    kk: 'Кепілдікке жатпайтын ақау үшін диагностика бағасы қандай және құрылғыны тапсыру кейінгі жөндеу сметасына келісуді білдіре ме?'
+    relevant: [{section: warranty_service.diagnostics, grade: 3}, {section: service_intake.paid_consent, grade: 3}]
+    required: [{fact: diagnostic_cost, sections: [warranty_service.diagnostics]}, {fact: packing_repair_consent, sections: [service_intake.paid_consent]}]
+    rationale: The price source and consent procedure are different documents and must both be present.
+    tags: [multi_document, multi_fragment]
+    cross_lingual: true
+  - id: scale_screen_protect_and_mount
+    family_id: television_service_transport
+    need_key: tv5501_mount_inclusion_and_service_screen_protection
+    category: multi_fragment
+    en: 'For TV-5501, does the package include a wall bracket, and is a loose blanket enough when taking the screen to service?'
+    ru: 'У TV-5501 кронштейн входит в комплект и достаточно ли свободно наброшенного одеяла при перевозке экрана в сервис?'
+    kk: 'TV-5501 жинағында қабырға кронштейні бар ма және экранды сервиске апарғанда жай жабылған көрпе жеткілікті ме?'
+    relevant: [{section: display_connections.tv55_mount, grade: 3}, {section: service_intake.screen, grade: 3}]
+    required: [{fact: display_tv55_mount, sections: [display_connections.tv55_mount]}, {fact: packing_screen, sections: [service_intake.screen]}]
+    rationale: Mounting contents and transport protection cannot be inferred from each other; both sources are needed.
+    tags: [multi_document, multi_fragment]
+  - id: scale_leather_vs_bedding
+    family_id: cross_material_care
+    need_key: compare_bg0711_and_bl1515_machine_washing
+    category: multi_fragment
+    en: 'Can BG-0711 and BL-1515 go into the same machine-wash routine? Compare the two care instructions.'
+    ru: 'Можно ли отправить BG-0711 и BL-1515 на одинаковую машинную стирку? Сравните обе инструкции по уходу.'
+    kk: 'BG-0711 мен BL-1515 бұйымдарын бірдей машинада жуу режиміне салуға бола ма? Екі күтім нұсқаулығын салыстырыңыз.'
+    relevant: [{section: textile_care.backpack, grade: 3}, {section: textile_care.blanket, grade: 3}]
+    required: [{fact: care_backpack, sections: [textile_care.backpack]}, {fact: care_blanket, sections: [textile_care.blanket]}]
+    rationale: Machine washing is excluded for leather but allowed with conditions for the blanket.
+    tags: [multi_fragment, hard_negative]
+  - id: scale_two_powerbanks
+    family_id: shared_charging_power
+    need_key: compare_dual_output_limits_pb2010_pb1005
+    category: multi_fragment
+    en: 'Compare the total wattage ceilings with two devices attached to PB-2010 versus PB-1005, rather than their single-port adverts.'
+    ru: 'Сравните суммарные пределы мощности при двух устройствах у PB-2010 и PB-1005, а не рекламу одного порта.'
+    kk: 'Бір порт жарнамасын емес, екі құрылғы қосылғандағы PB-2010 және PB-1005 жалпы қуат шектерін салыстырыңыз.'
+    mix_ru: 'Екі құрылғы қосылса, сравните общий лимит у PB-2010 и PB-1005.'
+    relevant: [{section: portable_charging.pb20_shared, grade: 3}, {section: portable_charging.pb10_shared, grade: 3}]
+    required: [{fact: charging_pb20_shared, sections: [portable_charging.pb20_shared]}, {fact: charging_pb10_shared, sections: [portable_charging.pb10_shared]}]
+    rationale: Both conditional aggregate limits are required; the larger single-port ratings are distractors.
+    tags: [multi_fragment, conditional_limit]
+    cross_lingual: true
+  - id: scale_mounts_vague
+    family_id: television_mounting
+    need_key: conditional_comparison_two_tv_mount_patterns_and_contents
+    category: ambiguous
+    en: 'I have not chosen between TV-5501 and TV-4302. When you say a mounting kit, explain the hole spacing and included bracket condition for each option.'
+    ru: 'Ещё выбираю между TV-5501 и TV-4302. Под креплением что имеется в виду: объясните для обоих вариантов расстояние между отверстиями и наличие кронштейна.'
+    kk: 'TV-5501 мен TV-4302 арасында әлі таңдамадым. Бекіткіш дегенде не айтылатынын түсіндіріңіз: әр нұсқаның тесік аралығы мен кронштейнінің жинақта болуын салыстырыңыз.'
+    relevant: [{section: display_connections.tv55_mount, grade: 3}, {section: display_connections.tv43_mount, grade: 3}]
+    required: [{fact: display_tv55_mount, sections: [display_connections.tv55_mount]}, {fact: display_tv43_mount, sections: [display_connections.tv43_mount]}]
+    rationale: The ambiguous mounting reference permits a conditional comparison of both named options, not an assumed single model.
+    tags: [ambiguity_resolved, model_comparison]
+  - id: scale_care_typo
+    family_id: leather_care
+    need_key: bg0711_damp_cloth_room_drying_with_typo
+    category: hard
+    en: 'BG-0711 got muddy, how do I cleen it and where should it dry?'
+    ru: 'BG-0711 испачкался, чем отчистеть и где сушить рюкзак?'
+    kk: 'BG-0711 ластанды, сөмкені немен тазалайм және қайда кептірем?'
+    relevant: [{section: textile_care.backpack, grade: 3}]
+    required: [{fact: care_backpack, sections: [textile_care.backpack]}]
+    rationale: Misspellings preserve the same leather-care family and do not create independent linguistic evidence.
+    tags: [typo, colloquial]
+  - id: scale_missing_bracket_load
+    family_id: unlisted_mount_specification
+    need_key: tv4302_bracket_maximum_load_absent
+    category: unanswerable
+    en: 'The TV-4302 bracket is included, but what exact maximum load in kilograms is certified for that bracket?'
+    ru: 'Кронштейн TV-4302 входит в комплект, но какая точная предельная нагрузка в килограммах сертифицирована для него?'
+    kk: 'TV-4302 кронштейні жинақта бар, бірақ сол кронштейн үшін килограммен қандай нақты шекті жүктеме сертификатталған?'
+    relevant: [{section: display_connections.tv43_mount, grade: 0}]
+    required: []
+    negative_reason: missing_fact
+    rationale: VESA spacing and inclusion do not establish a certified load; no such canonical fact exists.
+    tags: [hard_negative, rare_document]
+    cross_lingual: true
+  - id: scale_missing_laptop_protocol
+    family_id: unlisted_data_protocol
+    need_key: lp1406_usb_data_generation_absent
+    category: unanswerable
+    en: 'LP-1406 USB-C carries data. Which exact USB data generation and transfer rate does the catalogue guarantee?'
+    ru: 'USB-C у LP-1406 передаёт данные. Какое точное поколение USB и скорость передачи гарантирует каталог?'
+    kk: 'LP-1406 үлгісінің USB-C ұясы деректерді жібереді. Каталог нақты қай USB буыны мен жіберу жылдамдығына кепілдік береді?'
+    relevant: [{section: display_connections.laptop_video, grade: 0}]
+    required: []
+    negative_reason: missing_fact
+    rationale: Data capability is stated, but generation and transfer rate are absent; a similar connector fact is insufficient.
+    tags: [partial_evidence, hard_negative]
+  - id: scale_missing_heat_exception
+    family_id: unlisted_power_derating
+    need_key: pb2010_hot_room_derating_curve_absent
+    category: unanswerable
+    en: 'How does the PB-2010 shared output limit change at an ambient temperature of 45 C? Give the specified derating curve.'
+    ru: 'Как меняется общий предел PB-2010 при температуре воздуха 45 C? Нужна указанная кривая снижения мощности.'
+    kk: 'Ауа температурасы 45 C болғанда PB-2010 жалпы шегі қалай өзгереді? Көрсетілген қуат төмендету қисығы керек.'
+    relevant: [{section: portable_charging.pb20_shared, grade: 0}]
+    required: []
+    negative_reason: missing_exception
+    rationale: A normal output limit does not specify a temperature-dependent curve or certify use at that temperature.
+    tags: [missing_exception, hard_negative]
+  - id: scale_service_live_inventory
+    family_id: service_handover_live_record
+    need_key: actual_accessories_received_for_specific_service_case
+    category: unanswerable
+    en: 'For my device already at service, which accessories did the intake clerk actually register today?'
+    ru: 'Моё устройство уже в сервисе: какие принадлежности сотрудник фактически зарегистрировал при приёме сегодня?'
+    kk: 'Құрылғым сервисте тұр: қызметкер бүгін қабылдағанда нақты қандай керек-жарақтарды тіркеді?'
+    relevant: [{section: service_intake.accessories, grade: 0}]
+    required: []
+    negative_reason: live_api
+    rationale: The procedure describes a list, not a customer's live intake record; retrieval cannot invent it.
+    tags: [live_api_required, hard_negative]
+  - id: scale_repair_live_approval
+    family_id: repair_consent_live_record
+    need_key: actual_quote_approval_status_absent_from_policy
+    category: unanswerable
+    en: 'I know a separate consent is required. Has my particular repair quote already been approved in your system?'
+    ru: 'Я знаю, что согласие нужно отдельно. Моя конкретная смета ремонта уже подтверждена в вашей системе?'
+    kk: 'Бөлек келісім керегін білемін. Менің нақты жөндеу сметам сіздердің жүйеде бекітілді ме?'
+    relevant: [{section: service_intake.paid_consent, grade: 0}]
+    required: []
+    negative_reason: live_api
+    rationale: A consent rule is not evidence of an individual approval; operator/tool routing is required.
+    tags: [live_api_required, hard_negative]
+    cross_lingual: true
+  - id: scale_unspecified_care
+    family_id: missing_item_clarification
+    need_key: unspecified_fabric_product_wash_temperature
+    category: unanswerable
+    en: 'The fabric thing I bought needs washing. Which temperature applies if I cannot tell you the item or material?'
+    ru: 'Надо постирать купленную тканевую вещь. Какая температура нужна, если я не уточняю ни товар, ни материал?'
+    kk: 'Сатып алған матадан жасалған затты жуу керек. Тауарды да, материалды да нақтыламасам, қай температура қолданылады?'
+    relevant: [{section: textile_care.dress, grade: 0}, {section: textile_care.shirt, grade: 0}]
+    required: []
+    negative_reason: clarification
+    rationale: Multiple care instructions disagree by item; the unidentified subject prevents a sufficient answer.
+    tags: [clarification_required, conflicting_candidates]
+  - id: scale_inconsistent_identity
+    family_id: contradictory_model_identity
+    need_key: mutually_inconsistent_tv_model_description
+    category: unanswerable
+    en: 'My label says TV-5501 but I insist it is TV-4302. Without checking either claim, which ARC socket is definitely mine?'
+    ru: 'На этикетке TV-5501, но я утверждаю, что это TV-4302. Не проверяя ни одно утверждение, какой разъём ARC точно мой?'
+    kk: 'Жапсырмада TV-5501, бірақ мен TV-4302 деп отырмын. Екі мәлімдемені тексермей, қай ARC ұясы дәл менікі екенін айтыңыз.'
+    relevant: [{section: display_connections.tv55_arc, grade: 0}, {section: display_connections.tv43_arc, grade: 0}]
+    required: []
+    negative_reason: contradictory
+    rationale: Contradictory identity prevents a definite model-specific claim even with both documents present.
+    tags: [contradictory_conditions, hard_negative]
+  - id: scale_historical_charging
+    family_id: unrecorded_historical_specification
+    need_key: pb1005_pre_release_shared_limit_absent
+    category: unanswerable
+    en: 'What was the PB-1005 shared output limit before the current November 2026 instructions took effect? I need the earlier specification.'
+    ru: 'Каким был общий предел PB-1005 до вступления текущей инструкции в ноябре 2026 года? Нужна именно прежняя характеристика.'
+    kk: '2026 жылғы қарашадағы қазіргі нұсқаулық күшіне енгенге дейін PB-1005 жалпы шегі қандай болған? Бұрынғы сипаттама керек.'
+    relevant: [{section: portable_charging.pb10_shared, grade: 0}]
+    required: []
+    negative_reason: expired
+    rationale: Current effective specifications do not establish historical values; no historical technical specification is in this KB version.
+    tags: [temporal, hard_negative]
+  - id: scale_diagnostic_total_absent
+    family_id: repair_total_unknown
+    need_key: known_diagnostic_fee_not_total_repair_cost
+    category: unanswerable
+    en: 'Using only the diagnostic fee, tell me the exact total for replacing the main board of my LP-1406, including parts.'
+    ru: 'Используя только цену диагностики, назовите точный итог замены системной платы моего LP-1406 вместе с запчастями.'
+    kk: 'Тек диагностика бағасын қолданып, LP-1406 аналық платасын бөлшектерімен бірге ауыстырудың нақты жалпы құнын айтыңыз.'
+    relevant: [{section: warranty_service.diagnostics, grade: 0}, {section: service_intake.paid_consent, grade: 0}]
+    required: []
+    negative_reason: partial_evidence
+    rationale: The diagnostic fee and consent procedure omit the model-specific repair quote and parts prices.
+    tags: [partial_evidence, hard_negative]
+  - id: scale_accessory_missing_identity
+    family_id: unspecified_accessory_complaint
+    need_key: unlisted_accessory_actual_missing_item_unknown
+    category: unanswerable
+    en: 'Something was missing after service. The general accessory list alone should tell you exactly which object I lost, right?'
+    ru: 'После сервиса чего-то не хватает. По общему списку принадлежностей вы ведь точно определите, какой предмет я потерял?'
+    kk: 'Сервистен кейін бір нәрсе жетіспейді. Жалпы керек-жарақ тізіміне қарап, нақты қай затты жоғалтқанымды анықтай аласыздар ғой?'
+    relevant: [{section: service_intake.accessories, grade: 0}]
+    required: []
+    negative_reason: missing_fact
+    rationale: A generic accessory procedure does not reveal actual handover contents or a missing customer's object.
+    tags: [hard_negative, clarification_required]

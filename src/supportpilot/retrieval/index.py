@@ -49,7 +49,10 @@ def default_recipe(settings: Settings) -> Recipe:
 
 
 def index_root(settings: Settings, recipe: Recipe) -> Path:
-    return settings.resolve(settings.paths.data_dir) / "indexes" / "retrieval" / recipe.identity
+    root = settings.resolve(settings.paths.data_dir) / "indexes" / "retrieval"
+    if settings.retrieval.namespace:
+        root /= settings.retrieval.namespace
+    return root / recipe.identity
 
 
 def point_id(unit_id: str) -> str:
@@ -238,7 +241,8 @@ def qdrant_call(method: Callable[..., Any], *args: Any, **kwargs: Any) -> Any:
 
 
 def collection_name(settings: Settings, recipe: Recipe) -> str:
-    return f"sp_{sha256_text(str(settings.root))[:8]}_{recipe.identity}"
+    suffix = f"_{settings.retrieval.namespace}" if settings.retrieval.namespace else ""
+    return f"sp_{sha256_text(str(settings.root))[:8]}_{recipe.identity}{suffix}"
 
 
 def inventory(client: Any, name: str) -> dict[str, dict[str, Any]]:

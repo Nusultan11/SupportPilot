@@ -1,0 +1,75 @@
+schema_version: retrieval_scale_review/1
+kb_version: kb_demo_store-20261113-f3b204a6
+reviewer: Codex (LLM author self-review, 2026-11-13)
+origin: llm_generated
+review_status: llm_reviewed
+independent_human_review: false
+passed: true
+acceptance_scope: Controlled fictional specification retrieval benchmark; not human relevance certification
+  or natural customer intent diversity.
+source_hashes:
+  composed.yaml: fb36d0c8cc6415cac3dd524ffaa35eb93309e858d1af74290d666658b371b2d4
+  profile_audio.yaml: a7dcd379851175a5d5dde11f37819c84492399650cb4133de594f43b1ff88e7f
+  profile_cameras.yaml: e61e19c542f34883497f04c6c1fe92fea56d054ad35d1de7509155666f21c462
+  profile_chargers.yaml: 0be3dcf01342c934f460b27809af8cf4fd892d866e644f039e20a52d4b971123
+  profile_cleaning.yaml: 0453845dd825c5f4cd73a750b1313c26f7c70b3844130e1de9690b0f5d1369f8
+  profile_climate.yaml: 01718066d588dd307ef9b18bbdc5407009972ed26d0f8fdb30bb9b88d7ea1547
+  profile_clocks.yaml: 41d8dd26a5ff84fae6df9f2c7325447ef220405278b7311e9cd03999ba6c284a
+  profile_displays.yaml: 4df00e0ef0eb4b056b10a2b962d848bd41a8afaa24f1e5d84566021008b7222d
+  profile_fitness.yaml: 06d7a54b755a48eebb28d7aebd80748e7d9e334eb50d46d1ed74ff0c8828d774
+  profile_furniture.yaml: 0ace0ce578514860893ffcbabc5dd1e18ba239a52a6d590b01974e10c3fa7852
+  profile_gaming.yaml: 9194f24d57ca6d89d57df73f3c86240ba2fb26fc460019a994f0f50817c77ec3
+  profile_garden.yaml: 9b504c0ecf8c8eac2cb3fb02638c6ac67f36e8969bd81d164b76626fdceec9c2
+  profile_kitchen_heat.yaml: 6dd9fd647f2c35aafd4029f75b4133f593b6b700aee74210397a11d6bfa772e1
+  profile_lighting.yaml: f2da952b6b7a8534f55c68e84fbcf4fdbdee5f8caeaced382a6826d5cc158790
+  profile_outdoor.yaml: 457398ad45af43573b7c6e2f630141619577bd198136340a7cf09208cc98083c
+  profile_peripherals.yaml: 416c01a920ed4b537fcb203a7e44746942c19eb6aa7d98c2bcca08422e14dbba
+  profile_personalcare.yaml: f98ad7798570d2bc596db378161e35f8300f19e80653b4e686a4d1f11be3f6df
+  profile_storage.yaml: 2c96e950326b3077f655465881f3802aa8bf1bbe322e9d3090673a5d42aa72c0
+  profile_textiles.yaml: 166d68d71669c2f36b2b02069b8996275f99724d3a8255526561e9250617bb5c
+  profile_tools.yaml: 423d5281f0bbc8c7ba5118d7c971ccec6cb397f67d69589251276030469bc724
+  profile_toys.yaml: 02108accdbfc558ba3fe99faf57faf21799dba6f14c1c6c0a113cffe601c3b70
+  technical.yaml: 0b5d8b4e322a2e88ca336c06c05e50ef8eaa682a28fd944a048bee7efd7721dc
+  temporal.yaml: 7565819ff5faf7adc93513da46ccfa248ebcbb766967d8c75439a4a716053ae5
+profile_sha256: 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c
+review_method:
+- Inspected the explicit profile schema and all 20 group field sets; read one subject/predicate RU and
+  KK question per group, all 12 temporal cases and the hand-authored source files.
+- Exhaustive automated placement/locator/numeric/LID/translation-structure checks passed all 13 KB gates.
+  All 369 original chunk IDs retained; no original policy values replaced.
+- 'Checked all supplied numeric minimum/maximum pairs for inversion: zero. Product IDs and explicit SKUs
+  are unique. Technical fields count excludes names, identifiers, category and price.'
+- Queries specify subject, requested predicate and conditions independently of ranking. Each required
+  group resolves to canonical fact placements. Cross-language and mixed wording remain variants, never
+  extra needs.
+- All four unavailable attributes per product are absent from its specification. Certification identifiers,
+  humidity and drop-test claims cannot be inferred from dimensions; diagnostic fee cannot establish replacement-part
+  price.
+- Archived policy intervals end before current policies start. Historical/current/comparison questions
+  retain separate conditions; comparison explicitly enables all_versions. Twenty earlier-than-publication
+  requests have no valid technical proof.
+- Confirmed 100 multi-document requests ask separately for item mass and the parcel limit; they do not
+  infer packed mass, stock or pickup availability.
+findings:
+- 222 distinct document IDs and 666 language versions include 200 explicit fictional products across 20
+  domains, four document formats, 12-14 numeric attributes per profile and heterogeneous policy/procedure
+  documents.
+- 2600 explicit numeric subject/predicate facts are distinct canonical facts. Shared predicate names or
+  equal values do not merge different products. Metadata/composite registry entries are not presented
+  as additional atomic numeric facts.
+- 3570 subject/predicate/condition needs are grouped into 119 correlated reasoning families before splitting.
+  Counts establish controlled fact-target coverage, not 3570 independent human intents.
+- The catalogue constitutes most of the volume. Template correlation, repeated generic attributes, uniform
+  profile structure and only 50 manually authored non-profile needs restrict ecological diversity. Family-cluster
+  confidence intervals and profile/non-profile slices are mandatory.
+- RU/KK/EN drafts preserve explicit units, inequalities and dates structurally. Native fluency and exhaustive
+  semantic translation agreement are not certified; no independent fluent human review occurred.
+- Qrels are authored and non-exhaustive; recorded support establishes requested facts but unjudged alternative
+  proof can remain. Semantic model leakage diagnostics are required separately before freeze.
+limitations:
+- LLM self-review is not independent annotation; no production readiness or complete semantic abstention
+  claim.
+- Diversity acceptance is for a controlled multilingual retrieval experiment. Natural customer phrasing,
+  ambiguous conversations and conditional store policies remain a small part of the cohort.
+- Final ranking holdout has not been evaluated or used to modify sources, thresholds or selection rules.
+required_remediation: []

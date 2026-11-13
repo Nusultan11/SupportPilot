@@ -30,6 +30,7 @@ from supportpilot.kb.register import EXPECTED
 ROOT = Path(__file__).resolve().parents[2]
 SOURCES = ROOT / "kb_sources" / "demo_store"
 GOLD = ROOT / "authored" / "gold"
+SOURCE_DOCUMENTS = 3 * len(list((SOURCES / "docs").glob("*.yaml")))
 
 
 def count(texts: Sequence[str]) -> list[int]:
@@ -39,7 +40,9 @@ def count(texts: Sequence[str]) -> list[int]:
 def make_cfg(tmp: Path, gold: Path | None = None) -> KBConfig:
     src = tmp / "src"
     if not src.exists():
-        shutil.copytree(SOURCES, src)
+        # Lifecycle regression uses the heterogeneous policy/FAQ corpus. The full
+        # technical catalogue is checked by the all-document parser test and real build.
+        shutil.copytree(SOURCES, src, ignore=shutil.ignore_patterns("technical_profiles.yaml"))
     return KBConfig(name="demo_store", source_root=src, locale=ROOT / "configs" / "locale_kz.yaml",
                     kb_dir=tmp / "kb", max_tokens=400, lid_min_letters=40, tokenizer="words",
                     gold_dir=gold)  # fmt: skip
@@ -62,7 +65,12 @@ def built(tmp_path_factory: pytest.TempPathFactory) -> tuple[KBConfig, dict[str,
 def test_full_build_passes_every_gate(built: tuple[KBConfig, dict[str, Any]]) -> None:
     cfg, report = built
     assert report["status"] == "built"
-    assert report["documents"] == {"added": 42, "changed": 0, "unchanged": 0, "removed": 0}
+    assert report["documents"] == {
+        "added": SOURCE_DOCUMENTS,
+        "changed": 0,
+        "unchanged": 0,
+        "removed": 0,
+    }
     assert all(report["gates"].values()), report["gates"]
     cur = current_version(cfg)
     assert cur is not None
@@ -81,6 +89,119 @@ def test_full_build_passes_every_gate(built: tuple[KBConfig, dict[str, Any]]) ->
     assert (cur / "sources" / "kk" / "returns_policy.pdf").is_file()
 
 
+def test_scale_sources_resolve_fact_proof_and_freeze_atomically(
+    built: tuple[KBConfig, dict[str, Any]],
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    from datetime import UTC, datetime
+
+    import polars as pl
+
+    from supportpilot.common.config import Settings
+    from supportpilot.common.manifest import scan_files, write_model_json
+    from supportpilot.common.schemas import DatasetManifest
+    from supportpilot.data.retrievalset import query_checks
+    from supportpilot.retrieval import scale_data
+
+    cfg, _ = built
+    shutil.copytree(cfg.kb_dir, tmp_path / "data/kb/demo_store")
+    query_fixture = tmp_path / "authored/retrieval_scale"
+    query_fixture.mkdir(parents=True)
+    for name in ("technical.yaml", "composed.yaml", "temporal.yaml"):
+        shutil.copyfile(ROOT / "authored/retrieval_scale" / name, query_fixture / name)
+    protocol = yaml.safe_load((ROOT / "configs/retrieval_scale.yaml").read_text())
+    protocol["minimum"] = dict.fromkeys(protocol["minimum"], 1)
+    (tmp_path / "configs").mkdir()
+    protocol_path = tmp_path / "configs/retrieval_scale.yaml"
+    protocol_path.write_text(yaml.safe_dump(protocol), encoding="utf-8")
+    review_path = tmp_path / protocol["review"]["diversity_gate"]
+    review_path.parent.mkdir(parents=True)
+    from supportpilot.common.hashing import sha256_file
+
+    review_path.write_text(
+        yaml.safe_dump(
+            {
+                "schema_version": "retrieval_scale_review/1",
+                "passed": True,
+                "kb_version": built[1]["kb_version"],
+                "source_hashes": {
+                    p.name: sha256_file(p)
+                    for p in (tmp_path / "authored/retrieval_scale").glob("*.yaml")
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+    sft = tmp_path / "data/processed/sft/sft-20261113-00000000"
+    gold = tmp_path / "data/gold/gold-20261113-00000000"
+    for path in (sft, gold):
+        path.mkdir(parents=True)
+    for split in ("train", "validation", "test"):
+        pl.DataFrame(
+            [
+                {
+                    "user_text": "An unrelated fixture for pipeline testing",
+                    "scenario_id": split,
+                    "family_id": split,
+                    "messages_json": '[{"role":"user","content":"Unrelated fixture"}]',
+                }
+            ]
+        ).write_parquet(sft / f"{split}.parquet")
+    (gold / "gold.jsonl").write_text(
+        json.dumps(
+            {"turns": [{"role": "user", "content": "An unrelated, isolated gold fixture example"}]}
+        ),
+        encoding="utf-8",
+    )
+    for path in (sft, gold):
+        write_model_json(
+            path / "manifest.json",
+            DatasetManifest(
+                dataset_version=path.name,
+                data_schema_version="fixture/1",
+                code_commit="test",
+                inputs=["fixture"],
+                row_counts={"items": 1},
+                files=scan_files(path),
+                created_at=datetime.now(UTC),
+            ),
+        )
+    # These fixtures test publication/lineage, not neural-model quality or data volume.
+    monkeypatch.setattr(scale_data, "query_checks", lambda qs, cs: query_checks(qs, cs, minimum=1))
+    monkeypatch.setattr(
+        scale_data,
+        "leakage_checks",
+        lambda *a, **kw: {
+            "passed": True,
+            "semantic_near_sft": [],
+            "fixture_not_real_semantic_inference": True,
+        },
+    )
+    settings = Settings(root=tmp_path)
+    first = scale_data.prepare_scale(settings, freeze=True, semantic=True)
+    assert first["passed"]
+    assert first["counts"]["needs"] == 50
+    assert first["counts"]["code_switch_needs"] == 5
+    frozen = Path(first["freeze"])
+    content = {p.name: p.read_bytes() for p in frozen.iterdir()}
+    assert scale_data.verify_freeze(frozen)
+    metadata = read_json(frozen / "metadata.json")
+    assert any(len(row["required_groups"]) > 1 for row in metadata.values())
+    assert any(row["negative_reason"] == "partial_evidence" for row in metadata.values())
+    families: dict[str, set[str]] = {}
+    for row in metadata.values():
+        families.setdefault(row["family_id"], set()).add(row["phase"])
+    assert all(len(phases) == 1 for phases in families.values())
+    assert scale_data.prepare_scale(settings, freeze=True, semantic=True)["freeze"] == str(frozen)
+    assert content == {p.name: p.read_bytes() for p in frozen.iterdir()}
+    protocol["minimum"]["needs"] = 2500
+    protocol_path.write_text(yaml.safe_dump(protocol), encoding="utf-8")
+    with pytest.raises(ValueError, match="freeze refused"):
+        scale_data.prepare_scale(settings, freeze=True, semantic=True)
+    assert content == {p.name: p.read_bytes() for p in frozen.iterdir()}
+
+
 def test_rerun_is_unchanged_and_forced_rebuild_identical(
     built: tuple[KBConfig, dict[str, Any]],
 ) -> None:
@@ -91,7 +212,7 @@ def test_rerun_is_unchanged_and_forced_rebuild_identical(
     assert build(cfg, count, code_commit="test")["status"] == "unchanged"
     forced = build(cfg, count, code_commit="test", force=True)
     assert forced["status"] == "unchanged"
-    assert forced["reparsed"] == 42
+    assert forced["reparsed"] == SOURCE_DOCUMENTS
     assert forced["kb_version"] == report["kb_version"]
     assert status(cfg)["sources_match_current"] is True
     assert validate(cfg)["passed"]
@@ -182,7 +303,12 @@ def test_changed_fact_updates_only_its_documents(tmp_path: Path) -> None:
     second = build(cfg, count, code_commit="test")
     assert second["status"] == "built"
     assert second["parent"] == first["kb_version"]
-    assert second["documents"] == {"added": 0, "changed": 3, "unchanged": 39, "removed": 0}
+    assert second["documents"] == {
+        "added": 0,
+        "changed": 3,
+        "unchanged": SOURCE_DOCUMENTS - 3,
+        "removed": 0,
+    }
     cur = current_version(cfg)
     assert cur is not None
     assert cur != parent
@@ -211,6 +337,41 @@ def test_changed_fact_updates_only_its_documents(tmp_path: Path) -> None:
     assert read_json(parent / "changes.json")["parent"] is None  # untouched
 
 
+def test_metadata_only_validity_edit_reparses_without_changing_chunk_ids(tmp_path: Path) -> None:
+    cfg = make_cfg(tmp_path)
+    render(cfg)
+    build(cfg, count, code_commit="test")
+    before = chunks_of(cfg)
+    spec_path = cfg.source_root / "docs/terms.yaml"
+    original = spec_path.read_text("utf-8")
+    # This document's prose states only the start; changing its metadata end
+    # must invalidate incremental reuse even though rendered bytes do not change.
+    spec_path.write_text(original + "\neffective_to: '2027-01-31'\n", "utf-8")
+    render(cfg)
+    result = build(cfg, count, code_commit="test")
+    after = chunks_of(cfg)
+    assert result["status"] == "built"
+    assert result["documents"]["changed"] == 3
+    assert {r["chunk_id"] for r in before} == {r["chunk_id"] for r in after}
+    dated = [r for r in after if r["doc_id"] == "terms"]
+    assert dated
+    assert all(r["effective_to"] == "2027-01-31" for r in dated)
+    assert validate(cfg)["passed"]
+
+
+def test_superseded_policy_rejects_overlapping_validity(tmp_path: Path) -> None:
+    from supportpilot.kb.spec import SpecError
+
+    cfg = make_cfg(tmp_path)
+    path = cfg.source_root / "docs/payment_retry_archive.yaml"
+    path.write_text(
+        path.read_text("utf-8").replace("effective_to: '2026-10-31'", "effective_to: '2026-11-01'"),
+        "utf-8",
+    )
+    with pytest.raises(SpecError, match="overlap"):
+        render(cfg)
+
+
 def test_removed_and_added_documents(tmp_path: Path) -> None:
     cfg = make_cfg(tmp_path)
     render(cfg)
@@ -222,7 +383,7 @@ def test_removed_and_added_documents(tmp_path: Path) -> None:
     assert sorted(r["removed"]) == ["en/terms.docx", "kk/terms.docx", "ru/terms.docx"]
     rep = build(cfg, count, code_commit="test")
     assert rep["documents"]["removed"] == 3
-    assert rep["documents"]["unchanged"] == 39
+    assert rep["documents"]["unchanged"] == SOURCE_DOCUMENTS - 3
     assert not [c for c in chunks_of(cfg) if c["doc_id"] == "terms"]
 
     spec["doc_id"] = "sale_terms"
@@ -232,7 +393,12 @@ def test_removed_and_added_documents(tmp_path: Path) -> None:
     )
     render(cfg)
     rep = build(cfg, count, code_commit="test")
-    assert rep["documents"] == {"added": 3, "changed": 0, "unchanged": 39, "removed": 0}
+    assert rep["documents"] == {
+        "added": 3,
+        "changed": 0,
+        "unchanged": SOURCE_DOCUMENTS - 3,
+        "removed": 0,
+    }
     assert all(rep["gates"].values())
     assert {c["lang"] for c in chunks_of(cfg) if c["doc_id"] == "sale_terms"} == {"en", "ru", "kk"}
 

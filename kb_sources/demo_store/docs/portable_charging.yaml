@@ -1,0 +1,25 @@
+# Original fictional demo specifications, authored by Codex (LLM). Review: draft.
+schema_version: kb_doc/1
+doc_id: portable_charging
+doc_type: policy
+format: docx
+title: {en: 'Portable charging and audio connections', ru: 'Портативная зарядка и подключение звука', kk: 'Портативті зарядтау және дыбысты қосу'}
+sections:
+  - id: pb20_shared
+    heading: {en: 'PB-2010 simultaneous outputs', ru: 'Одновременные выходы PB-2010', kk: 'PB-2010 шығыстарын қатар қолдану'}
+    paragraphs: [{en: '{charging_pb20_shared}', ru: '{charging_pb20_shared}', kk: '{charging_pb20_shared}'}]
+  - id: pb10_shared
+    heading: {en: 'PB-1005 simultaneous outputs', ru: 'Одновременные выходы PB-1005', kk: 'PB-1005 шығыстарын қатар қолдану'}
+    paragraphs: [{en: '{charging_pb10_shared}', ru: '{charging_pb10_shared}', kk: '{charging_pb10_shared}'}]
+  - id: pb20_input
+    heading: {en: 'PB-2010 input and wireless charging', ru: 'Вход PB-2010 и беспроводная зарядка', kk: 'PB-2010 кірісі және сымсыз зарядтау'}
+    paragraphs: [{en: '{charging_pb20_input}', ru: '{charging_pb20_input}', kk: '{charging_pb20_input}'}]
+  - id: pb10_input
+    heading: {en: 'PB-1005 input and output distinction', ru: 'Разница входа и выхода PB-1005', kk: 'PB-1005 кірісі мен шығысының айырмашылығы'}
+    paragraphs: [{en: '{charging_pb10_input}', ru: '{charging_pb10_input}', kk: '{charging_pb10_input}'}]
+  - id: wired_audio
+    heading: {en: 'Wired HP-0312', ru: 'Проводные HP-0312', kk: 'Сымды HP-0312'}
+    paragraphs: [{en: '{charging_hp_wired}', ru: '{charging_hp_wired}', kk: '{charging_hp_wired}'}]
+  - id: wireless_audio
+    heading: {en: 'Wireless HP-0305', ru: 'Беспроводные HP-0305', kk: 'Сымсыз HP-0305'}
+    paragraphs: [{en: '{charging_hp_wireless}', ru: '{charging_hp_wireless}', kk: '{charging_hp_wireless}'}]

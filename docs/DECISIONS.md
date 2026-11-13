@@ -678,6 +678,96 @@ Format: context → decision → alternatives → risks → revisit when. Status
   that recipe from verified artifacts/cache, then serve; never mix KB versions. Original
   KB/SFT/gold contracts are unchanged. Model-specific thresholds require recalibration.
 
+### ADR-031 Scale evidence protocol and experiment isolation — accepted (2026-11-13)
+
+- **Problem:** Stage 6's 369 chunks and 175 needs cannot establish scale or semantic
+  answerability. Its inspected holdout cannot become a fresh confirmation set. The
+  Stage 6.1 request also requires jointly sufficient multi-document evidence and a
+  separate 100k load corpus; translations and slot repetitions cannot satisfy diversity.
+- **Choice:** explicit authored need/family keys, canonical fact support groups and
+  a preregistered family split. Separate relevance rankings from AND-of-OR sufficiency
+  and packed-context coverage. Freeze atomically only after volume, integrity, leakage
+  and a source-bound substantive-diversity review pass. Preserve draft/LLM review labels;
+  human review is not fabricated. Record scenario bootstrap plus family sensitivity.
+  Development selects configurations; holdout is inaccessible to selection and is only
+  evaluated after a checksummed selection. Do not lower gates to publish a small pilot.
+- **Alternatives:** pooling translated variants as independent observations, keyword
+  qrels, random row splitting or a score-only answerability label would introduce known
+  measurement bias. Reusing the old exploratory holdout would not resolve it. Rejected.
+- **Isolation:** optional validated retrieval namespace separates the Qdrant collection
+  and local state. Empty namespace retains original paths/names and recipe identities.
+  New comparison pair caches use a separate data root. Baseline reports/index snapshots
+  are not rewritten. A staged KB can be audited by explicit version without activation.
+- **Load control:** independent normalized random vectors, bounded generation through
+  a memmap, checksummed chunk/vector sources, exact search as the ANN reference, HNSW
+  ef32/64/128, on-disk vectors/index and explicit upload/build/recovery phases. This uses
+  the existing Qdrant 1.20/NumPy/MLflow stack. No new service or framework is justified.
+  ANN agreement is not semantic retrieval quality; precomputed upload is not encoding.
+- **Evidence/negative result:** the original 100k random-vector run indexed every vector,
+  verified add/change/delete and a full snapshot restore. ANN Recall@10 ef32/64/128 was
+  .163/.294/.466, despite lower latency than exact. This workload does not justify an
+  approximate-search default for the real multilingual system. Keep exact unchanged.
+  Process RSS excludes Docker; a later Docker memory sample is not its peak or the
+  isolated collection's memory. Detailed measurements/state belong to PROGRESS.md.
+- **Reproducibility correction:** load generator identity includes its text template,
+  not just dimensions/seed. Rebuilding the 100k data with that explicit identity produces
+  byte-identical vectors/chunks to the measured run; keep historical run/source identities
+  unchanged. Final tracking receipts are written after resource-context finalization.
+  Earlier operational receipts remain historical; corrected final counters are separate
+  delivery evidence, not silently edited experiments.
+- **Revisit/rollback:** require a full substantively reviewed scale cohort and paired
+  multilingual results before changing retrieval defaults. Keep the previous KB active
+  while the larger cohort is staged; delete no baseline collection or backup. No Stage 7
+  start, human semantic acceptance, solved abstention or production SLO is implied.
+- **Primary sources:** pinned Qdrant client 1.20 documentation,
+  https://qdrant.tech/documentation/operations/optimize/ and
+  https://qdrant.tech/documentation/operations/snapshots/ (checked 2026-11-12).
+
+## ADR-032 — explicit technical profiles and dated sources for scale evaluation
+
+- **Date:** 2026-11-13. **Status:** accepted for controlled fictional evaluation.
+- **Problem/evidence:** the 18-document draft failed the requested scale/diversity gates.
+  Repeating policy paragraphs or counting translations would not add independent facts.
+  The expanded source must preserve all old values, SKUs and gold citations.
+- **Alternatives:** clone rules with substituted product slots; append 200 records to the
+  original catalogue; or author explicit subject/attribute specifications as separate source
+  documents. Rule cloning adds no policy complexity. Rewriting the old catalogue changes
+  existing source hashes/citations. Use the third option with a small typed source adapter
+  on the existing render/parse/gate pipeline, no new service/framework or synthetic runtime.
+- **Choice/cost:** 200 explicit fictional products across 20 groups, 2,600 numeric attributes,
+  native RU/KK/EN names/units, four formats and an explicit stable SKU registry. Values
+  are authored, not generated by random draws or arithmetic scaling. Separate four dated
+  archival policies provide historical confusers without overwriting current policy values.
+  Optional validity fields extend existing contracts; normal retrieval still filters dates.
+- **Trade-off:** profile-derived questions test controlled subject/predicate discrimination,
+  not thousands of independently human-authored customer intents. Shared templates and
+  generic attributes correlate needs. Keep 119 families together before splitting, report
+  family-cluster CIs and profile/non-profile sensitivity, retain draft judgement provenance
+  and the absence of independent fluent reviewers. No human semantic acceptance is implied.
+- **Verification:** the 222-document / 666-language-version / 8,865-chunk KB passes all 13
+  gates and retains the original 369 chunk IDs. Required fact groups resolve to exact source
+  placements; negative reasons cannot carry positive proof. Tests cover stable SKUs,
+  idempotent authoring, manual-file protection, signed numeric boundaries, metadata-only
+  date changes and overlapping successor rejection. Evaluation results live in PROGRESS.
+- **Reproducibility:** normalize source LF before freezing. A pre-selection attempt was
+  explicitly terminated after discovering three CRLF source fingerprints; keep its KILLED
+  MLflow run and unchanged cohort evidence. Atomic query checkpoints now preserve completed
+  candidate work across interruption; embedding and pair caches already resume inference.
+- **Rollback/revisit:** activate the preserved baseline and its default namespace/config.
+  Do not remove old sources/results/backups. Revisit template-heavy coverage when real
+  synthetic conversation diversity or fluent independent review is available; Stage 7 may
+  not treat these draft retrieval judgements as certified semantic grounding.
+
+#### Operational application
+
+Retain the frozen control and 1024-token context: alternatives fail selection. Score gates
+sacrifice cross recall without adequate semantic rejection, so stay disabled. Exposed
+holdout errors cannot tune packing in this cycle. Supplemental wording tests reuse dev
+needs and cannot change selection. Use the expanded isolated namespace, preserve baseline
+config/index and exercised rollback. No additional service needed. Future packing/gating
+changes require new development evidence and a new confirmation cohort. Current results
+and status are in PROGRESS.
+
 ## Open decisions (owner input needed; see PROGRESS.md)
 1. Budget for a paid LLM API (MT for KK/RU, data generation, LLM judge). Without it: open MT + local models, with lower expected KK quality.
 2. Availability of fluent KK and RU reviewers for the gold benchmark and translation audits.

@@ -164,3 +164,49 @@ When a model misses .85, analyse up to 50 distinct failed needs per language; if
 exist, report the entire available census and its size, without duplicating errors.
 No automatic relevance-score threshold proves that a live order/status or missing
 policy exception exists in the KB. Stage 7/8 grounding and routing remain necessary.
+
+## 7. Stage 6.1 frozen evaluation contract
+
+`retrieval_scale_source/1` retains explicit need/family IDs, original language questions,
+graded section qrels, tags and `required` fact/section groups. A fact resolves only to
+chunks whose own source placement contains its exact canonical value/surface. Group
+alternatives are OR; all required groups are AND. Background qrels cannot establish
+sufficiency. Negative reasons distinguish missing facts/exceptions, partial evidence,
+contradictory identity, clarification, historical gaps and live records.
+
+Use `configs/retrieval_scale.yaml` and the preregistration in
+`docs/reviews/stage6_scale_protocol.md`. Audit distinct document IDs, language versions,
+canonical non-identifier registry keys, predicates, needs and families separately. A
+composite registry fact is not automatically an atomic fact; counts do not establish
+semantic diversity. Fail volume/coverage/leakage gates before freezing or inference.
+
+Assign complete families by the seeded hash. Check exact/lexical/13-gram overlap across
+phases as well as against SFT and gold (gold is an exclusion list only). Semantic near-SFT
+is diagnostic and retained on queries. Freeze hashes input sources/versions, protocol,
+resolved qrels and proof groups before ranking comparisons. Publication is atomic.
+Selection rejects holdout observations. A completed selection/holdout cannot be retuned
+in place; a changed protocol cannot magically make previously inspected needs fresh.
+
+The ranking metrics preserve Stage 6 denominators. Full-evidence@5/@10 requires all support
+groups; packed coverage is the fraction of covered groups, packed sufficiency requires all.
+Unanswerable FPR uses unanswerable queries only, answerable FNR uses answerable queries
+only, and abstention accuracy uses both. Abstention is empty packed context, not a judgement
+about candidates' scores. Bootstrap every metric by scenario (1,000 samples) and additionally
+report family-cluster sensitivity. Empty cohorts remain null/UNKNOWN, not zero. Paired
+comparisons require the same query IDs, family/phase assignments and answerability.
+
+Load tests use `retrieval_load_corpus/1`, separate from store KB and quality qrels. Independent
+normalized random vectors test indexing and ANN agreement against exact search, not model
+quality. Record precomputed-vector upload separately from model encoding, index construction,
+first-call/warm latency and sequential throughput. Snapshot verification hashes every live
+payload and dense vector before/after upload to another collection, plus exact query checks.
+Injected batch interruption is distinguished from an OS process kill. Report process vs
+Docker resource boundaries and retain negative ANN results. Actual state/results: PROGRESS.
+
+Supplemental post-selection wording diagnostics are development-only: freeze source/query
+hashes, retain original need/proof links, count zero new independent needs, never tune or
+claim fresh holdout. Mono paired deltas require same need/language/corpus; different cross
+cohorts are unpaired. One-family intervals are UNKNOWN. Absent negatives are UNKNOWN,
+not zero; missing blind categories are explicit. Distinguish floating-point/batch-padding
+re-encoding drift from exact stored-vector restoration. `du -sb` is apparent storage;
+`du -s -B1` is allocated. Process RSS, Torch and Qdrant cache peaks are separate scopes.

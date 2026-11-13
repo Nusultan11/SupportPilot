@@ -1,0 +1,4907 @@
+# Compiled from explicit technical_profiles/1 facts and native LLM-authored templates.
+schema_version: retrieval_scale_source/1
+origin: llm_generated
+review_status: draft
+author: Codex (LLM); explicit profiles and native templates compiled deterministically
+allowed_use: eval_only
+licence_note: Original fictional store specifications for internal demo and evaluation; no external manufacturer
+  data or real customer data. Fluent human review pending.
+items:
+- id: catalog_compact_keyboard_mass_g
+  category: simple
+  en: For Compact mechanical keyboard, what is the specified mass in g?
+  ru: Для «Компактная механическая клавиатура» какое значение указано для показателя «Масса» (г)?
+  kk: «Ықшам механикалық пернетақта» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_compact_keyboard.mass_g
+    grade: 3
+  - section: technical_compact_keyboard.width_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: «Ықшам механикалық пернетақта» үшін «Салмағы» (г) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.compact_keyboard.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.compact_keyboard.mass_g|current
+  required:
+  - fact: technical.compact_keyboard.mass_g
+    sections:
+    - technical_compact_keyboard.mass_g
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_keyboard_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Compact mechanical keyboard, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Компактная механическая клавиатура», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Ықшам механикалық пернетақта» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_compact_keyboard.width_mm
+    grade: 3
+  - section: technical_compact_keyboard.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_keyboard.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.compact_keyboard.width_mm|current
+  required:
+  - fact: technical.compact_keyboard.width_mm
+    sections:
+    - technical_compact_keyboard.width_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_keyboard_height_mm
+  category: simple
+  en: 'Compact mechanical keyboard: height, mm?'
+  ru: '«Компактная механическая клавиатура»: высота, мм?'
+  kk: '«Ықшам механикалық пернетақта»: биіктігі, мм?'
+  relevant:
+  - section: technical_compact_keyboard.height_mm
+    grade: 3
+  - section: technical_compact_keyboard.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_keyboard.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.compact_keyboard.height_mm|current
+  required:
+  - fact: technical.compact_keyboard.height_mm
+    sections:
+    - technical_compact_keyboard.height_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_keyboard_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Compact mechanical keyboard (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Компактная механическая клавиатура» (мм).
+  kk: Карточкалар ұқсас. «Ықшам механикалық пернетақта» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_compact_keyboard.depth_mm
+    grade: 3
+  - section: technical_compact_keyboard.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_keyboard.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.compact_keyboard.depth_mm|current
+  required:
+  - fact: technical.compact_keyboard.depth_mm
+    sections:
+    - technical_compact_keyboard.depth_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_keyboard_operating_min_c
+  category: hard
+  en: Check the specifcation of Compact mechanical keyboard for minimum operating ambient temperature
+    (C), please.
+  ru: 'Проверьте характиристику «Компактная механическая клавиатура»: интересует «Минимальная температура
+    воздуха при работе» (C).'
+  kk: «Ықшам механикалық пернетақта» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін
+    тексеріңізші (C).
+  relevant:
+  - section: technical_compact_keyboard.operating_min_c
+    grade: 3
+  - section: technical_compact_keyboard.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_keyboard.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.compact_keyboard.operating_min_c|current
+  required:
+  - fact: technical.compact_keyboard.operating_min_c
+    sections:
+    - technical_compact_keyboard.operating_min_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_keyboard_operating_max_c
+  category: hard
+  en: For Compact mechanical keyboard, what is the specified maximum operating ambient temperature in
+    C?
+  ru: Для «Компактная механическая клавиатура» какое значение указано для показателя «Максимальная температура
+    воздуха при работе» (C)?
+  kk: «Ықшам механикалық пернетақта» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_compact_keyboard.operating_max_c
+    grade: 3
+  - section: technical_compact_keyboard.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_keyboard.operating_max_c; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.compact_keyboard.operating_max_c|current
+  required:
+  - fact: technical.compact_keyboard.operating_max_c
+    sections:
+    - technical_compact_keyboard.operating_max_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_keyboard_cable_cm
+  category: simple
+  en: I am comparing specifications. Find the supplied cable length for Compact mechanical keyboard, in
+    cm.
+  ru: Сравниваю характеристики. Нужен показатель «Длина комплектного кабеля» у «Компактная механическая
+    клавиатура», в см.
+  kk: Сипаттамаларды салыстырып отырмын. «Ықшам механикалық пернетақта» үшін «Жинақтағы кабель ұзындығы»
+    мәні қажет (см).
+  relevant:
+  - section: technical_compact_keyboard.cable_cm
+    grade: 3
+  - section: technical_compact_keyboard.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_keyboard.cable_cm; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.compact_keyboard.cable_cm|current
+  required:
+  - fact: technical.compact_keyboard.cable_cm
+    sections:
+    - technical_compact_keyboard.cable_cm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_keyboard_voltage_v
+  category: simple
+  en: 'Compact mechanical keyboard: rated supply voltage, V?'
+  ru: '«Компактная механическая клавиатура»: номинальное напряжение питания, В?'
+  kk: '«Ықшам механикалық пернетақта»: номиналды қорек кернеуі, В?'
+  relevant:
+  - section: technical_compact_keyboard.voltage_v
+    grade: 3
+  - section: technical_compact_keyboard.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Компактная механическая клавиатура» показатель «Номинальное напряжение питания» (В) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.compact_keyboard.voltage_v; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.compact_keyboard.voltage_v|current
+  required:
+  - fact: technical.compact_keyboard.voltage_v
+    sections:
+    - technical_compact_keyboard.voltage_v
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_keyboard_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Compact mechanical keyboard (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Компактная
+    механическая клавиатура» (Вт).
+  kk: Карточкалар ұқсас. «Ықшам механикалық пернетақта» үшін нақты «Номиналды тұтыну қуаты» көрсеткішін
+    айтыңыз (Вт).
+  relevant:
+  - section: technical_compact_keyboard.power_w
+    grade: 3
+  - section: technical_compact_keyboard.transfer_mbps
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_keyboard.power_w; neighbouring transfer_mbps does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.compact_keyboard.power_w|current
+  required:
+  - fact: technical.compact_keyboard.power_w
+    sections:
+    - technical_compact_keyboard.power_w
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_keyboard_transfer_mbps
+  category: hard
+  en: Check the specifcation of Compact mechanical keyboard for rated interface data rate (Mbps), please.
+  ru: 'Проверьте характиристику «Компактная механическая клавиатура»: интересует «Номинальная скорость
+    интерфейса» (Мбит/с).'
+  kk: «Ықшам механикалық пернетақта» сипатамасынан «Интерфейстің номиналды дерек жылдамдығы» мәнін тексеріңізші
+    (Мбит/с).
+  relevant:
+  - section: technical_compact_keyboard.transfer_mbps
+    grade: 3
+  - section: technical_compact_keyboard.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_keyboard.transfer_mbps; neighbouring controls_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_data_rate
+  need_key: technical.compact_keyboard.transfer_mbps|current
+  required:
+  - fact: technical.compact_keyboard.transfer_mbps
+    sections:
+    - technical_compact_keyboard.transfer_mbps
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_keyboard_controls_count
+  category: simple
+  en: For Compact mechanical keyboard, what is the specified number of physical controls in units?
+  ru: Для «Компактная механическая клавиатура» какое значение указано для показателя «Число физических
+    органов управления» (шт.)?
+  kk: «Ықшам механикалық пернетақта» тауары үшін «Физикалық басқару элементтерінің саны» көрсеткішінің
+    мәні қандай (дана)?
+  relevant:
+  - section: technical_compact_keyboard.controls_count
+    grade: 3
+  - section: technical_compact_keyboard.storage_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_keyboard.controls_count; neighbouring storage_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.compact_keyboard.controls_count|current
+  required:
+  - fact: technical.compact_keyboard.controls_count
+    sections:
+    - technical_compact_keyboard.controls_count
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_keyboard_storage_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum storage temperature for Compact mechanical keyboard,
+    in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура хранения» у «Компактная механическая
+    клавиатура», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Ықшам механикалық пернетақта» үшін «Сақтаудың ең төмен температурасы»
+    мәні қажет (C).
+  relevant:
+  - section: technical_compact_keyboard.storage_min_c
+    grade: 3
+  - section: technical_compact_keyboard.storage_max_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_keyboard.storage_min_c; neighbouring storage_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_temperature
+  need_key: technical.compact_keyboard.storage_min_c|current
+  required:
+  - fact: technical.compact_keyboard.storage_min_c
+    sections:
+    - technical_compact_keyboard.storage_min_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compact_keyboard_storage_max_c
+  category: hard
+  en: 'Compact mechanical keyboard: maximum storage temperature, C?'
+  ru: '«Компактная механическая клавиатура»: максимальная температура хранения, C?'
+  kk: '«Ықшам механикалық пернетақта»: сақтаудың ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_compact_keyboard.storage_max_c
+    grade: 3
+  - section: technical_compact_keyboard.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compact_keyboard.storage_max_c; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_temperature
+  need_key: technical.compact_keyboard.storage_max_c|current
+  required:
+  - fact: technical.compact_keyboard.storage_max_c
+    sections:
+    - technical_compact_keyboard.storage_max_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_compact_keyboard_humidity_max_percent
+  category: unanswerable
+  en: For Compact mechanical keyboard, what is the specified maximum permitted humidity in percent?
+  ru: Для «Компактная механическая клавиатура» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Ықшам механикалық пернетақта» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_compact_keyboard.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for compact_keyboard does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.compact_keyboard.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_compact_keyboard_drop_test_cm
+  category: unanswerable
+  en: For Compact mechanical keyboard, what is the specified certified drop-test height in cm?
+  ru: Для «Компактная механическая клавиатура» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Ықшам механикалық пернетақта» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_compact_keyboard.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for compact_keyboard does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.compact_keyboard.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_compact_keyboard_repair_parts_price
+  category: unanswerable
+  en: For Compact mechanical keyboard, what is the specified replacement-part price in KZT?
+  ru: Для «Компактная механическая клавиатура» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Ықшам механикалық пернетақта» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_compact_keyboard.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for compact_keyboard does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.compact_keyboard.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_compact_keyboard_certification_id
+  category: unanswerable
+  en: For Compact mechanical keyboard, what is the specified certification record number in record?
+  ru: Для «Компактная механическая клавиатура» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Ықшам механикалық пернетақта» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_compact_keyboard.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for compact_keyboard does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.compact_keyboard.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_compact_keyboard
+  category: multi_fragment
+  en: What does Compact mechanical keyboard weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Компактная механическая клавиатура» и какой вес посылки допускают пункты самовывоза?
+  kk: «Ықшам механикалық пернетақта» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_compact_keyboard.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.compact_keyboard.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.compact_keyboard.mass_g
+    sections:
+    - technical_compact_keyboard.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_prepublication_mass_compact_keyboard
+  category: unanswerable
+  en: According to the instructions valid on 15 October 2026, what was the stated mass of Compact mechanical
+    keyboard?
+  ru: По инструкциям, действовавшим 15 октября 2026 года, какая масса была указана для «Компактная механическая
+    клавиатура»?
+  kk: 2026 жылғы 15 қазанда қолданылған нұсқаулықтар бойынша «Ықшам механикалық пернетақта» үшін қандай
+    салмақ көрсетілген еді?
+  relevant:
+  - section: technical_compact_keyboard.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The technical source starts on 1 November 2026. Its current mass cannot establish a fact
+    at the requested earlier date.
+  family_id: profile_physical_mass
+  need_key: technical.compact_keyboard.mass_g|2026_10_15_before_document_validity
+  required: []
+  tags:
+  - profile_derived
+  - temporal
+  - outside_validity
+  - hard_negative
+  as_of: '2026-10-15'
+  all_versions: false
+  negative_reason: expired
+- id: catalog_ergonomic_keyboard_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Split ergonomic keyboard (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Раздельная эргономичная клавиатура» (г).
+  kk: Карточкалар ұқсас. «Бөлінген эргономикалық пернетақта» үшін нақты «Салмағы» көрсеткішін айтыңыз
+    (г).
+  relevant:
+  - section: technical_ergonomic_keyboard.mass_g
+    grade: 3
+  - section: technical_ergonomic_keyboard.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ergonomic_keyboard.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.ergonomic_keyboard.mass_g|current
+  required:
+  - fact: technical.ergonomic_keyboard.mass_g
+    sections:
+    - technical_ergonomic_keyboard.mass_g
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ergonomic_keyboard_width_mm
+  category: hard
+  en: Check the specifcation of Split ergonomic keyboard for width (mm), please.
+  ru: 'Проверьте характиристику «Раздельная эргономичная клавиатура»: интересует «Ширина» (мм).'
+  kk: «Бөлінген эргономикалық пернетақта» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_ergonomic_keyboard.width_mm
+    grade: 3
+  - section: technical_ergonomic_keyboard.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Бөлінген эргономикалық пернетақта» үшін «Ені» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.ergonomic_keyboard.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.ergonomic_keyboard.width_mm|current
+  required:
+  - fact: technical.ergonomic_keyboard.width_mm
+    sections:
+    - technical_ergonomic_keyboard.width_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ergonomic_keyboard_height_mm
+  category: simple
+  en: For Split ergonomic keyboard, what is the specified height in mm?
+  ru: Для «Раздельная эргономичная клавиатура» какое значение указано для показателя «Высота» (мм)?
+  kk: «Бөлінген эргономикалық пернетақта» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_ergonomic_keyboard.height_mm
+    grade: 3
+  - section: technical_ergonomic_keyboard.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ergonomic_keyboard.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.ergonomic_keyboard.height_mm|current
+  required:
+  - fact: technical.ergonomic_keyboard.height_mm
+    sections:
+    - technical_ergonomic_keyboard.height_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ergonomic_keyboard_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Split ergonomic keyboard, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Раздельная эргономичная клавиатура», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Бөлінген эргономикалық пернетақта» үшін «Тереңдігі» мәні қажет
+    (мм).
+  relevant:
+  - section: technical_ergonomic_keyboard.depth_mm
+    grade: 3
+  - section: technical_ergonomic_keyboard.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ergonomic_keyboard.depth_mm; neighbouring operating_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.ergonomic_keyboard.depth_mm|current
+  required:
+  - fact: technical.ergonomic_keyboard.depth_mm
+    sections:
+    - technical_ergonomic_keyboard.depth_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ergonomic_keyboard_operating_min_c
+  category: hard
+  en: 'Split ergonomic keyboard: minimum operating ambient temperature, C?'
+  ru: '«Раздельная эргономичная клавиатура»: минимальная температура воздуха при работе, C?'
+  kk: '«Бөлінген эргономикалық пернетақта»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_ergonomic_keyboard.operating_min_c
+    grade: 3
+  - section: technical_ergonomic_keyboard.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ergonomic_keyboard.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.ergonomic_keyboard.operating_min_c|current
+  required:
+  - fact: technical.ergonomic_keyboard.operating_min_c
+    sections:
+    - technical_ergonomic_keyboard.operating_min_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ergonomic_keyboard_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Split ergonomic
+    keyboard (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Раздельная
+    эргономичная клавиатура» (C).
+  kk: Карточкалар ұқсас. «Бөлінген эргономикалық пернетақта» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары
+    температурасы» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_ergonomic_keyboard.operating_max_c
+    grade: 3
+  - section: technical_ergonomic_keyboard.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ergonomic_keyboard.operating_max_c; neighbouring cable_cm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.ergonomic_keyboard.operating_max_c|current
+  required:
+  - fact: technical.ergonomic_keyboard.operating_max_c
+    sections:
+    - technical_ergonomic_keyboard.operating_max_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ergonomic_keyboard_cable_cm
+  category: hard
+  en: Check the specifcation of Split ergonomic keyboard for supplied cable length (cm), please.
+  ru: 'Проверьте характиристику «Раздельная эргономичная клавиатура»: интересует «Длина комплектного кабеля»
+    (см).'
+  kk: «Бөлінген эргономикалық пернетақта» сипатамасынан «Жинақтағы кабель ұзындығы» мәнін тексеріңізші
+    (см).
+  relevant:
+  - section: technical_ergonomic_keyboard.cable_cm
+    grade: 3
+  - section: technical_ergonomic_keyboard.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ergonomic_keyboard.cable_cm; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.ergonomic_keyboard.cable_cm|current
+  required:
+  - fact: technical.ergonomic_keyboard.cable_cm
+    sections:
+    - technical_ergonomic_keyboard.cable_cm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ergonomic_keyboard_voltage_v
+  category: simple
+  en: For Split ergonomic keyboard, what is the specified rated supply voltage in V?
+  ru: Для «Раздельная эргономичная клавиатура» какое значение указано для показателя «Номинальное напряжение
+    питания» (В)?
+  kk: «Бөлінген эргономикалық пернетақта» тауары үшін «Номиналды қорек кернеуі» көрсеткішінің мәні қандай
+    (В)?
+  relevant:
+  - section: technical_ergonomic_keyboard.voltage_v
+    grade: 3
+  - section: technical_ergonomic_keyboard.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ergonomic_keyboard.voltage_v; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.ergonomic_keyboard.voltage_v|current
+  required:
+  - fact: technical.ergonomic_keyboard.voltage_v
+    sections:
+    - technical_ergonomic_keyboard.voltage_v
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ergonomic_keyboard_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Split ergonomic keyboard, in
+    W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Раздельная эргономичная
+    клавиатура», в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Бөлінген эргономикалық пернетақта» үшін «Номиналды тұтыну қуаты»
+    мәні қажет (Вт).
+  relevant:
+  - section: technical_ergonomic_keyboard.power_w
+    grade: 3
+  - section: technical_ergonomic_keyboard.transfer_mbps
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Раздельная эргономичная клавиатура» показатель «Номинальная потребляемая мощность» (Вт) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.ergonomic_keyboard.power_w; neighbouring transfer_mbps does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.ergonomic_keyboard.power_w|current
+  required:
+  - fact: technical.ergonomic_keyboard.power_w
+    sections:
+    - technical_ergonomic_keyboard.power_w
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ergonomic_keyboard_transfer_mbps
+  category: simple
+  en: 'Split ergonomic keyboard: rated interface data rate, Mbps?'
+  ru: '«Раздельная эргономичная клавиатура»: номинальная скорость интерфейса, Мбит/с?'
+  kk: '«Бөлінген эргономикалық пернетақта»: интерфейстің номиналды дерек жылдамдығы, Мбит/с?'
+  relevant:
+  - section: technical_ergonomic_keyboard.transfer_mbps
+    grade: 3
+  - section: technical_ergonomic_keyboard.controls_count
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ergonomic_keyboard.transfer_mbps; neighbouring controls_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_data_rate
+  need_key: technical.ergonomic_keyboard.transfer_mbps|current
+  required:
+  - fact: technical.ergonomic_keyboard.transfer_mbps
+    sections:
+    - technical_ergonomic_keyboard.transfer_mbps
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ergonomic_keyboard_controls_count
+  category: hard
+  en: The cards look similar. What number of physical controls is listed for Split ergonomic keyboard
+    (units)?
+  ru: Карточки похожи. Уточните показатель «Число физических органов управления» именно для «Раздельная
+    эргономичная клавиатура» (шт.).
+  kk: Карточкалар ұқсас. «Бөлінген эргономикалық пернетақта» үшін нақты «Физикалық басқару элементтерінің
+    саны» көрсеткішін айтыңыз (дана).
+  relevant:
+  - section: technical_ergonomic_keyboard.controls_count
+    grade: 3
+  - section: technical_ergonomic_keyboard.storage_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ergonomic_keyboard.controls_count; neighbouring storage_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.ergonomic_keyboard.controls_count|current
+  required:
+  - fact: technical.ergonomic_keyboard.controls_count
+    sections:
+    - technical_ergonomic_keyboard.controls_count
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ergonomic_keyboard_storage_min_c
+  category: hard
+  en: Check the specifcation of Split ergonomic keyboard for minimum storage temperature (C), please.
+  ru: 'Проверьте характиристику «Раздельная эргономичная клавиатура»: интересует «Минимальная температура
+    хранения» (C).'
+  kk: «Бөлінген эргономикалық пернетақта» сипатамасынан «Сақтаудың ең төмен температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_ergonomic_keyboard.storage_min_c
+    grade: 3
+  - section: technical_ergonomic_keyboard.storage_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ergonomic_keyboard.storage_min_c; neighbouring storage_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_temperature
+  need_key: technical.ergonomic_keyboard.storage_min_c|current
+  required:
+  - fact: technical.ergonomic_keyboard.storage_min_c
+    sections:
+    - technical_ergonomic_keyboard.storage_min_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ergonomic_keyboard_storage_max_c
+  category: hard
+  en: For Split ergonomic keyboard, what is the specified maximum storage temperature in C?
+  ru: Для «Раздельная эргономичная клавиатура» какое значение указано для показателя «Максимальная температура
+    хранения» (C)?
+  kk: «Бөлінген эргономикалық пернетақта» тауары үшін «Сақтаудың ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_ergonomic_keyboard.storage_max_c
+    grade: 3
+  - section: technical_ergonomic_keyboard.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ergonomic_keyboard.storage_max_c; neighbouring mass_g does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_temperature
+  need_key: technical.ergonomic_keyboard.storage_max_c|current
+  required:
+  - fact: technical.ergonomic_keyboard.storage_max_c
+    sections:
+    - technical_ergonomic_keyboard.storage_max_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_ergonomic_keyboard_humidity_max_percent
+  category: unanswerable
+  en: For Split ergonomic keyboard, what is the specified maximum permitted humidity in percent?
+  ru: Для «Раздельная эргономичная клавиатура» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Бөлінген эргономикалық пернетақта» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_ergonomic_keyboard.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ergonomic_keyboard does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.ergonomic_keyboard.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_ergonomic_keyboard_drop_test_cm
+  category: unanswerable
+  en: For Split ergonomic keyboard, what is the specified certified drop-test height in cm?
+  ru: Для «Раздельная эргономичная клавиатура» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Бөлінген эргономикалық пернетақта» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_ergonomic_keyboard.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ergonomic_keyboard does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.ergonomic_keyboard.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_ergonomic_keyboard_repair_parts_price
+  category: unanswerable
+  en: For Split ergonomic keyboard, what is the specified replacement-part price in KZT?
+  ru: Для «Раздельная эргономичная клавиатура» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Бөлінген эргономикалық пернетақта» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_ergonomic_keyboard.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ergonomic_keyboard does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.ergonomic_keyboard.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_ergonomic_keyboard_certification_id
+  category: unanswerable
+  en: For Split ergonomic keyboard, what is the specified certification record number in record?
+  ru: Для «Раздельная эргономичная клавиатура» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Бөлінген эргономикалық пернетақта» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_ergonomic_keyboard.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ergonomic_keyboard does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.ergonomic_keyboard.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_vertical_mouse_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Vertical optical mouse, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Вертикальная оптическая мышь», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Тік оптикалық тінтуір» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_vertical_mouse.mass_g
+    grade: 3
+  - section: technical_vertical_mouse.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.vertical_mouse.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.vertical_mouse.mass_g|current
+  required:
+  - fact: technical.vertical_mouse.mass_g
+    sections:
+    - technical_vertical_mouse.mass_g
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_vertical_mouse_width_mm
+  category: simple
+  en: 'Vertical optical mouse: width, mm?'
+  ru: '«Вертикальная оптическая мышь»: ширина, мм?'
+  kk: '«Тік оптикалық тінтуір»: ені, мм?'
+  relevant:
+  - section: technical_vertical_mouse.width_mm
+    grade: 3
+  - section: technical_vertical_mouse.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.vertical_mouse.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.vertical_mouse.width_mm|current
+  required:
+  - fact: technical.vertical_mouse.width_mm
+    sections:
+    - technical_vertical_mouse.width_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_vertical_mouse_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Vertical optical mouse (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Вертикальная оптическая мышь» (мм).
+  kk: Карточкалар ұқсас. «Тік оптикалық тінтуір» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_vertical_mouse.height_mm
+    grade: 3
+  - section: technical_vertical_mouse.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Тік оптикалық тінтуір» үшін «Биіктігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.vertical_mouse.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.vertical_mouse.height_mm|current
+  required:
+  - fact: technical.vertical_mouse.height_mm
+    sections:
+    - technical_vertical_mouse.height_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_vertical_mouse_depth_mm
+  category: hard
+  en: Check the specifcation of Vertical optical mouse for depth (mm), please.
+  ru: 'Проверьте характиристику «Вертикальная оптическая мышь»: интересует «Глубина» (мм).'
+  kk: «Тік оптикалық тінтуір» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_vertical_mouse.depth_mm
+    grade: 3
+  - section: technical_vertical_mouse.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.vertical_mouse.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.vertical_mouse.depth_mm|current
+  required:
+  - fact: technical.vertical_mouse.depth_mm
+    sections:
+    - technical_vertical_mouse.depth_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_vertical_mouse_operating_min_c
+  category: hard
+  en: For Vertical optical mouse, what is the specified minimum operating ambient temperature in C?
+  ru: Для «Вертикальная оптическая мышь» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Тік оптикалық тінтуір» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_vertical_mouse.operating_min_c
+    grade: 3
+  - section: technical_vertical_mouse.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.vertical_mouse.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.vertical_mouse.operating_min_c|current
+  required:
+  - fact: technical.vertical_mouse.operating_min_c
+    sections:
+    - technical_vertical_mouse.operating_min_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_vertical_mouse_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Vertical optical
+    mouse, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Вертикальная
+    оптическая мышь», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Тік оптикалық тінтуір» үшін «Жұмыс кезіндегі ауаның ең жоғары
+    температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_vertical_mouse.operating_max_c
+    grade: 3
+  - section: technical_vertical_mouse.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.vertical_mouse.operating_max_c; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.vertical_mouse.operating_max_c|current
+  required:
+  - fact: technical.vertical_mouse.operating_max_c
+    sections:
+    - technical_vertical_mouse.operating_max_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_vertical_mouse_cable_cm
+  category: simple
+  en: 'Vertical optical mouse: supplied cable length, cm?'
+  ru: '«Вертикальная оптическая мышь»: длина комплектного кабеля, см?'
+  kk: '«Тік оптикалық тінтуір»: жинақтағы кабель ұзындығы, см?'
+  relevant:
+  - section: technical_vertical_mouse.cable_cm
+    grade: 3
+  - section: technical_vertical_mouse.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.vertical_mouse.cable_cm; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.vertical_mouse.cable_cm|current
+  required:
+  - fact: technical.vertical_mouse.cable_cm
+    sections:
+    - technical_vertical_mouse.cable_cm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_vertical_mouse_voltage_v
+  category: hard
+  en: The cards look similar. What rated supply voltage is listed for Vertical optical mouse (V)?
+  ru: Карточки похожи. Уточните показатель «Номинальное напряжение питания» именно для «Вертикальная оптическая
+    мышь» (В).
+  kk: Карточкалар ұқсас. «Тік оптикалық тінтуір» үшін нақты «Номиналды қорек кернеуі» көрсеткішін айтыңыз
+    (В).
+  relevant:
+  - section: technical_vertical_mouse.voltage_v
+    grade: 3
+  - section: technical_vertical_mouse.power_w
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.vertical_mouse.voltage_v; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.vertical_mouse.voltage_v|current
+  required:
+  - fact: technical.vertical_mouse.voltage_v
+    sections:
+    - technical_vertical_mouse.voltage_v
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_vertical_mouse_power_w
+  category: hard
+  en: Check the specifcation of Vertical optical mouse for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Вертикальная оптическая мышь»: интересует «Номинальная потребляемая мощность»
+    (Вт).'
+  kk: «Тік оптикалық тінтуір» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_vertical_mouse.power_w
+    grade: 3
+  - section: technical_vertical_mouse.transfer_mbps
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.vertical_mouse.power_w; neighbouring transfer_mbps does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.vertical_mouse.power_w|current
+  required:
+  - fact: technical.vertical_mouse.power_w
+    sections:
+    - technical_vertical_mouse.power_w
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_vertical_mouse_transfer_mbps
+  category: simple
+  en: For Vertical optical mouse, what is the specified rated interface data rate in Mbps?
+  ru: Для «Вертикальная оптическая мышь» какое значение указано для показателя «Номинальная скорость интерфейса»
+    (Мбит/с)?
+  kk: «Тік оптикалық тінтуір» тауары үшін «Интерфейстің номиналды дерек жылдамдығы» көрсеткішінің мәні
+    қандай (Мбит/с)?
+  relevant:
+  - section: technical_vertical_mouse.transfer_mbps
+    grade: 3
+  - section: technical_vertical_mouse.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Вертикальная оптическая мышь» показатель «Номинальная скорость интерфейса» (Мбит/с) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.vertical_mouse.transfer_mbps; neighbouring controls_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_data_rate
+  need_key: technical.vertical_mouse.transfer_mbps|current
+  required:
+  - fact: technical.vertical_mouse.transfer_mbps
+    sections:
+    - technical_vertical_mouse.transfer_mbps
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_vertical_mouse_controls_count
+  category: simple
+  en: I am comparing specifications. Find the number of physical controls for Vertical optical mouse,
+    in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число физических органов управления» у «Вертикальная
+    оптическая мышь», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Тік оптикалық тінтуір» үшін «Физикалық басқару элементтерінің
+    саны» мәні қажет (дана).
+  relevant:
+  - section: technical_vertical_mouse.controls_count
+    grade: 3
+  - section: technical_vertical_mouse.storage_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.vertical_mouse.controls_count; neighbouring storage_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.vertical_mouse.controls_count|current
+  required:
+  - fact: technical.vertical_mouse.controls_count
+    sections:
+    - technical_vertical_mouse.controls_count
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_vertical_mouse_storage_min_c
+  category: hard
+  en: 'Vertical optical mouse: minimum storage temperature, C?'
+  ru: '«Вертикальная оптическая мышь»: минимальная температура хранения, C?'
+  kk: '«Тік оптикалық тінтуір»: сақтаудың ең төмен температурасы, C?'
+  relevant:
+  - section: technical_vertical_mouse.storage_min_c
+    grade: 3
+  - section: technical_vertical_mouse.storage_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.vertical_mouse.storage_min_c; neighbouring storage_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_temperature
+  need_key: technical.vertical_mouse.storage_min_c|current
+  required:
+  - fact: technical.vertical_mouse.storage_min_c
+    sections:
+    - technical_vertical_mouse.storage_min_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_vertical_mouse_storage_max_c
+  category: hard
+  en: The cards look similar. What maximum storage temperature is listed for Vertical optical mouse (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура хранения» именно для «Вертикальная
+    оптическая мышь» (C).
+  kk: Карточкалар ұқсас. «Тік оптикалық тінтуір» үшін нақты «Сақтаудың ең жоғары температурасы» көрсеткішін
+    айтыңыз (C).
+  relevant:
+  - section: technical_vertical_mouse.storage_max_c
+    grade: 3
+  - section: technical_vertical_mouse.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.vertical_mouse.storage_max_c; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_temperature
+  need_key: technical.vertical_mouse.storage_max_c|current
+  required:
+  - fact: technical.vertical_mouse.storage_max_c
+    sections:
+    - technical_vertical_mouse.storage_max_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_vertical_mouse_humidity_max_percent
+  category: unanswerable
+  en: For Vertical optical mouse, what is the specified maximum permitted humidity in percent?
+  ru: Для «Вертикальная оптическая мышь» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Тік оптикалық тінтуір» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_vertical_mouse.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for vertical_mouse does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.vertical_mouse.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_vertical_mouse_drop_test_cm
+  category: unanswerable
+  en: For Vertical optical mouse, what is the specified certified drop-test height in cm?
+  ru: Для «Вертикальная оптическая мышь» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Тік оптикалық тінтуір» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_vertical_mouse.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for vertical_mouse does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.vertical_mouse.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_vertical_mouse_repair_parts_price
+  category: unanswerable
+  en: For Vertical optical mouse, what is the specified replacement-part price in KZT?
+  ru: Для «Вертикальная оптическая мышь» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Тік оптикалық тінтуір» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_vertical_mouse.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for vertical_mouse does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.vertical_mouse.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_vertical_mouse_certification_id
+  category: unanswerable
+  en: For Vertical optical mouse, what is the specified certification record number in record?
+  ru: Для «Вертикальная оптическая мышь» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Тік оптикалық тінтуір» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_vertical_mouse.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for vertical_mouse does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.vertical_mouse.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_vertical_mouse
+  category: multi_fragment
+  en: What does Vertical optical mouse weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Вертикальная оптическая мышь» и какой вес посылки допускают пункты самовывоза?
+  kk: «Тік оптикалық тінтуір» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_vertical_mouse.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.vertical_mouse.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.vertical_mouse.mass_g
+    sections:
+    - technical_vertical_mouse.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trackball_mass_g
+  category: hard
+  en: Check the specifcation of Desktop trackball for mass (g), please.
+  ru: 'Проверьте характиристику «Настольный трекбол»: интересует «Масса» (г).'
+  kk: «Үстел трекболы» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_trackball.mass_g
+    grade: 3
+  - section: technical_trackball.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trackball.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.trackball.mass_g|current
+  required:
+  - fact: technical.trackball.mass_g
+    sections:
+    - technical_trackball.mass_g
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trackball_width_mm
+  category: simple
+  en: For Desktop trackball, what is the specified width in mm?
+  ru: Для «Настольный трекбол» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Үстел трекболы» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_trackball.width_mm
+    grade: 3
+  - section: technical_trackball.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trackball.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.trackball.width_mm|current
+  required:
+  - fact: technical.trackball.width_mm
+    sections:
+    - technical_trackball.width_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trackball_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Desktop trackball, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Настольный трекбол», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел трекболы» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_trackball.height_mm
+    grade: 3
+  - section: technical_trackball.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trackball.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.trackball.height_mm|current
+  required:
+  - fact: technical.trackball.height_mm
+    sections:
+    - technical_trackball.height_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trackball_depth_mm
+  category: simple
+  en: 'Desktop trackball: depth, mm?'
+  ru: '«Настольный трекбол»: глубина, мм?'
+  kk: '«Үстел трекболы»: тереңдігі, мм?'
+  relevant:
+  - section: technical_trackball.depth_mm
+    grade: 3
+  - section: technical_trackball.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Үстел трекболы» үшін «Тереңдігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.trackball.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.trackball.depth_mm|current
+  required:
+  - fact: technical.trackball.depth_mm
+    sections:
+    - technical_trackball.depth_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trackball_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Desktop trackball
+    (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Настольный
+    трекбол» (C).
+  kk: Карточкалар ұқсас. «Үстел трекболы» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішін
+    айтыңыз (C).
+  relevant:
+  - section: technical_trackball.operating_min_c
+    grade: 3
+  - section: technical_trackball.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trackball.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.trackball.operating_min_c|current
+  required:
+  - fact: technical.trackball.operating_min_c
+    sections:
+    - technical_trackball.operating_min_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trackball_operating_max_c
+  category: hard
+  en: Check the specifcation of Desktop trackball for maximum operating ambient temperature (C), please.
+  ru: 'Проверьте характиристику «Настольный трекбол»: интересует «Максимальная температура воздуха при
+    работе» (C).'
+  kk: «Үстел трекболы» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_trackball.operating_max_c
+    grade: 3
+  - section: technical_trackball.cable_cm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trackball.operating_max_c; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.trackball.operating_max_c|current
+  required:
+  - fact: technical.trackball.operating_max_c
+    sections:
+    - technical_trackball.operating_max_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trackball_cable_cm
+  category: simple
+  en: For Desktop trackball, what is the specified supplied cable length in cm?
+  ru: Для «Настольный трекбол» какое значение указано для показателя «Длина комплектного кабеля» (см)?
+  kk: «Үстел трекболы» тауары үшін «Жинақтағы кабель ұзындығы» көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_trackball.cable_cm
+    grade: 3
+  - section: technical_trackball.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trackball.cable_cm; neighbouring voltage_v does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.trackball.cable_cm|current
+  required:
+  - fact: technical.trackball.cable_cm
+    sections:
+    - technical_trackball.cable_cm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trackball_voltage_v
+  category: simple
+  en: I am comparing specifications. Find the rated supply voltage for Desktop trackball, in V.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное напряжение питания» у «Настольный трекбол»,
+    в В.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел трекболы» үшін «Номиналды қорек кернеуі» мәні қажет (В).
+  relevant:
+  - section: technical_trackball.voltage_v
+    grade: 3
+  - section: technical_trackball.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trackball.voltage_v; neighbouring power_w does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.trackball.voltage_v|current
+  required:
+  - fact: technical.trackball.voltage_v
+    sections:
+    - technical_trackball.voltage_v
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trackball_power_w
+  category: simple
+  en: 'Desktop trackball: rated power consumption, W?'
+  ru: '«Настольный трекбол»: номинальная потребляемая мощность, Вт?'
+  kk: '«Үстел трекболы»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_trackball.power_w
+    grade: 3
+  - section: technical_trackball.transfer_mbps
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trackball.power_w; neighbouring transfer_mbps does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.trackball.power_w|current
+  required:
+  - fact: technical.trackball.power_w
+    sections:
+    - technical_trackball.power_w
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trackball_transfer_mbps
+  category: hard
+  en: The cards look similar. What rated interface data rate is listed for Desktop trackball (Mbps)?
+  ru: Карточки похожи. Уточните показатель «Номинальная скорость интерфейса» именно для «Настольный трекбол»
+    (Мбит/с).
+  kk: Карточкалар ұқсас. «Үстел трекболы» үшін нақты «Интерфейстің номиналды дерек жылдамдығы» көрсеткішін
+    айтыңыз (Мбит/с).
+  relevant:
+  - section: technical_trackball.transfer_mbps
+    grade: 3
+  - section: technical_trackball.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trackball.transfer_mbps; neighbouring controls_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_data_rate
+  need_key: technical.trackball.transfer_mbps|current
+  required:
+  - fact: technical.trackball.transfer_mbps
+    sections:
+    - technical_trackball.transfer_mbps
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trackball_controls_count
+  category: hard
+  en: Check the specifcation of Desktop trackball for number of physical controls (units), please.
+  ru: 'Проверьте характиристику «Настольный трекбол»: интересует «Число физических органов управления»
+    (шт.).'
+  kk: «Үстел трекболы» сипатамасынан «Физикалық басқару элементтерінің саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_trackball.controls_count
+    grade: 3
+  - section: technical_trackball.storage_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Настольный трекбол» показатель «Число физических органов управления» (шт.) нақтылап беріңізші,
+    осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.trackball.controls_count; neighbouring storage_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.trackball.controls_count|current
+  required:
+  - fact: technical.trackball.controls_count
+    sections:
+    - technical_trackball.controls_count
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trackball_storage_min_c
+  category: hard
+  en: For Desktop trackball, what is the specified minimum storage temperature in C?
+  ru: Для «Настольный трекбол» какое значение указано для показателя «Минимальная температура хранения»
+    (C)?
+  kk: «Үстел трекболы» тауары үшін «Сақтаудың ең төмен температурасы» көрсеткішінің мәні қандай (C)?
+  relevant:
+  - section: technical_trackball.storage_min_c
+    grade: 3
+  - section: technical_trackball.storage_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trackball.storage_min_c; neighbouring storage_max_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_temperature
+  need_key: technical.trackball.storage_min_c|current
+  required:
+  - fact: technical.trackball.storage_min_c
+    sections:
+    - technical_trackball.storage_min_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trackball_storage_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum storage temperature for Desktop trackball, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура хранения» у «Настольный трекбол»,
+    в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел трекболы» үшін «Сақтаудың ең жоғары температурасы» мәні
+    қажет (C).
+  relevant:
+  - section: technical_trackball.storage_max_c
+    grade: 3
+  - section: technical_trackball.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trackball.storage_max_c; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_temperature
+  need_key: technical.trackball.storage_max_c|current
+  required:
+  - fact: technical.trackball.storage_max_c
+    sections:
+    - technical_trackball.storage_max_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_trackball_humidity_max_percent
+  category: unanswerable
+  en: For Desktop trackball, what is the specified maximum permitted humidity in percent?
+  ru: Для «Настольный трекбол» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Үстел трекболы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай (пайыз)?
+  relevant:
+  - section: technical_trackball.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for trackball does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.trackball.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_trackball_drop_test_cm
+  category: unanswerable
+  en: For Desktop trackball, what is the specified certified drop-test height in cm?
+  ru: Для «Настольный трекбол» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Үстел трекболы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні қандай
+    (см)?
+  relevant:
+  - section: technical_trackball.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for trackball does not state drop_test_cm. Dimensions, the retail price or a diagnostic
+    fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.trackball.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_trackball_repair_parts_price
+  category: unanswerable
+  en: For Desktop trackball, what is the specified replacement-part price in KZT?
+  ru: Для «Настольный трекбол» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Үстел трекболы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_trackball.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for trackball does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.trackball.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_trackball_certification_id
+  category: unanswerable
+  en: For Desktop trackball, what is the specified certification record number in record?
+  ru: Для «Настольный трекбол» какое значение указано для показателя «Номер сертификационной записи» (запись)?
+  kk: «Үстел трекболы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_trackball.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for trackball does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.trackball.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pen_tablet_mass_g
+  category: simple
+  en: 'Pen graphics tablet: mass, g?'
+  ru: '«Перьевой графический планшет»: масса, г?'
+  kk: '«Қаламды графикалық планшет»: салмағы, г?'
+  relevant:
+  - section: technical_pen_tablet.mass_g
+    grade: 3
+  - section: technical_pen_tablet.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pen_tablet.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.pen_tablet.mass_g|current
+  required:
+  - fact: technical.pen_tablet.mass_g
+    sections:
+    - technical_pen_tablet.mass_g
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pen_tablet_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Pen graphics tablet (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Перьевой графический планшет» (мм).
+  kk: Карточкалар ұқсас. «Қаламды графикалық планшет» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_pen_tablet.width_mm
+    grade: 3
+  - section: technical_pen_tablet.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pen_tablet.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.pen_tablet.width_mm|current
+  required:
+  - fact: technical.pen_tablet.width_mm
+    sections:
+    - technical_pen_tablet.width_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pen_tablet_height_mm
+  category: hard
+  en: Check the specifcation of Pen graphics tablet for height (mm), please.
+  ru: 'Проверьте характиристику «Перьевой графический планшет»: интересует «Высота» (мм).'
+  kk: «Қаламды графикалық планшет» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_pen_tablet.height_mm
+    grade: 3
+  - section: technical_pen_tablet.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pen_tablet.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.pen_tablet.height_mm|current
+  required:
+  - fact: technical.pen_tablet.height_mm
+    sections:
+    - technical_pen_tablet.height_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pen_tablet_depth_mm
+  category: simple
+  en: For Pen graphics tablet, what is the specified depth in mm?
+  ru: Для «Перьевой графический планшет» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Қаламды графикалық планшет» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_pen_tablet.depth_mm
+    grade: 3
+  - section: technical_pen_tablet.operating_min_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pen_tablet.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.pen_tablet.depth_mm|current
+  required:
+  - fact: technical.pen_tablet.depth_mm
+    sections:
+    - technical_pen_tablet.depth_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pen_tablet_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Pen graphics tablet,
+    in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Перьевой
+    графический планшет», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Қаламды графикалық планшет» үшін «Жұмыс кезіндегі ауаның ең
+    төмен температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_pen_tablet.operating_min_c
+    grade: 3
+  - section: technical_pen_tablet.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Қаламды графикалық планшет» үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» (C) керек,
+    уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.pen_tablet.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.pen_tablet.operating_min_c|current
+  required:
+  - fact: technical.pen_tablet.operating_min_c
+    sections:
+    - technical_pen_tablet.operating_min_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pen_tablet_operating_max_c
+  category: hard
+  en: 'Pen graphics tablet: maximum operating ambient temperature, C?'
+  ru: '«Перьевой графический планшет»: максимальная температура воздуха при работе, C?'
+  kk: '«Қаламды графикалық планшет»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_pen_tablet.operating_max_c
+    grade: 3
+  - section: technical_pen_tablet.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pen_tablet.operating_max_c; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.pen_tablet.operating_max_c|current
+  required:
+  - fact: technical.pen_tablet.operating_max_c
+    sections:
+    - technical_pen_tablet.operating_max_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pen_tablet_cable_cm
+  category: hard
+  en: The cards look similar. What supplied cable length is listed for Pen graphics tablet (cm)?
+  ru: Карточки похожи. Уточните показатель «Длина комплектного кабеля» именно для «Перьевой графический
+    планшет» (см).
+  kk: Карточкалар ұқсас. «Қаламды графикалық планшет» үшін нақты «Жинақтағы кабель ұзындығы» көрсеткішін
+    айтыңыз (см).
+  relevant:
+  - section: technical_pen_tablet.cable_cm
+    grade: 3
+  - section: technical_pen_tablet.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pen_tablet.cable_cm; neighbouring voltage_v does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.pen_tablet.cable_cm|current
+  required:
+  - fact: technical.pen_tablet.cable_cm
+    sections:
+    - technical_pen_tablet.cable_cm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pen_tablet_voltage_v
+  category: hard
+  en: Check the specifcation of Pen graphics tablet for rated supply voltage (V), please.
+  ru: 'Проверьте характиристику «Перьевой графический планшет»: интересует «Номинальное напряжение питания»
+    (В).'
+  kk: «Қаламды графикалық планшет» сипатамасынан «Номиналды қорек кернеуі» мәнін тексеріңізші (В).
+  relevant:
+  - section: technical_pen_tablet.voltage_v
+    grade: 3
+  - section: technical_pen_tablet.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pen_tablet.voltage_v; neighbouring power_w does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.pen_tablet.voltage_v|current
+  required:
+  - fact: technical.pen_tablet.voltage_v
+    sections:
+    - technical_pen_tablet.voltage_v
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pen_tablet_power_w
+  category: simple
+  en: For Pen graphics tablet, what is the specified rated power consumption in W?
+  ru: Для «Перьевой графический планшет» какое значение указано для показателя «Номинальная потребляемая
+    мощность» (Вт)?
+  kk: «Қаламды графикалық планшет» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай (Вт)?
+  relevant:
+  - section: technical_pen_tablet.power_w
+    grade: 3
+  - section: technical_pen_tablet.transfer_mbps
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pen_tablet.power_w; neighbouring transfer_mbps does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.pen_tablet.power_w|current
+  required:
+  - fact: technical.pen_tablet.power_w
+    sections:
+    - technical_pen_tablet.power_w
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pen_tablet_transfer_mbps
+  category: simple
+  en: I am comparing specifications. Find the rated interface data rate for Pen graphics tablet, in Mbps.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная скорость интерфейса» у «Перьевой графический
+    планшет», в Мбит/с.
+  kk: Сипаттамаларды салыстырып отырмын. «Қаламды графикалық планшет» үшін «Интерфейстің номиналды дерек
+    жылдамдығы» мәні қажет (Мбит/с).
+  relevant:
+  - section: technical_pen_tablet.transfer_mbps
+    grade: 3
+  - section: technical_pen_tablet.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pen_tablet.transfer_mbps; neighbouring controls_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_data_rate
+  need_key: technical.pen_tablet.transfer_mbps|current
+  required:
+  - fact: technical.pen_tablet.transfer_mbps
+    sections:
+    - technical_pen_tablet.transfer_mbps
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pen_tablet_controls_count
+  category: simple
+  en: 'Pen graphics tablet: number of physical controls, units?'
+  ru: '«Перьевой графический планшет»: число физических органов управления, шт.?'
+  kk: '«Қаламды графикалық планшет»: физикалық басқару элементтерінің саны, дана?'
+  relevant:
+  - section: technical_pen_tablet.controls_count
+    grade: 3
+  - section: technical_pen_tablet.storage_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pen_tablet.controls_count; neighbouring storage_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.pen_tablet.controls_count|current
+  required:
+  - fact: technical.pen_tablet.controls_count
+    sections:
+    - technical_pen_tablet.controls_count
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pen_tablet_storage_min_c
+  category: hard
+  en: The cards look similar. What minimum storage temperature is listed for Pen graphics tablet (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура хранения» именно для «Перьевой графический
+    планшет» (C).
+  kk: Карточкалар ұқсас. «Қаламды графикалық планшет» үшін нақты «Сақтаудың ең төмен температурасы» көрсеткішін
+    айтыңыз (C).
+  relevant:
+  - section: technical_pen_tablet.storage_min_c
+    grade: 3
+  - section: technical_pen_tablet.storage_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Перьевой графический планшет» показатель «Минимальная температура хранения» (C) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.pen_tablet.storage_min_c; neighbouring storage_max_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_temperature
+  need_key: technical.pen_tablet.storage_min_c|current
+  required:
+  - fact: technical.pen_tablet.storage_min_c
+    sections:
+    - technical_pen_tablet.storage_min_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pen_tablet_storage_max_c
+  category: hard
+  en: Check the specifcation of Pen graphics tablet for maximum storage temperature (C), please.
+  ru: 'Проверьте характиристику «Перьевой графический планшет»: интересует «Максимальная температура хранения»
+    (C).'
+  kk: «Қаламды графикалық планшет» сипатамасынан «Сақтаудың ең жоғары температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_pen_tablet.storage_max_c
+    grade: 3
+  - section: technical_pen_tablet.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pen_tablet.storage_max_c; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_temperature
+  need_key: technical.pen_tablet.storage_max_c|current
+  required:
+  - fact: technical.pen_tablet.storage_max_c
+    sections:
+    - technical_pen_tablet.storage_max_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_pen_tablet_humidity_max_percent
+  category: unanswerable
+  en: For Pen graphics tablet, what is the specified maximum permitted humidity in percent?
+  ru: Для «Перьевой графический планшет» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Қаламды графикалық планшет» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_pen_tablet.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for pen_tablet does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.pen_tablet.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_pen_tablet_drop_test_cm
+  category: unanswerable
+  en: For Pen graphics tablet, what is the specified certified drop-test height in cm?
+  ru: Для «Перьевой графический планшет» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Қаламды графикалық планшет» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_pen_tablet.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for pen_tablet does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.pen_tablet.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_pen_tablet_repair_parts_price
+  category: unanswerable
+  en: For Pen graphics tablet, what is the specified replacement-part price in KZT?
+  ru: Для «Перьевой графический планшет» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Қаламды графикалық планшет» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_pen_tablet.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for pen_tablet does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.pen_tablet.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_pen_tablet_certification_id
+  category: unanswerable
+  en: For Pen graphics tablet, what is the specified certification record number in record?
+  ru: Для «Перьевой графический планшет» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Қаламды графикалық планшет» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_pen_tablet.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for pen_tablet does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.pen_tablet.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_pen_tablet
+  category: multi_fragment
+  en: What does Pen graphics tablet weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Перьевой графический планшет» и какой вес посылки допускают пункты самовывоза?
+  kk: «Қаламды графикалық планшет» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_pen_tablet.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.pen_tablet.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.pen_tablet.mass_g
+    sections:
+    - technical_pen_tablet.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sheet_scanner_mass_g
+  category: simple
+  en: For Sheet-fed document scanner, what is the specified mass in g?
+  ru: Для «Протяжный сканер документов» какое значение указано для показателя «Масса» (г)?
+  kk: «Парақты құжат сканері» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_sheet_scanner.mass_g
+    grade: 3
+  - section: technical_sheet_scanner.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sheet_scanner.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.sheet_scanner.mass_g|current
+  required:
+  - fact: technical.sheet_scanner.mass_g
+    sections:
+    - technical_sheet_scanner.mass_g
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sheet_scanner_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Sheet-fed document scanner, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Протяжный сканер документов», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Парақты құжат сканері» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_sheet_scanner.width_mm
+    grade: 3
+  - section: technical_sheet_scanner.height_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sheet_scanner.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.sheet_scanner.width_mm|current
+  required:
+  - fact: technical.sheet_scanner.width_mm
+    sections:
+    - technical_sheet_scanner.width_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sheet_scanner_height_mm
+  category: simple
+  en: 'Sheet-fed document scanner: height, mm?'
+  ru: '«Протяжный сканер документов»: высота, мм?'
+  kk: '«Парақты құжат сканері»: биіктігі, мм?'
+  relevant:
+  - section: technical_sheet_scanner.height_mm
+    grade: 3
+  - section: technical_sheet_scanner.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sheet_scanner.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.sheet_scanner.height_mm|current
+  required:
+  - fact: technical.sheet_scanner.height_mm
+    sections:
+    - technical_sheet_scanner.height_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sheet_scanner_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Sheet-fed document scanner (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Протяжный сканер документов» (мм).
+  kk: Карточкалар ұқсас. «Парақты құжат сканері» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_sheet_scanner.depth_mm
+    grade: 3
+  - section: technical_sheet_scanner.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sheet_scanner.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.sheet_scanner.depth_mm|current
+  required:
+  - fact: technical.sheet_scanner.depth_mm
+    sections:
+    - technical_sheet_scanner.depth_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sheet_scanner_operating_min_c
+  category: hard
+  en: Check the specifcation of Sheet-fed document scanner for minimum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Протяжный сканер документов»: интересует «Минимальная температура воздуха
+    при работе» (C).'
+  kk: «Парақты құжат сканері» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_sheet_scanner.operating_min_c
+    grade: 3
+  - section: technical_sheet_scanner.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sheet_scanner.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.sheet_scanner.operating_min_c|current
+  required:
+  - fact: technical.sheet_scanner.operating_min_c
+    sections:
+    - technical_sheet_scanner.operating_min_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sheet_scanner_operating_max_c
+  category: hard
+  en: For Sheet-fed document scanner, what is the specified maximum operating ambient temperature in C?
+  ru: Для «Протяжный сканер документов» какое значение указано для показателя «Максимальная температура
+    воздуха при работе» (C)?
+  kk: «Парақты құжат сканері» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_sheet_scanner.operating_max_c
+    grade: 3
+  - section: technical_sheet_scanner.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Парақты құжат сканері» үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» (C) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.sheet_scanner.operating_max_c; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.sheet_scanner.operating_max_c|current
+  required:
+  - fact: technical.sheet_scanner.operating_max_c
+    sections:
+    - technical_sheet_scanner.operating_max_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sheet_scanner_cable_cm
+  category: simple
+  en: I am comparing specifications. Find the supplied cable length for Sheet-fed document scanner, in
+    cm.
+  ru: Сравниваю характеристики. Нужен показатель «Длина комплектного кабеля» у «Протяжный сканер документов»,
+    в см.
+  kk: Сипаттамаларды салыстырып отырмын. «Парақты құжат сканері» үшін «Жинақтағы кабель ұзындығы» мәні
+    қажет (см).
+  relevant:
+  - section: technical_sheet_scanner.cable_cm
+    grade: 3
+  - section: technical_sheet_scanner.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sheet_scanner.cable_cm; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.sheet_scanner.cable_cm|current
+  required:
+  - fact: technical.sheet_scanner.cable_cm
+    sections:
+    - technical_sheet_scanner.cable_cm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sheet_scanner_voltage_v
+  category: simple
+  en: 'Sheet-fed document scanner: rated supply voltage, V?'
+  ru: '«Протяжный сканер документов»: номинальное напряжение питания, В?'
+  kk: '«Парақты құжат сканері»: номиналды қорек кернеуі, В?'
+  relevant:
+  - section: technical_sheet_scanner.voltage_v
+    grade: 3
+  - section: technical_sheet_scanner.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sheet_scanner.voltage_v; neighbouring power_w does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.sheet_scanner.voltage_v|current
+  required:
+  - fact: technical.sheet_scanner.voltage_v
+    sections:
+    - technical_sheet_scanner.voltage_v
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sheet_scanner_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Sheet-fed document scanner (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Протяжный сканер
+    документов» (Вт).
+  kk: Карточкалар ұқсас. «Парақты құжат сканері» үшін нақты «Номиналды тұтыну қуаты» көрсеткішін айтыңыз
+    (Вт).
+  relevant:
+  - section: technical_sheet_scanner.power_w
+    grade: 3
+  - section: technical_sheet_scanner.transfer_mbps
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sheet_scanner.power_w; neighbouring transfer_mbps does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.sheet_scanner.power_w|current
+  required:
+  - fact: technical.sheet_scanner.power_w
+    sections:
+    - technical_sheet_scanner.power_w
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sheet_scanner_transfer_mbps
+  category: hard
+  en: Check the specifcation of Sheet-fed document scanner for rated interface data rate (Mbps), please.
+  ru: 'Проверьте характиристику «Протяжный сканер документов»: интересует «Номинальная скорость интерфейса»
+    (Мбит/с).'
+  kk: «Парақты құжат сканері» сипатамасынан «Интерфейстің номиналды дерек жылдамдығы» мәнін тексеріңізші
+    (Мбит/с).
+  relevant:
+  - section: technical_sheet_scanner.transfer_mbps
+    grade: 3
+  - section: technical_sheet_scanner.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sheet_scanner.transfer_mbps; neighbouring controls_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_data_rate
+  need_key: technical.sheet_scanner.transfer_mbps|current
+  required:
+  - fact: technical.sheet_scanner.transfer_mbps
+    sections:
+    - technical_sheet_scanner.transfer_mbps
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sheet_scanner_controls_count
+  category: simple
+  en: For Sheet-fed document scanner, what is the specified number of physical controls in units?
+  ru: Для «Протяжный сканер документов» какое значение указано для показателя «Число физических органов
+    управления» (шт.)?
+  kk: «Парақты құжат сканері» тауары үшін «Физикалық басқару элементтерінің саны» көрсеткішінің мәні қандай
+    (дана)?
+  relevant:
+  - section: technical_sheet_scanner.controls_count
+    grade: 3
+  - section: technical_sheet_scanner.storage_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sheet_scanner.controls_count; neighbouring storage_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.sheet_scanner.controls_count|current
+  required:
+  - fact: technical.sheet_scanner.controls_count
+    sections:
+    - technical_sheet_scanner.controls_count
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sheet_scanner_storage_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum storage temperature for Sheet-fed document scanner,
+    in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура хранения» у «Протяжный сканер
+    документов», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Парақты құжат сканері» үшін «Сақтаудың ең төмен температурасы»
+    мәні қажет (C).
+  relevant:
+  - section: technical_sheet_scanner.storage_min_c
+    grade: 3
+  - section: technical_sheet_scanner.storage_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.sheet_scanner.storage_min_c; neighbouring storage_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_temperature
+  need_key: technical.sheet_scanner.storage_min_c|current
+  required:
+  - fact: technical.sheet_scanner.storage_min_c
+    sections:
+    - technical_sheet_scanner.storage_min_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_sheet_scanner_storage_max_c
+  category: hard
+  en: 'Sheet-fed document scanner: maximum storage temperature, C?'
+  ru: '«Протяжный сканер документов»: максимальная температура хранения, C?'
+  kk: '«Парақты құжат сканері»: сақтаудың ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_sheet_scanner.storage_max_c
+    grade: 3
+  - section: technical_sheet_scanner.mass_g
+    grade: 0
+  cross_lingual: true
+  mix_ru: У «Протяжный сканер документов» показатель «Максимальная температура хранения» (C) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.sheet_scanner.storage_max_c; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_temperature
+  need_key: technical.sheet_scanner.storage_max_c|current
+  required:
+  - fact: technical.sheet_scanner.storage_max_c
+    sections:
+    - technical_sheet_scanner.storage_max_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_sheet_scanner_humidity_max_percent
+  category: unanswerable
+  en: For Sheet-fed document scanner, what is the specified maximum permitted humidity in percent?
+  ru: Для «Протяжный сканер документов» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Парақты құжат сканері» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_sheet_scanner.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for sheet_scanner does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.sheet_scanner.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_sheet_scanner_drop_test_cm
+  category: unanswerable
+  en: For Sheet-fed document scanner, what is the specified certified drop-test height in cm?
+  ru: Для «Протяжный сканер документов» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Парақты құжат сканері» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_sheet_scanner.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for sheet_scanner does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.sheet_scanner.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_sheet_scanner_repair_parts_price
+  category: unanswerable
+  en: For Sheet-fed document scanner, what is the specified replacement-part price in KZT?
+  ru: Для «Протяжный сканер документов» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Парақты құжат сканері» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_sheet_scanner.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for sheet_scanner does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.sheet_scanner.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_sheet_scanner_certification_id
+  category: unanswerable
+  en: For Sheet-fed document scanner, what is the specified certification record number in record?
+  ru: Для «Протяжный сканер документов» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Парақты құжат сканері» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_sheet_scanner.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for sheet_scanner does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.sheet_scanner.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_flatbed_scanner_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Flatbed photo scanner (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Планшетный фотосканер» (г).
+  kk: Карточкалар ұқсас. «Жазық фотосканер» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_flatbed_scanner.mass_g
+    grade: 3
+  - section: technical_flatbed_scanner.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flatbed_scanner.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.flatbed_scanner.mass_g|current
+  required:
+  - fact: technical.flatbed_scanner.mass_g
+    sections:
+    - technical_flatbed_scanner.mass_g
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flatbed_scanner_width_mm
+  category: hard
+  en: Check the specifcation of Flatbed photo scanner for width (mm), please.
+  ru: 'Проверьте характиристику «Планшетный фотосканер»: интересует «Ширина» (мм).'
+  kk: «Жазық фотосканер» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_flatbed_scanner.width_mm
+    grade: 3
+  - section: technical_flatbed_scanner.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flatbed_scanner.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.flatbed_scanner.width_mm|current
+  required:
+  - fact: technical.flatbed_scanner.width_mm
+    sections:
+    - technical_flatbed_scanner.width_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flatbed_scanner_height_mm
+  category: simple
+  en: For Flatbed photo scanner, what is the specified height in mm?
+  ru: Для «Планшетный фотосканер» какое значение указано для показателя «Высота» (мм)?
+  kk: «Жазық фотосканер» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_flatbed_scanner.height_mm
+    grade: 3
+  - section: technical_flatbed_scanner.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flatbed_scanner.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.flatbed_scanner.height_mm|current
+  required:
+  - fact: technical.flatbed_scanner.height_mm
+    sections:
+    - technical_flatbed_scanner.height_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flatbed_scanner_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Flatbed photo scanner, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Планшетный фотосканер», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Жазық фотосканер» үшін «Тереңдігі» мәні қажет (мм).
+  relevant:
+  - section: technical_flatbed_scanner.depth_mm
+    grade: 3
+  - section: technical_flatbed_scanner.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flatbed_scanner.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.flatbed_scanner.depth_mm|current
+  required:
+  - fact: technical.flatbed_scanner.depth_mm
+    sections:
+    - technical_flatbed_scanner.depth_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flatbed_scanner_operating_min_c
+  category: hard
+  en: 'Flatbed photo scanner: minimum operating ambient temperature, C?'
+  ru: '«Планшетный фотосканер»: минимальная температура воздуха при работе, C?'
+  kk: '«Жазық фотосканер»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_flatbed_scanner.operating_min_c
+    grade: 3
+  - section: technical_flatbed_scanner.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flatbed_scanner.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.flatbed_scanner.operating_min_c|current
+  required:
+  - fact: technical.flatbed_scanner.operating_min_c
+    sections:
+    - technical_flatbed_scanner.operating_min_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flatbed_scanner_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Flatbed photo scanner
+    (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Планшетный
+    фотосканер» (C).
+  kk: Карточкалар ұқсас. «Жазық фотосканер» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_flatbed_scanner.operating_max_c
+    grade: 3
+  - section: technical_flatbed_scanner.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flatbed_scanner.operating_max_c; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.flatbed_scanner.operating_max_c|current
+  required:
+  - fact: technical.flatbed_scanner.operating_max_c
+    sections:
+    - technical_flatbed_scanner.operating_max_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flatbed_scanner_cable_cm
+  category: hard
+  en: Check the specifcation of Flatbed photo scanner for supplied cable length (cm), please.
+  ru: 'Проверьте характиристику «Планшетный фотосканер»: интересует «Длина комплектного кабеля» (см).'
+  kk: «Жазық фотосканер» сипатамасынан «Жинақтағы кабель ұзындығы» мәнін тексеріңізші (см).
+  relevant:
+  - section: technical_flatbed_scanner.cable_cm
+    grade: 3
+  - section: technical_flatbed_scanner.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Жазық фотосканер» үшін «Жинақтағы кабель ұзындығы» (см) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.flatbed_scanner.cable_cm; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.flatbed_scanner.cable_cm|current
+  required:
+  - fact: technical.flatbed_scanner.cable_cm
+    sections:
+    - technical_flatbed_scanner.cable_cm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flatbed_scanner_voltage_v
+  category: simple
+  en: For Flatbed photo scanner, what is the specified rated supply voltage in V?
+  ru: Для «Планшетный фотосканер» какое значение указано для показателя «Номинальное напряжение питания»
+    (В)?
+  kk: «Жазық фотосканер» тауары үшін «Номиналды қорек кернеуі» көрсеткішінің мәні қандай (В)?
+  relevant:
+  - section: technical_flatbed_scanner.voltage_v
+    grade: 3
+  - section: technical_flatbed_scanner.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flatbed_scanner.voltage_v; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.flatbed_scanner.voltage_v|current
+  required:
+  - fact: technical.flatbed_scanner.voltage_v
+    sections:
+    - technical_flatbed_scanner.voltage_v
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flatbed_scanner_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Flatbed photo scanner, in W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Планшетный фотосканер»,
+    в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Жазық фотосканер» үшін «Номиналды тұтыну қуаты» мәні қажет (Вт).
+  relevant:
+  - section: technical_flatbed_scanner.power_w
+    grade: 3
+  - section: technical_flatbed_scanner.transfer_mbps
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flatbed_scanner.power_w; neighbouring transfer_mbps does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.flatbed_scanner.power_w|current
+  required:
+  - fact: technical.flatbed_scanner.power_w
+    sections:
+    - technical_flatbed_scanner.power_w
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flatbed_scanner_transfer_mbps
+  category: simple
+  en: 'Flatbed photo scanner: rated interface data rate, Mbps?'
+  ru: '«Планшетный фотосканер»: номинальная скорость интерфейса, Мбит/с?'
+  kk: '«Жазық фотосканер»: интерфейстің номиналды дерек жылдамдығы, Мбит/с?'
+  relevant:
+  - section: technical_flatbed_scanner.transfer_mbps
+    grade: 3
+  - section: technical_flatbed_scanner.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flatbed_scanner.transfer_mbps; neighbouring controls_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_data_rate
+  need_key: technical.flatbed_scanner.transfer_mbps|current
+  required:
+  - fact: technical.flatbed_scanner.transfer_mbps
+    sections:
+    - technical_flatbed_scanner.transfer_mbps
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flatbed_scanner_controls_count
+  category: hard
+  en: The cards look similar. What number of physical controls is listed for Flatbed photo scanner (units)?
+  ru: Карточки похожи. Уточните показатель «Число физических органов управления» именно для «Планшетный
+    фотосканер» (шт.).
+  kk: Карточкалар ұқсас. «Жазық фотосканер» үшін нақты «Физикалық басқару элементтерінің саны» көрсеткішін
+    айтыңыз (дана).
+  relevant:
+  - section: technical_flatbed_scanner.controls_count
+    grade: 3
+  - section: technical_flatbed_scanner.storage_min_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flatbed_scanner.controls_count; neighbouring storage_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.flatbed_scanner.controls_count|current
+  required:
+  - fact: technical.flatbed_scanner.controls_count
+    sections:
+    - technical_flatbed_scanner.controls_count
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flatbed_scanner_storage_min_c
+  category: hard
+  en: Check the specifcation of Flatbed photo scanner for minimum storage temperature (C), please.
+  ru: 'Проверьте характиристику «Планшетный фотосканер»: интересует «Минимальная температура хранения»
+    (C).'
+  kk: «Жазық фотосканер» сипатамасынан «Сақтаудың ең төмен температурасы» мәнін тексеріңізші (C).
+  relevant:
+  - section: technical_flatbed_scanner.storage_min_c
+    grade: 3
+  - section: technical_flatbed_scanner.storage_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flatbed_scanner.storage_min_c; neighbouring storage_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_temperature
+  need_key: technical.flatbed_scanner.storage_min_c|current
+  required:
+  - fact: technical.flatbed_scanner.storage_min_c
+    sections:
+    - technical_flatbed_scanner.storage_min_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_flatbed_scanner_storage_max_c
+  category: hard
+  en: For Flatbed photo scanner, what is the specified maximum storage temperature in C?
+  ru: Для «Планшетный фотосканер» какое значение указано для показателя «Максимальная температура хранения»
+    (C)?
+  kk: «Жазық фотосканер» тауары үшін «Сақтаудың ең жоғары температурасы» көрсеткішінің мәні қандай (C)?
+  relevant:
+  - section: technical_flatbed_scanner.storage_max_c
+    grade: 3
+  - section: technical_flatbed_scanner.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.flatbed_scanner.storage_max_c; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_temperature
+  need_key: technical.flatbed_scanner.storage_max_c|current
+  required:
+  - fact: technical.flatbed_scanner.storage_max_c
+    sections:
+    - technical_flatbed_scanner.storage_max_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_flatbed_scanner_humidity_max_percent
+  category: unanswerable
+  en: For Flatbed photo scanner, what is the specified maximum permitted humidity in percent?
+  ru: Для «Планшетный фотосканер» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Жазық фотосканер» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай (пайыз)?
+  relevant:
+  - section: technical_flatbed_scanner.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for flatbed_scanner does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.flatbed_scanner.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_flatbed_scanner_drop_test_cm
+  category: unanswerable
+  en: For Flatbed photo scanner, what is the specified certified drop-test height in cm?
+  ru: Для «Планшетный фотосканер» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Жазық фотосканер» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні қандай
+    (см)?
+  relevant:
+  - section: technical_flatbed_scanner.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for flatbed_scanner does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.flatbed_scanner.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_flatbed_scanner_repair_parts_price
+  category: unanswerable
+  en: For Flatbed photo scanner, what is the specified replacement-part price in KZT?
+  ru: Для «Планшетный фотосканер» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Жазық фотосканер» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_flatbed_scanner.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for flatbed_scanner does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.flatbed_scanner.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_flatbed_scanner_certification_id
+  category: unanswerable
+  en: For Flatbed photo scanner, what is the specified certification record number in record?
+  ru: Для «Планшетный фотосканер» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Жазық фотосканер» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_flatbed_scanner.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for flatbed_scanner does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.flatbed_scanner.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_flatbed_scanner
+  category: multi_fragment
+  en: What does Flatbed photo scanner weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Планшетный фотосканер» и какой вес посылки допускают пункты самовывоза?
+  kk: «Жазық фотосканер» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат береді?
+  relevant:
+  - section: technical_flatbed_scanner.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.flatbed_scanner.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.flatbed_scanner.mass_g
+    sections:
+    - technical_flatbed_scanner.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_label_printer_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Desktop label printer, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Настольный принтер этикеток», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел жапсырма принтері» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_label_printer.mass_g
+    grade: 3
+  - section: technical_label_printer.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Настольный принтер этикеток» показатель «Масса» (г) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.label_printer.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.label_printer.mass_g|current
+  required:
+  - fact: technical.label_printer.mass_g
+    sections:
+    - technical_label_printer.mass_g
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_label_printer_width_mm
+  category: simple
+  en: 'Desktop label printer: width, mm?'
+  ru: '«Настольный принтер этикеток»: ширина, мм?'
+  kk: '«Үстел жапсырма принтері»: ені, мм?'
+  relevant:
+  - section: technical_label_printer.width_mm
+    grade: 3
+  - section: technical_label_printer.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.label_printer.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.label_printer.width_mm|current
+  required:
+  - fact: technical.label_printer.width_mm
+    sections:
+    - technical_label_printer.width_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_label_printer_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Desktop label printer (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Настольный принтер этикеток» (мм).
+  kk: Карточкалар ұқсас. «Үстел жапсырма принтері» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_label_printer.height_mm
+    grade: 3
+  - section: technical_label_printer.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.label_printer.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.label_printer.height_mm|current
+  required:
+  - fact: technical.label_printer.height_mm
+    sections:
+    - technical_label_printer.height_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_label_printer_depth_mm
+  category: hard
+  en: Check the specifcation of Desktop label printer for depth (mm), please.
+  ru: 'Проверьте характиристику «Настольный принтер этикеток»: интересует «Глубина» (мм).'
+  kk: «Үстел жапсырма принтері» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_label_printer.depth_mm
+    grade: 3
+  - section: technical_label_printer.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.label_printer.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.label_printer.depth_mm|current
+  required:
+  - fact: technical.label_printer.depth_mm
+    sections:
+    - technical_label_printer.depth_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_label_printer_operating_min_c
+  category: hard
+  en: For Desktop label printer, what is the specified minimum operating ambient temperature in C?
+  ru: Для «Настольный принтер этикеток» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Үстел жапсырма принтері» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_label_printer.operating_min_c
+    grade: 3
+  - section: technical_label_printer.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.label_printer.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.label_printer.operating_min_c|current
+  required:
+  - fact: technical.label_printer.operating_min_c
+    sections:
+    - technical_label_printer.operating_min_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_label_printer_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Desktop label
+    printer, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Настольный
+    принтер этикеток», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел жапсырма принтері» үшін «Жұмыс кезіндегі ауаның ең жоғары
+    температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_label_printer.operating_max_c
+    grade: 3
+  - section: technical_label_printer.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.label_printer.operating_max_c; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.label_printer.operating_max_c|current
+  required:
+  - fact: technical.label_printer.operating_max_c
+    sections:
+    - technical_label_printer.operating_max_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_label_printer_cable_cm
+  category: simple
+  en: 'Desktop label printer: supplied cable length, cm?'
+  ru: '«Настольный принтер этикеток»: длина комплектного кабеля, см?'
+  kk: '«Үстел жапсырма принтері»: жинақтағы кабель ұзындығы, см?'
+  relevant:
+  - section: technical_label_printer.cable_cm
+    grade: 3
+  - section: technical_label_printer.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.label_printer.cable_cm; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.label_printer.cable_cm|current
+  required:
+  - fact: technical.label_printer.cable_cm
+    sections:
+    - technical_label_printer.cable_cm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_label_printer_voltage_v
+  category: hard
+  en: The cards look similar. What rated supply voltage is listed for Desktop label printer (V)?
+  ru: Карточки похожи. Уточните показатель «Номинальное напряжение питания» именно для «Настольный принтер
+    этикеток» (В).
+  kk: Карточкалар ұқсас. «Үстел жапсырма принтері» үшін нақты «Номиналды қорек кернеуі» көрсеткішін айтыңыз
+    (В).
+  relevant:
+  - section: technical_label_printer.voltage_v
+    grade: 3
+  - section: technical_label_printer.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Үстел жапсырма принтері» үшін «Номиналды қорек кернеуі» (В) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.label_printer.voltage_v; neighbouring power_w does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.label_printer.voltage_v|current
+  required:
+  - fact: technical.label_printer.voltage_v
+    sections:
+    - technical_label_printer.voltage_v
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_label_printer_power_w
+  category: hard
+  en: Check the specifcation of Desktop label printer for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Настольный принтер этикеток»: интересует «Номинальная потребляемая мощность»
+    (Вт).'
+  kk: «Үстел жапсырма принтері» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_label_printer.power_w
+    grade: 3
+  - section: technical_label_printer.transfer_mbps
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.label_printer.power_w; neighbouring transfer_mbps does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.label_printer.power_w|current
+  required:
+  - fact: technical.label_printer.power_w
+    sections:
+    - technical_label_printer.power_w
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_label_printer_transfer_mbps
+  category: simple
+  en: For Desktop label printer, what is the specified rated interface data rate in Mbps?
+  ru: Для «Настольный принтер этикеток» какое значение указано для показателя «Номинальная скорость интерфейса»
+    (Мбит/с)?
+  kk: «Үстел жапсырма принтері» тауары үшін «Интерфейстің номиналды дерек жылдамдығы» көрсеткішінің мәні
+    қандай (Мбит/с)?
+  relevant:
+  - section: technical_label_printer.transfer_mbps
+    grade: 3
+  - section: technical_label_printer.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.label_printer.transfer_mbps; neighbouring controls_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_data_rate
+  need_key: technical.label_printer.transfer_mbps|current
+  required:
+  - fact: technical.label_printer.transfer_mbps
+    sections:
+    - technical_label_printer.transfer_mbps
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_label_printer_controls_count
+  category: simple
+  en: I am comparing specifications. Find the number of physical controls for Desktop label printer, in
+    units.
+  ru: Сравниваю характеристики. Нужен показатель «Число физических органов управления» у «Настольный принтер
+    этикеток», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел жапсырма принтері» үшін «Физикалық басқару элементтерінің
+    саны» мәні қажет (дана).
+  relevant:
+  - section: technical_label_printer.controls_count
+    grade: 3
+  - section: technical_label_printer.storage_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.label_printer.controls_count; neighbouring storage_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.label_printer.controls_count|current
+  required:
+  - fact: technical.label_printer.controls_count
+    sections:
+    - technical_label_printer.controls_count
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_label_printer_storage_min_c
+  category: hard
+  en: 'Desktop label printer: minimum storage temperature, C?'
+  ru: '«Настольный принтер этикеток»: минимальная температура хранения, C?'
+  kk: '«Үстел жапсырма принтері»: сақтаудың ең төмен температурасы, C?'
+  relevant:
+  - section: technical_label_printer.storage_min_c
+    grade: 3
+  - section: technical_label_printer.storage_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.label_printer.storage_min_c; neighbouring storage_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_temperature
+  need_key: technical.label_printer.storage_min_c|current
+  required:
+  - fact: technical.label_printer.storage_min_c
+    sections:
+    - technical_label_printer.storage_min_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_label_printer_storage_max_c
+  category: hard
+  en: The cards look similar. What maximum storage temperature is listed for Desktop label printer (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура хранения» именно для «Настольный
+    принтер этикеток» (C).
+  kk: Карточкалар ұқсас. «Үстел жапсырма принтері» үшін нақты «Сақтаудың ең жоғары температурасы» көрсеткішін
+    айтыңыз (C).
+  relevant:
+  - section: technical_label_printer.storage_max_c
+    grade: 3
+  - section: technical_label_printer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.label_printer.storage_max_c; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_temperature
+  need_key: technical.label_printer.storage_max_c|current
+  required:
+  - fact: technical.label_printer.storage_max_c
+    sections:
+    - technical_label_printer.storage_max_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_label_printer_humidity_max_percent
+  category: unanswerable
+  en: For Desktop label printer, what is the specified maximum permitted humidity in percent?
+  ru: Для «Настольный принтер этикеток» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Үстел жапсырма принтері» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_label_printer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for label_printer does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.label_printer.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_label_printer_drop_test_cm
+  category: unanswerable
+  en: For Desktop label printer, what is the specified certified drop-test height in cm?
+  ru: Для «Настольный принтер этикеток» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Үстел жапсырма принтері» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_label_printer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for label_printer does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.label_printer.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_label_printer_repair_parts_price
+  category: unanswerable
+  en: For Desktop label printer, what is the specified replacement-part price in KZT?
+  ru: Для «Настольный принтер этикеток» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Үстел жапсырма принтері» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_label_printer.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for label_printer does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.label_printer.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_label_printer_certification_id
+  category: unanswerable
+  en: For Desktop label printer, what is the specified certification record number in record?
+  ru: Для «Настольный принтер этикеток» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Үстел жапсырма принтері» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_label_printer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for label_printer does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.label_printer.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_barcode_reader_mass_g
+  category: hard
+  en: Check the specifcation of Handheld barcode reader for mass (g), please.
+  ru: 'Проверьте характиристику «Ручной сканер штрихкодов»: интересует «Масса» (г).'
+  kk: «Қол штрихкод сканері» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_barcode_reader.mass_g
+    grade: 3
+  - section: technical_barcode_reader.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.barcode_reader.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.barcode_reader.mass_g|current
+  required:
+  - fact: technical.barcode_reader.mass_g
+    sections:
+    - technical_barcode_reader.mass_g
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_barcode_reader_width_mm
+  category: simple
+  en: For Handheld barcode reader, what is the specified width in mm?
+  ru: Для «Ручной сканер штрихкодов» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Қол штрихкод сканері» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_barcode_reader.width_mm
+    grade: 3
+  - section: technical_barcode_reader.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Ручной сканер штрихкодов» показатель «Ширина» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.barcode_reader.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.barcode_reader.width_mm|current
+  required:
+  - fact: technical.barcode_reader.width_mm
+    sections:
+    - technical_barcode_reader.width_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_barcode_reader_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Handheld barcode reader, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Ручной сканер штрихкодов», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Қол штрихкод сканері» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_barcode_reader.height_mm
+    grade: 3
+  - section: technical_barcode_reader.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.barcode_reader.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.barcode_reader.height_mm|current
+  required:
+  - fact: technical.barcode_reader.height_mm
+    sections:
+    - technical_barcode_reader.height_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_barcode_reader_depth_mm
+  category: simple
+  en: 'Handheld barcode reader: depth, mm?'
+  ru: '«Ручной сканер штрихкодов»: глубина, мм?'
+  kk: '«Қол штрихкод сканері»: тереңдігі, мм?'
+  relevant:
+  - section: technical_barcode_reader.depth_mm
+    grade: 3
+  - section: technical_barcode_reader.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.barcode_reader.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.barcode_reader.depth_mm|current
+  required:
+  - fact: technical.barcode_reader.depth_mm
+    sections:
+    - technical_barcode_reader.depth_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_barcode_reader_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Handheld barcode
+    reader (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Ручной
+    сканер штрихкодов» (C).
+  kk: Карточкалар ұқсас. «Қол штрихкод сканері» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_barcode_reader.operating_min_c
+    grade: 3
+  - section: technical_barcode_reader.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.barcode_reader.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.barcode_reader.operating_min_c|current
+  required:
+  - fact: technical.barcode_reader.operating_min_c
+    sections:
+    - technical_barcode_reader.operating_min_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_barcode_reader_operating_max_c
+  category: hard
+  en: Check the specifcation of Handheld barcode reader for maximum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Ручной сканер штрихкодов»: интересует «Максимальная температура воздуха
+    при работе» (C).'
+  kk: «Қол штрихкод сканері» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_barcode_reader.operating_max_c
+    grade: 3
+  - section: technical_barcode_reader.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.barcode_reader.operating_max_c; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.barcode_reader.operating_max_c|current
+  required:
+  - fact: technical.barcode_reader.operating_max_c
+    sections:
+    - technical_barcode_reader.operating_max_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_barcode_reader_cable_cm
+  category: simple
+  en: For Handheld barcode reader, what is the specified supplied cable length in cm?
+  ru: Для «Ручной сканер штрихкодов» какое значение указано для показателя «Длина комплектного кабеля»
+    (см)?
+  kk: «Қол штрихкод сканері» тауары үшін «Жинақтағы кабель ұзындығы» көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_barcode_reader.cable_cm
+    grade: 3
+  - section: technical_barcode_reader.voltage_v
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.barcode_reader.cable_cm; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.barcode_reader.cable_cm|current
+  required:
+  - fact: technical.barcode_reader.cable_cm
+    sections:
+    - technical_barcode_reader.cable_cm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_barcode_reader_voltage_v
+  category: simple
+  en: I am comparing specifications. Find the rated supply voltage for Handheld barcode reader, in V.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное напряжение питания» у «Ручной сканер штрихкодов»,
+    в В.
+  kk: Сипаттамаларды салыстырып отырмын. «Қол штрихкод сканері» үшін «Номиналды қорек кернеуі» мәні қажет
+    (В).
+  relevant:
+  - section: technical_barcode_reader.voltage_v
+    grade: 3
+  - section: technical_barcode_reader.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.barcode_reader.voltage_v; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.barcode_reader.voltage_v|current
+  required:
+  - fact: technical.barcode_reader.voltage_v
+    sections:
+    - technical_barcode_reader.voltage_v
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_barcode_reader_power_w
+  category: simple
+  en: 'Handheld barcode reader: rated power consumption, W?'
+  ru: '«Ручной сканер штрихкодов»: номинальная потребляемая мощность, Вт?'
+  kk: '«Қол штрихкод сканері»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_barcode_reader.power_w
+    grade: 3
+  - section: technical_barcode_reader.transfer_mbps
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Қол штрихкод сканері» үшін «Номиналды тұтыну қуаты» (Вт) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.barcode_reader.power_w; neighbouring transfer_mbps does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.barcode_reader.power_w|current
+  required:
+  - fact: technical.barcode_reader.power_w
+    sections:
+    - technical_barcode_reader.power_w
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_barcode_reader_transfer_mbps
+  category: hard
+  en: The cards look similar. What rated interface data rate is listed for Handheld barcode reader (Mbps)?
+  ru: Карточки похожи. Уточните показатель «Номинальная скорость интерфейса» именно для «Ручной сканер
+    штрихкодов» (Мбит/с).
+  kk: Карточкалар ұқсас. «Қол штрихкод сканері» үшін нақты «Интерфейстің номиналды дерек жылдамдығы» көрсеткішін
+    айтыңыз (Мбит/с).
+  relevant:
+  - section: technical_barcode_reader.transfer_mbps
+    grade: 3
+  - section: technical_barcode_reader.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.barcode_reader.transfer_mbps; neighbouring controls_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_data_rate
+  need_key: technical.barcode_reader.transfer_mbps|current
+  required:
+  - fact: technical.barcode_reader.transfer_mbps
+    sections:
+    - technical_barcode_reader.transfer_mbps
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_barcode_reader_controls_count
+  category: hard
+  en: Check the specifcation of Handheld barcode reader for number of physical controls (units), please.
+  ru: 'Проверьте характиристику «Ручной сканер штрихкодов»: интересует «Число физических органов управления»
+    (шт.).'
+  kk: «Қол штрихкод сканері» сипатамасынан «Физикалық басқару элементтерінің саны» мәнін тексеріңізші
+    (дана).
+  relevant:
+  - section: technical_barcode_reader.controls_count
+    grade: 3
+  - section: technical_barcode_reader.storage_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.barcode_reader.controls_count; neighbouring storage_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.barcode_reader.controls_count|current
+  required:
+  - fact: technical.barcode_reader.controls_count
+    sections:
+    - technical_barcode_reader.controls_count
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_barcode_reader_storage_min_c
+  category: hard
+  en: For Handheld barcode reader, what is the specified minimum storage temperature in C?
+  ru: Для «Ручной сканер штрихкодов» какое значение указано для показателя «Минимальная температура хранения»
+    (C)?
+  kk: «Қол штрихкод сканері» тауары үшін «Сақтаудың ең төмен температурасы» көрсеткішінің мәні қандай
+    (C)?
+  relevant:
+  - section: technical_barcode_reader.storage_min_c
+    grade: 3
+  - section: technical_barcode_reader.storage_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.barcode_reader.storage_min_c; neighbouring storage_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_temperature
+  need_key: technical.barcode_reader.storage_min_c|current
+  required:
+  - fact: technical.barcode_reader.storage_min_c
+    sections:
+    - technical_barcode_reader.storage_min_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_barcode_reader_storage_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum storage temperature for Handheld barcode reader,
+    in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура хранения» у «Ручной сканер
+    штрихкодов», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Қол штрихкод сканері» үшін «Сақтаудың ең жоғары температурасы»
+    мәні қажет (C).
+  relevant:
+  - section: technical_barcode_reader.storage_max_c
+    grade: 3
+  - section: technical_barcode_reader.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.barcode_reader.storage_max_c; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_temperature
+  need_key: technical.barcode_reader.storage_max_c|current
+  required:
+  - fact: technical.barcode_reader.storage_max_c
+    sections:
+    - technical_barcode_reader.storage_max_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_barcode_reader_humidity_max_percent
+  category: unanswerable
+  en: For Handheld barcode reader, what is the specified maximum permitted humidity in percent?
+  ru: Для «Ручной сканер штрихкодов» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Қол штрихкод сканері» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_barcode_reader.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for barcode_reader does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.barcode_reader.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_barcode_reader_drop_test_cm
+  category: unanswerable
+  en: For Handheld barcode reader, what is the specified certified drop-test height in cm?
+  ru: Для «Ручной сканер штрихкодов» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Қол штрихкод сканері» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_barcode_reader.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for barcode_reader does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.barcode_reader.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_barcode_reader_repair_parts_price
+  category: unanswerable
+  en: For Handheld barcode reader, what is the specified replacement-part price in KZT?
+  ru: Для «Ручной сканер штрихкодов» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Қол штрихкод сканері» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_barcode_reader.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for barcode_reader does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.barcode_reader.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_barcode_reader_certification_id
+  category: unanswerable
+  en: For Handheld barcode reader, what is the specified certification record number in record?
+  ru: Для «Ручной сканер штрихкодов» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Қол штрихкод сканері» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_barcode_reader.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for barcode_reader does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.barcode_reader.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_barcode_reader
+  category: multi_fragment
+  en: What does Handheld barcode reader weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Ручной сканер штрихкодов» и какой вес посылки допускают пункты самовывоза?
+  kk: «Қол штрихкод сканері» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат береді?
+  relevant:
+  - section: technical_barcode_reader.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.barcode_reader.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.barcode_reader.mass_g
+    sections:
+    - technical_barcode_reader.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_camera_mass_g
+  category: simple
+  en: 'Folding document camera: mass, g?'
+  ru: '«Складная документ-камера»: масса, г?'
+  kk: '«Жиналмалы құжат камерасы»: салмағы, г?'
+  relevant:
+  - section: technical_document_camera.mass_g
+    grade: 3
+  - section: technical_document_camera.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.document_camera.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.document_camera.mass_g|current
+  required:
+  - fact: technical.document_camera.mass_g
+    sections:
+    - technical_document_camera.mass_g
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_camera_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Folding document camera (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Складная документ-камера» (мм).
+  kk: Карточкалар ұқсас. «Жиналмалы құжат камерасы» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_document_camera.width_mm
+    grade: 3
+  - section: technical_document_camera.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.document_camera.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.document_camera.width_mm|current
+  required:
+  - fact: technical.document_camera.width_mm
+    sections:
+    - technical_document_camera.width_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_camera_height_mm
+  category: hard
+  en: Check the specifcation of Folding document camera for height (mm), please.
+  ru: 'Проверьте характиристику «Складная документ-камера»: интересует «Высота» (мм).'
+  kk: «Жиналмалы құжат камерасы» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_document_camera.height_mm
+    grade: 3
+  - section: technical_document_camera.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Складная документ-камера» показатель «Высота» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.document_camera.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.document_camera.height_mm|current
+  required:
+  - fact: technical.document_camera.height_mm
+    sections:
+    - technical_document_camera.height_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_camera_depth_mm
+  category: simple
+  en: For Folding document camera, what is the specified depth in mm?
+  ru: Для «Складная документ-камера» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Жиналмалы құжат камерасы» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_document_camera.depth_mm
+    grade: 3
+  - section: technical_document_camera.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.document_camera.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.document_camera.depth_mm|current
+  required:
+  - fact: technical.document_camera.depth_mm
+    sections:
+    - technical_document_camera.depth_mm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_camera_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Folding document
+    camera, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Складная
+    документ-камера», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Жиналмалы құжат камерасы» үшін «Жұмыс кезіндегі ауаның ең төмен
+    температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_document_camera.operating_min_c
+    grade: 3
+  - section: technical_document_camera.operating_max_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.document_camera.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.document_camera.operating_min_c|current
+  required:
+  - fact: technical.document_camera.operating_min_c
+    sections:
+    - technical_document_camera.operating_min_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_camera_operating_max_c
+  category: hard
+  en: 'Folding document camera: maximum operating ambient temperature, C?'
+  ru: '«Складная документ-камера»: максимальная температура воздуха при работе, C?'
+  kk: '«Жиналмалы құжат камерасы»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_document_camera.operating_max_c
+    grade: 3
+  - section: technical_document_camera.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.document_camera.operating_max_c; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.document_camera.operating_max_c|current
+  required:
+  - fact: technical.document_camera.operating_max_c
+    sections:
+    - technical_document_camera.operating_max_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_camera_cable_cm
+  category: hard
+  en: The cards look similar. What supplied cable length is listed for Folding document camera (cm)?
+  ru: Карточки похожи. Уточните показатель «Длина комплектного кабеля» именно для «Складная документ-камера»
+    (см).
+  kk: Карточкалар ұқсас. «Жиналмалы құжат камерасы» үшін нақты «Жинақтағы кабель ұзындығы» көрсеткішін
+    айтыңыз (см).
+  relevant:
+  - section: technical_document_camera.cable_cm
+    grade: 3
+  - section: technical_document_camera.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.document_camera.cable_cm; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.document_camera.cable_cm|current
+  required:
+  - fact: technical.document_camera.cable_cm
+    sections:
+    - technical_document_camera.cable_cm
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_camera_voltage_v
+  category: hard
+  en: Check the specifcation of Folding document camera for rated supply voltage (V), please.
+  ru: 'Проверьте характиристику «Складная документ-камера»: интересует «Номинальное напряжение питания»
+    (В).'
+  kk: «Жиналмалы құжат камерасы» сипатамасынан «Номиналды қорек кернеуі» мәнін тексеріңізші (В).
+  relevant:
+  - section: technical_document_camera.voltage_v
+    grade: 3
+  - section: technical_document_camera.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.document_camera.voltage_v; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.document_camera.voltage_v|current
+  required:
+  - fact: technical.document_camera.voltage_v
+    sections:
+    - technical_document_camera.voltage_v
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_camera_power_w
+  category: simple
+  en: For Folding document camera, what is the specified rated power consumption in W?
+  ru: Для «Складная документ-камера» какое значение указано для показателя «Номинальная потребляемая мощность»
+    (Вт)?
+  kk: «Жиналмалы құжат камерасы» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай (Вт)?
+  relevant:
+  - section: technical_document_camera.power_w
+    grade: 3
+  - section: technical_document_camera.transfer_mbps
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.document_camera.power_w; neighbouring transfer_mbps does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.document_camera.power_w|current
+  required:
+  - fact: technical.document_camera.power_w
+    sections:
+    - technical_document_camera.power_w
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_camera_transfer_mbps
+  category: simple
+  en: I am comparing specifications. Find the rated interface data rate for Folding document camera, in
+    Mbps.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная скорость интерфейса» у «Складная документ-камера»,
+    в Мбит/с.
+  kk: Сипаттамаларды салыстырып отырмын. «Жиналмалы құжат камерасы» үшін «Интерфейстің номиналды дерек
+    жылдамдығы» мәні қажет (Мбит/с).
+  relevant:
+  - section: technical_document_camera.transfer_mbps
+    grade: 3
+  - section: technical_document_camera.controls_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Жиналмалы құжат камерасы» үшін «Интерфейстің номиналды дерек жылдамдығы» (Мбит/с) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.document_camera.transfer_mbps; neighbouring controls_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_data_rate
+  need_key: technical.document_camera.transfer_mbps|current
+  required:
+  - fact: technical.document_camera.transfer_mbps
+    sections:
+    - technical_document_camera.transfer_mbps
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_camera_controls_count
+  category: simple
+  en: 'Folding document camera: number of physical controls, units?'
+  ru: '«Складная документ-камера»: число физических органов управления, шт.?'
+  kk: '«Жиналмалы құжат камерасы»: физикалық басқару элементтерінің саны, дана?'
+  relevant:
+  - section: technical_document_camera.controls_count
+    grade: 3
+  - section: technical_document_camera.storage_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.document_camera.controls_count; neighbouring storage_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_controls
+  need_key: technical.document_camera.controls_count|current
+  required:
+  - fact: technical.document_camera.controls_count
+    sections:
+    - technical_document_camera.controls_count
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_camera_storage_min_c
+  category: hard
+  en: The cards look similar. What minimum storage temperature is listed for Folding document camera (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура хранения» именно для «Складная документ-камера»
+    (C).
+  kk: Карточкалар ұқсас. «Жиналмалы құжат камерасы» үшін нақты «Сақтаудың ең төмен температурасы» көрсеткішін
+    айтыңыз (C).
+  relevant:
+  - section: technical_document_camera.storage_min_c
+    grade: 3
+  - section: technical_document_camera.storage_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.document_camera.storage_min_c; neighbouring storage_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_temperature
+  need_key: technical.document_camera.storage_min_c|current
+  required:
+  - fact: technical.document_camera.storage_min_c
+    sections:
+    - technical_document_camera.storage_min_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_camera_storage_max_c
+  category: hard
+  en: Check the specifcation of Folding document camera for maximum storage temperature (C), please.
+  ru: 'Проверьте характиристику «Складная документ-камера»: интересует «Максимальная температура хранения»
+    (C).'
+  kk: «Жиналмалы құжат камерасы» сипатамасынан «Сақтаудың ең жоғары температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_document_camera.storage_max_c
+    grade: 3
+  - section: technical_document_camera.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.document_camera.storage_max_c; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_temperature
+  need_key: technical.document_camera.storage_max_c|current
+  required:
+  - fact: technical.document_camera.storage_max_c
+    sections:
+    - technical_document_camera.storage_max_c
+  tags:
+  - profile_derived
+  - domain_peripherals
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_document_camera_humidity_max_percent
+  category: unanswerable
+  en: For Folding document camera, what is the specified maximum permitted humidity in percent?
+  ru: Для «Складная документ-камера» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Жиналмалы құжат камерасы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_document_camera.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for document_camera does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.document_camera.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_document_camera_drop_test_cm
+  category: unanswerable
+  en: For Folding document camera, what is the specified certified drop-test height in cm?
+  ru: Для «Складная документ-камера» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Жиналмалы құжат камерасы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_document_camera.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for document_camera does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.document_camera.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_document_camera_repair_parts_price
+  category: unanswerable
+  en: For Folding document camera, what is the specified replacement-part price in KZT?
+  ru: Для «Складная документ-камера» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Жиналмалы құжат камерасы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_document_camera.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for document_camera does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.document_camera.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_document_camera_certification_id
+  category: unanswerable
+  en: For Folding document camera, what is the specified certification record number in record?
+  ru: Для «Складная документ-камера» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Жиналмалы құжат камерасы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_document_camera.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for document_camera does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.document_camera.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_peripherals
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact

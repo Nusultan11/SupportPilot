@@ -107,9 +107,20 @@ class DocSpec(_Model):
     intro: list[Tri] = Field(default_factory=list)
     sections: list[SectionSpec] = Field(default_factory=list)
     records: RecordsSpec | None = None
+    effective_from: date | None = None
+    effective_to: date | None = None
+    superseded_by: Slug | None = None
 
     @model_validator(mode="after")
     def _shape(self) -> Self:
+        if (
+            self.effective_from is not None
+            and self.effective_to is not None
+            and self.effective_to < self.effective_from
+        ):
+            raise ValueError("document validity interval is inverted")
+        if self.superseded_by is not None and self.effective_to is None:
+            raise ValueError("superseded documents need an explicit validity end")
         if bool(self.sections) == (self.records is not None):
             raise ValueError("a document has either sections or records")
         ids = [s.id for s in self.sections]
@@ -226,6 +237,28 @@ def load_sources(root: Path) -> KBSources:
         docs.append(spec)
     if not docs:
         raise SpecError(f"no document specs in {root / DOCS_DIR}")
+    profile_path = root / "technical_profiles.yaml"
+    if profile_path.is_file():
+        from supportpilot.kb.profiles import load_profiles, profile_sources
+
+        extra, profile_docs = profile_sources(
+            load_profiles(profile_path), catalog.categories, {p.sku for p in catalog.products}
+        )
+        if set(extra) & facts.keys() or {d.doc_id for d in docs} & {d.doc_id for d in profile_docs}:
+            raise SpecError("technical profile source collides with existing facts/documents")
+        facts.update(extra)
+        docs.extend(profile_docs)
+    by_id = {doc.doc_id: doc for doc in docs}
+    for doc in docs:
+        if doc.superseded_by is not None:
+            successor = by_id.get(doc.superseded_by)
+            if successor is None or doc.effective_to is None:
+                raise SpecError("missing successor of a historical document")
+            successor_start = successor.effective_from or date.fromisoformat(
+                str(facts["effective_from"])
+            )
+            if doc.effective_to >= successor_start:
+                raise SpecError("historical and successor validity intervals overlap")
     return KBSources(root=root, facts=facts, catalog=catalog, docs=docs)
 
 
@@ -239,17 +272,21 @@ def _is_tri(v: object) -> bool:
 def fact_registry(sources: KBSources) -> dict[str, Any]:
     """Canonical leaf facts: key -> value (JSON-able). Localised values are {en, ru, kk}."""
     out: dict[str, Any] = {}
-    for key, value in sources.facts.items():
-        if key == "schema_version":
-            continue
+
+    def leaves(key: str, value: Any) -> None:
         if isinstance(value, Mapping) and not set(value) <= set(LANGUAGES):
-            for sub, v in value.items():
+            for sub, child in value.items():
                 if sub not in LANGUAGES:
-                    out[f"{key}.{sub}"] = v
-            if _is_tri(value):  # e.g. sale: {en, ru, kk, from, to}
+                    leaves(f"{key}.{sub}", child)
+            if _is_tri(value):
                 out[f"{key}.name"] = {lang: value[lang] for lang in LANGUAGES}
         else:
             out[key] = value
+
+    for key, value in sources.facts.items():
+        if key == "schema_version":
+            continue
+        leaves(key, value)
     cat = sources.catalog
     for p in cat.products:
         for name, v in record_values(p, cat).items():

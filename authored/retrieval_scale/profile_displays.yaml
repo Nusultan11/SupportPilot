@@ -1,0 +1,4907 @@
+# Compiled from explicit technical_profiles/1 facts and native LLM-authored templates.
+schema_version: retrieval_scale_source/1
+origin: llm_generated
+review_status: draft
+author: Codex (LLM); explicit profiles and native templates compiled deterministically
+allowed_use: eval_only
+licence_note: Original fictional store specifications for internal demo and evaluation; no external manufacturer
+  data or real customer data. Fluent human review pending.
+items:
+- id: catalog_office_monitor_mass_g
+  category: simple
+  en: For Office desktop monitor, what is the specified mass in g?
+  ru: Для «Офисный настольный монитор» какое значение указано для показателя «Масса» (г)?
+  kk: «Кеңсе үстел мониторы» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_office_monitor.mass_g
+    grade: 3
+  - section: technical_office_monitor.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.office_monitor.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.office_monitor.mass_g|current
+  required:
+  - fact: technical.office_monitor.mass_g
+    sections:
+    - technical_office_monitor.mass_g
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_office_monitor_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Office desktop monitor, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Офисный настольный монитор», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Кеңсе үстел мониторы» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_office_monitor.width_mm
+    grade: 3
+  - section: technical_office_monitor.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.office_monitor.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.office_monitor.width_mm|current
+  required:
+  - fact: technical.office_monitor.width_mm
+    sections:
+    - technical_office_monitor.width_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_office_monitor_height_mm
+  category: simple
+  en: 'Office desktop monitor: height, mm?'
+  ru: '«Офисный настольный монитор»: высота, мм?'
+  kk: '«Кеңсе үстел мониторы»: биіктігі, мм?'
+  relevant:
+  - section: technical_office_monitor.height_mm
+    grade: 3
+  - section: technical_office_monitor.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.office_monitor.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.office_monitor.height_mm|current
+  required:
+  - fact: technical.office_monitor.height_mm
+    sections:
+    - technical_office_monitor.height_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_office_monitor_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Office desktop monitor (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Офисный настольный монитор» (мм).
+  kk: Карточкалар ұқсас. «Кеңсе үстел мониторы» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_office_monitor.depth_mm
+    grade: 3
+  - section: technical_office_monitor.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.office_monitor.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.office_monitor.depth_mm|current
+  required:
+  - fact: technical.office_monitor.depth_mm
+    sections:
+    - technical_office_monitor.depth_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_office_monitor_operating_min_c
+  category: hard
+  en: Check the specifcation of Office desktop monitor for minimum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Офисный настольный монитор»: интересует «Минимальная температура воздуха
+    при работе» (C).'
+  kk: «Кеңсе үстел мониторы» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_office_monitor.operating_min_c
+    grade: 3
+  - section: technical_office_monitor.operating_max_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.office_monitor.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.office_monitor.operating_min_c|current
+  required:
+  - fact: technical.office_monitor.operating_min_c
+    sections:
+    - technical_office_monitor.operating_min_c
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_office_monitor_operating_max_c
+  category: hard
+  en: For Office desktop monitor, what is the specified maximum operating ambient temperature in C?
+  ru: Для «Офисный настольный монитор» какое значение указано для показателя «Максимальная температура
+    воздуха при работе» (C)?
+  kk: «Кеңсе үстел мониторы» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_office_monitor.operating_max_c
+    grade: 3
+  - section: technical_office_monitor.diagonal_in
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.office_monitor.operating_max_c; neighbouring diagonal_in does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.office_monitor.operating_max_c|current
+  required:
+  - fact: technical.office_monitor.operating_max_c
+    sections:
+    - technical_office_monitor.operating_max_c
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_office_monitor_diagonal_in
+  category: simple
+  en: I am comparing specifications. Find the image diagonal for Office desktop monitor, in inches.
+  ru: Сравниваю характеристики. Нужен показатель «Диагональ изображения» у «Офисный настольный монитор»,
+    в дюймов.
+  kk: Сипаттамаларды салыстырып отырмын. «Кеңсе үстел мониторы» үшін «Кескін диагоналі» мәні қажет (дюйм).
+  relevant:
+  - section: technical_office_monitor.diagonal_in
+    grade: 3
+  - section: technical_office_monitor.resolution_x
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Кеңсе үстел мониторы» үшін «Кескін диагоналі» (дюйм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.office_monitor.diagonal_in; neighbouring resolution_x does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_size
+  need_key: technical.office_monitor.diagonal_in|current
+  required:
+  - fact: technical.office_monitor.diagonal_in
+    sections:
+    - technical_office_monitor.diagonal_in
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_office_monitor_resolution_x
+  category: simple
+  en: 'Office desktop monitor: horizontal image resolution, pixels?'
+  ru: '«Офисный настольный монитор»: разрешение изображения по горизонтали, пикселей?'
+  kk: '«Кеңсе үстел мониторы»: кескіннің көлденең ажыратымдылығы, пиксель?'
+  relevant:
+  - section: technical_office_monitor.resolution_x
+    grade: 3
+  - section: technical_office_monitor.resolution_y
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.office_monitor.resolution_x; neighbouring resolution_y does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_resolution
+  need_key: technical.office_monitor.resolution_x|current
+  required:
+  - fact: technical.office_monitor.resolution_x
+    sections:
+    - technical_office_monitor.resolution_x
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_office_monitor_resolution_y
+  category: hard
+  en: The cards look similar. What vertical image resolution is listed for Office desktop monitor (pixels)?
+  ru: Карточки похожи. Уточните показатель «Разрешение изображения по вертикали» именно для «Офисный настольный
+    монитор» (пикселей).
+  kk: Карточкалар ұқсас. «Кеңсе үстел мониторы» үшін нақты «Кескіннің тік ажыратымдылығы» көрсеткішін
+    айтыңыз (пиксель).
+  relevant:
+  - section: technical_office_monitor.resolution_y
+    grade: 3
+  - section: technical_office_monitor.refresh_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.office_monitor.resolution_y; neighbouring refresh_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_resolution
+  need_key: technical.office_monitor.resolution_y|current
+  required:
+  - fact: technical.office_monitor.resolution_y
+    sections:
+    - technical_office_monitor.resolution_y
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_office_monitor_refresh_hz
+  category: hard
+  en: Check the specifcation of Office desktop monitor for native image refresh rate (Hz), please.
+  ru: 'Проверьте характиристику «Офисный настольный монитор»: интересует «Собственная частота обновления
+    изображения» (Гц).'
+  kk: «Кеңсе үстел мониторы» сипатамасынан «Кескіннің өз жаңарту жиілігі» мәнін тексеріңізші (Гц).
+  relevant:
+  - section: technical_office_monitor.refresh_hz
+    grade: 3
+  - section: technical_office_monitor.brightness_cd
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.office_monitor.refresh_hz; neighbouring brightness_cd does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_refresh
+  need_key: technical.office_monitor.refresh_hz|current
+  required:
+  - fact: technical.office_monitor.refresh_hz
+    sections:
+    - technical_office_monitor.refresh_hz
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_office_monitor_brightness_cd
+  category: simple
+  en: For Office desktop monitor, what is the specified rated screen luminance in cd/m2?
+  ru: Для «Офисный настольный монитор» какое значение указано для показателя «Номинальная яркость экрана»
+    (кд/м2)?
+  kk: «Кеңсе үстел мониторы» тауары үшін «Экранның номиналды жарықтығы» көрсеткішінің мәні қандай (кд/м2)?
+  relevant:
+  - section: technical_office_monitor.brightness_cd
+    grade: 3
+  - section: technical_office_monitor.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.office_monitor.brightness_cd; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_luminance
+  need_key: technical.office_monitor.brightness_cd|current
+  required:
+  - fact: technical.office_monitor.brightness_cd
+    sections:
+    - technical_office_monitor.brightness_cd
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_office_monitor_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Office desktop monitor, in W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Офисный настольный
+    монитор», в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Кеңсе үстел мониторы» үшін «Номиналды тұтыну қуаты» мәні қажет
+    (Вт).
+  relevant:
+  - section: technical_office_monitor.power_w
+    grade: 3
+  - section: technical_office_monitor.hdmi_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.office_monitor.power_w; neighbouring hdmi_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.office_monitor.power_w|current
+  required:
+  - fact: technical.office_monitor.power_w
+    sections:
+    - technical_office_monitor.power_w
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_office_monitor_hdmi_count
+  category: simple
+  en: 'Office desktop monitor: number of hdmi sockets, units?'
+  ru: '«Офисный настольный монитор»: число разъёмов hdmi, шт.?'
+  kk: '«Кеңсе үстел мониторы»: hdmi ұяларының саны, дана?'
+  relevant:
+  - section: technical_office_monitor.hdmi_count
+    grade: 3
+  - section: technical_office_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.office_monitor.hdmi_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_video_connectors
+  need_key: technical.office_monitor.hdmi_count|current
+  required:
+  - fact: technical.office_monitor.hdmi_count
+    sections:
+    - technical_office_monitor.hdmi_count
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_office_monitor_humidity_max_percent
+  category: unanswerable
+  en: For Office desktop monitor, what is the specified maximum permitted humidity in percent?
+  ru: Для «Офисный настольный монитор» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Кеңсе үстел мониторы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_office_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for office_monitor does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.office_monitor.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_office_monitor_drop_test_cm
+  category: unanswerable
+  en: For Office desktop monitor, what is the specified certified drop-test height in cm?
+  ru: Для «Офисный настольный монитор» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Кеңсе үстел мониторы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_office_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for office_monitor does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.office_monitor.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_office_monitor_repair_parts_price
+  category: unanswerable
+  en: For Office desktop monitor, what is the specified replacement-part price in KZT?
+  ru: Для «Офисный настольный монитор» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Кеңсе үстел мониторы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_office_monitor.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for office_monitor does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.office_monitor.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_office_monitor_certification_id
+  category: unanswerable
+  en: For Office desktop monitor, what is the specified certification record number in record?
+  ru: Для «Офисный настольный монитор» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Кеңсе үстел мониторы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_office_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for office_monitor does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.office_monitor.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_office_monitor
+  category: multi_fragment
+  en: What does Office desktop monitor weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Офисный настольный монитор» и какой вес посылки допускают пункты самовывоза?
+  kk: «Кеңсе үстел мониторы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат береді?
+  relevant:
+  - section: technical_office_monitor.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.office_monitor.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.office_monitor.mass_g
+    sections:
+    - technical_office_monitor.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_prepublication_mass_office_monitor
+  category: unanswerable
+  en: According to the instructions valid on 15 October 2026, what was the stated mass of Office desktop
+    monitor?
+  ru: По инструкциям, действовавшим 15 октября 2026 года, какая масса была указана для «Офисный настольный
+    монитор»?
+  kk: 2026 жылғы 15 қазанда қолданылған нұсқаулықтар бойынша «Кеңсе үстел мониторы» үшін қандай салмақ
+    көрсетілген еді?
+  relevant:
+  - section: technical_office_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The technical source starts on 1 November 2026. Its current mass cannot establish a fact
+    at the requested earlier date.
+  family_id: profile_physical_mass
+  need_key: technical.office_monitor.mass_g|2026_10_15_before_document_validity
+  required: []
+  tags:
+  - profile_derived
+  - temporal
+  - outside_validity
+  - hard_negative
+  as_of: '2026-10-15'
+  all_versions: false
+  negative_reason: expired
+- id: catalog_gaming_monitor_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for High-refresh gaming monitor (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Игровой монитор высокой частоты» (г).
+  kk: Карточкалар ұқсас. «Жоғары жиілікті ойын мониторы» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_gaming_monitor.mass_g
+    grade: 3
+  - section: technical_gaming_monitor.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Игровой монитор высокой частоты» показатель «Масса» (г) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.gaming_monitor.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.gaming_monitor.mass_g|current
+  required:
+  - fact: technical.gaming_monitor.mass_g
+    sections:
+    - technical_gaming_monitor.mass_g
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_gaming_monitor_width_mm
+  category: hard
+  en: Check the specifcation of High-refresh gaming monitor for width (mm), please.
+  ru: 'Проверьте характиристику «Игровой монитор высокой частоты»: интересует «Ширина» (мм).'
+  kk: «Жоғары жиілікті ойын мониторы» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_gaming_monitor.width_mm
+    grade: 3
+  - section: technical_gaming_monitor.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.gaming_monitor.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.gaming_monitor.width_mm|current
+  required:
+  - fact: technical.gaming_monitor.width_mm
+    sections:
+    - technical_gaming_monitor.width_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_gaming_monitor_height_mm
+  category: simple
+  en: For High-refresh gaming monitor, what is the specified height in mm?
+  ru: Для «Игровой монитор высокой частоты» какое значение указано для показателя «Высота» (мм)?
+  kk: «Жоғары жиілікті ойын мониторы» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_gaming_monitor.height_mm
+    grade: 3
+  - section: technical_gaming_monitor.depth_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.gaming_monitor.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.gaming_monitor.height_mm|current
+  required:
+  - fact: technical.gaming_monitor.height_mm
+    sections:
+    - technical_gaming_monitor.height_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_gaming_monitor_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for High-refresh gaming monitor, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Игровой монитор высокой частоты», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Жоғары жиілікті ойын мониторы» үшін «Тереңдігі» мәні қажет (мм).
+  relevant:
+  - section: technical_gaming_monitor.depth_mm
+    grade: 3
+  - section: technical_gaming_monitor.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.gaming_monitor.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.gaming_monitor.depth_mm|current
+  required:
+  - fact: technical.gaming_monitor.depth_mm
+    sections:
+    - technical_gaming_monitor.depth_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_gaming_monitor_operating_min_c
+  category: hard
+  en: 'High-refresh gaming monitor: minimum operating ambient temperature, C?'
+  ru: '«Игровой монитор высокой частоты»: минимальная температура воздуха при работе, C?'
+  kk: '«Жоғары жиілікті ойын мониторы»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_gaming_monitor.operating_min_c
+    grade: 3
+  - section: technical_gaming_monitor.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.gaming_monitor.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.gaming_monitor.operating_min_c|current
+  required:
+  - fact: technical.gaming_monitor.operating_min_c
+    sections:
+    - technical_gaming_monitor.operating_min_c
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_gaming_monitor_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for High-refresh gaming
+    monitor (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Игровой
+    монитор высокой частоты» (C).
+  kk: Карточкалар ұқсас. «Жоғары жиілікті ойын мониторы» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары
+    температурасы» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_gaming_monitor.operating_max_c
+    grade: 3
+  - section: technical_gaming_monitor.diagonal_in
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.gaming_monitor.operating_max_c; neighbouring diagonal_in does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.gaming_monitor.operating_max_c|current
+  required:
+  - fact: technical.gaming_monitor.operating_max_c
+    sections:
+    - technical_gaming_monitor.operating_max_c
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_gaming_monitor_diagonal_in
+  category: hard
+  en: Check the specifcation of High-refresh gaming monitor for image diagonal (inches), please.
+  ru: 'Проверьте характиристику «Игровой монитор высокой частоты»: интересует «Диагональ изображения»
+    (дюймов).'
+  kk: «Жоғары жиілікті ойын мониторы» сипатамасынан «Кескін диагоналі» мәнін тексеріңізші (дюйм).
+  relevant:
+  - section: technical_gaming_monitor.diagonal_in
+    grade: 3
+  - section: technical_gaming_monitor.resolution_x
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.gaming_monitor.diagonal_in; neighbouring resolution_x does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_size
+  need_key: technical.gaming_monitor.diagonal_in|current
+  required:
+  - fact: technical.gaming_monitor.diagonal_in
+    sections:
+    - technical_gaming_monitor.diagonal_in
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_gaming_monitor_resolution_x
+  category: simple
+  en: For High-refresh gaming monitor, what is the specified horizontal image resolution in pixels?
+  ru: Для «Игровой монитор высокой частоты» какое значение указано для показателя «Разрешение изображения
+    по горизонтали» (пикселей)?
+  kk: «Жоғары жиілікті ойын мониторы» тауары үшін «Кескіннің көлденең ажыратымдылығы» көрсеткішінің мәні
+    қандай (пиксель)?
+  relevant:
+  - section: technical_gaming_monitor.resolution_x
+    grade: 3
+  - section: technical_gaming_monitor.resolution_y
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Жоғары жиілікті ойын мониторы» үшін «Кескіннің көлденең ажыратымдылығы» (пиксель) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.gaming_monitor.resolution_x; neighbouring resolution_y does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_resolution
+  need_key: technical.gaming_monitor.resolution_x|current
+  required:
+  - fact: technical.gaming_monitor.resolution_x
+    sections:
+    - technical_gaming_monitor.resolution_x
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_gaming_monitor_resolution_y
+  category: simple
+  en: I am comparing specifications. Find the vertical image resolution for High-refresh gaming monitor,
+    in pixels.
+  ru: Сравниваю характеристики. Нужен показатель «Разрешение изображения по вертикали» у «Игровой монитор
+    высокой частоты», в пикселей.
+  kk: Сипаттамаларды салыстырып отырмын. «Жоғары жиілікті ойын мониторы» үшін «Кескіннің тік ажыратымдылығы»
+    мәні қажет (пиксель).
+  relevant:
+  - section: technical_gaming_monitor.resolution_y
+    grade: 3
+  - section: technical_gaming_monitor.refresh_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.gaming_monitor.resolution_y; neighbouring refresh_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_resolution
+  need_key: technical.gaming_monitor.resolution_y|current
+  required:
+  - fact: technical.gaming_monitor.resolution_y
+    sections:
+    - technical_gaming_monitor.resolution_y
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_gaming_monitor_refresh_hz
+  category: simple
+  en: 'High-refresh gaming monitor: native image refresh rate, Hz?'
+  ru: '«Игровой монитор высокой частоты»: собственная частота обновления изображения, Гц?'
+  kk: '«Жоғары жиілікті ойын мониторы»: кескіннің өз жаңарту жиілігі, Гц?'
+  relevant:
+  - section: technical_gaming_monitor.refresh_hz
+    grade: 3
+  - section: technical_gaming_monitor.brightness_cd
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.gaming_monitor.refresh_hz; neighbouring brightness_cd does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_refresh
+  need_key: technical.gaming_monitor.refresh_hz|current
+  required:
+  - fact: technical.gaming_monitor.refresh_hz
+    sections:
+    - technical_gaming_monitor.refresh_hz
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_gaming_monitor_brightness_cd
+  category: hard
+  en: The cards look similar. What rated screen luminance is listed for High-refresh gaming monitor (cd/m2)?
+  ru: Карточки похожи. Уточните показатель «Номинальная яркость экрана» именно для «Игровой монитор высокой
+    частоты» (кд/м2).
+  kk: Карточкалар ұқсас. «Жоғары жиілікті ойын мониторы» үшін нақты «Экранның номиналды жарықтығы» көрсеткішін
+    айтыңыз (кд/м2).
+  relevant:
+  - section: technical_gaming_monitor.brightness_cd
+    grade: 3
+  - section: technical_gaming_monitor.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.gaming_monitor.brightness_cd; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_luminance
+  need_key: technical.gaming_monitor.brightness_cd|current
+  required:
+  - fact: technical.gaming_monitor.brightness_cd
+    sections:
+    - technical_gaming_monitor.brightness_cd
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_gaming_monitor_power_w
+  category: hard
+  en: Check the specifcation of High-refresh gaming monitor for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Игровой монитор высокой частоты»: интересует «Номинальная потребляемая
+    мощность» (Вт).'
+  kk: «Жоғары жиілікті ойын мониторы» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_gaming_monitor.power_w
+    grade: 3
+  - section: technical_gaming_monitor.hdmi_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.gaming_monitor.power_w; neighbouring hdmi_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.gaming_monitor.power_w|current
+  required:
+  - fact: technical.gaming_monitor.power_w
+    sections:
+    - technical_gaming_monitor.power_w
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_gaming_monitor_hdmi_count
+  category: simple
+  en: For High-refresh gaming monitor, what is the specified number of hdmi sockets in units?
+  ru: Для «Игровой монитор высокой частоты» какое значение указано для показателя «Число разъёмов HDMI»
+    (шт.)?
+  kk: «Жоғары жиілікті ойын мониторы» тауары үшін «HDMI ұяларының саны» көрсеткішінің мәні қандай (дана)?
+  relevant:
+  - section: technical_gaming_monitor.hdmi_count
+    grade: 3
+  - section: technical_gaming_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.gaming_monitor.hdmi_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_video_connectors
+  need_key: technical.gaming_monitor.hdmi_count|current
+  required:
+  - fact: technical.gaming_monitor.hdmi_count
+    sections:
+    - technical_gaming_monitor.hdmi_count
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_gaming_monitor_humidity_max_percent
+  category: unanswerable
+  en: For High-refresh gaming monitor, what is the specified maximum permitted humidity in percent?
+  ru: Для «Игровой монитор высокой частоты» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Жоғары жиілікті ойын мониторы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_gaming_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for gaming_monitor does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.gaming_monitor.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_gaming_monitor_drop_test_cm
+  category: unanswerable
+  en: For High-refresh gaming monitor, what is the specified certified drop-test height in cm?
+  ru: Для «Игровой монитор высокой частоты» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Жоғары жиілікті ойын мониторы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_gaming_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for gaming_monitor does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.gaming_monitor.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_gaming_monitor_repair_parts_price
+  category: unanswerable
+  en: For High-refresh gaming monitor, what is the specified replacement-part price in KZT?
+  ru: Для «Игровой монитор высокой частоты» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Жоғары жиілікті ойын мониторы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_gaming_monitor.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for gaming_monitor does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.gaming_monitor.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_gaming_monitor_certification_id
+  category: unanswerable
+  en: For High-refresh gaming monitor, what is the specified certification record number in record?
+  ru: Для «Игровой монитор высокой частоты» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Жоғары жиілікті ойын мониторы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_gaming_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for gaming_monitor does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.gaming_monitor.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_portable_monitor_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Portable USB-C monitor, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Портативный монитор USB-C», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Портативті USB-C мониторы» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_portable_monitor.mass_g
+    grade: 3
+  - section: technical_portable_monitor.width_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_monitor.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.portable_monitor.mass_g|current
+  required:
+  - fact: technical.portable_monitor.mass_g
+    sections:
+    - technical_portable_monitor.mass_g
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_monitor_width_mm
+  category: simple
+  en: 'Portable USB-C monitor: width, mm?'
+  ru: '«Портативный монитор USB-C»: ширина, мм?'
+  kk: '«Портативті USB-C мониторы»: ені, мм?'
+  relevant:
+  - section: technical_portable_monitor.width_mm
+    grade: 3
+  - section: technical_portable_monitor.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Портативный монитор USB-C» показатель «Ширина» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.portable_monitor.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.portable_monitor.width_mm|current
+  required:
+  - fact: technical.portable_monitor.width_mm
+    sections:
+    - technical_portable_monitor.width_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_monitor_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Portable USB-C monitor (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Портативный монитор USB-C» (мм).
+  kk: Карточкалар ұқсас. «Портативті USB-C мониторы» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_portable_monitor.height_mm
+    grade: 3
+  - section: technical_portable_monitor.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_monitor.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.portable_monitor.height_mm|current
+  required:
+  - fact: technical.portable_monitor.height_mm
+    sections:
+    - technical_portable_monitor.height_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_monitor_depth_mm
+  category: hard
+  en: Check the specifcation of Portable USB-C monitor for depth (mm), please.
+  ru: 'Проверьте характиристику «Портативный монитор USB-C»: интересует «Глубина» (мм).'
+  kk: «Портативті USB-C мониторы» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_portable_monitor.depth_mm
+    grade: 3
+  - section: technical_portable_monitor.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_monitor.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.portable_monitor.depth_mm|current
+  required:
+  - fact: technical.portable_monitor.depth_mm
+    sections:
+    - technical_portable_monitor.depth_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_monitor_operating_min_c
+  category: hard
+  en: For Portable USB-C monitor, what is the specified minimum operating ambient temperature in C?
+  ru: Для «Портативный монитор USB-C» какое значение указано для показателя «Минимальная температура воздуха
+    при работе» (C)?
+  kk: «Портативті USB-C мониторы» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_portable_monitor.operating_min_c
+    grade: 3
+  - section: technical_portable_monitor.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_monitor.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.portable_monitor.operating_min_c|current
+  required:
+  - fact: technical.portable_monitor.operating_min_c
+    sections:
+    - technical_portable_monitor.operating_min_c
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_monitor_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Portable USB-C
+    monitor, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Портативный
+    монитор USB-C», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Портативті USB-C мониторы» үшін «Жұмыс кезіндегі ауаның ең жоғары
+    температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_portable_monitor.operating_max_c
+    grade: 3
+  - section: technical_portable_monitor.diagonal_in
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_monitor.operating_max_c; neighbouring diagonal_in does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.portable_monitor.operating_max_c|current
+  required:
+  - fact: technical.portable_monitor.operating_max_c
+    sections:
+    - technical_portable_monitor.operating_max_c
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_monitor_diagonal_in
+  category: simple
+  en: 'Portable USB-C monitor: image diagonal, inches?'
+  ru: '«Портативный монитор USB-C»: диагональ изображения, дюймов?'
+  kk: '«Портативті USB-C мониторы»: кескін диагоналі, дюйм?'
+  relevant:
+  - section: technical_portable_monitor.diagonal_in
+    grade: 3
+  - section: technical_portable_monitor.resolution_x
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_monitor.diagonal_in; neighbouring resolution_x does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_size
+  need_key: technical.portable_monitor.diagonal_in|current
+  required:
+  - fact: technical.portable_monitor.diagonal_in
+    sections:
+    - technical_portable_monitor.diagonal_in
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_monitor_resolution_x
+  category: hard
+  en: The cards look similar. What horizontal image resolution is listed for Portable USB-C monitor (pixels)?
+  ru: Карточки похожи. Уточните показатель «Разрешение изображения по горизонтали» именно для «Портативный
+    монитор USB-C» (пикселей).
+  kk: Карточкалар ұқсас. «Портативті USB-C мониторы» үшін нақты «Кескіннің көлденең ажыратымдылығы» көрсеткішін
+    айтыңыз (пиксель).
+  relevant:
+  - section: technical_portable_monitor.resolution_x
+    grade: 3
+  - section: technical_portable_monitor.resolution_y
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_monitor.resolution_x; neighbouring resolution_y does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_resolution
+  need_key: technical.portable_monitor.resolution_x|current
+  required:
+  - fact: technical.portable_monitor.resolution_x
+    sections:
+    - technical_portable_monitor.resolution_x
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_monitor_resolution_y
+  category: hard
+  en: Check the specifcation of Portable USB-C monitor for vertical image resolution (pixels), please.
+  ru: 'Проверьте характиристику «Портативный монитор USB-C»: интересует «Разрешение изображения по вертикали»
+    (пикселей).'
+  kk: «Портативті USB-C мониторы» сипатамасынан «Кескіннің тік ажыратымдылығы» мәнін тексеріңізші (пиксель).
+  relevant:
+  - section: technical_portable_monitor.resolution_y
+    grade: 3
+  - section: technical_portable_monitor.refresh_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Портативті USB-C мониторы» үшін «Кескіннің тік ажыратымдылығы» (пиксель) керек, уточните по
+    этой модели, пожалуйста.
+  rationale: Authored target technical.portable_monitor.resolution_y; neighbouring refresh_hz does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_resolution
+  need_key: technical.portable_monitor.resolution_y|current
+  required:
+  - fact: technical.portable_monitor.resolution_y
+    sections:
+    - technical_portable_monitor.resolution_y
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_monitor_refresh_hz
+  category: simple
+  en: For Portable USB-C monitor, what is the specified native image refresh rate in Hz?
+  ru: Для «Портативный монитор USB-C» какое значение указано для показателя «Собственная частота обновления
+    изображения» (Гц)?
+  kk: «Портативті USB-C мониторы» тауары үшін «Кескіннің өз жаңарту жиілігі» көрсеткішінің мәні қандай
+    (Гц)?
+  relevant:
+  - section: technical_portable_monitor.refresh_hz
+    grade: 3
+  - section: technical_portable_monitor.brightness_cd
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_monitor.refresh_hz; neighbouring brightness_cd does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_refresh
+  need_key: technical.portable_monitor.refresh_hz|current
+  required:
+  - fact: technical.portable_monitor.refresh_hz
+    sections:
+    - technical_portable_monitor.refresh_hz
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_monitor_brightness_cd
+  category: simple
+  en: I am comparing specifications. Find the rated screen luminance for Portable USB-C monitor, in cd/m2.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная яркость экрана» у «Портативный монитор USB-C»,
+    в кд/м2.
+  kk: Сипаттамаларды салыстырып отырмын. «Портативті USB-C мониторы» үшін «Экранның номиналды жарықтығы»
+    мәні қажет (кд/м2).
+  relevant:
+  - section: technical_portable_monitor.brightness_cd
+    grade: 3
+  - section: technical_portable_monitor.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_monitor.brightness_cd; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_luminance
+  need_key: technical.portable_monitor.brightness_cd|current
+  required:
+  - fact: technical.portable_monitor.brightness_cd
+    sections:
+    - technical_portable_monitor.brightness_cd
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_monitor_power_w
+  category: simple
+  en: 'Portable USB-C monitor: rated power consumption, W?'
+  ru: '«Портативный монитор USB-C»: номинальная потребляемая мощность, Вт?'
+  kk: '«Портативті USB-C мониторы»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_portable_monitor.power_w
+    grade: 3
+  - section: technical_portable_monitor.hdmi_count
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_monitor.power_w; neighbouring hdmi_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.portable_monitor.power_w|current
+  required:
+  - fact: technical.portable_monitor.power_w
+    sections:
+    - technical_portable_monitor.power_w
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_portable_monitor_hdmi_count
+  category: hard
+  en: The cards look similar. What number of hdmi sockets is listed for Portable USB-C monitor (units)?
+  ru: Карточки похожи. Уточните показатель «Число разъёмов HDMI» именно для «Портативный монитор USB-C»
+    (шт.).
+  kk: Карточкалар ұқсас. «Портативті USB-C мониторы» үшін нақты «HDMI ұяларының саны» көрсеткішін айтыңыз
+    (дана).
+  relevant:
+  - section: technical_portable_monitor.hdmi_count
+    grade: 3
+  - section: technical_portable_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.portable_monitor.hdmi_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_video_connectors
+  need_key: technical.portable_monitor.hdmi_count|current
+  required:
+  - fact: technical.portable_monitor.hdmi_count
+    sections:
+    - technical_portable_monitor.hdmi_count
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_portable_monitor_humidity_max_percent
+  category: unanswerable
+  en: For Portable USB-C monitor, what is the specified maximum permitted humidity in percent?
+  ru: Для «Портативный монитор USB-C» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Портативті USB-C мониторы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_portable_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for portable_monitor does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.portable_monitor.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_portable_monitor_drop_test_cm
+  category: unanswerable
+  en: For Portable USB-C monitor, what is the specified certified drop-test height in cm?
+  ru: Для «Портативный монитор USB-C» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Портативті USB-C мониторы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_portable_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for portable_monitor does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.portable_monitor.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_portable_monitor_repair_parts_price
+  category: unanswerable
+  en: For Portable USB-C monitor, what is the specified replacement-part price in KZT?
+  ru: Для «Портативный монитор USB-C» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Портативті USB-C мониторы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_portable_monitor.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for portable_monitor does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.portable_monitor.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_portable_monitor_certification_id
+  category: unanswerable
+  en: For Portable USB-C monitor, what is the specified certification record number in record?
+  ru: Для «Портативный монитор USB-C» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Портативті USB-C мониторы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_portable_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for portable_monitor does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.portable_monitor.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_portable_monitor
+  category: multi_fragment
+  en: What does Portable USB-C monitor weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Портативный монитор USB-C» и какой вес посылки допускают пункты самовывоза?
+  kk: «Портативті USB-C мониторы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_portable_monitor.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.portable_monitor.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.portable_monitor.mass_g
+    sections:
+    - technical_portable_monitor.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawing_display_mass_g
+  category: hard
+  en: Check the specifcation of Pen drawing display for mass (g), please.
+  ru: 'Проверьте характиристику «Перьевой экран для рисования»: интересует «Масса» (г).'
+  kk: «Сурет салуға арналған қаламды экран» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_drawing_display.mass_g
+    grade: 3
+  - section: technical_drawing_display.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drawing_display.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.drawing_display.mass_g|current
+  required:
+  - fact: technical.drawing_display.mass_g
+    sections:
+    - technical_drawing_display.mass_g
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawing_display_width_mm
+  category: simple
+  en: For Pen drawing display, what is the specified width in mm?
+  ru: Для «Перьевой экран для рисования» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Сурет салуға арналған қаламды экран» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_drawing_display.width_mm
+    grade: 3
+  - section: technical_drawing_display.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drawing_display.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.drawing_display.width_mm|current
+  required:
+  - fact: technical.drawing_display.width_mm
+    sections:
+    - technical_drawing_display.width_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawing_display_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Pen drawing display, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Перьевой экран для рисования», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Сурет салуға арналған қаламды экран» үшін «Биіктігі» мәні қажет
+    (мм).
+  relevant:
+  - section: technical_drawing_display.height_mm
+    grade: 3
+  - section: technical_drawing_display.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Перьевой экран для рисования» показатель «Высота» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.drawing_display.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.drawing_display.height_mm|current
+  required:
+  - fact: technical.drawing_display.height_mm
+    sections:
+    - technical_drawing_display.height_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawing_display_depth_mm
+  category: simple
+  en: 'Pen drawing display: depth, mm?'
+  ru: '«Перьевой экран для рисования»: глубина, мм?'
+  kk: '«Сурет салуға арналған қаламды экран»: тереңдігі, мм?'
+  relevant:
+  - section: technical_drawing_display.depth_mm
+    grade: 3
+  - section: technical_drawing_display.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drawing_display.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.drawing_display.depth_mm|current
+  required:
+  - fact: technical.drawing_display.depth_mm
+    sections:
+    - technical_drawing_display.depth_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawing_display_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Pen drawing display
+    (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Перьевой
+    экран для рисования» (C).
+  kk: Карточкалар ұқсас. «Сурет салуға арналған қаламды экран» үшін нақты «Жұмыс кезіндегі ауаның ең төмен
+    температурасы» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_drawing_display.operating_min_c
+    grade: 3
+  - section: technical_drawing_display.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drawing_display.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.drawing_display.operating_min_c|current
+  required:
+  - fact: technical.drawing_display.operating_min_c
+    sections:
+    - technical_drawing_display.operating_min_c
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawing_display_operating_max_c
+  category: hard
+  en: Check the specifcation of Pen drawing display for maximum operating ambient temperature (C), please.
+  ru: 'Проверьте характиристику «Перьевой экран для рисования»: интересует «Максимальная температура воздуха
+    при работе» (C).'
+  kk: «Сурет салуға арналған қаламды экран» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    мәнін тексеріңізші (C).
+  relevant:
+  - section: technical_drawing_display.operating_max_c
+    grade: 3
+  - section: technical_drawing_display.diagonal_in
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drawing_display.operating_max_c; neighbouring diagonal_in does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.drawing_display.operating_max_c|current
+  required:
+  - fact: technical.drawing_display.operating_max_c
+    sections:
+    - technical_drawing_display.operating_max_c
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawing_display_diagonal_in
+  category: simple
+  en: For Pen drawing display, what is the specified image diagonal in inches?
+  ru: Для «Перьевой экран для рисования» какое значение указано для показателя «Диагональ изображения»
+    (дюймов)?
+  kk: «Сурет салуға арналған қаламды экран» тауары үшін «Кескін диагоналі» көрсеткішінің мәні қандай (дюйм)?
+  relevant:
+  - section: technical_drawing_display.diagonal_in
+    grade: 3
+  - section: technical_drawing_display.resolution_x
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drawing_display.diagonal_in; neighbouring resolution_x does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_size
+  need_key: technical.drawing_display.diagonal_in|current
+  required:
+  - fact: technical.drawing_display.diagonal_in
+    sections:
+    - technical_drawing_display.diagonal_in
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawing_display_resolution_x
+  category: simple
+  en: I am comparing specifications. Find the horizontal image resolution for Pen drawing display, in
+    pixels.
+  ru: Сравниваю характеристики. Нужен показатель «Разрешение изображения по горизонтали» у «Перьевой экран
+    для рисования», в пикселей.
+  kk: Сипаттамаларды салыстырып отырмын. «Сурет салуға арналған қаламды экран» үшін «Кескіннің көлденең
+    ажыратымдылығы» мәні қажет (пиксель).
+  relevant:
+  - section: technical_drawing_display.resolution_x
+    grade: 3
+  - section: technical_drawing_display.resolution_y
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drawing_display.resolution_x; neighbouring resolution_y does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_resolution
+  need_key: technical.drawing_display.resolution_x|current
+  required:
+  - fact: technical.drawing_display.resolution_x
+    sections:
+    - technical_drawing_display.resolution_x
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawing_display_resolution_y
+  category: simple
+  en: 'Pen drawing display: vertical image resolution, pixels?'
+  ru: '«Перьевой экран для рисования»: разрешение изображения по вертикали, пикселей?'
+  kk: '«Сурет салуға арналған қаламды экран»: кескіннің тік ажыратымдылығы, пиксель?'
+  relevant:
+  - section: technical_drawing_display.resolution_y
+    grade: 3
+  - section: technical_drawing_display.refresh_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drawing_display.resolution_y; neighbouring refresh_hz does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_resolution
+  need_key: technical.drawing_display.resolution_y|current
+  required:
+  - fact: technical.drawing_display.resolution_y
+    sections:
+    - technical_drawing_display.resolution_y
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawing_display_refresh_hz
+  category: hard
+  en: The cards look similar. What native image refresh rate is listed for Pen drawing display (Hz)?
+  ru: Карточки похожи. Уточните показатель «Собственная частота обновления изображения» именно для «Перьевой
+    экран для рисования» (Гц).
+  kk: Карточкалар ұқсас. «Сурет салуға арналған қаламды экран» үшін нақты «Кескіннің өз жаңарту жиілігі»
+    көрсеткішін айтыңыз (Гц).
+  relevant:
+  - section: technical_drawing_display.refresh_hz
+    grade: 3
+  - section: technical_drawing_display.brightness_cd
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: «Сурет салуға арналған қаламды экран» үшін «Кескіннің өз жаңарту жиілігі» (Гц) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.drawing_display.refresh_hz; neighbouring brightness_cd does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_refresh
+  need_key: technical.drawing_display.refresh_hz|current
+  required:
+  - fact: technical.drawing_display.refresh_hz
+    sections:
+    - technical_drawing_display.refresh_hz
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawing_display_brightness_cd
+  category: hard
+  en: Check the specifcation of Pen drawing display for rated screen luminance (cd/m2), please.
+  ru: 'Проверьте характиристику «Перьевой экран для рисования»: интересует «Номинальная яркость экрана»
+    (кд/м2).'
+  kk: «Сурет салуға арналған қаламды экран» сипатамасынан «Экранның номиналды жарықтығы» мәнін тексеріңізші
+    (кд/м2).
+  relevant:
+  - section: technical_drawing_display.brightness_cd
+    grade: 3
+  - section: technical_drawing_display.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drawing_display.brightness_cd; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_luminance
+  need_key: technical.drawing_display.brightness_cd|current
+  required:
+  - fact: technical.drawing_display.brightness_cd
+    sections:
+    - technical_drawing_display.brightness_cd
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawing_display_power_w
+  category: simple
+  en: For Pen drawing display, what is the specified rated power consumption in W?
+  ru: Для «Перьевой экран для рисования» какое значение указано для показателя «Номинальная потребляемая
+    мощность» (Вт)?
+  kk: «Сурет салуға арналған қаламды экран» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай
+    (Вт)?
+  relevant:
+  - section: technical_drawing_display.power_w
+    grade: 3
+  - section: technical_drawing_display.hdmi_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drawing_display.power_w; neighbouring hdmi_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.drawing_display.power_w|current
+  required:
+  - fact: technical.drawing_display.power_w
+    sections:
+    - technical_drawing_display.power_w
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawing_display_hdmi_count
+  category: simple
+  en: I am comparing specifications. Find the number of hdmi sockets for Pen drawing display, in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число разъёмов HDMI» у «Перьевой экран для рисования»,
+    в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Сурет салуға арналған қаламды экран» үшін «HDMI ұяларының саны»
+    мәні қажет (дана).
+  relevant:
+  - section: technical_drawing_display.hdmi_count
+    grade: 3
+  - section: technical_drawing_display.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drawing_display.hdmi_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_video_connectors
+  need_key: technical.drawing_display.hdmi_count|current
+  required:
+  - fact: technical.drawing_display.hdmi_count
+    sections:
+    - technical_drawing_display.hdmi_count
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_drawing_display_humidity_max_percent
+  category: unanswerable
+  en: For Pen drawing display, what is the specified maximum permitted humidity in percent?
+  ru: Для «Перьевой экран для рисования» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Сурет салуға арналған қаламды экран» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_drawing_display.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for drawing_display does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.drawing_display.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_drawing_display_drop_test_cm
+  category: unanswerable
+  en: For Pen drawing display, what is the specified certified drop-test height in cm?
+  ru: Для «Перьевой экран для рисования» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Сурет салуға арналған қаламды экран» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_drawing_display.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for drawing_display does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.drawing_display.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_drawing_display_repair_parts_price
+  category: unanswerable
+  en: For Pen drawing display, what is the specified replacement-part price in KZT?
+  ru: Для «Перьевой экран для рисования» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Сурет салуға арналған қаламды экран» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_drawing_display.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for drawing_display does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.drawing_display.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_drawing_display_certification_id
+  category: unanswerable
+  en: For Pen drawing display, what is the specified certification record number in record?
+  ru: Для «Перьевой экран для рисования» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Сурет салуға арналған қаламды экран» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_drawing_display.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for drawing_display does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.drawing_display.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_ultrawide_monitor_mass_g
+  category: simple
+  en: 'Ultrawide work monitor: mass, g?'
+  ru: '«Сверхширокий рабочий монитор»: масса, г?'
+  kk: '«Аса кең жұмыс мониторы»: салмағы, г?'
+  relevant:
+  - section: technical_ultrawide_monitor.mass_g
+    grade: 3
+  - section: technical_ultrawide_monitor.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrawide_monitor.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.ultrawide_monitor.mass_g|current
+  required:
+  - fact: technical.ultrawide_monitor.mass_g
+    sections:
+    - technical_ultrawide_monitor.mass_g
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrawide_monitor_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Ultrawide work monitor (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Сверхширокий рабочий монитор» (мм).
+  kk: Карточкалар ұқсас. «Аса кең жұмыс мониторы» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_ultrawide_monitor.width_mm
+    grade: 3
+  - section: technical_ultrawide_monitor.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrawide_monitor.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.ultrawide_monitor.width_mm|current
+  required:
+  - fact: technical.ultrawide_monitor.width_mm
+    sections:
+    - technical_ultrawide_monitor.width_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrawide_monitor_height_mm
+  category: hard
+  en: Check the specifcation of Ultrawide work monitor for height (mm), please.
+  ru: 'Проверьте характиристику «Сверхширокий рабочий монитор»: интересует «Высота» (мм).'
+  kk: «Аса кең жұмыс мониторы» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_ultrawide_monitor.height_mm
+    grade: 3
+  - section: technical_ultrawide_monitor.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrawide_monitor.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.ultrawide_monitor.height_mm|current
+  required:
+  - fact: technical.ultrawide_monitor.height_mm
+    sections:
+    - technical_ultrawide_monitor.height_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrawide_monitor_depth_mm
+  category: simple
+  en: For Ultrawide work monitor, what is the specified depth in mm?
+  ru: Для «Сверхширокий рабочий монитор» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Аса кең жұмыс мониторы» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_ultrawide_monitor.depth_mm
+    grade: 3
+  - section: technical_ultrawide_monitor.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Сверхширокий рабочий монитор» показатель «Глубина» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.ultrawide_monitor.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.ultrawide_monitor.depth_mm|current
+  required:
+  - fact: technical.ultrawide_monitor.depth_mm
+    sections:
+    - technical_ultrawide_monitor.depth_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrawide_monitor_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Ultrawide work
+    monitor, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Сверхширокий
+    рабочий монитор», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Аса кең жұмыс мониторы» үшін «Жұмыс кезіндегі ауаның ең төмен
+    температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_ultrawide_monitor.operating_min_c
+    grade: 3
+  - section: technical_ultrawide_monitor.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrawide_monitor.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.ultrawide_monitor.operating_min_c|current
+  required:
+  - fact: technical.ultrawide_monitor.operating_min_c
+    sections:
+    - technical_ultrawide_monitor.operating_min_c
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrawide_monitor_operating_max_c
+  category: hard
+  en: 'Ultrawide work monitor: maximum operating ambient temperature, C?'
+  ru: '«Сверхширокий рабочий монитор»: максимальная температура воздуха при работе, C?'
+  kk: '«Аса кең жұмыс мониторы»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_ultrawide_monitor.operating_max_c
+    grade: 3
+  - section: technical_ultrawide_monitor.diagonal_in
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrawide_monitor.operating_max_c; neighbouring diagonal_in does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.ultrawide_monitor.operating_max_c|current
+  required:
+  - fact: technical.ultrawide_monitor.operating_max_c
+    sections:
+    - technical_ultrawide_monitor.operating_max_c
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrawide_monitor_diagonal_in
+  category: hard
+  en: The cards look similar. What image diagonal is listed for Ultrawide work monitor (inches)?
+  ru: Карточки похожи. Уточните показатель «Диагональ изображения» именно для «Сверхширокий рабочий монитор»
+    (дюймов).
+  kk: Карточкалар ұқсас. «Аса кең жұмыс мониторы» үшін нақты «Кескін диагоналі» көрсеткішін айтыңыз (дюйм).
+  relevant:
+  - section: technical_ultrawide_monitor.diagonal_in
+    grade: 3
+  - section: technical_ultrawide_monitor.resolution_x
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrawide_monitor.diagonal_in; neighbouring resolution_x does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_size
+  need_key: technical.ultrawide_monitor.diagonal_in|current
+  required:
+  - fact: technical.ultrawide_monitor.diagonal_in
+    sections:
+    - technical_ultrawide_monitor.diagonal_in
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrawide_monitor_resolution_x
+  category: hard
+  en: Check the specifcation of Ultrawide work monitor for horizontal image resolution (pixels), please.
+  ru: 'Проверьте характиристику «Сверхширокий рабочий монитор»: интересует «Разрешение изображения по
+    горизонтали» (пикселей).'
+  kk: «Аса кең жұмыс мониторы» сипатамасынан «Кескіннің көлденең ажыратымдылығы» мәнін тексеріңізші (пиксель).
+  relevant:
+  - section: technical_ultrawide_monitor.resolution_x
+    grade: 3
+  - section: technical_ultrawide_monitor.resolution_y
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrawide_monitor.resolution_x; neighbouring resolution_y does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_resolution
+  need_key: technical.ultrawide_monitor.resolution_x|current
+  required:
+  - fact: technical.ultrawide_monitor.resolution_x
+    sections:
+    - technical_ultrawide_monitor.resolution_x
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrawide_monitor_resolution_y
+  category: simple
+  en: For Ultrawide work monitor, what is the specified vertical image resolution in pixels?
+  ru: Для «Сверхширокий рабочий монитор» какое значение указано для показателя «Разрешение изображения
+    по вертикали» (пикселей)?
+  kk: «Аса кең жұмыс мониторы» тауары үшін «Кескіннің тік ажыратымдылығы» көрсеткішінің мәні қандай (пиксель)?
+  relevant:
+  - section: technical_ultrawide_monitor.resolution_y
+    grade: 3
+  - section: technical_ultrawide_monitor.refresh_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrawide_monitor.resolution_y; neighbouring refresh_hz does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_resolution
+  need_key: technical.ultrawide_monitor.resolution_y|current
+  required:
+  - fact: technical.ultrawide_monitor.resolution_y
+    sections:
+    - technical_ultrawide_monitor.resolution_y
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrawide_monitor_refresh_hz
+  category: simple
+  en: I am comparing specifications. Find the native image refresh rate for Ultrawide work monitor, in
+    Hz.
+  ru: Сравниваю характеристики. Нужен показатель «Собственная частота обновления изображения» у «Сверхширокий
+    рабочий монитор», в Гц.
+  kk: Сипаттамаларды салыстырып отырмын. «Аса кең жұмыс мониторы» үшін «Кескіннің өз жаңарту жиілігі»
+    мәні қажет (Гц).
+  relevant:
+  - section: technical_ultrawide_monitor.refresh_hz
+    grade: 3
+  - section: technical_ultrawide_monitor.brightness_cd
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrawide_monitor.refresh_hz; neighbouring brightness_cd does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_refresh
+  need_key: technical.ultrawide_monitor.refresh_hz|current
+  required:
+  - fact: technical.ultrawide_monitor.refresh_hz
+    sections:
+    - technical_ultrawide_monitor.refresh_hz
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrawide_monitor_brightness_cd
+  category: simple
+  en: 'Ultrawide work monitor: rated screen luminance, cd/m2?'
+  ru: '«Сверхширокий рабочий монитор»: номинальная яркость экрана, кд/м2?'
+  kk: '«Аса кең жұмыс мониторы»: экранның номиналды жарықтығы, кд/м2?'
+  relevant:
+  - section: technical_ultrawide_monitor.brightness_cd
+    grade: 3
+  - section: technical_ultrawide_monitor.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Аса кең жұмыс мониторы» үшін «Экранның номиналды жарықтығы» (кд/м2) керек, уточните по этой
+    модели, пожалуйста.
+  rationale: Authored target technical.ultrawide_monitor.brightness_cd; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_luminance
+  need_key: technical.ultrawide_monitor.brightness_cd|current
+  required:
+  - fact: technical.ultrawide_monitor.brightness_cd
+    sections:
+    - technical_ultrawide_monitor.brightness_cd
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrawide_monitor_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Ultrawide work monitor (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Сверхширокий
+    рабочий монитор» (Вт).
+  kk: Карточкалар ұқсас. «Аса кең жұмыс мониторы» үшін нақты «Номиналды тұтыну қуаты» көрсеткішін айтыңыз
+    (Вт).
+  relevant:
+  - section: technical_ultrawide_monitor.power_w
+    grade: 3
+  - section: technical_ultrawide_monitor.hdmi_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrawide_monitor.power_w; neighbouring hdmi_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.ultrawide_monitor.power_w|current
+  required:
+  - fact: technical.ultrawide_monitor.power_w
+    sections:
+    - technical_ultrawide_monitor.power_w
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrawide_monitor_hdmi_count
+  category: hard
+  en: Check the specifcation of Ultrawide work monitor for number of hdmi sockets (units), please.
+  ru: 'Проверьте характиристику «Сверхширокий рабочий монитор»: интересует «Число разъёмов HDMI» (шт.).'
+  kk: «Аса кең жұмыс мониторы» сипатамасынан «HDMI ұяларының саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_ultrawide_monitor.hdmi_count
+    grade: 3
+  - section: technical_ultrawide_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrawide_monitor.hdmi_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_video_connectors
+  need_key: technical.ultrawide_monitor.hdmi_count|current
+  required:
+  - fact: technical.ultrawide_monitor.hdmi_count
+    sections:
+    - technical_ultrawide_monitor.hdmi_count
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_ultrawide_monitor_humidity_max_percent
+  category: unanswerable
+  en: For Ultrawide work monitor, what is the specified maximum permitted humidity in percent?
+  ru: Для «Сверхширокий рабочий монитор» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Аса кең жұмыс мониторы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_ultrawide_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ultrawide_monitor does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.ultrawide_monitor.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_ultrawide_monitor_drop_test_cm
+  category: unanswerable
+  en: For Ultrawide work monitor, what is the specified certified drop-test height in cm?
+  ru: Для «Сверхширокий рабочий монитор» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Аса кең жұмыс мониторы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_ultrawide_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ultrawide_monitor does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.ultrawide_monitor.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_ultrawide_monitor_repair_parts_price
+  category: unanswerable
+  en: For Ultrawide work monitor, what is the specified replacement-part price in KZT?
+  ru: Для «Сверхширокий рабочий монитор» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Аса кең жұмыс мониторы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_ultrawide_monitor.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ultrawide_monitor does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.ultrawide_monitor.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_ultrawide_monitor_certification_id
+  category: unanswerable
+  en: For Ultrawide work monitor, what is the specified certification record number in record?
+  ru: Для «Сверхширокий рабочий монитор» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Аса кең жұмыс мониторы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_ultrawide_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ultrawide_monitor does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.ultrawide_monitor.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_ultrawide_monitor
+  category: multi_fragment
+  en: What does Ultrawide work monitor weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Сверхширокий рабочий монитор» и какой вес посылки допускают пункты самовывоза?
+  kk: «Аса кең жұмыс мониторы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_ultrawide_monitor.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.ultrawide_monitor.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.ultrawide_monitor.mass_g
+    sections:
+    - technical_ultrawide_monitor.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_photo_monitor_mass_g
+  category: simple
+  en: For Photo editing monitor, what is the specified mass in g?
+  ru: Для «Монитор для обработки фотографий» какое значение указано для показателя «Масса» (г)?
+  kk: «Фотосурет өңдеу мониторы» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_photo_monitor.mass_g
+    grade: 3
+  - section: technical_photo_monitor.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.photo_monitor.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.photo_monitor.mass_g|current
+  required:
+  - fact: technical.photo_monitor.mass_g
+    sections:
+    - technical_photo_monitor.mass_g
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_photo_monitor_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Photo editing monitor, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Монитор для обработки фотографий», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Фотосурет өңдеу мониторы» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_photo_monitor.width_mm
+    grade: 3
+  - section: technical_photo_monitor.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.photo_monitor.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.photo_monitor.width_mm|current
+  required:
+  - fact: technical.photo_monitor.width_mm
+    sections:
+    - technical_photo_monitor.width_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_photo_monitor_height_mm
+  category: simple
+  en: 'Photo editing monitor: height, mm?'
+  ru: '«Монитор для обработки фотографий»: высота, мм?'
+  kk: '«Фотосурет өңдеу мониторы»: биіктігі, мм?'
+  relevant:
+  - section: technical_photo_monitor.height_mm
+    grade: 3
+  - section: technical_photo_monitor.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.photo_monitor.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.photo_monitor.height_mm|current
+  required:
+  - fact: technical.photo_monitor.height_mm
+    sections:
+    - technical_photo_monitor.height_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_photo_monitor_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Photo editing monitor (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Монитор для обработки фотографий» (мм).
+  kk: Карточкалар ұқсас. «Фотосурет өңдеу мониторы» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_photo_monitor.depth_mm
+    grade: 3
+  - section: technical_photo_monitor.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.photo_monitor.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.photo_monitor.depth_mm|current
+  required:
+  - fact: technical.photo_monitor.depth_mm
+    sections:
+    - technical_photo_monitor.depth_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_photo_monitor_operating_min_c
+  category: hard
+  en: Check the specifcation of Photo editing monitor for minimum operating ambient temperature (C), please.
+  ru: 'Проверьте характиристику «Монитор для обработки фотографий»: интересует «Минимальная температура
+    воздуха при работе» (C).'
+  kk: «Фотосурет өңдеу мониторы» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_photo_monitor.operating_min_c
+    grade: 3
+  - section: technical_photo_monitor.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Монитор для обработки фотографий» показатель «Минимальная температура воздуха при работе»
+    (C) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.photo_monitor.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.photo_monitor.operating_min_c|current
+  required:
+  - fact: technical.photo_monitor.operating_min_c
+    sections:
+    - technical_photo_monitor.operating_min_c
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_photo_monitor_operating_max_c
+  category: hard
+  en: For Photo editing monitor, what is the specified maximum operating ambient temperature in C?
+  ru: Для «Монитор для обработки фотографий» какое значение указано для показателя «Максимальная температура
+    воздуха при работе» (C)?
+  kk: «Фотосурет өңдеу мониторы» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_photo_monitor.operating_max_c
+    grade: 3
+  - section: technical_photo_monitor.diagonal_in
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.photo_monitor.operating_max_c; neighbouring diagonal_in does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.photo_monitor.operating_max_c|current
+  required:
+  - fact: technical.photo_monitor.operating_max_c
+    sections:
+    - technical_photo_monitor.operating_max_c
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_photo_monitor_diagonal_in
+  category: simple
+  en: I am comparing specifications. Find the image diagonal for Photo editing monitor, in inches.
+  ru: Сравниваю характеристики. Нужен показатель «Диагональ изображения» у «Монитор для обработки фотографий»,
+    в дюймов.
+  kk: Сипаттамаларды салыстырып отырмын. «Фотосурет өңдеу мониторы» үшін «Кескін диагоналі» мәні қажет
+    (дюйм).
+  relevant:
+  - section: technical_photo_monitor.diagonal_in
+    grade: 3
+  - section: technical_photo_monitor.resolution_x
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.photo_monitor.diagonal_in; neighbouring resolution_x does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_size
+  need_key: technical.photo_monitor.diagonal_in|current
+  required:
+  - fact: technical.photo_monitor.diagonal_in
+    sections:
+    - technical_photo_monitor.diagonal_in
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_photo_monitor_resolution_x
+  category: simple
+  en: 'Photo editing monitor: horizontal image resolution, pixels?'
+  ru: '«Монитор для обработки фотографий»: разрешение изображения по горизонтали, пикселей?'
+  kk: '«Фотосурет өңдеу мониторы»: кескіннің көлденең ажыратымдылығы, пиксель?'
+  relevant:
+  - section: technical_photo_monitor.resolution_x
+    grade: 3
+  - section: technical_photo_monitor.resolution_y
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.photo_monitor.resolution_x; neighbouring resolution_y does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_resolution
+  need_key: technical.photo_monitor.resolution_x|current
+  required:
+  - fact: technical.photo_monitor.resolution_x
+    sections:
+    - technical_photo_monitor.resolution_x
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_photo_monitor_resolution_y
+  category: hard
+  en: The cards look similar. What vertical image resolution is listed for Photo editing monitor (pixels)?
+  ru: Карточки похожи. Уточните показатель «Разрешение изображения по вертикали» именно для «Монитор для
+    обработки фотографий» (пикселей).
+  kk: Карточкалар ұқсас. «Фотосурет өңдеу мониторы» үшін нақты «Кескіннің тік ажыратымдылығы» көрсеткішін
+    айтыңыз (пиксель).
+  relevant:
+  - section: technical_photo_monitor.resolution_y
+    grade: 3
+  - section: technical_photo_monitor.refresh_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.photo_monitor.resolution_y; neighbouring refresh_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_resolution
+  need_key: technical.photo_monitor.resolution_y|current
+  required:
+  - fact: technical.photo_monitor.resolution_y
+    sections:
+    - technical_photo_monitor.resolution_y
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_photo_monitor_refresh_hz
+  category: hard
+  en: Check the specifcation of Photo editing monitor for native image refresh rate (Hz), please.
+  ru: 'Проверьте характиристику «Монитор для обработки фотографий»: интересует «Собственная частота обновления
+    изображения» (Гц).'
+  kk: «Фотосурет өңдеу мониторы» сипатамасынан «Кескіннің өз жаңарту жиілігі» мәнін тексеріңізші (Гц).
+  relevant:
+  - section: technical_photo_monitor.refresh_hz
+    grade: 3
+  - section: technical_photo_monitor.brightness_cd
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.photo_monitor.refresh_hz; neighbouring brightness_cd does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_refresh
+  need_key: technical.photo_monitor.refresh_hz|current
+  required:
+  - fact: technical.photo_monitor.refresh_hz
+    sections:
+    - technical_photo_monitor.refresh_hz
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_photo_monitor_brightness_cd
+  category: simple
+  en: For Photo editing monitor, what is the specified rated screen luminance in cd/m2?
+  ru: Для «Монитор для обработки фотографий» какое значение указано для показателя «Номинальная яркость
+    экрана» (кд/м2)?
+  kk: «Фотосурет өңдеу мониторы» тауары үшін «Экранның номиналды жарықтығы» көрсеткішінің мәні қандай
+    (кд/м2)?
+  relevant:
+  - section: technical_photo_monitor.brightness_cd
+    grade: 3
+  - section: technical_photo_monitor.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.photo_monitor.brightness_cd; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_luminance
+  need_key: technical.photo_monitor.brightness_cd|current
+  required:
+  - fact: technical.photo_monitor.brightness_cd
+    sections:
+    - technical_photo_monitor.brightness_cd
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_photo_monitor_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Photo editing monitor, in W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Монитор для обработки
+    фотографий», в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Фотосурет өңдеу мониторы» үшін «Номиналды тұтыну қуаты» мәні
+    қажет (Вт).
+  relevant:
+  - section: technical_photo_monitor.power_w
+    grade: 3
+  - section: technical_photo_monitor.hdmi_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Фотосурет өңдеу мониторы» үшін «Номиналды тұтыну қуаты» (Вт) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.photo_monitor.power_w; neighbouring hdmi_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.photo_monitor.power_w|current
+  required:
+  - fact: technical.photo_monitor.power_w
+    sections:
+    - technical_photo_monitor.power_w
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_photo_monitor_hdmi_count
+  category: simple
+  en: 'Photo editing monitor: number of hdmi sockets, units?'
+  ru: '«Монитор для обработки фотографий»: число разъёмов hdmi, шт.?'
+  kk: '«Фотосурет өңдеу мониторы»: hdmi ұяларының саны, дана?'
+  relevant:
+  - section: technical_photo_monitor.hdmi_count
+    grade: 3
+  - section: technical_photo_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.photo_monitor.hdmi_count; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_video_connectors
+  need_key: technical.photo_monitor.hdmi_count|current
+  required:
+  - fact: technical.photo_monitor.hdmi_count
+    sections:
+    - technical_photo_monitor.hdmi_count
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_photo_monitor_humidity_max_percent
+  category: unanswerable
+  en: For Photo editing monitor, what is the specified maximum permitted humidity in percent?
+  ru: Для «Монитор для обработки фотографий» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Фотосурет өңдеу мониторы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_photo_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for photo_monitor does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.photo_monitor.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_photo_monitor_drop_test_cm
+  category: unanswerable
+  en: For Photo editing monitor, what is the specified certified drop-test height in cm?
+  ru: Для «Монитор для обработки фотографий» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Фотосурет өңдеу мониторы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_photo_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for photo_monitor does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.photo_monitor.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_photo_monitor_repair_parts_price
+  category: unanswerable
+  en: For Photo editing monitor, what is the specified replacement-part price in KZT?
+  ru: Для «Монитор для обработки фотографий» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Фотосурет өңдеу мониторы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_photo_monitor.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for photo_monitor does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.photo_monitor.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_photo_monitor_certification_id
+  category: unanswerable
+  en: For Photo editing monitor, what is the specified certification record number in record?
+  ru: Для «Монитор для обработки фотографий» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Фотосурет өңдеу мониторы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_photo_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for photo_monitor does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.photo_monitor.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_kitchen_tv_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Compact kitchen television (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Компактный кухонный телевизор» (г).
+  kk: Карточкалар ұқсас. «Асүйге арналған ықшам теледидар» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_kitchen_tv.mass_g
+    grade: 3
+  - section: technical_kitchen_tv.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.kitchen_tv.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.kitchen_tv.mass_g|current
+  required:
+  - fact: technical.kitchen_tv.mass_g
+    sections:
+    - technical_kitchen_tv.mass_g
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_kitchen_tv_width_mm
+  category: hard
+  en: Check the specifcation of Compact kitchen television for width (mm), please.
+  ru: 'Проверьте характиристику «Компактный кухонный телевизор»: интересует «Ширина» (мм).'
+  kk: «Асүйге арналған ықшам теледидар» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_kitchen_tv.width_mm
+    grade: 3
+  - section: technical_kitchen_tv.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.kitchen_tv.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.kitchen_tv.width_mm|current
+  required:
+  - fact: technical.kitchen_tv.width_mm
+    sections:
+    - technical_kitchen_tv.width_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_kitchen_tv_height_mm
+  category: simple
+  en: For Compact kitchen television, what is the specified height in mm?
+  ru: Для «Компактный кухонный телевизор» какое значение указано для показателя «Высота» (мм)?
+  kk: «Асүйге арналған ықшам теледидар» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_kitchen_tv.height_mm
+    grade: 3
+  - section: technical_kitchen_tv.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.kitchen_tv.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.kitchen_tv.height_mm|current
+  required:
+  - fact: technical.kitchen_tv.height_mm
+    sections:
+    - technical_kitchen_tv.height_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_kitchen_tv_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Compact kitchen television, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Компактный кухонный телевизор», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Асүйге арналған ықшам теледидар» үшін «Тереңдігі» мәні қажет
+    (мм).
+  relevant:
+  - section: technical_kitchen_tv.depth_mm
+    grade: 3
+  - section: technical_kitchen_tv.operating_min_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.kitchen_tv.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.kitchen_tv.depth_mm|current
+  required:
+  - fact: technical.kitchen_tv.depth_mm
+    sections:
+    - technical_kitchen_tv.depth_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_kitchen_tv_operating_min_c
+  category: hard
+  en: 'Compact kitchen television: minimum operating ambient temperature, C?'
+  ru: '«Компактный кухонный телевизор»: минимальная температура воздуха при работе, C?'
+  kk: '«Асүйге арналған ықшам теледидар»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_kitchen_tv.operating_min_c
+    grade: 3
+  - section: technical_kitchen_tv.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.kitchen_tv.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.kitchen_tv.operating_min_c|current
+  required:
+  - fact: technical.kitchen_tv.operating_min_c
+    sections:
+    - technical_kitchen_tv.operating_min_c
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_kitchen_tv_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Compact kitchen
+    television (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Компактный
+    кухонный телевизор» (C).
+  kk: Карточкалар ұқсас. «Асүйге арналған ықшам теледидар» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары
+    температурасы» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_kitchen_tv.operating_max_c
+    grade: 3
+  - section: technical_kitchen_tv.diagonal_in
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Компактный кухонный телевизор» показатель «Максимальная температура воздуха при работе» (C)
+    нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.kitchen_tv.operating_max_c; neighbouring diagonal_in does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.kitchen_tv.operating_max_c|current
+  required:
+  - fact: technical.kitchen_tv.operating_max_c
+    sections:
+    - technical_kitchen_tv.operating_max_c
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_kitchen_tv_diagonal_in
+  category: hard
+  en: Check the specifcation of Compact kitchen television for image diagonal (inches), please.
+  ru: 'Проверьте характиристику «Компактный кухонный телевизор»: интересует «Диагональ изображения» (дюймов).'
+  kk: «Асүйге арналған ықшам теледидар» сипатамасынан «Кескін диагоналі» мәнін тексеріңізші (дюйм).
+  relevant:
+  - section: technical_kitchen_tv.diagonal_in
+    grade: 3
+  - section: technical_kitchen_tv.resolution_x
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.kitchen_tv.diagonal_in; neighbouring resolution_x does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_size
+  need_key: technical.kitchen_tv.diagonal_in|current
+  required:
+  - fact: technical.kitchen_tv.diagonal_in
+    sections:
+    - technical_kitchen_tv.diagonal_in
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_kitchen_tv_resolution_x
+  category: simple
+  en: For Compact kitchen television, what is the specified horizontal image resolution in pixels?
+  ru: Для «Компактный кухонный телевизор» какое значение указано для показателя «Разрешение изображения
+    по горизонтали» (пикселей)?
+  kk: «Асүйге арналған ықшам теледидар» тауары үшін «Кескіннің көлденең ажыратымдылығы» көрсеткішінің
+    мәні қандай (пиксель)?
+  relevant:
+  - section: technical_kitchen_tv.resolution_x
+    grade: 3
+  - section: technical_kitchen_tv.resolution_y
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.kitchen_tv.resolution_x; neighbouring resolution_y does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_resolution
+  need_key: technical.kitchen_tv.resolution_x|current
+  required:
+  - fact: technical.kitchen_tv.resolution_x
+    sections:
+    - technical_kitchen_tv.resolution_x
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_kitchen_tv_resolution_y
+  category: simple
+  en: I am comparing specifications. Find the vertical image resolution for Compact kitchen television,
+    in pixels.
+  ru: Сравниваю характеристики. Нужен показатель «Разрешение изображения по вертикали» у «Компактный кухонный
+    телевизор», в пикселей.
+  kk: Сипаттамаларды салыстырып отырмын. «Асүйге арналған ықшам теледидар» үшін «Кескіннің тік ажыратымдылығы»
+    мәні қажет (пиксель).
+  relevant:
+  - section: technical_kitchen_tv.resolution_y
+    grade: 3
+  - section: technical_kitchen_tv.refresh_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.kitchen_tv.resolution_y; neighbouring refresh_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_resolution
+  need_key: technical.kitchen_tv.resolution_y|current
+  required:
+  - fact: technical.kitchen_tv.resolution_y
+    sections:
+    - technical_kitchen_tv.resolution_y
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_kitchen_tv_refresh_hz
+  category: simple
+  en: 'Compact kitchen television: native image refresh rate, Hz?'
+  ru: '«Компактный кухонный телевизор»: собственная частота обновления изображения, Гц?'
+  kk: '«Асүйге арналған ықшам теледидар»: кескіннің өз жаңарту жиілігі, Гц?'
+  relevant:
+  - section: technical_kitchen_tv.refresh_hz
+    grade: 3
+  - section: technical_kitchen_tv.brightness_cd
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.kitchen_tv.refresh_hz; neighbouring brightness_cd does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_refresh
+  need_key: technical.kitchen_tv.refresh_hz|current
+  required:
+  - fact: technical.kitchen_tv.refresh_hz
+    sections:
+    - technical_kitchen_tv.refresh_hz
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_kitchen_tv_brightness_cd
+  category: hard
+  en: The cards look similar. What rated screen luminance is listed for Compact kitchen television (cd/m2)?
+  ru: Карточки похожи. Уточните показатель «Номинальная яркость экрана» именно для «Компактный кухонный
+    телевизор» (кд/м2).
+  kk: Карточкалар ұқсас. «Асүйге арналған ықшам теледидар» үшін нақты «Экранның номиналды жарықтығы» көрсеткішін
+    айтыңыз (кд/м2).
+  relevant:
+  - section: technical_kitchen_tv.brightness_cd
+    grade: 3
+  - section: technical_kitchen_tv.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.kitchen_tv.brightness_cd; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_luminance
+  need_key: technical.kitchen_tv.brightness_cd|current
+  required:
+  - fact: technical.kitchen_tv.brightness_cd
+    sections:
+    - technical_kitchen_tv.brightness_cd
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_kitchen_tv_power_w
+  category: hard
+  en: Check the specifcation of Compact kitchen television for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Компактный кухонный телевизор»: интересует «Номинальная потребляемая
+    мощность» (Вт).'
+  kk: «Асүйге арналған ықшам теледидар» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_kitchen_tv.power_w
+    grade: 3
+  - section: technical_kitchen_tv.hdmi_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.kitchen_tv.power_w; neighbouring hdmi_count does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.kitchen_tv.power_w|current
+  required:
+  - fact: technical.kitchen_tv.power_w
+    sections:
+    - technical_kitchen_tv.power_w
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_kitchen_tv_hdmi_count
+  category: simple
+  en: For Compact kitchen television, what is the specified number of hdmi sockets in units?
+  ru: Для «Компактный кухонный телевизор» какое значение указано для показателя «Число разъёмов HDMI»
+    (шт.)?
+  kk: «Асүйге арналған ықшам теледидар» тауары үшін «HDMI ұяларының саны» көрсеткішінің мәні қандай (дана)?
+  relevant:
+  - section: technical_kitchen_tv.hdmi_count
+    grade: 3
+  - section: technical_kitchen_tv.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Асүйге арналған ықшам теледидар» үшін «HDMI ұяларының саны» (дана) керек, уточните по этой
+    модели, пожалуйста.
+  rationale: Authored target technical.kitchen_tv.hdmi_count; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_video_connectors
+  need_key: technical.kitchen_tv.hdmi_count|current
+  required:
+  - fact: technical.kitchen_tv.hdmi_count
+    sections:
+    - technical_kitchen_tv.hdmi_count
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_kitchen_tv_humidity_max_percent
+  category: unanswerable
+  en: For Compact kitchen television, what is the specified maximum permitted humidity in percent?
+  ru: Для «Компактный кухонный телевизор» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Асүйге арналған ықшам теледидар» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_kitchen_tv.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for kitchen_tv does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.kitchen_tv.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_kitchen_tv_drop_test_cm
+  category: unanswerable
+  en: For Compact kitchen television, what is the specified certified drop-test height in cm?
+  ru: Для «Компактный кухонный телевизор» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Асүйге арналған ықшам теледидар» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_kitchen_tv.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for kitchen_tv does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.kitchen_tv.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_kitchen_tv_repair_parts_price
+  category: unanswerable
+  en: For Compact kitchen television, what is the specified replacement-part price in KZT?
+  ru: Для «Компактный кухонный телевизор» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Асүйге арналған ықшам теледидар» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_kitchen_tv.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for kitchen_tv does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.kitchen_tv.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_kitchen_tv_certification_id
+  category: unanswerable
+  en: For Compact kitchen television, what is the specified certification record number in record?
+  ru: Для «Компактный кухонный телевизор» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Асүйге арналған ықшам теледидар» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_kitchen_tv.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for kitchen_tv does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.kitchen_tv.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_kitchen_tv
+  category: multi_fragment
+  en: What does Compact kitchen television weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Компактный кухонный телевизор» и какой вес посылки допускают пункты самовывоза?
+  kk: «Асүйге арналған ықшам теледидар» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_kitchen_tv.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.kitchen_tv.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.kitchen_tv.mass_g
+    sections:
+    - technical_kitchen_tv.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_digital_signage_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Counter digital signage display, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Прилавочный информационный экран», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Сөре ақпараттық экраны» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_digital_signage.mass_g
+    grade: 3
+  - section: technical_digital_signage.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.digital_signage.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.digital_signage.mass_g|current
+  required:
+  - fact: technical.digital_signage.mass_g
+    sections:
+    - technical_digital_signage.mass_g
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_digital_signage_width_mm
+  category: simple
+  en: 'Counter digital signage display: width, mm?'
+  ru: '«Прилавочный информационный экран»: ширина, мм?'
+  kk: '«Сөре ақпараттық экраны»: ені, мм?'
+  relevant:
+  - section: technical_digital_signage.width_mm
+    grade: 3
+  - section: technical_digital_signage.height_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.digital_signage.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.digital_signage.width_mm|current
+  required:
+  - fact: technical.digital_signage.width_mm
+    sections:
+    - technical_digital_signage.width_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_digital_signage_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Counter digital signage display (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Прилавочный информационный экран» (мм).
+  kk: Карточкалар ұқсас. «Сөре ақпараттық экраны» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_digital_signage.height_mm
+    grade: 3
+  - section: technical_digital_signage.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.digital_signage.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.digital_signage.height_mm|current
+  required:
+  - fact: technical.digital_signage.height_mm
+    sections:
+    - technical_digital_signage.height_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_digital_signage_depth_mm
+  category: hard
+  en: Check the specifcation of Counter digital signage display for depth (mm), please.
+  ru: 'Проверьте характиристику «Прилавочный информационный экран»: интересует «Глубина» (мм).'
+  kk: «Сөре ақпараттық экраны» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_digital_signage.depth_mm
+    grade: 3
+  - section: technical_digital_signage.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.digital_signage.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.digital_signage.depth_mm|current
+  required:
+  - fact: technical.digital_signage.depth_mm
+    sections:
+    - technical_digital_signage.depth_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_digital_signage_operating_min_c
+  category: hard
+  en: For Counter digital signage display, what is the specified minimum operating ambient temperature
+    in C?
+  ru: Для «Прилавочный информационный экран» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Сөре ақпараттық экраны» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_digital_signage.operating_min_c
+    grade: 3
+  - section: technical_digital_signage.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.digital_signage.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.digital_signage.operating_min_c|current
+  required:
+  - fact: technical.digital_signage.operating_min_c
+    sections:
+    - technical_digital_signage.operating_min_c
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_digital_signage_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Counter digital
+    signage display, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Прилавочный
+    информационный экран», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Сөре ақпараттық экраны» үшін «Жұмыс кезіндегі ауаның ең жоғары
+    температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_digital_signage.operating_max_c
+    grade: 3
+  - section: technical_digital_signage.diagonal_in
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.digital_signage.operating_max_c; neighbouring diagonal_in does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.digital_signage.operating_max_c|current
+  required:
+  - fact: technical.digital_signage.operating_max_c
+    sections:
+    - technical_digital_signage.operating_max_c
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_digital_signage_diagonal_in
+  category: simple
+  en: 'Counter digital signage display: image diagonal, inches?'
+  ru: '«Прилавочный информационный экран»: диагональ изображения, дюймов?'
+  kk: '«Сөре ақпараттық экраны»: кескін диагоналі, дюйм?'
+  relevant:
+  - section: technical_digital_signage.diagonal_in
+    grade: 3
+  - section: technical_digital_signage.resolution_x
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Прилавочный информационный экран» показатель «Диагональ изображения» (дюймов) нақтылап беріңізші,
+    осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.digital_signage.diagonal_in; neighbouring resolution_x does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_size
+  need_key: technical.digital_signage.diagonal_in|current
+  required:
+  - fact: technical.digital_signage.diagonal_in
+    sections:
+    - technical_digital_signage.diagonal_in
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_digital_signage_resolution_x
+  category: hard
+  en: The cards look similar. What horizontal image resolution is listed for Counter digital signage display
+    (pixels)?
+  ru: Карточки похожи. Уточните показатель «Разрешение изображения по горизонтали» именно для «Прилавочный
+    информационный экран» (пикселей).
+  kk: Карточкалар ұқсас. «Сөре ақпараттық экраны» үшін нақты «Кескіннің көлденең ажыратымдылығы» көрсеткішін
+    айтыңыз (пиксель).
+  relevant:
+  - section: technical_digital_signage.resolution_x
+    grade: 3
+  - section: technical_digital_signage.resolution_y
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.digital_signage.resolution_x; neighbouring resolution_y does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_resolution
+  need_key: technical.digital_signage.resolution_x|current
+  required:
+  - fact: technical.digital_signage.resolution_x
+    sections:
+    - technical_digital_signage.resolution_x
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_digital_signage_resolution_y
+  category: hard
+  en: Check the specifcation of Counter digital signage display for vertical image resolution (pixels),
+    please.
+  ru: 'Проверьте характиристику «Прилавочный информационный экран»: интересует «Разрешение изображения
+    по вертикали» (пикселей).'
+  kk: «Сөре ақпараттық экраны» сипатамасынан «Кескіннің тік ажыратымдылығы» мәнін тексеріңізші (пиксель).
+  relevant:
+  - section: technical_digital_signage.resolution_y
+    grade: 3
+  - section: technical_digital_signage.refresh_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.digital_signage.resolution_y; neighbouring refresh_hz does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_resolution
+  need_key: technical.digital_signage.resolution_y|current
+  required:
+  - fact: technical.digital_signage.resolution_y
+    sections:
+    - technical_digital_signage.resolution_y
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_digital_signage_refresh_hz
+  category: simple
+  en: For Counter digital signage display, what is the specified native image refresh rate in Hz?
+  ru: Для «Прилавочный информационный экран» какое значение указано для показателя «Собственная частота
+    обновления изображения» (Гц)?
+  kk: «Сөре ақпараттық экраны» тауары үшін «Кескіннің өз жаңарту жиілігі» көрсеткішінің мәні қандай (Гц)?
+  relevant:
+  - section: technical_digital_signage.refresh_hz
+    grade: 3
+  - section: technical_digital_signage.brightness_cd
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.digital_signage.refresh_hz; neighbouring brightness_cd does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_refresh
+  need_key: technical.digital_signage.refresh_hz|current
+  required:
+  - fact: technical.digital_signage.refresh_hz
+    sections:
+    - technical_digital_signage.refresh_hz
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_digital_signage_brightness_cd
+  category: simple
+  en: I am comparing specifications. Find the rated screen luminance for Counter digital signage display,
+    in cd/m2.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная яркость экрана» у «Прилавочный информационный
+    экран», в кд/м2.
+  kk: Сипаттамаларды салыстырып отырмын. «Сөре ақпараттық экраны» үшін «Экранның номиналды жарықтығы»
+    мәні қажет (кд/м2).
+  relevant:
+  - section: technical_digital_signage.brightness_cd
+    grade: 3
+  - section: technical_digital_signage.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.digital_signage.brightness_cd; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_luminance
+  need_key: technical.digital_signage.brightness_cd|current
+  required:
+  - fact: technical.digital_signage.brightness_cd
+    sections:
+    - technical_digital_signage.brightness_cd
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_digital_signage_power_w
+  category: simple
+  en: 'Counter digital signage display: rated power consumption, W?'
+  ru: '«Прилавочный информационный экран»: номинальная потребляемая мощность, Вт?'
+  kk: '«Сөре ақпараттық экраны»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_digital_signage.power_w
+    grade: 3
+  - section: technical_digital_signage.hdmi_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.digital_signage.power_w; neighbouring hdmi_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.digital_signage.power_w|current
+  required:
+  - fact: technical.digital_signage.power_w
+    sections:
+    - technical_digital_signage.power_w
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_digital_signage_hdmi_count
+  category: hard
+  en: The cards look similar. What number of hdmi sockets is listed for Counter digital signage display
+    (units)?
+  ru: Карточки похожи. Уточните показатель «Число разъёмов HDMI» именно для «Прилавочный информационный
+    экран» (шт.).
+  kk: Карточкалар ұқсас. «Сөре ақпараттық экраны» үшін нақты «HDMI ұяларының саны» көрсеткішін айтыңыз
+    (дана).
+  relevant:
+  - section: technical_digital_signage.hdmi_count
+    grade: 3
+  - section: technical_digital_signage.mass_g
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.digital_signage.hdmi_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_video_connectors
+  need_key: technical.digital_signage.hdmi_count|current
+  required:
+  - fact: technical.digital_signage.hdmi_count
+    sections:
+    - technical_digital_signage.hdmi_count
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_digital_signage_humidity_max_percent
+  category: unanswerable
+  en: For Counter digital signage display, what is the specified maximum permitted humidity in percent?
+  ru: Для «Прилавочный информационный экран» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Сөре ақпараттық экраны» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_digital_signage.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for digital_signage does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.digital_signage.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_digital_signage_drop_test_cm
+  category: unanswerable
+  en: For Counter digital signage display, what is the specified certified drop-test height in cm?
+  ru: Для «Прилавочный информационный экран» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Сөре ақпараттық экраны» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_digital_signage.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for digital_signage does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.digital_signage.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_digital_signage_repair_parts_price
+  category: unanswerable
+  en: For Counter digital signage display, what is the specified replacement-part price in KZT?
+  ru: Для «Прилавочный информационный экран» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Сөре ақпараттық экраны» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_digital_signage.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for digital_signage does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.digital_signage.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_digital_signage_certification_id
+  category: unanswerable
+  en: For Counter digital signage display, what is the specified certification record number in record?
+  ru: Для «Прилавочный информационный экран» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Сөре ақпараттық экраны» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_digital_signage.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for digital_signage does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.digital_signage.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_field_monitor_mass_g
+  category: hard
+  en: Check the specifcation of Camera field monitor for mass (g), please.
+  ru: 'Проверьте характиристику «Накамерный полевой монитор»: интересует «Масса» (г).'
+  kk: «Камераға арналған далалық монитор» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_field_monitor.mass_g
+    grade: 3
+  - section: technical_field_monitor.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Камераға арналған далалық монитор» үшін «Салмағы» (г) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.field_monitor.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.field_monitor.mass_g|current
+  required:
+  - fact: technical.field_monitor.mass_g
+    sections:
+    - technical_field_monitor.mass_g
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_field_monitor_width_mm
+  category: simple
+  en: For Camera field monitor, what is the specified width in mm?
+  ru: Для «Накамерный полевой монитор» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Камераға арналған далалық монитор» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_field_monitor.width_mm
+    grade: 3
+  - section: technical_field_monitor.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.field_monitor.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.field_monitor.width_mm|current
+  required:
+  - fact: technical.field_monitor.width_mm
+    sections:
+    - technical_field_monitor.width_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_field_monitor_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Camera field monitor, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Накамерный полевой монитор», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Камераға арналған далалық монитор» үшін «Биіктігі» мәні қажет
+    (мм).
+  relevant:
+  - section: technical_field_monitor.height_mm
+    grade: 3
+  - section: technical_field_monitor.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.field_monitor.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.field_monitor.height_mm|current
+  required:
+  - fact: technical.field_monitor.height_mm
+    sections:
+    - technical_field_monitor.height_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_field_monitor_depth_mm
+  category: simple
+  en: 'Camera field monitor: depth, mm?'
+  ru: '«Накамерный полевой монитор»: глубина, мм?'
+  kk: '«Камераға арналған далалық монитор»: тереңдігі, мм?'
+  relevant:
+  - section: technical_field_monitor.depth_mm
+    grade: 3
+  - section: technical_field_monitor.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.field_monitor.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.field_monitor.depth_mm|current
+  required:
+  - fact: technical.field_monitor.depth_mm
+    sections:
+    - technical_field_monitor.depth_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_field_monitor_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Camera field monitor
+    (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Накамерный
+    полевой монитор» (C).
+  kk: Карточкалар ұқсас. «Камераға арналған далалық монитор» үшін нақты «Жұмыс кезіндегі ауаның ең төмен
+    температурасы» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_field_monitor.operating_min_c
+    grade: 3
+  - section: technical_field_monitor.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.field_monitor.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.field_monitor.operating_min_c|current
+  required:
+  - fact: technical.field_monitor.operating_min_c
+    sections:
+    - technical_field_monitor.operating_min_c
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_field_monitor_operating_max_c
+  category: hard
+  en: Check the specifcation of Camera field monitor for maximum operating ambient temperature (C), please.
+  ru: 'Проверьте характиристику «Накамерный полевой монитор»: интересует «Максимальная температура воздуха
+    при работе» (C).'
+  kk: «Камераға арналған далалық монитор» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    мәнін тексеріңізші (C).
+  relevant:
+  - section: technical_field_monitor.operating_max_c
+    grade: 3
+  - section: technical_field_monitor.diagonal_in
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.field_monitor.operating_max_c; neighbouring diagonal_in does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.field_monitor.operating_max_c|current
+  required:
+  - fact: technical.field_monitor.operating_max_c
+    sections:
+    - technical_field_monitor.operating_max_c
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_field_monitor_diagonal_in
+  category: simple
+  en: For Camera field monitor, what is the specified image diagonal in inches?
+  ru: Для «Накамерный полевой монитор» какое значение указано для показателя «Диагональ изображения» (дюймов)?
+  kk: «Камераға арналған далалық монитор» тауары үшін «Кескін диагоналі» көрсеткішінің мәні қандай (дюйм)?
+  relevant:
+  - section: technical_field_monitor.diagonal_in
+    grade: 3
+  - section: technical_field_monitor.resolution_x
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.field_monitor.diagonal_in; neighbouring resolution_x does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_size
+  need_key: technical.field_monitor.diagonal_in|current
+  required:
+  - fact: technical.field_monitor.diagonal_in
+    sections:
+    - technical_field_monitor.diagonal_in
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_field_monitor_resolution_x
+  category: simple
+  en: I am comparing specifications. Find the horizontal image resolution for Camera field monitor, in
+    pixels.
+  ru: Сравниваю характеристики. Нужен показатель «Разрешение изображения по горизонтали» у «Накамерный
+    полевой монитор», в пикселей.
+  kk: Сипаттамаларды салыстырып отырмын. «Камераға арналған далалық монитор» үшін «Кескіннің көлденең
+    ажыратымдылығы» мәні қажет (пиксель).
+  relevant:
+  - section: technical_field_monitor.resolution_x
+    grade: 3
+  - section: technical_field_monitor.resolution_y
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Накамерный полевой монитор» показатель «Разрешение изображения по горизонтали» (пикселей)
+    нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.field_monitor.resolution_x; neighbouring resolution_y does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_resolution
+  need_key: technical.field_monitor.resolution_x|current
+  required:
+  - fact: technical.field_monitor.resolution_x
+    sections:
+    - technical_field_monitor.resolution_x
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_field_monitor_resolution_y
+  category: simple
+  en: 'Camera field monitor: vertical image resolution, pixels?'
+  ru: '«Накамерный полевой монитор»: разрешение изображения по вертикали, пикселей?'
+  kk: '«Камераға арналған далалық монитор»: кескіннің тік ажыратымдылығы, пиксель?'
+  relevant:
+  - section: technical_field_monitor.resolution_y
+    grade: 3
+  - section: technical_field_monitor.refresh_hz
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.field_monitor.resolution_y; neighbouring refresh_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_resolution
+  need_key: technical.field_monitor.resolution_y|current
+  required:
+  - fact: technical.field_monitor.resolution_y
+    sections:
+    - technical_field_monitor.resolution_y
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_field_monitor_refresh_hz
+  category: hard
+  en: The cards look similar. What native image refresh rate is listed for Camera field monitor (Hz)?
+  ru: Карточки похожи. Уточните показатель «Собственная частота обновления изображения» именно для «Накамерный
+    полевой монитор» (Гц).
+  kk: Карточкалар ұқсас. «Камераға арналған далалық монитор» үшін нақты «Кескіннің өз жаңарту жиілігі»
+    көрсеткішін айтыңыз (Гц).
+  relevant:
+  - section: technical_field_monitor.refresh_hz
+    grade: 3
+  - section: technical_field_monitor.brightness_cd
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.field_monitor.refresh_hz; neighbouring brightness_cd does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_refresh
+  need_key: technical.field_monitor.refresh_hz|current
+  required:
+  - fact: technical.field_monitor.refresh_hz
+    sections:
+    - technical_field_monitor.refresh_hz
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_field_monitor_brightness_cd
+  category: hard
+  en: Check the specifcation of Camera field monitor for rated screen luminance (cd/m2), please.
+  ru: 'Проверьте характиристику «Накамерный полевой монитор»: интересует «Номинальная яркость экрана»
+    (кд/м2).'
+  kk: «Камераға арналған далалық монитор» сипатамасынан «Экранның номиналды жарықтығы» мәнін тексеріңізші
+    (кд/м2).
+  relevant:
+  - section: technical_field_monitor.brightness_cd
+    grade: 3
+  - section: technical_field_monitor.power_w
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.field_monitor.brightness_cd; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_luminance
+  need_key: technical.field_monitor.brightness_cd|current
+  required:
+  - fact: technical.field_monitor.brightness_cd
+    sections:
+    - technical_field_monitor.brightness_cd
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_field_monitor_power_w
+  category: simple
+  en: For Camera field monitor, what is the specified rated power consumption in W?
+  ru: Для «Накамерный полевой монитор» какое значение указано для показателя «Номинальная потребляемая
+    мощность» (Вт)?
+  kk: «Камераға арналған далалық монитор» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай
+    (Вт)?
+  relevant:
+  - section: technical_field_monitor.power_w
+    grade: 3
+  - section: technical_field_monitor.hdmi_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.field_monitor.power_w; neighbouring hdmi_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.field_monitor.power_w|current
+  required:
+  - fact: technical.field_monitor.power_w
+    sections:
+    - technical_field_monitor.power_w
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_field_monitor_hdmi_count
+  category: simple
+  en: I am comparing specifications. Find the number of hdmi sockets for Camera field monitor, in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число разъёмов HDMI» у «Накамерный полевой монитор»,
+    в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Камераға арналған далалық монитор» үшін «HDMI ұяларының саны»
+    мәні қажет (дана).
+  relevant:
+  - section: technical_field_monitor.hdmi_count
+    grade: 3
+  - section: technical_field_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.field_monitor.hdmi_count; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_video_connectors
+  need_key: technical.field_monitor.hdmi_count|current
+  required:
+  - fact: technical.field_monitor.hdmi_count
+    sections:
+    - technical_field_monitor.hdmi_count
+  tags:
+  - profile_derived
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_field_monitor_humidity_max_percent
+  category: unanswerable
+  en: For Camera field monitor, what is the specified maximum permitted humidity in percent?
+  ru: Для «Накамерный полевой монитор» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Камераға арналған далалық монитор» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_field_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for field_monitor does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.field_monitor.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_field_monitor_drop_test_cm
+  category: unanswerable
+  en: For Camera field monitor, what is the specified certified drop-test height in cm?
+  ru: Для «Накамерный полевой монитор» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Камераға арналған далалық монитор» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_field_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for field_monitor does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.field_monitor.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_field_monitor_repair_parts_price
+  category: unanswerable
+  en: For Camera field monitor, what is the specified replacement-part price in KZT?
+  ru: Для «Накамерный полевой монитор» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Камераға арналған далалық монитор» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_field_monitor.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for field_monitor does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.field_monitor.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_field_monitor_certification_id
+  category: unanswerable
+  en: For Camera field monitor, what is the specified certification record number in record?
+  ru: Для «Накамерный полевой монитор» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Камераға арналған далалық монитор» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_field_monitor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for field_monitor does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.field_monitor.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_field_monitor
+  category: multi_fragment
+  en: What does Camera field monitor weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Накамерный полевой монитор» и какой вес посылки допускают пункты самовывоза?
+  kk: «Камераға арналған далалық монитор» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_field_monitor.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.field_monitor.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.field_monitor.mass_g
+    sections:
+    - technical_field_monitor.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rack_display_mass_g
+  category: simple
+  en: 'Rack service display: mass, g?'
+  ru: '«Стоечный сервисный экран»: масса, г?'
+  kk: '«Тірек сервистік экраны»: салмағы, г?'
+  relevant:
+  - section: technical_rack_display.mass_g
+    grade: 3
+  - section: technical_rack_display.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rack_display.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.rack_display.mass_g|current
+  required:
+  - fact: technical.rack_display.mass_g
+    sections:
+    - technical_rack_display.mass_g
+  tags:
+  - profile_derived
+  - domain_displays
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rack_display_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Rack service display (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Стоечный сервисный экран» (мм).
+  kk: Карточкалар ұқсас. «Тірек сервистік экраны» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_rack_display.width_mm
+    grade: 3
+  - section: technical_rack_display.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Тірек сервистік экраны» үшін «Ені» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.rack_display.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rack_display.width_mm|current
+  required:
+  - fact: technical.rack_display.width_mm
+    sections:
+    - technical_rack_display.width_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rack_display_height_mm
+  category: hard
+  en: Check the specifcation of Rack service display for height (mm), please.
+  ru: 'Проверьте характиристику «Стоечный сервисный экран»: интересует «Высота» (мм).'
+  kk: «Тірек сервистік экраны» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_rack_display.height_mm
+    grade: 3
+  - section: technical_rack_display.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rack_display.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rack_display.height_mm|current
+  required:
+  - fact: technical.rack_display.height_mm
+    sections:
+    - technical_rack_display.height_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rack_display_depth_mm
+  category: simple
+  en: For Rack service display, what is the specified depth in mm?
+  ru: Для «Стоечный сервисный экран» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Тірек сервистік экраны» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_rack_display.depth_mm
+    grade: 3
+  - section: technical_rack_display.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rack_display.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rack_display.depth_mm|current
+  required:
+  - fact: technical.rack_display.depth_mm
+    sections:
+    - technical_rack_display.depth_mm
+  tags:
+  - profile_derived
+  - domain_displays
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rack_display_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Rack service display,
+    in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Стоечный
+    сервисный экран», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Тірек сервистік экраны» үшін «Жұмыс кезіндегі ауаның ең төмен
+    температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_rack_display.operating_min_c
+    grade: 3
+  - section: technical_rack_display.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rack_display.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rack_display.operating_min_c|current
+  required:
+  - fact: technical.rack_display.operating_min_c
+    sections:
+    - technical_rack_display.operating_min_c
+  tags:
+  - profile_derived
+  - domain_displays
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rack_display_operating_max_c
+  category: hard
+  en: 'Rack service display: maximum operating ambient temperature, C?'
+  ru: '«Стоечный сервисный экран»: максимальная температура воздуха при работе, C?'
+  kk: '«Тірек сервистік экраны»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_rack_display.operating_max_c
+    grade: 3
+  - section: technical_rack_display.diagonal_in
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rack_display.operating_max_c; neighbouring diagonal_in does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rack_display.operating_max_c|current
+  required:
+  - fact: technical.rack_display.operating_max_c
+    sections:
+    - technical_rack_display.operating_max_c
+  tags:
+  - profile_derived
+  - domain_displays
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rack_display_diagonal_in
+  category: hard
+  en: The cards look similar. What image diagonal is listed for Rack service display (inches)?
+  ru: Карточки похожи. Уточните показатель «Диагональ изображения» именно для «Стоечный сервисный экран»
+    (дюймов).
+  kk: Карточкалар ұқсас. «Тірек сервистік экраны» үшін нақты «Кескін диагоналі» көрсеткішін айтыңыз (дюйм).
+  relevant:
+  - section: technical_rack_display.diagonal_in
+    grade: 3
+  - section: technical_rack_display.resolution_x
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rack_display.diagonal_in; neighbouring resolution_x does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_size
+  need_key: technical.rack_display.diagonal_in|current
+  required:
+  - fact: technical.rack_display.diagonal_in
+    sections:
+    - technical_rack_display.diagonal_in
+  tags:
+  - profile_derived
+  - domain_displays
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rack_display_resolution_x
+  category: hard
+  en: Check the specifcation of Rack service display for horizontal image resolution (pixels), please.
+  ru: 'Проверьте характиристику «Стоечный сервисный экран»: интересует «Разрешение изображения по горизонтали»
+    (пикселей).'
+  kk: «Тірек сервистік экраны» сипатамасынан «Кескіннің көлденең ажыратымдылығы» мәнін тексеріңізші (пиксель).
+  relevant:
+  - section: technical_rack_display.resolution_x
+    grade: 3
+  - section: technical_rack_display.resolution_y
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rack_display.resolution_x; neighbouring resolution_y does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_resolution
+  need_key: technical.rack_display.resolution_x|current
+  required:
+  - fact: technical.rack_display.resolution_x
+    sections:
+    - technical_rack_display.resolution_x
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rack_display_resolution_y
+  category: simple
+  en: For Rack service display, what is the specified vertical image resolution in pixels?
+  ru: Для «Стоечный сервисный экран» какое значение указано для показателя «Разрешение изображения по
+    вертикали» (пикселей)?
+  kk: «Тірек сервистік экраны» тауары үшін «Кескіннің тік ажыратымдылығы» көрсеткішінің мәні қандай (пиксель)?
+  relevant:
+  - section: technical_rack_display.resolution_y
+    grade: 3
+  - section: technical_rack_display.refresh_hz
+    grade: 0
+  cross_lingual: true
+  mix_ru: У «Стоечный сервисный экран» показатель «Разрешение изображения по вертикали» (пикселей) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.rack_display.resolution_y; neighbouring refresh_hz does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_resolution
+  need_key: technical.rack_display.resolution_y|current
+  required:
+  - fact: technical.rack_display.resolution_y
+    sections:
+    - technical_rack_display.resolution_y
+  tags:
+  - profile_derived
+  - domain_displays
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rack_display_refresh_hz
+  category: simple
+  en: I am comparing specifications. Find the native image refresh rate for Rack service display, in Hz.
+  ru: Сравниваю характеристики. Нужен показатель «Собственная частота обновления изображения» у «Стоечный
+    сервисный экран», в Гц.
+  kk: Сипаттамаларды салыстырып отырмын. «Тірек сервистік экраны» үшін «Кескіннің өз жаңарту жиілігі»
+    мәні қажет (Гц).
+  relevant:
+  - section: technical_rack_display.refresh_hz
+    grade: 3
+  - section: technical_rack_display.brightness_cd
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rack_display.refresh_hz; neighbouring brightness_cd does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_refresh
+  need_key: technical.rack_display.refresh_hz|current
+  required:
+  - fact: technical.rack_display.refresh_hz
+    sections:
+    - technical_rack_display.refresh_hz
+  tags:
+  - profile_derived
+  - domain_displays
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rack_display_brightness_cd
+  category: simple
+  en: 'Rack service display: rated screen luminance, cd/m2?'
+  ru: '«Стоечный сервисный экран»: номинальная яркость экрана, кд/м2?'
+  kk: '«Тірек сервистік экраны»: экранның номиналды жарықтығы, кд/м2?'
+  relevant:
+  - section: technical_rack_display.brightness_cd
+    grade: 3
+  - section: technical_rack_display.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rack_display.brightness_cd; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_display_luminance
+  need_key: technical.rack_display.brightness_cd|current
+  required:
+  - fact: technical.rack_display.brightness_cd
+    sections:
+    - technical_rack_display.brightness_cd
+  tags:
+  - profile_derived
+  - domain_displays
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rack_display_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Rack service display (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Стоечный сервисный
+    экран» (Вт).
+  kk: Карточкалар ұқсас. «Тірек сервистік экраны» үшін нақты «Номиналды тұтыну қуаты» көрсеткішін айтыңыз
+    (Вт).
+  relevant:
+  - section: technical_rack_display.power_w
+    grade: 3
+  - section: technical_rack_display.hdmi_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rack_display.power_w; neighbouring hdmi_count does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.rack_display.power_w|current
+  required:
+  - fact: technical.rack_display.power_w
+    sections:
+    - technical_rack_display.power_w
+  tags:
+  - profile_derived
+  - domain_displays
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rack_display_hdmi_count
+  category: hard
+  en: Check the specifcation of Rack service display for number of hdmi sockets (units), please.
+  ru: 'Проверьте характиристику «Стоечный сервисный экран»: интересует «Число разъёмов HDMI» (шт.).'
+  kk: «Тірек сервистік экраны» сипатамасынан «HDMI ұяларының саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_rack_display.hdmi_count
+    grade: 3
+  - section: technical_rack_display.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rack_display.hdmi_count; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_video_connectors
+  need_key: technical.rack_display.hdmi_count|current
+  required:
+  - fact: technical.rack_display.hdmi_count
+    sections:
+    - technical_rack_display.hdmi_count
+  tags:
+  - profile_derived
+  - domain_displays
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_rack_display_humidity_max_percent
+  category: unanswerable
+  en: For Rack service display, what is the specified maximum permitted humidity in percent?
+  ru: Для «Стоечный сервисный экран» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Тірек сервистік экраны» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_rack_display.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rack_display does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.rack_display.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rack_display_drop_test_cm
+  category: unanswerable
+  en: For Rack service display, what is the specified certified drop-test height in cm?
+  ru: Для «Стоечный сервисный экран» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Тірек сервистік экраны» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_rack_display.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rack_display does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.rack_display.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rack_display_repair_parts_price
+  category: unanswerable
+  en: For Rack service display, what is the specified replacement-part price in KZT?
+  ru: Для «Стоечный сервисный экран» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Тірек сервистік экраны» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_rack_display.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rack_display does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.rack_display.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_rack_display_certification_id
+  category: unanswerable
+  en: For Rack service display, what is the specified certification record number in record?
+  ru: Для «Стоечный сервисный экран» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Тірек сервистік экраны» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_rack_display.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rack_display does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.rack_display.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_displays
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact

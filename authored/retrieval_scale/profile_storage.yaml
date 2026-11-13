@@ -1,0 +1,4634 @@
+# Compiled from explicit technical_profiles/1 facts and native LLM-authored templates.
+schema_version: retrieval_scale_source/1
+origin: llm_generated
+review_status: draft
+author: Codex (LLM); explicit profiles and native templates compiled deterministically
+allowed_use: eval_only
+licence_note: Original fictional store specifications for internal demo and evaluation; no external manufacturer
+  data or real customer data. Fluent human review pending.
+items:
+- id: catalog_lunch_container_mass_g
+  category: simple
+  en: For Divided lunch container, what is the specified mass in g?
+  ru: Для «Разделённый контейнер для обеда» какое значение указано для показателя «Масса» (г)?
+  kk: «Бөлімді түскі ас контейнері» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_lunch_container.mass_g
+    grade: 3
+  - section: technical_lunch_container.width_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.lunch_container.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.lunch_container.mass_g|current
+  required:
+  - fact: technical.lunch_container.mass_g
+    sections:
+    - technical_lunch_container.mass_g
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_lunch_container_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Divided lunch container, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Разделённый контейнер для обеда», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Бөлімді түскі ас контейнері» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_lunch_container.width_mm
+    grade: 3
+  - section: technical_lunch_container.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.lunch_container.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.lunch_container.width_mm|current
+  required:
+  - fact: technical.lunch_container.width_mm
+    sections:
+    - technical_lunch_container.width_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_lunch_container_height_mm
+  category: simple
+  en: 'Divided lunch container: height, mm?'
+  ru: '«Разделённый контейнер для обеда»: высота, мм?'
+  kk: '«Бөлімді түскі ас контейнері»: биіктігі, мм?'
+  relevant:
+  - section: technical_lunch_container.height_mm
+    grade: 3
+  - section: technical_lunch_container.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.lunch_container.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.lunch_container.height_mm|current
+  required:
+  - fact: technical.lunch_container.height_mm
+    sections:
+    - technical_lunch_container.height_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_lunch_container_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Divided lunch container (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Разделённый контейнер для обеда» (мм).
+  kk: Карточкалар ұқсас. «Бөлімді түскі ас контейнері» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_lunch_container.depth_mm
+    grade: 3
+  - section: technical_lunch_container.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.lunch_container.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.lunch_container.depth_mm|current
+  required:
+  - fact: technical.lunch_container.depth_mm
+    sections:
+    - technical_lunch_container.depth_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_lunch_container_operating_min_c
+  category: hard
+  en: Check the specifcation of Divided lunch container for minimum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Разделённый контейнер для обеда»: интересует «Минимальная температура
+    воздуха при работе» (C).'
+  kk: «Бөлімді түскі ас контейнері» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін
+    тексеріңізші (C).
+  relevant:
+  - section: technical_lunch_container.operating_min_c
+    grade: 3
+  - section: technical_lunch_container.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.lunch_container.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.lunch_container.operating_min_c|current
+  required:
+  - fact: technical.lunch_container.operating_min_c
+    sections:
+    - technical_lunch_container.operating_min_c
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_lunch_container_operating_max_c
+  category: hard
+  en: For Divided lunch container, what is the specified maximum operating ambient temperature in C?
+  ru: Для «Разделённый контейнер для обеда» какое значение указано для показателя «Максимальная температура
+    воздуха при работе» (C)?
+  kk: «Бөлімді түскі ас контейнері» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_lunch_container.operating_max_c
+    grade: 3
+  - section: technical_lunch_container.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Разделённый контейнер для обеда» показатель «Максимальная температура воздуха при работе»
+    (C) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.lunch_container.operating_max_c; neighbouring volume_ml does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.lunch_container.operating_max_c|current
+  required:
+  - fact: technical.lunch_container.operating_max_c
+    sections:
+    - technical_lunch_container.operating_max_c
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_lunch_container_volume_ml
+  category: simple
+  en: I am comparing specifications. Find the usable volume for Divided lunch container, in ml.
+  ru: Сравниваю характеристики. Нужен показатель «Полезный объём» у «Разделённый контейнер для обеда»,
+    в мл.
+  kk: Сипаттамаларды салыстырып отырмын. «Бөлімді түскі ас контейнері» үшін «Пайдалы көлемі» мәні қажет
+    (мл).
+  relevant:
+  - section: technical_lunch_container.volume_ml
+    grade: 3
+  - section: technical_lunch_container.compartments_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.lunch_container.volume_ml; neighbouring compartments_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.lunch_container.volume_ml|current
+  required:
+  - fact: technical.lunch_container.volume_ml
+    sections:
+    - technical_lunch_container.volume_ml
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_lunch_container_compartments_count
+  category: simple
+  en: 'Divided lunch container: number of compartments, units?'
+  ru: '«Разделённый контейнер для обеда»: число отделений, шт.?'
+  kk: '«Бөлімді түскі ас контейнері»: бөлімдер саны, дана?'
+  relevant:
+  - section: technical_lunch_container.compartments_count
+    grade: 3
+  - section: technical_lunch_container.wall_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.lunch_container.compartments_count; neighbouring wall_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_layout
+  need_key: technical.lunch_container.compartments_count|current
+  required:
+  - fact: technical.lunch_container.compartments_count
+    sections:
+    - technical_lunch_container.compartments_count
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_lunch_container_wall_mm
+  category: hard
+  en: The cards look similar. What container wall thickness is listed for Divided lunch container (mm)?
+  ru: Карточки похожи. Уточните показатель «Толщина стенки контейнера» именно для «Разделённый контейнер
+    для обеда» (мм).
+  kk: Карточкалар ұқсас. «Бөлімді түскі ас контейнері» үшін нақты «Контейнер қабырғасының қалыңдығы» көрсеткішін
+    айтыңыз (мм).
+  relevant:
+  - section: technical_lunch_container.wall_mm
+    grade: 3
+  - section: technical_lunch_container.stack_limit_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.lunch_container.wall_mm; neighbouring stack_limit_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_geometry
+  need_key: technical.lunch_container.wall_mm|current
+  required:
+  - fact: technical.lunch_container.wall_mm
+    sections:
+    - technical_lunch_container.wall_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_lunch_container_stack_limit_count
+  category: hard
+  en: Check the specifcation of Divided lunch container for maximum stacking count (units), please.
+  ru: 'Проверьте характиристику «Разделённый контейнер для обеда»: интересует «Максимальное число при
+    штабелировании» (шт.).'
+  kk: «Бөлімді түскі ас контейнері» сипатамасынан «Қабаттап жинаудың ең жоғары саны» мәнін тексеріңізші
+    (дана).
+  relevant:
+  - section: technical_lunch_container.stack_limit_count
+    grade: 3
+  - section: technical_lunch_container.pack_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.lunch_container.stack_limit_count; neighbouring pack_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_stacking_limit
+  need_key: technical.lunch_container.stack_limit_count|current
+  required:
+  - fact: technical.lunch_container.stack_limit_count
+    sections:
+    - technical_lunch_container.stack_limit_count
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_lunch_container_pack_count
+  category: simple
+  en: For Divided lunch container, what is the specified items per sales pack in units?
+  ru: Для «Разделённый контейнер для обеда» какое значение указано для показателя «Число предметов в товарной
+    упаковке» (шт.)?
+  kk: «Бөлімді түскі ас контейнері» тауары үшін «Сауда қаптамасындағы заттар саны» көрсеткішінің мәні
+    қандай (дана)?
+  relevant:
+  - section: technical_lunch_container.pack_count
+    grade: 3
+  - section: technical_lunch_container.max_load_kg
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.lunch_container.pack_count; neighbouring max_load_kg does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_sales_pack_contents
+  need_key: technical.lunch_container.pack_count|current
+  required:
+  - fact: technical.lunch_container.pack_count
+    sections:
+    - technical_lunch_container.pack_count
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_lunch_container_max_load_kg
+  category: hard
+  en: I am comparing specifications. Find the maximum rated load for Divided lunch container, in kg.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная допустимая нагрузка» у «Разделённый контейнер
+    для обеда», в кг.
+  kk: Сипаттамаларды салыстырып отырмын. «Бөлімді түскі ас контейнері» үшін «Ең жоғары рұқсат етілген
+    жүктеме» мәні қажет (кг).
+  relevant:
+  - section: technical_lunch_container.max_load_kg
+    grade: 3
+  - section: technical_lunch_container.mass_g
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.lunch_container.max_load_kg; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_load_limit
+  need_key: technical.lunch_container.max_load_kg|current
+  required:
+  - fact: technical.lunch_container.max_load_kg
+    sections:
+    - technical_lunch_container.max_load_kg
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_lunch_container_humidity_max_percent
+  category: unanswerable
+  en: For Divided lunch container, what is the specified maximum permitted humidity in percent?
+  ru: Для «Разделённый контейнер для обеда» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Бөлімді түскі ас контейнері» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_lunch_container.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for lunch_container does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.lunch_container.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_lunch_container_drop_test_cm
+  category: unanswerable
+  en: For Divided lunch container, what is the specified certified drop-test height in cm?
+  ru: Для «Разделённый контейнер для обеда» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Бөлімді түскі ас контейнері» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_lunch_container.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for lunch_container does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.lunch_container.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_lunch_container_repair_parts_price
+  category: unanswerable
+  en: For Divided lunch container, what is the specified replacement-part price in KZT?
+  ru: Для «Разделённый контейнер для обеда» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Бөлімді түскі ас контейнері» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_lunch_container.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for lunch_container does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.lunch_container.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_lunch_container_certification_id
+  category: unanswerable
+  en: For Divided lunch container, what is the specified certification record number in record?
+  ru: Для «Разделённый контейнер для обеда» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Бөлімді түскі ас контейнері» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_lunch_container.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for lunch_container does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.lunch_container.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_lunch_container
+  category: multi_fragment
+  en: What does Divided lunch container weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Разделённый контейнер для обеда» и какой вес посылки допускают пункты самовывоза?
+  kk: «Бөлімді түскі ас контейнері» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_lunch_container.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.lunch_container.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.lunch_container.mass_g
+    sections:
+    - technical_lunch_container.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_prepublication_mass_lunch_container
+  category: unanswerable
+  en: According to the instructions valid on 15 October 2026, what was the stated mass of Divided lunch
+    container?
+  ru: По инструкциям, действовавшим 15 октября 2026 года, какая масса была указана для «Разделённый контейнер
+    для обеда»?
+  kk: 2026 жылғы 15 қазанда қолданылған нұсқаулықтар бойынша «Бөлімді түскі ас контейнері» үшін қандай
+    салмақ көрсетілген еді?
+  relevant:
+  - section: technical_lunch_container.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The technical source starts on 1 November 2026. Its current mass cannot establish a fact
+    at the requested earlier date.
+  family_id: profile_physical_mass
+  need_key: technical.lunch_container.mass_g|2026_10_15_before_document_validity
+  required: []
+  tags:
+  - profile_derived
+  - temporal
+  - outside_validity
+  - hard_negative
+  as_of: '2026-10-15'
+  all_versions: false
+  negative_reason: expired
+- id: catalog_pantry_box_mass_g
+  category: simple
+  en: 'Tall pantry storage box: mass, g?'
+  ru: '«Высокий контейнер кладовой»: масса, г?'
+  kk: '«Қойманың биік сақтау контейнері»: салмағы, г?'
+  relevant:
+  - section: technical_pantry_box.mass_g
+    grade: 3
+  - section: technical_pantry_box.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Қойманың биік сақтау контейнері» үшін «Салмағы» (г) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.pantry_box.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.pantry_box.mass_g|current
+  required:
+  - fact: technical.pantry_box.mass_g
+    sections:
+    - technical_pantry_box.mass_g
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pantry_box_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Tall pantry storage box (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Высокий контейнер кладовой» (мм).
+  kk: Карточкалар ұқсас. «Қойманың биік сақтау контейнері» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_pantry_box.width_mm
+    grade: 3
+  - section: technical_pantry_box.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pantry_box.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.pantry_box.width_mm|current
+  required:
+  - fact: technical.pantry_box.width_mm
+    sections:
+    - technical_pantry_box.width_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pantry_box_height_mm
+  category: hard
+  en: Check the specifcation of Tall pantry storage box for height (mm), please.
+  ru: 'Проверьте характиристику «Высокий контейнер кладовой»: интересует «Высота» (мм).'
+  kk: «Қойманың биік сақтау контейнері» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_pantry_box.height_mm
+    grade: 3
+  - section: technical_pantry_box.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pantry_box.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.pantry_box.height_mm|current
+  required:
+  - fact: technical.pantry_box.height_mm
+    sections:
+    - technical_pantry_box.height_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pantry_box_depth_mm
+  category: simple
+  en: For Tall pantry storage box, what is the specified depth in mm?
+  ru: Для «Высокий контейнер кладовой» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Қойманың биік сақтау контейнері» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_pantry_box.depth_mm
+    grade: 3
+  - section: technical_pantry_box.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pantry_box.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.pantry_box.depth_mm|current
+  required:
+  - fact: technical.pantry_box.depth_mm
+    sections:
+    - technical_pantry_box.depth_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pantry_box_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Tall pantry storage
+    box, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Высокий
+    контейнер кладовой», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Қойманың биік сақтау контейнері» үшін «Жұмыс кезіндегі ауаның
+    ең төмен температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_pantry_box.operating_min_c
+    grade: 3
+  - section: technical_pantry_box.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pantry_box.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.pantry_box.operating_min_c|current
+  required:
+  - fact: technical.pantry_box.operating_min_c
+    sections:
+    - technical_pantry_box.operating_min_c
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pantry_box_operating_max_c
+  category: hard
+  en: 'Tall pantry storage box: maximum operating ambient temperature, C?'
+  ru: '«Высокий контейнер кладовой»: максимальная температура воздуха при работе, C?'
+  kk: '«Қойманың биік сақтау контейнері»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_pantry_box.operating_max_c
+    grade: 3
+  - section: technical_pantry_box.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pantry_box.operating_max_c; neighbouring volume_ml does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.pantry_box.operating_max_c|current
+  required:
+  - fact: technical.pantry_box.operating_max_c
+    sections:
+    - technical_pantry_box.operating_max_c
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pantry_box_volume_ml
+  category: hard
+  en: The cards look similar. What usable volume is listed for Tall pantry storage box (ml)?
+  ru: Карточки похожи. Уточните показатель «Полезный объём» именно для «Высокий контейнер кладовой» (мл).
+  kk: Карточкалар ұқсас. «Қойманың биік сақтау контейнері» үшін нақты «Пайдалы көлемі» көрсеткішін айтыңыз
+    (мл).
+  relevant:
+  - section: technical_pantry_box.volume_ml
+    grade: 3
+  - section: technical_pantry_box.compartments_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pantry_box.volume_ml; neighbouring compartments_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.pantry_box.volume_ml|current
+  required:
+  - fact: technical.pantry_box.volume_ml
+    sections:
+    - technical_pantry_box.volume_ml
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pantry_box_compartments_count
+  category: hard
+  en: Check the specifcation of Tall pantry storage box for number of compartments (units), please.
+  ru: 'Проверьте характиристику «Высокий контейнер кладовой»: интересует «Число отделений» (шт.).'
+  kk: «Қойманың биік сақтау контейнері» сипатамасынан «Бөлімдер саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_pantry_box.compartments_count
+    grade: 3
+  - section: technical_pantry_box.wall_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Высокий контейнер кладовой» показатель «Число отделений» (шт.) нақтылап беріңізші, осы үлгі
+    үшін.
+  mix_kk: null
+  rationale: Authored target technical.pantry_box.compartments_count; neighbouring wall_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_layout
+  need_key: technical.pantry_box.compartments_count|current
+  required:
+  - fact: technical.pantry_box.compartments_count
+    sections:
+    - technical_pantry_box.compartments_count
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pantry_box_wall_mm
+  category: simple
+  en: For Tall pantry storage box, what is the specified container wall thickness in mm?
+  ru: Для «Высокий контейнер кладовой» какое значение указано для показателя «Толщина стенки контейнера»
+    (мм)?
+  kk: «Қойманың биік сақтау контейнері» тауары үшін «Контейнер қабырғасының қалыңдығы» көрсеткішінің мәні
+    қандай (мм)?
+  relevant:
+  - section: technical_pantry_box.wall_mm
+    grade: 3
+  - section: technical_pantry_box.stack_limit_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pantry_box.wall_mm; neighbouring stack_limit_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_geometry
+  need_key: technical.pantry_box.wall_mm|current
+  required:
+  - fact: technical.pantry_box.wall_mm
+    sections:
+    - technical_pantry_box.wall_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pantry_box_stack_limit_count
+  category: simple
+  en: I am comparing specifications. Find the maximum stacking count for Tall pantry storage box, in units.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальное число при штабелировании» у «Высокий контейнер
+    кладовой», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Қойманың биік сақтау контейнері» үшін «Қабаттап жинаудың ең
+    жоғары саны» мәні қажет (дана).
+  relevant:
+  - section: technical_pantry_box.stack_limit_count
+    grade: 3
+  - section: technical_pantry_box.pack_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pantry_box.stack_limit_count; neighbouring pack_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_stacking_limit
+  need_key: technical.pantry_box.stack_limit_count|current
+  required:
+  - fact: technical.pantry_box.stack_limit_count
+    sections:
+    - technical_pantry_box.stack_limit_count
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pantry_box_pack_count
+  category: simple
+  en: 'Tall pantry storage box: items per sales pack, units?'
+  ru: '«Высокий контейнер кладовой»: число предметов в товарной упаковке, шт.?'
+  kk: '«Қойманың биік сақтау контейнері»: сауда қаптамасындағы заттар саны, дана?'
+  relevant:
+  - section: technical_pantry_box.pack_count
+    grade: 3
+  - section: technical_pantry_box.max_load_kg
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pantry_box.pack_count; neighbouring max_load_kg does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_sales_pack_contents
+  need_key: technical.pantry_box.pack_count|current
+  required:
+  - fact: technical.pantry_box.pack_count
+    sections:
+    - technical_pantry_box.pack_count
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_pantry_box_max_load_kg
+  category: hard
+  en: The cards look similar. What maximum rated load is listed for Tall pantry storage box (kg)?
+  ru: Карточки похожи. Уточните показатель «Максимальная допустимая нагрузка» именно для «Высокий контейнер
+    кладовой» (кг).
+  kk: Карточкалар ұқсас. «Қойманың биік сақтау контейнері» үшін нақты «Ең жоғары рұқсат етілген жүктеме»
+    көрсеткішін айтыңыз (кг).
+  relevant:
+  - section: technical_pantry_box.max_load_kg
+    grade: 3
+  - section: technical_pantry_box.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.pantry_box.max_load_kg; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_load_limit
+  need_key: technical.pantry_box.max_load_kg|current
+  required:
+  - fact: technical.pantry_box.max_load_kg
+    sections:
+    - technical_pantry_box.max_load_kg
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_pantry_box_humidity_max_percent
+  category: unanswerable
+  en: For Tall pantry storage box, what is the specified maximum permitted humidity in percent?
+  ru: Для «Высокий контейнер кладовой» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Қойманың биік сақтау контейнері» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_pantry_box.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for pantry_box does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.pantry_box.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_pantry_box_drop_test_cm
+  category: unanswerable
+  en: For Tall pantry storage box, what is the specified certified drop-test height in cm?
+  ru: Для «Высокий контейнер кладовой» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Қойманың биік сақтау контейнері» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_pantry_box.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for pantry_box does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.pantry_box.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_pantry_box_repair_parts_price
+  category: unanswerable
+  en: For Tall pantry storage box, what is the specified replacement-part price in KZT?
+  ru: Для «Высокий контейнер кладовой» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Қойманың биік сақтау контейнері» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_pantry_box.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for pantry_box does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.pantry_box.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_pantry_box_certification_id
+  category: unanswerable
+  en: For Tall pantry storage box, what is the specified certification record number in record?
+  ru: Для «Высокий контейнер кладовой» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Қойманың биік сақтау контейнері» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_pantry_box.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for pantry_box does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.pantry_box.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_drawer_organizer_mass_g
+  category: hard
+  en: Check the specifcation of Modular drawer organizer for mass (g), please.
+  ru: 'Проверьте характиристику «Модульный органайзер ящика»: интересует «Масса» (г).'
+  kk: «Тартпаның модульдік ұйымдастырғышы» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_drawer_organizer.mass_g
+    grade: 3
+  - section: technical_drawer_organizer.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drawer_organizer.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.drawer_organizer.mass_g|current
+  required:
+  - fact: technical.drawer_organizer.mass_g
+    sections:
+    - technical_drawer_organizer.mass_g
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawer_organizer_width_mm
+  category: simple
+  en: For Modular drawer organizer, what is the specified width in mm?
+  ru: Для «Модульный органайзер ящика» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Тартпаның модульдік ұйымдастырғышы» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_drawer_organizer.width_mm
+    grade: 3
+  - section: technical_drawer_organizer.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drawer_organizer.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.drawer_organizer.width_mm|current
+  required:
+  - fact: technical.drawer_organizer.width_mm
+    sections:
+    - technical_drawer_organizer.width_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawer_organizer_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Modular drawer organizer, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Модульный органайзер ящика», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Тартпаның модульдік ұйымдастырғышы» үшін «Биіктігі» мәні қажет
+    (мм).
+  relevant:
+  - section: technical_drawer_organizer.height_mm
+    grade: 3
+  - section: technical_drawer_organizer.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Тартпаның модульдік ұйымдастырғышы» үшін «Биіктігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.drawer_organizer.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.drawer_organizer.height_mm|current
+  required:
+  - fact: technical.drawer_organizer.height_mm
+    sections:
+    - technical_drawer_organizer.height_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawer_organizer_depth_mm
+  category: simple
+  en: 'Modular drawer organizer: depth, mm?'
+  ru: '«Модульный органайзер ящика»: глубина, мм?'
+  kk: '«Тартпаның модульдік ұйымдастырғышы»: тереңдігі, мм?'
+  relevant:
+  - section: technical_drawer_organizer.depth_mm
+    grade: 3
+  - section: technical_drawer_organizer.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drawer_organizer.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.drawer_organizer.depth_mm|current
+  required:
+  - fact: technical.drawer_organizer.depth_mm
+    sections:
+    - technical_drawer_organizer.depth_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawer_organizer_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Modular drawer
+    organizer (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Модульный
+    органайзер ящика» (C).
+  kk: Карточкалар ұқсас. «Тартпаның модульдік ұйымдастырғышы» үшін нақты «Жұмыс кезіндегі ауаның ең төмен
+    температурасы» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_drawer_organizer.operating_min_c
+    grade: 3
+  - section: technical_drawer_organizer.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drawer_organizer.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.drawer_organizer.operating_min_c|current
+  required:
+  - fact: technical.drawer_organizer.operating_min_c
+    sections:
+    - technical_drawer_organizer.operating_min_c
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawer_organizer_operating_max_c
+  category: hard
+  en: Check the specifcation of Modular drawer organizer for maximum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Модульный органайзер ящика»: интересует «Максимальная температура воздуха
+    при работе» (C).'
+  kk: «Тартпаның модульдік ұйымдастырғышы» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    мәнін тексеріңізші (C).
+  relevant:
+  - section: technical_drawer_organizer.operating_max_c
+    grade: 3
+  - section: technical_drawer_organizer.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drawer_organizer.operating_max_c; neighbouring volume_ml does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.drawer_organizer.operating_max_c|current
+  required:
+  - fact: technical.drawer_organizer.operating_max_c
+    sections:
+    - technical_drawer_organizer.operating_max_c
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawer_organizer_volume_ml
+  category: simple
+  en: For Modular drawer organizer, what is the specified usable volume in ml?
+  ru: Для «Модульный органайзер ящика» какое значение указано для показателя «Полезный объём» (мл)?
+  kk: «Тартпаның модульдік ұйымдастырғышы» тауары үшін «Пайдалы көлемі» көрсеткішінің мәні қандай (мл)?
+  relevant:
+  - section: technical_drawer_organizer.volume_ml
+    grade: 3
+  - section: technical_drawer_organizer.compartments_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drawer_organizer.volume_ml; neighbouring compartments_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.drawer_organizer.volume_ml|current
+  required:
+  - fact: technical.drawer_organizer.volume_ml
+    sections:
+    - technical_drawer_organizer.volume_ml
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawer_organizer_compartments_count
+  category: simple
+  en: I am comparing specifications. Find the number of compartments for Modular drawer organizer, in
+    units.
+  ru: Сравниваю характеристики. Нужен показатель «Число отделений» у «Модульный органайзер ящика», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Тартпаның модульдік ұйымдастырғышы» үшін «Бөлімдер саны» мәні
+    қажет (дана).
+  relevant:
+  - section: technical_drawer_organizer.compartments_count
+    grade: 3
+  - section: technical_drawer_organizer.wall_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drawer_organizer.compartments_count; neighbouring wall_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_layout
+  need_key: technical.drawer_organizer.compartments_count|current
+  required:
+  - fact: technical.drawer_organizer.compartments_count
+    sections:
+    - technical_drawer_organizer.compartments_count
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawer_organizer_wall_mm
+  category: simple
+  en: 'Modular drawer organizer: container wall thickness, mm?'
+  ru: '«Модульный органайзер ящика»: толщина стенки контейнера, мм?'
+  kk: '«Тартпаның модульдік ұйымдастырғышы»: контейнер қабырғасының қалыңдығы, мм?'
+  relevant:
+  - section: technical_drawer_organizer.wall_mm
+    grade: 3
+  - section: technical_drawer_organizer.stack_limit_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drawer_organizer.wall_mm; neighbouring stack_limit_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_geometry
+  need_key: technical.drawer_organizer.wall_mm|current
+  required:
+  - fact: technical.drawer_organizer.wall_mm
+    sections:
+    - technical_drawer_organizer.wall_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawer_organizer_stack_limit_count
+  category: hard
+  en: The cards look similar. What maximum stacking count is listed for Modular drawer organizer (units)?
+  ru: Карточки похожи. Уточните показатель «Максимальное число при штабелировании» именно для «Модульный
+    органайзер ящика» (шт.).
+  kk: Карточкалар ұқсас. «Тартпаның модульдік ұйымдастырғышы» үшін нақты «Қабаттап жинаудың ең жоғары
+    саны» көрсеткішін айтыңыз (дана).
+  relevant:
+  - section: technical_drawer_organizer.stack_limit_count
+    grade: 3
+  - section: technical_drawer_organizer.pack_count
+    grade: 0
+  cross_lingual: true
+  mix_ru: У «Модульный органайзер ящика» показатель «Максимальное число при штабелировании» (шт.) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.drawer_organizer.stack_limit_count; neighbouring pack_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_stacking_limit
+  need_key: technical.drawer_organizer.stack_limit_count|current
+  required:
+  - fact: technical.drawer_organizer.stack_limit_count
+    sections:
+    - technical_drawer_organizer.stack_limit_count
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawer_organizer_pack_count
+  category: hard
+  en: Check the specifcation of Modular drawer organizer for items per sales pack (units), please.
+  ru: 'Проверьте характиристику «Модульный органайзер ящика»: интересует «Число предметов в товарной упаковке»
+    (шт.).'
+  kk: «Тартпаның модульдік ұйымдастырғышы» сипатамасынан «Сауда қаптамасындағы заттар саны» мәнін тексеріңізші
+    (дана).
+  relevant:
+  - section: technical_drawer_organizer.pack_count
+    grade: 3
+  - section: technical_drawer_organizer.max_load_kg
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drawer_organizer.pack_count; neighbouring max_load_kg does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_sales_pack_contents
+  need_key: technical.drawer_organizer.pack_count|current
+  required:
+  - fact: technical.drawer_organizer.pack_count
+    sections:
+    - technical_drawer_organizer.pack_count
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drawer_organizer_max_load_kg
+  category: hard
+  en: For Modular drawer organizer, what is the specified maximum rated load in kg?
+  ru: Для «Модульный органайзер ящика» какое значение указано для показателя «Максимальная допустимая
+    нагрузка» (кг)?
+  kk: «Тартпаның модульдік ұйымдастырғышы» тауары үшін «Ең жоғары рұқсат етілген жүктеме» көрсеткішінің
+    мәні қандай (кг)?
+  relevant:
+  - section: technical_drawer_organizer.max_load_kg
+    grade: 3
+  - section: technical_drawer_organizer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drawer_organizer.max_load_kg; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_load_limit
+  need_key: technical.drawer_organizer.max_load_kg|current
+  required:
+  - fact: technical.drawer_organizer.max_load_kg
+    sections:
+    - technical_drawer_organizer.max_load_kg
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_drawer_organizer_humidity_max_percent
+  category: unanswerable
+  en: For Modular drawer organizer, what is the specified maximum permitted humidity in percent?
+  ru: Для «Модульный органайзер ящика» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Тартпаның модульдік ұйымдастырғышы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_drawer_organizer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for drawer_organizer does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.drawer_organizer.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_drawer_organizer_drop_test_cm
+  category: unanswerable
+  en: For Modular drawer organizer, what is the specified certified drop-test height in cm?
+  ru: Для «Модульный органайзер ящика» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Тартпаның модульдік ұйымдастырғышы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_drawer_organizer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for drawer_organizer does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.drawer_organizer.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_drawer_organizer_repair_parts_price
+  category: unanswerable
+  en: For Modular drawer organizer, what is the specified replacement-part price in KZT?
+  ru: Для «Модульный органайзер ящика» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Тартпаның модульдік ұйымдастырғышы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_drawer_organizer.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for drawer_organizer does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.drawer_organizer.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_drawer_organizer_certification_id
+  category: unanswerable
+  en: For Modular drawer organizer, what is the specified certification record number in record?
+  ru: Для «Модульный органайзер ящика» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Тартпаның модульдік ұйымдастырғышы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_drawer_organizer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for drawer_organizer does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.drawer_organizer.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_drawer_organizer
+  category: multi_fragment
+  en: What does Modular drawer organizer weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Модульный органайзер ящика» и какой вес посылки допускают пункты самовывоза?
+  kk: «Тартпаның модульдік ұйымдастырғышы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_drawer_organizer.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.drawer_organizer.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.drawer_organizer.mass_g
+    sections:
+    - technical_drawer_organizer.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tool_parts_case_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Small-parts tool case, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Кейс мелких инструментальных деталей», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Ұсақ құрал бөлшектерінің қорабы» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_tool_parts_case.mass_g
+    grade: 3
+  - section: technical_tool_parts_case.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.tool_parts_case.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.tool_parts_case.mass_g|current
+  required:
+  - fact: technical.tool_parts_case.mass_g
+    sections:
+    - technical_tool_parts_case.mass_g
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tool_parts_case_width_mm
+  category: simple
+  en: 'Small-parts tool case: width, mm?'
+  ru: '«Кейс мелких инструментальных деталей»: ширина, мм?'
+  kk: '«Ұсақ құрал бөлшектерінің қорабы»: ені, мм?'
+  relevant:
+  - section: technical_tool_parts_case.width_mm
+    grade: 3
+  - section: technical_tool_parts_case.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.tool_parts_case.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.tool_parts_case.width_mm|current
+  required:
+  - fact: technical.tool_parts_case.width_mm
+    sections:
+    - technical_tool_parts_case.width_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tool_parts_case_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Small-parts tool case (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Кейс мелких инструментальных деталей»
+    (мм).
+  kk: Карточкалар ұқсас. «Ұсақ құрал бөлшектерінің қорабы» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_tool_parts_case.height_mm
+    grade: 3
+  - section: technical_tool_parts_case.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.tool_parts_case.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.tool_parts_case.height_mm|current
+  required:
+  - fact: technical.tool_parts_case.height_mm
+    sections:
+    - technical_tool_parts_case.height_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tool_parts_case_depth_mm
+  category: hard
+  en: Check the specifcation of Small-parts tool case for depth (mm), please.
+  ru: 'Проверьте характиристику «Кейс мелких инструментальных деталей»: интересует «Глубина» (мм).'
+  kk: «Ұсақ құрал бөлшектерінің қорабы» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_tool_parts_case.depth_mm
+    grade: 3
+  - section: technical_tool_parts_case.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.tool_parts_case.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.tool_parts_case.depth_mm|current
+  required:
+  - fact: technical.tool_parts_case.depth_mm
+    sections:
+    - technical_tool_parts_case.depth_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tool_parts_case_operating_min_c
+  category: hard
+  en: For Small-parts tool case, what is the specified minimum operating ambient temperature in C?
+  ru: Для «Кейс мелких инструментальных деталей» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Ұсақ құрал бөлшектерінің қорабы» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_tool_parts_case.operating_min_c
+    grade: 3
+  - section: technical_tool_parts_case.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Ұсақ құрал бөлшектерінің қорабы» үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» (C) керек,
+    уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.tool_parts_case.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.tool_parts_case.operating_min_c|current
+  required:
+  - fact: technical.tool_parts_case.operating_min_c
+    sections:
+    - technical_tool_parts_case.operating_min_c
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tool_parts_case_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Small-parts tool
+    case, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Кейс
+    мелких инструментальных деталей», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Ұсақ құрал бөлшектерінің қорабы» үшін «Жұмыс кезіндегі ауаның
+    ең жоғары температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_tool_parts_case.operating_max_c
+    grade: 3
+  - section: technical_tool_parts_case.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.tool_parts_case.operating_max_c; neighbouring volume_ml does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.tool_parts_case.operating_max_c|current
+  required:
+  - fact: technical.tool_parts_case.operating_max_c
+    sections:
+    - technical_tool_parts_case.operating_max_c
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tool_parts_case_volume_ml
+  category: simple
+  en: 'Small-parts tool case: usable volume, ml?'
+  ru: '«Кейс мелких инструментальных деталей»: полезный объём, мл?'
+  kk: '«Ұсақ құрал бөлшектерінің қорабы»: пайдалы көлемі, мл?'
+  relevant:
+  - section: technical_tool_parts_case.volume_ml
+    grade: 3
+  - section: technical_tool_parts_case.compartments_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.tool_parts_case.volume_ml; neighbouring compartments_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.tool_parts_case.volume_ml|current
+  required:
+  - fact: technical.tool_parts_case.volume_ml
+    sections:
+    - technical_tool_parts_case.volume_ml
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tool_parts_case_compartments_count
+  category: hard
+  en: The cards look similar. What number of compartments is listed for Small-parts tool case (units)?
+  ru: Карточки похожи. Уточните показатель «Число отделений» именно для «Кейс мелких инструментальных
+    деталей» (шт.).
+  kk: Карточкалар ұқсас. «Ұсақ құрал бөлшектерінің қорабы» үшін нақты «Бөлімдер саны» көрсеткішін айтыңыз
+    (дана).
+  relevant:
+  - section: technical_tool_parts_case.compartments_count
+    grade: 3
+  - section: technical_tool_parts_case.wall_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.tool_parts_case.compartments_count; neighbouring wall_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_layout
+  need_key: technical.tool_parts_case.compartments_count|current
+  required:
+  - fact: technical.tool_parts_case.compartments_count
+    sections:
+    - technical_tool_parts_case.compartments_count
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tool_parts_case_wall_mm
+  category: hard
+  en: Check the specifcation of Small-parts tool case for container wall thickness (mm), please.
+  ru: 'Проверьте характиристику «Кейс мелких инструментальных деталей»: интересует «Толщина стенки контейнера»
+    (мм).'
+  kk: «Ұсақ құрал бөлшектерінің қорабы» сипатамасынан «Контейнер қабырғасының қалыңдығы» мәнін тексеріңізші
+    (мм).
+  relevant:
+  - section: technical_tool_parts_case.wall_mm
+    grade: 3
+  - section: technical_tool_parts_case.stack_limit_count
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.tool_parts_case.wall_mm; neighbouring stack_limit_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_geometry
+  need_key: technical.tool_parts_case.wall_mm|current
+  required:
+  - fact: technical.tool_parts_case.wall_mm
+    sections:
+    - technical_tool_parts_case.wall_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tool_parts_case_stack_limit_count
+  category: simple
+  en: For Small-parts tool case, what is the specified maximum stacking count in units?
+  ru: Для «Кейс мелких инструментальных деталей» какое значение указано для показателя «Максимальное число
+    при штабелировании» (шт.)?
+  kk: «Ұсақ құрал бөлшектерінің қорабы» тауары үшін «Қабаттап жинаудың ең жоғары саны» көрсеткішінің мәні
+    қандай (дана)?
+  relevant:
+  - section: technical_tool_parts_case.stack_limit_count
+    grade: 3
+  - section: technical_tool_parts_case.pack_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.tool_parts_case.stack_limit_count; neighbouring pack_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_stacking_limit
+  need_key: technical.tool_parts_case.stack_limit_count|current
+  required:
+  - fact: technical.tool_parts_case.stack_limit_count
+    sections:
+    - technical_tool_parts_case.stack_limit_count
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tool_parts_case_pack_count
+  category: simple
+  en: I am comparing specifications. Find the items per sales pack for Small-parts tool case, in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число предметов в товарной упаковке» у «Кейс мелких
+    инструментальных деталей», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Ұсақ құрал бөлшектерінің қорабы» үшін «Сауда қаптамасындағы
+    заттар саны» мәні қажет (дана).
+  relevant:
+  - section: technical_tool_parts_case.pack_count
+    grade: 3
+  - section: technical_tool_parts_case.max_load_kg
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.tool_parts_case.pack_count; neighbouring max_load_kg does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_sales_pack_contents
+  need_key: technical.tool_parts_case.pack_count|current
+  required:
+  - fact: technical.tool_parts_case.pack_count
+    sections:
+    - technical_tool_parts_case.pack_count
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_tool_parts_case_max_load_kg
+  category: hard
+  en: 'Small-parts tool case: maximum rated load, kg?'
+  ru: '«Кейс мелких инструментальных деталей»: максимальная допустимая нагрузка, кг?'
+  kk: '«Ұсақ құрал бөлшектерінің қорабы»: ең жоғары рұқсат етілген жүктеме, кг?'
+  relevant:
+  - section: technical_tool_parts_case.max_load_kg
+    grade: 3
+  - section: technical_tool_parts_case.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Кейс мелких инструментальных деталей» показатель «Максимальная допустимая нагрузка» (кг)
+    нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.tool_parts_case.max_load_kg; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_load_limit
+  need_key: technical.tool_parts_case.max_load_kg|current
+  required:
+  - fact: technical.tool_parts_case.max_load_kg
+    sections:
+    - technical_tool_parts_case.max_load_kg
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_tool_parts_case_humidity_max_percent
+  category: unanswerable
+  en: For Small-parts tool case, what is the specified maximum permitted humidity in percent?
+  ru: Для «Кейс мелких инструментальных деталей» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Ұсақ құрал бөлшектерінің қорабы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_tool_parts_case.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for tool_parts_case does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.tool_parts_case.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_tool_parts_case_drop_test_cm
+  category: unanswerable
+  en: For Small-parts tool case, what is the specified certified drop-test height in cm?
+  ru: Для «Кейс мелких инструментальных деталей» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Ұсақ құрал бөлшектерінің қорабы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_tool_parts_case.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for tool_parts_case does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.tool_parts_case.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_tool_parts_case_repair_parts_price
+  category: unanswerable
+  en: For Small-parts tool case, what is the specified replacement-part price in KZT?
+  ru: Для «Кейс мелких инструментальных деталей» какое значение указано для показателя «Цена запасной
+    детали» (тенге)?
+  kk: «Ұсақ құрал бөлшектерінің қорабы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_tool_parts_case.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for tool_parts_case does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.tool_parts_case.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_tool_parts_case_certification_id
+  category: unanswerable
+  en: For Small-parts tool case, what is the specified certification record number in record?
+  ru: Для «Кейс мелких инструментальных деталей» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Ұсақ құрал бөлшектерінің қорабы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_tool_parts_case.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for tool_parts_case does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.tool_parts_case.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_underbed_box_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Wheeled under-bed box (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Подкроватный ящик на колёсах» (г).
+  kk: Карточкалар ұқсас. «Төсек астындағы доңғалақты жәшік» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_underbed_box.mass_g
+    grade: 3
+  - section: technical_underbed_box.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.underbed_box.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.underbed_box.mass_g|current
+  required:
+  - fact: technical.underbed_box.mass_g
+    sections:
+    - technical_underbed_box.mass_g
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_underbed_box_width_mm
+  category: hard
+  en: Check the specifcation of Wheeled under-bed box for width (mm), please.
+  ru: 'Проверьте характиристику «Подкроватный ящик на колёсах»: интересует «Ширина» (мм).'
+  kk: «Төсек астындағы доңғалақты жәшік» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_underbed_box.width_mm
+    grade: 3
+  - section: technical_underbed_box.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.underbed_box.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.underbed_box.width_mm|current
+  required:
+  - fact: technical.underbed_box.width_mm
+    sections:
+    - technical_underbed_box.width_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_underbed_box_height_mm
+  category: simple
+  en: For Wheeled under-bed box, what is the specified height in mm?
+  ru: Для «Подкроватный ящик на колёсах» какое значение указано для показателя «Высота» (мм)?
+  kk: «Төсек астындағы доңғалақты жәшік» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_underbed_box.height_mm
+    grade: 3
+  - section: technical_underbed_box.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.underbed_box.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.underbed_box.height_mm|current
+  required:
+  - fact: technical.underbed_box.height_mm
+    sections:
+    - technical_underbed_box.height_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_underbed_box_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Wheeled under-bed box, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Подкроватный ящик на колёсах», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Төсек астындағы доңғалақты жәшік» үшін «Тереңдігі» мәні қажет
+    (мм).
+  relevant:
+  - section: technical_underbed_box.depth_mm
+    grade: 3
+  - section: technical_underbed_box.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.underbed_box.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.underbed_box.depth_mm|current
+  required:
+  - fact: technical.underbed_box.depth_mm
+    sections:
+    - technical_underbed_box.depth_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_underbed_box_operating_min_c
+  category: hard
+  en: 'Wheeled under-bed box: minimum operating ambient temperature, C?'
+  ru: '«Подкроватный ящик на колёсах»: минимальная температура воздуха при работе, C?'
+  kk: '«Төсек астындағы доңғалақты жәшік»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_underbed_box.operating_min_c
+    grade: 3
+  - section: technical_underbed_box.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.underbed_box.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.underbed_box.operating_min_c|current
+  required:
+  - fact: technical.underbed_box.operating_min_c
+    sections:
+    - technical_underbed_box.operating_min_c
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_underbed_box_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Wheeled under-bed
+    box (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Подкроватный
+    ящик на колёсах» (C).
+  kk: Карточкалар ұқсас. «Төсек астындағы доңғалақты жәшік» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары
+    температурасы» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_underbed_box.operating_max_c
+    grade: 3
+  - section: technical_underbed_box.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.underbed_box.operating_max_c; neighbouring volume_ml does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.underbed_box.operating_max_c|current
+  required:
+  - fact: technical.underbed_box.operating_max_c
+    sections:
+    - technical_underbed_box.operating_max_c
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_underbed_box_volume_ml
+  category: hard
+  en: Check the specifcation of Wheeled under-bed box for usable volume (ml), please.
+  ru: 'Проверьте характиристику «Подкроватный ящик на колёсах»: интересует «Полезный объём» (мл).'
+  kk: «Төсек астындағы доңғалақты жәшік» сипатамасынан «Пайдалы көлемі» мәнін тексеріңізші (мл).
+  relevant:
+  - section: technical_underbed_box.volume_ml
+    grade: 3
+  - section: technical_underbed_box.compartments_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Төсек астындағы доңғалақты жәшік» үшін «Пайдалы көлемі» (мл) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.underbed_box.volume_ml; neighbouring compartments_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.underbed_box.volume_ml|current
+  required:
+  - fact: technical.underbed_box.volume_ml
+    sections:
+    - technical_underbed_box.volume_ml
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_underbed_box_compartments_count
+  category: simple
+  en: For Wheeled under-bed box, what is the specified number of compartments in units?
+  ru: Для «Подкроватный ящик на колёсах» какое значение указано для показателя «Число отделений» (шт.)?
+  kk: «Төсек астындағы доңғалақты жәшік» тауары үшін «Бөлімдер саны» көрсеткішінің мәні қандай (дана)?
+  relevant:
+  - section: technical_underbed_box.compartments_count
+    grade: 3
+  - section: technical_underbed_box.wall_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.underbed_box.compartments_count; neighbouring wall_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_layout
+  need_key: technical.underbed_box.compartments_count|current
+  required:
+  - fact: technical.underbed_box.compartments_count
+    sections:
+    - technical_underbed_box.compartments_count
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_underbed_box_wall_mm
+  category: simple
+  en: I am comparing specifications. Find the container wall thickness for Wheeled under-bed box, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Толщина стенки контейнера» у «Подкроватный ящик на колёсах»,
+    в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Төсек астындағы доңғалақты жәшік» үшін «Контейнер қабырғасының
+    қалыңдығы» мәні қажет (мм).
+  relevant:
+  - section: technical_underbed_box.wall_mm
+    grade: 3
+  - section: technical_underbed_box.stack_limit_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.underbed_box.wall_mm; neighbouring stack_limit_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_geometry
+  need_key: technical.underbed_box.wall_mm|current
+  required:
+  - fact: technical.underbed_box.wall_mm
+    sections:
+    - technical_underbed_box.wall_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_underbed_box_stack_limit_count
+  category: simple
+  en: 'Wheeled under-bed box: maximum stacking count, units?'
+  ru: '«Подкроватный ящик на колёсах»: максимальное число при штабелировании, шт.?'
+  kk: '«Төсек астындағы доңғалақты жәшік»: қабаттап жинаудың ең жоғары саны, дана?'
+  relevant:
+  - section: technical_underbed_box.stack_limit_count
+    grade: 3
+  - section: technical_underbed_box.pack_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.underbed_box.stack_limit_count; neighbouring pack_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_stacking_limit
+  need_key: technical.underbed_box.stack_limit_count|current
+  required:
+  - fact: technical.underbed_box.stack_limit_count
+    sections:
+    - technical_underbed_box.stack_limit_count
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_underbed_box_pack_count
+  category: hard
+  en: The cards look similar. What items per sales pack is listed for Wheeled under-bed box (units)?
+  ru: Карточки похожи. Уточните показатель «Число предметов в товарной упаковке» именно для «Подкроватный
+    ящик на колёсах» (шт.).
+  kk: Карточкалар ұқсас. «Төсек астындағы доңғалақты жәшік» үшін нақты «Сауда қаптамасындағы заттар саны»
+    көрсеткішін айтыңыз (дана).
+  relevant:
+  - section: technical_underbed_box.pack_count
+    grade: 3
+  - section: technical_underbed_box.max_load_kg
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.underbed_box.pack_count; neighbouring max_load_kg does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_sales_pack_contents
+  need_key: technical.underbed_box.pack_count|current
+  required:
+  - fact: technical.underbed_box.pack_count
+    sections:
+    - technical_underbed_box.pack_count
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_underbed_box_max_load_kg
+  category: hard
+  en: Check the specifcation of Wheeled under-bed box for maximum rated load (kg), please.
+  ru: 'Проверьте характиристику «Подкроватный ящик на колёсах»: интересует «Максимальная допустимая нагрузка»
+    (кг).'
+  kk: «Төсек астындағы доңғалақты жәшік» сипатамасынан «Ең жоғары рұқсат етілген жүктеме» мәнін тексеріңізші
+    (кг).
+  relevant:
+  - section: technical_underbed_box.max_load_kg
+    grade: 3
+  - section: technical_underbed_box.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.underbed_box.max_load_kg; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_load_limit
+  need_key: technical.underbed_box.max_load_kg|current
+  required:
+  - fact: technical.underbed_box.max_load_kg
+    sections:
+    - technical_underbed_box.max_load_kg
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_underbed_box_humidity_max_percent
+  category: unanswerable
+  en: For Wheeled under-bed box, what is the specified maximum permitted humidity in percent?
+  ru: Для «Подкроватный ящик на колёсах» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Төсек астындағы доңғалақты жәшік» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_underbed_box.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for underbed_box does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.underbed_box.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_underbed_box_drop_test_cm
+  category: unanswerable
+  en: For Wheeled under-bed box, what is the specified certified drop-test height in cm?
+  ru: Для «Подкроватный ящик на колёсах» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Төсек астындағы доңғалақты жәшік» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_underbed_box.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for underbed_box does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.underbed_box.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_underbed_box_repair_parts_price
+  category: unanswerable
+  en: For Wheeled under-bed box, what is the specified replacement-part price in KZT?
+  ru: Для «Подкроватный ящик на колёсах» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Төсек астындағы доңғалақты жәшік» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_underbed_box.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for underbed_box does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.underbed_box.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_underbed_box_certification_id
+  category: unanswerable
+  en: For Wheeled under-bed box, what is the specified certification record number in record?
+  ru: Для «Подкроватный ящик на колёсах» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Төсек астындағы доңғалақты жәшік» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_underbed_box.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for underbed_box does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.underbed_box.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_underbed_box
+  category: multi_fragment
+  en: What does Wheeled under-bed box weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Подкроватный ящик на колёсах» и какой вес посылки допускают пункты самовывоза?
+  kk: «Төсек астындағы доңғалақты жәшік» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_underbed_box.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.underbed_box.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.underbed_box.mass_g
+    sections:
+    - technical_underbed_box.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_crate_mass_g
+  category: simple
+  en: For Lidded document crate, what is the specified mass in g?
+  ru: Для «Документальный ящик с крышкой» какое значение указано для показателя «Масса» (г)?
+  kk: «Қақпақты құжат жәшігі» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_document_crate.mass_g
+    grade: 3
+  - section: technical_document_crate.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.document_crate.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.document_crate.mass_g|current
+  required:
+  - fact: technical.document_crate.mass_g
+    sections:
+    - technical_document_crate.mass_g
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_crate_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Lidded document crate, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Документальный ящик с крышкой», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Қақпақты құжат жәшігі» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_document_crate.width_mm
+    grade: 3
+  - section: technical_document_crate.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Документальный ящик с крышкой» показатель «Ширина» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.document_crate.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.document_crate.width_mm|current
+  required:
+  - fact: technical.document_crate.width_mm
+    sections:
+    - technical_document_crate.width_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_crate_height_mm
+  category: simple
+  en: 'Lidded document crate: height, mm?'
+  ru: '«Документальный ящик с крышкой»: высота, мм?'
+  kk: '«Қақпақты құжат жәшігі»: биіктігі, мм?'
+  relevant:
+  - section: technical_document_crate.height_mm
+    grade: 3
+  - section: technical_document_crate.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.document_crate.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.document_crate.height_mm|current
+  required:
+  - fact: technical.document_crate.height_mm
+    sections:
+    - technical_document_crate.height_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_crate_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Lidded document crate (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Документальный ящик с крышкой» (мм).
+  kk: Карточкалар ұқсас. «Қақпақты құжат жәшігі» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_document_crate.depth_mm
+    grade: 3
+  - section: technical_document_crate.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.document_crate.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.document_crate.depth_mm|current
+  required:
+  - fact: technical.document_crate.depth_mm
+    sections:
+    - technical_document_crate.depth_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_crate_operating_min_c
+  category: hard
+  en: Check the specifcation of Lidded document crate for minimum operating ambient temperature (C), please.
+  ru: 'Проверьте характиристику «Документальный ящик с крышкой»: интересует «Минимальная температура воздуха
+    при работе» (C).'
+  kk: «Қақпақты құжат жәшігі» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_document_crate.operating_min_c
+    grade: 3
+  - section: technical_document_crate.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.document_crate.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.document_crate.operating_min_c|current
+  required:
+  - fact: technical.document_crate.operating_min_c
+    sections:
+    - technical_document_crate.operating_min_c
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_crate_operating_max_c
+  category: hard
+  en: For Lidded document crate, what is the specified maximum operating ambient temperature in C?
+  ru: Для «Документальный ящик с крышкой» какое значение указано для показателя «Максимальная температура
+    воздуха при работе» (C)?
+  kk: «Қақпақты құжат жәшігі» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_document_crate.operating_max_c
+    grade: 3
+  - section: technical_document_crate.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.document_crate.operating_max_c; neighbouring volume_ml does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.document_crate.operating_max_c|current
+  required:
+  - fact: technical.document_crate.operating_max_c
+    sections:
+    - technical_document_crate.operating_max_c
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_crate_volume_ml
+  category: simple
+  en: I am comparing specifications. Find the usable volume for Lidded document crate, in ml.
+  ru: Сравниваю характеристики. Нужен показатель «Полезный объём» у «Документальный ящик с крышкой», в
+    мл.
+  kk: Сипаттамаларды салыстырып отырмын. «Қақпақты құжат жәшігі» үшін «Пайдалы көлемі» мәні қажет (мл).
+  relevant:
+  - section: technical_document_crate.volume_ml
+    grade: 3
+  - section: technical_document_crate.compartments_count
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.document_crate.volume_ml; neighbouring compartments_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.document_crate.volume_ml|current
+  required:
+  - fact: technical.document_crate.volume_ml
+    sections:
+    - technical_document_crate.volume_ml
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_crate_compartments_count
+  category: simple
+  en: 'Lidded document crate: number of compartments, units?'
+  ru: '«Документальный ящик с крышкой»: число отделений, шт.?'
+  kk: '«Қақпақты құжат жәшігі»: бөлімдер саны, дана?'
+  relevant:
+  - section: technical_document_crate.compartments_count
+    grade: 3
+  - section: technical_document_crate.wall_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.document_crate.compartments_count; neighbouring wall_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_layout
+  need_key: technical.document_crate.compartments_count|current
+  required:
+  - fact: technical.document_crate.compartments_count
+    sections:
+    - technical_document_crate.compartments_count
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_crate_wall_mm
+  category: hard
+  en: The cards look similar. What container wall thickness is listed for Lidded document crate (mm)?
+  ru: Карточки похожи. Уточните показатель «Толщина стенки контейнера» именно для «Документальный ящик
+    с крышкой» (мм).
+  kk: Карточкалар ұқсас. «Қақпақты құжат жәшігі» үшін нақты «Контейнер қабырғасының қалыңдығы» көрсеткішін
+    айтыңыз (мм).
+  relevant:
+  - section: technical_document_crate.wall_mm
+    grade: 3
+  - section: technical_document_crate.stack_limit_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Қақпақты құжат жәшігі» үшін «Контейнер қабырғасының қалыңдығы» (мм) керек, уточните по этой
+    модели, пожалуйста.
+  rationale: Authored target technical.document_crate.wall_mm; neighbouring stack_limit_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_geometry
+  need_key: technical.document_crate.wall_mm|current
+  required:
+  - fact: technical.document_crate.wall_mm
+    sections:
+    - technical_document_crate.wall_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_crate_stack_limit_count
+  category: hard
+  en: Check the specifcation of Lidded document crate for maximum stacking count (units), please.
+  ru: 'Проверьте характиристику «Документальный ящик с крышкой»: интересует «Максимальное число при штабелировании»
+    (шт.).'
+  kk: «Қақпақты құжат жәшігі» сипатамасынан «Қабаттап жинаудың ең жоғары саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_document_crate.stack_limit_count
+    grade: 3
+  - section: technical_document_crate.pack_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.document_crate.stack_limit_count; neighbouring pack_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_stacking_limit
+  need_key: technical.document_crate.stack_limit_count|current
+  required:
+  - fact: technical.document_crate.stack_limit_count
+    sections:
+    - technical_document_crate.stack_limit_count
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_crate_pack_count
+  category: simple
+  en: For Lidded document crate, what is the specified items per sales pack in units?
+  ru: Для «Документальный ящик с крышкой» какое значение указано для показателя «Число предметов в товарной
+    упаковке» (шт.)?
+  kk: «Қақпақты құжат жәшігі» тауары үшін «Сауда қаптамасындағы заттар саны» көрсеткішінің мәні қандай
+    (дана)?
+  relevant:
+  - section: technical_document_crate.pack_count
+    grade: 3
+  - section: technical_document_crate.max_load_kg
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.document_crate.pack_count; neighbouring max_load_kg does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_sales_pack_contents
+  need_key: technical.document_crate.pack_count|current
+  required:
+  - fact: technical.document_crate.pack_count
+    sections:
+    - technical_document_crate.pack_count
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_document_crate_max_load_kg
+  category: hard
+  en: I am comparing specifications. Find the maximum rated load for Lidded document crate, in kg.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная допустимая нагрузка» у «Документальный
+    ящик с крышкой», в кг.
+  kk: Сипаттамаларды салыстырып отырмын. «Қақпақты құжат жәшігі» үшін «Ең жоғары рұқсат етілген жүктеме»
+    мәні қажет (кг).
+  relevant:
+  - section: technical_document_crate.max_load_kg
+    grade: 3
+  - section: technical_document_crate.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.document_crate.max_load_kg; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_load_limit
+  need_key: technical.document_crate.max_load_kg|current
+  required:
+  - fact: technical.document_crate.max_load_kg
+    sections:
+    - technical_document_crate.max_load_kg
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_document_crate_humidity_max_percent
+  category: unanswerable
+  en: For Lidded document crate, what is the specified maximum permitted humidity in percent?
+  ru: Для «Документальный ящик с крышкой» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Қақпақты құжат жәшігі» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_document_crate.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for document_crate does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.document_crate.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_document_crate_drop_test_cm
+  category: unanswerable
+  en: For Lidded document crate, what is the specified certified drop-test height in cm?
+  ru: Для «Документальный ящик с крышкой» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Қақпақты құжат жәшігі» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_document_crate.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for document_crate does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.document_crate.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_document_crate_repair_parts_price
+  category: unanswerable
+  en: For Lidded document crate, what is the specified replacement-part price in KZT?
+  ru: Для «Документальный ящик с крышкой» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Қақпақты құжат жәшігі» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_document_crate.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for document_crate does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.document_crate.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_document_crate_certification_id
+  category: unanswerable
+  en: For Lidded document crate, what is the specified certification record number in record?
+  ru: Для «Документальный ящик с крышкой» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Қақпақты құжат жәшігі» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_document_crate.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for document_crate does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.document_crate.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_shoe_box_set_mass_g
+  category: simple
+  en: 'Stackable shoe box set: mass, g?'
+  ru: '«Набор штабелируемых обувных коробок»: масса, г?'
+  kk: '«Қабатталатын аяқ киім қораптарының жиынтығы»: салмағы, г?'
+  relevant:
+  - section: technical_shoe_box_set.mass_g
+    grade: 3
+  - section: technical_shoe_box_set.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.shoe_box_set.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.shoe_box_set.mass_g|current
+  required:
+  - fact: technical.shoe_box_set.mass_g
+    sections:
+    - technical_shoe_box_set.mass_g
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_box_set_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Stackable shoe box set (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Набор штабелируемых обувных коробок» (мм).
+  kk: Карточкалар ұқсас. «Қабатталатын аяқ киім қораптарының жиынтығы» үшін нақты «Ені» көрсеткішін айтыңыз
+    (мм).
+  relevant:
+  - section: technical_shoe_box_set.width_mm
+    grade: 3
+  - section: technical_shoe_box_set.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.shoe_box_set.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.shoe_box_set.width_mm|current
+  required:
+  - fact: technical.shoe_box_set.width_mm
+    sections:
+    - technical_shoe_box_set.width_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_box_set_height_mm
+  category: hard
+  en: Check the specifcation of Stackable shoe box set for height (mm), please.
+  ru: 'Проверьте характиристику «Набор штабелируемых обувных коробок»: интересует «Высота» (мм).'
+  kk: «Қабатталатын аяқ киім қораптарының жиынтығы» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_shoe_box_set.height_mm
+    grade: 3
+  - section: technical_shoe_box_set.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.shoe_box_set.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.shoe_box_set.height_mm|current
+  required:
+  - fact: technical.shoe_box_set.height_mm
+    sections:
+    - technical_shoe_box_set.height_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_box_set_depth_mm
+  category: simple
+  en: For Stackable shoe box set, what is the specified depth in mm?
+  ru: Для «Набор штабелируемых обувных коробок» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Қабатталатын аяқ киім қораптарының жиынтығы» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай
+    (мм)?
+  relevant:
+  - section: technical_shoe_box_set.depth_mm
+    grade: 3
+  - section: technical_shoe_box_set.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Набор штабелируемых обувных коробок» показатель «Глубина» (мм) нақтылап беріңізші, осы үлгі
+    үшін.
+  mix_kk: null
+  rationale: Authored target technical.shoe_box_set.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.shoe_box_set.depth_mm|current
+  required:
+  - fact: technical.shoe_box_set.depth_mm
+    sections:
+    - technical_shoe_box_set.depth_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_box_set_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Stackable shoe
+    box set, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Набор
+    штабелируемых обувных коробок», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Қабатталатын аяқ киім қораптарының жиынтығы» үшін «Жұмыс кезіндегі
+    ауаның ең төмен температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_shoe_box_set.operating_min_c
+    grade: 3
+  - section: technical_shoe_box_set.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.shoe_box_set.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.shoe_box_set.operating_min_c|current
+  required:
+  - fact: technical.shoe_box_set.operating_min_c
+    sections:
+    - technical_shoe_box_set.operating_min_c
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_box_set_operating_max_c
+  category: hard
+  en: 'Stackable shoe box set: maximum operating ambient temperature, C?'
+  ru: '«Набор штабелируемых обувных коробок»: максимальная температура воздуха при работе, C?'
+  kk: '«Қабатталатын аяқ киім қораптарының жиынтығы»: жұмыс кезіндегі ауаның ең жоғары температурасы,
+    C?'
+  relevant:
+  - section: technical_shoe_box_set.operating_max_c
+    grade: 3
+  - section: technical_shoe_box_set.volume_ml
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.shoe_box_set.operating_max_c; neighbouring volume_ml does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.shoe_box_set.operating_max_c|current
+  required:
+  - fact: technical.shoe_box_set.operating_max_c
+    sections:
+    - technical_shoe_box_set.operating_max_c
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_box_set_volume_ml
+  category: hard
+  en: The cards look similar. What usable volume is listed for Stackable shoe box set (ml)?
+  ru: Карточки похожи. Уточните показатель «Полезный объём» именно для «Набор штабелируемых обувных коробок»
+    (мл).
+  kk: Карточкалар ұқсас. «Қабатталатын аяқ киім қораптарының жиынтығы» үшін нақты «Пайдалы көлемі» көрсеткішін
+    айтыңыз (мл).
+  relevant:
+  - section: technical_shoe_box_set.volume_ml
+    grade: 3
+  - section: technical_shoe_box_set.compartments_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.shoe_box_set.volume_ml; neighbouring compartments_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.shoe_box_set.volume_ml|current
+  required:
+  - fact: technical.shoe_box_set.volume_ml
+    sections:
+    - technical_shoe_box_set.volume_ml
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_box_set_compartments_count
+  category: hard
+  en: Check the specifcation of Stackable shoe box set for number of compartments (units), please.
+  ru: 'Проверьте характиристику «Набор штабелируемых обувных коробок»: интересует «Число отделений» (шт.).'
+  kk: «Қабатталатын аяқ киім қораптарының жиынтығы» сипатамасынан «Бөлімдер саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_shoe_box_set.compartments_count
+    grade: 3
+  - section: technical_shoe_box_set.wall_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.shoe_box_set.compartments_count; neighbouring wall_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_layout
+  need_key: technical.shoe_box_set.compartments_count|current
+  required:
+  - fact: technical.shoe_box_set.compartments_count
+    sections:
+    - technical_shoe_box_set.compartments_count
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_box_set_wall_mm
+  category: simple
+  en: For Stackable shoe box set, what is the specified container wall thickness in mm?
+  ru: Для «Набор штабелируемых обувных коробок» какое значение указано для показателя «Толщина стенки
+    контейнера» (мм)?
+  kk: «Қабатталатын аяқ киім қораптарының жиынтығы» тауары үшін «Контейнер қабырғасының қалыңдығы» көрсеткішінің
+    мәні қандай (мм)?
+  relevant:
+  - section: technical_shoe_box_set.wall_mm
+    grade: 3
+  - section: technical_shoe_box_set.stack_limit_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.shoe_box_set.wall_mm; neighbouring stack_limit_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_geometry
+  need_key: technical.shoe_box_set.wall_mm|current
+  required:
+  - fact: technical.shoe_box_set.wall_mm
+    sections:
+    - technical_shoe_box_set.wall_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_box_set_stack_limit_count
+  category: simple
+  en: I am comparing specifications. Find the maximum stacking count for Stackable shoe box set, in units.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальное число при штабелировании» у «Набор штабелируемых
+    обувных коробок», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Қабатталатын аяқ киім қораптарының жиынтығы» үшін «Қабаттап
+    жинаудың ең жоғары саны» мәні қажет (дана).
+  relevant:
+  - section: technical_shoe_box_set.stack_limit_count
+    grade: 3
+  - section: technical_shoe_box_set.pack_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.shoe_box_set.stack_limit_count; neighbouring pack_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_stacking_limit
+  need_key: technical.shoe_box_set.stack_limit_count|current
+  required:
+  - fact: technical.shoe_box_set.stack_limit_count
+    sections:
+    - technical_shoe_box_set.stack_limit_count
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_box_set_pack_count
+  category: simple
+  en: 'Stackable shoe box set: items per sales pack, units?'
+  ru: '«Набор штабелируемых обувных коробок»: число предметов в товарной упаковке, шт.?'
+  kk: '«Қабатталатын аяқ киім қораптарының жиынтығы»: сауда қаптамасындағы заттар саны, дана?'
+  relevant:
+  - section: technical_shoe_box_set.pack_count
+    grade: 3
+  - section: technical_shoe_box_set.max_load_kg
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Қабатталатын аяқ киім қораптарының жиынтығы» үшін «Сауда қаптамасындағы заттар саны» (дана)
+    керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.shoe_box_set.pack_count; neighbouring max_load_kg does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_sales_pack_contents
+  need_key: technical.shoe_box_set.pack_count|current
+  required:
+  - fact: technical.shoe_box_set.pack_count
+    sections:
+    - technical_shoe_box_set.pack_count
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_shoe_box_set_max_load_kg
+  category: hard
+  en: The cards look similar. What maximum rated load is listed for Stackable shoe box set (kg)?
+  ru: Карточки похожи. Уточните показатель «Максимальная допустимая нагрузка» именно для «Набор штабелируемых
+    обувных коробок» (кг).
+  kk: Карточкалар ұқсас. «Қабатталатын аяқ киім қораптарының жиынтығы» үшін нақты «Ең жоғары рұқсат етілген
+    жүктеме» көрсеткішін айтыңыз (кг).
+  relevant:
+  - section: technical_shoe_box_set.max_load_kg
+    grade: 3
+  - section: technical_shoe_box_set.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.shoe_box_set.max_load_kg; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_load_limit
+  need_key: technical.shoe_box_set.max_load_kg|current
+  required:
+  - fact: technical.shoe_box_set.max_load_kg
+    sections:
+    - technical_shoe_box_set.max_load_kg
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_shoe_box_set_humidity_max_percent
+  category: unanswerable
+  en: For Stackable shoe box set, what is the specified maximum permitted humidity in percent?
+  ru: Для «Набор штабелируемых обувных коробок» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Қабатталатын аяқ киім қораптарының жиынтығы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық»
+    көрсеткішінің мәні қандай (пайыз)?
+  relevant:
+  - section: technical_shoe_box_set.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for shoe_box_set does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.shoe_box_set.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_shoe_box_set_drop_test_cm
+  category: unanswerable
+  en: For Stackable shoe box set, what is the specified certified drop-test height in cm?
+  ru: Для «Набор штабелируемых обувных коробок» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Қабатталатын аяқ киім қораптарының жиынтығы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі»
+    көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_shoe_box_set.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for shoe_box_set does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.shoe_box_set.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_shoe_box_set_repair_parts_price
+  category: unanswerable
+  en: For Stackable shoe box set, what is the specified replacement-part price in KZT?
+  ru: Для «Набор штабелируемых обувных коробок» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Қабатталатын аяқ киім қораптарының жиынтығы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің
+    мәні қандай (теңге)?
+  relevant:
+  - section: technical_shoe_box_set.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for shoe_box_set does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.shoe_box_set.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_shoe_box_set_certification_id
+  category: unanswerable
+  en: For Stackable shoe box set, what is the specified certification record number in record?
+  ru: Для «Набор штабелируемых обувных коробок» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Қабатталатын аяқ киім қораптарының жиынтығы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_shoe_box_set.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for shoe_box_set does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.shoe_box_set.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_shoe_box_set
+  category: multi_fragment
+  en: What does Stackable shoe box set weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Набор штабелируемых обувных коробок» и какой вес посылки допускают пункты самовывоза?
+  kk: «Қабатталатын аяқ киім қораптарының жиынтығы» салмағы қандай және беру пункттері сәлемдеменің қандай
+    салмағына рұқсат береді?
+  relevant:
+  - section: technical_shoe_box_set.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.shoe_box_set.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.shoe_box_set.mass_g
+    sections:
+    - technical_shoe_box_set.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_cable_case_mass_g
+  category: hard
+  en: Check the specifcation of Travel cable organizer case for mass (g), please.
+  ru: 'Проверьте характиристику «Дорожный кейс для кабелей»: интересует «Масса» (г).'
+  kk: «Кабельдердің жол қорабы» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_cable_case.mass_g
+    grade: 3
+  - section: technical_cable_case.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.cable_case.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.cable_case.mass_g|current
+  required:
+  - fact: technical.cable_case.mass_g
+    sections:
+    - technical_cable_case.mass_g
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_cable_case_width_mm
+  category: simple
+  en: For Travel cable organizer case, what is the specified width in mm?
+  ru: Для «Дорожный кейс для кабелей» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Кабельдердің жол қорабы» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_cable_case.width_mm
+    grade: 3
+  - section: technical_cable_case.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.cable_case.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.cable_case.width_mm|current
+  required:
+  - fact: technical.cable_case.width_mm
+    sections:
+    - technical_cable_case.width_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_cable_case_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Travel cable organizer case, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Дорожный кейс для кабелей», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Кабельдердің жол қорабы» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_cable_case.height_mm
+    grade: 3
+  - section: technical_cable_case.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.cable_case.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.cable_case.height_mm|current
+  required:
+  - fact: technical.cable_case.height_mm
+    sections:
+    - technical_cable_case.height_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_cable_case_depth_mm
+  category: simple
+  en: 'Travel cable organizer case: depth, mm?'
+  ru: '«Дорожный кейс для кабелей»: глубина, мм?'
+  kk: '«Кабельдердің жол қорабы»: тереңдігі, мм?'
+  relevant:
+  - section: technical_cable_case.depth_mm
+    grade: 3
+  - section: technical_cable_case.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.cable_case.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.cable_case.depth_mm|current
+  required:
+  - fact: technical.cable_case.depth_mm
+    sections:
+    - technical_cable_case.depth_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_cable_case_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Travel cable organizer
+    case (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Дорожный
+    кейс для кабелей» (C).
+  kk: Карточкалар ұқсас. «Кабельдердің жол қорабы» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_cable_case.operating_min_c
+    grade: 3
+  - section: technical_cable_case.operating_max_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.cable_case.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.cable_case.operating_min_c|current
+  required:
+  - fact: technical.cable_case.operating_min_c
+    sections:
+    - technical_cable_case.operating_min_c
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_cable_case_operating_max_c
+  category: hard
+  en: Check the specifcation of Travel cable organizer case for maximum operating ambient temperature
+    (C), please.
+  ru: 'Проверьте характиристику «Дорожный кейс для кабелей»: интересует «Максимальная температура воздуха
+    при работе» (C).'
+  kk: «Кабельдердің жол қорабы» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_cable_case.operating_max_c
+    grade: 3
+  - section: technical_cable_case.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Дорожный кейс для кабелей» показатель «Максимальная температура воздуха при работе» (C) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.cable_case.operating_max_c; neighbouring volume_ml does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.cable_case.operating_max_c|current
+  required:
+  - fact: technical.cable_case.operating_max_c
+    sections:
+    - technical_cable_case.operating_max_c
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_cable_case_volume_ml
+  category: simple
+  en: For Travel cable organizer case, what is the specified usable volume in ml?
+  ru: Для «Дорожный кейс для кабелей» какое значение указано для показателя «Полезный объём» (мл)?
+  kk: «Кабельдердің жол қорабы» тауары үшін «Пайдалы көлемі» көрсеткішінің мәні қандай (мл)?
+  relevant:
+  - section: technical_cable_case.volume_ml
+    grade: 3
+  - section: technical_cable_case.compartments_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.cable_case.volume_ml; neighbouring compartments_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.cable_case.volume_ml|current
+  required:
+  - fact: technical.cable_case.volume_ml
+    sections:
+    - technical_cable_case.volume_ml
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_cable_case_compartments_count
+  category: simple
+  en: I am comparing specifications. Find the number of compartments for Travel cable organizer case,
+    in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число отделений» у «Дорожный кейс для кабелей», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Кабельдердің жол қорабы» үшін «Бөлімдер саны» мәні қажет (дана).
+  relevant:
+  - section: technical_cable_case.compartments_count
+    grade: 3
+  - section: technical_cable_case.wall_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.cable_case.compartments_count; neighbouring wall_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_layout
+  need_key: technical.cable_case.compartments_count|current
+  required:
+  - fact: technical.cable_case.compartments_count
+    sections:
+    - technical_cable_case.compartments_count
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_cable_case_wall_mm
+  category: simple
+  en: 'Travel cable organizer case: container wall thickness, mm?'
+  ru: '«Дорожный кейс для кабелей»: толщина стенки контейнера, мм?'
+  kk: '«Кабельдердің жол қорабы»: контейнер қабырғасының қалыңдығы, мм?'
+  relevant:
+  - section: technical_cable_case.wall_mm
+    grade: 3
+  - section: technical_cable_case.stack_limit_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.cable_case.wall_mm; neighbouring stack_limit_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_geometry
+  need_key: technical.cable_case.wall_mm|current
+  required:
+  - fact: technical.cable_case.wall_mm
+    sections:
+    - technical_cable_case.wall_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_cable_case_stack_limit_count
+  category: hard
+  en: The cards look similar. What maximum stacking count is listed for Travel cable organizer case (units)?
+  ru: Карточки похожи. Уточните показатель «Максимальное число при штабелировании» именно для «Дорожный
+    кейс для кабелей» (шт.).
+  kk: Карточкалар ұқсас. «Кабельдердің жол қорабы» үшін нақты «Қабаттап жинаудың ең жоғары саны» көрсеткішін
+    айтыңыз (дана).
+  relevant:
+  - section: technical_cable_case.stack_limit_count
+    grade: 3
+  - section: technical_cable_case.pack_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.cable_case.stack_limit_count; neighbouring pack_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_stacking_limit
+  need_key: technical.cable_case.stack_limit_count|current
+  required:
+  - fact: technical.cable_case.stack_limit_count
+    sections:
+    - technical_cable_case.stack_limit_count
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_cable_case_pack_count
+  category: hard
+  en: Check the specifcation of Travel cable organizer case for items per sales pack (units), please.
+  ru: 'Проверьте характиристику «Дорожный кейс для кабелей»: интересует «Число предметов в товарной упаковке»
+    (шт.).'
+  kk: «Кабельдердің жол қорабы» сипатамасынан «Сауда қаптамасындағы заттар саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_cable_case.pack_count
+    grade: 3
+  - section: technical_cable_case.max_load_kg
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.cable_case.pack_count; neighbouring max_load_kg does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_sales_pack_contents
+  need_key: technical.cable_case.pack_count|current
+  required:
+  - fact: technical.cable_case.pack_count
+    sections:
+    - technical_cable_case.pack_count
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_cable_case_max_load_kg
+  category: hard
+  en: For Travel cable organizer case, what is the specified maximum rated load in kg?
+  ru: Для «Дорожный кейс для кабелей» какое значение указано для показателя «Максимальная допустимая нагрузка»
+    (кг)?
+  kk: «Кабельдердің жол қорабы» тауары үшін «Ең жоғары рұқсат етілген жүктеме» көрсеткішінің мәні қандай
+    (кг)?
+  relevant:
+  - section: technical_cable_case.max_load_kg
+    grade: 3
+  - section: technical_cable_case.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.cable_case.max_load_kg; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_load_limit
+  need_key: technical.cable_case.max_load_kg|current
+  required:
+  - fact: technical.cable_case.max_load_kg
+    sections:
+    - technical_cable_case.max_load_kg
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_cable_case_humidity_max_percent
+  category: unanswerable
+  en: For Travel cable organizer case, what is the specified maximum permitted humidity in percent?
+  ru: Для «Дорожный кейс для кабелей» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Кабельдердің жол қорабы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_cable_case.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for cable_case does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.cable_case.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_cable_case_drop_test_cm
+  category: unanswerable
+  en: For Travel cable organizer case, what is the specified certified drop-test height in cm?
+  ru: Для «Дорожный кейс для кабелей» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Кабельдердің жол қорабы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_cable_case.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for cable_case does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.cable_case.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_cable_case_repair_parts_price
+  category: unanswerable
+  en: For Travel cable organizer case, what is the specified replacement-part price in KZT?
+  ru: Для «Дорожный кейс для кабелей» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Кабельдердің жол қорабы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_cable_case.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for cable_case does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.cable_case.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_cable_case_certification_id
+  category: unanswerable
+  en: For Travel cable organizer case, what is the specified certification record number in record?
+  ru: Для «Дорожный кейс для кабелей» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Кабельдердің жол қорабы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_cable_case.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for cable_case does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.cable_case.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_craft_organizer_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Craft material compartment box, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Коробка отсеков для рукоделия», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Қолөнер материалдарының бөлімді қорабы» үшін «Салмағы» мәні
+    қажет (г).
+  relevant:
+  - section: technical_craft_organizer.mass_g
+    grade: 3
+  - section: technical_craft_organizer.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Қолөнер материалдарының бөлімді қорабы» үшін «Салмағы» (г) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.craft_organizer.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.craft_organizer.mass_g|current
+  required:
+  - fact: technical.craft_organizer.mass_g
+    sections:
+    - technical_craft_organizer.mass_g
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_craft_organizer_width_mm
+  category: simple
+  en: 'Craft material compartment box: width, mm?'
+  ru: '«Коробка отсеков для рукоделия»: ширина, мм?'
+  kk: '«Қолөнер материалдарының бөлімді қорабы»: ені, мм?'
+  relevant:
+  - section: technical_craft_organizer.width_mm
+    grade: 3
+  - section: technical_craft_organizer.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.craft_organizer.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.craft_organizer.width_mm|current
+  required:
+  - fact: technical.craft_organizer.width_mm
+    sections:
+    - technical_craft_organizer.width_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_craft_organizer_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Craft material compartment box (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Коробка отсеков для рукоделия» (мм).
+  kk: Карточкалар ұқсас. «Қолөнер материалдарының бөлімді қорабы» үшін нақты «Биіктігі» көрсеткішін айтыңыз
+    (мм).
+  relevant:
+  - section: technical_craft_organizer.height_mm
+    grade: 3
+  - section: technical_craft_organizer.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.craft_organizer.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.craft_organizer.height_mm|current
+  required:
+  - fact: technical.craft_organizer.height_mm
+    sections:
+    - technical_craft_organizer.height_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_craft_organizer_depth_mm
+  category: hard
+  en: Check the specifcation of Craft material compartment box for depth (mm), please.
+  ru: 'Проверьте характиристику «Коробка отсеков для рукоделия»: интересует «Глубина» (мм).'
+  kk: «Қолөнер материалдарының бөлімді қорабы» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_craft_organizer.depth_mm
+    grade: 3
+  - section: technical_craft_organizer.operating_min_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.craft_organizer.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.craft_organizer.depth_mm|current
+  required:
+  - fact: technical.craft_organizer.depth_mm
+    sections:
+    - technical_craft_organizer.depth_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_craft_organizer_operating_min_c
+  category: hard
+  en: For Craft material compartment box, what is the specified minimum operating ambient temperature
+    in C?
+  ru: Для «Коробка отсеков для рукоделия» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Қолөнер материалдарының бөлімді қорабы» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішінің мәні қандай (C)?
+  relevant:
+  - section: technical_craft_organizer.operating_min_c
+    grade: 3
+  - section: technical_craft_organizer.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.craft_organizer.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.craft_organizer.operating_min_c|current
+  required:
+  - fact: technical.craft_organizer.operating_min_c
+    sections:
+    - technical_craft_organizer.operating_min_c
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_craft_organizer_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Craft material
+    compartment box, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Коробка
+    отсеков для рукоделия», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Қолөнер материалдарының бөлімді қорабы» үшін «Жұмыс кезіндегі
+    ауаның ең жоғары температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_craft_organizer.operating_max_c
+    grade: 3
+  - section: technical_craft_organizer.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.craft_organizer.operating_max_c; neighbouring volume_ml does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.craft_organizer.operating_max_c|current
+  required:
+  - fact: technical.craft_organizer.operating_max_c
+    sections:
+    - technical_craft_organizer.operating_max_c
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_craft_organizer_volume_ml
+  category: simple
+  en: 'Craft material compartment box: usable volume, ml?'
+  ru: '«Коробка отсеков для рукоделия»: полезный объём, мл?'
+  kk: '«Қолөнер материалдарының бөлімді қорабы»: пайдалы көлемі, мл?'
+  relevant:
+  - section: technical_craft_organizer.volume_ml
+    grade: 3
+  - section: technical_craft_organizer.compartments_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.craft_organizer.volume_ml; neighbouring compartments_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.craft_organizer.volume_ml|current
+  required:
+  - fact: technical.craft_organizer.volume_ml
+    sections:
+    - technical_craft_organizer.volume_ml
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_craft_organizer_compartments_count
+  category: hard
+  en: The cards look similar. What number of compartments is listed for Craft material compartment box
+    (units)?
+  ru: Карточки похожи. Уточните показатель «Число отделений» именно для «Коробка отсеков для рукоделия»
+    (шт.).
+  kk: Карточкалар ұқсас. «Қолөнер материалдарының бөлімді қорабы» үшін нақты «Бөлімдер саны» көрсеткішін
+    айтыңыз (дана).
+  relevant:
+  - section: technical_craft_organizer.compartments_count
+    grade: 3
+  - section: technical_craft_organizer.wall_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Коробка отсеков для рукоделия» показатель «Число отделений» (шт.) нақтылап беріңізші, осы
+    үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.craft_organizer.compartments_count; neighbouring wall_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_layout
+  need_key: technical.craft_organizer.compartments_count|current
+  required:
+  - fact: technical.craft_organizer.compartments_count
+    sections:
+    - technical_craft_organizer.compartments_count
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_craft_organizer_wall_mm
+  category: hard
+  en: Check the specifcation of Craft material compartment box for container wall thickness (mm), please.
+  ru: 'Проверьте характиристику «Коробка отсеков для рукоделия»: интересует «Толщина стенки контейнера»
+    (мм).'
+  kk: «Қолөнер материалдарының бөлімді қорабы» сипатамасынан «Контейнер қабырғасының қалыңдығы» мәнін
+    тексеріңізші (мм).
+  relevant:
+  - section: technical_craft_organizer.wall_mm
+    grade: 3
+  - section: technical_craft_organizer.stack_limit_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.craft_organizer.wall_mm; neighbouring stack_limit_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_geometry
+  need_key: technical.craft_organizer.wall_mm|current
+  required:
+  - fact: technical.craft_organizer.wall_mm
+    sections:
+    - technical_craft_organizer.wall_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_craft_organizer_stack_limit_count
+  category: simple
+  en: For Craft material compartment box, what is the specified maximum stacking count in units?
+  ru: Для «Коробка отсеков для рукоделия» какое значение указано для показателя «Максимальное число при
+    штабелировании» (шт.)?
+  kk: «Қолөнер материалдарының бөлімді қорабы» тауары үшін «Қабаттап жинаудың ең жоғары саны» көрсеткішінің
+    мәні қандай (дана)?
+  relevant:
+  - section: technical_craft_organizer.stack_limit_count
+    grade: 3
+  - section: technical_craft_organizer.pack_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.craft_organizer.stack_limit_count; neighbouring pack_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_stacking_limit
+  need_key: technical.craft_organizer.stack_limit_count|current
+  required:
+  - fact: technical.craft_organizer.stack_limit_count
+    sections:
+    - technical_craft_organizer.stack_limit_count
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_craft_organizer_pack_count
+  category: simple
+  en: I am comparing specifications. Find the items per sales pack for Craft material compartment box,
+    in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число предметов в товарной упаковке» у «Коробка отсеков
+    для рукоделия», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Қолөнер материалдарының бөлімді қорабы» үшін «Сауда қаптамасындағы
+    заттар саны» мәні қажет (дана).
+  relevant:
+  - section: technical_craft_organizer.pack_count
+    grade: 3
+  - section: technical_craft_organizer.max_load_kg
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.craft_organizer.pack_count; neighbouring max_load_kg does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_sales_pack_contents
+  need_key: technical.craft_organizer.pack_count|current
+  required:
+  - fact: technical.craft_organizer.pack_count
+    sections:
+    - technical_craft_organizer.pack_count
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_craft_organizer_max_load_kg
+  category: hard
+  en: 'Craft material compartment box: maximum rated load, kg?'
+  ru: '«Коробка отсеков для рукоделия»: максимальная допустимая нагрузка, кг?'
+  kk: '«Қолөнер материалдарының бөлімді қорабы»: ең жоғары рұқсат етілген жүктеме, кг?'
+  relevant:
+  - section: technical_craft_organizer.max_load_kg
+    grade: 3
+  - section: technical_craft_organizer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.craft_organizer.max_load_kg; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_load_limit
+  need_key: technical.craft_organizer.max_load_kg|current
+  required:
+  - fact: technical.craft_organizer.max_load_kg
+    sections:
+    - technical_craft_organizer.max_load_kg
+  tags:
+  - profile_derived
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_craft_organizer_humidity_max_percent
+  category: unanswerable
+  en: For Craft material compartment box, what is the specified maximum permitted humidity in percent?
+  ru: Для «Коробка отсеков для рукоделия» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Қолөнер материалдарының бөлімді қорабы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_craft_organizer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for craft_organizer does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.craft_organizer.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_craft_organizer_drop_test_cm
+  category: unanswerable
+  en: For Craft material compartment box, what is the specified certified drop-test height in cm?
+  ru: Для «Коробка отсеков для рукоделия» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Қолөнер материалдарының бөлімді қорабы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі»
+    көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_craft_organizer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for craft_organizer does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.craft_organizer.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_craft_organizer_repair_parts_price
+  category: unanswerable
+  en: For Craft material compartment box, what is the specified replacement-part price in KZT?
+  ru: Для «Коробка отсеков для рукоделия» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Қолөнер материалдарының бөлімді қорабы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні
+    қандай (теңге)?
+  relevant:
+  - section: technical_craft_organizer.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for craft_organizer does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.craft_organizer.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_craft_organizer_certification_id
+  category: unanswerable
+  en: For Craft material compartment box, what is the specified certification record number in record?
+  ru: Для «Коробка отсеков для рукоделия» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Қолөнер материалдарының бөлімді қорабы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_craft_organizer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for craft_organizer does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.craft_organizer.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_craft_organizer
+  category: multi_fragment
+  en: What does Craft material compartment box weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Коробка отсеков для рукоделия» и какой вес посылки допускают пункты самовывоза?
+  kk: «Қолөнер материалдарының бөлімді қорабы» салмағы қандай және беру пункттері сәлемдеменің қандай
+    салмағына рұқсат береді?
+  relevant:
+  - section: technical_craft_organizer.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.craft_organizer.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.craft_organizer.mass_g
+    sections:
+    - technical_craft_organizer.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_laundry_storage_box_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Ventilated laundry storage box (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Вентилируемый ящик для белья» (г).
+  kk: Карточкалар ұқсас. «Желдетілетін кір сақтау жәшігі» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_laundry_storage_box.mass_g
+    grade: 3
+  - section: technical_laundry_storage_box.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.laundry_storage_box.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.laundry_storage_box.mass_g|current
+  required:
+  - fact: technical.laundry_storage_box.mass_g
+    sections:
+    - technical_laundry_storage_box.mass_g
+  tags:
+  - profile_derived
+  - domain_storage
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_laundry_storage_box_width_mm
+  category: hard
+  en: Check the specifcation of Ventilated laundry storage box for width (mm), please.
+  ru: 'Проверьте характиристику «Вентилируемый ящик для белья»: интересует «Ширина» (мм).'
+  kk: «Желдетілетін кір сақтау жәшігі» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_laundry_storage_box.width_mm
+    grade: 3
+  - section: technical_laundry_storage_box.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.laundry_storage_box.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.laundry_storage_box.width_mm|current
+  required:
+  - fact: technical.laundry_storage_box.width_mm
+    sections:
+    - technical_laundry_storage_box.width_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_laundry_storage_box_height_mm
+  category: simple
+  en: For Ventilated laundry storage box, what is the specified height in mm?
+  ru: Для «Вентилируемый ящик для белья» какое значение указано для показателя «Высота» (мм)?
+  kk: «Желдетілетін кір сақтау жәшігі» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_laundry_storage_box.height_mm
+    grade: 3
+  - section: technical_laundry_storage_box.depth_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: «Желдетілетін кір сақтау жәшігі» үшін «Биіктігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.laundry_storage_box.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.laundry_storage_box.height_mm|current
+  required:
+  - fact: technical.laundry_storage_box.height_mm
+    sections:
+    - technical_laundry_storage_box.height_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_laundry_storage_box_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Ventilated laundry storage box, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Вентилируемый ящик для белья», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Желдетілетін кір сақтау жәшігі» үшін «Тереңдігі» мәні қажет
+    (мм).
+  relevant:
+  - section: technical_laundry_storage_box.depth_mm
+    grade: 3
+  - section: technical_laundry_storage_box.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.laundry_storage_box.depth_mm; neighbouring operating_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.laundry_storage_box.depth_mm|current
+  required:
+  - fact: technical.laundry_storage_box.depth_mm
+    sections:
+    - technical_laundry_storage_box.depth_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_laundry_storage_box_operating_min_c
+  category: hard
+  en: 'Ventilated laundry storage box: minimum operating ambient temperature, C?'
+  ru: '«Вентилируемый ящик для белья»: минимальная температура воздуха при работе, C?'
+  kk: '«Желдетілетін кір сақтау жәшігі»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_laundry_storage_box.operating_min_c
+    grade: 3
+  - section: technical_laundry_storage_box.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.laundry_storage_box.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.laundry_storage_box.operating_min_c|current
+  required:
+  - fact: technical.laundry_storage_box.operating_min_c
+    sections:
+    - technical_laundry_storage_box.operating_min_c
+  tags:
+  - profile_derived
+  - domain_storage
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_laundry_storage_box_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Ventilated laundry
+    storage box (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Вентилируемый
+    ящик для белья» (C).
+  kk: Карточкалар ұқсас. «Желдетілетін кір сақтау жәшігі» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары
+    температурасы» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_laundry_storage_box.operating_max_c
+    grade: 3
+  - section: technical_laundry_storage_box.volume_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.laundry_storage_box.operating_max_c; neighbouring volume_ml does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.laundry_storage_box.operating_max_c|current
+  required:
+  - fact: technical.laundry_storage_box.operating_max_c
+    sections:
+    - technical_laundry_storage_box.operating_max_c
+  tags:
+  - profile_derived
+  - domain_storage
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_laundry_storage_box_volume_ml
+  category: hard
+  en: Check the specifcation of Ventilated laundry storage box for usable volume (ml), please.
+  ru: 'Проверьте характиристику «Вентилируемый ящик для белья»: интересует «Полезный объём» (мл).'
+  kk: «Желдетілетін кір сақтау жәшігі» сипатамасынан «Пайдалы көлемі» мәнін тексеріңізші (мл).
+  relevant:
+  - section: technical_laundry_storage_box.volume_ml
+    grade: 3
+  - section: technical_laundry_storage_box.compartments_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.laundry_storage_box.volume_ml; neighbouring compartments_count
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_usable_volume
+  need_key: technical.laundry_storage_box.volume_ml|current
+  required:
+  - fact: technical.laundry_storage_box.volume_ml
+    sections:
+    - technical_laundry_storage_box.volume_ml
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_laundry_storage_box_compartments_count
+  category: simple
+  en: For Ventilated laundry storage box, what is the specified number of compartments in units?
+  ru: Для «Вентилируемый ящик для белья» какое значение указано для показателя «Число отделений» (шт.)?
+  kk: «Желдетілетін кір сақтау жәшігі» тауары үшін «Бөлімдер саны» көрсеткішінің мәні қандай (дана)?
+  relevant:
+  - section: technical_laundry_storage_box.compartments_count
+    grade: 3
+  - section: technical_laundry_storage_box.wall_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.laundry_storage_box.compartments_count; neighbouring wall_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_storage_layout
+  need_key: technical.laundry_storage_box.compartments_count|current
+  required:
+  - fact: technical.laundry_storage_box.compartments_count
+    sections:
+    - technical_laundry_storage_box.compartments_count
+  tags:
+  - profile_derived
+  - domain_storage
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_laundry_storage_box_wall_mm
+  category: simple
+  en: I am comparing specifications. Find the container wall thickness for Ventilated laundry storage
+    box, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Толщина стенки контейнера» у «Вентилируемый ящик для
+    белья», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Желдетілетін кір сақтау жәшігі» үшін «Контейнер қабырғасының
+    қалыңдығы» мәні қажет (мм).
+  relevant:
+  - section: technical_laundry_storage_box.wall_mm
+    grade: 3
+  - section: technical_laundry_storage_box.stack_limit_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.laundry_storage_box.wall_mm; neighbouring stack_limit_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_geometry
+  need_key: technical.laundry_storage_box.wall_mm|current
+  required:
+  - fact: technical.laundry_storage_box.wall_mm
+    sections:
+    - technical_laundry_storage_box.wall_mm
+  tags:
+  - profile_derived
+  - domain_storage
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_laundry_storage_box_stack_limit_count
+  category: simple
+  en: 'Ventilated laundry storage box: maximum stacking count, units?'
+  ru: '«Вентилируемый ящик для белья»: максимальное число при штабелировании, шт.?'
+  kk: '«Желдетілетін кір сақтау жәшігі»: қабаттап жинаудың ең жоғары саны, дана?'
+  relevant:
+  - section: technical_laundry_storage_box.stack_limit_count
+    grade: 3
+  - section: technical_laundry_storage_box.pack_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Вентилируемый ящик для белья» показатель «Максимальное число при штабелировании» (шт.) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.laundry_storage_box.stack_limit_count; neighbouring pack_count
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_stacking_limit
+  need_key: technical.laundry_storage_box.stack_limit_count|current
+  required:
+  - fact: technical.laundry_storage_box.stack_limit_count
+    sections:
+    - technical_laundry_storage_box.stack_limit_count
+  tags:
+  - profile_derived
+  - domain_storage
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_laundry_storage_box_pack_count
+  category: hard
+  en: The cards look similar. What items per sales pack is listed for Ventilated laundry storage box (units)?
+  ru: Карточки похожи. Уточните показатель «Число предметов в товарной упаковке» именно для «Вентилируемый
+    ящик для белья» (шт.).
+  kk: Карточкалар ұқсас. «Желдетілетін кір сақтау жәшігі» үшін нақты «Сауда қаптамасындағы заттар саны»
+    көрсеткішін айтыңыз (дана).
+  relevant:
+  - section: technical_laundry_storage_box.pack_count
+    grade: 3
+  - section: technical_laundry_storage_box.max_load_kg
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.laundry_storage_box.pack_count; neighbouring max_load_kg does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_sales_pack_contents
+  need_key: technical.laundry_storage_box.pack_count|current
+  required:
+  - fact: technical.laundry_storage_box.pack_count
+    sections:
+    - technical_laundry_storage_box.pack_count
+  tags:
+  - profile_derived
+  - domain_storage
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_laundry_storage_box_max_load_kg
+  category: hard
+  en: Check the specifcation of Ventilated laundry storage box for maximum rated load (kg), please.
+  ru: 'Проверьте характиристику «Вентилируемый ящик для белья»: интересует «Максимальная допустимая нагрузка»
+    (кг).'
+  kk: «Желдетілетін кір сақтау жәшігі» сипатамасынан «Ең жоғары рұқсат етілген жүктеме» мәнін тексеріңізші
+    (кг).
+  relevant:
+  - section: technical_laundry_storage_box.max_load_kg
+    grade: 3
+  - section: technical_laundry_storage_box.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.laundry_storage_box.max_load_kg; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_load_limit
+  need_key: technical.laundry_storage_box.max_load_kg|current
+  required:
+  - fact: technical.laundry_storage_box.max_load_kg
+    sections:
+    - technical_laundry_storage_box.max_load_kg
+  tags:
+  - profile_derived
+  - domain_storage
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_laundry_storage_box_humidity_max_percent
+  category: unanswerable
+  en: For Ventilated laundry storage box, what is the specified maximum permitted humidity in percent?
+  ru: Для «Вентилируемый ящик для белья» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Желдетілетін кір сақтау жәшігі» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_laundry_storage_box.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for laundry_storage_box does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.laundry_storage_box.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_laundry_storage_box_drop_test_cm
+  category: unanswerable
+  en: For Ventilated laundry storage box, what is the specified certified drop-test height in cm?
+  ru: Для «Вентилируемый ящик для белья» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Желдетілетін кір сақтау жәшігі» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_laundry_storage_box.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for laundry_storage_box does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.laundry_storage_box.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_laundry_storage_box_repair_parts_price
+  category: unanswerable
+  en: For Ventilated laundry storage box, what is the specified replacement-part price in KZT?
+  ru: Для «Вентилируемый ящик для белья» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Желдетілетін кір сақтау жәшігі» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_laundry_storage_box.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for laundry_storage_box does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.laundry_storage_box.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_laundry_storage_box_certification_id
+  category: unanswerable
+  en: For Ventilated laundry storage box, what is the specified certification record number in record?
+  ru: Для «Вентилируемый ящик для белья» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Желдетілетін кір сақтау жәшігі» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_laundry_storage_box.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for laundry_storage_box does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.laundry_storage_box.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_storage
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact

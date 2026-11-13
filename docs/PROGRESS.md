@@ -1,8 +1,197 @@
 # PROGRESS: current state (single source of truth for status)
 
-Last updated: 2026-11-12 (Stage 6 implementation and measured retrieval experiments)
+Last updated: 2026-11-13 (Stage 6.1 experiments complete; delivery pending)
 
 ## Current stage
+
+**Stage 6.1: IN PROGRESS — experiments, source-bound error review and serving rollback
+complete; final report snapshot, commit and push pending.** Stage 7 has not started.
+
+## Stage 6.1 verified results
+
+- Expanded active KB `kb_demo_store-20261113-f3b204a6`: **222 documents / 666 language
+  versions / 8,865 chunks**, 2,600 explicit numeric product attributes. All13 KB gates
+  pass, all369 original chunk IDs retained; rebuild unchanged. Serving namespace
+  `scale_6fab32c16b3a6e05b29f`, control parameters unchanged. Real RU/KK/EN serving,
+  empty-context abstention and baseline activation/rollback pass; final active KB expanded.
+  Evidence: `artifacts/reports/retrieval_scale/6fab32c16b3a6e05b29f/serving/`.
+- Freeze `data/benchmarks/retrieval_scale/6fab32c16b3a6e05b29f`: **3,570 needs /
+  12,593 variants / 119 families**, 2,982 dev /588 holdout needs, 1,506 cross variants,
+  377 mixed needs,830 unanswerable needs. Exact/lexical/ngram and semantic near-SFT
+  leakage checks pass. 3,520 profile-derived plus50 manually authored needs remain
+  correlated specifications, LLM-authored draft judgements, not human-certified dialogue
+  diversity. No independent fluent KK review. See source registry/review.
+- **17 development configurations; retained control** BGE-M3 dense .75 + word sparse,
+  candidate20, BGE rerank20,top10,context1024,gate disabled. Alternatives fail cross guard
+  or do not establish ranking gain. Selection sealed before single fresh family-disjoint
+  holdout. Dev `1bdd4dd13dac4d85afdf8f9872210da8`, holdout
+  `8cb7cbf9088949f98f239397a09a6830`, both FINISHED.
+- **Holdout Recall@5 /95% scenario CI**: RU .90155 [.88083,.92098],
+  KK .93264 [.91580,.94822], EN .97927 [.96891,.98834], cross .89506
+  [.81482,.96914], mixed1.0 [1,1]. Overall recall .93466,MRR .97510,nDCG .95036,
+  full evidence@10 .98678, packed sufficiency **.92438**. Multi-document packed
+  sufficiency **.70297 [.64356,.75908]**, full@10 .96700.
+- **Semantic abstention unresolved:** FPR **1.0 on606 holdout negatives /202 needs**,
+  answerable FNR0. Gates trade cross recall for insufficient rejection. Cross/mixed have
+  no holdout negatives: FPR UNKNOWN. Blind negatives cover partial evidence and missing
+  exceptions; live-API/conflict/clarification/expired categories are development-only.
+  This evaluates retrieval, not generated answers.
+- Error census:161 misses@5,18 incomplete proof@10,103 incomplete packed contexts,
+  **85 complete top10 proofs lost in packing** (overlapping labels). Source-bound audit
+  retains121 failed needs; representative LLM qualitative review is
+  `docs/reviews/stage6_scale_results.md`, not121 human judgements.
+- Preplanned post-selection development-only wording/typo diagnostic:
+  `data/benchmarks/retrieval_diagnostics/1ad2bbc278800f1f260c`,620 variants /80 existing
+  needs /five families, **zero new independent needs**. Mono recall1.0, ENnDCG .96309
+  [.93541,.98616],cross recall .83333 [.73333,.91687]. Different cross cohort, no paired
+  drop claim, no tuning/fresh holdout claim. Run`fece36d08d3c41d98dcda4c217e1e2da` FINISHED.
+- Same681 historical exposed queries: baseline p50/p95 **663.15/903.48ms**, expanded
+  **687.57/889.45ms**, QPS1.458/1.447. Paired recall deltas RU/EN0,
+  KK-.00613 [-.01840,0],cross-.02174 [-.04710,0], not confirmed improvement. Balanced80
+  new dev probe p50/p95 **579.72/629.21ms**,QPS1.758 (different mix). No production SLO.
+  Peak Python RSS5,839,515,648 bytes; Torch allocated/reserved2,301,659,136/2,334,130,176.
+  Sampled Qdrant cgroup current2,144,235,520 includes file cache, not whole-VM RSS.
+- Full uncached8,865-unit encoding each: BGE55.61 /E5 164.10units/s, warm weights.
+  Minimum cosine .999901/.999968, max absolute drift .001618/.001104 from numerical/
+  batch padding effects. Actual allocated collection disk baseline11,112,448 /
+  expanded97,677,312 /100k489,938,944 bytes; preserve apparent `du -sb` separately.
+  All80 cached/live probes have identical top10 and packed evidence.
+- Semantic recovery: all8,865 dense/sparse vectors+payloads verified, max dense delta0;
+  six serving evidence parity probes, sync12.945s without inference,upserts8865/deletes0.
+  Profile`1cf54a1cd49e442b95d5b3c40dd353cb` and recovery
+  `1cfcec4b69a34e2681ea9920fa4f489f` FINISHED.
+- **100k isolated random vectors**, not semantic/neural-encoding evidence: upload62.338s,
+  1,604.17points/s,HNSW61.567s,exact p50/p95 20.19/35.69ms. ef32/64/128 fidelity
+  .163/.294/.466: keep exact default. Snapshot489,516,032 bytes; all100k payload/vector
+  digests agree after restore/restart. Run`064d70bed19640d3be2ac759db82e11f` FINISHED.
+  Real128-vector update/rollback .132913/.104280s, full digest unchanged,
+  run`7e634079e5be40f19d3ebf1b00a9cc61`. Generator/2 reproduces vectors with separate
+  identity. Current1000smoke`722dd27c44bc4d3d9d7b970326cd5174` verifies finalized local/
+  MLflow receipt byte identity; do not rewrite the original100k receipt limitation.
+- Preserved failures: numeric builds99 signed-temp then204 punctuation/money placements;
+  fixed with regressions. First failed full report overwritten before capture: explicit
+  evidence loss. Old freeze`e5d93adef95a2d2a128e`, run`0b22092bfb9342d6920f61c5e4882a69`
+  KILLED before selection/holdout for CRLF fingerprints; >=6000 searches lost, no completed
+  metrics claimed. LF/cohort equivalence receipts preserved; checkpoints fingerprint-bound.
+- Final full check: **420 passed, zero skipped, one expected local-Qdrant warning**,
+  434.35 seconds, including actual GPU/Qdrant tests. Log:
+  `artifacts/reports/retrieval_scale_pytest_completion.log`. Ruff check/format and strict
+  mypy pass (125 files). Static precommit hooks pass; full commit fast-test hook pending.
+  Earlier interrupted/modified-during-run hook is retained as a failed attempt.
+- Artifacts: `artifacts/reports/retrieval_scale/6fab32c16b3a6e05b29f/`.
+  Baseline556 report files/369chunks/681queries verified unchanged in
+  `artifacts/reports/retrieval_scale/baseline_integrity.json`.
+- Existing pinned/deep-verified/restored snapshots: KB
+  `data/stage6_scale_kb/20261113T051522Z-89ce6640`; earlier benchmark
+  `data/stage6_scale_benchmark/20261113T051529Z-09f9c315`; load
+  `data/stage6_scale_load/20261113T052952Z-ce8b17de`; indexes
+  `data/stage6_scale_indexes/20261113T071321Z-b1407eff`. Final snapshots pending.
+- Final source/report audit passes:43 frozen source files,8 final MLflow report artifacts;
+  report run`d49e79f234e6468aa1b1a73a3010f0e6` FINISHED. All41 tracked frozen files
+  match staged Git blobs. All1,925 historical MLflow artifact files unchanged.
+- Next: final report snapshot; commit/push
+  main. User-owned untracked `.codex/` must remain unstaged. Do not start Stage7.
+
+### Delivery snapshots (pinned, deep-verified and restored)
+
+| Source | Snapshot under backups/ | Files |
+|---|---|---:|
+| `data/kb/demo_store` | `data/stage6_scale_serving_kb/20261113T095818Z-a3297f93` | 2155 |
+| `data/benchmarks` | `data/stage6_scale_benchmarks/20261113T095831Z-bc6f6f5a` | 43 |
+| `data/indexes` | `data/stage6_scale_index_cache/20261113T095838Z-c388fee1` | 110 |
+| `data/scale_cache` | `data/stage6_scale_pair_cache/20261113T095848Z-5e2d0375` | 1 |
+| `data/load` | `data/stage6_scale_load_delivery/20261113T095855Z-4e60ddbb` | 12 |
+| `mlruns` | `data/stage6_scale_tracking/20261113T095910Z-325b2608` | 1982 |
+
+All restored files match hashes; restored SQLite integrity checks pass. Full archive
+SHA256 and restore paths: `artifacts/reports/retrieval_scale/delivery_snapshots.json`.
+Report snapshot and committed-code bundles remain pending. These backups were taken from
+the verified working implementation before commit; frozen source hashes bind that code.
+
+### Large-cohort expansion history (before final freeze)
+
+- `kb_sources/demo_store/technical_profiles.yaml` explicitly defines **200 products in
+  20 groups and 2,600 numeric attribute facts**. Values are authored fictional data,
+  not random or arithmetically scaled records. An explicit SKU registry keeps identifiers
+  stable under insertion, removal and reordering. `kb/profiles.py` adds separate catalogue
+  documents without rewriting the original catalogue or its chunk IDs.
+- Verified large KB **`kb_demo_store-20261113-c74969ed`**: **218 document IDs, 654 language
+  versions, 8,841 chunks**, all 13 KB gates pass, all original 369 chunk IDs retained.
+  Registry count 3,685 includes metadata/composite entries; exactly 2,600 new numeric
+  attribute facts are separately identifiable. Active serving KB remains the Stage 6 baseline.
+- Profile-derived sources have explicit subject/predicate/condition need keys; wording and
+  translations do not add needs. The first large audit has **3,538 needs**, 810 unanswerable,
+  1,494 cross-language variants and 377 mixed needs; **115 related families**, with 2,953
+  development and 585 holdout needs. Exact/lexical/13-gram overlap with SFT and across phases
+  is zero. These are controlled specification needs and draft judgements, not 3,538
+  independently human-reviewed natural customer scenarios. Family sensitivity remains required.
+- Added dated archived payment/cancellation/pickup/repair documents and 12 authored temporal
+  needs, including explicit two-version comparisons. `effective_to`, successor overlap
+  checks, per-need `as_of` and opt-in `all_versions` retrieval are implemented; the default
+  still filters validity dates. Context source metadata now carries validity dates. These
+  latest additions need a new KB build and regression checks before freeze.
+- The profile authoring step now also adds 20 needs outside document validity. Rerun
+  `retrieval scale --stage author` after schema/template edits, then audit the new KB.
+- Two KB build failures were encountered and fixed: unsigned matching rejected negative
+  temperatures (99 fact placements), then a signed-token guard rejected sentence-ending
+  grouped money (204 placements). Numeric matching now checks signs, token boundaries and
+  decimals; eight targeted regressions pass. Failure receipts are in
+  `artifacts/reports/retrieval_scale/failures/`. The first full failed report was overwritten
+  by the existing builder's reused `.failed` path before capture; this evidence loss is
+  explicitly recorded, not reported as a pass.
+- No new ranking experiment or final holdout evaluation has run. Next: validate temporal
+  ingestion and source-authoring transforms; renew the bound substantive-diversity review;
+  run semantic decontamination, freeze, development comparison, sealed selection and holdout.
+  Preserve all Stage 6 data/results; do not start Stage 7.
+
+### Initial engineering and load-test evidence
+
+- Preregistered protocol: `configs/retrieval_scale.yaml`,
+  `docs/reviews/stage6_scale_protocol.md`. Family-disjoint development/holdout assignment,
+  mandatory volume/lineage/leakage gates, immutable checksummed freeze and separate
+  required-fact support groups. A rejected freeze does not publish a benchmark.
+- Initial original authored additions: four trilingual documents, 24 SKU/procedure facts;
+  `authored/retrieval_scale/` has 38 needs, 72 cross-language variants and five mixed needs,
+  including ten unanswerable needs. All are LLM-authored `draft`, not human-reviewed.
+  No claim of 2,500 independent needs or independently validated semantic diversity.
+- KB `kb_demo_store-20261113-896f2b9d`: 18 document IDs / 54 language versions / 441 chunks;
+  all 13 standard KB gates pass, original 369 chunks retained, 72 added, zero deleted.
+  Audit counts 185 non-identifier canonical registry entries (including composite facts),
+  not 2,500 distinct atomic facts. All earlier fact values and gold evidence IDs remain.
+  This version is **staged**: active KB is restored to `kb_demo_store-20261112-d58e3f93`,
+  so the last-good serving index stays compatible. Audit the staged version explicitly.
+- `retrieval scale --stage audit|freeze|development|holdout|load` is separate from Stage 6's
+  historical experiment commands. Index namespaces preserve baseline collection names and
+  local state. The comparison matrix/selection path is implemented; its real large-scale
+  semantic experiment is NOT_RUN because data gates fail. No final holdout was evaluated.
+- Real isolated load corpus: 100,000 chunks and normalized random 1,024-dimensional vectors,
+  identity `9264c39f794d3e16de74`, MLflow `064d70bed19640d3be2ac759db82e11f` (FINISHED).
+  Precomputed upload 62.338 s / 1,604.17 vectors/s; HNSW build 61.567 s, 100,000 indexed.
+  Exact p50/p95 20.187/35.690 ms; sequential 43.43 requests/s, 100 independent random queries.
+  HNSW ef32/64/128 ANN Recall@10 against exact .163/.294/.466; p95 27.952/30.391/31.962 ms.
+  This negative fidelity result does not justify replacing the exact semantic-search default.
+  Python peak RSS 1,316,110,336 bytes, minimum available machine RAM 4,267,974,656 bytes;
+  no model inference/VRAM allocated. Docker peak RAM, neural encoding/reranking, concurrency
+  and production scale are not established by this workload.
+- Load lifecycle: injected committed-batch interruption/replay, add/change/delete, full
+  payload/vector inventory and real local snapshot upload to a separate collection passed;
+  six exact query rankings agree. Snapshot 489,516,032 bytes, retained in
+  `artifacts/reports/retrieval_scale/load/9264c39f794d3e16de74-1794503491694431100/`.
+  A 1,000-point smoke run also FINISHED (`4fe1620c1f55405ea9daa80757e3dc3e`). The injected
+  exception is not an OS kill. Failed/partial attempts must remain in their own receipts.
+- Current generator `16fe088123cb8e192cc1` adds the text template to its identity;
+  `generation_reproduction.json` verifies byte-identical 100k chunk/vector files to the
+  measured `9264c39f794d3e16de74` corpus. The historical run is not relabelled.
+  Docker restarted after session interruption; collection storage is 829,444,863 bytes.
+  A later container sample was 1.523 GiB of a 2 GiB limit, including other collections;
+  it is neither peak RAM nor a collection-specific delta.
+- Pending before completion: substantive 200-document/7,500-chunk/2,500-fact corpus;
+  2,500 independent needs including 750 unanswerable and 300 mixed needs; final frozen
+  benchmark, real development selection/holdout comparisons, online packed-context
+  performance and semantic abstention study, full checks and verified stage-end backups.
+  Do not substitute generated repetitions or lower volume/quality gates to close the stage.
+
+### Historical Stage 6 status
 
 **Stage 6: COMPLETED — retrieval engineering and experiments, with the quality limits below.**
 Implementation, measurements, checks and local restores are verified.

@@ -1,0 +1,659 @@
+# Explicit fictional catalogue specifications. Values are authored data, not random draws.
+# Source units and conditions are part of each fact; prices/stock of real products are not asserted.
+schema_version: technical_profiles/1
+origin: llm_generated
+author: Codex (LLM), 2026-11-13
+review_status: draft
+licence_note: Original fictional store specifications for internal demo and evaluation; no external manufacturer data or real customer data. Fluent human review pending.
+attributes:
+  mass_g: {label: {en: 'Mass', ru: 'Масса', kk: 'Салмағы'}, unit: {en: g, ru: г, kk: г}, family: physical_mass}
+  width_mm: {label: {en: 'Width', ru: 'Ширина', kk: 'Ені'}, unit: {en: mm, ru: мм, kk: мм}, family: external_dimensions}
+  height_mm: {label: {en: 'Height', ru: 'Высота', kk: 'Биіктігі'}, unit: {en: mm, ru: мм, kk: мм}, family: external_dimensions}
+  depth_mm: {label: {en: 'Depth', ru: 'Глубина', kk: 'Тереңдігі'}, unit: {en: mm, ru: мм, kk: мм}, family: external_dimensions}
+  length_mm: {label: {en: 'Length', ru: 'Длина', kk: 'Ұзындығы'}, unit: {en: mm, ru: мм, kk: мм}, family: external_dimensions}
+  operating_min_c: {label: {en: 'Minimum operating ambient temperature', ru: 'Минимальная температура воздуха при работе', kk: 'Жұмыс кезіндегі ауаның ең төмен температурасы'}, unit: {en: C, ru: C, kk: C}, family: operating_temperature}
+  operating_max_c: {label: {en: 'Maximum operating ambient temperature', ru: 'Максимальная температура воздуха при работе', kk: 'Жұмыс кезіндегі ауаның ең жоғары температурасы'}, unit: {en: C, ru: C, kk: C}, family: operating_temperature}
+  storage_min_c: {label: {en: 'Minimum storage temperature', ru: 'Минимальная температура хранения', kk: 'Сақтаудың ең төмен температурасы'}, unit: {en: C, ru: C, kk: C}, family: storage_temperature}
+  storage_max_c: {label: {en: 'Maximum storage temperature', ru: 'Максимальная температура хранения', kk: 'Сақтаудың ең жоғары температурасы'}, unit: {en: C, ru: C, kk: C}, family: storage_temperature}
+  cable_cm: {label: {en: 'Supplied cable length', ru: 'Длина комплектного кабеля', kk: 'Жинақтағы кабель ұзындығы'}, unit: {en: cm, ru: см, kk: см}, family: supplied_cable}
+  voltage_v: {label: {en: 'Rated supply voltage', ru: 'Номинальное напряжение питания', kk: 'Номиналды қорек кернеуі'}, unit: {en: V, ru: В, kk: В}, family: electrical_supply}
+  power_w: {label: {en: 'Rated power consumption', ru: 'Номинальная потребляемая мощность', kk: 'Номиналды тұтыну қуаты'}, unit: {en: W, ru: Вт, kk: Вт}, family: power_consumption}
+  transfer_mbps: {label: {en: 'Rated interface data rate', ru: 'Номинальная скорость интерфейса', kk: 'Интерфейстің номиналды дерек жылдамдығы'}, unit: {en: Mbps, ru: Мбит/с, kk: Мбит/с}, family: data_rate}
+  controls_count: {label: {en: 'Number of physical controls', ru: 'Число физических органов управления', kk: 'Физикалық басқару элементтерінің саны'}, unit: {en: units, ru: шт., kk: дана}, family: physical_controls}
+  input_v: {label: {en: 'Rated input voltage', ru: 'Номинальное входное напряжение', kk: 'Номиналды кіріс кернеуі'}, unit: {en: V, ru: В, kk: В}, family: charger_input}
+  output_v: {label: {en: 'Rated output voltage', ru: 'Номинальное выходное напряжение', kk: 'Номиналды шығыс кернеуі'}, unit: {en: V, ru: В, kk: В}, family: charger_output}
+  output_w: {label: {en: 'Total rated output power', ru: 'Суммарная номинальная выходная мощность', kk: 'Жалпы номиналды шығыс қуаты'}, unit: {en: W, ru: Вт, kk: Вт}, family: charger_output}
+  output_a: {label: {en: 'Maximum rated output current', ru: 'Максимальный номинальный выходной ток', kk: 'Ең жоғары номиналды шығыс тогы'}, unit: {en: A, ru: А, kk: А}, family: charger_output}
+  ports_count: {label: {en: 'Number of output ports', ru: 'Число выходных портов', kk: 'Шығыс порттарының саны'}, unit: {en: units, ru: шт., kk: дана}, family: output_ports}
+  efficiency_percent: {label: {en: 'Rated conversion efficiency', ru: 'Номинальный КПД преобразования', kk: 'Түрлендірудің номиналды пайдалы әсер коэффициенті'}, unit: {en: percent, ru: процентов, kk: пайыз}, family: conversion_efficiency}
+  diagonal_in: {label: {en: 'Image diagonal', ru: 'Диагональ изображения', kk: 'Кескін диагоналі'}, unit: {en: inches, ru: дюймов, kk: дюйм}, family: display_size}
+  resolution_x: {label: {en: 'Horizontal image resolution', ru: 'Разрешение изображения по горизонтали', kk: 'Кескіннің көлденең ажыратымдылығы'}, unit: {en: pixels, ru: пикселей, kk: пиксель}, family: display_resolution}
+  resolution_y: {label: {en: 'Vertical image resolution', ru: 'Разрешение изображения по вертикали', kk: 'Кескіннің тік ажыратымдылығы'}, unit: {en: pixels, ru: пикселей, kk: пиксель}, family: display_resolution}
+  refresh_hz: {label: {en: 'Native image refresh rate', ru: 'Собственная частота обновления изображения', kk: 'Кескіннің өз жаңарту жиілігі'}, unit: {en: Hz, ru: Гц, kk: Гц}, family: display_refresh}
+  brightness_cd: {label: {en: 'Rated screen luminance', ru: 'Номинальная яркость экрана', kk: 'Экранның номиналды жарықтығы'}, unit: {en: cd/m2, ru: кд/м2, kk: кд/м2}, family: display_luminance}
+  hdmi_count: {label: {en: 'Number of HDMI sockets', ru: 'Число разъёмов HDMI', kk: 'HDMI ұяларының саны'}, unit: {en: units, ru: шт., kk: дана}, family: video_connectors}
+  lumen: {label: {en: 'Rated luminous flux', ru: 'Номинальный световой поток', kk: 'Номиналды жарық ағыны'}, unit: {en: lm, ru: лм, kk: лм}, family: luminous_flux}
+  colour_temp_k: {label: {en: 'Rated colour temperature', ru: 'Номинальная цветовая температура', kk: 'Номиналды түс температурасы'}, unit: {en: K, ru: К, kk: К}, family: light_colour}
+  cri: {label: {en: 'Colour rendering index', ru: 'Индекс цветопередачи', kk: 'Түсті беру индексі'}, unit: {en: Ra, ru: Ra, kk: Ra}, family: colour_rendering}
+  beam_degrees: {label: {en: 'Rated beam angle', ru: 'Номинальный угол светового пучка', kk: 'Жарық шоғының номиналды бұрышы'}, unit: {en: degrees, ru: градусов, kk: градус}, family: beam_geometry}
+  life_hours: {label: {en: 'Rated service life', ru: 'Номинальный срок службы', kk: 'Номиналды қызмет мерзімі'}, unit: {en: hours, ru: часов, kk: сағат}, family: rated_lifetime}
+  air_m3_h: {label: {en: 'Rated air flow', ru: 'Номинальный расход воздуха', kk: 'Номиналды ауа шығыны'}, unit: {en: m3/h, ru: м3/ч, kk: м3/сағ}, family: airflow}
+  noise_db: {label: {en: 'Rated sound pressure level', ru: 'Номинальный уровень звукового давления', kk: 'Номиналды дыбыс қысымының деңгейі'}, unit: {en: dB, ru: дБ, kk: дБ}, family: acoustic_noise}
+  tank_ml: {label: {en: 'Container capacity', ru: 'Вместимость резервуара', kk: 'Резервуар сыйымдылығы'}, unit: {en: ml, ru: мл, kk: мл}, family: container_volume}
+  modes_count: {label: {en: 'Number of operating modes', ru: 'Число режимов работы', kk: 'Жұмыс режимдерінің саны'}, unit: {en: units, ru: шт., kk: дана}, family: operating_modes}
+  coverage_m2: {label: {en: 'Rated coverage area', ru: 'Номинальная площадь обслуживания', kk: 'Номиналды қызмет көрсету ауданы'}, unit: {en: m2, ru: м2, kk: м2}, family: coverage_area}
+  volume_ml: {label: {en: 'Usable volume', ru: 'Полезный объём', kk: 'Пайдалы көлемі'}, unit: {en: ml, ru: мл, kk: мл}, family: usable_volume}
+  min_temp_c: {label: {en: 'Minimum selectable process temperature', ru: 'Минимальная выбираемая рабочая температура', kk: 'Таңдалатын өңдеу температурасының ең төмен мәні'}, unit: {en: C, ru: C, kk: C}, family: process_temperature}
+  max_temp_c: {label: {en: 'Maximum selectable process temperature', ru: 'Максимальная выбираемая рабочая температура', kk: 'Таңдалатын өңдеу температурасының ең жоғары мәні'}, unit: {en: C, ru: C, kk: C}, family: process_temperature}
+  timer_minutes: {label: {en: 'Maximum timer interval', ru: 'Максимальный интервал таймера', kk: 'Таймердің ең ұзақ аралығы'}, unit: {en: minutes, ru: минут, kk: минут}, family: timer_interval}
+  suction_kpa: {label: {en: 'Rated suction pressure', ru: 'Номинальное давление всасывания', kk: 'Номиналды сору қысымы'}, unit: {en: kPa, ru: кПа, kk: кПа}, family: suction_pressure}
+  filter_area_cm2: {label: {en: 'Filter surface area', ru: 'Площадь фильтрующей поверхности', kk: 'Сүзу бетінің ауданы'}, unit: {en: cm2, ru: см2, kk: см2}, family: filter_geometry}
+  freq_min_hz: {label: {en: 'Lower rated audio frequency', ru: 'Нижняя номинальная звуковая частота', kk: 'Номиналды дыбыс жиілігінің төменгі шегі'}, unit: {en: Hz, ru: Гц, kk: Гц}, family: audio_frequency}
+  freq_max_hz: {label: {en: 'Upper rated audio frequency', ru: 'Верхняя номинальная звуковая частота', kk: 'Номиналды дыбыс жиілігінің жоғарғы шегі'}, unit: {en: Hz, ru: Гц, kk: Гц}, family: audio_frequency}
+  impedance_ohm: {label: {en: 'Nominal impedance', ru: 'Номинальное сопротивление', kk: 'Номиналды кедергі'}, unit: {en: ohm, ru: Ом, kk: Ом}, family: audio_impedance}
+  sensitivity_db: {label: {en: 'Rated audio sensitivity', ru: 'Номинальная звуковая чувствительность', kk: 'Номиналды дыбыс сезімталдығы'}, unit: {en: dB, ru: дБ, kk: дБ}, family: audio_sensitivity}
+  drivers_count: {label: {en: 'Number of acoustic drivers', ru: 'Число акустических излучателей', kk: 'Акустикалық сәуле шығарғыштардың саны'}, unit: {en: units, ru: шт., kk: дана}, family: audio_drivers}
+  speed_min_rpm: {label: {en: 'Minimum spindle speed', ru: 'Минимальная частота вращения шпинделя', kk: 'Шпиндельдің ең төмен айналу жиілігі'}, unit: {en: rpm, ru: об/мин, kk: айн/мин}, family: spindle_speed}
+  speed_max_rpm: {label: {en: 'Maximum spindle speed', ru: 'Максимальная частота вращения шпинделя', kk: 'Шпиндельдің ең жоғары айналу жиілігі'}, unit: {en: rpm, ru: об/мин, kk: айн/мин}, family: spindle_speed}
+  grip_mm: {label: {en: 'Grip diameter', ru: 'Диаметр рукоятки', kk: 'Тұтқа диаметрі'}, unit: {en: mm, ru: мм, kk: мм}, family: grip_geometry}
+  accessories_count: {label: {en: 'Number of supplied accessories', ru: 'Число комплектных принадлежностей', kk: 'Жинақтағы керек-жарақтар саны'}, unit: {en: units, ru: шт., kk: дана}, family: supplied_accessories}
+  max_load_kg: {label: {en: 'Maximum rated load', ru: 'Максимальная допустимая нагрузка', kk: 'Ең жоғары рұқсат етілген жүктеме'}, unit: {en: kg, ru: кг, kk: кг}, family: load_limit}
+  panel_mm: {label: {en: 'Panel thickness', ru: 'Толщина панели', kk: 'Панель қалыңдығы'}, unit: {en: mm, ru: мм, kk: мм}, family: panel_geometry}
+  shelves_count: {label: {en: 'Number of shelves', ru: 'Число полок', kk: 'Сөрелер саны'}, unit: {en: units, ru: шт., kk: дана}, family: storage_layout}
+  assembly_minutes: {label: {en: 'Rated assembly time', ru: 'Расчётное время сборки', kk: 'Жинаудың есептік уақыты'}, unit: {en: minutes, ru: минут, kk: минут}, family: assembly_process}
+  package_width_mm: {label: {en: 'Packed width', ru: 'Ширина упаковки', kk: 'Қаптама ені'}, unit: {en: mm, ru: мм, kk: мм}, family: packed_dimensions}
+  package_height_mm: {label: {en: 'Packed height', ru: 'Высота упаковки', kk: 'Қаптама биіктігі'}, unit: {en: mm, ru: мм, kk: мм}, family: packed_dimensions}
+  package_depth_mm: {label: {en: 'Packed depth', ru: 'Глубина упаковки', kk: 'Қаптама тереңдігі'}, unit: {en: mm, ru: мм, kk: мм}, family: packed_dimensions}
+  humidity_max_percent: {label: {en: 'Maximum permitted humidity', ru: 'Максимальная допустимая влажность', kk: 'Ең жоғары рұқсат етілген ылғалдылық'}, unit: {en: percent, ru: процентов, kk: пайыз}, family: unlisted_humidity}
+  drop_test_cm: {label: {en: 'Certified drop-test height', ru: 'Сертифицированная высота испытания падением', kk: 'Құлауды сынаудың сертификатталған биіктігі'}, unit: {en: cm, ru: см, kk: см}, family: unlisted_drop_test}
+  repair_parts_price: {label: {en: 'Replacement-part price', ru: 'Цена запасной детали', kk: 'Қосалқы бөлшек бағасы'}, unit: {en: KZT, ru: тенге, kk: теңге}, family: unlisted_parts_price}
+  certification_id: {label: {en: 'Certification record number', ru: 'Номер сертификационной записи', kk: 'Сертификаттау жазбасының нөмірі'}, unit: {en: record, ru: запись, kk: жазба}, family: unlisted_certificate}
+  thickness_mm: {label: {en: 'Material thickness', ru: 'Толщина материала', kk: 'Материал қалыңдығы'}, unit: {en: mm, ru: мм, kk: мм}, family: material_geometry}
+  area_gsm: {label: {en: 'Fabric surface density', ru: 'Поверхностная плотность ткани', kk: 'Матаның беттік тығыздығы'}, unit: {en: g/m2, ru: г/м2, kk: г/м2}, family: fabric_density}
+  cotton_percent: {label: {en: 'Cotton content', ru: 'Доля хлопка', kk: 'Мақта үлесі'}, unit: {en: percent, ru: процентов, kk: пайыз}, family: fibre_composition}
+  polyester_percent: {label: {en: 'Polyester content', ru: 'Доля полиэстера', kk: 'Полиэстер үлесі'}, unit: {en: percent, ru: процентов, kk: пайыз}, family: fibre_composition}
+  wash_max_c: {label: {en: 'Maximum wash temperature', ru: 'Максимальная температура стирки', kk: 'Жуудың ең жоғары температурасы'}, unit: {en: C, ru: C, kk: C}, family: textile_washing}
+  iron_max_c: {label: {en: 'Maximum ironing temperature', ru: 'Максимальная температура глажения', kk: 'Үтіктеудің ең жоғары температурасы'}, unit: {en: C, ru: C, kk: C}, family: textile_ironing}
+  spin_max_rpm: {label: {en: 'Maximum spin speed', ru: 'Максимальная скорость отжима', kk: 'Сығудың ең жоғары жылдамдығы'}, unit: {en: rpm, ru: об/мин, kk: айн/мин}, family: textile_spinning}
+  shrink_max_percent: {label: {en: 'Maximum rated shrinkage', ru: 'Максимальная заявленная усадка', kk: 'Көрсетілген ең жоғары шөгу үлесі'}, unit: {en: percent, ru: процентов, kk: пайыз}, family: textile_shrinkage}
+  pack_count: {label: {en: 'Items per sales pack', ru: 'Число предметов в товарной упаковке', kk: 'Сауда қаптамасындағы заттар саны'}, unit: {en: units, ru: шт., kk: дана}, family: sales_pack_contents}
+  compartments_count: {label: {en: 'Number of compartments', ru: 'Число отделений', kk: 'Бөлімдер саны'}, unit: {en: units, ru: шт., kk: дана}, family: storage_layout}
+  wall_mm: {label: {en: 'Container wall thickness', ru: 'Толщина стенки контейнера', kk: 'Контейнер қабырғасының қалыңдығы'}, unit: {en: mm, ru: мм, kk: мм}, family: container_geometry}
+  stack_limit_count: {label: {en: 'Maximum stacking count', ru: 'Максимальное число при штабелировании', kk: 'Қабаттап жинаудың ең жоғары саны'}, unit: {en: units, ru: шт., kk: дана}, family: stacking_limit}
+  capacity_l: {label: {en: 'Rated internal capacity', ru: 'Номинальная внутренняя вместимость', kk: 'Номиналды ішкі сыйымдылығы'}, unit: {en: litres, ru: литров, kk: литр}, family: internal_capacity}
+  water_column_mm: {label: {en: 'Rated water-column resistance', ru: 'Заявленная стойкость к водяному столбу', kk: 'Көрсетілген су бағанына төзімділігі'}, unit: {en: mm, ru: мм, kk: мм}, family: water_resistance}
+  attachment_count: {label: {en: 'Number of attachment points', ru: 'Число точек крепления', kk: 'Бекіту нүктелерінің саны'}, unit: {en: units, ru: шт., kk: дана}, family: attachment_layout}
+  packed_length_mm: {label: {en: 'Length when packed', ru: 'Длина в сложенной упаковке', kk: 'Жиналған қаптамадағы ұзындығы'}, unit: {en: mm, ru: мм, kk: мм}, family: packed_dimensions}
+  packed_diameter_mm: {label: {en: 'Diameter when packed', ru: 'Диаметр в сложенной упаковке', kk: 'Жиналған қаптамадағы диаметрі'}, unit: {en: mm, ru: мм, kk: мм}, family: packed_dimensions}
+  setup_minutes: {label: {en: 'Rated setup time', ru: 'Расчётное время развёртывания', kk: 'Орнатудың есептік уақыты'}, unit: {en: minutes, ru: минут, kk: минут}, family: setup_process}
+  pressure_bar: {label: {en: 'Rated delivery pressure', ru: 'Номинальное давление подачи', kk: 'Номиналды беру қысымы'}, unit: {en: bar, ru: бар, kk: бар}, family: pump_pressure}
+  flow_ml_min: {label: {en: 'Rated liquid delivery rate', ru: 'Номинальный расход подаваемой жидкости', kk: 'Берілетін сұйықтықтың номиналды шығыны'}, unit: {en: ml/min, ru: мл/мин, kk: мл/мин}, family: liquid_flow}
+  spray_width_mm: {label: {en: 'Rated spray width', ru: 'Номинальная ширина распыления', kk: 'Номиналды бүрку ені'}, unit: {en: mm, ru: мм, kk: мм}, family: spray_geometry}
+  resistance_min_kg: {label: {en: 'Minimum exercise resistance', ru: 'Минимальное сопротивление упражнения', kk: 'Жаттығудың ең төмен кедергісі'}, unit: {en: kg, ru: кг, kk: кг}, family: exercise_resistance}
+  resistance_max_kg: {label: {en: 'Maximum exercise resistance', ru: 'Максимальное сопротивление упражнения', kk: 'Жаттығудың ең жоғары кедергісі'}, unit: {en: kg, ru: кг, kk: кг}, family: exercise_resistance}
+  adjustment_steps: {label: {en: 'Number of adjustment settings', ru: 'Число ступеней регулировки', kk: 'Реттеу сатыларының саны'}, unit: {en: units, ru: шт., kk: дана}, family: adjustment_settings}
+  padding_mm: {label: {en: 'Padding thickness', ru: 'Толщина мягкой накладки', kk: 'Жұмсақ төсем қалыңдығы'}, unit: {en: mm, ru: мм, kk: мм}, family: padding_geometry}
+  parts_count: {label: {en: 'Number of package parts', ru: 'Число деталей комплекта', kk: 'Жинақ бөлшектерінің саны'}, unit: {en: units, ru: шт., kk: дана}, family: assembly_parts}
+  min_age_years: {label: {en: 'Minimum labelled age', ru: 'Минимальный возраст на маркировке', kk: 'Таңбалаудағы ең төмен жас'}, unit: {en: years, ru: лет, kk: жас}, family: age_label}
+  battery_v: {label: {en: 'Nominal battery voltage', ru: 'Номинальное напряжение аккумулятора', kk: 'Аккумулятордың номиналды кернеуі'}, unit: {en: V, ru: В, kk: В}, family: battery_voltage}
+  range_m: {label: {en: 'Rated control range', ru: 'Номинальная дальность управления', kk: 'Басқарудың номиналды қашықтығы'}, unit: {en: m, ru: м, kk: м}, family: control_range}
+  run_minutes: {label: {en: 'Rated battery runtime', ru: 'Номинальное время работы от аккумулятора', kk: 'Аккумулятордан жұмыстың номиналды ұзақтығы'}, unit: {en: minutes, ru: минут, kk: минут}, family: battery_runtime}
+  charge_minutes: {label: {en: 'Rated recharge time', ru: 'Номинальное время зарядки', kk: 'Зарядтаудың номиналды ұзақтығы'}, unit: {en: minutes, ru: минут, kk: минут}, family: recharge_time}
+  channels_count: {label: {en: 'Number of control channels', ru: 'Число каналов управления', kk: 'Басқару арналарының саны'}, unit: {en: units, ru: шт., kk: дана}, family: control_channels}
+  resolution_mp: {label: {en: 'Effective image resolution', ru: 'Эффективное разрешение снимка', kk: 'Суреттің тиімді ажыратымдылығы'}, unit: {en: megapixels, ru: мегапикселей, kk: мегапиксель}, family: camera_resolution}
+  fps_max: {label: {en: 'Maximum recorded frame rate', ru: 'Максимальная записываемая частота кадров', kk: 'Жазылатын ең жоғары кадр жиілігі'}, unit: {en: frames/s, ru: кадров/с, kk: кадр/с}, family: recording_rate}
+  optical_zoom_x: {label: {en: 'Optical zoom factor', ru: 'Кратность оптического увеличения', kk: 'Оптикалық үлкейту еселігі'}, unit: {en: times, ru: раз, kk: есе}, family: optical_zoom}
+  focal_min_mm: {label: {en: 'Minimum equivalent focal length', ru: 'Минимальное эквивалентное фокусное расстояние', kk: 'Ең төмен баламалы фокус аралығы'}, unit: {en: mm, ru: мм, kk: мм}, family: focal_length}
+  focal_max_mm: {label: {en: 'Maximum equivalent focal length', ru: 'Максимальное эквивалентное фокусное расстояние', kk: 'Ең жоғары баламалы фокус аралығы'}, unit: {en: mm, ru: мм, kk: мм}, family: focal_length}
+  battery_mah: {label: {en: 'Nominal battery capacity', ru: 'Номинальная ёмкость аккумулятора', kk: 'Аккумулятордың номиналды сыйымдылығы'}, unit: {en: mAh, ru: мАч, kk: мАсағ}, family: battery_capacity}
+  memory_max_gb: {label: {en: 'Maximum supported memory-card capacity', ru: 'Максимальная поддерживаемая ёмкость карты памяти', kk: 'Қолдау табатын жад картасының ең жоғары сыйымдылығы'}, unit: {en: GB, ru: ГБ, kk: ГБ}, family: memory_card_limit}
+  display_digits: {label: {en: 'Number of displayed digits', ru: 'Число отображаемых цифр', kk: 'Көрсетілетін цифрлар саны'}, unit: {en: units, ru: шт., kk: дана}, family: clock_display}
+  alarm_count: {label: {en: 'Number of independent alarms', ru: 'Число независимых будильников', kk: 'Тәуелсіз оятқыштар саны'}, unit: {en: units, ru: шт., kk: дана}, family: alarm_settings}
+  backup_hours: {label: {en: 'Rated clock backup duration', ru: 'Номинальная длительность резервного хода часов', kk: 'Сағаттың сақтық жұмысының номиналды ұзақтығы'}, unit: {en: hours, ru: часов, kk: сағат}, family: clock_backup}
+  drift_seconds_month: {label: {en: 'Maximum monthly clock drift', ru: 'Максимальный месячный уход часов', kk: 'Сағаттың айлық ең жоғары ауытқуы'}, unit: {en: seconds/month, ru: секунд/месяц, kk: секунд/ай}, family: clock_accuracy}
+  polling_hz: {label: {en: 'Rated input polling frequency', ru: 'Номинальная частота опроса ввода', kk: 'Енгізуді сұраудың номиналды жиілігі'}, unit: {en: Hz, ru: Гц, kk: Гц}, family: input_polling}
+  axis_count: {label: {en: 'Number of analogue axes', ru: 'Число аналоговых осей', kk: 'Аналогтік осьтер саны'}, unit: {en: units, ru: шт., kk: дана}, family: input_axes}
+  travel_mm: {label: {en: 'Rated input mechanism travel', ru: 'Номинальный ход механизма ввода', kk: 'Енгізу тетігінің номиналды жүрісі'}, unit: {en: mm, ru: мм, kk: мм}, family: input_travel}
+groups:
+  peripherals:
+    sku_prefix: IX
+    category: electronics
+    format: docx
+    fields: [mass_g, width_mm, height_mm, depth_mm, operating_min_c, operating_max_c, cable_cm, voltage_v, power_w, transfer_mbps, controls_count, storage_min_c, storage_max_c]
+    missing: [humidity_max_percent, drop_test_cm, repair_parts_price, certification_id]
+    rows:
+      - [compact_keyboard, Compact mechanical keyboard, Компактная механическая клавиатура, Ықшам механикалық пернетақта, 18900, 620, 310, 36, 112, 0, 40, 180, 5, 2, 12, 68, -20, 60]
+      - [ergonomic_keyboard, Split ergonomic keyboard, Раздельная эргономичная клавиатура, Бөлінген эргономикалық пернетақта, 34900, 910, 420, 44, 180, 5, 35, 200, 5, 3, 12, 88, -10, 55]
+      - [vertical_mouse, Vertical optical mouse, Вертикальная оптическая мышь, Тік оптикалық тінтуір, 11900, 128, 77, 80, 112, 0, 40, 160, 5, 1, 12, 6, -20, 60]
+      - [trackball, Desktop trackball, Настольный трекбол, Үстел трекболы, 22900, 240, 135, 54, 102, 5, 40, 190, 5, 1, 12, 5, -15, 55]
+      - [pen_tablet, Pen graphics tablet, Перьевой графический планшет, Қаламды графикалық планшет, 28900, 470, 260, 9, 170, 0, 40, 150, 5, 2, 480, 8, -20, 60]
+      - [sheet_scanner, Sheet-fed document scanner, Протяжный сканер документов, Парақты құжат сканері, 89900, 1450, 292, 78, 104, 10, 35, 180, 12, 18, 480, 3, -10, 50]
+      - [flatbed_scanner, Flatbed photo scanner, Планшетный фотосканер, Жазық фотосканер, 109900, 2600, 280, 42, 420, 10, 35, 200, 12, 16, 480, 4, -10, 50]
+      - [label_printer, Desktop label printer, Настольный принтер этикеток, Үстел жапсырма принтері, 49900, 890, 180, 92, 140, 5, 40, 150, 24, 60, 480, 2, -20, 55]
+      - [barcode_reader, Handheld barcode reader, Ручной сканер штрихкодов, Қол штрихкод сканері, 17900, 170, 72, 165, 95, 0, 45, 180, 5, 2, 12, 2, -20, 60]
+      - [document_camera, Folding document camera, Складная документ-камера, Жиналмалы құжат камерасы, 57900, 780, 95, 310, 120, 5, 40, 160, 5, 5, 480, 5, -15, 55]
+  chargers:
+    sku_prefix: CQ
+    category: electronics
+    format: json
+    fields: [mass_g, width_mm, height_mm, depth_mm, operating_min_c, operating_max_c, input_v, output_v, output_w, output_a, ports_count, cable_cm, efficiency_percent]
+    missing: [humidity_max_percent, drop_test_cm, repair_parts_price, certification_id]
+    rows:
+      - [desk_usb_charger, Desktop USB charging station, Настольная станция зарядки USB, Үстел USB зарядтау станциясы, 14900, 280, 90, 35, 65, 0, 40, 220, 5, 40, 8, 4, 150, 87]
+      - [gan_charger, Compact GaN charger, Компактный зарядник GaN, Ықшам GaN зарядтағышы, 19900, 125, 42, 68, 30, 0, 40, 220, 20, 65, 3.25, 2, 180, 91]
+      - [laptop_adapter, Slim laptop power adapter, Тонкий блок питания ноутбука, Ноутбуктің жұқа қуат блогы, 16900, 310, 120, 24, 52, 0, 35, 220, 19, 90, 4.74, 1, 180, 89]
+      - [travel_charger, Travel charging hub, Дорожный зарядный концентратор, Жол зарядтау торабы, 24900, 215, 82, 54, 40, 0, 40, 220, 20, 100, 5, 3, 120, 90]
+      - [car_usb_charger, Car socket USB charger, Автомобильный USB зарядник, Көлік USB зарядтағышы, 7900, 48, 28, 70, 28, -10, 45, 12, 12, 36, 3, 2, 100, 86]
+      - [camera_battery_charger, Camera battery charging dock, Док зарядки аккумулятора камеры, Камера аккумуляторын зарядтау докы, 12900, 140, 85, 32, 60, 5, 40, 5, 8.4, 16.8, 2, 1, 100, 84]
+      - [aa_battery_charger, Rechargeable AA cell charger, Зарядник аккумуляторов AA, AA аккумулятор зарядтағышы, 9900, 180, 110, 30, 70, 0, 35, 5, 1.5, 6, 4, 4, 100, 82]
+      - [radio_battery_dock, Radio battery charging base, База зарядки аккумулятора рации, Рация аккумуляторын зарядтау негізі, 15900, 260, 105, 65, 100, 5, 40, 12, 8.4, 12.6, 1.5, 1, 150, 85]
+      - [router_backup_supply, Router backup power supply, Резервный блок питания роутера, Маршрутизатордың сақтық қуат блогы, 21900, 420, 160, 30, 105, 0, 40, 220, 12, 24, 2, 2, 120, 88]
+      - [multi_voltage_adapter, Adjustable low-voltage adapter, Регулируемый низковольтный адаптер, Реттелетін төмен кернеулі адаптер, 13900, 240, 98, 35, 62, 0, 40, 220, 12, 30, 2.5, 1, 180, 86]
+  displays:
+    sku_prefix: DX
+    category: electronics
+    format: pdf
+    fields: [mass_g, width_mm, height_mm, depth_mm, operating_min_c, operating_max_c, diagonal_in, resolution_x, resolution_y, refresh_hz, brightness_cd, power_w, hdmi_count]
+    missing: [humidity_max_percent, drop_test_cm, repair_parts_price, certification_id]
+    rows:
+      - [office_monitor, Office desktop monitor, Офисный настольный монитор, Кеңсе үстел мониторы, 64900, 3200, 540, 410, 190, 5, 35, 24, 1920, 1080, 75, 250, 28, 1]
+      - [gaming_monitor, High-refresh gaming monitor, Игровой монитор высокой частоты, Жоғары жиілікті ойын мониторы, 139900, 5100, 615, 455, 220, 5, 35, 27, 2560, 1440, 165, 350, 48, 2]
+      - [portable_monitor, Portable USB-C monitor, Портативный монитор USB-C, Портативті USB-C мониторы, 79900, 820, 357, 225, 10, 0, 40, 15.6, 1920, 1080, 60, 220, 12, 1]
+      - [drawing_display, Pen drawing display, Перьевой экран для рисования, Сурет салуға арналған қаламды экран, 169900, 1900, 420, 250, 18, 5, 35, 18, 2560, 1440, 60, 300, 25, 1]
+      - [ultrawide_monitor, Ultrawide work monitor, Сверхширокий рабочий монитор, Аса кең жұмыс мониторы, 199900, 7400, 815, 470, 240, 5, 35, 34, 3440, 1440, 100, 320, 65, 2]
+      - [photo_monitor, Photo editing monitor, Монитор для обработки фотографий, Фотосурет өңдеу мониторы, 219900, 6200, 610, 450, 210, 5, 35, 27, 3840, 2160, 60, 400, 55, 2]
+      - [kitchen_tv, Compact kitchen television, Компактный кухонный телевизор, Асүйге арналған ықшам теледидар, 74900, 3100, 550, 365, 150, 5, 40, 24, 1366, 768, 60, 200, 32, 2]
+      - [digital_signage, Counter digital signage display, Прилавочный информационный экран, Сөре ақпараттық экраны, 119900, 2800, 370, 270, 65, 0, 40, 15, 1920, 1080, 60, 450, 24, 1]
+      - [field_monitor, Camera field monitor, Накамерный полевой монитор, Камераға арналған далалық монитор, 99900, 360, 190, 125, 28, -10, 45, 7, 1920, 1200, 60, 1000, 18, 2]
+      - [rack_display, Rack service display, Стоечный сервисный экран, Тірек сервистік экраны, 189900, 4800, 480, 44, 380, 0, 45, 17.3, 1920, 1080, 60, 300, 35, 1]
+  lighting:
+    sku_prefix: LX
+    category: home
+    format: txt
+    fields: [mass_g, width_mm, height_mm, depth_mm, operating_min_c, operating_max_c, voltage_v, power_w, lumen, colour_temp_k, cri, beam_degrees, life_hours]
+    missing: [humidity_max_percent, drop_test_cm, repair_parts_price, certification_id]
+    rows:
+      - [desk_lamp, Articulated desk lamp, Шарнирная настольная лампа, Буынды үстел шамы, 12900, 850, 160, 420, 290, 0, 40, 220, 8, 600, 4000, 90, 100, 25000]
+      - [reading_lamp, Clip-on reading lamp, Лампа для чтения с зажимом, Қысқышты оқу шамы, 6900, 240, 75, 330, 140, 0, 40, 5, 4, 240, 3000, 85, 70, 20000]
+      - [floor_lamp, Standing floor lamp, Напольный торшер, Еден шамы, 24900, 3600, 260, 1500, 260, 5, 35, 220, 18, 1600, 3000, 90, 120, 30000]
+      - [under_cabinet_light, Under-cabinet light bar, Подшкафная световая планка, Шкаф астындағы жарық тақтасы, 8900, 310, 600, 18, 25, 0, 40, 12, 10, 850, 4000, 90, 110, 25000]
+      - [ring_light, Tabletop ring light, Настольная кольцевая лампа, Үстел сақина шамы, 15900, 1100, 300, 500, 180, 0, 40, 12, 24, 1900, 5600, 95, 120, 20000]
+      - [work_light, Portable workshop light, Переносной рабочий светильник, Тасымалды жұмыс шамы, 17900, 1500, 230, 280, 110, -10, 40, 220, 30, 2700, 5000, 80, 100, 30000]
+      - [night_light, Dimmable bedside night light, Регулируемый прикроватный ночник, Реттелетін төсек жанындағы түнгі шам, 5900, 180, 90, 120, 90, 0, 35, 5, 2, 90, 2700, 85, 180, 15000]
+      - [picture_light, Wall picture light, Настенная подсветка картины, Қабырғадағы сурет жарығы, 13900, 640, 450, 60, 180, 5, 35, 220, 9, 700, 3000, 95, 40, 25000]
+      - [track_spotlight, Adjustable track spotlight, Поворотный трековый светильник, Бұрылмалы трек шамы, 9900, 420, 90, 145, 90, -5, 40, 220, 12, 1050, 4000, 90, 36, 30000]
+      - [inspection_light, Flexible inspection light, Гибкий инспекционный светильник, Икемді тексеру шамы, 11900, 350, 45, 420, 45, -10, 45, 12, 5, 380, 6500, 80, 25, 20000]
+  climate:
+    sku_prefix: AX
+    category: appliances
+    format: docx
+    fields: [mass_g, width_mm, height_mm, depth_mm, operating_min_c, operating_max_c, power_w, air_m3_h, noise_db, tank_ml, modes_count, cable_cm, coverage_m2]
+    missing: [humidity_max_percent, drop_test_cm, repair_parts_price, certification_id]
+    rows:
+      - [evaporative_cooler, Evaporative room cooler, Испарительный комнатный охладитель, Бөлмелік буландырғыш салқындатқыш, 44900, 6500, 280, 640, 310, 10, 40, 65, 320, 52, 5000, 3, 180, 22]
+      - [humidifying_fan, Humidifying tower fan, Башенный вентилятор с увлажнением, Ылғалдандыратын мұнара желдеткіші, 49900, 7200, 240, 900, 240, 10, 40, 75, 280, 48, 3200, 4, 180, 20]
+      - [air_washer, Disc air washer, Дисковая мойка воздуха, Дискілі ауа жуғыш, 89900, 8100, 360, 420, 350, 5, 35, 22, 180, 35, 4500, 3, 200, 35]
+      - [ultrasonic_humidifier, Ultrasonic room humidifier, Ультразвуковой комнатный увлажнитель, Бөлмелік ультрадыбыстық ылғалдандырғыш, 22900, 1700, 210, 320, 210, 5, 35, 28, 35, 28, 4000, 3, 150, 28]
+      - [steam_humidifier, Warm-steam humidifier, Паровой увлажнитель тёплого типа, Жылы бу ылғалдандырғышы, 34900, 2900, 260, 340, 220, 5, 35, 280, 45, 34, 3600, 2, 180, 30]
+      - [desiccant_dehumidifier, Desiccant dehumidifier, Адсорбционный осушитель, Адсорбциялық құрғатқыш, 79900, 6300, 280, 480, 210, 1, 35, 360, 150, 42, 2200, 3, 180, 25]
+      - [compressor_dehumidifier, Compressor dehumidifier, Компрессорный осушитель, Компрессорлық құрғатқыш, 99900, 11500, 310, 500, 240, 5, 35, 210, 180, 44, 3000, 4, 180, 40]
+      - [personal_air_cooler, Personal desktop air cooler, Персональный настольный охладитель, Жеке үстел салқындатқышы, 14900, 950, 170, 170, 180, 10, 40, 8, 40, 32, 600, 3, 120, 4]
+      - [plant_humidifier, Plant shelf humidifier, Увлажнитель для полки растений, Өсімдік сөресіне арналған ылғалдандырғыш, 27900, 2100, 200, 360, 200, 5, 35, 30, 38, 30, 5000, 4, 180, 32]
+      - [air_purifying_washer, Air purifier with water module, Очиститель воздуха с водяным модулем, Су модулі бар ауа тазартқыш, 129900, 9200, 350, 610, 290, 5, 35, 48, 300, 46, 2500, 5, 200, 45]
+  kitchen_heat:
+    sku_prefix: HX
+    category: appliances
+    format: json
+    fields: [mass_g, width_mm, height_mm, depth_mm, operating_min_c, operating_max_c, power_w, volume_ml, min_temp_c, max_temp_c, timer_minutes, cable_cm, modes_count]
+    missing: [humidity_max_percent, drop_test_cm, repair_parts_price, certification_id]
+    rows:
+      - [mini_oven, Countertop mini oven, Настольная мини-печь, Үстел шағын пеші, 47900, 6200, 430, 280, 330, 5, 35, 1500, 18000, 90, 230, 60, 100, 4]
+      - [rice_cooker, Digital rice cooker, Цифровая рисоварка, Цифрлық күріш пісіргіш, 27900, 2800, 260, 240, 290, 5, 35, 700, 3000, 40, 105, 720, 120, 8]
+      - [slow_cooker, Ceramic slow cooker, Керамическая медленноварка, Керамикалық баяу пісіргіш, 22900, 4100, 320, 250, 260, 5, 35, 250, 4500, 60, 98, 480, 100, 3]
+      - [steam_cooker, Electric steam cooker, Электрическая пароварка, Электр бу пісіргіш, 31900, 2900, 300, 390, 240, 5, 35, 900, 7000, 80, 100, 90, 110, 3]
+      - [yogurt_maker, Jar yogurt maker, Баночная йогуртница, Құтылы йогурт дайындағыш, 18900, 2100, 270, 150, 230, 10, 35, 25, 1400, 25, 50, 1440, 90, 4]
+      - [food_dehydrator, Tray food dehydrator, Лоточная сушилка продуктов, Науалы азық кептіргіш, 34900, 3600, 330, 280, 330, 10, 35, 400, 9000, 35, 75, 2880, 120, 5]
+      - [soup_maker, Heated soup blender, Блендер-суповарка с нагревом, Қыздыратын сорпа блендері, 39900, 2900, 210, 370, 180, 5, 35, 1000, 1600, 40, 100, 60, 100, 6]
+      - [sous_vide_bath, Countertop water cooking bath, Настольная водяная варочная ванна, Үстел су пісіру ваннасы, 64900, 5400, 390, 280, 300, 10, 35, 800, 8000, 25, 95, 4320, 150, 2]
+      - [heated_lunch_box, Heated lunch container, Контейнер для обеда с подогревом, Қыздыратын түскі ас контейнері, 12900, 850, 230, 110, 170, 5, 35, 60, 1500, 40, 75, 120, 120, 2]
+      - [counter_fryer, Compact countertop fryer, Компактная настольная фритюрница, Ықшам үстел фритюрі, 28900, 2700, 260, 220, 300, 5, 35, 1600, 2500, 130, 190, 30, 100, 3]
+  cleaning:
+    sku_prefix: CX
+    category: appliances
+    format: pdf
+    fields: [mass_g, width_mm, height_mm, depth_mm, operating_min_c, operating_max_c, power_w, suction_kpa, tank_ml, noise_db, cable_cm, modes_count, filter_area_cm2]
+    missing: [humidity_max_percent, drop_test_cm, repair_parts_price, certification_id]
+    rows:
+      - [canister_vacuum, Bagless canister vacuum, Безмешковый напольный пылесос, Қапсыз еден шаңсорғышы, 49900, 5100, 280, 260, 390, 5, 35, 1600, 22, 2200, 76, 500, 4, 420]
+      - [stick_vacuum, Corded stick vacuum, Проводной вертикальный пылесос, Сымды тік шаңсорғыш, 24900, 2300, 250, 1120, 150, 5, 35, 600, 16, 800, 74, 450, 2, 180]
+      - [hand_vacuum, Handheld corded vacuum, Ручной проводной пылесос, Қол сымды шаңсорғышы, 16900, 1300, 120, 150, 330, 5, 35, 400, 12, 500, 72, 400, 2, 120]
+      - [mattress_vacuum, Mattress surface vacuum, Пылесос для поверхности матраса, Матрас бетін тазалайтын шаңсорғыш, 32900, 2400, 290, 170, 280, 5, 35, 500, 14, 600, 73, 450, 3, 160]
+      - [ash_vacuum, Cold-ash workshop vacuum, Мастерской пылесос для холодной золы, Суық күлге арналған шеберхана шаңсорғышы, 39900, 4600, 320, 360, 320, 5, 35, 1000, 18, 12000, 79, 300, 2, 500]
+      - [wet_dry_vacuum, Wet and dry utility vacuum, Хозяйственный пылесос влажной и сухой уборки, Ылғалды және құрғақ тазалау шаңсорғышы, 57900, 6800, 370, 520, 370, 5, 35, 1400, 23, 18000, 81, 500, 3, 620]
+      - [carpet_extractor, Compact carpet extractor, Компактный ковровый экстрактор, Ықшам кілем экстракторы, 69900, 7500, 340, 450, 420, 5, 35, 1200, 19, 4000, 78, 600, 3, 300]
+      - [spot_cleaner, Portable fabric spot cleaner, Портативный очиститель пятен на ткани, Мата дағын тазалайтын портативті құрылғы, 44900, 4100, 280, 330, 230, 5, 35, 450, 13, 1600, 75, 450, 2, 140]
+      - [desktop_dust_vacuum, Desktop dust collection vacuum, Настольный пылесборный пылесос, Үстел шаң жинағыш шаңсорғышы, 12900, 620, 160, 80, 160, 10, 35, 80, 5, 200, 62, 150, 2, 90]
+      - [workbench_dust_extractor, Workbench dust extractor, Верстачный пылеудаляющий аппарат, Жұмыс үстелінің шаң сору аппараты, 89900, 9200, 410, 620, 390, 5, 35, 1600, 25, 25000, 80, 700, 4, 900]
+  audio:
+    sku_prefix: AU
+    category: electronics
+    format: docx
+    fields: [mass_g, width_mm, height_mm, depth_mm, operating_min_c, operating_max_c, power_w, freq_min_hz, freq_max_hz, impedance_ohm, sensitivity_db, cable_cm, drivers_count]
+    missing: [humidity_max_percent, drop_test_cm, repair_parts_price, certification_id]
+    rows:
+      - [desktop_speakers, Powered desktop speaker pair, Пара активных настольных колонок, Белсенді үстел колонкаларының жұбы, 21900, 2100, 150, 220, 170, 5, 35, 30, 70, 20000, 8, 86, 150, 4]
+      - [bookshelf_speaker, Powered bookshelf speaker, Активная полочная колонка, Белсенді сөре колонкасы, 39900, 4200, 180, 310, 230, 5, 35, 60, 50, 20000, 6, 88, 180, 2]
+      - [compact_soundbar, Compact TV soundbar, Компактный телевизионный саундбар, Ықшам теледидар саундбары, 29900, 1900, 650, 65, 85, 5, 35, 45, 90, 18000, 8, 85, 150, 4]
+      - [studio_monitor, Near-field studio monitor, Студийный монитор ближнего поля, Жақын өрісті студия мониторы, 79900, 5800, 210, 340, 280, 10, 35, 90, 45, 22000, 6, 89, 200, 2]
+      - [conference_speaker, Conference room speaker, Колонка конференц-зала, Мәжіліс бөлмесінің колонкасы, 34900, 1700, 220, 75, 220, 5, 35, 24, 120, 16000, 8, 84, 300, 2]
+      - [portable_pa_speaker, Portable powered PA speaker, Переносная активная акустическая система, Тасымалды белсенді дыбыс жүйесі, 119900, 11200, 340, 560, 320, 0, 40, 180, 55, 18000, 8, 94, 300, 2]
+      - [ceiling_speaker, Powered ceiling speaker, Активная потолочная колонка, Белсенді төбе колонкасы, 24900, 1400, 230, 100, 230, 5, 35, 20, 100, 18000, 8, 87, 200, 2]
+      - [wall_speaker, Powered wall speaker, Активная настенная колонка, Белсенді қабырға колонкасы, 28900, 2300, 190, 280, 170, 5, 35, 35, 80, 19000, 8, 88, 250, 2]
+      - [subwoofer, Compact powered subwoofer, Компактный активный сабвуфер, Ықшам белсенді сабвуфер, 69900, 8400, 300, 350, 330, 5, 35, 120, 28, 180, 4, 90, 180, 1]
+      - [instrument_monitor, Personal instrument monitor, Персональный инструментальный монитор, Жеке аспап мониторы, 54900, 6200, 290, 310, 250, 5, 35, 80, 60, 17000, 8, 91, 250, 2]
+  tools:
+    sku_prefix: TX
+    category: home
+    format: txt
+    fields: [mass_g, width_mm, height_mm, depth_mm, operating_min_c, operating_max_c, power_w, speed_min_rpm, speed_max_rpm, grip_mm, cable_cm, noise_db, accessories_count]
+    missing: [humidity_max_percent, drop_test_cm, repair_parts_price, certification_id]
+    rows:
+      - [corded_drill, Variable-speed corded drill, Проводная дрель с регулировкой оборотов, Айналымы реттелетін сымды бұрғы, 21900, 1700, 245, 195, 70, 5, 40, 650, 300, 2800, 38, 200, 88, 4]
+      - [rotary_engraver, Precision rotary engraver, Точный роторный гравёр, Дәл роторлы ойғыш, 17900, 650, 220, 55, 55, 5, 40, 170, 8000, 35000, 32, 180, 79, 40]
+      - [angle_grinder, Compact angle grinder, Компактная угловая шлифмашина, Ықшам бұрыштық тегістегіш, 25900, 2100, 285, 100, 115, 5, 40, 900, 6000, 11000, 45, 250, 93, 3]
+      - [trim_router, Wood edge trim router, Кромочный фрезер по дереву, Ағаш жиегінің фрезері, 34900, 1800, 110, 220, 110, 5, 40, 710, 10000, 30000, 65, 250, 89, 5]
+      - [orbital_sander, Random-orbit sander, Эксцентриковая шлифмашина, Эксцентрлі тегістегіш, 22900, 1500, 160, 155, 125, 5, 40, 300, 4000, 12000, 80, 200, 84, 6]
+      - [bench_grinder, Bench grinding machine, Настольный точильный станок, Үстел қайрау станогы, 49900, 7200, 340, 220, 210, 5, 35, 350, 1400, 2950, 30, 180, 82, 4]
+      - [polisher, Variable-speed rotary polisher, Роторная полировальная машина, Айналымы реттелетін роторлы жылтыратқыш, 39900, 2800, 410, 140, 165, 5, 40, 1200, 600, 3200, 45, 300, 87, 5]
+      - [die_grinder, Long-neck die grinder, Прямая шлифмашина с длинной шейкой, Ұзын мойынды түзу тегістегіш, 42900, 1900, 370, 85, 75, 5, 40, 650, 10000, 28000, 40, 250, 90, 3]
+      - [drill_press, Small drill press, Малый сверлильный станок, Шағын бұрғылау станогы, 89900, 16500, 360, 580, 420, 5, 35, 500, 500, 2500, 28, 180, 81, 6]
+      - [mini_lathe, Miniature wood lathe, Миниатюрный токарный станок по дереву, Ағашқа арналған шағын токарь станогы, 119900, 22400, 720, 330, 260, 5, 35, 550, 500, 3800, 35, 200, 83, 8]
+  furniture:
+    sku_prefix: FX
+    category: home
+    format: pdf
+    fields: [mass_g, width_mm, height_mm, depth_mm, operating_min_c, max_load_kg, panel_mm, shelves_count, assembly_minutes, package_width_mm, package_height_mm, package_depth_mm]
+    missing: [humidity_max_percent, drop_test_cm, repair_parts_price, certification_id]
+    rows:
+      - [writing_desk, Compact writing desk, Компактный письменный стол, Ықшам жазу үстелі, 34900, 18000, 1000, 750, 550, 5, 50, 18, 1, 35, 1080, 90, 620]
+      - [bookcase, Narrow bookcase, Узкий книжный шкаф, Жіңішке кітап шкафы, 44900, 24000, 600, 1800, 300, 5, 80, 18, 5, 50, 1880, 110, 380]
+      - [coffee_table, Rectangular coffee table, Прямоугольный журнальный стол, Тікбұрышты журнал үстелі, 22900, 11000, 900, 450, 500, 5, 25, 16, 1, 25, 980, 80, 580]
+      - [side_table, Bedside side table, Прикроватный приставной столик, Төсек жанындағы қосалқы үстел, 14900, 6500, 420, 540, 360, 5, 15, 16, 1, 20, 620, 75, 430]
+      - [shoe_rack, Hall shoe rack, Прихожая обувная полка, Дәліз аяқ киім сөресі, 18900, 9200, 800, 700, 320, 5, 35, 16, 3, 30, 880, 100, 390]
+      - [tv_stand, Low television stand, Низкая телевизионная тумба, Төмен теледидар тұғыры, 39900, 22000, 1200, 480, 400, 5, 45, 18, 2, 45, 1280, 130, 470]
+      - [wood_stool, Solid-panel wooden stool, Деревянный табурет со сплошным сиденьем, Тұтас отырғышты ағаш орындық, 11900, 4200, 350, 450, 350, 5, 100, 24, 0, 15, 520, 100, 420]
+      - [hall_bench, Hall storage bench, Прихожая скамья для хранения, Дәліз сақтау орындығы, 32900, 15500, 900, 470, 380, 5, 120, 22, 1, 40, 980, 120, 450]
+      - [wall_shelf, Wall-mounted display shelf, Настенная выставочная полка, Қабырға көрме сөресі, 9900, 3800, 800, 200, 200, 5, 10, 22, 1, 20, 880, 70, 270]
+      - [corner_shelf, Freestanding corner shelf, Напольная угловая этажерка, Еден бұрыштық сөресі, 24900, 12500, 420, 1500, 420, 5, 40, 18, 4, 40, 1580, 100, 490]
+  textiles:
+    sku_prefix: WX
+    category: home
+    format: docx
+    fields: [mass_g, width_mm, length_mm, thickness_mm, area_gsm, cotton_percent, polyester_percent, wash_max_c, iron_max_c, spin_max_rpm, shrink_max_percent, pack_count, storage_min_c, storage_max_c]
+    missing: [humidity_max_percent, drop_test_cm, repair_parts_price, certification_id]
+    rows:
+      - [bath_towel, Cotton bath towel, Хлопковое банное полотенце, Мақта монша сүлгісі, 6900, 600, 700, 1400, 4, 600, 100, 0, 60, 150, 1000, 4, 1, 5, 35]
+      - [hand_towels, Cotton hand towel pair, Пара хлопковых полотенец для рук, Мақта қол сүлгілерінің жұбы, 4900, 300, 400, 700, 3, 500, 100, 0, 60, 150, 1000, 4, 2, 5, 35]
+      - [kitchen_towels, Woven kitchen towel set, Набор тканых кухонных полотенец, Тоқылған асүй сүлгілерінің жиынтығы, 3900, 210, 400, 600, 1, 280, 80, 20, 60, 150, 900, 3, 3, 5, 35]
+      - [duvet_cover, Cotton blend duvet cover, Пододеяльник из смесового хлопка, Аралас мақта көрпеқабы, 12900, 950, 2000, 2200, 1, 130, 80, 20, 40, 150, 800, 3, 1, 5, 35]
+      - [flat_sheet, Woven flat bed sheet, Тканая простыня без резинки, Резеңкесіз тоқылған жайма, 7900, 680, 2200, 2400, 1, 125, 90, 10, 60, 150, 900, 4, 1, 5, 35]
+      - [pillowcase_pair, Cotton pillowcase pair, Пара хлопковых наволочек, Мақта жастыққаптарының жұбы, 4900, 240, 500, 700, 1, 140, 100, 0, 60, 180, 1000, 4, 2, 5, 35]
+      - [tablecloth, Rectangular dining tablecloth, Прямоугольная обеденная скатерть, Тікбұрышты ас дастарқаны, 8900, 520, 1400, 2000, 1, 185, 60, 40, 40, 110, 700, 2, 1, 5, 35]
+      - [curtain_panel, Light curtain panel, Лёгкое шторное полотно, Жеңіл перде жаймасы, 11900, 740, 1400, 2600, 1, 200, 30, 70, 30, 110, 600, 2, 1, 5, 35]
+      - [sofa_throw, Woven sofa throw, Тканый диванный плед, Тоқылған диван жамылғысы, 14900, 1150, 1500, 2000, 3, 380, 70, 30, 30, 110, 600, 3, 1, 5, 35]
+      - [picnic_table_runner, Cotton outdoor table runner, Хлопковая дорожка для уличного стола, Дала үстелінің мақта жолақшасы, 5900, 280, 400, 1800, 2, 390, 85, 15, 40, 150, 800, 3, 1, 5, 35]
+  storage:
+    sku_prefix: SX
+    category: home
+    format: json
+    fields: [mass_g, width_mm, height_mm, depth_mm, operating_min_c, operating_max_c, volume_ml, compartments_count, wall_mm, stack_limit_count, pack_count, max_load_kg]
+    missing: [humidity_max_percent, drop_test_cm, repair_parts_price, certification_id]
+    rows:
+      - [lunch_container, Divided lunch container, Разделённый контейнер для обеда, Бөлімді түскі ас контейнері, 3900, 240, 210, 75, 150, -10, 70, 1200, 3, 2, 4, 1, 2]
+      - [pantry_box, Tall pantry storage box, Высокий контейнер кладовой, Қойманың биік сақтау контейнері, 4900, 420, 150, 310, 120, 0, 50, 4000, 1, 2, 3, 1, 4]
+      - [drawer_organizer, Modular drawer organizer, Модульный органайзер ящика, Тартпаның модульдік ұйымдастырғышы, 5900, 580, 380, 55, 300, 0, 45, 4500, 8, 2, 4, 1, 5]
+      - [tool_parts_case, Small-parts tool case, Кейс мелких инструментальных деталей, Ұсақ құрал бөлшектерінің қорабы, 7900, 850, 400, 90, 300, -10, 50, 8000, 18, 3, 3, 1, 8]
+      - [underbed_box, Wheeled under-bed box, Подкроватный ящик на колёсах, Төсек астындағы доңғалақты жәшік, 11900, 2300, 760, 170, 480, 0, 45, 50000, 1, 3, 2, 1, 18]
+      - [document_crate, Lidded document crate, Документальный ящик с крышкой, Қақпақты құжат жәшігі, 6900, 1500, 420, 330, 350, 0, 45, 32000, 1, 3, 4, 1, 15]
+      - [shoe_box_set, Stackable shoe box set, Набор штабелируемых обувных коробок, Қабатталатын аяқ киім қораптарының жиынтығы, 9900, 1800, 340, 210, 250, 0, 40, 12000, 1, 2, 6, 4, 4]
+      - [cable_case, Travel cable organizer case, Дорожный кейс для кабелей, Кабельдердің жол қорабы, 4900, 330, 260, 80, 190, -5, 45, 3000, 9, 2, 3, 1, 3]
+      - [craft_organizer, Craft material compartment box, Коробка отсеков для рукоделия, Қолөнер материалдарының бөлімді қорабы, 5900, 650, 320, 60, 220, 0, 45, 3500, 24, 2, 5, 1, 4]
+      - [laundry_storage_box, Ventilated laundry storage box, Вентилируемый ящик для белья, Желдетілетін кір сақтау жәшігі, 8900, 1700, 440, 520, 330, 0, 45, 55000, 2, 3, 2, 1, 12]
+  outdoor:
+    sku_prefix: OX
+    category: sport
+    format: txt
+    fields: [mass_g, width_mm, height_mm, depth_mm, operating_min_c, operating_max_c, capacity_l, max_load_kg, water_column_mm, attachment_count, packed_length_mm, packed_diameter_mm, setup_minutes, storage_max_c]
+    missing: [humidity_max_percent, drop_test_cm, repair_parts_price, certification_id]
+    rows:
+      - [hiking_backpack, Framed hiking backpack, Каркасный походный рюкзак, Қаңқалы жорық сөмкесі, 44900, 1800, 320, 680, 260, -15, 40, 55, 18, 1500, 10, 620, 260, 2, 45]
+      - [cycling_pannier, Rear cycling pannier, Задняя велосипедная сумка, Велосипедтің артқы сөмкесі, 21900, 1150, 300, 420, 180, -10, 40, 22, 10, 3000, 6, 420, 220, 3, 45]
+      - [kayak_dry_bag, Roll-top kayak dry bag, Герметичный мешок для каяка, Каяктың орамалы құрғақ қапшығы, 12900, 680, 280, 560, 220, -5, 40, 30, 12, 5000, 4, 300, 130, 1, 45]
+      - [camp_duffel, Camp transport duffel, Походная транспортная сумка, Жорық тасымал сөмкесі, 27900, 1400, 650, 320, 320, -15, 40, 65, 22, 2000, 8, 350, 180, 2, 45]
+      - [expedition_pack, Expedition load backpack, Экспедиционный грузовой рюкзак, Экспедициялық жүк сөмкесі, 69900, 2600, 380, 820, 300, -20, 40, 90, 28, 2500, 14, 760, 320, 3, 45]
+      - [climbing_rope_bag, Climbing rope transport bag, Сумка переноски альпинистской верёвки, Өрмелеу арқанының тасымал сөмкесі, 18900, 920, 380, 450, 250, -10, 40, 40, 15, 1500, 6, 400, 180, 2, 45]
+      - [fishing_gear_bag, Fishing tackle transport bag, Рыболовная транспортная сумка, Балық аулау жабдықтарының сөмкесі, 24900, 1650, 480, 360, 300, -10, 40, 48, 18, 2000, 8, 480, 250, 2, 45]
+      - [trail_daypack, Lightweight trail daypack, Лёгкий однодневный походный рюкзак, Біркүндік жеңіл жорық сөмкесі, 15900, 520, 260, 460, 180, -5, 40, 18, 7, 1000, 5, 250, 120, 1, 45]
+      - [camera_hiking_pack, Camera hiking backpack, Походный фоторюкзак, Жорық фото сөмкесі, 54900, 2100, 330, 530, 260, -10, 40, 35, 14, 1800, 9, 500, 260, 3, 45]
+      - [folding_water_carrier, Folding camp water carrier bag, Складная походная сумка для воды, Жиналмалы жорық су сөмкесі, 7900, 420, 330, 400, 180, 0, 40, 15, 15, 6000, 4, 220, 100, 1, 45]
+  garden:
+    sku_prefix: GX
+    category: home
+    format: docx
+    fields: [mass_g, width_mm, height_mm, depth_mm, operating_min_c, operating_max_c, volume_ml, pressure_bar, flow_ml_min, cable_cm, power_w, noise_db, spray_width_mm]
+    missing: [humidity_max_percent, drop_test_cm, repair_parts_price, certification_id]
+    rows:
+      - [garden_sprayer, Powered garden sprayer, Электрический садовый опрыскиватель, Электр бақ бүріккіші, 34900, 3800, 330, 520, 220, 5, 35, 12000, 4, 1800, 150, 60, 58, 700]
+      - [greenhouse_mister, Greenhouse misting unit, Тепличный туманообразователь, Жылыжай тұман құрылғысы, 39900, 2900, 260, 360, 220, 5, 35, 8000, 6, 900, 200, 80, 62, 1200]
+      - [portable_washer, Tank-fed portable garden washer, Переносная садовая мойка с баком, Бакты тасымалды бақ жуғышы, 44900, 4900, 380, 480, 300, 5, 35, 18000, 8, 3500, 300, 180, 68, 450]
+      - [seedling_waterer, Seedling watering station, Станция полива рассады, Көшет суару станциясы, 22900, 1800, 240, 280, 180, 5, 35, 5000, 2, 600, 180, 25, 45, 300]
+      - [backpack_sprayer, Powered backpack sprayer, Электрический ранцевый опрыскиватель, Электр арқа бүріккіші, 37900, 4200, 360, 560, 240, 5, 35, 16000, 5, 2200, 150, 72, 60, 800]
+      - [pot_irrigation_unit, Balcony pot irrigation unit, Балконный блок полива горшков, Балкон құмыраларын суару блогы, 19900, 1400, 220, 240, 160, 5, 35, 4000, 1.5, 350, 200, 18, 40, 150]
+      - [orchard_sprayer, Small orchard sprayer, Малый садовый опрыскиватель деревьев, Ағаштарға арналған шағын бақ бүріккіші, 59900, 7400, 430, 670, 350, 5, 35, 25000, 7, 2800, 300, 120, 64, 1500]
+      - [patio_mister, Patio cooling mist unit, Дворовый блок охлаждающего тумана, Ауланы салқындататын тұман блогы, 49900, 5200, 350, 540, 300, 10, 40, 20000, 6, 1200, 250, 90, 61, 1800]
+      - [root_feed_pump, Tank root-feed dosing unit, Баковый дозирующий блок корневого полива, Бакты тамыр суару мөлшерлегіші, 32900, 2600, 280, 420, 220, 5, 35, 10000, 3, 750, 200, 40, 48, 200]
+      - [mobile_flower_waterer, Mobile flower watering cart, Передвижная тележка полива цветов, Гүл суаратын жылжымалы арба, 64900, 8900, 460, 780, 380, 5, 35, 30000, 4, 4000, 300, 150, 63, 600]
+  fitness:
+    sku_prefix: RX
+    category: sport
+    format: pdf
+    fields: [mass_g, width_mm, height_mm, depth_mm, operating_min_c, operating_max_c, max_load_kg, resistance_min_kg, resistance_max_kg, adjustment_steps, grip_mm, padding_mm, accessories_count]
+    missing: [humidity_max_percent, drop_test_cm, repair_parts_price, certification_id]
+    rows:
+      - [compact_multigym, Compact cable multigym, Компактная блочная мультистанция, Ықшам блокты көпстанция, 249900, 84000, 1100, 2050, 1450, 5, 35, 120, 5, 60, 12, 30, 45, 6]
+      - [lat_pulldown, Home lat-pulldown station, Домашняя станция верхней тяги, Үй жоғарғы тарту станциясы, 179900, 62000, 1050, 2100, 1300, 5, 35, 130, 5, 80, 16, 32, 50, 3]
+      - [seated_row_station, Seated cable-row station, Станция горизонтальной тяги сидя, Отырып көлденең тарту станциясы, 159900, 58000, 900, 1500, 1700, 5, 35, 140, 5, 70, 14, 32, 50, 3]
+      - [chest_press_station, Home chest-press station, Домашняя станция жима от груди, Үй кеуде жымы станциясы, 189900, 71000, 1200, 1750, 1400, 5, 35, 130, 5, 75, 15, 34, 55, 2]
+      - [leg_extension_station, Seated leg-extension station, Сидячая станция разгибания ног, Отырып аяқ жазу станциясы, 169900, 64000, 950, 1450, 1550, 5, 35, 140, 5, 65, 13, 30, 60, 2]
+      - [dual_pulley_tower, Dual adjustable pulley tower, Двойная регулируемая блочная башня, Қос реттелетін блок мұнарасы, 299900, 126000, 1800, 2200, 1000, 5, 35, 150, 2.5, 100, 20, 32, 40, 8]
+      - [wall_cable_unit, Wall-mounted cable training unit, Настенный тросовый тренировочный блок, Қабырғалық арқан жаттығу блогы, 119900, 39000, 650, 2000, 450, 5, 35, 110, 5, 50, 10, 28, 35, 4]
+      - [pilates_reformer, Spring resistance reformer, Реформер с пружинным сопротивлением, Серіппелі кедергі реформері, 279900, 68000, 650, 430, 2300, 5, 35, 120, 3, 45, 9, 30, 35, 7]
+      - [rowing_resistance_trainer, Cable resistance rowing trainer, Гребной тренажёр с тросовым сопротивлением, Арқан кедергілі есу жаттықтырғышы, 139900, 34000, 550, 900, 1900, 5, 35, 120, 2, 32, 16, 30, 40, 2]
+      - [ski_pull_trainer, Vertical ski-pull trainer, Вертикальный лыжный тяговый тренажёр, Тік шаңғы тарту жаттықтырғышы, 199900, 45000, 700, 2150, 1100, 5, 35, 130, 3, 42, 14, 28, 30, 3]
+  toys:
+    sku_prefix: YX
+    category: kids
+    format: json
+    fields: [mass_g, width_mm, height_mm, depth_mm, operating_min_c, operating_max_c, parts_count, min_age_years, battery_v, range_m, run_minutes, charge_minutes, channels_count]
+    missing: [humidity_max_percent, drop_test_cm, repair_parts_price, certification_id]
+    rows:
+      - [rc_buggy, Radio-controlled dune buggy, Радиоуправляемый багги, Радиобасқарылатын багги, 18900, 850, 180, 120, 290, 5, 35, 8, 8, 7.4, 60, 20, 120, 2]
+      - [rc_crawler, Radio-controlled rock crawler, Радиоуправляемый скальный вездеход, Радиобасқарылатын жартастық жолталғамайтын көлік, 29900, 1450, 230, 190, 380, 5, 35, 10, 10, 7.4, 80, 25, 150, 3]
+      - [rc_rally_car, Radio-controlled rally car, Радиоуправляемая раллийная машина, Радиобасқарылатын ралли көлігі, 24900, 1100, 200, 110, 340, 5, 35, 9, 8, 7.4, 70, 22, 130, 2]
+      - [rc_truck, Radio-controlled transport truck, Радиоуправляемый грузовик, Радиобасқарылатын жүк көлігі, 34900, 2100, 180, 220, 520, 5, 35, 12, 10, 7.4, 60, 30, 180, 4]
+      - [rc_excavator, Radio-controlled excavator model, Радиоуправляемая модель экскаватора, Радиобасқарылатын экскаватор үлгісі, 39900, 2400, 220, 300, 450, 5, 35, 14, 10, 7.4, 40, 25, 150, 6]
+      - [rc_tank, Radio-controlled tracked model, Радиоуправляемая гусеничная модель, Радиобасқарылатын шынжыртабанды үлгі, 32900, 1800, 200, 150, 360, 5, 35, 11, 10, 7.4, 50, 28, 160, 4]
+      - [rc_sailboat, Radio-controlled sailboat model, Радиоуправляемая модель парусника, Радиобасқарылатын желкенді қайық үлгісі, 44900, 1700, 180, 850, 650, 10, 35, 13, 12, 6, 100, 90, 180, 2]
+      - [rc_speedboat, Radio-controlled speedboat model, Радиоуправляемая модель катера, Радиобасқарылатын катер үлгісі, 27900, 720, 120, 110, 330, 10, 35, 9, 12, 7.4, 80, 15, 100, 2]
+      - [rc_glider, Radio-controlled training glider, Радиоуправляемый учебный планер, Радиобасқарылатын оқу планері, 49900, 420, 980, 170, 760, 10, 30, 12, 14, 7.4, 180, 18, 90, 4]
+      - [rc_hovercraft, Radio-controlled hovercraft model, Радиоуправляемая модель на воздушной подушке, Радиобасқарылатын ауа жастықшалы үлгі, 31900, 950, 250, 130, 340, 10, 35, 10, 12, 7.4, 60, 16, 110, 3]
+  cameras:
+    sku_prefix: PX
+    category: electronics
+    format: docx
+    fields: [mass_g, width_mm, height_mm, depth_mm, operating_min_c, operating_max_c, resolution_mp, fps_max, optical_zoom_x, focal_min_mm, focal_max_mm, battery_mah, memory_max_gb]
+    missing: [humidity_max_percent, drop_test_cm, repair_parts_price, certification_id]
+    rows:
+      - [compact_camera, Pocket compact camera, Карманная компактная камера, Қалта ықшам камерасы, 79900, 240, 105, 62, 32, 0, 40, 20, 60, 5, 24, 120, 1200, 128]
+      - [bridge_camera, Long-zoom bridge camera, Камера с большим встроенным зумом, Үлкейтуі жоғары кіріктірілген камера, 169900, 680, 128, 88, 115, 0, 40, 24, 60, 30, 24, 720, 1800, 256]
+      - [action_camera, Wide-angle action camera, Широкоугольная экшн-камера, Кеңбұрышты экшн камерасы, 64900, 145, 66, 46, 32, -10, 45, 12, 120, 1, 16, 16, 1350, 256]
+      - [dash_camera, Vehicle dash recording camera, Автомобильная камера-регистратор, Көлік бейнетіркеу камерасы, 44900, 180, 85, 52, 38, -10, 50, 8, 60, 1, 20, 20, 500, 128]
+      - [trail_camera, Motion-triggered trail camera, Камера наблюдения тропы по движению, Қозғалыспен іске қосылатын соқпақ камерасы, 57900, 410, 95, 135, 75, -20, 50, 16, 30, 1, 28, 28, 3000, 128]
+      - [inspection_camera, Portable inspection camera, Переносная инспекционная камера, Тасымалды тексеру камерасы, 39900, 520, 95, 210, 45, 0, 40, 5, 30, 1, 35, 35, 2200, 64]
+      - [instant_digital_camera, Instant-print digital camera, Цифровая камера с моментальной печатью, Бірден басып шығаратын цифрлық камера, 34900, 320, 120, 85, 55, 5, 35, 10, 30, 1, 28, 28, 2000, 64]
+      - [pocket_video_camera, Pocket video recording camera, Карманная видеокамера, Қалта бейнекамерасы, 99900, 290, 52, 118, 36, 0, 40, 20, 120, 2, 24, 48, 1600, 256]
+      - [document_capture_camera, Portable document capture camera, Портативная камера копирования документов, Құжат көшіруге арналған портативті камера, 69900, 380, 75, 240, 65, 5, 40, 18, 30, 1, 35, 35, 2500, 128]
+      - [panoramic_camera, Dual-lens panoramic camera, Двухобъективная панорамная камера, Қос объективті панорамалық камера, 149900, 210, 52, 112, 35, -10, 40, 24, 60, 1, 14, 14, 1700, 512]
+  clocks:
+    sku_prefix: KX
+    category: home
+    format: txt
+    fields: [mass_g, width_mm, height_mm, depth_mm, operating_min_c, operating_max_c, voltage_v, power_w, display_digits, alarm_count, controls_count, backup_hours, drift_seconds_month]
+    missing: [humidity_max_percent, drop_test_cm, repair_parts_price, certification_id]
+    rows:
+      - [bedside_clock, Digital bedside clock, Цифровые прикроватные часы, Цифрлық төсек жанындағы сағат, 6900, 260, 150, 70, 45, 0, 40, 5, 2, 4, 2, 6, 72, 15]
+      - [projection_clock, Ceiling projection clock, Часы с проекцией на потолок, Төбеге кескін түсіретін сағат, 11900, 380, 180, 85, 65, 0, 40, 5, 4, 4, 2, 7, 48, 12]
+      - [large_wall_clock, Large digital wall clock, Большие цифровые настенные часы, Үлкен цифрлық қабырға сағаты, 19900, 1200, 460, 190, 32, 0, 40, 12, 8, 6, 1, 5, 96, 10]
+      - [travel_alarm_clock, Folding travel alarm clock, Складной дорожный будильник, Жиналмалы жол оятқышы, 4900, 110, 82, 68, 22, -5, 40, 3, 1, 4, 1, 5, 240, 20]
+      - [calendar_clock, Desk calendar clock, Настольные часы-календарь, Үстел күнтізбелі сағаты, 8900, 420, 210, 120, 45, 0, 40, 5, 3, 12, 2, 8, 120, 12]
+      - [workshop_timer_clock, Workshop clock with timer, Мастерские часы с таймером, Таймері бар шеберхана сағаты, 14900, 680, 280, 140, 55, -5, 45, 12, 5, 6, 3, 9, 72, 10]
+      - [dual_zone_clock, Dual-zone desk clock, Настольные часы двух часовых поясов, Екі белдеулі үстел сағаты, 12900, 510, 240, 100, 50, 0, 40, 5, 4, 8, 2, 7, 96, 10]
+      - [countdown_clock, Event countdown clock, Часы обратного отсчёта события, Оқиғаның кері санау сағаты, 9900, 390, 200, 95, 45, 0, 40, 5, 3, 8, 1, 6, 72, 15]
+      - [mirror_clock, Mirror-front digital clock, Цифровые часы с зеркальным фасадом, Айна бетті цифрлық сағат, 7900, 280, 165, 75, 40, 0, 40, 5, 3, 4, 2, 6, 48, 15]
+      - [silent_night_clock, Low-brightness night clock, Ночные часы пониженной яркости, Жарықтығы төмен түнгі сағат, 10900, 340, 175, 90, 48, 0, 40, 5, 2, 4, 2, 7, 168, 12]
+  personalcare:
+    sku_prefix: BX
+    category: beauty
+    format: pdf
+    fields: [mass_g, width_mm, height_mm, depth_mm, operating_min_c, operating_max_c, power_w, voltage_v, max_temp_c, modes_count, cable_cm, accessories_count, timer_minutes]
+    missing: [humidity_max_percent, drop_test_cm, repair_parts_price, certification_id]
+    rows:
+      - [hair_straightener, Ceramic hair straightener, Керамический выпрямитель волос, Керамикалық шаш түзеткіш, 14900, 380, 285, 36, 42, 10, 35, 55, 220, 230, 6, 180, 2, 60]
+      - [curling_wand, Tapered curling wand, Конусная плойка, Конустық бұйралағыш, 13900, 340, 310, 45, 45, 10, 35, 45, 220, 210, 5, 180, 2, 45]
+      - [hot_brush, Heated styling brush, Нагреваемая щётка для укладки, Қыздырылатын сәндеу щеткасы, 16900, 460, 280, 60, 55, 10, 35, 65, 220, 200, 5, 200, 3, 60]
+      - [crimping_iron, Textured hair crimping iron, Щипцы для гофрирования волос, Шашты бедерлеу қысқышы, 15900, 420, 285, 45, 50, 10, 35, 60, 220, 220, 5, 180, 2, 60]
+      - [triple_barrel_curler, Triple-barrel hair waver, Трёхствольные щипцы для волн, Үш өзекті шаш толқындатқышы, 19900, 650, 330, 70, 85, 10, 35, 95, 220, 210, 5, 200, 2, 60]
+      - [heated_rollers, Heated hair roller set, Набор нагреваемых бигуди, Қыздырылатын шаш бұйралағыштар жиынтығы, 24900, 1400, 280, 140, 190, 10, 35, 250, 220, 120, 3, 150, 12, 30]
+      - [hot_comb, Electric hot styling comb, Электрическая горячая расчёска, Электр ыстық сәндеу тарағы, 12900, 310, 270, 42, 40, 10, 35, 35, 220, 200, 4, 180, 2, 45]
+      - [automatic_curler, Automatic rotating hair curler, Автоматическая вращающаяся плойка, Автоматты айналмалы бұйралағыш, 27900, 520, 290, 70, 65, 10, 35, 45, 220, 220, 6, 200, 3, 60]
+      - [mini_straightener, Travel mini hair straightener, Дорожный мини-выпрямитель волос, Жол шағын шаш түзеткіші, 9900, 180, 190, 28, 32, 10, 35, 25, 220, 190, 3, 150, 2, 30]
+      - [hair_roller_base, Temperature-controlled roller base, Терморегулируемая база бигуди, Температурасы реттелетін бұйралағыш негізі, 21900, 1100, 240, 120, 180, 10, 35, 180, 220, 110, 4, 150, 10, 40]
+  gaming:
+    sku_prefix: VX
+    category: electronics
+    format: json
+    fields: [mass_g, width_mm, height_mm, depth_mm, operating_min_c, operating_max_c, controls_count, cable_cm, voltage_v, power_w, polling_hz, axis_count, travel_mm]
+    missing: [humidity_max_percent, drop_test_cm, repair_parts_price, certification_id]
+    rows:
+      - [wired_gamepad, Wired analogue gamepad, Проводной аналоговый геймпад, Сымды аналогтік геймпад, 12900, 240, 155, 105, 65, 0, 40, 16, 200, 5, 2, 250, 6, 12]
+      - [flight_joystick, Desktop flight joystick, Настольный авиационный джойстик, Үстел ұшу джойстигі, 34900, 1350, 180, 230, 180, 0, 40, 18, 180, 5, 3, 500, 4, 80]
+      - [flight_yoke, Simulator flight yoke, Штурвал авиасимулятора, Ұшу симуляторының штурвалы, 79900, 3200, 320, 220, 380, 0, 40, 22, 200, 5, 5, 500, 3, 140]
+      - [racing_wheel, Simulator racing wheel, Руль гоночного симулятора, Жарыс симуляторының рулі, 69900, 2800, 280, 280, 260, 0, 40, 14, 200, 12, 24, 1000, 3, 160]
+      - [rudder_pedals, Flight simulator rudder pedals, Педали руля авиасимулятора, Ұшу симуляторының бағыт педальдары, 59900, 2500, 420, 160, 310, 0, 40, 4, 200, 5, 2, 500, 3, 110]
+      - [throttle_quadrant, Multi-lever throttle quadrant, Многорычажный блок тяги, Көп тұтқалы тарту блогы, 44900, 1200, 210, 190, 180, 0, 40, 12, 180, 5, 2, 500, 4, 90]
+      - [farm_control_panel, Farm simulator control panel, Панель управления фермерского симулятора, Ферма симуляторының басқару панелі, 49900, 1600, 290, 180, 240, 0, 40, 28, 200, 5, 3, 250, 4, 60]
+      - [space_controller, Space simulator hand controller, Ручной контроллер космического симулятора, Ғарыш симуляторының қол контроллері, 42900, 1100, 170, 210, 175, 0, 40, 24, 180, 5, 3, 1000, 6, 70]
+      - [analogue_arcade_stick, Analogue arcade control stick, Аналоговый аркадный контроллер, Аналогтік аркада контроллері, 29900, 1800, 320, 150, 230, 0, 40, 12, 200, 5, 2, 1000, 2, 45]
+      - [dual_pedal_controller, Dual-pedal simulator controller, Двухпедальный контроллер симулятора, Қос педальді симулятор контроллері, 24900, 1500, 280, 140, 260, 0, 40, 4, 180, 5, 2, 500, 2, 75]
+
+sku_registry:
+  compact_keyboard: IX-0001
+  ergonomic_keyboard: IX-0002
+  vertical_mouse: IX-0003
+  trackball: IX-0004
+  pen_tablet: IX-0005
+  sheet_scanner: IX-0006
+  flatbed_scanner: IX-0007
+  label_printer: IX-0008
+  barcode_reader: IX-0009
+  document_camera: IX-0010
+  desk_usb_charger: CQ-0001
+  gan_charger: CQ-0002
+  laptop_adapter: CQ-0003
+  travel_charger: CQ-0004
+  car_usb_charger: CQ-0005
+  camera_battery_charger: CQ-0006
+  aa_battery_charger: CQ-0007
+  radio_battery_dock: CQ-0008
+  router_backup_supply: CQ-0009
+  multi_voltage_adapter: CQ-0010
+  office_monitor: DX-0001
+  gaming_monitor: DX-0002
+  portable_monitor: DX-0003
+  drawing_display: DX-0004
+  ultrawide_monitor: DX-0005
+  photo_monitor: DX-0006
+  kitchen_tv: DX-0007
+  digital_signage: DX-0008
+  field_monitor: DX-0009
+  rack_display: DX-0010
+  desk_lamp: LX-0001
+  reading_lamp: LX-0002
+  floor_lamp: LX-0003
+  under_cabinet_light: LX-0004
+  ring_light: LX-0005
+  work_light: LX-0006
+  night_light: LX-0007
+  picture_light: LX-0008
+  track_spotlight: LX-0009
+  inspection_light: LX-0010
+  evaporative_cooler: AX-0001
+  humidifying_fan: AX-0002
+  air_washer: AX-0003
+  ultrasonic_humidifier: AX-0004
+  steam_humidifier: AX-0005
+  desiccant_dehumidifier: AX-0006
+  compressor_dehumidifier: AX-0007
+  personal_air_cooler: AX-0008
+  plant_humidifier: AX-0009
+  air_purifying_washer: AX-0010
+  mini_oven: HX-0001
+  rice_cooker: HX-0002
+  slow_cooker: HX-0003
+  steam_cooker: HX-0004
+  yogurt_maker: HX-0005
+  food_dehydrator: HX-0006
+  soup_maker: HX-0007
+  sous_vide_bath: HX-0008
+  heated_lunch_box: HX-0009
+  counter_fryer: HX-0010
+  canister_vacuum: CX-0001
+  stick_vacuum: CX-0002
+  hand_vacuum: CX-0003
+  mattress_vacuum: CX-0004
+  ash_vacuum: CX-0005
+  wet_dry_vacuum: CX-0006
+  carpet_extractor: CX-0007
+  spot_cleaner: CX-0008
+  desktop_dust_vacuum: CX-0009
+  workbench_dust_extractor: CX-0010
+  desktop_speakers: AU-0001
+  bookshelf_speaker: AU-0002
+  compact_soundbar: AU-0003
+  studio_monitor: AU-0004
+  conference_speaker: AU-0005
+  portable_pa_speaker: AU-0006
+  ceiling_speaker: AU-0007
+  wall_speaker: AU-0008
+  subwoofer: AU-0009
+  instrument_monitor: AU-0010
+  corded_drill: TX-0001
+  rotary_engraver: TX-0002
+  angle_grinder: TX-0003
+  trim_router: TX-0004
+  orbital_sander: TX-0005
+  bench_grinder: TX-0006
+  polisher: TX-0007
+  die_grinder: TX-0008
+  drill_press: TX-0009
+  mini_lathe: TX-0010
+  writing_desk: FX-0001
+  bookcase: FX-0002
+  coffee_table: FX-0003
+  side_table: FX-0004
+  shoe_rack: FX-0005
+  tv_stand: FX-0006
+  wood_stool: FX-0007
+  hall_bench: FX-0008
+  wall_shelf: FX-0009
+  corner_shelf: FX-0010
+  bath_towel: WX-0001
+  hand_towels: WX-0002
+  kitchen_towels: WX-0003
+  duvet_cover: WX-0004
+  flat_sheet: WX-0005
+  pillowcase_pair: WX-0006
+  tablecloth: WX-0007
+  curtain_panel: WX-0008
+  sofa_throw: WX-0009
+  picnic_table_runner: WX-0010
+  lunch_container: SX-0001
+  pantry_box: SX-0002
+  drawer_organizer: SX-0003
+  tool_parts_case: SX-0004
+  underbed_box: SX-0005
+  document_crate: SX-0006
+  shoe_box_set: SX-0007
+  cable_case: SX-0008
+  craft_organizer: SX-0009
+  laundry_storage_box: SX-0010
+  hiking_backpack: OX-0001
+  cycling_pannier: OX-0002
+  kayak_dry_bag: OX-0003
+  camp_duffel: OX-0004
+  expedition_pack: OX-0005
+  climbing_rope_bag: OX-0006
+  fishing_gear_bag: OX-0007
+  trail_daypack: OX-0008
+  camera_hiking_pack: OX-0009
+  folding_water_carrier: OX-0010
+  garden_sprayer: GX-0001
+  greenhouse_mister: GX-0002
+  portable_washer: GX-0003
+  seedling_waterer: GX-0004
+  backpack_sprayer: GX-0005
+  pot_irrigation_unit: GX-0006
+  orchard_sprayer: GX-0007
+  patio_mister: GX-0008
+  root_feed_pump: GX-0009
+  mobile_flower_waterer: GX-0010
+  compact_multigym: RX-0001
+  lat_pulldown: RX-0002
+  seated_row_station: RX-0003
+  chest_press_station: RX-0004
+  leg_extension_station: RX-0005
+  dual_pulley_tower: RX-0006
+  wall_cable_unit: RX-0007
+  pilates_reformer: RX-0008
+  rowing_resistance_trainer: RX-0009
+  ski_pull_trainer: RX-0010
+  rc_buggy: YX-0001
+  rc_crawler: YX-0002
+  rc_rally_car: YX-0003
+  rc_truck: YX-0004
+  rc_excavator: YX-0005
+  rc_tank: YX-0006
+  rc_sailboat: YX-0007
+  rc_speedboat: YX-0008
+  rc_glider: YX-0009
+  rc_hovercraft: YX-0010
+  compact_camera: PX-0001
+  bridge_camera: PX-0002
+  action_camera: PX-0003
+  dash_camera: PX-0004
+  trail_camera: PX-0005
+  inspection_camera: PX-0006
+  instant_digital_camera: PX-0007
+  pocket_video_camera: PX-0008
+  document_capture_camera: PX-0009
+  panoramic_camera: PX-0010
+  bedside_clock: KX-0001
+  projection_clock: KX-0002
+  large_wall_clock: KX-0003
+  travel_alarm_clock: KX-0004
+  calendar_clock: KX-0005
+  workshop_timer_clock: KX-0006
+  dual_zone_clock: KX-0007
+  countdown_clock: KX-0008
+  mirror_clock: KX-0009
+  silent_night_clock: KX-0010
+  hair_straightener: BX-0001
+  curling_wand: BX-0002
+  hot_brush: BX-0003
+  crimping_iron: BX-0004
+  triple_barrel_curler: BX-0005
+  heated_rollers: BX-0006
+  hot_comb: BX-0007
+  automatic_curler: BX-0008
+  mini_straightener: BX-0009
+  hair_roller_base: BX-0010
+  wired_gamepad: VX-0001
+  flight_joystick: VX-0002
+  flight_yoke: VX-0003
+  racing_wheel: VX-0004
+  rudder_pedals: VX-0005
+  throttle_quadrant: VX-0006
+  farm_control_panel: VX-0007
+  space_controller: VX-0008
+  analogue_arcade_stick: VX-0009
+  dual_pedal_controller: VX-0010

@@ -1,0 +1,4935 @@
+# Compiled from explicit technical_profiles/1 facts and native LLM-authored templates.
+schema_version: retrieval_scale_source/1
+origin: llm_generated
+review_status: draft
+author: Codex (LLM); explicit profiles and native templates compiled deterministically
+allowed_use: eval_only
+licence_note: Original fictional store specifications for internal demo and evaluation; no external manufacturer
+  data or real customer data. Fluent human review pending.
+items:
+- id: catalog_canister_vacuum_mass_g
+  category: simple
+  en: For Bagless canister vacuum, what is the specified mass in g?
+  ru: Для «Безмешковый напольный пылесос» какое значение указано для показателя «Масса» (г)?
+  kk: «Қапсыз еден шаңсорғышы» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_canister_vacuum.mass_g
+    grade: 3
+  - section: technical_canister_vacuum.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.canister_vacuum.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.canister_vacuum.mass_g|current
+  required:
+  - fact: technical.canister_vacuum.mass_g
+    sections:
+    - technical_canister_vacuum.mass_g
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_canister_vacuum_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Bagless canister vacuum, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Безмешковый напольный пылесос», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Қапсыз еден шаңсорғышы» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_canister_vacuum.width_mm
+    grade: 3
+  - section: technical_canister_vacuum.height_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.canister_vacuum.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.canister_vacuum.width_mm|current
+  required:
+  - fact: technical.canister_vacuum.width_mm
+    sections:
+    - technical_canister_vacuum.width_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_canister_vacuum_height_mm
+  category: simple
+  en: 'Bagless canister vacuum: height, mm?'
+  ru: '«Безмешковый напольный пылесос»: высота, мм?'
+  kk: '«Қапсыз еден шаңсорғышы»: биіктігі, мм?'
+  relevant:
+  - section: technical_canister_vacuum.height_mm
+    grade: 3
+  - section: technical_canister_vacuum.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.canister_vacuum.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.canister_vacuum.height_mm|current
+  required:
+  - fact: technical.canister_vacuum.height_mm
+    sections:
+    - technical_canister_vacuum.height_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_canister_vacuum_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Bagless canister vacuum (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Безмешковый напольный пылесос» (мм).
+  kk: Карточкалар ұқсас. «Қапсыз еден шаңсорғышы» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_canister_vacuum.depth_mm
+    grade: 3
+  - section: technical_canister_vacuum.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.canister_vacuum.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.canister_vacuum.depth_mm|current
+  required:
+  - fact: technical.canister_vacuum.depth_mm
+    sections:
+    - technical_canister_vacuum.depth_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_canister_vacuum_operating_min_c
+  category: hard
+  en: Check the specifcation of Bagless canister vacuum for minimum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Безмешковый напольный пылесос»: интересует «Минимальная температура воздуха
+    при работе» (C).'
+  kk: «Қапсыз еден шаңсорғышы» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_canister_vacuum.operating_min_c
+    grade: 3
+  - section: technical_canister_vacuum.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Қапсыз еден шаңсорғышы» үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» (C) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.canister_vacuum.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.canister_vacuum.operating_min_c|current
+  required:
+  - fact: technical.canister_vacuum.operating_min_c
+    sections:
+    - technical_canister_vacuum.operating_min_c
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_canister_vacuum_operating_max_c
+  category: hard
+  en: For Bagless canister vacuum, what is the specified maximum operating ambient temperature in C?
+  ru: Для «Безмешковый напольный пылесос» какое значение указано для показателя «Максимальная температура
+    воздуха при работе» (C)?
+  kk: «Қапсыз еден шаңсорғышы» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_canister_vacuum.operating_max_c
+    grade: 3
+  - section: technical_canister_vacuum.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.canister_vacuum.operating_max_c; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.canister_vacuum.operating_max_c|current
+  required:
+  - fact: technical.canister_vacuum.operating_max_c
+    sections:
+    - technical_canister_vacuum.operating_max_c
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_canister_vacuum_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Bagless canister vacuum, in
+    W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Безмешковый напольный
+    пылесос», в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Қапсыз еден шаңсорғышы» үшін «Номиналды тұтыну қуаты» мәні қажет
+    (Вт).
+  relevant:
+  - section: technical_canister_vacuum.power_w
+    grade: 3
+  - section: technical_canister_vacuum.suction_kpa
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.canister_vacuum.power_w; neighbouring suction_kpa does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.canister_vacuum.power_w|current
+  required:
+  - fact: technical.canister_vacuum.power_w
+    sections:
+    - technical_canister_vacuum.power_w
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_canister_vacuum_suction_kpa
+  category: simple
+  en: 'Bagless canister vacuum: rated suction pressure, kPa?'
+  ru: '«Безмешковый напольный пылесос»: номинальное давление всасывания, кПа?'
+  kk: '«Қапсыз еден шаңсорғышы»: номиналды сору қысымы, кПа?'
+  relevant:
+  - section: technical_canister_vacuum.suction_kpa
+    grade: 3
+  - section: technical_canister_vacuum.tank_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.canister_vacuum.suction_kpa; neighbouring tank_ml does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_suction_pressure
+  need_key: technical.canister_vacuum.suction_kpa|current
+  required:
+  - fact: technical.canister_vacuum.suction_kpa
+    sections:
+    - technical_canister_vacuum.suction_kpa
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_canister_vacuum_tank_ml
+  category: hard
+  en: The cards look similar. What container capacity is listed for Bagless canister vacuum (ml)?
+  ru: Карточки похожи. Уточните показатель «Вместимость резервуара» именно для «Безмешковый напольный
+    пылесос» (мл).
+  kk: Карточкалар ұқсас. «Қапсыз еден шаңсорғышы» үшін нақты «Резервуар сыйымдылығы» көрсеткішін айтыңыз
+    (мл).
+  relevant:
+  - section: technical_canister_vacuum.tank_ml
+    grade: 3
+  - section: technical_canister_vacuum.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.canister_vacuum.tank_ml; neighbouring noise_db does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_volume
+  need_key: technical.canister_vacuum.tank_ml|current
+  required:
+  - fact: technical.canister_vacuum.tank_ml
+    sections:
+    - technical_canister_vacuum.tank_ml
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_canister_vacuum_noise_db
+  category: hard
+  en: Check the specifcation of Bagless canister vacuum for rated sound pressure level (dB), please.
+  ru: 'Проверьте характиристику «Безмешковый напольный пылесос»: интересует «Номинальный уровень звукового
+    давления» (дБ).'
+  kk: «Қапсыз еден шаңсорғышы» сипатамасынан «Номиналды дыбыс қысымының деңгейі» мәнін тексеріңізші (дБ).
+  relevant:
+  - section: technical_canister_vacuum.noise_db
+    grade: 3
+  - section: technical_canister_vacuum.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.canister_vacuum.noise_db; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.canister_vacuum.noise_db|current
+  required:
+  - fact: technical.canister_vacuum.noise_db
+    sections:
+    - technical_canister_vacuum.noise_db
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_canister_vacuum_cable_cm
+  category: simple
+  en: For Bagless canister vacuum, what is the specified supplied cable length in cm?
+  ru: Для «Безмешковый напольный пылесос» какое значение указано для показателя «Длина комплектного кабеля»
+    (см)?
+  kk: «Қапсыз еден шаңсорғышы» тауары үшін «Жинақтағы кабель ұзындығы» көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_canister_vacuum.cable_cm
+    grade: 3
+  - section: technical_canister_vacuum.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.canister_vacuum.cable_cm; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.canister_vacuum.cable_cm|current
+  required:
+  - fact: technical.canister_vacuum.cable_cm
+    sections:
+    - technical_canister_vacuum.cable_cm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_canister_vacuum_modes_count
+  category: simple
+  en: I am comparing specifications. Find the number of operating modes for Bagless canister vacuum, in
+    units.
+  ru: Сравниваю характеристики. Нужен показатель «Число режимов работы» у «Безмешковый напольный пылесос»,
+    в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Қапсыз еден шаңсорғышы» үшін «Жұмыс режимдерінің саны» мәні
+    қажет (дана).
+  relevant:
+  - section: technical_canister_vacuum.modes_count
+    grade: 3
+  - section: technical_canister_vacuum.filter_area_cm2
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Безмешковый напольный пылесос» показатель «Число режимов работы» (шт.) нақтылап беріңізші,
+    осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.canister_vacuum.modes_count; neighbouring filter_area_cm2 does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.canister_vacuum.modes_count|current
+  required:
+  - fact: technical.canister_vacuum.modes_count
+    sections:
+    - technical_canister_vacuum.modes_count
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_canister_vacuum_filter_area_cm2
+  category: simple
+  en: 'Bagless canister vacuum: filter surface area, cm2?'
+  ru: '«Безмешковый напольный пылесос»: площадь фильтрующей поверхности, см2?'
+  kk: '«Қапсыз еден шаңсорғышы»: сүзу бетінің ауданы, см2?'
+  relevant:
+  - section: technical_canister_vacuum.filter_area_cm2
+    grade: 3
+  - section: technical_canister_vacuum.mass_g
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.canister_vacuum.filter_area_cm2; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_filter_geometry
+  need_key: technical.canister_vacuum.filter_area_cm2|current
+  required:
+  - fact: technical.canister_vacuum.filter_area_cm2
+    sections:
+    - technical_canister_vacuum.filter_area_cm2
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_canister_vacuum_humidity_max_percent
+  category: unanswerable
+  en: For Bagless canister vacuum, what is the specified maximum permitted humidity in percent?
+  ru: Для «Безмешковый напольный пылесос» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Қапсыз еден шаңсорғышы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_canister_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for canister_vacuum does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.canister_vacuum.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_canister_vacuum_drop_test_cm
+  category: unanswerable
+  en: For Bagless canister vacuum, what is the specified certified drop-test height in cm?
+  ru: Для «Безмешковый напольный пылесос» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Қапсыз еден шаңсорғышы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_canister_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for canister_vacuum does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.canister_vacuum.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_canister_vacuum_repair_parts_price
+  category: unanswerable
+  en: For Bagless canister vacuum, what is the specified replacement-part price in KZT?
+  ru: Для «Безмешковый напольный пылесос» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Қапсыз еден шаңсорғышы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_canister_vacuum.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for canister_vacuum does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.canister_vacuum.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_canister_vacuum_certification_id
+  category: unanswerable
+  en: For Bagless canister vacuum, what is the specified certification record number in record?
+  ru: Для «Безмешковый напольный пылесос» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Қапсыз еден шаңсорғышы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_canister_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for canister_vacuum does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.canister_vacuum.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_canister_vacuum
+  category: multi_fragment
+  en: What does Bagless canister vacuum weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Безмешковый напольный пылесос» и какой вес посылки допускают пункты самовывоза?
+  kk: «Қапсыз еден шаңсорғышы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_canister_vacuum.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.canister_vacuum.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.canister_vacuum.mass_g
+    sections:
+    - technical_canister_vacuum.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_prepublication_mass_canister_vacuum
+  category: unanswerable
+  en: According to the instructions valid on 15 October 2026, what was the stated mass of Bagless canister
+    vacuum?
+  ru: По инструкциям, действовавшим 15 октября 2026 года, какая масса была указана для «Безмешковый напольный
+    пылесос»?
+  kk: 2026 жылғы 15 қазанда қолданылған нұсқаулықтар бойынша «Қапсыз еден шаңсорғышы» үшін қандай салмақ
+    көрсетілген еді?
+  relevant:
+  - section: technical_canister_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The technical source starts on 1 November 2026. Its current mass cannot establish a fact
+    at the requested earlier date.
+  family_id: profile_physical_mass
+  need_key: technical.canister_vacuum.mass_g|2026_10_15_before_document_validity
+  required: []
+  tags:
+  - profile_derived
+  - temporal
+  - outside_validity
+  - hard_negative
+  as_of: '2026-10-15'
+  all_versions: false
+  negative_reason: expired
+- id: catalog_stick_vacuum_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Corded stick vacuum (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Проводной вертикальный пылесос» (г).
+  kk: Карточкалар ұқсас. «Сымды тік шаңсорғыш» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_stick_vacuum.mass_g
+    grade: 3
+  - section: technical_stick_vacuum.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.stick_vacuum.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.stick_vacuum.mass_g|current
+  required:
+  - fact: technical.stick_vacuum.mass_g
+    sections:
+    - technical_stick_vacuum.mass_g
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_stick_vacuum_width_mm
+  category: hard
+  en: Check the specifcation of Corded stick vacuum for width (mm), please.
+  ru: 'Проверьте характиристику «Проводной вертикальный пылесос»: интересует «Ширина» (мм).'
+  kk: «Сымды тік шаңсорғыш» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_stick_vacuum.width_mm
+    grade: 3
+  - section: technical_stick_vacuum.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.stick_vacuum.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.stick_vacuum.width_mm|current
+  required:
+  - fact: technical.stick_vacuum.width_mm
+    sections:
+    - technical_stick_vacuum.width_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_stick_vacuum_height_mm
+  category: simple
+  en: For Corded stick vacuum, what is the specified height in mm?
+  ru: Для «Проводной вертикальный пылесос» какое значение указано для показателя «Высота» (мм)?
+  kk: «Сымды тік шаңсорғыш» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_stick_vacuum.height_mm
+    grade: 3
+  - section: technical_stick_vacuum.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.stick_vacuum.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.stick_vacuum.height_mm|current
+  required:
+  - fact: technical.stick_vacuum.height_mm
+    sections:
+    - technical_stick_vacuum.height_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_stick_vacuum_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Corded stick vacuum, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Проводной вертикальный пылесос», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Сымды тік шаңсорғыш» үшін «Тереңдігі» мәні қажет (мм).
+  relevant:
+  - section: technical_stick_vacuum.depth_mm
+    grade: 3
+  - section: technical_stick_vacuum.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.stick_vacuum.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.stick_vacuum.depth_mm|current
+  required:
+  - fact: technical.stick_vacuum.depth_mm
+    sections:
+    - technical_stick_vacuum.depth_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_stick_vacuum_operating_min_c
+  category: hard
+  en: 'Corded stick vacuum: minimum operating ambient temperature, C?'
+  ru: '«Проводной вертикальный пылесос»: минимальная температура воздуха при работе, C?'
+  kk: '«Сымды тік шаңсорғыш»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_stick_vacuum.operating_min_c
+    grade: 3
+  - section: technical_stick_vacuum.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.stick_vacuum.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.stick_vacuum.operating_min_c|current
+  required:
+  - fact: technical.stick_vacuum.operating_min_c
+    sections:
+    - technical_stick_vacuum.operating_min_c
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_stick_vacuum_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Corded stick vacuum
+    (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Проводной
+    вертикальный пылесос» (C).
+  kk: Карточкалар ұқсас. «Сымды тік шаңсорғыш» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_stick_vacuum.operating_max_c
+    grade: 3
+  - section: technical_stick_vacuum.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Сымды тік шаңсорғыш» үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» (C) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.stick_vacuum.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.stick_vacuum.operating_max_c|current
+  required:
+  - fact: technical.stick_vacuum.operating_max_c
+    sections:
+    - technical_stick_vacuum.operating_max_c
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_stick_vacuum_power_w
+  category: hard
+  en: Check the specifcation of Corded stick vacuum for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Проводной вертикальный пылесос»: интересует «Номинальная потребляемая
+    мощность» (Вт).'
+  kk: «Сымды тік шаңсорғыш» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_stick_vacuum.power_w
+    grade: 3
+  - section: technical_stick_vacuum.suction_kpa
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.stick_vacuum.power_w; neighbouring suction_kpa does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.stick_vacuum.power_w|current
+  required:
+  - fact: technical.stick_vacuum.power_w
+    sections:
+    - technical_stick_vacuum.power_w
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_stick_vacuum_suction_kpa
+  category: simple
+  en: For Corded stick vacuum, what is the specified rated suction pressure in kPa?
+  ru: Для «Проводной вертикальный пылесос» какое значение указано для показателя «Номинальное давление
+    всасывания» (кПа)?
+  kk: «Сымды тік шаңсорғыш» тауары үшін «Номиналды сору қысымы» көрсеткішінің мәні қандай (кПа)?
+  relevant:
+  - section: technical_stick_vacuum.suction_kpa
+    grade: 3
+  - section: technical_stick_vacuum.tank_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.stick_vacuum.suction_kpa; neighbouring tank_ml does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_suction_pressure
+  need_key: technical.stick_vacuum.suction_kpa|current
+  required:
+  - fact: technical.stick_vacuum.suction_kpa
+    sections:
+    - technical_stick_vacuum.suction_kpa
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_stick_vacuum_tank_ml
+  category: simple
+  en: I am comparing specifications. Find the container capacity for Corded stick vacuum, in ml.
+  ru: Сравниваю характеристики. Нужен показатель «Вместимость резервуара» у «Проводной вертикальный пылесос»,
+    в мл.
+  kk: Сипаттамаларды салыстырып отырмын. «Сымды тік шаңсорғыш» үшін «Резервуар сыйымдылығы» мәні қажет
+    (мл).
+  relevant:
+  - section: technical_stick_vacuum.tank_ml
+    grade: 3
+  - section: technical_stick_vacuum.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.stick_vacuum.tank_ml; neighbouring noise_db does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_volume
+  need_key: technical.stick_vacuum.tank_ml|current
+  required:
+  - fact: technical.stick_vacuum.tank_ml
+    sections:
+    - technical_stick_vacuum.tank_ml
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_stick_vacuum_noise_db
+  category: simple
+  en: 'Corded stick vacuum: rated sound pressure level, dB?'
+  ru: '«Проводной вертикальный пылесос»: номинальный уровень звукового давления, дБ?'
+  kk: '«Сымды тік шаңсорғыш»: номиналды дыбыс қысымының деңгейі, дБ?'
+  relevant:
+  - section: technical_stick_vacuum.noise_db
+    grade: 3
+  - section: technical_stick_vacuum.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.stick_vacuum.noise_db; neighbouring cable_cm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.stick_vacuum.noise_db|current
+  required:
+  - fact: technical.stick_vacuum.noise_db
+    sections:
+    - technical_stick_vacuum.noise_db
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_stick_vacuum_cable_cm
+  category: hard
+  en: The cards look similar. What supplied cable length is listed for Corded stick vacuum (cm)?
+  ru: Карточки похожи. Уточните показатель «Длина комплектного кабеля» именно для «Проводной вертикальный
+    пылесос» (см).
+  kk: Карточкалар ұқсас. «Сымды тік шаңсорғыш» үшін нақты «Жинақтағы кабель ұзындығы» көрсеткішін айтыңыз
+    (см).
+  relevant:
+  - section: technical_stick_vacuum.cable_cm
+    grade: 3
+  - section: technical_stick_vacuum.modes_count
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.stick_vacuum.cable_cm; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.stick_vacuum.cable_cm|current
+  required:
+  - fact: technical.stick_vacuum.cable_cm
+    sections:
+    - technical_stick_vacuum.cable_cm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_stick_vacuum_modes_count
+  category: hard
+  en: Check the specifcation of Corded stick vacuum for number of operating modes (units), please.
+  ru: 'Проверьте характиристику «Проводной вертикальный пылесос»: интересует «Число режимов работы» (шт.).'
+  kk: «Сымды тік шаңсорғыш» сипатамасынан «Жұмыс режимдерінің саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_stick_vacuum.modes_count
+    grade: 3
+  - section: technical_stick_vacuum.filter_area_cm2
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.stick_vacuum.modes_count; neighbouring filter_area_cm2 does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.stick_vacuum.modes_count|current
+  required:
+  - fact: technical.stick_vacuum.modes_count
+    sections:
+    - technical_stick_vacuum.modes_count
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_stick_vacuum_filter_area_cm2
+  category: simple
+  en: For Corded stick vacuum, what is the specified filter surface area in cm2?
+  ru: Для «Проводной вертикальный пылесос» какое значение указано для показателя «Площадь фильтрующей
+    поверхности» (см2)?
+  kk: «Сымды тік шаңсорғыш» тауары үшін «Сүзу бетінің ауданы» көрсеткішінің мәні қандай (см2)?
+  relevant:
+  - section: technical_stick_vacuum.filter_area_cm2
+    grade: 3
+  - section: technical_stick_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Проводной вертикальный пылесос» показатель «Площадь фильтрующей поверхности» (см2) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.stick_vacuum.filter_area_cm2; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_filter_geometry
+  need_key: technical.stick_vacuum.filter_area_cm2|current
+  required:
+  - fact: technical.stick_vacuum.filter_area_cm2
+    sections:
+    - technical_stick_vacuum.filter_area_cm2
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_stick_vacuum_humidity_max_percent
+  category: unanswerable
+  en: For Corded stick vacuum, what is the specified maximum permitted humidity in percent?
+  ru: Для «Проводной вертикальный пылесос» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Сымды тік шаңсорғыш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_stick_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for stick_vacuum does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.stick_vacuum.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_stick_vacuum_drop_test_cm
+  category: unanswerable
+  en: For Corded stick vacuum, what is the specified certified drop-test height in cm?
+  ru: Для «Проводной вертикальный пылесос» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Сымды тік шаңсорғыш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_stick_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for stick_vacuum does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.stick_vacuum.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_stick_vacuum_repair_parts_price
+  category: unanswerable
+  en: For Corded stick vacuum, what is the specified replacement-part price in KZT?
+  ru: Для «Проводной вертикальный пылесос» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Сымды тік шаңсорғыш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_stick_vacuum.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for stick_vacuum does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.stick_vacuum.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_stick_vacuum_certification_id
+  category: unanswerable
+  en: For Corded stick vacuum, what is the specified certification record number in record?
+  ru: Для «Проводной вертикальный пылесос» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Сымды тік шаңсорғыш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_stick_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for stick_vacuum does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.stick_vacuum.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_hand_vacuum_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Handheld corded vacuum, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Ручной проводной пылесос», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Қол сымды шаңсорғышы» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_hand_vacuum.mass_g
+    grade: 3
+  - section: technical_hand_vacuum.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hand_vacuum.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.hand_vacuum.mass_g|current
+  required:
+  - fact: technical.hand_vacuum.mass_g
+    sections:
+    - technical_hand_vacuum.mass_g
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hand_vacuum_width_mm
+  category: simple
+  en: 'Handheld corded vacuum: width, mm?'
+  ru: '«Ручной проводной пылесос»: ширина, мм?'
+  kk: '«Қол сымды шаңсорғышы»: ені, мм?'
+  relevant:
+  - section: technical_hand_vacuum.width_mm
+    grade: 3
+  - section: technical_hand_vacuum.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hand_vacuum.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.hand_vacuum.width_mm|current
+  required:
+  - fact: technical.hand_vacuum.width_mm
+    sections:
+    - technical_hand_vacuum.width_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hand_vacuum_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Handheld corded vacuum (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Ручной проводной пылесос» (мм).
+  kk: Карточкалар ұқсас. «Қол сымды шаңсорғышы» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_hand_vacuum.height_mm
+    grade: 3
+  - section: technical_hand_vacuum.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hand_vacuum.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.hand_vacuum.height_mm|current
+  required:
+  - fact: technical.hand_vacuum.height_mm
+    sections:
+    - technical_hand_vacuum.height_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hand_vacuum_depth_mm
+  category: hard
+  en: Check the specifcation of Handheld corded vacuum for depth (mm), please.
+  ru: 'Проверьте характиристику «Ручной проводной пылесос»: интересует «Глубина» (мм).'
+  kk: «Қол сымды шаңсорғышы» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_hand_vacuum.depth_mm
+    grade: 3
+  - section: technical_hand_vacuum.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hand_vacuum.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.hand_vacuum.depth_mm|current
+  required:
+  - fact: technical.hand_vacuum.depth_mm
+    sections:
+    - technical_hand_vacuum.depth_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hand_vacuum_operating_min_c
+  category: hard
+  en: For Handheld corded vacuum, what is the specified minimum operating ambient temperature in C?
+  ru: Для «Ручной проводной пылесос» какое значение указано для показателя «Минимальная температура воздуха
+    при работе» (C)?
+  kk: «Қол сымды шаңсорғышы» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_hand_vacuum.operating_min_c
+    grade: 3
+  - section: technical_hand_vacuum.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hand_vacuum.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.hand_vacuum.operating_min_c|current
+  required:
+  - fact: technical.hand_vacuum.operating_min_c
+    sections:
+    - technical_hand_vacuum.operating_min_c
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hand_vacuum_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Handheld corded
+    vacuum, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Ручной
+    проводной пылесос», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Қол сымды шаңсорғышы» үшін «Жұмыс кезіндегі ауаның ең жоғары
+    температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_hand_vacuum.operating_max_c
+    grade: 3
+  - section: technical_hand_vacuum.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hand_vacuum.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.hand_vacuum.operating_max_c|current
+  required:
+  - fact: technical.hand_vacuum.operating_max_c
+    sections:
+    - technical_hand_vacuum.operating_max_c
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hand_vacuum_power_w
+  category: simple
+  en: 'Handheld corded vacuum: rated power consumption, W?'
+  ru: '«Ручной проводной пылесос»: номинальная потребляемая мощность, Вт?'
+  kk: '«Қол сымды шаңсорғышы»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_hand_vacuum.power_w
+    grade: 3
+  - section: technical_hand_vacuum.suction_kpa
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Қол сымды шаңсорғышы» үшін «Номиналды тұтыну қуаты» (Вт) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.hand_vacuum.power_w; neighbouring suction_kpa does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.hand_vacuum.power_w|current
+  required:
+  - fact: technical.hand_vacuum.power_w
+    sections:
+    - technical_hand_vacuum.power_w
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hand_vacuum_suction_kpa
+  category: hard
+  en: The cards look similar. What rated suction pressure is listed for Handheld corded vacuum (kPa)?
+  ru: Карточки похожи. Уточните показатель «Номинальное давление всасывания» именно для «Ручной проводной
+    пылесос» (кПа).
+  kk: Карточкалар ұқсас. «Қол сымды шаңсорғышы» үшін нақты «Номиналды сору қысымы» көрсеткішін айтыңыз
+    (кПа).
+  relevant:
+  - section: technical_hand_vacuum.suction_kpa
+    grade: 3
+  - section: technical_hand_vacuum.tank_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hand_vacuum.suction_kpa; neighbouring tank_ml does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_suction_pressure
+  need_key: technical.hand_vacuum.suction_kpa|current
+  required:
+  - fact: technical.hand_vacuum.suction_kpa
+    sections:
+    - technical_hand_vacuum.suction_kpa
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hand_vacuum_tank_ml
+  category: hard
+  en: Check the specifcation of Handheld corded vacuum for container capacity (ml), please.
+  ru: 'Проверьте характиристику «Ручной проводной пылесос»: интересует «Вместимость резервуара» (мл).'
+  kk: «Қол сымды шаңсорғышы» сипатамасынан «Резервуар сыйымдылығы» мәнін тексеріңізші (мл).
+  relevant:
+  - section: technical_hand_vacuum.tank_ml
+    grade: 3
+  - section: technical_hand_vacuum.noise_db
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hand_vacuum.tank_ml; neighbouring noise_db does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_volume
+  need_key: technical.hand_vacuum.tank_ml|current
+  required:
+  - fact: technical.hand_vacuum.tank_ml
+    sections:
+    - technical_hand_vacuum.tank_ml
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hand_vacuum_noise_db
+  category: simple
+  en: For Handheld corded vacuum, what is the specified rated sound pressure level in dB?
+  ru: Для «Ручной проводной пылесос» какое значение указано для показателя «Номинальный уровень звукового
+    давления» (дБ)?
+  kk: «Қол сымды шаңсорғышы» тауары үшін «Номиналды дыбыс қысымының деңгейі» көрсеткішінің мәні қандай
+    (дБ)?
+  relevant:
+  - section: technical_hand_vacuum.noise_db
+    grade: 3
+  - section: technical_hand_vacuum.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hand_vacuum.noise_db; neighbouring cable_cm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.hand_vacuum.noise_db|current
+  required:
+  - fact: technical.hand_vacuum.noise_db
+    sections:
+    - technical_hand_vacuum.noise_db
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hand_vacuum_cable_cm
+  category: simple
+  en: I am comparing specifications. Find the supplied cable length for Handheld corded vacuum, in cm.
+  ru: Сравниваю характеристики. Нужен показатель «Длина комплектного кабеля» у «Ручной проводной пылесос»,
+    в см.
+  kk: Сипаттамаларды салыстырып отырмын. «Қол сымды шаңсорғышы» үшін «Жинақтағы кабель ұзындығы» мәні
+    қажет (см).
+  relevant:
+  - section: technical_hand_vacuum.cable_cm
+    grade: 3
+  - section: technical_hand_vacuum.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hand_vacuum.cable_cm; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.hand_vacuum.cable_cm|current
+  required:
+  - fact: technical.hand_vacuum.cable_cm
+    sections:
+    - technical_hand_vacuum.cable_cm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hand_vacuum_modes_count
+  category: simple
+  en: 'Handheld corded vacuum: number of operating modes, units?'
+  ru: '«Ручной проводной пылесос»: число режимов работы, шт.?'
+  kk: '«Қол сымды шаңсорғышы»: жұмыс режимдерінің саны, дана?'
+  relevant:
+  - section: technical_hand_vacuum.modes_count
+    grade: 3
+  - section: technical_hand_vacuum.filter_area_cm2
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hand_vacuum.modes_count; neighbouring filter_area_cm2 does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.hand_vacuum.modes_count|current
+  required:
+  - fact: technical.hand_vacuum.modes_count
+    sections:
+    - technical_hand_vacuum.modes_count
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_hand_vacuum_filter_area_cm2
+  category: hard
+  en: The cards look similar. What filter surface area is listed for Handheld corded vacuum (cm2)?
+  ru: Карточки похожи. Уточните показатель «Площадь фильтрующей поверхности» именно для «Ручной проводной
+    пылесос» (см2).
+  kk: Карточкалар ұқсас. «Қол сымды шаңсорғышы» үшін нақты «Сүзу бетінің ауданы» көрсеткішін айтыңыз (см2).
+  relevant:
+  - section: technical_hand_vacuum.filter_area_cm2
+    grade: 3
+  - section: technical_hand_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.hand_vacuum.filter_area_cm2; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_filter_geometry
+  need_key: technical.hand_vacuum.filter_area_cm2|current
+  required:
+  - fact: technical.hand_vacuum.filter_area_cm2
+    sections:
+    - technical_hand_vacuum.filter_area_cm2
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_hand_vacuum_humidity_max_percent
+  category: unanswerable
+  en: For Handheld corded vacuum, what is the specified maximum permitted humidity in percent?
+  ru: Для «Ручной проводной пылесос» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Қол сымды шаңсорғышы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_hand_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hand_vacuum does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.hand_vacuum.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_hand_vacuum_drop_test_cm
+  category: unanswerable
+  en: For Handheld corded vacuum, what is the specified certified drop-test height in cm?
+  ru: Для «Ручной проводной пылесос» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Қол сымды шаңсорғышы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_hand_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hand_vacuum does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.hand_vacuum.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_hand_vacuum_repair_parts_price
+  category: unanswerable
+  en: For Handheld corded vacuum, what is the specified replacement-part price in KZT?
+  ru: Для «Ручной проводной пылесос» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Қол сымды шаңсорғышы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_hand_vacuum.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hand_vacuum does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.hand_vacuum.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_hand_vacuum_certification_id
+  category: unanswerable
+  en: For Handheld corded vacuum, what is the specified certification record number in record?
+  ru: Для «Ручной проводной пылесос» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Қол сымды шаңсорғышы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_hand_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for hand_vacuum does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.hand_vacuum.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_hand_vacuum
+  category: multi_fragment
+  en: What does Handheld corded vacuum weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Ручной проводной пылесос» и какой вес посылки допускают пункты самовывоза?
+  kk: «Қол сымды шаңсорғышы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат береді?
+  relevant:
+  - section: technical_hand_vacuum.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.hand_vacuum.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.hand_vacuum.mass_g
+    sections:
+    - technical_hand_vacuum.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mattress_vacuum_mass_g
+  category: hard
+  en: Check the specifcation of Mattress surface vacuum for mass (g), please.
+  ru: 'Проверьте характиристику «Пылесос для поверхности матраса»: интересует «Масса» (г).'
+  kk: «Матрас бетін тазалайтын шаңсорғыш» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_mattress_vacuum.mass_g
+    grade: 3
+  - section: technical_mattress_vacuum.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Пылесос для поверхности матраса» показатель «Масса» (г) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.mattress_vacuum.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.mattress_vacuum.mass_g|current
+  required:
+  - fact: technical.mattress_vacuum.mass_g
+    sections:
+    - technical_mattress_vacuum.mass_g
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mattress_vacuum_width_mm
+  category: simple
+  en: For Mattress surface vacuum, what is the specified width in mm?
+  ru: Для «Пылесос для поверхности матраса» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Матрас бетін тазалайтын шаңсорғыш» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_mattress_vacuum.width_mm
+    grade: 3
+  - section: technical_mattress_vacuum.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mattress_vacuum.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.mattress_vacuum.width_mm|current
+  required:
+  - fact: technical.mattress_vacuum.width_mm
+    sections:
+    - technical_mattress_vacuum.width_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mattress_vacuum_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Mattress surface vacuum, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Пылесос для поверхности матраса», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Матрас бетін тазалайтын шаңсорғыш» үшін «Биіктігі» мәні қажет
+    (мм).
+  relevant:
+  - section: technical_mattress_vacuum.height_mm
+    grade: 3
+  - section: technical_mattress_vacuum.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mattress_vacuum.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.mattress_vacuum.height_mm|current
+  required:
+  - fact: technical.mattress_vacuum.height_mm
+    sections:
+    - technical_mattress_vacuum.height_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mattress_vacuum_depth_mm
+  category: simple
+  en: 'Mattress surface vacuum: depth, mm?'
+  ru: '«Пылесос для поверхности матраса»: глубина, мм?'
+  kk: '«Матрас бетін тазалайтын шаңсорғыш»: тереңдігі, мм?'
+  relevant:
+  - section: technical_mattress_vacuum.depth_mm
+    grade: 3
+  - section: technical_mattress_vacuum.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mattress_vacuum.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.mattress_vacuum.depth_mm|current
+  required:
+  - fact: technical.mattress_vacuum.depth_mm
+    sections:
+    - technical_mattress_vacuum.depth_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mattress_vacuum_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Mattress surface
+    vacuum (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Пылесос
+    для поверхности матраса» (C).
+  kk: Карточкалар ұқсас. «Матрас бетін тазалайтын шаңсорғыш» үшін нақты «Жұмыс кезіндегі ауаның ең төмен
+    температурасы» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_mattress_vacuum.operating_min_c
+    grade: 3
+  - section: technical_mattress_vacuum.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mattress_vacuum.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.mattress_vacuum.operating_min_c|current
+  required:
+  - fact: technical.mattress_vacuum.operating_min_c
+    sections:
+    - technical_mattress_vacuum.operating_min_c
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mattress_vacuum_operating_max_c
+  category: hard
+  en: Check the specifcation of Mattress surface vacuum for maximum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Пылесос для поверхности матраса»: интересует «Максимальная температура
+    воздуха при работе» (C).'
+  kk: «Матрас бетін тазалайтын шаңсорғыш» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    мәнін тексеріңізші (C).
+  relevant:
+  - section: technical_mattress_vacuum.operating_max_c
+    grade: 3
+  - section: technical_mattress_vacuum.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mattress_vacuum.operating_max_c; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.mattress_vacuum.operating_max_c|current
+  required:
+  - fact: technical.mattress_vacuum.operating_max_c
+    sections:
+    - technical_mattress_vacuum.operating_max_c
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mattress_vacuum_power_w
+  category: simple
+  en: For Mattress surface vacuum, what is the specified rated power consumption in W?
+  ru: Для «Пылесос для поверхности матраса» какое значение указано для показателя «Номинальная потребляемая
+    мощность» (Вт)?
+  kk: «Матрас бетін тазалайтын шаңсорғыш» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай
+    (Вт)?
+  relevant:
+  - section: technical_mattress_vacuum.power_w
+    grade: 3
+  - section: technical_mattress_vacuum.suction_kpa
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mattress_vacuum.power_w; neighbouring suction_kpa does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.mattress_vacuum.power_w|current
+  required:
+  - fact: technical.mattress_vacuum.power_w
+    sections:
+    - technical_mattress_vacuum.power_w
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mattress_vacuum_suction_kpa
+  category: simple
+  en: I am comparing specifications. Find the rated suction pressure for Mattress surface vacuum, in kPa.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное давление всасывания» у «Пылесос для поверхности
+    матраса», в кПа.
+  kk: Сипаттамаларды салыстырып отырмын. «Матрас бетін тазалайтын шаңсорғыш» үшін «Номиналды сору қысымы»
+    мәні қажет (кПа).
+  relevant:
+  - section: technical_mattress_vacuum.suction_kpa
+    grade: 3
+  - section: technical_mattress_vacuum.tank_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Матрас бетін тазалайтын шаңсорғыш» үшін «Номиналды сору қысымы» (кПа) керек, уточните по этой
+    модели, пожалуйста.
+  rationale: Authored target technical.mattress_vacuum.suction_kpa; neighbouring tank_ml does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_suction_pressure
+  need_key: technical.mattress_vacuum.suction_kpa|current
+  required:
+  - fact: technical.mattress_vacuum.suction_kpa
+    sections:
+    - technical_mattress_vacuum.suction_kpa
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mattress_vacuum_tank_ml
+  category: simple
+  en: 'Mattress surface vacuum: container capacity, ml?'
+  ru: '«Пылесос для поверхности матраса»: вместимость резервуара, мл?'
+  kk: '«Матрас бетін тазалайтын шаңсорғыш»: резервуар сыйымдылығы, мл?'
+  relevant:
+  - section: technical_mattress_vacuum.tank_ml
+    grade: 3
+  - section: technical_mattress_vacuum.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mattress_vacuum.tank_ml; neighbouring noise_db does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_volume
+  need_key: technical.mattress_vacuum.tank_ml|current
+  required:
+  - fact: technical.mattress_vacuum.tank_ml
+    sections:
+    - technical_mattress_vacuum.tank_ml
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mattress_vacuum_noise_db
+  category: hard
+  en: The cards look similar. What rated sound pressure level is listed for Mattress surface vacuum (dB)?
+  ru: Карточки похожи. Уточните показатель «Номинальный уровень звукового давления» именно для «Пылесос
+    для поверхности матраса» (дБ).
+  kk: Карточкалар ұқсас. «Матрас бетін тазалайтын шаңсорғыш» үшін нақты «Номиналды дыбыс қысымының деңгейі»
+    көрсеткішін айтыңыз (дБ).
+  relevant:
+  - section: technical_mattress_vacuum.noise_db
+    grade: 3
+  - section: technical_mattress_vacuum.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mattress_vacuum.noise_db; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.mattress_vacuum.noise_db|current
+  required:
+  - fact: technical.mattress_vacuum.noise_db
+    sections:
+    - technical_mattress_vacuum.noise_db
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mattress_vacuum_cable_cm
+  category: hard
+  en: Check the specifcation of Mattress surface vacuum for supplied cable length (cm), please.
+  ru: 'Проверьте характиристику «Пылесос для поверхности матраса»: интересует «Длина комплектного кабеля»
+    (см).'
+  kk: «Матрас бетін тазалайтын шаңсорғыш» сипатамасынан «Жинақтағы кабель ұзындығы» мәнін тексеріңізші
+    (см).
+  relevant:
+  - section: technical_mattress_vacuum.cable_cm
+    grade: 3
+  - section: technical_mattress_vacuum.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mattress_vacuum.cable_cm; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.mattress_vacuum.cable_cm|current
+  required:
+  - fact: technical.mattress_vacuum.cable_cm
+    sections:
+    - technical_mattress_vacuum.cable_cm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mattress_vacuum_modes_count
+  category: simple
+  en: For Mattress surface vacuum, what is the specified number of operating modes in units?
+  ru: Для «Пылесос для поверхности матраса» какое значение указано для показателя «Число режимов работы»
+    (шт.)?
+  kk: «Матрас бетін тазалайтын шаңсорғыш» тауары үшін «Жұмыс режимдерінің саны» көрсеткішінің мәні қандай
+    (дана)?
+  relevant:
+  - section: technical_mattress_vacuum.modes_count
+    grade: 3
+  - section: technical_mattress_vacuum.filter_area_cm2
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mattress_vacuum.modes_count; neighbouring filter_area_cm2 does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.mattress_vacuum.modes_count|current
+  required:
+  - fact: technical.mattress_vacuum.modes_count
+    sections:
+    - technical_mattress_vacuum.modes_count
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mattress_vacuum_filter_area_cm2
+  category: simple
+  en: I am comparing specifications. Find the filter surface area for Mattress surface vacuum, in cm2.
+  ru: Сравниваю характеристики. Нужен показатель «Площадь фильтрующей поверхности» у «Пылесос для поверхности
+    матраса», в см2.
+  kk: Сипаттамаларды салыстырып отырмын. «Матрас бетін тазалайтын шаңсорғыш» үшін «Сүзу бетінің ауданы»
+    мәні қажет (см2).
+  relevant:
+  - section: technical_mattress_vacuum.filter_area_cm2
+    grade: 3
+  - section: technical_mattress_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mattress_vacuum.filter_area_cm2; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_filter_geometry
+  need_key: technical.mattress_vacuum.filter_area_cm2|current
+  required:
+  - fact: technical.mattress_vacuum.filter_area_cm2
+    sections:
+    - technical_mattress_vacuum.filter_area_cm2
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_mattress_vacuum_humidity_max_percent
+  category: unanswerable
+  en: For Mattress surface vacuum, what is the specified maximum permitted humidity in percent?
+  ru: Для «Пылесос для поверхности матраса» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Матрас бетін тазалайтын шаңсорғыш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_mattress_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mattress_vacuum does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.mattress_vacuum.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_mattress_vacuum_drop_test_cm
+  category: unanswerable
+  en: For Mattress surface vacuum, what is the specified certified drop-test height in cm?
+  ru: Для «Пылесос для поверхности матраса» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Матрас бетін тазалайтын шаңсорғыш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_mattress_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mattress_vacuum does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.mattress_vacuum.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_mattress_vacuum_repair_parts_price
+  category: unanswerable
+  en: For Mattress surface vacuum, what is the specified replacement-part price in KZT?
+  ru: Для «Пылесос для поверхности матраса» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Матрас бетін тазалайтын шаңсорғыш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_mattress_vacuum.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mattress_vacuum does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.mattress_vacuum.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_mattress_vacuum_certification_id
+  category: unanswerable
+  en: For Mattress surface vacuum, what is the specified certification record number in record?
+  ru: Для «Пылесос для поверхности матраса» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Матрас бетін тазалайтын шаңсорғыш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_mattress_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mattress_vacuum does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.mattress_vacuum.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_ash_vacuum_mass_g
+  category: simple
+  en: 'Cold-ash workshop vacuum: mass, g?'
+  ru: '«Мастерской пылесос для холодной золы»: масса, г?'
+  kk: '«Суық күлге арналған шеберхана шаңсорғышы»: салмағы, г?'
+  relevant:
+  - section: technical_ash_vacuum.mass_g
+    grade: 3
+  - section: technical_ash_vacuum.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ash_vacuum.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.ash_vacuum.mass_g|current
+  required:
+  - fact: technical.ash_vacuum.mass_g
+    sections:
+    - technical_ash_vacuum.mass_g
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ash_vacuum_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Cold-ash workshop vacuum (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Мастерской пылесос для холодной золы»
+    (мм).
+  kk: Карточкалар ұқсас. «Суық күлге арналған шеберхана шаңсорғышы» үшін нақты «Ені» көрсеткішін айтыңыз
+    (мм).
+  relevant:
+  - section: technical_ash_vacuum.width_mm
+    grade: 3
+  - section: technical_ash_vacuum.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Мастерской пылесос для холодной золы» показатель «Ширина» (мм) нақтылап беріңізші, осы үлгі
+    үшін.
+  mix_kk: null
+  rationale: Authored target technical.ash_vacuum.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.ash_vacuum.width_mm|current
+  required:
+  - fact: technical.ash_vacuum.width_mm
+    sections:
+    - technical_ash_vacuum.width_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ash_vacuum_height_mm
+  category: hard
+  en: Check the specifcation of Cold-ash workshop vacuum for height (mm), please.
+  ru: 'Проверьте характиристику «Мастерской пылесос для холодной золы»: интересует «Высота» (мм).'
+  kk: «Суық күлге арналған шеберхана шаңсорғышы» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_ash_vacuum.height_mm
+    grade: 3
+  - section: technical_ash_vacuum.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ash_vacuum.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.ash_vacuum.height_mm|current
+  required:
+  - fact: technical.ash_vacuum.height_mm
+    sections:
+    - technical_ash_vacuum.height_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ash_vacuum_depth_mm
+  category: simple
+  en: For Cold-ash workshop vacuum, what is the specified depth in mm?
+  ru: Для «Мастерской пылесос для холодной золы» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Суық күлге арналған шеберхана шаңсорғышы» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_ash_vacuum.depth_mm
+    grade: 3
+  - section: technical_ash_vacuum.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ash_vacuum.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.ash_vacuum.depth_mm|current
+  required:
+  - fact: technical.ash_vacuum.depth_mm
+    sections:
+    - technical_ash_vacuum.depth_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ash_vacuum_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Cold-ash workshop
+    vacuum, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Мастерской
+    пылесос для холодной золы», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Суық күлге арналған шеберхана шаңсорғышы» үшін «Жұмыс кезіндегі
+    ауаның ең төмен температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_ash_vacuum.operating_min_c
+    grade: 3
+  - section: technical_ash_vacuum.operating_max_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ash_vacuum.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.ash_vacuum.operating_min_c|current
+  required:
+  - fact: technical.ash_vacuum.operating_min_c
+    sections:
+    - technical_ash_vacuum.operating_min_c
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ash_vacuum_operating_max_c
+  category: hard
+  en: 'Cold-ash workshop vacuum: maximum operating ambient temperature, C?'
+  ru: '«Мастерской пылесос для холодной золы»: максимальная температура воздуха при работе, C?'
+  kk: '«Суық күлге арналған шеберхана шаңсорғышы»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_ash_vacuum.operating_max_c
+    grade: 3
+  - section: technical_ash_vacuum.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ash_vacuum.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.ash_vacuum.operating_max_c|current
+  required:
+  - fact: technical.ash_vacuum.operating_max_c
+    sections:
+    - technical_ash_vacuum.operating_max_c
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ash_vacuum_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Cold-ash workshop vacuum (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Мастерской
+    пылесос для холодной золы» (Вт).
+  kk: Карточкалар ұқсас. «Суық күлге арналған шеберхана шаңсорғышы» үшін нақты «Номиналды тұтыну қуаты»
+    көрсеткішін айтыңыз (Вт).
+  relevant:
+  - section: technical_ash_vacuum.power_w
+    grade: 3
+  - section: technical_ash_vacuum.suction_kpa
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ash_vacuum.power_w; neighbouring suction_kpa does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.ash_vacuum.power_w|current
+  required:
+  - fact: technical.ash_vacuum.power_w
+    sections:
+    - technical_ash_vacuum.power_w
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ash_vacuum_suction_kpa
+  category: hard
+  en: Check the specifcation of Cold-ash workshop vacuum for rated suction pressure (kPa), please.
+  ru: 'Проверьте характиристику «Мастерской пылесос для холодной золы»: интересует «Номинальное давление
+    всасывания» (кПа).'
+  kk: «Суық күлге арналған шеберхана шаңсорғышы» сипатамасынан «Номиналды сору қысымы» мәнін тексеріңізші
+    (кПа).
+  relevant:
+  - section: technical_ash_vacuum.suction_kpa
+    grade: 3
+  - section: technical_ash_vacuum.tank_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ash_vacuum.suction_kpa; neighbouring tank_ml does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_suction_pressure
+  need_key: technical.ash_vacuum.suction_kpa|current
+  required:
+  - fact: technical.ash_vacuum.suction_kpa
+    sections:
+    - technical_ash_vacuum.suction_kpa
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ash_vacuum_tank_ml
+  category: simple
+  en: For Cold-ash workshop vacuum, what is the specified container capacity in ml?
+  ru: Для «Мастерской пылесос для холодной золы» какое значение указано для показателя «Вместимость резервуара»
+    (мл)?
+  kk: «Суық күлге арналған шеберхана шаңсорғышы» тауары үшін «Резервуар сыйымдылығы» көрсеткішінің мәні
+    қандай (мл)?
+  relevant:
+  - section: technical_ash_vacuum.tank_ml
+    grade: 3
+  - section: technical_ash_vacuum.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Суық күлге арналған шеберхана шаңсорғышы» үшін «Резервуар сыйымдылығы» (мл) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.ash_vacuum.tank_ml; neighbouring noise_db does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_volume
+  need_key: technical.ash_vacuum.tank_ml|current
+  required:
+  - fact: technical.ash_vacuum.tank_ml
+    sections:
+    - technical_ash_vacuum.tank_ml
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ash_vacuum_noise_db
+  category: simple
+  en: I am comparing specifications. Find the rated sound pressure level for Cold-ash workshop vacuum,
+    in dB.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальный уровень звукового давления» у «Мастерской
+    пылесос для холодной золы», в дБ.
+  kk: Сипаттамаларды салыстырып отырмын. «Суық күлге арналған шеберхана шаңсорғышы» үшін «Номиналды дыбыс
+    қысымының деңгейі» мәні қажет (дБ).
+  relevant:
+  - section: technical_ash_vacuum.noise_db
+    grade: 3
+  - section: technical_ash_vacuum.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ash_vacuum.noise_db; neighbouring cable_cm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.ash_vacuum.noise_db|current
+  required:
+  - fact: technical.ash_vacuum.noise_db
+    sections:
+    - technical_ash_vacuum.noise_db
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ash_vacuum_cable_cm
+  category: simple
+  en: 'Cold-ash workshop vacuum: supplied cable length, cm?'
+  ru: '«Мастерской пылесос для холодной золы»: длина комплектного кабеля, см?'
+  kk: '«Суық күлге арналған шеберхана шаңсорғышы»: жинақтағы кабель ұзындығы, см?'
+  relevant:
+  - section: technical_ash_vacuum.cable_cm
+    grade: 3
+  - section: technical_ash_vacuum.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ash_vacuum.cable_cm; neighbouring modes_count does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.ash_vacuum.cable_cm|current
+  required:
+  - fact: technical.ash_vacuum.cable_cm
+    sections:
+    - technical_ash_vacuum.cable_cm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ash_vacuum_modes_count
+  category: hard
+  en: The cards look similar. What number of operating modes is listed for Cold-ash workshop vacuum (units)?
+  ru: Карточки похожи. Уточните показатель «Число режимов работы» именно для «Мастерской пылесос для холодной
+    золы» (шт.).
+  kk: Карточкалар ұқсас. «Суық күлге арналған шеберхана шаңсорғышы» үшін нақты «Жұмыс режимдерінің саны»
+    көрсеткішін айтыңыз (дана).
+  relevant:
+  - section: technical_ash_vacuum.modes_count
+    grade: 3
+  - section: technical_ash_vacuum.filter_area_cm2
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ash_vacuum.modes_count; neighbouring filter_area_cm2 does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.ash_vacuum.modes_count|current
+  required:
+  - fact: technical.ash_vacuum.modes_count
+    sections:
+    - technical_ash_vacuum.modes_count
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ash_vacuum_filter_area_cm2
+  category: hard
+  en: Check the specifcation of Cold-ash workshop vacuum for filter surface area (cm2), please.
+  ru: 'Проверьте характиристику «Мастерской пылесос для холодной золы»: интересует «Площадь фильтрующей
+    поверхности» (см2).'
+  kk: «Суық күлге арналған шеберхана шаңсорғышы» сипатамасынан «Сүзу бетінің ауданы» мәнін тексеріңізші
+    (см2).
+  relevant:
+  - section: technical_ash_vacuum.filter_area_cm2
+    grade: 3
+  - section: technical_ash_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ash_vacuum.filter_area_cm2; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_filter_geometry
+  need_key: technical.ash_vacuum.filter_area_cm2|current
+  required:
+  - fact: technical.ash_vacuum.filter_area_cm2
+    sections:
+    - technical_ash_vacuum.filter_area_cm2
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_ash_vacuum_humidity_max_percent
+  category: unanswerable
+  en: For Cold-ash workshop vacuum, what is the specified maximum permitted humidity in percent?
+  ru: Для «Мастерской пылесос для холодной золы» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Суық күлге арналған шеберхана шаңсорғышы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_ash_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ash_vacuum does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.ash_vacuum.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_ash_vacuum_drop_test_cm
+  category: unanswerable
+  en: For Cold-ash workshop vacuum, what is the specified certified drop-test height in cm?
+  ru: Для «Мастерской пылесос для холодной золы» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Суық күлге арналған шеберхана шаңсорғышы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі»
+    көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_ash_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ash_vacuum does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.ash_vacuum.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_ash_vacuum_repair_parts_price
+  category: unanswerable
+  en: For Cold-ash workshop vacuum, what is the specified replacement-part price in KZT?
+  ru: Для «Мастерской пылесос для холодной золы» какое значение указано для показателя «Цена запасной
+    детали» (тенге)?
+  kk: «Суық күлге арналған шеберхана шаңсорғышы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні
+    қандай (теңге)?
+  relevant:
+  - section: technical_ash_vacuum.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ash_vacuum does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.ash_vacuum.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_ash_vacuum_certification_id
+  category: unanswerable
+  en: For Cold-ash workshop vacuum, what is the specified certification record number in record?
+  ru: Для «Мастерской пылесос для холодной золы» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Суық күлге арналған шеберхана шаңсорғышы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_ash_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ash_vacuum does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.ash_vacuum.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_ash_vacuum
+  category: multi_fragment
+  en: What does Cold-ash workshop vacuum weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Мастерской пылесос для холодной золы» и какой вес посылки допускают пункты самовывоза?
+  kk: «Суық күлге арналған шеберхана шаңсорғышы» салмағы қандай және беру пункттері сәлемдеменің қандай
+    салмағына рұқсат береді?
+  relevant:
+  - section: technical_ash_vacuum.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.ash_vacuum.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.ash_vacuum.mass_g
+    sections:
+    - technical_ash_vacuum.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wet_dry_vacuum_mass_g
+  category: simple
+  en: For Wet and dry utility vacuum, what is the specified mass in g?
+  ru: Для «Хозяйственный пылесос влажной и сухой уборки» какое значение указано для показателя «Масса»
+    (г)?
+  kk: «Ылғалды және құрғақ тазалау шаңсорғышы» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_wet_dry_vacuum.mass_g
+    grade: 3
+  - section: technical_wet_dry_vacuum.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wet_dry_vacuum.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.wet_dry_vacuum.mass_g|current
+  required:
+  - fact: technical.wet_dry_vacuum.mass_g
+    sections:
+    - technical_wet_dry_vacuum.mass_g
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wet_dry_vacuum_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Wet and dry utility vacuum, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Хозяйственный пылесос влажной и сухой уборки»,
+    в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Ылғалды және құрғақ тазалау шаңсорғышы» үшін «Ені» мәні қажет
+    (мм).
+  relevant:
+  - section: technical_wet_dry_vacuum.width_mm
+    grade: 3
+  - section: technical_wet_dry_vacuum.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wet_dry_vacuum.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.wet_dry_vacuum.width_mm|current
+  required:
+  - fact: technical.wet_dry_vacuum.width_mm
+    sections:
+    - technical_wet_dry_vacuum.width_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wet_dry_vacuum_height_mm
+  category: simple
+  en: 'Wet and dry utility vacuum: height, mm?'
+  ru: '«Хозяйственный пылесос влажной и сухой уборки»: высота, мм?'
+  kk: '«Ылғалды және құрғақ тазалау шаңсорғышы»: биіктігі, мм?'
+  relevant:
+  - section: technical_wet_dry_vacuum.height_mm
+    grade: 3
+  - section: technical_wet_dry_vacuum.depth_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: У «Хозяйственный пылесос влажной и сухой уборки» показатель «Высота» (мм) нақтылап беріңізші,
+    осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.wet_dry_vacuum.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.wet_dry_vacuum.height_mm|current
+  required:
+  - fact: technical.wet_dry_vacuum.height_mm
+    sections:
+    - technical_wet_dry_vacuum.height_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wet_dry_vacuum_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Wet and dry utility vacuum (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Хозяйственный пылесос влажной и сухой
+    уборки» (мм).
+  kk: Карточкалар ұқсас. «Ылғалды және құрғақ тазалау шаңсорғышы» үшін нақты «Тереңдігі» көрсеткішін айтыңыз
+    (мм).
+  relevant:
+  - section: technical_wet_dry_vacuum.depth_mm
+    grade: 3
+  - section: technical_wet_dry_vacuum.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wet_dry_vacuum.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.wet_dry_vacuum.depth_mm|current
+  required:
+  - fact: technical.wet_dry_vacuum.depth_mm
+    sections:
+    - technical_wet_dry_vacuum.depth_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wet_dry_vacuum_operating_min_c
+  category: hard
+  en: Check the specifcation of Wet and dry utility vacuum for minimum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Хозяйственный пылесос влажной и сухой уборки»: интересует «Минимальная
+    температура воздуха при работе» (C).'
+  kk: «Ылғалды және құрғақ тазалау шаңсорғышы» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    мәнін тексеріңізші (C).
+  relevant:
+  - section: technical_wet_dry_vacuum.operating_min_c
+    grade: 3
+  - section: technical_wet_dry_vacuum.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wet_dry_vacuum.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.wet_dry_vacuum.operating_min_c|current
+  required:
+  - fact: technical.wet_dry_vacuum.operating_min_c
+    sections:
+    - technical_wet_dry_vacuum.operating_min_c
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wet_dry_vacuum_operating_max_c
+  category: hard
+  en: For Wet and dry utility vacuum, what is the specified maximum operating ambient temperature in C?
+  ru: Для «Хозяйственный пылесос влажной и сухой уборки» какое значение указано для показателя «Максимальная
+    температура воздуха при работе» (C)?
+  kk: «Ылғалды және құрғақ тазалау шаңсорғышы» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    көрсеткішінің мәні қандай (C)?
+  relevant:
+  - section: technical_wet_dry_vacuum.operating_max_c
+    grade: 3
+  - section: technical_wet_dry_vacuum.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wet_dry_vacuum.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.wet_dry_vacuum.operating_max_c|current
+  required:
+  - fact: technical.wet_dry_vacuum.operating_max_c
+    sections:
+    - technical_wet_dry_vacuum.operating_max_c
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wet_dry_vacuum_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Wet and dry utility vacuum,
+    in W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Хозяйственный
+    пылесос влажной и сухой уборки», в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Ылғалды және құрғақ тазалау шаңсорғышы» үшін «Номиналды тұтыну
+    қуаты» мәні қажет (Вт).
+  relevant:
+  - section: technical_wet_dry_vacuum.power_w
+    grade: 3
+  - section: technical_wet_dry_vacuum.suction_kpa
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wet_dry_vacuum.power_w; neighbouring suction_kpa does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.wet_dry_vacuum.power_w|current
+  required:
+  - fact: technical.wet_dry_vacuum.power_w
+    sections:
+    - technical_wet_dry_vacuum.power_w
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wet_dry_vacuum_suction_kpa
+  category: simple
+  en: 'Wet and dry utility vacuum: rated suction pressure, kPa?'
+  ru: '«Хозяйственный пылесос влажной и сухой уборки»: номинальное давление всасывания, кПа?'
+  kk: '«Ылғалды және құрғақ тазалау шаңсорғышы»: номиналды сору қысымы, кПа?'
+  relevant:
+  - section: technical_wet_dry_vacuum.suction_kpa
+    grade: 3
+  - section: technical_wet_dry_vacuum.tank_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wet_dry_vacuum.suction_kpa; neighbouring tank_ml does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_suction_pressure
+  need_key: technical.wet_dry_vacuum.suction_kpa|current
+  required:
+  - fact: technical.wet_dry_vacuum.suction_kpa
+    sections:
+    - technical_wet_dry_vacuum.suction_kpa
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wet_dry_vacuum_tank_ml
+  category: hard
+  en: The cards look similar. What container capacity is listed for Wet and dry utility vacuum (ml)?
+  ru: Карточки похожи. Уточните показатель «Вместимость резервуара» именно для «Хозяйственный пылесос
+    влажной и сухой уборки» (мл).
+  kk: Карточкалар ұқсас. «Ылғалды және құрғақ тазалау шаңсорғышы» үшін нақты «Резервуар сыйымдылығы» көрсеткішін
+    айтыңыз (мл).
+  relevant:
+  - section: technical_wet_dry_vacuum.tank_ml
+    grade: 3
+  - section: technical_wet_dry_vacuum.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wet_dry_vacuum.tank_ml; neighbouring noise_db does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_volume
+  need_key: technical.wet_dry_vacuum.tank_ml|current
+  required:
+  - fact: technical.wet_dry_vacuum.tank_ml
+    sections:
+    - technical_wet_dry_vacuum.tank_ml
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wet_dry_vacuum_noise_db
+  category: hard
+  en: Check the specifcation of Wet and dry utility vacuum for rated sound pressure level (dB), please.
+  ru: 'Проверьте характиристику «Хозяйственный пылесос влажной и сухой уборки»: интересует «Номинальный
+    уровень звукового давления» (дБ).'
+  kk: «Ылғалды және құрғақ тазалау шаңсорғышы» сипатамасынан «Номиналды дыбыс қысымының деңгейі» мәнін
+    тексеріңізші (дБ).
+  relevant:
+  - section: technical_wet_dry_vacuum.noise_db
+    grade: 3
+  - section: technical_wet_dry_vacuum.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Ылғалды және құрғақ тазалау шаңсорғышы» үшін «Номиналды дыбыс қысымының деңгейі» (дБ) керек,
+    уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.wet_dry_vacuum.noise_db; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.wet_dry_vacuum.noise_db|current
+  required:
+  - fact: technical.wet_dry_vacuum.noise_db
+    sections:
+    - technical_wet_dry_vacuum.noise_db
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wet_dry_vacuum_cable_cm
+  category: simple
+  en: For Wet and dry utility vacuum, what is the specified supplied cable length in cm?
+  ru: Для «Хозяйственный пылесос влажной и сухой уборки» какое значение указано для показателя «Длина
+    комплектного кабеля» (см)?
+  kk: «Ылғалды және құрғақ тазалау шаңсорғышы» тауары үшін «Жинақтағы кабель ұзындығы» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_wet_dry_vacuum.cable_cm
+    grade: 3
+  - section: technical_wet_dry_vacuum.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wet_dry_vacuum.cable_cm; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.wet_dry_vacuum.cable_cm|current
+  required:
+  - fact: technical.wet_dry_vacuum.cable_cm
+    sections:
+    - technical_wet_dry_vacuum.cable_cm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wet_dry_vacuum_modes_count
+  category: simple
+  en: I am comparing specifications. Find the number of operating modes for Wet and dry utility vacuum,
+    in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число режимов работы» у «Хозяйственный пылесос влажной
+    и сухой уборки», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Ылғалды және құрғақ тазалау шаңсорғышы» үшін «Жұмыс режимдерінің
+    саны» мәні қажет (дана).
+  relevant:
+  - section: technical_wet_dry_vacuum.modes_count
+    grade: 3
+  - section: technical_wet_dry_vacuum.filter_area_cm2
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wet_dry_vacuum.modes_count; neighbouring filter_area_cm2 does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.wet_dry_vacuum.modes_count|current
+  required:
+  - fact: technical.wet_dry_vacuum.modes_count
+    sections:
+    - technical_wet_dry_vacuum.modes_count
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_wet_dry_vacuum_filter_area_cm2
+  category: simple
+  en: 'Wet and dry utility vacuum: filter surface area, cm2?'
+  ru: '«Хозяйственный пылесос влажной и сухой уборки»: площадь фильтрующей поверхности, см2?'
+  kk: '«Ылғалды және құрғақ тазалау шаңсорғышы»: сүзу бетінің ауданы, см2?'
+  relevant:
+  - section: technical_wet_dry_vacuum.filter_area_cm2
+    grade: 3
+  - section: technical_wet_dry_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.wet_dry_vacuum.filter_area_cm2; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_filter_geometry
+  need_key: technical.wet_dry_vacuum.filter_area_cm2|current
+  required:
+  - fact: technical.wet_dry_vacuum.filter_area_cm2
+    sections:
+    - technical_wet_dry_vacuum.filter_area_cm2
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_wet_dry_vacuum_humidity_max_percent
+  category: unanswerable
+  en: For Wet and dry utility vacuum, what is the specified maximum permitted humidity in percent?
+  ru: Для «Хозяйственный пылесос влажной и сухой уборки» какое значение указано для показателя «Максимальная
+    допустимая влажность» (процентов)?
+  kk: «Ылғалды және құрғақ тазалау шаңсорғышы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_wet_dry_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for wet_dry_vacuum does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.wet_dry_vacuum.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_wet_dry_vacuum_drop_test_cm
+  category: unanswerable
+  en: For Wet and dry utility vacuum, what is the specified certified drop-test height in cm?
+  ru: Для «Хозяйственный пылесос влажной и сухой уборки» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Ылғалды және құрғақ тазалау шаңсорғышы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі»
+    көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_wet_dry_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for wet_dry_vacuum does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.wet_dry_vacuum.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_wet_dry_vacuum_repair_parts_price
+  category: unanswerable
+  en: For Wet and dry utility vacuum, what is the specified replacement-part price in KZT?
+  ru: Для «Хозяйственный пылесос влажной и сухой уборки» какое значение указано для показателя «Цена запасной
+    детали» (тенге)?
+  kk: «Ылғалды және құрғақ тазалау шаңсорғышы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні
+    қандай (теңге)?
+  relevant:
+  - section: technical_wet_dry_vacuum.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for wet_dry_vacuum does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.wet_dry_vacuum.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_wet_dry_vacuum_certification_id
+  category: unanswerable
+  en: For Wet and dry utility vacuum, what is the specified certification record number in record?
+  ru: Для «Хозяйственный пылесос влажной и сухой уборки» какое значение указано для показателя «Номер
+    сертификационной записи» (запись)?
+  kk: «Ылғалды және құрғақ тазалау шаңсорғышы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_wet_dry_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for wet_dry_vacuum does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.wet_dry_vacuum.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_carpet_extractor_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Compact carpet extractor (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Компактный ковровый экстрактор» (г).
+  kk: Карточкалар ұқсас. «Ықшам кілем экстракторы» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_carpet_extractor.mass_g
+    grade: 3
+  - section: technical_carpet_extractor.width_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.carpet_extractor.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.carpet_extractor.mass_g|current
+  required:
+  - fact: technical.carpet_extractor.mass_g
+    sections:
+    - technical_carpet_extractor.mass_g
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_carpet_extractor_width_mm
+  category: hard
+  en: Check the specifcation of Compact carpet extractor for width (mm), please.
+  ru: 'Проверьте характиристику «Компактный ковровый экстрактор»: интересует «Ширина» (мм).'
+  kk: «Ықшам кілем экстракторы» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_carpet_extractor.width_mm
+    grade: 3
+  - section: technical_carpet_extractor.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.carpet_extractor.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.carpet_extractor.width_mm|current
+  required:
+  - fact: technical.carpet_extractor.width_mm
+    sections:
+    - technical_carpet_extractor.width_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_carpet_extractor_height_mm
+  category: simple
+  en: For Compact carpet extractor, what is the specified height in mm?
+  ru: Для «Компактный ковровый экстрактор» какое значение указано для показателя «Высота» (мм)?
+  kk: «Ықшам кілем экстракторы» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_carpet_extractor.height_mm
+    grade: 3
+  - section: technical_carpet_extractor.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.carpet_extractor.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.carpet_extractor.height_mm|current
+  required:
+  - fact: technical.carpet_extractor.height_mm
+    sections:
+    - technical_carpet_extractor.height_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_carpet_extractor_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Compact carpet extractor, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Компактный ковровый экстрактор», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Ықшам кілем экстракторы» үшін «Тереңдігі» мәні қажет (мм).
+  relevant:
+  - section: technical_carpet_extractor.depth_mm
+    grade: 3
+  - section: technical_carpet_extractor.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Компактный ковровый экстрактор» показатель «Глубина» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.carpet_extractor.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.carpet_extractor.depth_mm|current
+  required:
+  - fact: technical.carpet_extractor.depth_mm
+    sections:
+    - technical_carpet_extractor.depth_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_carpet_extractor_operating_min_c
+  category: hard
+  en: 'Compact carpet extractor: minimum operating ambient temperature, C?'
+  ru: '«Компактный ковровый экстрактор»: минимальная температура воздуха при работе, C?'
+  kk: '«Ықшам кілем экстракторы»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_carpet_extractor.operating_min_c
+    grade: 3
+  - section: technical_carpet_extractor.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.carpet_extractor.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.carpet_extractor.operating_min_c|current
+  required:
+  - fact: technical.carpet_extractor.operating_min_c
+    sections:
+    - technical_carpet_extractor.operating_min_c
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_carpet_extractor_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Compact carpet
+    extractor (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Компактный
+    ковровый экстрактор» (C).
+  kk: Карточкалар ұқсас. «Ықшам кілем экстракторы» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_carpet_extractor.operating_max_c
+    grade: 3
+  - section: technical_carpet_extractor.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.carpet_extractor.operating_max_c; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.carpet_extractor.operating_max_c|current
+  required:
+  - fact: technical.carpet_extractor.operating_max_c
+    sections:
+    - technical_carpet_extractor.operating_max_c
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_carpet_extractor_power_w
+  category: hard
+  en: Check the specifcation of Compact carpet extractor for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Компактный ковровый экстрактор»: интересует «Номинальная потребляемая
+    мощность» (Вт).'
+  kk: «Ықшам кілем экстракторы» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_carpet_extractor.power_w
+    grade: 3
+  - section: technical_carpet_extractor.suction_kpa
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.carpet_extractor.power_w; neighbouring suction_kpa does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.carpet_extractor.power_w|current
+  required:
+  - fact: technical.carpet_extractor.power_w
+    sections:
+    - technical_carpet_extractor.power_w
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_carpet_extractor_suction_kpa
+  category: simple
+  en: For Compact carpet extractor, what is the specified rated suction pressure in kPa?
+  ru: Для «Компактный ковровый экстрактор» какое значение указано для показателя «Номинальное давление
+    всасывания» (кПа)?
+  kk: «Ықшам кілем экстракторы» тауары үшін «Номиналды сору қысымы» көрсеткішінің мәні қандай (кПа)?
+  relevant:
+  - section: technical_carpet_extractor.suction_kpa
+    grade: 3
+  - section: technical_carpet_extractor.tank_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.carpet_extractor.suction_kpa; neighbouring tank_ml does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_suction_pressure
+  need_key: technical.carpet_extractor.suction_kpa|current
+  required:
+  - fact: technical.carpet_extractor.suction_kpa
+    sections:
+    - technical_carpet_extractor.suction_kpa
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_carpet_extractor_tank_ml
+  category: simple
+  en: I am comparing specifications. Find the container capacity for Compact carpet extractor, in ml.
+  ru: Сравниваю характеристики. Нужен показатель «Вместимость резервуара» у «Компактный ковровый экстрактор»,
+    в мл.
+  kk: Сипаттамаларды салыстырып отырмын. «Ықшам кілем экстракторы» үшін «Резервуар сыйымдылығы» мәні қажет
+    (мл).
+  relevant:
+  - section: technical_carpet_extractor.tank_ml
+    grade: 3
+  - section: technical_carpet_extractor.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.carpet_extractor.tank_ml; neighbouring noise_db does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_volume
+  need_key: technical.carpet_extractor.tank_ml|current
+  required:
+  - fact: technical.carpet_extractor.tank_ml
+    sections:
+    - technical_carpet_extractor.tank_ml
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_carpet_extractor_noise_db
+  category: simple
+  en: 'Compact carpet extractor: rated sound pressure level, dB?'
+  ru: '«Компактный ковровый экстрактор»: номинальный уровень звукового давления, дБ?'
+  kk: '«Ықшам кілем экстракторы»: номиналды дыбыс қысымының деңгейі, дБ?'
+  relevant:
+  - section: technical_carpet_extractor.noise_db
+    grade: 3
+  - section: technical_carpet_extractor.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.carpet_extractor.noise_db; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.carpet_extractor.noise_db|current
+  required:
+  - fact: technical.carpet_extractor.noise_db
+    sections:
+    - technical_carpet_extractor.noise_db
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_carpet_extractor_cable_cm
+  category: hard
+  en: The cards look similar. What supplied cable length is listed for Compact carpet extractor (cm)?
+  ru: Карточки похожи. Уточните показатель «Длина комплектного кабеля» именно для «Компактный ковровый
+    экстрактор» (см).
+  kk: Карточкалар ұқсас. «Ықшам кілем экстракторы» үшін нақты «Жинақтағы кабель ұзындығы» көрсеткішін
+    айтыңыз (см).
+  relevant:
+  - section: technical_carpet_extractor.cable_cm
+    grade: 3
+  - section: technical_carpet_extractor.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Ықшам кілем экстракторы» үшін «Жинақтағы кабель ұзындығы» (см) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.carpet_extractor.cable_cm; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.carpet_extractor.cable_cm|current
+  required:
+  - fact: technical.carpet_extractor.cable_cm
+    sections:
+    - technical_carpet_extractor.cable_cm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_carpet_extractor_modes_count
+  category: hard
+  en: Check the specifcation of Compact carpet extractor for number of operating modes (units), please.
+  ru: 'Проверьте характиристику «Компактный ковровый экстрактор»: интересует «Число режимов работы» (шт.).'
+  kk: «Ықшам кілем экстракторы» сипатамасынан «Жұмыс режимдерінің саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_carpet_extractor.modes_count
+    grade: 3
+  - section: technical_carpet_extractor.filter_area_cm2
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.carpet_extractor.modes_count; neighbouring filter_area_cm2 does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.carpet_extractor.modes_count|current
+  required:
+  - fact: technical.carpet_extractor.modes_count
+    sections:
+    - technical_carpet_extractor.modes_count
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_carpet_extractor_filter_area_cm2
+  category: simple
+  en: For Compact carpet extractor, what is the specified filter surface area in cm2?
+  ru: Для «Компактный ковровый экстрактор» какое значение указано для показателя «Площадь фильтрующей
+    поверхности» (см2)?
+  kk: «Ықшам кілем экстракторы» тауары үшін «Сүзу бетінің ауданы» көрсеткішінің мәні қандай (см2)?
+  relevant:
+  - section: technical_carpet_extractor.filter_area_cm2
+    grade: 3
+  - section: technical_carpet_extractor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.carpet_extractor.filter_area_cm2; neighbouring mass_g does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_filter_geometry
+  need_key: technical.carpet_extractor.filter_area_cm2|current
+  required:
+  - fact: technical.carpet_extractor.filter_area_cm2
+    sections:
+    - technical_carpet_extractor.filter_area_cm2
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_carpet_extractor_humidity_max_percent
+  category: unanswerable
+  en: For Compact carpet extractor, what is the specified maximum permitted humidity in percent?
+  ru: Для «Компактный ковровый экстрактор» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Ықшам кілем экстракторы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_carpet_extractor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for carpet_extractor does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.carpet_extractor.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_carpet_extractor_drop_test_cm
+  category: unanswerable
+  en: For Compact carpet extractor, what is the specified certified drop-test height in cm?
+  ru: Для «Компактный ковровый экстрактор» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Ықшам кілем экстракторы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_carpet_extractor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for carpet_extractor does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.carpet_extractor.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_carpet_extractor_repair_parts_price
+  category: unanswerable
+  en: For Compact carpet extractor, what is the specified replacement-part price in KZT?
+  ru: Для «Компактный ковровый экстрактор» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Ықшам кілем экстракторы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_carpet_extractor.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for carpet_extractor does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.carpet_extractor.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_carpet_extractor_certification_id
+  category: unanswerable
+  en: For Compact carpet extractor, what is the specified certification record number in record?
+  ru: Для «Компактный ковровый экстрактор» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Ықшам кілем экстракторы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_carpet_extractor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for carpet_extractor does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.carpet_extractor.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_carpet_extractor
+  category: multi_fragment
+  en: What does Compact carpet extractor weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Компактный ковровый экстрактор» и какой вес посылки допускают пункты самовывоза?
+  kk: «Ықшам кілем экстракторы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_carpet_extractor.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.carpet_extractor.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.carpet_extractor.mass_g
+    sections:
+    - technical_carpet_extractor.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_spot_cleaner_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Portable fabric spot cleaner, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Портативный очиститель пятен на ткани», в
+    г.
+  kk: Сипаттамаларды салыстырып отырмын. «Мата дағын тазалайтын портативті құрылғы» үшін «Салмағы» мәні
+    қажет (г).
+  relevant:
+  - section: technical_spot_cleaner.mass_g
+    grade: 3
+  - section: technical_spot_cleaner.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.spot_cleaner.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.spot_cleaner.mass_g|current
+  required:
+  - fact: technical.spot_cleaner.mass_g
+    sections:
+    - technical_spot_cleaner.mass_g
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_spot_cleaner_width_mm
+  category: simple
+  en: 'Portable fabric spot cleaner: width, mm?'
+  ru: '«Портативный очиститель пятен на ткани»: ширина, мм?'
+  kk: '«Мата дағын тазалайтын портативті құрылғы»: ені, мм?'
+  relevant:
+  - section: technical_spot_cleaner.width_mm
+    grade: 3
+  - section: technical_spot_cleaner.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.spot_cleaner.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.spot_cleaner.width_mm|current
+  required:
+  - fact: technical.spot_cleaner.width_mm
+    sections:
+    - technical_spot_cleaner.width_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_spot_cleaner_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Portable fabric spot cleaner (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Портативный очиститель пятен на ткани»
+    (мм).
+  kk: Карточкалар ұқсас. «Мата дағын тазалайтын портативті құрылғы» үшін нақты «Биіктігі» көрсеткішін
+    айтыңыз (мм).
+  relevant:
+  - section: technical_spot_cleaner.height_mm
+    grade: 3
+  - section: technical_spot_cleaner.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.spot_cleaner.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.spot_cleaner.height_mm|current
+  required:
+  - fact: technical.spot_cleaner.height_mm
+    sections:
+    - technical_spot_cleaner.height_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_spot_cleaner_depth_mm
+  category: hard
+  en: Check the specifcation of Portable fabric spot cleaner for depth (mm), please.
+  ru: 'Проверьте характиристику «Портативный очиститель пятен на ткани»: интересует «Глубина» (мм).'
+  kk: «Мата дағын тазалайтын портативті құрылғы» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_spot_cleaner.depth_mm
+    grade: 3
+  - section: technical_spot_cleaner.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.spot_cleaner.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.spot_cleaner.depth_mm|current
+  required:
+  - fact: technical.spot_cleaner.depth_mm
+    sections:
+    - technical_spot_cleaner.depth_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_spot_cleaner_operating_min_c
+  category: hard
+  en: For Portable fabric spot cleaner, what is the specified minimum operating ambient temperature in
+    C?
+  ru: Для «Портативный очиститель пятен на ткани» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Мата дағын тазалайтын портативті құрылғы» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішінің мәні қандай (C)?
+  relevant:
+  - section: technical_spot_cleaner.operating_min_c
+    grade: 3
+  - section: technical_spot_cleaner.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Портативный очиститель пятен на ткани» показатель «Минимальная температура воздуха при работе»
+    (C) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.spot_cleaner.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.spot_cleaner.operating_min_c|current
+  required:
+  - fact: technical.spot_cleaner.operating_min_c
+    sections:
+    - technical_spot_cleaner.operating_min_c
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_spot_cleaner_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Portable fabric
+    spot cleaner, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Портативный
+    очиститель пятен на ткани», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Мата дағын тазалайтын портативті құрылғы» үшін «Жұмыс кезіндегі
+    ауаның ең жоғары температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_spot_cleaner.operating_max_c
+    grade: 3
+  - section: technical_spot_cleaner.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.spot_cleaner.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.spot_cleaner.operating_max_c|current
+  required:
+  - fact: technical.spot_cleaner.operating_max_c
+    sections:
+    - technical_spot_cleaner.operating_max_c
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_spot_cleaner_power_w
+  category: simple
+  en: 'Portable fabric spot cleaner: rated power consumption, W?'
+  ru: '«Портативный очиститель пятен на ткани»: номинальная потребляемая мощность, Вт?'
+  kk: '«Мата дағын тазалайтын портативті құрылғы»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_spot_cleaner.power_w
+    grade: 3
+  - section: technical_spot_cleaner.suction_kpa
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.spot_cleaner.power_w; neighbouring suction_kpa does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.spot_cleaner.power_w|current
+  required:
+  - fact: technical.spot_cleaner.power_w
+    sections:
+    - technical_spot_cleaner.power_w
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_spot_cleaner_suction_kpa
+  category: hard
+  en: The cards look similar. What rated suction pressure is listed for Portable fabric spot cleaner (kPa)?
+  ru: Карточки похожи. Уточните показатель «Номинальное давление всасывания» именно для «Портативный очиститель
+    пятен на ткани» (кПа).
+  kk: Карточкалар ұқсас. «Мата дағын тазалайтын портативті құрылғы» үшін нақты «Номиналды сору қысымы»
+    көрсеткішін айтыңыз (кПа).
+  relevant:
+  - section: technical_spot_cleaner.suction_kpa
+    grade: 3
+  - section: technical_spot_cleaner.tank_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.spot_cleaner.suction_kpa; neighbouring tank_ml does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_suction_pressure
+  need_key: technical.spot_cleaner.suction_kpa|current
+  required:
+  - fact: technical.spot_cleaner.suction_kpa
+    sections:
+    - technical_spot_cleaner.suction_kpa
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_spot_cleaner_tank_ml
+  category: hard
+  en: Check the specifcation of Portable fabric spot cleaner for container capacity (ml), please.
+  ru: 'Проверьте характиристику «Портативный очиститель пятен на ткани»: интересует «Вместимость резервуара»
+    (мл).'
+  kk: «Мата дағын тазалайтын портативті құрылғы» сипатамасынан «Резервуар сыйымдылығы» мәнін тексеріңізші
+    (мл).
+  relevant:
+  - section: technical_spot_cleaner.tank_ml
+    grade: 3
+  - section: technical_spot_cleaner.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.spot_cleaner.tank_ml; neighbouring noise_db does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_volume
+  need_key: technical.spot_cleaner.tank_ml|current
+  required:
+  - fact: technical.spot_cleaner.tank_ml
+    sections:
+    - technical_spot_cleaner.tank_ml
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_spot_cleaner_noise_db
+  category: simple
+  en: For Portable fabric spot cleaner, what is the specified rated sound pressure level in dB?
+  ru: Для «Портативный очиститель пятен на ткани» какое значение указано для показателя «Номинальный уровень
+    звукового давления» (дБ)?
+  kk: «Мата дағын тазалайтын портативті құрылғы» тауары үшін «Номиналды дыбыс қысымының деңгейі» көрсеткішінің
+    мәні қандай (дБ)?
+  relevant:
+  - section: technical_spot_cleaner.noise_db
+    grade: 3
+  - section: technical_spot_cleaner.cable_cm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.spot_cleaner.noise_db; neighbouring cable_cm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.spot_cleaner.noise_db|current
+  required:
+  - fact: technical.spot_cleaner.noise_db
+    sections:
+    - technical_spot_cleaner.noise_db
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_spot_cleaner_cable_cm
+  category: simple
+  en: I am comparing specifications. Find the supplied cable length for Portable fabric spot cleaner,
+    in cm.
+  ru: Сравниваю характеристики. Нужен показатель «Длина комплектного кабеля» у «Портативный очиститель
+    пятен на ткани», в см.
+  kk: Сипаттамаларды салыстырып отырмын. «Мата дағын тазалайтын портативті құрылғы» үшін «Жинақтағы кабель
+    ұзындығы» мәні қажет (см).
+  relevant:
+  - section: technical_spot_cleaner.cable_cm
+    grade: 3
+  - section: technical_spot_cleaner.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.spot_cleaner.cable_cm; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.spot_cleaner.cable_cm|current
+  required:
+  - fact: technical.spot_cleaner.cable_cm
+    sections:
+    - technical_spot_cleaner.cable_cm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_spot_cleaner_modes_count
+  category: simple
+  en: 'Portable fabric spot cleaner: number of operating modes, units?'
+  ru: '«Портативный очиститель пятен на ткани»: число режимов работы, шт.?'
+  kk: '«Мата дағын тазалайтын портативті құрылғы»: жұмыс режимдерінің саны, дана?'
+  relevant:
+  - section: technical_spot_cleaner.modes_count
+    grade: 3
+  - section: technical_spot_cleaner.filter_area_cm2
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Мата дағын тазалайтын портативті құрылғы» үшін «Жұмыс режимдерінің саны» (дана) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.spot_cleaner.modes_count; neighbouring filter_area_cm2 does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.spot_cleaner.modes_count|current
+  required:
+  - fact: technical.spot_cleaner.modes_count
+    sections:
+    - technical_spot_cleaner.modes_count
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_spot_cleaner_filter_area_cm2
+  category: hard
+  en: The cards look similar. What filter surface area is listed for Portable fabric spot cleaner (cm2)?
+  ru: Карточки похожи. Уточните показатель «Площадь фильтрующей поверхности» именно для «Портативный очиститель
+    пятен на ткани» (см2).
+  kk: Карточкалар ұқсас. «Мата дағын тазалайтын портативті құрылғы» үшін нақты «Сүзу бетінің ауданы» көрсеткішін
+    айтыңыз (см2).
+  relevant:
+  - section: technical_spot_cleaner.filter_area_cm2
+    grade: 3
+  - section: technical_spot_cleaner.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.spot_cleaner.filter_area_cm2; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_filter_geometry
+  need_key: technical.spot_cleaner.filter_area_cm2|current
+  required:
+  - fact: technical.spot_cleaner.filter_area_cm2
+    sections:
+    - technical_spot_cleaner.filter_area_cm2
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_spot_cleaner_humidity_max_percent
+  category: unanswerable
+  en: For Portable fabric spot cleaner, what is the specified maximum permitted humidity in percent?
+  ru: Для «Портативный очиститель пятен на ткани» какое значение указано для показателя «Максимальная
+    допустимая влажность» (процентов)?
+  kk: «Мата дағын тазалайтын портативті құрылғы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_spot_cleaner.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for spot_cleaner does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.spot_cleaner.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_spot_cleaner_drop_test_cm
+  category: unanswerable
+  en: For Portable fabric spot cleaner, what is the specified certified drop-test height in cm?
+  ru: Для «Портативный очиститель пятен на ткани» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Мата дағын тазалайтын портативті құрылғы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі»
+    көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_spot_cleaner.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for spot_cleaner does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.spot_cleaner.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_spot_cleaner_repair_parts_price
+  category: unanswerable
+  en: For Portable fabric spot cleaner, what is the specified replacement-part price in KZT?
+  ru: Для «Портативный очиститель пятен на ткани» какое значение указано для показателя «Цена запасной
+    детали» (тенге)?
+  kk: «Мата дағын тазалайтын портативті құрылғы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні
+    қандай (теңге)?
+  relevant:
+  - section: technical_spot_cleaner.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for spot_cleaner does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.spot_cleaner.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_spot_cleaner_certification_id
+  category: unanswerable
+  en: For Portable fabric spot cleaner, what is the specified certification record number in record?
+  ru: Для «Портативный очиститель пятен на ткани» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Мата дағын тазалайтын портативті құрылғы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_spot_cleaner.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for spot_cleaner does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.spot_cleaner.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_desktop_dust_vacuum_mass_g
+  category: hard
+  en: Check the specifcation of Desktop dust collection vacuum for mass (g), please.
+  ru: 'Проверьте характиристику «Настольный пылесборный пылесос»: интересует «Масса» (г).'
+  kk: «Үстел шаң жинағыш шаңсорғышы» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_desktop_dust_vacuum.mass_g
+    grade: 3
+  - section: technical_desktop_dust_vacuum.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_dust_vacuum.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.desktop_dust_vacuum.mass_g|current
+  required:
+  - fact: technical.desktop_dust_vacuum.mass_g
+    sections:
+    - technical_desktop_dust_vacuum.mass_g
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_dust_vacuum_width_mm
+  category: simple
+  en: For Desktop dust collection vacuum, what is the specified width in mm?
+  ru: Для «Настольный пылесборный пылесос» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Үстел шаң жинағыш шаңсорғышы» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_desktop_dust_vacuum.width_mm
+    grade: 3
+  - section: technical_desktop_dust_vacuum.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_dust_vacuum.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.desktop_dust_vacuum.width_mm|current
+  required:
+  - fact: technical.desktop_dust_vacuum.width_mm
+    sections:
+    - technical_desktop_dust_vacuum.width_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_dust_vacuum_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Desktop dust collection vacuum, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Настольный пылесборный пылесос», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел шаң жинағыш шаңсорғышы» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_desktop_dust_vacuum.height_mm
+    grade: 3
+  - section: technical_desktop_dust_vacuum.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_dust_vacuum.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.desktop_dust_vacuum.height_mm|current
+  required:
+  - fact: technical.desktop_dust_vacuum.height_mm
+    sections:
+    - technical_desktop_dust_vacuum.height_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_dust_vacuum_depth_mm
+  category: simple
+  en: 'Desktop dust collection vacuum: depth, mm?'
+  ru: '«Настольный пылесборный пылесос»: глубина, мм?'
+  kk: '«Үстел шаң жинағыш шаңсорғышы»: тереңдігі, мм?'
+  relevant:
+  - section: technical_desktop_dust_vacuum.depth_mm
+    grade: 3
+  - section: technical_desktop_dust_vacuum.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_dust_vacuum.depth_mm; neighbouring operating_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.desktop_dust_vacuum.depth_mm|current
+  required:
+  - fact: technical.desktop_dust_vacuum.depth_mm
+    sections:
+    - technical_desktop_dust_vacuum.depth_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_dust_vacuum_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Desktop dust collection
+    vacuum (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Настольный
+    пылесборный пылесос» (C).
+  kk: Карточкалар ұқсас. «Үстел шаң жинағыш шаңсорғышы» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_desktop_dust_vacuum.operating_min_c
+    grade: 3
+  - section: technical_desktop_dust_vacuum.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_dust_vacuum.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.desktop_dust_vacuum.operating_min_c|current
+  required:
+  - fact: technical.desktop_dust_vacuum.operating_min_c
+    sections:
+    - technical_desktop_dust_vacuum.operating_min_c
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_dust_vacuum_operating_max_c
+  category: hard
+  en: Check the specifcation of Desktop dust collection vacuum for maximum operating ambient temperature
+    (C), please.
+  ru: 'Проверьте характиристику «Настольный пылесборный пылесос»: интересует «Максимальная температура
+    воздуха при работе» (C).'
+  kk: «Үстел шаң жинағыш шаңсорғышы» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы» мәнін
+    тексеріңізші (C).
+  relevant:
+  - section: technical_desktop_dust_vacuum.operating_max_c
+    grade: 3
+  - section: technical_desktop_dust_vacuum.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Настольный пылесборный пылесос» показатель «Максимальная температура воздуха при работе»
+    (C) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.desktop_dust_vacuum.operating_max_c; neighbouring power_w does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.desktop_dust_vacuum.operating_max_c|current
+  required:
+  - fact: technical.desktop_dust_vacuum.operating_max_c
+    sections:
+    - technical_desktop_dust_vacuum.operating_max_c
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_dust_vacuum_power_w
+  category: simple
+  en: For Desktop dust collection vacuum, what is the specified rated power consumption in W?
+  ru: Для «Настольный пылесборный пылесос» какое значение указано для показателя «Номинальная потребляемая
+    мощность» (Вт)?
+  kk: «Үстел шаң жинағыш шаңсорғышы» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай (Вт)?
+  relevant:
+  - section: technical_desktop_dust_vacuum.power_w
+    grade: 3
+  - section: technical_desktop_dust_vacuum.suction_kpa
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_dust_vacuum.power_w; neighbouring suction_kpa does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.desktop_dust_vacuum.power_w|current
+  required:
+  - fact: technical.desktop_dust_vacuum.power_w
+    sections:
+    - technical_desktop_dust_vacuum.power_w
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_dust_vacuum_suction_kpa
+  category: simple
+  en: I am comparing specifications. Find the rated suction pressure for Desktop dust collection vacuum,
+    in kPa.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное давление всасывания» у «Настольный пылесборный
+    пылесос», в кПа.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел шаң жинағыш шаңсорғышы» үшін «Номиналды сору қысымы» мәні
+    қажет (кПа).
+  relevant:
+  - section: technical_desktop_dust_vacuum.suction_kpa
+    grade: 3
+  - section: technical_desktop_dust_vacuum.tank_ml
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_dust_vacuum.suction_kpa; neighbouring tank_ml does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_suction_pressure
+  need_key: technical.desktop_dust_vacuum.suction_kpa|current
+  required:
+  - fact: technical.desktop_dust_vacuum.suction_kpa
+    sections:
+    - technical_desktop_dust_vacuum.suction_kpa
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_dust_vacuum_tank_ml
+  category: simple
+  en: 'Desktop dust collection vacuum: container capacity, ml?'
+  ru: '«Настольный пылесборный пылесос»: вместимость резервуара, мл?'
+  kk: '«Үстел шаң жинағыш шаңсорғышы»: резервуар сыйымдылығы, мл?'
+  relevant:
+  - section: technical_desktop_dust_vacuum.tank_ml
+    grade: 3
+  - section: technical_desktop_dust_vacuum.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_dust_vacuum.tank_ml; neighbouring noise_db does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_volume
+  need_key: technical.desktop_dust_vacuum.tank_ml|current
+  required:
+  - fact: technical.desktop_dust_vacuum.tank_ml
+    sections:
+    - technical_desktop_dust_vacuum.tank_ml
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_dust_vacuum_noise_db
+  category: hard
+  en: The cards look similar. What rated sound pressure level is listed for Desktop dust collection vacuum
+    (dB)?
+  ru: Карточки похожи. Уточните показатель «Номинальный уровень звукового давления» именно для «Настольный
+    пылесборный пылесос» (дБ).
+  kk: Карточкалар ұқсас. «Үстел шаң жинағыш шаңсорғышы» үшін нақты «Номиналды дыбыс қысымының деңгейі»
+    көрсеткішін айтыңыз (дБ).
+  relevant:
+  - section: technical_desktop_dust_vacuum.noise_db
+    grade: 3
+  - section: technical_desktop_dust_vacuum.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_dust_vacuum.noise_db; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.desktop_dust_vacuum.noise_db|current
+  required:
+  - fact: technical.desktop_dust_vacuum.noise_db
+    sections:
+    - technical_desktop_dust_vacuum.noise_db
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_dust_vacuum_cable_cm
+  category: hard
+  en: Check the specifcation of Desktop dust collection vacuum for supplied cable length (cm), please.
+  ru: 'Проверьте характиристику «Настольный пылесборный пылесос»: интересует «Длина комплектного кабеля»
+    (см).'
+  kk: «Үстел шаң жинағыш шаңсорғышы» сипатамасынан «Жинақтағы кабель ұзындығы» мәнін тексеріңізші (см).
+  relevant:
+  - section: technical_desktop_dust_vacuum.cable_cm
+    grade: 3
+  - section: technical_desktop_dust_vacuum.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_dust_vacuum.cable_cm; neighbouring modes_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.desktop_dust_vacuum.cable_cm|current
+  required:
+  - fact: technical.desktop_dust_vacuum.cable_cm
+    sections:
+    - technical_desktop_dust_vacuum.cable_cm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_dust_vacuum_modes_count
+  category: simple
+  en: For Desktop dust collection vacuum, what is the specified number of operating modes in units?
+  ru: Для «Настольный пылесборный пылесос» какое значение указано для показателя «Число режимов работы»
+    (шт.)?
+  kk: «Үстел шаң жинағыш шаңсорғышы» тауары үшін «Жұмыс режимдерінің саны» көрсеткішінің мәні қандай (дана)?
+  relevant:
+  - section: technical_desktop_dust_vacuum.modes_count
+    grade: 3
+  - section: technical_desktop_dust_vacuum.filter_area_cm2
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desktop_dust_vacuum.modes_count; neighbouring filter_area_cm2 does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.desktop_dust_vacuum.modes_count|current
+  required:
+  - fact: technical.desktop_dust_vacuum.modes_count
+    sections:
+    - technical_desktop_dust_vacuum.modes_count
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desktop_dust_vacuum_filter_area_cm2
+  category: simple
+  en: I am comparing specifications. Find the filter surface area for Desktop dust collection vacuum,
+    in cm2.
+  ru: Сравниваю характеристики. Нужен показатель «Площадь фильтрующей поверхности» у «Настольный пылесборный
+    пылесос», в см2.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел шаң жинағыш шаңсорғышы» үшін «Сүзу бетінің ауданы» мәні
+    қажет (см2).
+  relevant:
+  - section: technical_desktop_dust_vacuum.filter_area_cm2
+    grade: 3
+  - section: technical_desktop_dust_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Үстел шаң жинағыш шаңсорғышы» үшін «Сүзу бетінің ауданы» (см2) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.desktop_dust_vacuum.filter_area_cm2; neighbouring mass_g does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_filter_geometry
+  need_key: technical.desktop_dust_vacuum.filter_area_cm2|current
+  required:
+  - fact: technical.desktop_dust_vacuum.filter_area_cm2
+    sections:
+    - technical_desktop_dust_vacuum.filter_area_cm2
+  tags:
+  - profile_derived
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_desktop_dust_vacuum_humidity_max_percent
+  category: unanswerable
+  en: For Desktop dust collection vacuum, what is the specified maximum permitted humidity in percent?
+  ru: Для «Настольный пылесборный пылесос» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Үстел шаң жинағыш шаңсорғышы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_desktop_dust_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for desktop_dust_vacuum does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.desktop_dust_vacuum.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_desktop_dust_vacuum_drop_test_cm
+  category: unanswerable
+  en: For Desktop dust collection vacuum, what is the specified certified drop-test height in cm?
+  ru: Для «Настольный пылесборный пылесос» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Үстел шаң жинағыш шаңсорғышы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_desktop_dust_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for desktop_dust_vacuum does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.desktop_dust_vacuum.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_desktop_dust_vacuum_repair_parts_price
+  category: unanswerable
+  en: For Desktop dust collection vacuum, what is the specified replacement-part price in KZT?
+  ru: Для «Настольный пылесборный пылесос» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Үстел шаң жинағыш шаңсорғышы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_desktop_dust_vacuum.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for desktop_dust_vacuum does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.desktop_dust_vacuum.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_desktop_dust_vacuum_certification_id
+  category: unanswerable
+  en: For Desktop dust collection vacuum, what is the specified certification record number in record?
+  ru: Для «Настольный пылесборный пылесос» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Үстел шаң жинағыш шаңсорғышы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_desktop_dust_vacuum.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for desktop_dust_vacuum does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.desktop_dust_vacuum.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_desktop_dust_vacuum
+  category: multi_fragment
+  en: What does Desktop dust collection vacuum weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Настольный пылесборный пылесос» и какой вес посылки допускают пункты самовывоза?
+  kk: «Үстел шаң жинағыш шаңсорғышы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_desktop_dust_vacuum.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.desktop_dust_vacuum.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.desktop_dust_vacuum.mass_g
+    sections:
+    - technical_desktop_dust_vacuum.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workbench_dust_extractor_mass_g
+  category: simple
+  en: 'Workbench dust extractor: mass, g?'
+  ru: '«Верстачный пылеудаляющий аппарат»: масса, г?'
+  kk: '«Жұмыс үстелінің шаң сору аппараты»: салмағы, г?'
+  relevant:
+  - section: technical_workbench_dust_extractor.mass_g
+    grade: 3
+  - section: technical_workbench_dust_extractor.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workbench_dust_extractor.mass_g; neighbouring width_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.workbench_dust_extractor.mass_g|current
+  required:
+  - fact: technical.workbench_dust_extractor.mass_g
+    sections:
+    - technical_workbench_dust_extractor.mass_g
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workbench_dust_extractor_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Workbench dust extractor (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Верстачный пылеудаляющий аппарат» (мм).
+  kk: Карточкалар ұқсас. «Жұмыс үстелінің шаң сору аппараты» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_workbench_dust_extractor.width_mm
+    grade: 3
+  - section: technical_workbench_dust_extractor.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workbench_dust_extractor.width_mm; neighbouring height_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.workbench_dust_extractor.width_mm|current
+  required:
+  - fact: technical.workbench_dust_extractor.width_mm
+    sections:
+    - technical_workbench_dust_extractor.width_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workbench_dust_extractor_height_mm
+  category: hard
+  en: Check the specifcation of Workbench dust extractor for height (mm), please.
+  ru: 'Проверьте характиристику «Верстачный пылеудаляющий аппарат»: интересует «Высота» (мм).'
+  kk: «Жұмыс үстелінің шаң сору аппараты» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_workbench_dust_extractor.height_mm
+    grade: 3
+  - section: technical_workbench_dust_extractor.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workbench_dust_extractor.height_mm; neighbouring depth_mm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.workbench_dust_extractor.height_mm|current
+  required:
+  - fact: technical.workbench_dust_extractor.height_mm
+    sections:
+    - technical_workbench_dust_extractor.height_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workbench_dust_extractor_depth_mm
+  category: simple
+  en: For Workbench dust extractor, what is the specified depth in mm?
+  ru: Для «Верстачный пылеудаляющий аппарат» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Жұмыс үстелінің шаң сору аппараты» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_workbench_dust_extractor.depth_mm
+    grade: 3
+  - section: technical_workbench_dust_extractor.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workbench_dust_extractor.depth_mm; neighbouring operating_min_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.workbench_dust_extractor.depth_mm|current
+  required:
+  - fact: technical.workbench_dust_extractor.depth_mm
+    sections:
+    - technical_workbench_dust_extractor.depth_mm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workbench_dust_extractor_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Workbench dust
+    extractor, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Верстачный
+    пылеудаляющий аппарат», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Жұмыс үстелінің шаң сору аппараты» үшін «Жұмыс кезіндегі ауаның
+    ең төмен температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_workbench_dust_extractor.operating_min_c
+    grade: 3
+  - section: technical_workbench_dust_extractor.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workbench_dust_extractor.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.workbench_dust_extractor.operating_min_c|current
+  required:
+  - fact: technical.workbench_dust_extractor.operating_min_c
+    sections:
+    - technical_workbench_dust_extractor.operating_min_c
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workbench_dust_extractor_operating_max_c
+  category: hard
+  en: 'Workbench dust extractor: maximum operating ambient temperature, C?'
+  ru: '«Верстачный пылеудаляющий аппарат»: максимальная температура воздуха при работе, C?'
+  kk: '«Жұмыс үстелінің шаң сору аппараты»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_workbench_dust_extractor.operating_max_c
+    grade: 3
+  - section: technical_workbench_dust_extractor.power_w
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workbench_dust_extractor.operating_max_c; neighbouring power_w
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.workbench_dust_extractor.operating_max_c|current
+  required:
+  - fact: technical.workbench_dust_extractor.operating_max_c
+    sections:
+    - technical_workbench_dust_extractor.operating_max_c
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workbench_dust_extractor_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Workbench dust extractor (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Верстачный
+    пылеудаляющий аппарат» (Вт).
+  kk: Карточкалар ұқсас. «Жұмыс үстелінің шаң сору аппараты» үшін нақты «Номиналды тұтыну қуаты» көрсеткішін
+    айтыңыз (Вт).
+  relevant:
+  - section: technical_workbench_dust_extractor.power_w
+    grade: 3
+  - section: technical_workbench_dust_extractor.suction_kpa
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Верстачный пылеудаляющий аппарат» показатель «Номинальная потребляемая мощность» (Вт) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.workbench_dust_extractor.power_w; neighbouring suction_kpa does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.workbench_dust_extractor.power_w|current
+  required:
+  - fact: technical.workbench_dust_extractor.power_w
+    sections:
+    - technical_workbench_dust_extractor.power_w
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workbench_dust_extractor_suction_kpa
+  category: hard
+  en: Check the specifcation of Workbench dust extractor for rated suction pressure (kPa), please.
+  ru: 'Проверьте характиристику «Верстачный пылеудаляющий аппарат»: интересует «Номинальное давление всасывания»
+    (кПа).'
+  kk: «Жұмыс үстелінің шаң сору аппараты» сипатамасынан «Номиналды сору қысымы» мәнін тексеріңізші (кПа).
+  relevant:
+  - section: technical_workbench_dust_extractor.suction_kpa
+    grade: 3
+  - section: technical_workbench_dust_extractor.tank_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workbench_dust_extractor.suction_kpa; neighbouring tank_ml does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_suction_pressure
+  need_key: technical.workbench_dust_extractor.suction_kpa|current
+  required:
+  - fact: technical.workbench_dust_extractor.suction_kpa
+    sections:
+    - technical_workbench_dust_extractor.suction_kpa
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workbench_dust_extractor_tank_ml
+  category: simple
+  en: For Workbench dust extractor, what is the specified container capacity in ml?
+  ru: Для «Верстачный пылеудаляющий аппарат» какое значение указано для показателя «Вместимость резервуара»
+    (мл)?
+  kk: «Жұмыс үстелінің шаң сору аппараты» тауары үшін «Резервуар сыйымдылығы» көрсеткішінің мәні қандай
+    (мл)?
+  relevant:
+  - section: technical_workbench_dust_extractor.tank_ml
+    grade: 3
+  - section: technical_workbench_dust_extractor.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workbench_dust_extractor.tank_ml; neighbouring noise_db does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_volume
+  need_key: technical.workbench_dust_extractor.tank_ml|current
+  required:
+  - fact: technical.workbench_dust_extractor.tank_ml
+    sections:
+    - technical_workbench_dust_extractor.tank_ml
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workbench_dust_extractor_noise_db
+  category: simple
+  en: I am comparing specifications. Find the rated sound pressure level for Workbench dust extractor,
+    in dB.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальный уровень звукового давления» у «Верстачный
+    пылеудаляющий аппарат», в дБ.
+  kk: Сипаттамаларды салыстырып отырмын. «Жұмыс үстелінің шаң сору аппараты» үшін «Номиналды дыбыс қысымының
+    деңгейі» мәні қажет (дБ).
+  relevant:
+  - section: technical_workbench_dust_extractor.noise_db
+    grade: 3
+  - section: technical_workbench_dust_extractor.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workbench_dust_extractor.noise_db; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.workbench_dust_extractor.noise_db|current
+  required:
+  - fact: technical.workbench_dust_extractor.noise_db
+    sections:
+    - technical_workbench_dust_extractor.noise_db
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workbench_dust_extractor_cable_cm
+  category: simple
+  en: 'Workbench dust extractor: supplied cable length, cm?'
+  ru: '«Верстачный пылеудаляющий аппарат»: длина комплектного кабеля, см?'
+  kk: '«Жұмыс үстелінің шаң сору аппараты»: жинақтағы кабель ұзындығы, см?'
+  relevant:
+  - section: technical_workbench_dust_extractor.cable_cm
+    grade: 3
+  - section: technical_workbench_dust_extractor.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workbench_dust_extractor.cable_cm; neighbouring modes_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.workbench_dust_extractor.cable_cm|current
+  required:
+  - fact: technical.workbench_dust_extractor.cable_cm
+    sections:
+    - technical_workbench_dust_extractor.cable_cm
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workbench_dust_extractor_modes_count
+  category: hard
+  en: The cards look similar. What number of operating modes is listed for Workbench dust extractor (units)?
+  ru: Карточки похожи. Уточните показатель «Число режимов работы» именно для «Верстачный пылеудаляющий
+    аппарат» (шт.).
+  kk: Карточкалар ұқсас. «Жұмыс үстелінің шаң сору аппараты» үшін нақты «Жұмыс режимдерінің саны» көрсеткішін
+    айтыңыз (дана).
+  relevant:
+  - section: technical_workbench_dust_extractor.modes_count
+    grade: 3
+  - section: technical_workbench_dust_extractor.filter_area_cm2
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workbench_dust_extractor.modes_count; neighbouring filter_area_cm2
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.workbench_dust_extractor.modes_count|current
+  required:
+  - fact: technical.workbench_dust_extractor.modes_count
+    sections:
+    - technical_workbench_dust_extractor.modes_count
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_workbench_dust_extractor_filter_area_cm2
+  category: hard
+  en: Check the specifcation of Workbench dust extractor for filter surface area (cm2), please.
+  ru: 'Проверьте характиристику «Верстачный пылеудаляющий аппарат»: интересует «Площадь фильтрующей поверхности»
+    (см2).'
+  kk: «Жұмыс үстелінің шаң сору аппараты» сипатамасынан «Сүзу бетінің ауданы» мәнін тексеріңізші (см2).
+  relevant:
+  - section: technical_workbench_dust_extractor.filter_area_cm2
+    grade: 3
+  - section: technical_workbench_dust_extractor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.workbench_dust_extractor.filter_area_cm2; neighbouring mass_g does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_filter_geometry
+  need_key: technical.workbench_dust_extractor.filter_area_cm2|current
+  required:
+  - fact: technical.workbench_dust_extractor.filter_area_cm2
+    sections:
+    - technical_workbench_dust_extractor.filter_area_cm2
+  tags:
+  - profile_derived
+  - domain_cleaning
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_workbench_dust_extractor_humidity_max_percent
+  category: unanswerable
+  en: For Workbench dust extractor, what is the specified maximum permitted humidity in percent?
+  ru: Для «Верстачный пылеудаляющий аппарат» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Жұмыс үстелінің шаң сору аппараты» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_workbench_dust_extractor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for workbench_dust_extractor does not state humidity_max_percent. Dimensions,
+    the retail price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.workbench_dust_extractor.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_workbench_dust_extractor_drop_test_cm
+  category: unanswerable
+  en: For Workbench dust extractor, what is the specified certified drop-test height in cm?
+  ru: Для «Верстачный пылеудаляющий аппарат» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Жұмыс үстелінің шаң сору аппараты» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_workbench_dust_extractor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for workbench_dust_extractor does not state drop_test_cm. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.workbench_dust_extractor.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_workbench_dust_extractor_repair_parts_price
+  category: unanswerable
+  en: For Workbench dust extractor, what is the specified replacement-part price in KZT?
+  ru: Для «Верстачный пылеудаляющий аппарат» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Жұмыс үстелінің шаң сору аппараты» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_workbench_dust_extractor.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for workbench_dust_extractor does not state repair_parts_price. Dimensions, the
+    retail price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.workbench_dust_extractor.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_workbench_dust_extractor_certification_id
+  category: unanswerable
+  en: For Workbench dust extractor, what is the specified certification record number in record?
+  ru: Для «Верстачный пылеудаляющий аппарат» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Жұмыс үстелінің шаң сору аппараты» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_workbench_dust_extractor.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for workbench_dust_extractor does not state certification_id. Dimensions, the
+    retail price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.workbench_dust_extractor.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_cleaning
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact

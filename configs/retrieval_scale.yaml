@@ -1,0 +1,52 @@
+schema_version: retrieval_scale_protocol/1
+seed: 20261112
+evaluation_date: '2026-11-12'
+baseline_kb: kb_demo_store-20261112-d58e3f93
+baseline_benchmark: retrieval-20261112-ecc28bf4
+baseline_report: artifacts/reports/retrieval
+output: artifacts/reports/retrieval_scale
+source: authored/retrieval_scale
+minimum:
+  documents: 200
+  language_versions: 600
+  chunks: 7500
+  canonical_facts: 2500
+  needs: 2500
+  cross_lingual_variants: 1000
+  code_switch_needs: 300
+  unanswerable_needs: 750
+split:
+  unit: family_id
+  holdout_modulus: 5
+  holdout_bucket: 0
+  freeze_before_inference: true
+bootstrap:
+  unit: scenario_id
+  samples: 1000
+  confidence: 0.95
+selection:
+  embedding_models: [bge_m3, e5_base]
+  phase: development
+  control: bge_m3_weighted075_rerank20
+  maximum_recall_loss: 0.005
+  maximum_cross_or_mixed_recall_loss: 0.01
+  primary: minimum_monolingual_recall5
+  tie_break: paired_ndcg10_ci_then_latency
+  evidence_thresholds: [0.0, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5]
+  context_budgets: [512, 1024, 2048]
+  holdout_once_after_selection: true
+stress:
+  chunks: 100000
+  dimensions: 1024
+  batch_size: 128
+  queries: 100
+  hnsw_ef: [32, 64, 128]
+  on_disk: true
+  provenance: synthetic_random_vectors_not_semantic_quality
+  collection_prefix: sp_scale_load_
+review:
+  diversity_gate: docs/reviews/stage6_scale_review.yaml
+  origin: llm_generated
+  status: draft
+  independent_human_review: false
+  semantic_answerability: unresolved_until_measured

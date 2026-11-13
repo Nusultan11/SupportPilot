@@ -113,6 +113,7 @@ kb:                                # Stage 5 knowledge base (ADR-027, DATA_CONTR
   lid_min_letters: 40              # language gate on prose chunks with at least this many letters
 
 retrieval:
+  namespace: scale_6fab32c16b3a6e05b29f  # Stage 6.1 expanded KB; baseline namespace retained
   models: configs/retrieval_models.yaml
   encoder: bge_m3
   reranker: bge_reranker

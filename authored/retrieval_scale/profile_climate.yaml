@@ -1,0 +1,4925 @@
+# Compiled from explicit technical_profiles/1 facts and native LLM-authored templates.
+schema_version: retrieval_scale_source/1
+origin: llm_generated
+review_status: draft
+author: Codex (LLM); explicit profiles and native templates compiled deterministically
+allowed_use: eval_only
+licence_note: Original fictional store specifications for internal demo and evaluation; no external manufacturer
+  data or real customer data. Fluent human review pending.
+items:
+- id: catalog_evaporative_cooler_mass_g
+  category: simple
+  en: For Evaporative room cooler, what is the specified mass in g?
+  ru: Для «Испарительный комнатный охладитель» какое значение указано для показателя «Масса» (г)?
+  kk: «Бөлмелік буландырғыш салқындатқыш» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_evaporative_cooler.mass_g
+    grade: 3
+  - section: technical_evaporative_cooler.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.evaporative_cooler.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.evaporative_cooler.mass_g|current
+  required:
+  - fact: technical.evaporative_cooler.mass_g
+    sections:
+    - technical_evaporative_cooler.mass_g
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_evaporative_cooler_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Evaporative room cooler, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Испарительный комнатный охладитель», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Бөлмелік буландырғыш салқындатқыш» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_evaporative_cooler.width_mm
+    grade: 3
+  - section: technical_evaporative_cooler.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.evaporative_cooler.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.evaporative_cooler.width_mm|current
+  required:
+  - fact: technical.evaporative_cooler.width_mm
+    sections:
+    - technical_evaporative_cooler.width_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_evaporative_cooler_height_mm
+  category: simple
+  en: 'Evaporative room cooler: height, mm?'
+  ru: '«Испарительный комнатный охладитель»: высота, мм?'
+  kk: '«Бөлмелік буландырғыш салқындатқыш»: биіктігі, мм?'
+  relevant:
+  - section: technical_evaporative_cooler.height_mm
+    grade: 3
+  - section: technical_evaporative_cooler.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.evaporative_cooler.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.evaporative_cooler.height_mm|current
+  required:
+  - fact: technical.evaporative_cooler.height_mm
+    sections:
+    - technical_evaporative_cooler.height_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_evaporative_cooler_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Evaporative room cooler (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Испарительный комнатный охладитель» (мм).
+  kk: Карточкалар ұқсас. «Бөлмелік буландырғыш салқындатқыш» үшін нақты «Тереңдігі» көрсеткішін айтыңыз
+    (мм).
+  relevant:
+  - section: technical_evaporative_cooler.depth_mm
+    grade: 3
+  - section: technical_evaporative_cooler.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.evaporative_cooler.depth_mm; neighbouring operating_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.evaporative_cooler.depth_mm|current
+  required:
+  - fact: technical.evaporative_cooler.depth_mm
+    sections:
+    - technical_evaporative_cooler.depth_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_evaporative_cooler_operating_min_c
+  category: hard
+  en: Check the specifcation of Evaporative room cooler for minimum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Испарительный комнатный охладитель»: интересует «Минимальная температура
+    воздуха при работе» (C).'
+  kk: «Бөлмелік буландырғыш салқындатқыш» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    мәнін тексеріңізші (C).
+  relevant:
+  - section: technical_evaporative_cooler.operating_min_c
+    grade: 3
+  - section: technical_evaporative_cooler.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.evaporative_cooler.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.evaporative_cooler.operating_min_c|current
+  required:
+  - fact: technical.evaporative_cooler.operating_min_c
+    sections:
+    - technical_evaporative_cooler.operating_min_c
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_evaporative_cooler_operating_max_c
+  category: hard
+  en: For Evaporative room cooler, what is the specified maximum operating ambient temperature in C?
+  ru: Для «Испарительный комнатный охладитель» какое значение указано для показателя «Максимальная температура
+    воздуха при работе» (C)?
+  kk: «Бөлмелік буландырғыш салқындатқыш» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    көрсеткішінің мәні қандай (C)?
+  relevant:
+  - section: technical_evaporative_cooler.operating_max_c
+    grade: 3
+  - section: technical_evaporative_cooler.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Испарительный комнатный охладитель» показатель «Максимальная температура воздуха при работе»
+    (C) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.evaporative_cooler.operating_max_c; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.evaporative_cooler.operating_max_c|current
+  required:
+  - fact: technical.evaporative_cooler.operating_max_c
+    sections:
+    - technical_evaporative_cooler.operating_max_c
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_evaporative_cooler_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Evaporative room cooler, in
+    W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Испарительный
+    комнатный охладитель», в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Бөлмелік буландырғыш салқындатқыш» үшін «Номиналды тұтыну қуаты»
+    мәні қажет (Вт).
+  relevant:
+  - section: technical_evaporative_cooler.power_w
+    grade: 3
+  - section: technical_evaporative_cooler.air_m3_h
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.evaporative_cooler.power_w; neighbouring air_m3_h does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.evaporative_cooler.power_w|current
+  required:
+  - fact: technical.evaporative_cooler.power_w
+    sections:
+    - technical_evaporative_cooler.power_w
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_evaporative_cooler_air_m3_h
+  category: simple
+  en: 'Evaporative room cooler: rated air flow, m3/h?'
+  ru: '«Испарительный комнатный охладитель»: номинальный расход воздуха, м3/ч?'
+  kk: '«Бөлмелік буландырғыш салқындатқыш»: номиналды ауа шығыны, м3/сағ?'
+  relevant:
+  - section: technical_evaporative_cooler.air_m3_h
+    grade: 3
+  - section: technical_evaporative_cooler.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.evaporative_cooler.air_m3_h; neighbouring noise_db does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_airflow
+  need_key: technical.evaporative_cooler.air_m3_h|current
+  required:
+  - fact: technical.evaporative_cooler.air_m3_h
+    sections:
+    - technical_evaporative_cooler.air_m3_h
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_evaporative_cooler_noise_db
+  category: hard
+  en: The cards look similar. What rated sound pressure level is listed for Evaporative room cooler (dB)?
+  ru: Карточки похожи. Уточните показатель «Номинальный уровень звукового давления» именно для «Испарительный
+    комнатный охладитель» (дБ).
+  kk: Карточкалар ұқсас. «Бөлмелік буландырғыш салқындатқыш» үшін нақты «Номиналды дыбыс қысымының деңгейі»
+    көрсеткішін айтыңыз (дБ).
+  relevant:
+  - section: technical_evaporative_cooler.noise_db
+    grade: 3
+  - section: technical_evaporative_cooler.tank_ml
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.evaporative_cooler.noise_db; neighbouring tank_ml does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.evaporative_cooler.noise_db|current
+  required:
+  - fact: technical.evaporative_cooler.noise_db
+    sections:
+    - technical_evaporative_cooler.noise_db
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_evaporative_cooler_tank_ml
+  category: hard
+  en: Check the specifcation of Evaporative room cooler for container capacity (ml), please.
+  ru: 'Проверьте характиристику «Испарительный комнатный охладитель»: интересует «Вместимость резервуара»
+    (мл).'
+  kk: «Бөлмелік буландырғыш салқындатқыш» сипатамасынан «Резервуар сыйымдылығы» мәнін тексеріңізші (мл).
+  relevant:
+  - section: technical_evaporative_cooler.tank_ml
+    grade: 3
+  - section: technical_evaporative_cooler.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.evaporative_cooler.tank_ml; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_volume
+  need_key: technical.evaporative_cooler.tank_ml|current
+  required:
+  - fact: technical.evaporative_cooler.tank_ml
+    sections:
+    - technical_evaporative_cooler.tank_ml
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_evaporative_cooler_modes_count
+  category: simple
+  en: For Evaporative room cooler, what is the specified number of operating modes in units?
+  ru: Для «Испарительный комнатный охладитель» какое значение указано для показателя «Число режимов работы»
+    (шт.)?
+  kk: «Бөлмелік буландырғыш салқындатқыш» тауары үшін «Жұмыс режимдерінің саны» көрсеткішінің мәні қандай
+    (дана)?
+  relevant:
+  - section: technical_evaporative_cooler.modes_count
+    grade: 3
+  - section: technical_evaporative_cooler.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.evaporative_cooler.modes_count; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.evaporative_cooler.modes_count|current
+  required:
+  - fact: technical.evaporative_cooler.modes_count
+    sections:
+    - technical_evaporative_cooler.modes_count
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_evaporative_cooler_cable_cm
+  category: simple
+  en: I am comparing specifications. Find the supplied cable length for Evaporative room cooler, in cm.
+  ru: Сравниваю характеристики. Нужен показатель «Длина комплектного кабеля» у «Испарительный комнатный
+    охладитель», в см.
+  kk: Сипаттамаларды салыстырып отырмын. «Бөлмелік буландырғыш салқындатқыш» үшін «Жинақтағы кабель ұзындығы»
+    мәні қажет (см).
+  relevant:
+  - section: technical_evaporative_cooler.cable_cm
+    grade: 3
+  - section: technical_evaporative_cooler.coverage_m2
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.evaporative_cooler.cable_cm; neighbouring coverage_m2 does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.evaporative_cooler.cable_cm|current
+  required:
+  - fact: technical.evaporative_cooler.cable_cm
+    sections:
+    - technical_evaporative_cooler.cable_cm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_evaporative_cooler_coverage_m2
+  category: simple
+  en: 'Evaporative room cooler: rated coverage area, m2?'
+  ru: '«Испарительный комнатный охладитель»: номинальная площадь обслуживания, м2?'
+  kk: '«Бөлмелік буландырғыш салқындатқыш»: номиналды қызмет көрсету ауданы, м2?'
+  relevant:
+  - section: technical_evaporative_cooler.coverage_m2
+    grade: 3
+  - section: technical_evaporative_cooler.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Бөлмелік буландырғыш салқындатқыш» үшін «Номиналды қызмет көрсету ауданы» (м2) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.evaporative_cooler.coverage_m2; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_coverage_area
+  need_key: technical.evaporative_cooler.coverage_m2|current
+  required:
+  - fact: technical.evaporative_cooler.coverage_m2
+    sections:
+    - technical_evaporative_cooler.coverage_m2
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_evaporative_cooler_humidity_max_percent
+  category: unanswerable
+  en: For Evaporative room cooler, what is the specified maximum permitted humidity in percent?
+  ru: Для «Испарительный комнатный охладитель» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Бөлмелік буландырғыш салқындатқыш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_evaporative_cooler.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for evaporative_cooler does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.evaporative_cooler.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_evaporative_cooler_drop_test_cm
+  category: unanswerable
+  en: For Evaporative room cooler, what is the specified certified drop-test height in cm?
+  ru: Для «Испарительный комнатный охладитель» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Бөлмелік буландырғыш салқындатқыш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_evaporative_cooler.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for evaporative_cooler does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.evaporative_cooler.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_evaporative_cooler_repair_parts_price
+  category: unanswerable
+  en: For Evaporative room cooler, what is the specified replacement-part price in KZT?
+  ru: Для «Испарительный комнатный охладитель» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Бөлмелік буландырғыш салқындатқыш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_evaporative_cooler.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for evaporative_cooler does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.evaporative_cooler.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_evaporative_cooler_certification_id
+  category: unanswerable
+  en: For Evaporative room cooler, what is the specified certification record number in record?
+  ru: Для «Испарительный комнатный охладитель» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Бөлмелік буландырғыш салқындатқыш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_evaporative_cooler.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for evaporative_cooler does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.evaporative_cooler.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_evaporative_cooler
+  category: multi_fragment
+  en: What does Evaporative room cooler weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Испарительный комнатный охладитель» и какой вес посылки допускают пункты самовывоза?
+  kk: «Бөлмелік буландырғыш салқындатқыш» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_evaporative_cooler.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.evaporative_cooler.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.evaporative_cooler.mass_g
+    sections:
+    - technical_evaporative_cooler.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_prepublication_mass_evaporative_cooler
+  category: unanswerable
+  en: According to the instructions valid on 15 October 2026, what was the stated mass of Evaporative
+    room cooler?
+  ru: По инструкциям, действовавшим 15 октября 2026 года, какая масса была указана для «Испарительный
+    комнатный охладитель»?
+  kk: 2026 жылғы 15 қазанда қолданылған нұсқаулықтар бойынша «Бөлмелік буландырғыш салқындатқыш» үшін
+    қандай салмақ көрсетілген еді?
+  relevant:
+  - section: technical_evaporative_cooler.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The technical source starts on 1 November 2026. Its current mass cannot establish a fact
+    at the requested earlier date.
+  family_id: profile_physical_mass
+  need_key: technical.evaporative_cooler.mass_g|2026_10_15_before_document_validity
+  required: []
+  tags:
+  - profile_derived
+  - temporal
+  - outside_validity
+  - hard_negative
+  as_of: '2026-10-15'
+  all_versions: false
+  negative_reason: expired
+- id: catalog_humidifying_fan_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Humidifying tower fan (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Башенный вентилятор с увлажнением» (г).
+  kk: Карточкалар ұқсас. «Ылғалдандыратын мұнара желдеткіші» үшін нақты «Салмағы» көрсеткішін айтыңыз
+    (г).
+  relevant:
+  - section: technical_humidifying_fan.mass_g
+    grade: 3
+  - section: technical_humidifying_fan.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.humidifying_fan.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.humidifying_fan.mass_g|current
+  required:
+  - fact: technical.humidifying_fan.mass_g
+    sections:
+    - technical_humidifying_fan.mass_g
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_humidifying_fan_width_mm
+  category: hard
+  en: Check the specifcation of Humidifying tower fan for width (mm), please.
+  ru: 'Проверьте характиристику «Башенный вентилятор с увлажнением»: интересует «Ширина» (мм).'
+  kk: «Ылғалдандыратын мұнара желдеткіші» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_humidifying_fan.width_mm
+    grade: 3
+  - section: technical_humidifying_fan.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.humidifying_fan.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.humidifying_fan.width_mm|current
+  required:
+  - fact: technical.humidifying_fan.width_mm
+    sections:
+    - technical_humidifying_fan.width_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_humidifying_fan_height_mm
+  category: simple
+  en: For Humidifying tower fan, what is the specified height in mm?
+  ru: Для «Башенный вентилятор с увлажнением» какое значение указано для показателя «Высота» (мм)?
+  kk: «Ылғалдандыратын мұнара желдеткіші» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_humidifying_fan.height_mm
+    grade: 3
+  - section: technical_humidifying_fan.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.humidifying_fan.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.humidifying_fan.height_mm|current
+  required:
+  - fact: technical.humidifying_fan.height_mm
+    sections:
+    - technical_humidifying_fan.height_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_humidifying_fan_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Humidifying tower fan, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Башенный вентилятор с увлажнением», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Ылғалдандыратын мұнара желдеткіші» үшін «Тереңдігі» мәні қажет
+    (мм).
+  relevant:
+  - section: technical_humidifying_fan.depth_mm
+    grade: 3
+  - section: technical_humidifying_fan.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.humidifying_fan.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.humidifying_fan.depth_mm|current
+  required:
+  - fact: technical.humidifying_fan.depth_mm
+    sections:
+    - technical_humidifying_fan.depth_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_humidifying_fan_operating_min_c
+  category: hard
+  en: 'Humidifying tower fan: minimum operating ambient temperature, C?'
+  ru: '«Башенный вентилятор с увлажнением»: минимальная температура воздуха при работе, C?'
+  kk: '«Ылғалдандыратын мұнара желдеткіші»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_humidifying_fan.operating_min_c
+    grade: 3
+  - section: technical_humidifying_fan.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.humidifying_fan.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.humidifying_fan.operating_min_c|current
+  required:
+  - fact: technical.humidifying_fan.operating_min_c
+    sections:
+    - technical_humidifying_fan.operating_min_c
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_humidifying_fan_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Humidifying tower
+    fan (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Башенный
+    вентилятор с увлажнением» (C).
+  kk: Карточкалар ұқсас. «Ылғалдандыратын мұнара желдеткіші» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары
+    температурасы» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_humidifying_fan.operating_max_c
+    grade: 3
+  - section: technical_humidifying_fan.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.humidifying_fan.operating_max_c; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.humidifying_fan.operating_max_c|current
+  required:
+  - fact: technical.humidifying_fan.operating_max_c
+    sections:
+    - technical_humidifying_fan.operating_max_c
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_humidifying_fan_power_w
+  category: hard
+  en: Check the specifcation of Humidifying tower fan for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Башенный вентилятор с увлажнением»: интересует «Номинальная потребляемая
+    мощность» (Вт).'
+  kk: «Ылғалдандыратын мұнара желдеткіші» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_humidifying_fan.power_w
+    grade: 3
+  - section: technical_humidifying_fan.air_m3_h
+    grade: 0
+  cross_lingual: true
+  mix_ru: У «Башенный вентилятор с увлажнением» показатель «Номинальная потребляемая мощность» (Вт) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.humidifying_fan.power_w; neighbouring air_m3_h does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.humidifying_fan.power_w|current
+  required:
+  - fact: technical.humidifying_fan.power_w
+    sections:
+    - technical_humidifying_fan.power_w
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_humidifying_fan_air_m3_h
+  category: simple
+  en: For Humidifying tower fan, what is the specified rated air flow in m3/h?
+  ru: Для «Башенный вентилятор с увлажнением» какое значение указано для показателя «Номинальный расход
+    воздуха» (м3/ч)?
+  kk: «Ылғалдандыратын мұнара желдеткіші» тауары үшін «Номиналды ауа шығыны» көрсеткішінің мәні қандай
+    (м3/сағ)?
+  relevant:
+  - section: technical_humidifying_fan.air_m3_h
+    grade: 3
+  - section: technical_humidifying_fan.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.humidifying_fan.air_m3_h; neighbouring noise_db does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_airflow
+  need_key: technical.humidifying_fan.air_m3_h|current
+  required:
+  - fact: technical.humidifying_fan.air_m3_h
+    sections:
+    - technical_humidifying_fan.air_m3_h
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_humidifying_fan_noise_db
+  category: simple
+  en: I am comparing specifications. Find the rated sound pressure level for Humidifying tower fan, in
+    dB.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальный уровень звукового давления» у «Башенный
+    вентилятор с увлажнением», в дБ.
+  kk: Сипаттамаларды салыстырып отырмын. «Ылғалдандыратын мұнара желдеткіші» үшін «Номиналды дыбыс қысымының
+    деңгейі» мәні қажет (дБ).
+  relevant:
+  - section: technical_humidifying_fan.noise_db
+    grade: 3
+  - section: technical_humidifying_fan.tank_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.humidifying_fan.noise_db; neighbouring tank_ml does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.humidifying_fan.noise_db|current
+  required:
+  - fact: technical.humidifying_fan.noise_db
+    sections:
+    - technical_humidifying_fan.noise_db
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_humidifying_fan_tank_ml
+  category: simple
+  en: 'Humidifying tower fan: container capacity, ml?'
+  ru: '«Башенный вентилятор с увлажнением»: вместимость резервуара, мл?'
+  kk: '«Ылғалдандыратын мұнара желдеткіші»: резервуар сыйымдылығы, мл?'
+  relevant:
+  - section: technical_humidifying_fan.tank_ml
+    grade: 3
+  - section: technical_humidifying_fan.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.humidifying_fan.tank_ml; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_volume
+  need_key: technical.humidifying_fan.tank_ml|current
+  required:
+  - fact: technical.humidifying_fan.tank_ml
+    sections:
+    - technical_humidifying_fan.tank_ml
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_humidifying_fan_modes_count
+  category: hard
+  en: The cards look similar. What number of operating modes is listed for Humidifying tower fan (units)?
+  ru: Карточки похожи. Уточните показатель «Число режимов работы» именно для «Башенный вентилятор с увлажнением»
+    (шт.).
+  kk: Карточкалар ұқсас. «Ылғалдандыратын мұнара желдеткіші» үшін нақты «Жұмыс режимдерінің саны» көрсеткішін
+    айтыңыз (дана).
+  relevant:
+  - section: technical_humidifying_fan.modes_count
+    grade: 3
+  - section: technical_humidifying_fan.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.humidifying_fan.modes_count; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.humidifying_fan.modes_count|current
+  required:
+  - fact: technical.humidifying_fan.modes_count
+    sections:
+    - technical_humidifying_fan.modes_count
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_humidifying_fan_cable_cm
+  category: hard
+  en: Check the specifcation of Humidifying tower fan for supplied cable length (cm), please.
+  ru: 'Проверьте характиристику «Башенный вентилятор с увлажнением»: интересует «Длина комплектного кабеля»
+    (см).'
+  kk: «Ылғалдандыратын мұнара желдеткіші» сипатамасынан «Жинақтағы кабель ұзындығы» мәнін тексеріңізші
+    (см).
+  relevant:
+  - section: technical_humidifying_fan.cable_cm
+    grade: 3
+  - section: technical_humidifying_fan.coverage_m2
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.humidifying_fan.cable_cm; neighbouring coverage_m2 does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.humidifying_fan.cable_cm|current
+  required:
+  - fact: technical.humidifying_fan.cable_cm
+    sections:
+    - technical_humidifying_fan.cable_cm
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_humidifying_fan_coverage_m2
+  category: simple
+  en: For Humidifying tower fan, what is the specified rated coverage area in m2?
+  ru: Для «Башенный вентилятор с увлажнением» какое значение указано для показателя «Номинальная площадь
+    обслуживания» (м2)?
+  kk: «Ылғалдандыратын мұнара желдеткіші» тауары үшін «Номиналды қызмет көрсету ауданы» көрсеткішінің
+    мәні қандай (м2)?
+  relevant:
+  - section: technical_humidifying_fan.coverage_m2
+    grade: 3
+  - section: technical_humidifying_fan.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.humidifying_fan.coverage_m2; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_coverage_area
+  need_key: technical.humidifying_fan.coverage_m2|current
+  required:
+  - fact: technical.humidifying_fan.coverage_m2
+    sections:
+    - technical_humidifying_fan.coverage_m2
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_humidifying_fan_humidity_max_percent
+  category: unanswerable
+  en: For Humidifying tower fan, what is the specified maximum permitted humidity in percent?
+  ru: Для «Башенный вентилятор с увлажнением» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Ылғалдандыратын мұнара желдеткіші» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_humidifying_fan.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for humidifying_fan does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.humidifying_fan.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_humidifying_fan_drop_test_cm
+  category: unanswerable
+  en: For Humidifying tower fan, what is the specified certified drop-test height in cm?
+  ru: Для «Башенный вентилятор с увлажнением» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Ылғалдандыратын мұнара желдеткіші» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_humidifying_fan.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for humidifying_fan does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.humidifying_fan.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_humidifying_fan_repair_parts_price
+  category: unanswerable
+  en: For Humidifying tower fan, what is the specified replacement-part price in KZT?
+  ru: Для «Башенный вентилятор с увлажнением» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Ылғалдандыратын мұнара желдеткіші» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_humidifying_fan.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for humidifying_fan does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.humidifying_fan.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_humidifying_fan_certification_id
+  category: unanswerable
+  en: For Humidifying tower fan, what is the specified certification record number in record?
+  ru: Для «Башенный вентилятор с увлажнением» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Ылғалдандыратын мұнара желдеткіші» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_humidifying_fan.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for humidifying_fan does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.humidifying_fan.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_air_washer_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Disc air washer, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Дисковая мойка воздуха», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Дискілі ауа жуғыш» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_air_washer.mass_g
+    grade: 3
+  - section: technical_air_washer.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Дискілі ауа жуғыш» үшін «Салмағы» (г) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.air_washer.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.air_washer.mass_g|current
+  required:
+  - fact: technical.air_washer.mass_g
+    sections:
+    - technical_air_washer.mass_g
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_washer_width_mm
+  category: simple
+  en: 'Disc air washer: width, mm?'
+  ru: '«Дисковая мойка воздуха»: ширина, мм?'
+  kk: '«Дискілі ауа жуғыш»: ені, мм?'
+  relevant:
+  - section: technical_air_washer.width_mm
+    grade: 3
+  - section: technical_air_washer.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_washer.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.air_washer.width_mm|current
+  required:
+  - fact: technical.air_washer.width_mm
+    sections:
+    - technical_air_washer.width_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_washer_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Disc air washer (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Дисковая мойка воздуха» (мм).
+  kk: Карточкалар ұқсас. «Дискілі ауа жуғыш» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_air_washer.height_mm
+    grade: 3
+  - section: technical_air_washer.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_washer.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.air_washer.height_mm|current
+  required:
+  - fact: technical.air_washer.height_mm
+    sections:
+    - technical_air_washer.height_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_washer_depth_mm
+  category: hard
+  en: Check the specifcation of Disc air washer for depth (mm), please.
+  ru: 'Проверьте характиристику «Дисковая мойка воздуха»: интересует «Глубина» (мм).'
+  kk: «Дискілі ауа жуғыш» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_air_washer.depth_mm
+    grade: 3
+  - section: technical_air_washer.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_washer.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.air_washer.depth_mm|current
+  required:
+  - fact: technical.air_washer.depth_mm
+    sections:
+    - technical_air_washer.depth_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_washer_operating_min_c
+  category: hard
+  en: For Disc air washer, what is the specified minimum operating ambient temperature in C?
+  ru: Для «Дисковая мойка воздуха» какое значение указано для показателя «Минимальная температура воздуха
+    при работе» (C)?
+  kk: «Дискілі ауа жуғыш» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің мәні
+    қандай (C)?
+  relevant:
+  - section: technical_air_washer.operating_min_c
+    grade: 3
+  - section: technical_air_washer.operating_max_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_washer.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.air_washer.operating_min_c|current
+  required:
+  - fact: technical.air_washer.operating_min_c
+    sections:
+    - technical_air_washer.operating_min_c
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_washer_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Disc air washer,
+    in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Дисковая
+    мойка воздуха», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Дискілі ауа жуғыш» үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    мәні қажет (C).
+  relevant:
+  - section: technical_air_washer.operating_max_c
+    grade: 3
+  - section: technical_air_washer.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_washer.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.air_washer.operating_max_c|current
+  required:
+  - fact: technical.air_washer.operating_max_c
+    sections:
+    - technical_air_washer.operating_max_c
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_washer_power_w
+  category: simple
+  en: 'Disc air washer: rated power consumption, W?'
+  ru: '«Дисковая мойка воздуха»: номинальная потребляемая мощность, Вт?'
+  kk: '«Дискілі ауа жуғыш»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_air_washer.power_w
+    grade: 3
+  - section: technical_air_washer.air_m3_h
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_washer.power_w; neighbouring air_m3_h does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.air_washer.power_w|current
+  required:
+  - fact: technical.air_washer.power_w
+    sections:
+    - technical_air_washer.power_w
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_washer_air_m3_h
+  category: hard
+  en: The cards look similar. What rated air flow is listed for Disc air washer (m3/h)?
+  ru: Карточки похожи. Уточните показатель «Номинальный расход воздуха» именно для «Дисковая мойка воздуха»
+    (м3/ч).
+  kk: Карточкалар ұқсас. «Дискілі ауа жуғыш» үшін нақты «Номиналды ауа шығыны» көрсеткішін айтыңыз (м3/сағ).
+  relevant:
+  - section: technical_air_washer.air_m3_h
+    grade: 3
+  - section: technical_air_washer.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Дисковая мойка воздуха» показатель «Номинальный расход воздуха» (м3/ч) нақтылап беріңізші,
+    осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.air_washer.air_m3_h; neighbouring noise_db does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_airflow
+  need_key: technical.air_washer.air_m3_h|current
+  required:
+  - fact: technical.air_washer.air_m3_h
+    sections:
+    - technical_air_washer.air_m3_h
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_washer_noise_db
+  category: hard
+  en: Check the specifcation of Disc air washer for rated sound pressure level (dB), please.
+  ru: 'Проверьте характиристику «Дисковая мойка воздуха»: интересует «Номинальный уровень звукового давления»
+    (дБ).'
+  kk: «Дискілі ауа жуғыш» сипатамасынан «Номиналды дыбыс қысымының деңгейі» мәнін тексеріңізші (дБ).
+  relevant:
+  - section: technical_air_washer.noise_db
+    grade: 3
+  - section: technical_air_washer.tank_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_washer.noise_db; neighbouring tank_ml does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.air_washer.noise_db|current
+  required:
+  - fact: technical.air_washer.noise_db
+    sections:
+    - technical_air_washer.noise_db
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_washer_tank_ml
+  category: simple
+  en: For Disc air washer, what is the specified container capacity in ml?
+  ru: Для «Дисковая мойка воздуха» какое значение указано для показателя «Вместимость резервуара» (мл)?
+  kk: «Дискілі ауа жуғыш» тауары үшін «Резервуар сыйымдылығы» көрсеткішінің мәні қандай (мл)?
+  relevant:
+  - section: technical_air_washer.tank_ml
+    grade: 3
+  - section: technical_air_washer.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_washer.tank_ml; neighbouring modes_count does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_volume
+  need_key: technical.air_washer.tank_ml|current
+  required:
+  - fact: technical.air_washer.tank_ml
+    sections:
+    - technical_air_washer.tank_ml
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_washer_modes_count
+  category: simple
+  en: I am comparing specifications. Find the number of operating modes for Disc air washer, in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число режимов работы» у «Дисковая мойка воздуха», в
+    шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Дискілі ауа жуғыш» үшін «Жұмыс режимдерінің саны» мәні қажет
+    (дана).
+  relevant:
+  - section: technical_air_washer.modes_count
+    grade: 3
+  - section: technical_air_washer.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_washer.modes_count; neighbouring cable_cm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.air_washer.modes_count|current
+  required:
+  - fact: technical.air_washer.modes_count
+    sections:
+    - technical_air_washer.modes_count
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_washer_cable_cm
+  category: simple
+  en: 'Disc air washer: supplied cable length, cm?'
+  ru: '«Дисковая мойка воздуха»: длина комплектного кабеля, см?'
+  kk: '«Дискілі ауа жуғыш»: жинақтағы кабель ұзындығы, см?'
+  relevant:
+  - section: technical_air_washer.cable_cm
+    grade: 3
+  - section: technical_air_washer.coverage_m2
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_washer.cable_cm; neighbouring coverage_m2 does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.air_washer.cable_cm|current
+  required:
+  - fact: technical.air_washer.cable_cm
+    sections:
+    - technical_air_washer.cable_cm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_washer_coverage_m2
+  category: hard
+  en: The cards look similar. What rated coverage area is listed for Disc air washer (m2)?
+  ru: Карточки похожи. Уточните показатель «Номинальная площадь обслуживания» именно для «Дисковая мойка
+    воздуха» (м2).
+  kk: Карточкалар ұқсас. «Дискілі ауа жуғыш» үшін нақты «Номиналды қызмет көрсету ауданы» көрсеткішін
+    айтыңыз (м2).
+  relevant:
+  - section: technical_air_washer.coverage_m2
+    grade: 3
+  - section: technical_air_washer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_washer.coverage_m2; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_coverage_area
+  need_key: technical.air_washer.coverage_m2|current
+  required:
+  - fact: technical.air_washer.coverage_m2
+    sections:
+    - technical_air_washer.coverage_m2
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_air_washer_humidity_max_percent
+  category: unanswerable
+  en: For Disc air washer, what is the specified maximum permitted humidity in percent?
+  ru: Для «Дисковая мойка воздуха» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Дискілі ауа жуғыш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_air_washer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for air_washer does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.air_washer.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_air_washer_drop_test_cm
+  category: unanswerable
+  en: For Disc air washer, what is the specified certified drop-test height in cm?
+  ru: Для «Дисковая мойка воздуха» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Дискілі ауа жуғыш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_air_washer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for air_washer does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.air_washer.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_air_washer_repair_parts_price
+  category: unanswerable
+  en: For Disc air washer, what is the specified replacement-part price in KZT?
+  ru: Для «Дисковая мойка воздуха» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Дискілі ауа жуғыш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_air_washer.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for air_washer does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.air_washer.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_air_washer_certification_id
+  category: unanswerable
+  en: For Disc air washer, what is the specified certification record number in record?
+  ru: Для «Дисковая мойка воздуха» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Дискілі ауа жуғыш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_air_washer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for air_washer does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.air_washer.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_air_washer
+  category: multi_fragment
+  en: What does Disc air washer weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Дисковая мойка воздуха» и какой вес посылки допускают пункты самовывоза?
+  kk: «Дискілі ауа жуғыш» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат береді?
+  relevant:
+  - section: technical_air_washer.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.air_washer.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.air_washer.mass_g
+    sections:
+    - technical_air_washer.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrasonic_humidifier_mass_g
+  category: hard
+  en: Check the specifcation of Ultrasonic room humidifier for mass (g), please.
+  ru: 'Проверьте характиристику «Ультразвуковой комнатный увлажнитель»: интересует «Масса» (г).'
+  kk: «Бөлмелік ультрадыбыстық ылғалдандырғыш» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_ultrasonic_humidifier.mass_g
+    grade: 3
+  - section: technical_ultrasonic_humidifier.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrasonic_humidifier.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.ultrasonic_humidifier.mass_g|current
+  required:
+  - fact: technical.ultrasonic_humidifier.mass_g
+    sections:
+    - technical_ultrasonic_humidifier.mass_g
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrasonic_humidifier_width_mm
+  category: simple
+  en: For Ultrasonic room humidifier, what is the specified width in mm?
+  ru: Для «Ультразвуковой комнатный увлажнитель» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Бөлмелік ультрадыбыстық ылғалдандырғыш» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_ultrasonic_humidifier.width_mm
+    grade: 3
+  - section: technical_ultrasonic_humidifier.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Бөлмелік ультрадыбыстық ылғалдандырғыш» үшін «Ені» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.ultrasonic_humidifier.width_mm; neighbouring height_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.ultrasonic_humidifier.width_mm|current
+  required:
+  - fact: technical.ultrasonic_humidifier.width_mm
+    sections:
+    - technical_ultrasonic_humidifier.width_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrasonic_humidifier_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Ultrasonic room humidifier, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Ультразвуковой комнатный увлажнитель», в
+    мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Бөлмелік ультрадыбыстық ылғалдандырғыш» үшін «Биіктігі» мәні
+    қажет (мм).
+  relevant:
+  - section: technical_ultrasonic_humidifier.height_mm
+    grade: 3
+  - section: technical_ultrasonic_humidifier.depth_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrasonic_humidifier.height_mm; neighbouring depth_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.ultrasonic_humidifier.height_mm|current
+  required:
+  - fact: technical.ultrasonic_humidifier.height_mm
+    sections:
+    - technical_ultrasonic_humidifier.height_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrasonic_humidifier_depth_mm
+  category: simple
+  en: 'Ultrasonic room humidifier: depth, mm?'
+  ru: '«Ультразвуковой комнатный увлажнитель»: глубина, мм?'
+  kk: '«Бөлмелік ультрадыбыстық ылғалдандырғыш»: тереңдігі, мм?'
+  relevant:
+  - section: technical_ultrasonic_humidifier.depth_mm
+    grade: 3
+  - section: technical_ultrasonic_humidifier.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrasonic_humidifier.depth_mm; neighbouring operating_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.ultrasonic_humidifier.depth_mm|current
+  required:
+  - fact: technical.ultrasonic_humidifier.depth_mm
+    sections:
+    - technical_ultrasonic_humidifier.depth_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrasonic_humidifier_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Ultrasonic room
+    humidifier (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Ультразвуковой
+    комнатный увлажнитель» (C).
+  kk: Карточкалар ұқсас. «Бөлмелік ультрадыбыстық ылғалдандырғыш» үшін нақты «Жұмыс кезіндегі ауаның ең
+    төмен температурасы» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_ultrasonic_humidifier.operating_min_c
+    grade: 3
+  - section: technical_ultrasonic_humidifier.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrasonic_humidifier.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.ultrasonic_humidifier.operating_min_c|current
+  required:
+  - fact: technical.ultrasonic_humidifier.operating_min_c
+    sections:
+    - technical_ultrasonic_humidifier.operating_min_c
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrasonic_humidifier_operating_max_c
+  category: hard
+  en: Check the specifcation of Ultrasonic room humidifier for maximum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Ультразвуковой комнатный увлажнитель»: интересует «Максимальная температура
+    воздуха при работе» (C).'
+  kk: «Бөлмелік ультрадыбыстық ылғалдандырғыш» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    мәнін тексеріңізші (C).
+  relevant:
+  - section: technical_ultrasonic_humidifier.operating_max_c
+    grade: 3
+  - section: technical_ultrasonic_humidifier.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrasonic_humidifier.operating_max_c; neighbouring power_w does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.ultrasonic_humidifier.operating_max_c|current
+  required:
+  - fact: technical.ultrasonic_humidifier.operating_max_c
+    sections:
+    - technical_ultrasonic_humidifier.operating_max_c
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrasonic_humidifier_power_w
+  category: simple
+  en: For Ultrasonic room humidifier, what is the specified rated power consumption in W?
+  ru: Для «Ультразвуковой комнатный увлажнитель» какое значение указано для показателя «Номинальная потребляемая
+    мощность» (Вт)?
+  kk: «Бөлмелік ультрадыбыстық ылғалдандырғыш» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні
+    қандай (Вт)?
+  relevant:
+  - section: technical_ultrasonic_humidifier.power_w
+    grade: 3
+  - section: technical_ultrasonic_humidifier.air_m3_h
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrasonic_humidifier.power_w; neighbouring air_m3_h does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.ultrasonic_humidifier.power_w|current
+  required:
+  - fact: technical.ultrasonic_humidifier.power_w
+    sections:
+    - technical_ultrasonic_humidifier.power_w
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrasonic_humidifier_air_m3_h
+  category: simple
+  en: I am comparing specifications. Find the rated air flow for Ultrasonic room humidifier, in m3/h.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальный расход воздуха» у «Ультразвуковой комнатный
+    увлажнитель», в м3/ч.
+  kk: Сипаттамаларды салыстырып отырмын. «Бөлмелік ультрадыбыстық ылғалдандырғыш» үшін «Номиналды ауа
+    шығыны» мәні қажет (м3/сағ).
+  relevant:
+  - section: technical_ultrasonic_humidifier.air_m3_h
+    grade: 3
+  - section: technical_ultrasonic_humidifier.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrasonic_humidifier.air_m3_h; neighbouring noise_db does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_airflow
+  need_key: technical.ultrasonic_humidifier.air_m3_h|current
+  required:
+  - fact: technical.ultrasonic_humidifier.air_m3_h
+    sections:
+    - technical_ultrasonic_humidifier.air_m3_h
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrasonic_humidifier_noise_db
+  category: simple
+  en: 'Ultrasonic room humidifier: rated sound pressure level, dB?'
+  ru: '«Ультразвуковой комнатный увлажнитель»: номинальный уровень звукового давления, дБ?'
+  kk: '«Бөлмелік ультрадыбыстық ылғалдандырғыш»: номиналды дыбыс қысымының деңгейі, дБ?'
+  relevant:
+  - section: technical_ultrasonic_humidifier.noise_db
+    grade: 3
+  - section: technical_ultrasonic_humidifier.tank_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Ультразвуковой комнатный увлажнитель» показатель «Номинальный уровень звукового давления»
+    (дБ) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.ultrasonic_humidifier.noise_db; neighbouring tank_ml does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.ultrasonic_humidifier.noise_db|current
+  required:
+  - fact: technical.ultrasonic_humidifier.noise_db
+    sections:
+    - technical_ultrasonic_humidifier.noise_db
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrasonic_humidifier_tank_ml
+  category: hard
+  en: The cards look similar. What container capacity is listed for Ultrasonic room humidifier (ml)?
+  ru: Карточки похожи. Уточните показатель «Вместимость резервуара» именно для «Ультразвуковой комнатный
+    увлажнитель» (мл).
+  kk: Карточкалар ұқсас. «Бөлмелік ультрадыбыстық ылғалдандырғыш» үшін нақты «Резервуар сыйымдылығы» көрсеткішін
+    айтыңыз (мл).
+  relevant:
+  - section: technical_ultrasonic_humidifier.tank_ml
+    grade: 3
+  - section: technical_ultrasonic_humidifier.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrasonic_humidifier.tank_ml; neighbouring modes_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_volume
+  need_key: technical.ultrasonic_humidifier.tank_ml|current
+  required:
+  - fact: technical.ultrasonic_humidifier.tank_ml
+    sections:
+    - technical_ultrasonic_humidifier.tank_ml
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrasonic_humidifier_modes_count
+  category: hard
+  en: Check the specifcation of Ultrasonic room humidifier for number of operating modes (units), please.
+  ru: 'Проверьте характиристику «Ультразвуковой комнатный увлажнитель»: интересует «Число режимов работы»
+    (шт.).'
+  kk: «Бөлмелік ультрадыбыстық ылғалдандырғыш» сипатамасынан «Жұмыс режимдерінің саны» мәнін тексеріңізші
+    (дана).
+  relevant:
+  - section: technical_ultrasonic_humidifier.modes_count
+    grade: 3
+  - section: technical_ultrasonic_humidifier.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrasonic_humidifier.modes_count; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.ultrasonic_humidifier.modes_count|current
+  required:
+  - fact: technical.ultrasonic_humidifier.modes_count
+    sections:
+    - technical_ultrasonic_humidifier.modes_count
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrasonic_humidifier_cable_cm
+  category: simple
+  en: For Ultrasonic room humidifier, what is the specified supplied cable length in cm?
+  ru: Для «Ультразвуковой комнатный увлажнитель» какое значение указано для показателя «Длина комплектного
+    кабеля» (см)?
+  kk: «Бөлмелік ультрадыбыстық ылғалдандырғыш» тауары үшін «Жинақтағы кабель ұзындығы» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_ultrasonic_humidifier.cable_cm
+    grade: 3
+  - section: technical_ultrasonic_humidifier.coverage_m2
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrasonic_humidifier.cable_cm; neighbouring coverage_m2 does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.ultrasonic_humidifier.cable_cm|current
+  required:
+  - fact: technical.ultrasonic_humidifier.cable_cm
+    sections:
+    - technical_ultrasonic_humidifier.cable_cm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ultrasonic_humidifier_coverage_m2
+  category: simple
+  en: I am comparing specifications. Find the rated coverage area for Ultrasonic room humidifier, in m2.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная площадь обслуживания» у «Ультразвуковой
+    комнатный увлажнитель», в м2.
+  kk: Сипаттамаларды салыстырып отырмын. «Бөлмелік ультрадыбыстық ылғалдандырғыш» үшін «Номиналды қызмет
+    көрсету ауданы» мәні қажет (м2).
+  relevant:
+  - section: technical_ultrasonic_humidifier.coverage_m2
+    grade: 3
+  - section: technical_ultrasonic_humidifier.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ultrasonic_humidifier.coverage_m2; neighbouring mass_g does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_coverage_area
+  need_key: technical.ultrasonic_humidifier.coverage_m2|current
+  required:
+  - fact: technical.ultrasonic_humidifier.coverage_m2
+    sections:
+    - technical_ultrasonic_humidifier.coverage_m2
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_ultrasonic_humidifier_humidity_max_percent
+  category: unanswerable
+  en: For Ultrasonic room humidifier, what is the specified maximum permitted humidity in percent?
+  ru: Для «Ультразвуковой комнатный увлажнитель» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Бөлмелік ультрадыбыстық ылғалдандырғыш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_ultrasonic_humidifier.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ultrasonic_humidifier does not state humidity_max_percent. Dimensions, the
+    retail price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.ultrasonic_humidifier.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_ultrasonic_humidifier_drop_test_cm
+  category: unanswerable
+  en: For Ultrasonic room humidifier, what is the specified certified drop-test height in cm?
+  ru: Для «Ультразвуковой комнатный увлажнитель» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Бөлмелік ультрадыбыстық ылғалдандырғыш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі»
+    көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_ultrasonic_humidifier.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ultrasonic_humidifier does not state drop_test_cm. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.ultrasonic_humidifier.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_ultrasonic_humidifier_repair_parts_price
+  category: unanswerable
+  en: For Ultrasonic room humidifier, what is the specified replacement-part price in KZT?
+  ru: Для «Ультразвуковой комнатный увлажнитель» какое значение указано для показателя «Цена запасной
+    детали» (тенге)?
+  kk: «Бөлмелік ультрадыбыстық ылғалдандырғыш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні
+    қандай (теңге)?
+  relevant:
+  - section: technical_ultrasonic_humidifier.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ultrasonic_humidifier does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.ultrasonic_humidifier.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_ultrasonic_humidifier_certification_id
+  category: unanswerable
+  en: For Ultrasonic room humidifier, what is the specified certification record number in record?
+  ru: Для «Ультразвуковой комнатный увлажнитель» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Бөлмелік ультрадыбыстық ылғалдандырғыш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_ultrasonic_humidifier.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ultrasonic_humidifier does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.ultrasonic_humidifier.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_steam_humidifier_mass_g
+  category: simple
+  en: 'Warm-steam humidifier: mass, g?'
+  ru: '«Паровой увлажнитель тёплого типа»: масса, г?'
+  kk: '«Жылы бу ылғалдандырғышы»: салмағы, г?'
+  relevant:
+  - section: technical_steam_humidifier.mass_g
+    grade: 3
+  - section: technical_steam_humidifier.width_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_humidifier.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.steam_humidifier.mass_g|current
+  required:
+  - fact: technical.steam_humidifier.mass_g
+    sections:
+    - technical_steam_humidifier.mass_g
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_humidifier_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Warm-steam humidifier (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Паровой увлажнитель тёплого типа» (мм).
+  kk: Карточкалар ұқсас. «Жылы бу ылғалдандырғышы» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_steam_humidifier.width_mm
+    grade: 3
+  - section: technical_steam_humidifier.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_humidifier.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.steam_humidifier.width_mm|current
+  required:
+  - fact: technical.steam_humidifier.width_mm
+    sections:
+    - technical_steam_humidifier.width_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_humidifier_height_mm
+  category: hard
+  en: Check the specifcation of Warm-steam humidifier for height (mm), please.
+  ru: 'Проверьте характиристику «Паровой увлажнитель тёплого типа»: интересует «Высота» (мм).'
+  kk: «Жылы бу ылғалдандырғышы» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_steam_humidifier.height_mm
+    grade: 3
+  - section: technical_steam_humidifier.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Жылы бу ылғалдандырғышы» үшін «Биіктігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.steam_humidifier.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.steam_humidifier.height_mm|current
+  required:
+  - fact: technical.steam_humidifier.height_mm
+    sections:
+    - technical_steam_humidifier.height_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_humidifier_depth_mm
+  category: simple
+  en: For Warm-steam humidifier, what is the specified depth in mm?
+  ru: Для «Паровой увлажнитель тёплого типа» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Жылы бу ылғалдандырғышы» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_steam_humidifier.depth_mm
+    grade: 3
+  - section: technical_steam_humidifier.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_humidifier.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.steam_humidifier.depth_mm|current
+  required:
+  - fact: technical.steam_humidifier.depth_mm
+    sections:
+    - technical_steam_humidifier.depth_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_humidifier_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Warm-steam humidifier,
+    in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Паровой
+    увлажнитель тёплого типа», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Жылы бу ылғалдандырғышы» үшін «Жұмыс кезіндегі ауаның ең төмен
+    температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_steam_humidifier.operating_min_c
+    grade: 3
+  - section: technical_steam_humidifier.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_humidifier.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.steam_humidifier.operating_min_c|current
+  required:
+  - fact: technical.steam_humidifier.operating_min_c
+    sections:
+    - technical_steam_humidifier.operating_min_c
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_humidifier_operating_max_c
+  category: hard
+  en: 'Warm-steam humidifier: maximum operating ambient temperature, C?'
+  ru: '«Паровой увлажнитель тёплого типа»: максимальная температура воздуха при работе, C?'
+  kk: '«Жылы бу ылғалдандырғышы»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_steam_humidifier.operating_max_c
+    grade: 3
+  - section: technical_steam_humidifier.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_humidifier.operating_max_c; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.steam_humidifier.operating_max_c|current
+  required:
+  - fact: technical.steam_humidifier.operating_max_c
+    sections:
+    - technical_steam_humidifier.operating_max_c
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_humidifier_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Warm-steam humidifier (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Паровой увлажнитель
+    тёплого типа» (Вт).
+  kk: Карточкалар ұқсас. «Жылы бу ылғалдандырғышы» үшін нақты «Номиналды тұтыну қуаты» көрсеткішін айтыңыз
+    (Вт).
+  relevant:
+  - section: technical_steam_humidifier.power_w
+    grade: 3
+  - section: technical_steam_humidifier.air_m3_h
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_humidifier.power_w; neighbouring air_m3_h does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.steam_humidifier.power_w|current
+  required:
+  - fact: technical.steam_humidifier.power_w
+    sections:
+    - technical_steam_humidifier.power_w
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_humidifier_air_m3_h
+  category: hard
+  en: Check the specifcation of Warm-steam humidifier for rated air flow (m3/h), please.
+  ru: 'Проверьте характиристику «Паровой увлажнитель тёплого типа»: интересует «Номинальный расход воздуха»
+    (м3/ч).'
+  kk: «Жылы бу ылғалдандырғышы» сипатамасынан «Номиналды ауа шығыны» мәнін тексеріңізші (м3/сағ).
+  relevant:
+  - section: technical_steam_humidifier.air_m3_h
+    grade: 3
+  - section: technical_steam_humidifier.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_humidifier.air_m3_h; neighbouring noise_db does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_airflow
+  need_key: technical.steam_humidifier.air_m3_h|current
+  required:
+  - fact: technical.steam_humidifier.air_m3_h
+    sections:
+    - technical_steam_humidifier.air_m3_h
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_humidifier_noise_db
+  category: simple
+  en: For Warm-steam humidifier, what is the specified rated sound pressure level in dB?
+  ru: Для «Паровой увлажнитель тёплого типа» какое значение указано для показателя «Номинальный уровень
+    звукового давления» (дБ)?
+  kk: «Жылы бу ылғалдандырғышы» тауары үшін «Номиналды дыбыс қысымының деңгейі» көрсеткішінің мәні қандай
+    (дБ)?
+  relevant:
+  - section: technical_steam_humidifier.noise_db
+    grade: 3
+  - section: technical_steam_humidifier.tank_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_humidifier.noise_db; neighbouring tank_ml does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.steam_humidifier.noise_db|current
+  required:
+  - fact: technical.steam_humidifier.noise_db
+    sections:
+    - technical_steam_humidifier.noise_db
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_humidifier_tank_ml
+  category: simple
+  en: I am comparing specifications. Find the container capacity for Warm-steam humidifier, in ml.
+  ru: Сравниваю характеристики. Нужен показатель «Вместимость резервуара» у «Паровой увлажнитель тёплого
+    типа», в мл.
+  kk: Сипаттамаларды салыстырып отырмын. «Жылы бу ылғалдандырғышы» үшін «Резервуар сыйымдылығы» мәні қажет
+    (мл).
+  relevant:
+  - section: technical_steam_humidifier.tank_ml
+    grade: 3
+  - section: technical_steam_humidifier.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Паровой увлажнитель тёплого типа» показатель «Вместимость резервуара» (мл) нақтылап беріңізші,
+    осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.steam_humidifier.tank_ml; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_volume
+  need_key: technical.steam_humidifier.tank_ml|current
+  required:
+  - fact: technical.steam_humidifier.tank_ml
+    sections:
+    - technical_steam_humidifier.tank_ml
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_humidifier_modes_count
+  category: simple
+  en: 'Warm-steam humidifier: number of operating modes, units?'
+  ru: '«Паровой увлажнитель тёплого типа»: число режимов работы, шт.?'
+  kk: '«Жылы бу ылғалдандырғышы»: жұмыс режимдерінің саны, дана?'
+  relevant:
+  - section: technical_steam_humidifier.modes_count
+    grade: 3
+  - section: technical_steam_humidifier.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_humidifier.modes_count; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.steam_humidifier.modes_count|current
+  required:
+  - fact: technical.steam_humidifier.modes_count
+    sections:
+    - technical_steam_humidifier.modes_count
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_humidifier_cable_cm
+  category: hard
+  en: The cards look similar. What supplied cable length is listed for Warm-steam humidifier (cm)?
+  ru: Карточки похожи. Уточните показатель «Длина комплектного кабеля» именно для «Паровой увлажнитель
+    тёплого типа» (см).
+  kk: Карточкалар ұқсас. «Жылы бу ылғалдандырғышы» үшін нақты «Жинақтағы кабель ұзындығы» көрсеткішін
+    айтыңыз (см).
+  relevant:
+  - section: technical_steam_humidifier.cable_cm
+    grade: 3
+  - section: technical_steam_humidifier.coverage_m2
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_humidifier.cable_cm; neighbouring coverage_m2 does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.steam_humidifier.cable_cm|current
+  required:
+  - fact: technical.steam_humidifier.cable_cm
+    sections:
+    - technical_steam_humidifier.cable_cm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_steam_humidifier_coverage_m2
+  category: hard
+  en: Check the specifcation of Warm-steam humidifier for rated coverage area (m2), please.
+  ru: 'Проверьте характиристику «Паровой увлажнитель тёплого типа»: интересует «Номинальная площадь обслуживания»
+    (м2).'
+  kk: «Жылы бу ылғалдандырғышы» сипатамасынан «Номиналды қызмет көрсету ауданы» мәнін тексеріңізші (м2).
+  relevant:
+  - section: technical_steam_humidifier.coverage_m2
+    grade: 3
+  - section: technical_steam_humidifier.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.steam_humidifier.coverage_m2; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_coverage_area
+  need_key: technical.steam_humidifier.coverage_m2|current
+  required:
+  - fact: technical.steam_humidifier.coverage_m2
+    sections:
+    - technical_steam_humidifier.coverage_m2
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_steam_humidifier_humidity_max_percent
+  category: unanswerable
+  en: For Warm-steam humidifier, what is the specified maximum permitted humidity in percent?
+  ru: Для «Паровой увлажнитель тёплого типа» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Жылы бу ылғалдандырғышы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_steam_humidifier.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for steam_humidifier does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.steam_humidifier.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_steam_humidifier_drop_test_cm
+  category: unanswerable
+  en: For Warm-steam humidifier, what is the specified certified drop-test height in cm?
+  ru: Для «Паровой увлажнитель тёплого типа» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Жылы бу ылғалдандырғышы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_steam_humidifier.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for steam_humidifier does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.steam_humidifier.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_steam_humidifier_repair_parts_price
+  category: unanswerable
+  en: For Warm-steam humidifier, what is the specified replacement-part price in KZT?
+  ru: Для «Паровой увлажнитель тёплого типа» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Жылы бу ылғалдандырғышы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_steam_humidifier.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for steam_humidifier does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.steam_humidifier.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_steam_humidifier_certification_id
+  category: unanswerable
+  en: For Warm-steam humidifier, what is the specified certification record number in record?
+  ru: Для «Паровой увлажнитель тёплого типа» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Жылы бу ылғалдандырғышы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_steam_humidifier.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for steam_humidifier does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.steam_humidifier.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_steam_humidifier
+  category: multi_fragment
+  en: What does Warm-steam humidifier weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Паровой увлажнитель тёплого типа» и какой вес посылки допускают пункты самовывоза?
+  kk: «Жылы бу ылғалдандырғышы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_steam_humidifier.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.steam_humidifier.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.steam_humidifier.mass_g
+    sections:
+    - technical_steam_humidifier.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desiccant_dehumidifier_mass_g
+  category: simple
+  en: For Desiccant dehumidifier, what is the specified mass in g?
+  ru: Для «Адсорбционный осушитель» какое значение указано для показателя «Масса» (г)?
+  kk: «Адсорбциялық құрғатқыш» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_desiccant_dehumidifier.mass_g
+    grade: 3
+  - section: technical_desiccant_dehumidifier.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desiccant_dehumidifier.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.desiccant_dehumidifier.mass_g|current
+  required:
+  - fact: technical.desiccant_dehumidifier.mass_g
+    sections:
+    - technical_desiccant_dehumidifier.mass_g
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desiccant_dehumidifier_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Desiccant dehumidifier, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Адсорбционный осушитель», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Адсорбциялық құрғатқыш» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_desiccant_dehumidifier.width_mm
+    grade: 3
+  - section: technical_desiccant_dehumidifier.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desiccant_dehumidifier.width_mm; neighbouring height_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.desiccant_dehumidifier.width_mm|current
+  required:
+  - fact: technical.desiccant_dehumidifier.width_mm
+    sections:
+    - technical_desiccant_dehumidifier.width_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desiccant_dehumidifier_height_mm
+  category: simple
+  en: 'Desiccant dehumidifier: height, mm?'
+  ru: '«Адсорбционный осушитель»: высота, мм?'
+  kk: '«Адсорбциялық құрғатқыш»: биіктігі, мм?'
+  relevant:
+  - section: technical_desiccant_dehumidifier.height_mm
+    grade: 3
+  - section: technical_desiccant_dehumidifier.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desiccant_dehumidifier.height_mm; neighbouring depth_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.desiccant_dehumidifier.height_mm|current
+  required:
+  - fact: technical.desiccant_dehumidifier.height_mm
+    sections:
+    - technical_desiccant_dehumidifier.height_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desiccant_dehumidifier_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Desiccant dehumidifier (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Адсорбционный осушитель» (мм).
+  kk: Карточкалар ұқсас. «Адсорбциялық құрғатқыш» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_desiccant_dehumidifier.depth_mm
+    grade: 3
+  - section: technical_desiccant_dehumidifier.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Адсорбциялық құрғатқыш» үшін «Тереңдігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.desiccant_dehumidifier.depth_mm; neighbouring operating_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.desiccant_dehumidifier.depth_mm|current
+  required:
+  - fact: technical.desiccant_dehumidifier.depth_mm
+    sections:
+    - technical_desiccant_dehumidifier.depth_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desiccant_dehumidifier_operating_min_c
+  category: hard
+  en: Check the specifcation of Desiccant dehumidifier for minimum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Адсорбционный осушитель»: интересует «Минимальная температура воздуха
+    при работе» (C).'
+  kk: «Адсорбциялық құрғатқыш» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_desiccant_dehumidifier.operating_min_c
+    grade: 3
+  - section: technical_desiccant_dehumidifier.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desiccant_dehumidifier.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.desiccant_dehumidifier.operating_min_c|current
+  required:
+  - fact: technical.desiccant_dehumidifier.operating_min_c
+    sections:
+    - technical_desiccant_dehumidifier.operating_min_c
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desiccant_dehumidifier_operating_max_c
+  category: hard
+  en: For Desiccant dehumidifier, what is the specified maximum operating ambient temperature in C?
+  ru: Для «Адсорбционный осушитель» какое значение указано для показателя «Максимальная температура воздуха
+    при работе» (C)?
+  kk: «Адсорбциялық құрғатқыш» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_desiccant_dehumidifier.operating_max_c
+    grade: 3
+  - section: technical_desiccant_dehumidifier.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desiccant_dehumidifier.operating_max_c; neighbouring power_w does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.desiccant_dehumidifier.operating_max_c|current
+  required:
+  - fact: technical.desiccant_dehumidifier.operating_max_c
+    sections:
+    - technical_desiccant_dehumidifier.operating_max_c
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desiccant_dehumidifier_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Desiccant dehumidifier, in W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Адсорбционный
+    осушитель», в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Адсорбциялық құрғатқыш» үшін «Номиналды тұтыну қуаты» мәні қажет
+    (Вт).
+  relevant:
+  - section: technical_desiccant_dehumidifier.power_w
+    grade: 3
+  - section: technical_desiccant_dehumidifier.air_m3_h
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desiccant_dehumidifier.power_w; neighbouring air_m3_h does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.desiccant_dehumidifier.power_w|current
+  required:
+  - fact: technical.desiccant_dehumidifier.power_w
+    sections:
+    - technical_desiccant_dehumidifier.power_w
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desiccant_dehumidifier_air_m3_h
+  category: simple
+  en: 'Desiccant dehumidifier: rated air flow, m3/h?'
+  ru: '«Адсорбционный осушитель»: номинальный расход воздуха, м3/ч?'
+  kk: '«Адсорбциялық құрғатқыш»: номиналды ауа шығыны, м3/сағ?'
+  relevant:
+  - section: technical_desiccant_dehumidifier.air_m3_h
+    grade: 3
+  - section: technical_desiccant_dehumidifier.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desiccant_dehumidifier.air_m3_h; neighbouring noise_db does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_airflow
+  need_key: technical.desiccant_dehumidifier.air_m3_h|current
+  required:
+  - fact: technical.desiccant_dehumidifier.air_m3_h
+    sections:
+    - technical_desiccant_dehumidifier.air_m3_h
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desiccant_dehumidifier_noise_db
+  category: hard
+  en: The cards look similar. What rated sound pressure level is listed for Desiccant dehumidifier (dB)?
+  ru: Карточки похожи. Уточните показатель «Номинальный уровень звукового давления» именно для «Адсорбционный
+    осушитель» (дБ).
+  kk: Карточкалар ұқсас. «Адсорбциялық құрғатқыш» үшін нақты «Номиналды дыбыс қысымының деңгейі» көрсеткішін
+    айтыңыз (дБ).
+  relevant:
+  - section: technical_desiccant_dehumidifier.noise_db
+    grade: 3
+  - section: technical_desiccant_dehumidifier.tank_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desiccant_dehumidifier.noise_db; neighbouring tank_ml does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.desiccant_dehumidifier.noise_db|current
+  required:
+  - fact: technical.desiccant_dehumidifier.noise_db
+    sections:
+    - technical_desiccant_dehumidifier.noise_db
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desiccant_dehumidifier_tank_ml
+  category: hard
+  en: Check the specifcation of Desiccant dehumidifier for container capacity (ml), please.
+  ru: 'Проверьте характиристику «Адсорбционный осушитель»: интересует «Вместимость резервуара» (мл).'
+  kk: «Адсорбциялық құрғатқыш» сипатамасынан «Резервуар сыйымдылығы» мәнін тексеріңізші (мл).
+  relevant:
+  - section: technical_desiccant_dehumidifier.tank_ml
+    grade: 3
+  - section: technical_desiccant_dehumidifier.modes_count
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desiccant_dehumidifier.tank_ml; neighbouring modes_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_volume
+  need_key: technical.desiccant_dehumidifier.tank_ml|current
+  required:
+  - fact: technical.desiccant_dehumidifier.tank_ml
+    sections:
+    - technical_desiccant_dehumidifier.tank_ml
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desiccant_dehumidifier_modes_count
+  category: simple
+  en: For Desiccant dehumidifier, what is the specified number of operating modes in units?
+  ru: Для «Адсорбционный осушитель» какое значение указано для показателя «Число режимов работы» (шт.)?
+  kk: «Адсорбциялық құрғатқыш» тауары үшін «Жұмыс режимдерінің саны» көрсеткішінің мәні қандай (дана)?
+  relevant:
+  - section: technical_desiccant_dehumidifier.modes_count
+    grade: 3
+  - section: technical_desiccant_dehumidifier.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Адсорбционный осушитель» показатель «Число режимов работы» (шт.) нақтылап беріңізші, осы
+    үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.desiccant_dehumidifier.modes_count; neighbouring cable_cm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.desiccant_dehumidifier.modes_count|current
+  required:
+  - fact: technical.desiccant_dehumidifier.modes_count
+    sections:
+    - technical_desiccant_dehumidifier.modes_count
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desiccant_dehumidifier_cable_cm
+  category: simple
+  en: I am comparing specifications. Find the supplied cable length for Desiccant dehumidifier, in cm.
+  ru: Сравниваю характеристики. Нужен показатель «Длина комплектного кабеля» у «Адсорбционный осушитель»,
+    в см.
+  kk: Сипаттамаларды салыстырып отырмын. «Адсорбциялық құрғатқыш» үшін «Жинақтағы кабель ұзындығы» мәні
+    қажет (см).
+  relevant:
+  - section: technical_desiccant_dehumidifier.cable_cm
+    grade: 3
+  - section: technical_desiccant_dehumidifier.coverage_m2
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desiccant_dehumidifier.cable_cm; neighbouring coverage_m2 does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.desiccant_dehumidifier.cable_cm|current
+  required:
+  - fact: technical.desiccant_dehumidifier.cable_cm
+    sections:
+    - technical_desiccant_dehumidifier.cable_cm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desiccant_dehumidifier_coverage_m2
+  category: simple
+  en: 'Desiccant dehumidifier: rated coverage area, m2?'
+  ru: '«Адсорбционный осушитель»: номинальная площадь обслуживания, м2?'
+  kk: '«Адсорбциялық құрғатқыш»: номиналды қызмет көрсету ауданы, м2?'
+  relevant:
+  - section: technical_desiccant_dehumidifier.coverage_m2
+    grade: 3
+  - section: technical_desiccant_dehumidifier.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desiccant_dehumidifier.coverage_m2; neighbouring mass_g does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_coverage_area
+  need_key: technical.desiccant_dehumidifier.coverage_m2|current
+  required:
+  - fact: technical.desiccant_dehumidifier.coverage_m2
+    sections:
+    - technical_desiccant_dehumidifier.coverage_m2
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_desiccant_dehumidifier_humidity_max_percent
+  category: unanswerable
+  en: For Desiccant dehumidifier, what is the specified maximum permitted humidity in percent?
+  ru: Для «Адсорбционный осушитель» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Адсорбциялық құрғатқыш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_desiccant_dehumidifier.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for desiccant_dehumidifier does not state humidity_max_percent. Dimensions, the
+    retail price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.desiccant_dehumidifier.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_desiccant_dehumidifier_drop_test_cm
+  category: unanswerable
+  en: For Desiccant dehumidifier, what is the specified certified drop-test height in cm?
+  ru: Для «Адсорбционный осушитель» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Адсорбциялық құрғатқыш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_desiccant_dehumidifier.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for desiccant_dehumidifier does not state drop_test_cm. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.desiccant_dehumidifier.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_desiccant_dehumidifier_repair_parts_price
+  category: unanswerable
+  en: For Desiccant dehumidifier, what is the specified replacement-part price in KZT?
+  ru: Для «Адсорбционный осушитель» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Адсорбциялық құрғатқыш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_desiccant_dehumidifier.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for desiccant_dehumidifier does not state repair_parts_price. Dimensions, the
+    retail price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.desiccant_dehumidifier.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_desiccant_dehumidifier_certification_id
+  category: unanswerable
+  en: For Desiccant dehumidifier, what is the specified certification record number in record?
+  ru: Для «Адсорбционный осушитель» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Адсорбциялық құрғатқыш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_desiccant_dehumidifier.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for desiccant_dehumidifier does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.desiccant_dehumidifier.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_compressor_dehumidifier_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Compressor dehumidifier (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Компрессорный осушитель» (г).
+  kk: Карточкалар ұқсас. «Компрессорлық құрғатқыш» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_compressor_dehumidifier.mass_g
+    grade: 3
+  - section: technical_compressor_dehumidifier.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compressor_dehumidifier.mass_g; neighbouring width_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.compressor_dehumidifier.mass_g|current
+  required:
+  - fact: technical.compressor_dehumidifier.mass_g
+    sections:
+    - technical_compressor_dehumidifier.mass_g
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compressor_dehumidifier_width_mm
+  category: hard
+  en: Check the specifcation of Compressor dehumidifier for width (mm), please.
+  ru: 'Проверьте характиристику «Компрессорный осушитель»: интересует «Ширина» (мм).'
+  kk: «Компрессорлық құрғатқыш» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_compressor_dehumidifier.width_mm
+    grade: 3
+  - section: technical_compressor_dehumidifier.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compressor_dehumidifier.width_mm; neighbouring height_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.compressor_dehumidifier.width_mm|current
+  required:
+  - fact: technical.compressor_dehumidifier.width_mm
+    sections:
+    - technical_compressor_dehumidifier.width_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compressor_dehumidifier_height_mm
+  category: simple
+  en: For Compressor dehumidifier, what is the specified height in mm?
+  ru: Для «Компрессорный осушитель» какое значение указано для показателя «Высота» (мм)?
+  kk: «Компрессорлық құрғатқыш» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_compressor_dehumidifier.height_mm
+    grade: 3
+  - section: technical_compressor_dehumidifier.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compressor_dehumidifier.height_mm; neighbouring depth_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.compressor_dehumidifier.height_mm|current
+  required:
+  - fact: technical.compressor_dehumidifier.height_mm
+    sections:
+    - technical_compressor_dehumidifier.height_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compressor_dehumidifier_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Compressor dehumidifier, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Компрессорный осушитель», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Компрессорлық құрғатқыш» үшін «Тереңдігі» мәні қажет (мм).
+  relevant:
+  - section: technical_compressor_dehumidifier.depth_mm
+    grade: 3
+  - section: technical_compressor_dehumidifier.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compressor_dehumidifier.depth_mm; neighbouring operating_min_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.compressor_dehumidifier.depth_mm|current
+  required:
+  - fact: technical.compressor_dehumidifier.depth_mm
+    sections:
+    - technical_compressor_dehumidifier.depth_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compressor_dehumidifier_operating_min_c
+  category: hard
+  en: 'Compressor dehumidifier: minimum operating ambient temperature, C?'
+  ru: '«Компрессорный осушитель»: минимальная температура воздуха при работе, C?'
+  kk: '«Компрессорлық құрғатқыш»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_compressor_dehumidifier.operating_min_c
+    grade: 3
+  - section: technical_compressor_dehumidifier.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Компрессорлық құрғатқыш» үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» (C) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.compressor_dehumidifier.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.compressor_dehumidifier.operating_min_c|current
+  required:
+  - fact: technical.compressor_dehumidifier.operating_min_c
+    sections:
+    - technical_compressor_dehumidifier.operating_min_c
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compressor_dehumidifier_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Compressor dehumidifier
+    (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Компрессорный
+    осушитель» (C).
+  kk: Карточкалар ұқсас. «Компрессорлық құрғатқыш» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_compressor_dehumidifier.operating_max_c
+    grade: 3
+  - section: technical_compressor_dehumidifier.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compressor_dehumidifier.operating_max_c; neighbouring power_w does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.compressor_dehumidifier.operating_max_c|current
+  required:
+  - fact: technical.compressor_dehumidifier.operating_max_c
+    sections:
+    - technical_compressor_dehumidifier.operating_max_c
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compressor_dehumidifier_power_w
+  category: hard
+  en: Check the specifcation of Compressor dehumidifier for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Компрессорный осушитель»: интересует «Номинальная потребляемая мощность»
+    (Вт).'
+  kk: «Компрессорлық құрғатқыш» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_compressor_dehumidifier.power_w
+    grade: 3
+  - section: technical_compressor_dehumidifier.air_m3_h
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compressor_dehumidifier.power_w; neighbouring air_m3_h does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.compressor_dehumidifier.power_w|current
+  required:
+  - fact: technical.compressor_dehumidifier.power_w
+    sections:
+    - technical_compressor_dehumidifier.power_w
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compressor_dehumidifier_air_m3_h
+  category: simple
+  en: For Compressor dehumidifier, what is the specified rated air flow in m3/h?
+  ru: Для «Компрессорный осушитель» какое значение указано для показателя «Номинальный расход воздуха»
+    (м3/ч)?
+  kk: «Компрессорлық құрғатқыш» тауары үшін «Номиналды ауа шығыны» көрсеткішінің мәні қандай (м3/сағ)?
+  relevant:
+  - section: technical_compressor_dehumidifier.air_m3_h
+    grade: 3
+  - section: technical_compressor_dehumidifier.noise_db
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compressor_dehumidifier.air_m3_h; neighbouring noise_db does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_airflow
+  need_key: technical.compressor_dehumidifier.air_m3_h|current
+  required:
+  - fact: technical.compressor_dehumidifier.air_m3_h
+    sections:
+    - technical_compressor_dehumidifier.air_m3_h
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compressor_dehumidifier_noise_db
+  category: simple
+  en: I am comparing specifications. Find the rated sound pressure level for Compressor dehumidifier,
+    in dB.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальный уровень звукового давления» у «Компрессорный
+    осушитель», в дБ.
+  kk: Сипаттамаларды салыстырып отырмын. «Компрессорлық құрғатқыш» үшін «Номиналды дыбыс қысымының деңгейі»
+    мәні қажет (дБ).
+  relevant:
+  - section: technical_compressor_dehumidifier.noise_db
+    grade: 3
+  - section: technical_compressor_dehumidifier.tank_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compressor_dehumidifier.noise_db; neighbouring tank_ml does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.compressor_dehumidifier.noise_db|current
+  required:
+  - fact: technical.compressor_dehumidifier.noise_db
+    sections:
+    - technical_compressor_dehumidifier.noise_db
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compressor_dehumidifier_tank_ml
+  category: simple
+  en: 'Compressor dehumidifier: container capacity, ml?'
+  ru: '«Компрессорный осушитель»: вместимость резервуара, мл?'
+  kk: '«Компрессорлық құрғатқыш»: резервуар сыйымдылығы, мл?'
+  relevant:
+  - section: technical_compressor_dehumidifier.tank_ml
+    grade: 3
+  - section: technical_compressor_dehumidifier.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compressor_dehumidifier.tank_ml; neighbouring modes_count does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_volume
+  need_key: technical.compressor_dehumidifier.tank_ml|current
+  required:
+  - fact: technical.compressor_dehumidifier.tank_ml
+    sections:
+    - technical_compressor_dehumidifier.tank_ml
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compressor_dehumidifier_modes_count
+  category: hard
+  en: The cards look similar. What number of operating modes is listed for Compressor dehumidifier (units)?
+  ru: Карточки похожи. Уточните показатель «Число режимов работы» именно для «Компрессорный осушитель»
+    (шт.).
+  kk: Карточкалар ұқсас. «Компрессорлық құрғатқыш» үшін нақты «Жұмыс режимдерінің саны» көрсеткішін айтыңыз
+    (дана).
+  relevant:
+  - section: technical_compressor_dehumidifier.modes_count
+    grade: 3
+  - section: technical_compressor_dehumidifier.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compressor_dehumidifier.modes_count; neighbouring cable_cm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.compressor_dehumidifier.modes_count|current
+  required:
+  - fact: technical.compressor_dehumidifier.modes_count
+    sections:
+    - technical_compressor_dehumidifier.modes_count
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compressor_dehumidifier_cable_cm
+  category: hard
+  en: Check the specifcation of Compressor dehumidifier for supplied cable length (cm), please.
+  ru: 'Проверьте характиристику «Компрессорный осушитель»: интересует «Длина комплектного кабеля» (см).'
+  kk: «Компрессорлық құрғатқыш» сипатамасынан «Жинақтағы кабель ұзындығы» мәнін тексеріңізші (см).
+  relevant:
+  - section: technical_compressor_dehumidifier.cable_cm
+    grade: 3
+  - section: technical_compressor_dehumidifier.coverage_m2
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Компрессорный осушитель» показатель «Длина комплектного кабеля» (см) нақтылап беріңізші,
+    осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.compressor_dehumidifier.cable_cm; neighbouring coverage_m2 does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.compressor_dehumidifier.cable_cm|current
+  required:
+  - fact: technical.compressor_dehumidifier.cable_cm
+    sections:
+    - technical_compressor_dehumidifier.cable_cm
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_compressor_dehumidifier_coverage_m2
+  category: simple
+  en: For Compressor dehumidifier, what is the specified rated coverage area in m2?
+  ru: Для «Компрессорный осушитель» какое значение указано для показателя «Номинальная площадь обслуживания»
+    (м2)?
+  kk: «Компрессорлық құрғатқыш» тауары үшін «Номиналды қызмет көрсету ауданы» көрсеткішінің мәні қандай
+    (м2)?
+  relevant:
+  - section: technical_compressor_dehumidifier.coverage_m2
+    grade: 3
+  - section: technical_compressor_dehumidifier.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.compressor_dehumidifier.coverage_m2; neighbouring mass_g does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_coverage_area
+  need_key: technical.compressor_dehumidifier.coverage_m2|current
+  required:
+  - fact: technical.compressor_dehumidifier.coverage_m2
+    sections:
+    - technical_compressor_dehumidifier.coverage_m2
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_compressor_dehumidifier_humidity_max_percent
+  category: unanswerable
+  en: For Compressor dehumidifier, what is the specified maximum permitted humidity in percent?
+  ru: Для «Компрессорный осушитель» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Компрессорлық құрғатқыш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_compressor_dehumidifier.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for compressor_dehumidifier does not state humidity_max_percent. Dimensions, the
+    retail price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.compressor_dehumidifier.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_compressor_dehumidifier_drop_test_cm
+  category: unanswerable
+  en: For Compressor dehumidifier, what is the specified certified drop-test height in cm?
+  ru: Для «Компрессорный осушитель» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Компрессорлық құрғатқыш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_compressor_dehumidifier.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for compressor_dehumidifier does not state drop_test_cm. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.compressor_dehumidifier.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_compressor_dehumidifier_repair_parts_price
+  category: unanswerable
+  en: For Compressor dehumidifier, what is the specified replacement-part price in KZT?
+  ru: Для «Компрессорный осушитель» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Компрессорлық құрғатқыш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_compressor_dehumidifier.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for compressor_dehumidifier does not state repair_parts_price. Dimensions, the
+    retail price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.compressor_dehumidifier.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_compressor_dehumidifier_certification_id
+  category: unanswerable
+  en: For Compressor dehumidifier, what is the specified certification record number in record?
+  ru: Для «Компрессорный осушитель» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Компрессорлық құрғатқыш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_compressor_dehumidifier.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for compressor_dehumidifier does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.compressor_dehumidifier.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_compressor_dehumidifier
+  category: multi_fragment
+  en: What does Compressor dehumidifier weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Компрессорный осушитель» и какой вес посылки допускают пункты самовывоза?
+  kk: «Компрессорлық құрғатқыш» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_compressor_dehumidifier.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.compressor_dehumidifier.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.compressor_dehumidifier.mass_g
+    sections:
+    - technical_compressor_dehumidifier.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_personal_air_cooler_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Personal desktop air cooler, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Персональный настольный охладитель», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Жеке үстел салқындатқышы» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_personal_air_cooler.mass_g
+    grade: 3
+  - section: technical_personal_air_cooler.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.personal_air_cooler.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.personal_air_cooler.mass_g|current
+  required:
+  - fact: technical.personal_air_cooler.mass_g
+    sections:
+    - technical_personal_air_cooler.mass_g
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_personal_air_cooler_width_mm
+  category: simple
+  en: 'Personal desktop air cooler: width, mm?'
+  ru: '«Персональный настольный охладитель»: ширина, мм?'
+  kk: '«Жеке үстел салқындатқышы»: ені, мм?'
+  relevant:
+  - section: technical_personal_air_cooler.width_mm
+    grade: 3
+  - section: technical_personal_air_cooler.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.personal_air_cooler.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.personal_air_cooler.width_mm|current
+  required:
+  - fact: technical.personal_air_cooler.width_mm
+    sections:
+    - technical_personal_air_cooler.width_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_personal_air_cooler_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Personal desktop air cooler (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Персональный настольный охладитель» (мм).
+  kk: Карточкалар ұқсас. «Жеке үстел салқындатқышы» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_personal_air_cooler.height_mm
+    grade: 3
+  - section: technical_personal_air_cooler.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.personal_air_cooler.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.personal_air_cooler.height_mm|current
+  required:
+  - fact: technical.personal_air_cooler.height_mm
+    sections:
+    - technical_personal_air_cooler.height_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_personal_air_cooler_depth_mm
+  category: hard
+  en: Check the specifcation of Personal desktop air cooler for depth (mm), please.
+  ru: 'Проверьте характиристику «Персональный настольный охладитель»: интересует «Глубина» (мм).'
+  kk: «Жеке үстел салқындатқышы» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_personal_air_cooler.depth_mm
+    grade: 3
+  - section: technical_personal_air_cooler.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.personal_air_cooler.depth_mm; neighbouring operating_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.personal_air_cooler.depth_mm|current
+  required:
+  - fact: technical.personal_air_cooler.depth_mm
+    sections:
+    - technical_personal_air_cooler.depth_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_personal_air_cooler_operating_min_c
+  category: hard
+  en: For Personal desktop air cooler, what is the specified minimum operating ambient temperature in
+    C?
+  ru: Для «Персональный настольный охладитель» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Жеке үстел салқындатқышы» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_personal_air_cooler.operating_min_c
+    grade: 3
+  - section: technical_personal_air_cooler.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.personal_air_cooler.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.personal_air_cooler.operating_min_c|current
+  required:
+  - fact: technical.personal_air_cooler.operating_min_c
+    sections:
+    - technical_personal_air_cooler.operating_min_c
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_personal_air_cooler_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Personal desktop
+    air cooler, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Персональный
+    настольный охладитель», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Жеке үстел салқындатқышы» үшін «Жұмыс кезіндегі ауаның ең жоғары
+    температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_personal_air_cooler.operating_max_c
+    grade: 3
+  - section: technical_personal_air_cooler.power_w
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: «Жеке үстел салқындатқышы» үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» (C) керек,
+    уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.personal_air_cooler.operating_max_c; neighbouring power_w does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.personal_air_cooler.operating_max_c|current
+  required:
+  - fact: technical.personal_air_cooler.operating_max_c
+    sections:
+    - technical_personal_air_cooler.operating_max_c
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_personal_air_cooler_power_w
+  category: simple
+  en: 'Personal desktop air cooler: rated power consumption, W?'
+  ru: '«Персональный настольный охладитель»: номинальная потребляемая мощность, Вт?'
+  kk: '«Жеке үстел салқындатқышы»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_personal_air_cooler.power_w
+    grade: 3
+  - section: technical_personal_air_cooler.air_m3_h
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.personal_air_cooler.power_w; neighbouring air_m3_h does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.personal_air_cooler.power_w|current
+  required:
+  - fact: technical.personal_air_cooler.power_w
+    sections:
+    - technical_personal_air_cooler.power_w
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_personal_air_cooler_air_m3_h
+  category: hard
+  en: The cards look similar. What rated air flow is listed for Personal desktop air cooler (m3/h)?
+  ru: Карточки похожи. Уточните показатель «Номинальный расход воздуха» именно для «Персональный настольный
+    охладитель» (м3/ч).
+  kk: Карточкалар ұқсас. «Жеке үстел салқындатқышы» үшін нақты «Номиналды ауа шығыны» көрсеткішін айтыңыз
+    (м3/сағ).
+  relevant:
+  - section: technical_personal_air_cooler.air_m3_h
+    grade: 3
+  - section: technical_personal_air_cooler.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.personal_air_cooler.air_m3_h; neighbouring noise_db does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_airflow
+  need_key: technical.personal_air_cooler.air_m3_h|current
+  required:
+  - fact: technical.personal_air_cooler.air_m3_h
+    sections:
+    - technical_personal_air_cooler.air_m3_h
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_personal_air_cooler_noise_db
+  category: hard
+  en: Check the specifcation of Personal desktop air cooler for rated sound pressure level (dB), please.
+  ru: 'Проверьте характиристику «Персональный настольный охладитель»: интересует «Номинальный уровень
+    звукового давления» (дБ).'
+  kk: «Жеке үстел салқындатқышы» сипатамасынан «Номиналды дыбыс қысымының деңгейі» мәнін тексеріңізші
+    (дБ).
+  relevant:
+  - section: technical_personal_air_cooler.noise_db
+    grade: 3
+  - section: technical_personal_air_cooler.tank_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.personal_air_cooler.noise_db; neighbouring tank_ml does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.personal_air_cooler.noise_db|current
+  required:
+  - fact: technical.personal_air_cooler.noise_db
+    sections:
+    - technical_personal_air_cooler.noise_db
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_personal_air_cooler_tank_ml
+  category: simple
+  en: For Personal desktop air cooler, what is the specified container capacity in ml?
+  ru: Для «Персональный настольный охладитель» какое значение указано для показателя «Вместимость резервуара»
+    (мл)?
+  kk: «Жеке үстел салқындатқышы» тауары үшін «Резервуар сыйымдылығы» көрсеткішінің мәні қандай (мл)?
+  relevant:
+  - section: technical_personal_air_cooler.tank_ml
+    grade: 3
+  - section: technical_personal_air_cooler.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.personal_air_cooler.tank_ml; neighbouring modes_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_volume
+  need_key: technical.personal_air_cooler.tank_ml|current
+  required:
+  - fact: technical.personal_air_cooler.tank_ml
+    sections:
+    - technical_personal_air_cooler.tank_ml
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_personal_air_cooler_modes_count
+  category: simple
+  en: I am comparing specifications. Find the number of operating modes for Personal desktop air cooler,
+    in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число режимов работы» у «Персональный настольный охладитель»,
+    в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Жеке үстел салқындатқышы» үшін «Жұмыс режимдерінің саны» мәні
+    қажет (дана).
+  relevant:
+  - section: technical_personal_air_cooler.modes_count
+    grade: 3
+  - section: technical_personal_air_cooler.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.personal_air_cooler.modes_count; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.personal_air_cooler.modes_count|current
+  required:
+  - fact: technical.personal_air_cooler.modes_count
+    sections:
+    - technical_personal_air_cooler.modes_count
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_personal_air_cooler_cable_cm
+  category: simple
+  en: 'Personal desktop air cooler: supplied cable length, cm?'
+  ru: '«Персональный настольный охладитель»: длина комплектного кабеля, см?'
+  kk: '«Жеке үстел салқындатқышы»: жинақтағы кабель ұзындығы, см?'
+  relevant:
+  - section: technical_personal_air_cooler.cable_cm
+    grade: 3
+  - section: technical_personal_air_cooler.coverage_m2
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.personal_air_cooler.cable_cm; neighbouring coverage_m2 does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.personal_air_cooler.cable_cm|current
+  required:
+  - fact: technical.personal_air_cooler.cable_cm
+    sections:
+    - technical_personal_air_cooler.cable_cm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_personal_air_cooler_coverage_m2
+  category: hard
+  en: The cards look similar. What rated coverage area is listed for Personal desktop air cooler (m2)?
+  ru: Карточки похожи. Уточните показатель «Номинальная площадь обслуживания» именно для «Персональный
+    настольный охладитель» (м2).
+  kk: Карточкалар ұқсас. «Жеке үстел салқындатқышы» үшін нақты «Номиналды қызмет көрсету ауданы» көрсеткішін
+    айтыңыз (м2).
+  relevant:
+  - section: technical_personal_air_cooler.coverage_m2
+    grade: 3
+  - section: technical_personal_air_cooler.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Персональный настольный охладитель» показатель «Номинальная площадь обслуживания» (м2) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.personal_air_cooler.coverage_m2; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_coverage_area
+  need_key: technical.personal_air_cooler.coverage_m2|current
+  required:
+  - fact: technical.personal_air_cooler.coverage_m2
+    sections:
+    - technical_personal_air_cooler.coverage_m2
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_personal_air_cooler_humidity_max_percent
+  category: unanswerable
+  en: For Personal desktop air cooler, what is the specified maximum permitted humidity in percent?
+  ru: Для «Персональный настольный охладитель» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Жеке үстел салқындатқышы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_personal_air_cooler.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for personal_air_cooler does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.personal_air_cooler.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_personal_air_cooler_drop_test_cm
+  category: unanswerable
+  en: For Personal desktop air cooler, what is the specified certified drop-test height in cm?
+  ru: Для «Персональный настольный охладитель» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Жеке үстел салқындатқышы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_personal_air_cooler.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for personal_air_cooler does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.personal_air_cooler.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_personal_air_cooler_repair_parts_price
+  category: unanswerable
+  en: For Personal desktop air cooler, what is the specified replacement-part price in KZT?
+  ru: Для «Персональный настольный охладитель» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Жеке үстел салқындатқышы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_personal_air_cooler.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for personal_air_cooler does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.personal_air_cooler.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_personal_air_cooler_certification_id
+  category: unanswerable
+  en: For Personal desktop air cooler, what is the specified certification record number in record?
+  ru: Для «Персональный настольный охладитель» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Жеке үстел салқындатқышы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_personal_air_cooler.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for personal_air_cooler does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.personal_air_cooler.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_plant_humidifier_mass_g
+  category: hard
+  en: Check the specifcation of Plant shelf humidifier for mass (g), please.
+  ru: 'Проверьте характиристику «Увлажнитель для полки растений»: интересует «Масса» (г).'
+  kk: «Өсімдік сөресіне арналған ылғалдандырғыш» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_plant_humidifier.mass_g
+    grade: 3
+  - section: technical_plant_humidifier.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.plant_humidifier.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.plant_humidifier.mass_g|current
+  required:
+  - fact: technical.plant_humidifier.mass_g
+    sections:
+    - technical_plant_humidifier.mass_g
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_plant_humidifier_width_mm
+  category: simple
+  en: For Plant shelf humidifier, what is the specified width in mm?
+  ru: Для «Увлажнитель для полки растений» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Өсімдік сөресіне арналған ылғалдандырғыш» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_plant_humidifier.width_mm
+    grade: 3
+  - section: technical_plant_humidifier.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.plant_humidifier.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.plant_humidifier.width_mm|current
+  required:
+  - fact: technical.plant_humidifier.width_mm
+    sections:
+    - technical_plant_humidifier.width_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_plant_humidifier_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Plant shelf humidifier, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Увлажнитель для полки растений», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Өсімдік сөресіне арналған ылғалдандырғыш» үшін «Биіктігі» мәні
+    қажет (мм).
+  relevant:
+  - section: technical_plant_humidifier.height_mm
+    grade: 3
+  - section: technical_plant_humidifier.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.plant_humidifier.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.plant_humidifier.height_mm|current
+  required:
+  - fact: technical.plant_humidifier.height_mm
+    sections:
+    - technical_plant_humidifier.height_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_plant_humidifier_depth_mm
+  category: simple
+  en: 'Plant shelf humidifier: depth, mm?'
+  ru: '«Увлажнитель для полки растений»: глубина, мм?'
+  kk: '«Өсімдік сөресіне арналған ылғалдандырғыш»: тереңдігі, мм?'
+  relevant:
+  - section: technical_plant_humidifier.depth_mm
+    grade: 3
+  - section: technical_plant_humidifier.operating_min_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.plant_humidifier.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.plant_humidifier.depth_mm|current
+  required:
+  - fact: technical.plant_humidifier.depth_mm
+    sections:
+    - technical_plant_humidifier.depth_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_plant_humidifier_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Plant shelf humidifier
+    (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Увлажнитель
+    для полки растений» (C).
+  kk: Карточкалар ұқсас. «Өсімдік сөресіне арналған ылғалдандырғыш» үшін нақты «Жұмыс кезіндегі ауаның
+    ең төмен температурасы» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_plant_humidifier.operating_min_c
+    grade: 3
+  - section: technical_plant_humidifier.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.plant_humidifier.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.plant_humidifier.operating_min_c|current
+  required:
+  - fact: technical.plant_humidifier.operating_min_c
+    sections:
+    - technical_plant_humidifier.operating_min_c
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_plant_humidifier_operating_max_c
+  category: hard
+  en: Check the specifcation of Plant shelf humidifier for maximum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Увлажнитель для полки растений»: интересует «Максимальная температура
+    воздуха при работе» (C).'
+  kk: «Өсімдік сөресіне арналған ылғалдандырғыш» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    мәнін тексеріңізші (C).
+  relevant:
+  - section: technical_plant_humidifier.operating_max_c
+    grade: 3
+  - section: technical_plant_humidifier.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.plant_humidifier.operating_max_c; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.plant_humidifier.operating_max_c|current
+  required:
+  - fact: technical.plant_humidifier.operating_max_c
+    sections:
+    - technical_plant_humidifier.operating_max_c
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_plant_humidifier_power_w
+  category: simple
+  en: For Plant shelf humidifier, what is the specified rated power consumption in W?
+  ru: Для «Увлажнитель для полки растений» какое значение указано для показателя «Номинальная потребляемая
+    мощность» (Вт)?
+  kk: «Өсімдік сөресіне арналған ылғалдандырғыш» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні
+    қандай (Вт)?
+  relevant:
+  - section: technical_plant_humidifier.power_w
+    grade: 3
+  - section: technical_plant_humidifier.air_m3_h
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Өсімдік сөресіне арналған ылғалдандырғыш» үшін «Номиналды тұтыну қуаты» (Вт) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.plant_humidifier.power_w; neighbouring air_m3_h does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.plant_humidifier.power_w|current
+  required:
+  - fact: technical.plant_humidifier.power_w
+    sections:
+    - technical_plant_humidifier.power_w
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_plant_humidifier_air_m3_h
+  category: simple
+  en: I am comparing specifications. Find the rated air flow for Plant shelf humidifier, in m3/h.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальный расход воздуха» у «Увлажнитель для полки
+    растений», в м3/ч.
+  kk: Сипаттамаларды салыстырып отырмын. «Өсімдік сөресіне арналған ылғалдандырғыш» үшін «Номиналды ауа
+    шығыны» мәні қажет (м3/сағ).
+  relevant:
+  - section: technical_plant_humidifier.air_m3_h
+    grade: 3
+  - section: technical_plant_humidifier.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.plant_humidifier.air_m3_h; neighbouring noise_db does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_airflow
+  need_key: technical.plant_humidifier.air_m3_h|current
+  required:
+  - fact: technical.plant_humidifier.air_m3_h
+    sections:
+    - technical_plant_humidifier.air_m3_h
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_plant_humidifier_noise_db
+  category: simple
+  en: 'Plant shelf humidifier: rated sound pressure level, dB?'
+  ru: '«Увлажнитель для полки растений»: номинальный уровень звукового давления, дБ?'
+  kk: '«Өсімдік сөресіне арналған ылғалдандырғыш»: номиналды дыбыс қысымының деңгейі, дБ?'
+  relevant:
+  - section: technical_plant_humidifier.noise_db
+    grade: 3
+  - section: technical_plant_humidifier.tank_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.plant_humidifier.noise_db; neighbouring tank_ml does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.plant_humidifier.noise_db|current
+  required:
+  - fact: technical.plant_humidifier.noise_db
+    sections:
+    - technical_plant_humidifier.noise_db
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_plant_humidifier_tank_ml
+  category: hard
+  en: The cards look similar. What container capacity is listed for Plant shelf humidifier (ml)?
+  ru: Карточки похожи. Уточните показатель «Вместимость резервуара» именно для «Увлажнитель для полки
+    растений» (мл).
+  kk: Карточкалар ұқсас. «Өсімдік сөресіне арналған ылғалдандырғыш» үшін нақты «Резервуар сыйымдылығы»
+    көрсеткішін айтыңыз (мл).
+  relevant:
+  - section: technical_plant_humidifier.tank_ml
+    grade: 3
+  - section: technical_plant_humidifier.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.plant_humidifier.tank_ml; neighbouring modes_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_volume
+  need_key: technical.plant_humidifier.tank_ml|current
+  required:
+  - fact: technical.plant_humidifier.tank_ml
+    sections:
+    - technical_plant_humidifier.tank_ml
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_plant_humidifier_modes_count
+  category: hard
+  en: Check the specifcation of Plant shelf humidifier for number of operating modes (units), please.
+  ru: 'Проверьте характиристику «Увлажнитель для полки растений»: интересует «Число режимов работы» (шт.).'
+  kk: «Өсімдік сөресіне арналған ылғалдандырғыш» сипатамасынан «Жұмыс режимдерінің саны» мәнін тексеріңізші
+    (дана).
+  relevant:
+  - section: technical_plant_humidifier.modes_count
+    grade: 3
+  - section: technical_plant_humidifier.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.plant_humidifier.modes_count; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.plant_humidifier.modes_count|current
+  required:
+  - fact: technical.plant_humidifier.modes_count
+    sections:
+    - technical_plant_humidifier.modes_count
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_plant_humidifier_cable_cm
+  category: simple
+  en: For Plant shelf humidifier, what is the specified supplied cable length in cm?
+  ru: Для «Увлажнитель для полки растений» какое значение указано для показателя «Длина комплектного кабеля»
+    (см)?
+  kk: «Өсімдік сөресіне арналған ылғалдандырғыш» тауары үшін «Жинақтағы кабель ұзындығы» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_plant_humidifier.cable_cm
+    grade: 3
+  - section: technical_plant_humidifier.coverage_m2
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.plant_humidifier.cable_cm; neighbouring coverage_m2 does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.plant_humidifier.cable_cm|current
+  required:
+  - fact: technical.plant_humidifier.cable_cm
+    sections:
+    - technical_plant_humidifier.cable_cm
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_plant_humidifier_coverage_m2
+  category: simple
+  en: I am comparing specifications. Find the rated coverage area for Plant shelf humidifier, in m2.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная площадь обслуживания» у «Увлажнитель для
+    полки растений», в м2.
+  kk: Сипаттамаларды салыстырып отырмын. «Өсімдік сөресіне арналған ылғалдандырғыш» үшін «Номиналды қызмет
+    көрсету ауданы» мәні қажет (м2).
+  relevant:
+  - section: technical_plant_humidifier.coverage_m2
+    grade: 3
+  - section: technical_plant_humidifier.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.plant_humidifier.coverage_m2; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_coverage_area
+  need_key: technical.plant_humidifier.coverage_m2|current
+  required:
+  - fact: technical.plant_humidifier.coverage_m2
+    sections:
+    - technical_plant_humidifier.coverage_m2
+  tags:
+  - profile_derived
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_plant_humidifier_humidity_max_percent
+  category: unanswerable
+  en: For Plant shelf humidifier, what is the specified maximum permitted humidity in percent?
+  ru: Для «Увлажнитель для полки растений» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Өсімдік сөресіне арналған ылғалдандырғыш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_plant_humidifier.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for plant_humidifier does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.plant_humidifier.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_plant_humidifier_drop_test_cm
+  category: unanswerable
+  en: For Plant shelf humidifier, what is the specified certified drop-test height in cm?
+  ru: Для «Увлажнитель для полки растений» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Өсімдік сөресіне арналған ылғалдандырғыш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі»
+    көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_plant_humidifier.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for plant_humidifier does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.plant_humidifier.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_plant_humidifier_repair_parts_price
+  category: unanswerable
+  en: For Plant shelf humidifier, what is the specified replacement-part price in KZT?
+  ru: Для «Увлажнитель для полки растений» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Өсімдік сөресіне арналған ылғалдандырғыш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні
+    қандай (теңге)?
+  relevant:
+  - section: technical_plant_humidifier.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for plant_humidifier does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.plant_humidifier.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_plant_humidifier_certification_id
+  category: unanswerable
+  en: For Plant shelf humidifier, what is the specified certification record number in record?
+  ru: Для «Увлажнитель для полки растений» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Өсімдік сөресіне арналған ылғалдандырғыш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_plant_humidifier.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for plant_humidifier does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.plant_humidifier.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_plant_humidifier
+  category: multi_fragment
+  en: What does Plant shelf humidifier weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Увлажнитель для полки растений» и какой вес посылки допускают пункты самовывоза?
+  kk: «Өсімдік сөресіне арналған ылғалдандырғыш» салмағы қандай және беру пункттері сәлемдеменің қандай
+    салмағына рұқсат береді?
+  relevant:
+  - section: technical_plant_humidifier.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.plant_humidifier.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.plant_humidifier.mass_g
+    sections:
+    - technical_plant_humidifier.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_purifying_washer_mass_g
+  category: simple
+  en: 'Air purifier with water module: mass, g?'
+  ru: '«Очиститель воздуха с водяным модулем»: масса, г?'
+  kk: '«Су модулі бар ауа тазартқыш»: салмағы, г?'
+  relevant:
+  - section: technical_air_purifying_washer.mass_g
+    grade: 3
+  - section: technical_air_purifying_washer.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Очиститель воздуха с водяным модулем» показатель «Масса» (г) нақтылап беріңізші, осы үлгі
+    үшін.
+  mix_kk: null
+  rationale: Authored target technical.air_purifying_washer.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.air_purifying_washer.mass_g|current
+  required:
+  - fact: technical.air_purifying_washer.mass_g
+    sections:
+    - technical_air_purifying_washer.mass_g
+  tags:
+  - profile_derived
+  - domain_climate
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_purifying_washer_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Air purifier with water module (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Очиститель воздуха с водяным модулем»
+    (мм).
+  kk: Карточкалар ұқсас. «Су модулі бар ауа тазартқыш» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_air_purifying_washer.width_mm
+    grade: 3
+  - section: technical_air_purifying_washer.height_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_purifying_washer.width_mm; neighbouring height_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.air_purifying_washer.width_mm|current
+  required:
+  - fact: technical.air_purifying_washer.width_mm
+    sections:
+    - technical_air_purifying_washer.width_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_purifying_washer_height_mm
+  category: hard
+  en: Check the specifcation of Air purifier with water module for height (mm), please.
+  ru: 'Проверьте характиристику «Очиститель воздуха с водяным модулем»: интересует «Высота» (мм).'
+  kk: «Су модулі бар ауа тазартқыш» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_air_purifying_washer.height_mm
+    grade: 3
+  - section: technical_air_purifying_washer.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_purifying_washer.height_mm; neighbouring depth_mm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.air_purifying_washer.height_mm|current
+  required:
+  - fact: technical.air_purifying_washer.height_mm
+    sections:
+    - technical_air_purifying_washer.height_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_purifying_washer_depth_mm
+  category: simple
+  en: For Air purifier with water module, what is the specified depth in mm?
+  ru: Для «Очиститель воздуха с водяным модулем» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Су модулі бар ауа тазартқыш» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_air_purifying_washer.depth_mm
+    grade: 3
+  - section: technical_air_purifying_washer.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_purifying_washer.depth_mm; neighbouring operating_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.air_purifying_washer.depth_mm|current
+  required:
+  - fact: technical.air_purifying_washer.depth_mm
+    sections:
+    - technical_air_purifying_washer.depth_mm
+  tags:
+  - profile_derived
+  - domain_climate
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_purifying_washer_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Air purifier with
+    water module, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Очиститель
+    воздуха с водяным модулем», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Су модулі бар ауа тазартқыш» үшін «Жұмыс кезіндегі ауаның ең
+    төмен температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_air_purifying_washer.operating_min_c
+    grade: 3
+  - section: technical_air_purifying_washer.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_purifying_washer.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.air_purifying_washer.operating_min_c|current
+  required:
+  - fact: technical.air_purifying_washer.operating_min_c
+    sections:
+    - technical_air_purifying_washer.operating_min_c
+  tags:
+  - profile_derived
+  - domain_climate
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_purifying_washer_operating_max_c
+  category: hard
+  en: 'Air purifier with water module: maximum operating ambient temperature, C?'
+  ru: '«Очиститель воздуха с водяным модулем»: максимальная температура воздуха при работе, C?'
+  kk: '«Су модулі бар ауа тазартқыш»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_air_purifying_washer.operating_max_c
+    grade: 3
+  - section: technical_air_purifying_washer.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_purifying_washer.operating_max_c; neighbouring power_w does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.air_purifying_washer.operating_max_c|current
+  required:
+  - fact: technical.air_purifying_washer.operating_max_c
+    sections:
+    - technical_air_purifying_washer.operating_max_c
+  tags:
+  - profile_derived
+  - domain_climate
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_purifying_washer_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Air purifier with water module
+    (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Очиститель
+    воздуха с водяным модулем» (Вт).
+  kk: Карточкалар ұқсас. «Су модулі бар ауа тазартқыш» үшін нақты «Номиналды тұтыну қуаты» көрсеткішін
+    айтыңыз (Вт).
+  relevant:
+  - section: technical_air_purifying_washer.power_w
+    grade: 3
+  - section: technical_air_purifying_washer.air_m3_h
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_purifying_washer.power_w; neighbouring air_m3_h does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.air_purifying_washer.power_w|current
+  required:
+  - fact: technical.air_purifying_washer.power_w
+    sections:
+    - technical_air_purifying_washer.power_w
+  tags:
+  - profile_derived
+  - domain_climate
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_purifying_washer_air_m3_h
+  category: hard
+  en: Check the specifcation of Air purifier with water module for rated air flow (m3/h), please.
+  ru: 'Проверьте характиристику «Очиститель воздуха с водяным модулем»: интересует «Номинальный расход
+    воздуха» (м3/ч).'
+  kk: «Су модулі бар ауа тазартқыш» сипатамасынан «Номиналды ауа шығыны» мәнін тексеріңізші (м3/сағ).
+  relevant:
+  - section: technical_air_purifying_washer.air_m3_h
+    grade: 3
+  - section: technical_air_purifying_washer.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Су модулі бар ауа тазартқыш» үшін «Номиналды ауа шығыны» (м3/сағ) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.air_purifying_washer.air_m3_h; neighbouring noise_db does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_airflow
+  need_key: technical.air_purifying_washer.air_m3_h|current
+  required:
+  - fact: technical.air_purifying_washer.air_m3_h
+    sections:
+    - technical_air_purifying_washer.air_m3_h
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_purifying_washer_noise_db
+  category: simple
+  en: For Air purifier with water module, what is the specified rated sound pressure level in dB?
+  ru: Для «Очиститель воздуха с водяным модулем» какое значение указано для показателя «Номинальный уровень
+    звукового давления» (дБ)?
+  kk: «Су модулі бар ауа тазартқыш» тауары үшін «Номиналды дыбыс қысымының деңгейі» көрсеткішінің мәні
+    қандай (дБ)?
+  relevant:
+  - section: technical_air_purifying_washer.noise_db
+    grade: 3
+  - section: technical_air_purifying_washer.tank_ml
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_purifying_washer.noise_db; neighbouring tank_ml does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.air_purifying_washer.noise_db|current
+  required:
+  - fact: technical.air_purifying_washer.noise_db
+    sections:
+    - technical_air_purifying_washer.noise_db
+  tags:
+  - profile_derived
+  - domain_climate
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_purifying_washer_tank_ml
+  category: simple
+  en: I am comparing specifications. Find the container capacity for Air purifier with water module, in
+    ml.
+  ru: Сравниваю характеристики. Нужен показатель «Вместимость резервуара» у «Очиститель воздуха с водяным
+    модулем», в мл.
+  kk: Сипаттамаларды салыстырып отырмын. «Су модулі бар ауа тазартқыш» үшін «Резервуар сыйымдылығы» мәні
+    қажет (мл).
+  relevant:
+  - section: technical_air_purifying_washer.tank_ml
+    grade: 3
+  - section: technical_air_purifying_washer.modes_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_purifying_washer.tank_ml; neighbouring modes_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_container_volume
+  need_key: technical.air_purifying_washer.tank_ml|current
+  required:
+  - fact: technical.air_purifying_washer.tank_ml
+    sections:
+    - technical_air_purifying_washer.tank_ml
+  tags:
+  - profile_derived
+  - domain_climate
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_purifying_washer_modes_count
+  category: simple
+  en: 'Air purifier with water module: number of operating modes, units?'
+  ru: '«Очиститель воздуха с водяным модулем»: число режимов работы, шт.?'
+  kk: '«Су модулі бар ауа тазартқыш»: жұмыс режимдерінің саны, дана?'
+  relevant:
+  - section: technical_air_purifying_washer.modes_count
+    grade: 3
+  - section: technical_air_purifying_washer.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_purifying_washer.modes_count; neighbouring cable_cm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_modes
+  need_key: technical.air_purifying_washer.modes_count|current
+  required:
+  - fact: technical.air_purifying_washer.modes_count
+    sections:
+    - technical_air_purifying_washer.modes_count
+  tags:
+  - profile_derived
+  - domain_climate
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_purifying_washer_cable_cm
+  category: hard
+  en: The cards look similar. What supplied cable length is listed for Air purifier with water module
+    (cm)?
+  ru: Карточки похожи. Уточните показатель «Длина комплектного кабеля» именно для «Очиститель воздуха
+    с водяным модулем» (см).
+  kk: Карточкалар ұқсас. «Су модулі бар ауа тазартқыш» үшін нақты «Жинақтағы кабель ұзындығы» көрсеткішін
+    айтыңыз (см).
+  relevant:
+  - section: technical_air_purifying_washer.cable_cm
+    grade: 3
+  - section: technical_air_purifying_washer.coverage_m2
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_purifying_washer.cable_cm; neighbouring coverage_m2 does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.air_purifying_washer.cable_cm|current
+  required:
+  - fact: technical.air_purifying_washer.cable_cm
+    sections:
+    - technical_air_purifying_washer.cable_cm
+  tags:
+  - profile_derived
+  - domain_climate
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_air_purifying_washer_coverage_m2
+  category: hard
+  en: Check the specifcation of Air purifier with water module for rated coverage area (m2), please.
+  ru: 'Проверьте характиристику «Очиститель воздуха с водяным модулем»: интересует «Номинальная площадь
+    обслуживания» (м2).'
+  kk: «Су модулі бар ауа тазартқыш» сипатамасынан «Номиналды қызмет көрсету ауданы» мәнін тексеріңізші
+    (м2).
+  relevant:
+  - section: technical_air_purifying_washer.coverage_m2
+    grade: 3
+  - section: technical_air_purifying_washer.mass_g
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.air_purifying_washer.coverage_m2; neighbouring mass_g does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_coverage_area
+  need_key: technical.air_purifying_washer.coverage_m2|current
+  required:
+  - fact: technical.air_purifying_washer.coverage_m2
+    sections:
+    - technical_air_purifying_washer.coverage_m2
+  tags:
+  - profile_derived
+  - domain_climate
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_air_purifying_washer_humidity_max_percent
+  category: unanswerable
+  en: For Air purifier with water module, what is the specified maximum permitted humidity in percent?
+  ru: Для «Очиститель воздуха с водяным модулем» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Су модулі бар ауа тазартқыш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_air_purifying_washer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for air_purifying_washer does not state humidity_max_percent. Dimensions, the
+    retail price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.air_purifying_washer.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_air_purifying_washer_drop_test_cm
+  category: unanswerable
+  en: For Air purifier with water module, what is the specified certified drop-test height in cm?
+  ru: Для «Очиститель воздуха с водяным модулем» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Су модулі бар ауа тазартқыш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_air_purifying_washer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for air_purifying_washer does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.air_purifying_washer.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_air_purifying_washer_repair_parts_price
+  category: unanswerable
+  en: For Air purifier with water module, what is the specified replacement-part price in KZT?
+  ru: Для «Очиститель воздуха с водяным модулем» какое значение указано для показателя «Цена запасной
+    детали» (тенге)?
+  kk: «Су модулі бар ауа тазартқыш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_air_purifying_washer.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for air_purifying_washer does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.air_purifying_washer.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_air_purifying_washer_certification_id
+  category: unanswerable
+  en: For Air purifier with water module, what is the specified certification record number in record?
+  ru: Для «Очиститель воздуха с водяным модулем» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Су модулі бар ауа тазартқыш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_air_purifying_washer.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for air_purifying_washer does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.air_purifying_washer.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_climate
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact

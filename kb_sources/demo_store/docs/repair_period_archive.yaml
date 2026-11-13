@@ -1,0 +1,15 @@
+schema_version: kb_doc/1
+doc_id: repair_period_archive
+doc_type: policy
+format: pdf
+effective_from: '2026-09-01'
+effective_to: '2026-10-31'
+superseded_by: warranty_service
+title: {en: 'Archived service repair period', ru: 'Архивный срок сервисного ремонта', kk: 'Сервистік жөндеудің мұрағаттық мерзімі'}
+intro:
+  - {en: 'Fictional store archive, valid from {archive_effective_from:date_full} through {archive_effective_to:date_full}. Later service intakes use the successor service policy.', ru: 'Архив вымышленного магазина: действует с {archive_effective_from:date_full} по {archive_effective_to:date_full} включительно. Для более поздних обращений действует следующая сервисная политика.', kk: 'Ойдан шығарылған дүкен мұрағаты: {archive_effective_from:date_full} бастап {archive_effective_to:date_full} дейін қоса қолданылады. Кейінгі сервис өтініштеріне келесі қызмет көрсету ережелері қолданылады.'}
+sections:
+  - id: period
+    heading: {en: 'Maximum repair period for historical intake', ru: 'Предельный ремонтный срок исторического обращения', kk: 'Бұрынғы өтінішті жөндеудің шекті мерзімі'}
+    paragraphs:
+      - {en: 'A covered repair accepted by the service centre within this validity interval had a limit of {archive_repair_days:days}. This states a historical policy limit, not the completion date of a particular repair.', ru: 'Гарантийный ремонт, принятый сервисным центром в этот период, имел предельный срок {archive_repair_days:days}. Это историческое ограничение правила, а не дата завершения конкретного ремонта.', kk: 'Осы әрекет мерзімінде сервис орталығы қабылдаған кепілдік жөндеудің шекті мерзімі {archive_repair_days:days} болды. Бұл нақты жөндеудің аяқталу күні емес, бұрынғы ереженің шегі.'}

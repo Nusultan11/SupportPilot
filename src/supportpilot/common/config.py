@@ -165,6 +165,7 @@ class QdrantSettings(_Section):
 
 
 class RetrievalSettings(_Section):
+    namespace: str = Field(default="", pattern=r"^[a-z0-9_]*$")
     models: Path = Path("configs/retrieval_models.yaml")
     encoder: str = "bge_m3"
     reranker: str | None = "bge_reranker"

@@ -1,0 +1,4876 @@
+# Compiled from explicit technical_profiles/1 facts and native LLM-authored templates.
+schema_version: retrieval_scale_source/1
+origin: llm_generated
+review_status: draft
+author: Codex (LLM); explicit profiles and native templates compiled deterministically
+allowed_use: eval_only
+licence_note: Original fictional store specifications for internal demo and evaluation; no external manufacturer
+  data or real customer data. Fluent human review pending.
+items:
+- id: catalog_desk_lamp_mass_g
+  category: simple
+  en: For Articulated desk lamp, what is the specified mass in g?
+  ru: Для «Шарнирная настольная лампа» какое значение указано для показателя «Масса» (г)?
+  kk: «Буынды үстел шамы» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_desk_lamp.mass_g
+    grade: 3
+  - section: technical_desk_lamp.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desk_lamp.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.desk_lamp.mass_g|current
+  required:
+  - fact: technical.desk_lamp.mass_g
+    sections:
+    - technical_desk_lamp.mass_g
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desk_lamp_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Articulated desk lamp, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Шарнирная настольная лампа», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Буынды үстел шамы» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_desk_lamp.width_mm
+    grade: 3
+  - section: technical_desk_lamp.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desk_lamp.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.desk_lamp.width_mm|current
+  required:
+  - fact: technical.desk_lamp.width_mm
+    sections:
+    - technical_desk_lamp.width_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desk_lamp_height_mm
+  category: simple
+  en: 'Articulated desk lamp: height, mm?'
+  ru: '«Шарнирная настольная лампа»: высота, мм?'
+  kk: '«Буынды үстел шамы»: биіктігі, мм?'
+  relevant:
+  - section: technical_desk_lamp.height_mm
+    grade: 3
+  - section: technical_desk_lamp.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Буынды үстел шамы» үшін «Биіктігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.desk_lamp.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.desk_lamp.height_mm|current
+  required:
+  - fact: technical.desk_lamp.height_mm
+    sections:
+    - technical_desk_lamp.height_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desk_lamp_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Articulated desk lamp (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Шарнирная настольная лампа» (мм).
+  kk: Карточкалар ұқсас. «Буынды үстел шамы» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_desk_lamp.depth_mm
+    grade: 3
+  - section: technical_desk_lamp.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desk_lamp.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.desk_lamp.depth_mm|current
+  required:
+  - fact: technical.desk_lamp.depth_mm
+    sections:
+    - technical_desk_lamp.depth_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desk_lamp_operating_min_c
+  category: hard
+  en: Check the specifcation of Articulated desk lamp for minimum operating ambient temperature (C), please.
+  ru: 'Проверьте характиристику «Шарнирная настольная лампа»: интересует «Минимальная температура воздуха
+    при работе» (C).'
+  kk: «Буынды үстел шамы» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_desk_lamp.operating_min_c
+    grade: 3
+  - section: technical_desk_lamp.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desk_lamp.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.desk_lamp.operating_min_c|current
+  required:
+  - fact: technical.desk_lamp.operating_min_c
+    sections:
+    - technical_desk_lamp.operating_min_c
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desk_lamp_operating_max_c
+  category: hard
+  en: For Articulated desk lamp, what is the specified maximum operating ambient temperature in C?
+  ru: Для «Шарнирная настольная лампа» какое значение указано для показателя «Максимальная температура
+    воздуха при работе» (C)?
+  kk: «Буынды үстел шамы» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің мәні
+    қандай (C)?
+  relevant:
+  - section: technical_desk_lamp.operating_max_c
+    grade: 3
+  - section: technical_desk_lamp.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desk_lamp.operating_max_c; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.desk_lamp.operating_max_c|current
+  required:
+  - fact: technical.desk_lamp.operating_max_c
+    sections:
+    - technical_desk_lamp.operating_max_c
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desk_lamp_voltage_v
+  category: simple
+  en: I am comparing specifications. Find the rated supply voltage for Articulated desk lamp, in V.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное напряжение питания» у «Шарнирная настольная
+    лампа», в В.
+  kk: Сипаттамаларды салыстырып отырмын. «Буынды үстел шамы» үшін «Номиналды қорек кернеуі» мәні қажет
+    (В).
+  relevant:
+  - section: technical_desk_lamp.voltage_v
+    grade: 3
+  - section: technical_desk_lamp.power_w
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desk_lamp.voltage_v; neighbouring power_w does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.desk_lamp.voltage_v|current
+  required:
+  - fact: technical.desk_lamp.voltage_v
+    sections:
+    - technical_desk_lamp.voltage_v
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desk_lamp_power_w
+  category: simple
+  en: 'Articulated desk lamp: rated power consumption, W?'
+  ru: '«Шарнирная настольная лампа»: номинальная потребляемая мощность, Вт?'
+  kk: '«Буынды үстел шамы»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_desk_lamp.power_w
+    grade: 3
+  - section: technical_desk_lamp.lumen
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desk_lamp.power_w; neighbouring lumen does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.desk_lamp.power_w|current
+  required:
+  - fact: technical.desk_lamp.power_w
+    sections:
+    - technical_desk_lamp.power_w
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desk_lamp_lumen
+  category: hard
+  en: The cards look similar. What rated luminous flux is listed for Articulated desk lamp (lm)?
+  ru: Карточки похожи. Уточните показатель «Номинальный световой поток» именно для «Шарнирная настольная
+    лампа» (лм).
+  kk: Карточкалар ұқсас. «Буынды үстел шамы» үшін нақты «Номиналды жарық ағыны» көрсеткішін айтыңыз (лм).
+  relevant:
+  - section: technical_desk_lamp.lumen
+    grade: 3
+  - section: technical_desk_lamp.colour_temp_k
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desk_lamp.lumen; neighbouring colour_temp_k does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_luminous_flux
+  need_key: technical.desk_lamp.lumen|current
+  required:
+  - fact: technical.desk_lamp.lumen
+    sections:
+    - technical_desk_lamp.lumen
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desk_lamp_colour_temp_k
+  category: hard
+  en: Check the specifcation of Articulated desk lamp for rated colour temperature (K), please.
+  ru: 'Проверьте характиристику «Шарнирная настольная лампа»: интересует «Номинальная цветовая температура»
+    (К).'
+  kk: «Буынды үстел шамы» сипатамасынан «Номиналды түс температурасы» мәнін тексеріңізші (К).
+  relevant:
+  - section: technical_desk_lamp.colour_temp_k
+    grade: 3
+  - section: technical_desk_lamp.cri
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Шарнирная настольная лампа» показатель «Номинальная цветовая температура» (К) нақтылап беріңізші,
+    осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.desk_lamp.colour_temp_k; neighbouring cri does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_light_colour
+  need_key: technical.desk_lamp.colour_temp_k|current
+  required:
+  - fact: technical.desk_lamp.colour_temp_k
+    sections:
+    - technical_desk_lamp.colour_temp_k
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desk_lamp_cri
+  category: simple
+  en: For Articulated desk lamp, what is the specified colour rendering index in Ra?
+  ru: Для «Шарнирная настольная лампа» какое значение указано для показателя «Индекс цветопередачи» (Ra)?
+  kk: «Буынды үстел шамы» тауары үшін «Түсті беру индексі» көрсеткішінің мәні қандай (Ra)?
+  relevant:
+  - section: technical_desk_lamp.cri
+    grade: 3
+  - section: technical_desk_lamp.beam_degrees
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desk_lamp.cri; neighbouring beam_degrees does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_colour_rendering
+  need_key: technical.desk_lamp.cri|current
+  required:
+  - fact: technical.desk_lamp.cri
+    sections:
+    - technical_desk_lamp.cri
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desk_lamp_beam_degrees
+  category: simple
+  en: I am comparing specifications. Find the rated beam angle for Articulated desk lamp, in degrees.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальный угол светового пучка» у «Шарнирная настольная
+    лампа», в градусов.
+  kk: Сипаттамаларды салыстырып отырмын. «Буынды үстел шамы» үшін «Жарық шоғының номиналды бұрышы» мәні
+    қажет (градус).
+  relevant:
+  - section: technical_desk_lamp.beam_degrees
+    grade: 3
+  - section: technical_desk_lamp.life_hours
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desk_lamp.beam_degrees; neighbouring life_hours does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_beam_geometry
+  need_key: technical.desk_lamp.beam_degrees|current
+  required:
+  - fact: technical.desk_lamp.beam_degrees
+    sections:
+    - technical_desk_lamp.beam_degrees
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_desk_lamp_life_hours
+  category: simple
+  en: 'Articulated desk lamp: rated service life, hours?'
+  ru: '«Шарнирная настольная лампа»: номинальный срок службы, часов?'
+  kk: '«Буынды үстел шамы»: номиналды қызмет мерзімі, сағат?'
+  relevant:
+  - section: technical_desk_lamp.life_hours
+    grade: 3
+  - section: technical_desk_lamp.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.desk_lamp.life_hours; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_rated_lifetime
+  need_key: technical.desk_lamp.life_hours|current
+  required:
+  - fact: technical.desk_lamp.life_hours
+    sections:
+    - technical_desk_lamp.life_hours
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_desk_lamp_humidity_max_percent
+  category: unanswerable
+  en: For Articulated desk lamp, what is the specified maximum permitted humidity in percent?
+  ru: Для «Шарнирная настольная лампа» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Буынды үстел шамы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_desk_lamp.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for desk_lamp does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.desk_lamp.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_desk_lamp_drop_test_cm
+  category: unanswerable
+  en: For Articulated desk lamp, what is the specified certified drop-test height in cm?
+  ru: Для «Шарнирная настольная лампа» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Буынды үстел шамы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_desk_lamp.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for desk_lamp does not state drop_test_cm. Dimensions, the retail price or a diagnostic
+    fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.desk_lamp.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_desk_lamp_repair_parts_price
+  category: unanswerable
+  en: For Articulated desk lamp, what is the specified replacement-part price in KZT?
+  ru: Для «Шарнирная настольная лампа» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Буынды үстел шамы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_desk_lamp.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for desk_lamp does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.desk_lamp.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_desk_lamp_certification_id
+  category: unanswerable
+  en: For Articulated desk lamp, what is the specified certification record number in record?
+  ru: Для «Шарнирная настольная лампа» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Буынды үстел шамы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_desk_lamp.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for desk_lamp does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.desk_lamp.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_desk_lamp
+  category: multi_fragment
+  en: What does Articulated desk lamp weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Шарнирная настольная лампа» и какой вес посылки допускают пункты самовывоза?
+  kk: «Буынды үстел шамы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат береді?
+  relevant:
+  - section: technical_desk_lamp.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.desk_lamp.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.desk_lamp.mass_g
+    sections:
+    - technical_desk_lamp.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_prepublication_mass_desk_lamp
+  category: unanswerable
+  en: According to the instructions valid on 15 October 2026, what was the stated mass of Articulated
+    desk lamp?
+  ru: По инструкциям, действовавшим 15 октября 2026 года, какая масса была указана для «Шарнирная настольная
+    лампа»?
+  kk: 2026 жылғы 15 қазанда қолданылған нұсқаулықтар бойынша «Буынды үстел шамы» үшін қандай салмақ көрсетілген
+    еді?
+  relevant:
+  - section: technical_desk_lamp.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The technical source starts on 1 November 2026. Its current mass cannot establish a fact
+    at the requested earlier date.
+  family_id: profile_physical_mass
+  need_key: technical.desk_lamp.mass_g|2026_10_15_before_document_validity
+  required: []
+  tags:
+  - profile_derived
+  - temporal
+  - outside_validity
+  - hard_negative
+  as_of: '2026-10-15'
+  all_versions: false
+  negative_reason: expired
+- id: catalog_reading_lamp_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Clip-on reading lamp (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Лампа для чтения с зажимом» (г).
+  kk: Карточкалар ұқсас. «Қысқышты оқу шамы» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_reading_lamp.mass_g
+    grade: 3
+  - section: technical_reading_lamp.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.reading_lamp.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.reading_lamp.mass_g|current
+  required:
+  - fact: technical.reading_lamp.mass_g
+    sections:
+    - technical_reading_lamp.mass_g
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_reading_lamp_width_mm
+  category: hard
+  en: Check the specifcation of Clip-on reading lamp for width (mm), please.
+  ru: 'Проверьте характиристику «Лампа для чтения с зажимом»: интересует «Ширина» (мм).'
+  kk: «Қысқышты оқу шамы» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_reading_lamp.width_mm
+    grade: 3
+  - section: technical_reading_lamp.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.reading_lamp.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.reading_lamp.width_mm|current
+  required:
+  - fact: technical.reading_lamp.width_mm
+    sections:
+    - technical_reading_lamp.width_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_reading_lamp_height_mm
+  category: simple
+  en: For Clip-on reading lamp, what is the specified height in mm?
+  ru: Для «Лампа для чтения с зажимом» какое значение указано для показателя «Высота» (мм)?
+  kk: «Қысқышты оқу шамы» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_reading_lamp.height_mm
+    grade: 3
+  - section: technical_reading_lamp.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.reading_lamp.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.reading_lamp.height_mm|current
+  required:
+  - fact: technical.reading_lamp.height_mm
+    sections:
+    - technical_reading_lamp.height_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_reading_lamp_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Clip-on reading lamp, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Лампа для чтения с зажимом», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Қысқышты оқу шамы» үшін «Тереңдігі» мәні қажет (мм).
+  relevant:
+  - section: technical_reading_lamp.depth_mm
+    grade: 3
+  - section: technical_reading_lamp.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Қысқышты оқу шамы» үшін «Тереңдігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.reading_lamp.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.reading_lamp.depth_mm|current
+  required:
+  - fact: technical.reading_lamp.depth_mm
+    sections:
+    - technical_reading_lamp.depth_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_reading_lamp_operating_min_c
+  category: hard
+  en: 'Clip-on reading lamp: minimum operating ambient temperature, C?'
+  ru: '«Лампа для чтения с зажимом»: минимальная температура воздуха при работе, C?'
+  kk: '«Қысқышты оқу шамы»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_reading_lamp.operating_min_c
+    grade: 3
+  - section: technical_reading_lamp.operating_max_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.reading_lamp.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.reading_lamp.operating_min_c|current
+  required:
+  - fact: technical.reading_lamp.operating_min_c
+    sections:
+    - technical_reading_lamp.operating_min_c
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_reading_lamp_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Clip-on reading
+    lamp (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Лампа
+    для чтения с зажимом» (C).
+  kk: Карточкалар ұқсас. «Қысқышты оқу шамы» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_reading_lamp.operating_max_c
+    grade: 3
+  - section: technical_reading_lamp.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.reading_lamp.operating_max_c; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.reading_lamp.operating_max_c|current
+  required:
+  - fact: technical.reading_lamp.operating_max_c
+    sections:
+    - technical_reading_lamp.operating_max_c
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_reading_lamp_voltage_v
+  category: hard
+  en: Check the specifcation of Clip-on reading lamp for rated supply voltage (V), please.
+  ru: 'Проверьте характиристику «Лампа для чтения с зажимом»: интересует «Номинальное напряжение питания»
+    (В).'
+  kk: «Қысқышты оқу шамы» сипатамасынан «Номиналды қорек кернеуі» мәнін тексеріңізші (В).
+  relevant:
+  - section: technical_reading_lamp.voltage_v
+    grade: 3
+  - section: technical_reading_lamp.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.reading_lamp.voltage_v; neighbouring power_w does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.reading_lamp.voltage_v|current
+  required:
+  - fact: technical.reading_lamp.voltage_v
+    sections:
+    - technical_reading_lamp.voltage_v
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_reading_lamp_power_w
+  category: simple
+  en: For Clip-on reading lamp, what is the specified rated power consumption in W?
+  ru: Для «Лампа для чтения с зажимом» какое значение указано для показателя «Номинальная потребляемая
+    мощность» (Вт)?
+  kk: «Қысқышты оқу шамы» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай (Вт)?
+  relevant:
+  - section: technical_reading_lamp.power_w
+    grade: 3
+  - section: technical_reading_lamp.lumen
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.reading_lamp.power_w; neighbouring lumen does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.reading_lamp.power_w|current
+  required:
+  - fact: technical.reading_lamp.power_w
+    sections:
+    - technical_reading_lamp.power_w
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_reading_lamp_lumen
+  category: simple
+  en: I am comparing specifications. Find the rated luminous flux for Clip-on reading lamp, in lm.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальный световой поток» у «Лампа для чтения с зажимом»,
+    в лм.
+  kk: Сипаттамаларды салыстырып отырмын. «Қысқышты оқу шамы» үшін «Номиналды жарық ағыны» мәні қажет (лм).
+  relevant:
+  - section: technical_reading_lamp.lumen
+    grade: 3
+  - section: technical_reading_lamp.colour_temp_k
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.reading_lamp.lumen; neighbouring colour_temp_k does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_luminous_flux
+  need_key: technical.reading_lamp.lumen|current
+  required:
+  - fact: technical.reading_lamp.lumen
+    sections:
+    - technical_reading_lamp.lumen
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_reading_lamp_colour_temp_k
+  category: simple
+  en: 'Clip-on reading lamp: rated colour temperature, K?'
+  ru: '«Лампа для чтения с зажимом»: номинальная цветовая температура, К?'
+  kk: '«Қысқышты оқу шамы»: номиналды түс температурасы, К?'
+  relevant:
+  - section: technical_reading_lamp.colour_temp_k
+    grade: 3
+  - section: technical_reading_lamp.cri
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.reading_lamp.colour_temp_k; neighbouring cri does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_light_colour
+  need_key: technical.reading_lamp.colour_temp_k|current
+  required:
+  - fact: technical.reading_lamp.colour_temp_k
+    sections:
+    - technical_reading_lamp.colour_temp_k
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_reading_lamp_cri
+  category: hard
+  en: The cards look similar. What colour rendering index is listed for Clip-on reading lamp (Ra)?
+  ru: Карточки похожи. Уточните показатель «Индекс цветопередачи» именно для «Лампа для чтения с зажимом»
+    (Ra).
+  kk: Карточкалар ұқсас. «Қысқышты оқу шамы» үшін нақты «Түсті беру индексі» көрсеткішін айтыңыз (Ra).
+  relevant:
+  - section: technical_reading_lamp.cri
+    grade: 3
+  - section: technical_reading_lamp.beam_degrees
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Лампа для чтения с зажимом» показатель «Индекс цветопередачи» (Ra) нақтылап беріңізші, осы
+    үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.reading_lamp.cri; neighbouring beam_degrees does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_colour_rendering
+  need_key: technical.reading_lamp.cri|current
+  required:
+  - fact: technical.reading_lamp.cri
+    sections:
+    - technical_reading_lamp.cri
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_reading_lamp_beam_degrees
+  category: hard
+  en: Check the specifcation of Clip-on reading lamp for rated beam angle (degrees), please.
+  ru: 'Проверьте характиристику «Лампа для чтения с зажимом»: интересует «Номинальный угол светового пучка»
+    (градусов).'
+  kk: «Қысқышты оқу шамы» сипатамасынан «Жарық шоғының номиналды бұрышы» мәнін тексеріңізші (градус).
+  relevant:
+  - section: technical_reading_lamp.beam_degrees
+    grade: 3
+  - section: technical_reading_lamp.life_hours
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.reading_lamp.beam_degrees; neighbouring life_hours does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_beam_geometry
+  need_key: technical.reading_lamp.beam_degrees|current
+  required:
+  - fact: technical.reading_lamp.beam_degrees
+    sections:
+    - technical_reading_lamp.beam_degrees
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_reading_lamp_life_hours
+  category: simple
+  en: For Clip-on reading lamp, what is the specified rated service life in hours?
+  ru: Для «Лампа для чтения с зажимом» какое значение указано для показателя «Номинальный срок службы»
+    (часов)?
+  kk: «Қысқышты оқу шамы» тауары үшін «Номиналды қызмет мерзімі» көрсеткішінің мәні қандай (сағат)?
+  relevant:
+  - section: technical_reading_lamp.life_hours
+    grade: 3
+  - section: technical_reading_lamp.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.reading_lamp.life_hours; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_rated_lifetime
+  need_key: technical.reading_lamp.life_hours|current
+  required:
+  - fact: technical.reading_lamp.life_hours
+    sections:
+    - technical_reading_lamp.life_hours
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_reading_lamp_humidity_max_percent
+  category: unanswerable
+  en: For Clip-on reading lamp, what is the specified maximum permitted humidity in percent?
+  ru: Для «Лампа для чтения с зажимом» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Қысқышты оқу шамы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_reading_lamp.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for reading_lamp does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.reading_lamp.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_reading_lamp_drop_test_cm
+  category: unanswerable
+  en: For Clip-on reading lamp, what is the specified certified drop-test height in cm?
+  ru: Для «Лампа для чтения с зажимом» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Қысқышты оқу шамы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_reading_lamp.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for reading_lamp does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.reading_lamp.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_reading_lamp_repair_parts_price
+  category: unanswerable
+  en: For Clip-on reading lamp, what is the specified replacement-part price in KZT?
+  ru: Для «Лампа для чтения с зажимом» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Қысқышты оқу шамы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_reading_lamp.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for reading_lamp does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.reading_lamp.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_reading_lamp_certification_id
+  category: unanswerable
+  en: For Clip-on reading lamp, what is the specified certification record number in record?
+  ru: Для «Лампа для чтения с зажимом» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Қысқышты оқу шамы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_reading_lamp.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for reading_lamp does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.reading_lamp.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_floor_lamp_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Standing floor lamp, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Напольный торшер», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Еден шамы» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_floor_lamp.mass_g
+    grade: 3
+  - section: technical_floor_lamp.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.floor_lamp.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.floor_lamp.mass_g|current
+  required:
+  - fact: technical.floor_lamp.mass_g
+    sections:
+    - technical_floor_lamp.mass_g
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_floor_lamp_width_mm
+  category: simple
+  en: 'Standing floor lamp: width, mm?'
+  ru: '«Напольный торшер»: ширина, мм?'
+  kk: '«Еден шамы»: ені, мм?'
+  relevant:
+  - section: technical_floor_lamp.width_mm
+    grade: 3
+  - section: technical_floor_lamp.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.floor_lamp.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.floor_lamp.width_mm|current
+  required:
+  - fact: technical.floor_lamp.width_mm
+    sections:
+    - technical_floor_lamp.width_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_floor_lamp_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Standing floor lamp (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Напольный торшер» (мм).
+  kk: Карточкалар ұқсас. «Еден шамы» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_floor_lamp.height_mm
+    grade: 3
+  - section: technical_floor_lamp.depth_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.floor_lamp.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.floor_lamp.height_mm|current
+  required:
+  - fact: technical.floor_lamp.height_mm
+    sections:
+    - technical_floor_lamp.height_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_floor_lamp_depth_mm
+  category: hard
+  en: Check the specifcation of Standing floor lamp for depth (mm), please.
+  ru: 'Проверьте характиристику «Напольный торшер»: интересует «Глубина» (мм).'
+  kk: «Еден шамы» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_floor_lamp.depth_mm
+    grade: 3
+  - section: technical_floor_lamp.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.floor_lamp.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.floor_lamp.depth_mm|current
+  required:
+  - fact: technical.floor_lamp.depth_mm
+    sections:
+    - technical_floor_lamp.depth_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_floor_lamp_operating_min_c
+  category: hard
+  en: For Standing floor lamp, what is the specified minimum operating ambient temperature in C?
+  ru: Для «Напольный торшер» какое значение указано для показателя «Минимальная температура воздуха при
+    работе» (C)?
+  kk: «Еден шамы» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің мәні қандай
+    (C)?
+  relevant:
+  - section: technical_floor_lamp.operating_min_c
+    grade: 3
+  - section: technical_floor_lamp.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Еден шамы» үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» (C) керек, уточните по этой
+    модели, пожалуйста.
+  rationale: Authored target technical.floor_lamp.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.floor_lamp.operating_min_c|current
+  required:
+  - fact: technical.floor_lamp.operating_min_c
+    sections:
+    - technical_floor_lamp.operating_min_c
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_floor_lamp_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Standing floor
+    lamp, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Напольный
+    торшер», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Еден шамы» үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    мәні қажет (C).
+  relevant:
+  - section: technical_floor_lamp.operating_max_c
+    grade: 3
+  - section: technical_floor_lamp.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.floor_lamp.operating_max_c; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.floor_lamp.operating_max_c|current
+  required:
+  - fact: technical.floor_lamp.operating_max_c
+    sections:
+    - technical_floor_lamp.operating_max_c
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_floor_lamp_voltage_v
+  category: simple
+  en: 'Standing floor lamp: rated supply voltage, V?'
+  ru: '«Напольный торшер»: номинальное напряжение питания, В?'
+  kk: '«Еден шамы»: номиналды қорек кернеуі, В?'
+  relevant:
+  - section: technical_floor_lamp.voltage_v
+    grade: 3
+  - section: technical_floor_lamp.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.floor_lamp.voltage_v; neighbouring power_w does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.floor_lamp.voltage_v|current
+  required:
+  - fact: technical.floor_lamp.voltage_v
+    sections:
+    - technical_floor_lamp.voltage_v
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_floor_lamp_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Standing floor lamp (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Напольный торшер»
+    (Вт).
+  kk: Карточкалар ұқсас. «Еден шамы» үшін нақты «Номиналды тұтыну қуаты» көрсеткішін айтыңыз (Вт).
+  relevant:
+  - section: technical_floor_lamp.power_w
+    grade: 3
+  - section: technical_floor_lamp.lumen
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.floor_lamp.power_w; neighbouring lumen does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.floor_lamp.power_w|current
+  required:
+  - fact: technical.floor_lamp.power_w
+    sections:
+    - technical_floor_lamp.power_w
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_floor_lamp_lumen
+  category: hard
+  en: Check the specifcation of Standing floor lamp for rated luminous flux (lm), please.
+  ru: 'Проверьте характиристику «Напольный торшер»: интересует «Номинальный световой поток» (лм).'
+  kk: «Еден шамы» сипатамасынан «Номиналды жарық ағыны» мәнін тексеріңізші (лм).
+  relevant:
+  - section: technical_floor_lamp.lumen
+    grade: 3
+  - section: technical_floor_lamp.colour_temp_k
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.floor_lamp.lumen; neighbouring colour_temp_k does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_luminous_flux
+  need_key: technical.floor_lamp.lumen|current
+  required:
+  - fact: technical.floor_lamp.lumen
+    sections:
+    - technical_floor_lamp.lumen
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_floor_lamp_colour_temp_k
+  category: simple
+  en: For Standing floor lamp, what is the specified rated colour temperature in K?
+  ru: Для «Напольный торшер» какое значение указано для показателя «Номинальная цветовая температура»
+    (К)?
+  kk: «Еден шамы» тауары үшін «Номиналды түс температурасы» көрсеткішінің мәні қандай (К)?
+  relevant:
+  - section: technical_floor_lamp.colour_temp_k
+    grade: 3
+  - section: technical_floor_lamp.cri
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.floor_lamp.colour_temp_k; neighbouring cri does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_light_colour
+  need_key: technical.floor_lamp.colour_temp_k|current
+  required:
+  - fact: technical.floor_lamp.colour_temp_k
+    sections:
+    - technical_floor_lamp.colour_temp_k
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_floor_lamp_cri
+  category: simple
+  en: I am comparing specifications. Find the colour rendering index for Standing floor lamp, in Ra.
+  ru: Сравниваю характеристики. Нужен показатель «Индекс цветопередачи» у «Напольный торшер», в Ra.
+  kk: Сипаттамаларды салыстырып отырмын. «Еден шамы» үшін «Түсті беру индексі» мәні қажет (Ra).
+  relevant:
+  - section: technical_floor_lamp.cri
+    grade: 3
+  - section: technical_floor_lamp.beam_degrees
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.floor_lamp.cri; neighbouring beam_degrees does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_colour_rendering
+  need_key: technical.floor_lamp.cri|current
+  required:
+  - fact: technical.floor_lamp.cri
+    sections:
+    - technical_floor_lamp.cri
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_floor_lamp_beam_degrees
+  category: simple
+  en: 'Standing floor lamp: rated beam angle, degrees?'
+  ru: '«Напольный торшер»: номинальный угол светового пучка, градусов?'
+  kk: '«Еден шамы»: жарық шоғының номиналды бұрышы, градус?'
+  relevant:
+  - section: technical_floor_lamp.beam_degrees
+    grade: 3
+  - section: technical_floor_lamp.life_hours
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Напольный торшер» показатель «Номинальный угол светового пучка» (градусов) нақтылап беріңізші,
+    осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.floor_lamp.beam_degrees; neighbouring life_hours does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_beam_geometry
+  need_key: technical.floor_lamp.beam_degrees|current
+  required:
+  - fact: technical.floor_lamp.beam_degrees
+    sections:
+    - technical_floor_lamp.beam_degrees
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_floor_lamp_life_hours
+  category: hard
+  en: The cards look similar. What rated service life is listed for Standing floor lamp (hours)?
+  ru: Карточки похожи. Уточните показатель «Номинальный срок службы» именно для «Напольный торшер» (часов).
+  kk: Карточкалар ұқсас. «Еден шамы» үшін нақты «Номиналды қызмет мерзімі» көрсеткішін айтыңыз (сағат).
+  relevant:
+  - section: technical_floor_lamp.life_hours
+    grade: 3
+  - section: technical_floor_lamp.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.floor_lamp.life_hours; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_rated_lifetime
+  need_key: technical.floor_lamp.life_hours|current
+  required:
+  - fact: technical.floor_lamp.life_hours
+    sections:
+    - technical_floor_lamp.life_hours
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_floor_lamp_humidity_max_percent
+  category: unanswerable
+  en: For Standing floor lamp, what is the specified maximum permitted humidity in percent?
+  ru: Для «Напольный торшер» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Еден шамы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай (пайыз)?
+  relevant:
+  - section: technical_floor_lamp.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for floor_lamp does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.floor_lamp.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_floor_lamp_drop_test_cm
+  category: unanswerable
+  en: For Standing floor lamp, what is the specified certified drop-test height in cm?
+  ru: Для «Напольный торшер» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Еден шамы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_floor_lamp.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for floor_lamp does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.floor_lamp.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_floor_lamp_repair_parts_price
+  category: unanswerable
+  en: For Standing floor lamp, what is the specified replacement-part price in KZT?
+  ru: Для «Напольный торшер» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Еден шамы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_floor_lamp.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for floor_lamp does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.floor_lamp.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_floor_lamp_certification_id
+  category: unanswerable
+  en: For Standing floor lamp, what is the specified certification record number in record?
+  ru: Для «Напольный торшер» какое значение указано для показателя «Номер сертификационной записи» (запись)?
+  kk: «Еден шамы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_floor_lamp.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for floor_lamp does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.floor_lamp.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_floor_lamp
+  category: multi_fragment
+  en: What does Standing floor lamp weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Напольный торшер» и какой вес посылки допускают пункты самовывоза?
+  kk: «Еден шамы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат береді?
+  relevant:
+  - section: technical_floor_lamp.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.floor_lamp.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.floor_lamp.mass_g
+    sections:
+    - technical_floor_lamp.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_under_cabinet_light_mass_g
+  category: hard
+  en: Check the specifcation of Under-cabinet light bar for mass (g), please.
+  ru: 'Проверьте характиристику «Подшкафная световая планка»: интересует «Масса» (г).'
+  kk: «Шкаф астындағы жарық тақтасы» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_under_cabinet_light.mass_g
+    grade: 3
+  - section: technical_under_cabinet_light.width_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.under_cabinet_light.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.under_cabinet_light.mass_g|current
+  required:
+  - fact: technical.under_cabinet_light.mass_g
+    sections:
+    - technical_under_cabinet_light.mass_g
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_under_cabinet_light_width_mm
+  category: simple
+  en: For Under-cabinet light bar, what is the specified width in mm?
+  ru: Для «Подшкафная световая планка» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Шкаф астындағы жарық тақтасы» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_under_cabinet_light.width_mm
+    grade: 3
+  - section: technical_under_cabinet_light.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.under_cabinet_light.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.under_cabinet_light.width_mm|current
+  required:
+  - fact: technical.under_cabinet_light.width_mm
+    sections:
+    - technical_under_cabinet_light.width_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_under_cabinet_light_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Under-cabinet light bar, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Подшкафная световая планка», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Шкаф астындағы жарық тақтасы» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_under_cabinet_light.height_mm
+    grade: 3
+  - section: technical_under_cabinet_light.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.under_cabinet_light.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.under_cabinet_light.height_mm|current
+  required:
+  - fact: technical.under_cabinet_light.height_mm
+    sections:
+    - technical_under_cabinet_light.height_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_under_cabinet_light_depth_mm
+  category: simple
+  en: 'Under-cabinet light bar: depth, mm?'
+  ru: '«Подшкафная световая планка»: глубина, мм?'
+  kk: '«Шкаф астындағы жарық тақтасы»: тереңдігі, мм?'
+  relevant:
+  - section: technical_under_cabinet_light.depth_mm
+    grade: 3
+  - section: technical_under_cabinet_light.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.under_cabinet_light.depth_mm; neighbouring operating_min_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.under_cabinet_light.depth_mm|current
+  required:
+  - fact: technical.under_cabinet_light.depth_mm
+    sections:
+    - technical_under_cabinet_light.depth_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_under_cabinet_light_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Under-cabinet light
+    bar (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Подшкафная
+    световая планка» (C).
+  kk: Карточкалар ұқсас. «Шкаф астындағы жарық тақтасы» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_under_cabinet_light.operating_min_c
+    grade: 3
+  - section: technical_under_cabinet_light.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.under_cabinet_light.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.under_cabinet_light.operating_min_c|current
+  required:
+  - fact: technical.under_cabinet_light.operating_min_c
+    sections:
+    - technical_under_cabinet_light.operating_min_c
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_under_cabinet_light_operating_max_c
+  category: hard
+  en: Check the specifcation of Under-cabinet light bar for maximum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Подшкафная световая планка»: интересует «Максимальная температура воздуха
+    при работе» (C).'
+  kk: «Шкаф астындағы жарық тақтасы» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы» мәнін
+    тексеріңізші (C).
+  relevant:
+  - section: technical_under_cabinet_light.operating_max_c
+    grade: 3
+  - section: technical_under_cabinet_light.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Шкаф астындағы жарық тақтасы» үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» (C) керек,
+    уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.under_cabinet_light.operating_max_c; neighbouring voltage_v does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.under_cabinet_light.operating_max_c|current
+  required:
+  - fact: technical.under_cabinet_light.operating_max_c
+    sections:
+    - technical_under_cabinet_light.operating_max_c
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_under_cabinet_light_voltage_v
+  category: simple
+  en: For Under-cabinet light bar, what is the specified rated supply voltage in V?
+  ru: Для «Подшкафная световая планка» какое значение указано для показателя «Номинальное напряжение питания»
+    (В)?
+  kk: «Шкаф астындағы жарық тақтасы» тауары үшін «Номиналды қорек кернеуі» көрсеткішінің мәні қандай (В)?
+  relevant:
+  - section: technical_under_cabinet_light.voltage_v
+    grade: 3
+  - section: technical_under_cabinet_light.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.under_cabinet_light.voltage_v; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.under_cabinet_light.voltage_v|current
+  required:
+  - fact: technical.under_cabinet_light.voltage_v
+    sections:
+    - technical_under_cabinet_light.voltage_v
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_under_cabinet_light_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Under-cabinet light bar, in
+    W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Подшкафная световая
+    планка», в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Шкаф астындағы жарық тақтасы» үшін «Номиналды тұтыну қуаты»
+    мәні қажет (Вт).
+  relevant:
+  - section: technical_under_cabinet_light.power_w
+    grade: 3
+  - section: technical_under_cabinet_light.lumen
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.under_cabinet_light.power_w; neighbouring lumen does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.under_cabinet_light.power_w|current
+  required:
+  - fact: technical.under_cabinet_light.power_w
+    sections:
+    - technical_under_cabinet_light.power_w
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_under_cabinet_light_lumen
+  category: simple
+  en: 'Under-cabinet light bar: rated luminous flux, lm?'
+  ru: '«Подшкафная световая планка»: номинальный световой поток, лм?'
+  kk: '«Шкаф астындағы жарық тақтасы»: номиналды жарық ағыны, лм?'
+  relevant:
+  - section: technical_under_cabinet_light.lumen
+    grade: 3
+  - section: technical_under_cabinet_light.colour_temp_k
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.under_cabinet_light.lumen; neighbouring colour_temp_k does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_luminous_flux
+  need_key: technical.under_cabinet_light.lumen|current
+  required:
+  - fact: technical.under_cabinet_light.lumen
+    sections:
+    - technical_under_cabinet_light.lumen
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_under_cabinet_light_colour_temp_k
+  category: hard
+  en: The cards look similar. What rated colour temperature is listed for Under-cabinet light bar (K)?
+  ru: Карточки похожи. Уточните показатель «Номинальная цветовая температура» именно для «Подшкафная световая
+    планка» (К).
+  kk: Карточкалар ұқсас. «Шкаф астындағы жарық тақтасы» үшін нақты «Номиналды түс температурасы» көрсеткішін
+    айтыңыз (К).
+  relevant:
+  - section: technical_under_cabinet_light.colour_temp_k
+    grade: 3
+  - section: technical_under_cabinet_light.cri
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.under_cabinet_light.colour_temp_k; neighbouring cri does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_light_colour
+  need_key: technical.under_cabinet_light.colour_temp_k|current
+  required:
+  - fact: technical.under_cabinet_light.colour_temp_k
+    sections:
+    - technical_under_cabinet_light.colour_temp_k
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_under_cabinet_light_cri
+  category: hard
+  en: Check the specifcation of Under-cabinet light bar for colour rendering index (Ra), please.
+  ru: 'Проверьте характиристику «Подшкафная световая планка»: интересует «Индекс цветопередачи» (Ra).'
+  kk: «Шкаф астындағы жарық тақтасы» сипатамасынан «Түсті беру индексі» мәнін тексеріңізші (Ra).
+  relevant:
+  - section: technical_under_cabinet_light.cri
+    grade: 3
+  - section: technical_under_cabinet_light.beam_degrees
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.under_cabinet_light.cri; neighbouring beam_degrees does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_colour_rendering
+  need_key: technical.under_cabinet_light.cri|current
+  required:
+  - fact: technical.under_cabinet_light.cri
+    sections:
+    - technical_under_cabinet_light.cri
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_under_cabinet_light_beam_degrees
+  category: simple
+  en: For Under-cabinet light bar, what is the specified rated beam angle in degrees?
+  ru: Для «Подшкафная световая планка» какое значение указано для показателя «Номинальный угол светового
+    пучка» (градусов)?
+  kk: «Шкаф астындағы жарық тақтасы» тауары үшін «Жарық шоғының номиналды бұрышы» көрсеткішінің мәні қандай
+    (градус)?
+  relevant:
+  - section: technical_under_cabinet_light.beam_degrees
+    grade: 3
+  - section: technical_under_cabinet_light.life_hours
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.under_cabinet_light.beam_degrees; neighbouring life_hours does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_beam_geometry
+  need_key: technical.under_cabinet_light.beam_degrees|current
+  required:
+  - fact: technical.under_cabinet_light.beam_degrees
+    sections:
+    - technical_under_cabinet_light.beam_degrees
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_under_cabinet_light_life_hours
+  category: simple
+  en: I am comparing specifications. Find the rated service life for Under-cabinet light bar, in hours.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальный срок службы» у «Подшкафная световая планка»,
+    в часов.
+  kk: Сипаттамаларды салыстырып отырмын. «Шкаф астындағы жарық тақтасы» үшін «Номиналды қызмет мерзімі»
+    мәні қажет (сағат).
+  relevant:
+  - section: technical_under_cabinet_light.life_hours
+    grade: 3
+  - section: technical_under_cabinet_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Подшкафная световая планка» показатель «Номинальный срок службы» (часов) нақтылап беріңізші,
+    осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.under_cabinet_light.life_hours; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_rated_lifetime
+  need_key: technical.under_cabinet_light.life_hours|current
+  required:
+  - fact: technical.under_cabinet_light.life_hours
+    sections:
+    - technical_under_cabinet_light.life_hours
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_under_cabinet_light_humidity_max_percent
+  category: unanswerable
+  en: For Under-cabinet light bar, what is the specified maximum permitted humidity in percent?
+  ru: Для «Подшкафная световая планка» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Шкаф астындағы жарық тақтасы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_under_cabinet_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for under_cabinet_light does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.under_cabinet_light.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_under_cabinet_light_drop_test_cm
+  category: unanswerable
+  en: For Under-cabinet light bar, what is the specified certified drop-test height in cm?
+  ru: Для «Подшкафная световая планка» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Шкаф астындағы жарық тақтасы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_under_cabinet_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for under_cabinet_light does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.under_cabinet_light.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_under_cabinet_light_repair_parts_price
+  category: unanswerable
+  en: For Under-cabinet light bar, what is the specified replacement-part price in KZT?
+  ru: Для «Подшкафная световая планка» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Шкаф астындағы жарық тақтасы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_under_cabinet_light.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for under_cabinet_light does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.under_cabinet_light.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_under_cabinet_light_certification_id
+  category: unanswerable
+  en: For Under-cabinet light bar, what is the specified certification record number in record?
+  ru: Для «Подшкафная световая планка» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Шкаф астындағы жарық тақтасы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_under_cabinet_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for under_cabinet_light does not state certification_id. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.under_cabinet_light.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_ring_light_mass_g
+  category: simple
+  en: 'Tabletop ring light: mass, g?'
+  ru: '«Настольная кольцевая лампа»: масса, г?'
+  kk: '«Үстел сақина шамы»: салмағы, г?'
+  relevant:
+  - section: technical_ring_light.mass_g
+    grade: 3
+  - section: technical_ring_light.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ring_light.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.ring_light.mass_g|current
+  required:
+  - fact: technical.ring_light.mass_g
+    sections:
+    - technical_ring_light.mass_g
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ring_light_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Tabletop ring light (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Настольная кольцевая лампа» (мм).
+  kk: Карточкалар ұқсас. «Үстел сақина шамы» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_ring_light.width_mm
+    grade: 3
+  - section: technical_ring_light.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ring_light.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.ring_light.width_mm|current
+  required:
+  - fact: technical.ring_light.width_mm
+    sections:
+    - technical_ring_light.width_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ring_light_height_mm
+  category: hard
+  en: Check the specifcation of Tabletop ring light for height (mm), please.
+  ru: 'Проверьте характиристику «Настольная кольцевая лампа»: интересует «Высота» (мм).'
+  kk: «Үстел сақина шамы» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_ring_light.height_mm
+    grade: 3
+  - section: technical_ring_light.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ring_light.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.ring_light.height_mm|current
+  required:
+  - fact: technical.ring_light.height_mm
+    sections:
+    - technical_ring_light.height_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ring_light_depth_mm
+  category: simple
+  en: For Tabletop ring light, what is the specified depth in mm?
+  ru: Для «Настольная кольцевая лампа» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Үстел сақина шамы» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_ring_light.depth_mm
+    grade: 3
+  - section: technical_ring_light.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ring_light.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.ring_light.depth_mm|current
+  required:
+  - fact: technical.ring_light.depth_mm
+    sections:
+    - technical_ring_light.depth_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ring_light_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Tabletop ring
+    light, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Настольная
+    кольцевая лампа», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел сақина шамы» үшін «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    мәні қажет (C).
+  relevant:
+  - section: technical_ring_light.operating_min_c
+    grade: 3
+  - section: technical_ring_light.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ring_light.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.ring_light.operating_min_c|current
+  required:
+  - fact: technical.ring_light.operating_min_c
+    sections:
+    - technical_ring_light.operating_min_c
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ring_light_operating_max_c
+  category: hard
+  en: 'Tabletop ring light: maximum operating ambient temperature, C?'
+  ru: '«Настольная кольцевая лампа»: максимальная температура воздуха при работе, C?'
+  kk: '«Үстел сақина шамы»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_ring_light.operating_max_c
+    grade: 3
+  - section: technical_ring_light.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ring_light.operating_max_c; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.ring_light.operating_max_c|current
+  required:
+  - fact: technical.ring_light.operating_max_c
+    sections:
+    - technical_ring_light.operating_max_c
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ring_light_voltage_v
+  category: hard
+  en: The cards look similar. What rated supply voltage is listed for Tabletop ring light (V)?
+  ru: Карточки похожи. Уточните показатель «Номинальное напряжение питания» именно для «Настольная кольцевая
+    лампа» (В).
+  kk: Карточкалар ұқсас. «Үстел сақина шамы» үшін нақты «Номиналды қорек кернеуі» көрсеткішін айтыңыз
+    (В).
+  relevant:
+  - section: technical_ring_light.voltage_v
+    grade: 3
+  - section: technical_ring_light.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Үстел сақина шамы» үшін «Номиналды қорек кернеуі» (В) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.ring_light.voltage_v; neighbouring power_w does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.ring_light.voltage_v|current
+  required:
+  - fact: technical.ring_light.voltage_v
+    sections:
+    - technical_ring_light.voltage_v
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ring_light_power_w
+  category: hard
+  en: Check the specifcation of Tabletop ring light for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Настольная кольцевая лампа»: интересует «Номинальная потребляемая мощность»
+    (Вт).'
+  kk: «Үстел сақина шамы» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_ring_light.power_w
+    grade: 3
+  - section: technical_ring_light.lumen
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ring_light.power_w; neighbouring lumen does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.ring_light.power_w|current
+  required:
+  - fact: technical.ring_light.power_w
+    sections:
+    - technical_ring_light.power_w
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ring_light_lumen
+  category: simple
+  en: For Tabletop ring light, what is the specified rated luminous flux in lm?
+  ru: Для «Настольная кольцевая лампа» какое значение указано для показателя «Номинальный световой поток»
+    (лм)?
+  kk: «Үстел сақина шамы» тауары үшін «Номиналды жарық ағыны» көрсеткішінің мәні қандай (лм)?
+  relevant:
+  - section: technical_ring_light.lumen
+    grade: 3
+  - section: technical_ring_light.colour_temp_k
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ring_light.lumen; neighbouring colour_temp_k does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_luminous_flux
+  need_key: technical.ring_light.lumen|current
+  required:
+  - fact: technical.ring_light.lumen
+    sections:
+    - technical_ring_light.lumen
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ring_light_colour_temp_k
+  category: simple
+  en: I am comparing specifications. Find the rated colour temperature for Tabletop ring light, in K.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная цветовая температура» у «Настольная кольцевая
+    лампа», в К.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел сақина шамы» үшін «Номиналды түс температурасы» мәні қажет
+    (К).
+  relevant:
+  - section: technical_ring_light.colour_temp_k
+    grade: 3
+  - section: technical_ring_light.cri
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ring_light.colour_temp_k; neighbouring cri does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_light_colour
+  need_key: technical.ring_light.colour_temp_k|current
+  required:
+  - fact: technical.ring_light.colour_temp_k
+    sections:
+    - technical_ring_light.colour_temp_k
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ring_light_cri
+  category: simple
+  en: 'Tabletop ring light: colour rendering index, Ra?'
+  ru: '«Настольная кольцевая лампа»: индекс цветопередачи, Ra?'
+  kk: '«Үстел сақина шамы»: түсті беру индексі, Ra?'
+  relevant:
+  - section: technical_ring_light.cri
+    grade: 3
+  - section: technical_ring_light.beam_degrees
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ring_light.cri; neighbouring beam_degrees does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_colour_rendering
+  need_key: technical.ring_light.cri|current
+  required:
+  - fact: technical.ring_light.cri
+    sections:
+    - technical_ring_light.cri
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ring_light_beam_degrees
+  category: hard
+  en: The cards look similar. What rated beam angle is listed for Tabletop ring light (degrees)?
+  ru: Карточки похожи. Уточните показатель «Номинальный угол светового пучка» именно для «Настольная кольцевая
+    лампа» (градусов).
+  kk: Карточкалар ұқсас. «Үстел сақина шамы» үшін нақты «Жарық шоғының номиналды бұрышы» көрсеткішін айтыңыз
+    (градус).
+  relevant:
+  - section: technical_ring_light.beam_degrees
+    grade: 3
+  - section: technical_ring_light.life_hours
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ring_light.beam_degrees; neighbouring life_hours does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_beam_geometry
+  need_key: technical.ring_light.beam_degrees|current
+  required:
+  - fact: technical.ring_light.beam_degrees
+    sections:
+    - technical_ring_light.beam_degrees
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_ring_light_life_hours
+  category: hard
+  en: Check the specifcation of Tabletop ring light for rated service life (hours), please.
+  ru: 'Проверьте характиристику «Настольная кольцевая лампа»: интересует «Номинальный срок службы» (часов).'
+  kk: «Үстел сақина шамы» сипатамасынан «Номиналды қызмет мерзімі» мәнін тексеріңізші (сағат).
+  relevant:
+  - section: technical_ring_light.life_hours
+    grade: 3
+  - section: technical_ring_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.ring_light.life_hours; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_rated_lifetime
+  need_key: technical.ring_light.life_hours|current
+  required:
+  - fact: technical.ring_light.life_hours
+    sections:
+    - technical_ring_light.life_hours
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_ring_light_humidity_max_percent
+  category: unanswerable
+  en: For Tabletop ring light, what is the specified maximum permitted humidity in percent?
+  ru: Для «Настольная кольцевая лампа» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Үстел сақина шамы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_ring_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ring_light does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.ring_light.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_ring_light_drop_test_cm
+  category: unanswerable
+  en: For Tabletop ring light, what is the specified certified drop-test height in cm?
+  ru: Для «Настольная кольцевая лампа» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Үстел сақина шамы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_ring_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ring_light does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.ring_light.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_ring_light_repair_parts_price
+  category: unanswerable
+  en: For Tabletop ring light, what is the specified replacement-part price in KZT?
+  ru: Для «Настольная кольцевая лампа» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Үстел сақина шамы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_ring_light.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ring_light does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.ring_light.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_ring_light_certification_id
+  category: unanswerable
+  en: For Tabletop ring light, what is the specified certification record number in record?
+  ru: Для «Настольная кольцевая лампа» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Үстел сақина шамы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_ring_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for ring_light does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.ring_light.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_ring_light
+  category: multi_fragment
+  en: What does Tabletop ring light weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Настольная кольцевая лампа» и какой вес посылки допускают пункты самовывоза?
+  kk: «Үстел сақина шамы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат береді?
+  relevant:
+  - section: technical_ring_light.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.ring_light.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.ring_light.mass_g
+    sections:
+    - technical_ring_light.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_work_light_mass_g
+  category: simple
+  en: For Portable workshop light, what is the specified mass in g?
+  ru: Для «Переносной рабочий светильник» какое значение указано для показателя «Масса» (г)?
+  kk: «Тасымалды жұмыс шамы» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_work_light.mass_g
+    grade: 3
+  - section: technical_work_light.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Переносной рабочий светильник» показатель «Масса» (г) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.work_light.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.work_light.mass_g|current
+  required:
+  - fact: technical.work_light.mass_g
+    sections:
+    - technical_work_light.mass_g
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_work_light_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Portable workshop light, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Переносной рабочий светильник», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Тасымалды жұмыс шамы» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_work_light.width_mm
+    grade: 3
+  - section: technical_work_light.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.work_light.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.work_light.width_mm|current
+  required:
+  - fact: technical.work_light.width_mm
+    sections:
+    - technical_work_light.width_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_work_light_height_mm
+  category: simple
+  en: 'Portable workshop light: height, mm?'
+  ru: '«Переносной рабочий светильник»: высота, мм?'
+  kk: '«Тасымалды жұмыс шамы»: биіктігі, мм?'
+  relevant:
+  - section: technical_work_light.height_mm
+    grade: 3
+  - section: technical_work_light.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.work_light.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.work_light.height_mm|current
+  required:
+  - fact: technical.work_light.height_mm
+    sections:
+    - technical_work_light.height_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_work_light_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Portable workshop light (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Переносной рабочий светильник» (мм).
+  kk: Карточкалар ұқсас. «Тасымалды жұмыс шамы» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_work_light.depth_mm
+    grade: 3
+  - section: technical_work_light.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.work_light.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.work_light.depth_mm|current
+  required:
+  - fact: technical.work_light.depth_mm
+    sections:
+    - technical_work_light.depth_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_work_light_operating_min_c
+  category: hard
+  en: Check the specifcation of Portable workshop light for minimum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Переносной рабочий светильник»: интересует «Минимальная температура воздуха
+    при работе» (C).'
+  kk: «Тасымалды жұмыс шамы» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_work_light.operating_min_c
+    grade: 3
+  - section: technical_work_light.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.work_light.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.work_light.operating_min_c|current
+  required:
+  - fact: technical.work_light.operating_min_c
+    sections:
+    - technical_work_light.operating_min_c
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_work_light_operating_max_c
+  category: hard
+  en: For Portable workshop light, what is the specified maximum operating ambient temperature in C?
+  ru: Для «Переносной рабочий светильник» какое значение указано для показателя «Максимальная температура
+    воздуха при работе» (C)?
+  kk: «Тасымалды жұмыс шамы» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_work_light.operating_max_c
+    grade: 3
+  - section: technical_work_light.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.work_light.operating_max_c; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.work_light.operating_max_c|current
+  required:
+  - fact: technical.work_light.operating_max_c
+    sections:
+    - technical_work_light.operating_max_c
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_work_light_voltage_v
+  category: simple
+  en: I am comparing specifications. Find the rated supply voltage for Portable workshop light, in V.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальное напряжение питания» у «Переносной рабочий
+    светильник», в В.
+  kk: Сипаттамаларды салыстырып отырмын. «Тасымалды жұмыс шамы» үшін «Номиналды қорек кернеуі» мәні қажет
+    (В).
+  relevant:
+  - section: technical_work_light.voltage_v
+    grade: 3
+  - section: technical_work_light.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.work_light.voltage_v; neighbouring power_w does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.work_light.voltage_v|current
+  required:
+  - fact: technical.work_light.voltage_v
+    sections:
+    - technical_work_light.voltage_v
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_work_light_power_w
+  category: simple
+  en: 'Portable workshop light: rated power consumption, W?'
+  ru: '«Переносной рабочий светильник»: номинальная потребляемая мощность, Вт?'
+  kk: '«Тасымалды жұмыс шамы»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_work_light.power_w
+    grade: 3
+  - section: technical_work_light.lumen
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: «Тасымалды жұмыс шамы» үшін «Номиналды тұтыну қуаты» (Вт) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.work_light.power_w; neighbouring lumen does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.work_light.power_w|current
+  required:
+  - fact: technical.work_light.power_w
+    sections:
+    - technical_work_light.power_w
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_work_light_lumen
+  category: hard
+  en: The cards look similar. What rated luminous flux is listed for Portable workshop light (lm)?
+  ru: Карточки похожи. Уточните показатель «Номинальный световой поток» именно для «Переносной рабочий
+    светильник» (лм).
+  kk: Карточкалар ұқсас. «Тасымалды жұмыс шамы» үшін нақты «Номиналды жарық ағыны» көрсеткішін айтыңыз
+    (лм).
+  relevant:
+  - section: technical_work_light.lumen
+    grade: 3
+  - section: technical_work_light.colour_temp_k
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.work_light.lumen; neighbouring colour_temp_k does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_luminous_flux
+  need_key: technical.work_light.lumen|current
+  required:
+  - fact: technical.work_light.lumen
+    sections:
+    - technical_work_light.lumen
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_work_light_colour_temp_k
+  category: hard
+  en: Check the specifcation of Portable workshop light for rated colour temperature (K), please.
+  ru: 'Проверьте характиристику «Переносной рабочий светильник»: интересует «Номинальная цветовая температура»
+    (К).'
+  kk: «Тасымалды жұмыс шамы» сипатамасынан «Номиналды түс температурасы» мәнін тексеріңізші (К).
+  relevant:
+  - section: technical_work_light.colour_temp_k
+    grade: 3
+  - section: technical_work_light.cri
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.work_light.colour_temp_k; neighbouring cri does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_light_colour
+  need_key: technical.work_light.colour_temp_k|current
+  required:
+  - fact: technical.work_light.colour_temp_k
+    sections:
+    - technical_work_light.colour_temp_k
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_work_light_cri
+  category: simple
+  en: For Portable workshop light, what is the specified colour rendering index in Ra?
+  ru: Для «Переносной рабочий светильник» какое значение указано для показателя «Индекс цветопередачи»
+    (Ra)?
+  kk: «Тасымалды жұмыс шамы» тауары үшін «Түсті беру индексі» көрсеткішінің мәні қандай (Ra)?
+  relevant:
+  - section: technical_work_light.cri
+    grade: 3
+  - section: technical_work_light.beam_degrees
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.work_light.cri; neighbouring beam_degrees does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_colour_rendering
+  need_key: technical.work_light.cri|current
+  required:
+  - fact: technical.work_light.cri
+    sections:
+    - technical_work_light.cri
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_work_light_beam_degrees
+  category: simple
+  en: I am comparing specifications. Find the rated beam angle for Portable workshop light, in degrees.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальный угол светового пучка» у «Переносной рабочий
+    светильник», в градусов.
+  kk: Сипаттамаларды салыстырып отырмын. «Тасымалды жұмыс шамы» үшін «Жарық шоғының номиналды бұрышы»
+    мәні қажет (градус).
+  relevant:
+  - section: technical_work_light.beam_degrees
+    grade: 3
+  - section: technical_work_light.life_hours
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.work_light.beam_degrees; neighbouring life_hours does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_beam_geometry
+  need_key: technical.work_light.beam_degrees|current
+  required:
+  - fact: technical.work_light.beam_degrees
+    sections:
+    - technical_work_light.beam_degrees
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_work_light_life_hours
+  category: simple
+  en: 'Portable workshop light: rated service life, hours?'
+  ru: '«Переносной рабочий светильник»: номинальный срок службы, часов?'
+  kk: '«Тасымалды жұмыс шамы»: номиналды қызмет мерзімі, сағат?'
+  relevant:
+  - section: technical_work_light.life_hours
+    grade: 3
+  - section: technical_work_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.work_light.life_hours; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_rated_lifetime
+  need_key: technical.work_light.life_hours|current
+  required:
+  - fact: technical.work_light.life_hours
+    sections:
+    - technical_work_light.life_hours
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_work_light_humidity_max_percent
+  category: unanswerable
+  en: For Portable workshop light, what is the specified maximum permitted humidity in percent?
+  ru: Для «Переносной рабочий светильник» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Тасымалды жұмыс шамы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_work_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for work_light does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.work_light.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_work_light_drop_test_cm
+  category: unanswerable
+  en: For Portable workshop light, what is the specified certified drop-test height in cm?
+  ru: Для «Переносной рабочий светильник» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Тасымалды жұмыс шамы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_work_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for work_light does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.work_light.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_work_light_repair_parts_price
+  category: unanswerable
+  en: For Portable workshop light, what is the specified replacement-part price in KZT?
+  ru: Для «Переносной рабочий светильник» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Тасымалды жұмыс шамы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_work_light.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for work_light does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.work_light.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_work_light_certification_id
+  category: unanswerable
+  en: For Portable workshop light, what is the specified certification record number in record?
+  ru: Для «Переносной рабочий светильник» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Тасымалды жұмыс шамы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_work_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for work_light does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.work_light.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_night_light_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Dimmable bedside night light (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Регулируемый прикроватный ночник» (г).
+  kk: Карточкалар ұқсас. «Реттелетін төсек жанындағы түнгі шам» үшін нақты «Салмағы» көрсеткішін айтыңыз
+    (г).
+  relevant:
+  - section: technical_night_light.mass_g
+    grade: 3
+  - section: technical_night_light.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.night_light.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.night_light.mass_g|current
+  required:
+  - fact: technical.night_light.mass_g
+    sections:
+    - technical_night_light.mass_g
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_night_light_width_mm
+  category: hard
+  en: Check the specifcation of Dimmable bedside night light for width (mm), please.
+  ru: 'Проверьте характиристику «Регулируемый прикроватный ночник»: интересует «Ширина» (мм).'
+  kk: «Реттелетін төсек жанындағы түнгі шам» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_night_light.width_mm
+    grade: 3
+  - section: technical_night_light.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Регулируемый прикроватный ночник» показатель «Ширина» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.night_light.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.night_light.width_mm|current
+  required:
+  - fact: technical.night_light.width_mm
+    sections:
+    - technical_night_light.width_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_night_light_height_mm
+  category: simple
+  en: For Dimmable bedside night light, what is the specified height in mm?
+  ru: Для «Регулируемый прикроватный ночник» какое значение указано для показателя «Высота» (мм)?
+  kk: «Реттелетін төсек жанындағы түнгі шам» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_night_light.height_mm
+    grade: 3
+  - section: technical_night_light.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.night_light.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.night_light.height_mm|current
+  required:
+  - fact: technical.night_light.height_mm
+    sections:
+    - technical_night_light.height_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_night_light_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Dimmable bedside night light, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Регулируемый прикроватный ночник», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Реттелетін төсек жанындағы түнгі шам» үшін «Тереңдігі» мәні
+    қажет (мм).
+  relevant:
+  - section: technical_night_light.depth_mm
+    grade: 3
+  - section: technical_night_light.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.night_light.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.night_light.depth_mm|current
+  required:
+  - fact: technical.night_light.depth_mm
+    sections:
+    - technical_night_light.depth_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_night_light_operating_min_c
+  category: hard
+  en: 'Dimmable bedside night light: minimum operating ambient temperature, C?'
+  ru: '«Регулируемый прикроватный ночник»: минимальная температура воздуха при работе, C?'
+  kk: '«Реттелетін төсек жанындағы түнгі шам»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_night_light.operating_min_c
+    grade: 3
+  - section: technical_night_light.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.night_light.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.night_light.operating_min_c|current
+  required:
+  - fact: technical.night_light.operating_min_c
+    sections:
+    - technical_night_light.operating_min_c
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_night_light_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Dimmable bedside
+    night light (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Регулируемый
+    прикроватный ночник» (C).
+  kk: Карточкалар ұқсас. «Реттелетін төсек жанындағы түнгі шам» үшін нақты «Жұмыс кезіндегі ауаның ең
+    жоғары температурасы» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_night_light.operating_max_c
+    grade: 3
+  - section: technical_night_light.voltage_v
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.night_light.operating_max_c; neighbouring voltage_v does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.night_light.operating_max_c|current
+  required:
+  - fact: technical.night_light.operating_max_c
+    sections:
+    - technical_night_light.operating_max_c
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_night_light_voltage_v
+  category: hard
+  en: Check the specifcation of Dimmable bedside night light for rated supply voltage (V), please.
+  ru: 'Проверьте характиристику «Регулируемый прикроватный ночник»: интересует «Номинальное напряжение
+    питания» (В).'
+  kk: «Реттелетін төсек жанындағы түнгі шам» сипатамасынан «Номиналды қорек кернеуі» мәнін тексеріңізші
+    (В).
+  relevant:
+  - section: technical_night_light.voltage_v
+    grade: 3
+  - section: technical_night_light.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.night_light.voltage_v; neighbouring power_w does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.night_light.voltage_v|current
+  required:
+  - fact: technical.night_light.voltage_v
+    sections:
+    - technical_night_light.voltage_v
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_night_light_power_w
+  category: simple
+  en: For Dimmable bedside night light, what is the specified rated power consumption in W?
+  ru: Для «Регулируемый прикроватный ночник» какое значение указано для показателя «Номинальная потребляемая
+    мощность» (Вт)?
+  kk: «Реттелетін төсек жанындағы түнгі шам» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай
+    (Вт)?
+  relevant:
+  - section: technical_night_light.power_w
+    grade: 3
+  - section: technical_night_light.lumen
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.night_light.power_w; neighbouring lumen does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.night_light.power_w|current
+  required:
+  - fact: technical.night_light.power_w
+    sections:
+    - technical_night_light.power_w
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_night_light_lumen
+  category: simple
+  en: I am comparing specifications. Find the rated luminous flux for Dimmable bedside night light, in
+    lm.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальный световой поток» у «Регулируемый прикроватный
+    ночник», в лм.
+  kk: Сипаттамаларды салыстырып отырмын. «Реттелетін төсек жанындағы түнгі шам» үшін «Номиналды жарық
+    ағыны» мәні қажет (лм).
+  relevant:
+  - section: technical_night_light.lumen
+    grade: 3
+  - section: technical_night_light.colour_temp_k
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Реттелетін төсек жанындағы түнгі шам» үшін «Номиналды жарық ағыны» (лм) керек, уточните по
+    этой модели, пожалуйста.
+  rationale: Authored target technical.night_light.lumen; neighbouring colour_temp_k does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_luminous_flux
+  need_key: technical.night_light.lumen|current
+  required:
+  - fact: technical.night_light.lumen
+    sections:
+    - technical_night_light.lumen
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_night_light_colour_temp_k
+  category: simple
+  en: 'Dimmable bedside night light: rated colour temperature, K?'
+  ru: '«Регулируемый прикроватный ночник»: номинальная цветовая температура, К?'
+  kk: '«Реттелетін төсек жанындағы түнгі шам»: номиналды түс температурасы, К?'
+  relevant:
+  - section: technical_night_light.colour_temp_k
+    grade: 3
+  - section: technical_night_light.cri
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.night_light.colour_temp_k; neighbouring cri does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_light_colour
+  need_key: technical.night_light.colour_temp_k|current
+  required:
+  - fact: technical.night_light.colour_temp_k
+    sections:
+    - technical_night_light.colour_temp_k
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_night_light_cri
+  category: hard
+  en: The cards look similar. What colour rendering index is listed for Dimmable bedside night light (Ra)?
+  ru: Карточки похожи. Уточните показатель «Индекс цветопередачи» именно для «Регулируемый прикроватный
+    ночник» (Ra).
+  kk: Карточкалар ұқсас. «Реттелетін төсек жанындағы түнгі шам» үшін нақты «Түсті беру индексі» көрсеткішін
+    айтыңыз (Ra).
+  relevant:
+  - section: technical_night_light.cri
+    grade: 3
+  - section: technical_night_light.beam_degrees
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.night_light.cri; neighbouring beam_degrees does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_colour_rendering
+  need_key: technical.night_light.cri|current
+  required:
+  - fact: technical.night_light.cri
+    sections:
+    - technical_night_light.cri
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_night_light_beam_degrees
+  category: hard
+  en: Check the specifcation of Dimmable bedside night light for rated beam angle (degrees), please.
+  ru: 'Проверьте характиристику «Регулируемый прикроватный ночник»: интересует «Номинальный угол светового
+    пучка» (градусов).'
+  kk: «Реттелетін төсек жанындағы түнгі шам» сипатамасынан «Жарық шоғының номиналды бұрышы» мәнін тексеріңізші
+    (градус).
+  relevant:
+  - section: technical_night_light.beam_degrees
+    grade: 3
+  - section: technical_night_light.life_hours
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.night_light.beam_degrees; neighbouring life_hours does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_beam_geometry
+  need_key: technical.night_light.beam_degrees|current
+  required:
+  - fact: technical.night_light.beam_degrees
+    sections:
+    - technical_night_light.beam_degrees
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_night_light_life_hours
+  category: simple
+  en: For Dimmable bedside night light, what is the specified rated service life in hours?
+  ru: Для «Регулируемый прикроватный ночник» какое значение указано для показателя «Номинальный срок службы»
+    (часов)?
+  kk: «Реттелетін төсек жанындағы түнгі шам» тауары үшін «Номиналды қызмет мерзімі» көрсеткішінің мәні
+    қандай (сағат)?
+  relevant:
+  - section: technical_night_light.life_hours
+    grade: 3
+  - section: technical_night_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.night_light.life_hours; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_rated_lifetime
+  need_key: technical.night_light.life_hours|current
+  required:
+  - fact: technical.night_light.life_hours
+    sections:
+    - technical_night_light.life_hours
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_night_light_humidity_max_percent
+  category: unanswerable
+  en: For Dimmable bedside night light, what is the specified maximum permitted humidity in percent?
+  ru: Для «Регулируемый прикроватный ночник» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Реттелетін төсек жанындағы түнгі шам» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_night_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for night_light does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.night_light.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_night_light_drop_test_cm
+  category: unanswerable
+  en: For Dimmable bedside night light, what is the specified certified drop-test height in cm?
+  ru: Для «Регулируемый прикроватный ночник» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Реттелетін төсек жанындағы түнгі шам» тауары үшін «Құлауды сынаудың сертификатталған биіктігі»
+    көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_night_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for night_light does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.night_light.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_night_light_repair_parts_price
+  category: unanswerable
+  en: For Dimmable bedside night light, what is the specified replacement-part price in KZT?
+  ru: Для «Регулируемый прикроватный ночник» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Реттелетін төсек жанындағы түнгі шам» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_night_light.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for night_light does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.night_light.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_night_light_certification_id
+  category: unanswerable
+  en: For Dimmable bedside night light, what is the specified certification record number in record?
+  ru: Для «Регулируемый прикроватный ночник» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Реттелетін төсек жанындағы түнгі шам» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_night_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for night_light does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.night_light.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_night_light
+  category: multi_fragment
+  en: What does Dimmable bedside night light weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Регулируемый прикроватный ночник» и какой вес посылки допускают пункты самовывоза?
+  kk: «Реттелетін төсек жанындағы түнгі шам» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_night_light.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.night_light.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.night_light.mass_g
+    sections:
+    - technical_night_light.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_picture_light_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Wall picture light, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Настенная подсветка картины», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Қабырғадағы сурет жарығы» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_picture_light.mass_g
+    grade: 3
+  - section: technical_picture_light.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.picture_light.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.picture_light.mass_g|current
+  required:
+  - fact: technical.picture_light.mass_g
+    sections:
+    - technical_picture_light.mass_g
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_picture_light_width_mm
+  category: simple
+  en: 'Wall picture light: width, mm?'
+  ru: '«Настенная подсветка картины»: ширина, мм?'
+  kk: '«Қабырғадағы сурет жарығы»: ені, мм?'
+  relevant:
+  - section: technical_picture_light.width_mm
+    grade: 3
+  - section: technical_picture_light.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.picture_light.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.picture_light.width_mm|current
+  required:
+  - fact: technical.picture_light.width_mm
+    sections:
+    - technical_picture_light.width_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_picture_light_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Wall picture light (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Настенная подсветка картины» (мм).
+  kk: Карточкалар ұқсас. «Қабырғадағы сурет жарығы» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_picture_light.height_mm
+    grade: 3
+  - section: technical_picture_light.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Настенная подсветка картины» показатель «Высота» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.picture_light.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.picture_light.height_mm|current
+  required:
+  - fact: technical.picture_light.height_mm
+    sections:
+    - technical_picture_light.height_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_picture_light_depth_mm
+  category: hard
+  en: Check the specifcation of Wall picture light for depth (mm), please.
+  ru: 'Проверьте характиристику «Настенная подсветка картины»: интересует «Глубина» (мм).'
+  kk: «Қабырғадағы сурет жарығы» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_picture_light.depth_mm
+    grade: 3
+  - section: technical_picture_light.operating_min_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.picture_light.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.picture_light.depth_mm|current
+  required:
+  - fact: technical.picture_light.depth_mm
+    sections:
+    - technical_picture_light.depth_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_picture_light_operating_min_c
+  category: hard
+  en: For Wall picture light, what is the specified minimum operating ambient temperature in C?
+  ru: Для «Настенная подсветка картины» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Қабырғадағы сурет жарығы» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_picture_light.operating_min_c
+    grade: 3
+  - section: technical_picture_light.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.picture_light.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.picture_light.operating_min_c|current
+  required:
+  - fact: technical.picture_light.operating_min_c
+    sections:
+    - technical_picture_light.operating_min_c
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_picture_light_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Wall picture light,
+    in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Настенная
+    подсветка картины», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Қабырғадағы сурет жарығы» үшін «Жұмыс кезіндегі ауаның ең жоғары
+    температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_picture_light.operating_max_c
+    grade: 3
+  - section: technical_picture_light.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.picture_light.operating_max_c; neighbouring voltage_v does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.picture_light.operating_max_c|current
+  required:
+  - fact: technical.picture_light.operating_max_c
+    sections:
+    - technical_picture_light.operating_max_c
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_picture_light_voltage_v
+  category: simple
+  en: 'Wall picture light: rated supply voltage, V?'
+  ru: '«Настенная подсветка картины»: номинальное напряжение питания, В?'
+  kk: '«Қабырғадағы сурет жарығы»: номиналды қорек кернеуі, В?'
+  relevant:
+  - section: technical_picture_light.voltage_v
+    grade: 3
+  - section: technical_picture_light.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.picture_light.voltage_v; neighbouring power_w does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.picture_light.voltage_v|current
+  required:
+  - fact: technical.picture_light.voltage_v
+    sections:
+    - technical_picture_light.voltage_v
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_picture_light_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Wall picture light (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Настенная подсветка
+    картины» (Вт).
+  kk: Карточкалар ұқсас. «Қабырғадағы сурет жарығы» үшін нақты «Номиналды тұтыну қуаты» көрсеткішін айтыңыз
+    (Вт).
+  relevant:
+  - section: technical_picture_light.power_w
+    grade: 3
+  - section: technical_picture_light.lumen
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.picture_light.power_w; neighbouring lumen does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.picture_light.power_w|current
+  required:
+  - fact: technical.picture_light.power_w
+    sections:
+    - technical_picture_light.power_w
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_picture_light_lumen
+  category: hard
+  en: Check the specifcation of Wall picture light for rated luminous flux (lm), please.
+  ru: 'Проверьте характиристику «Настенная подсветка картины»: интересует «Номинальный световой поток»
+    (лм).'
+  kk: «Қабырғадағы сурет жарығы» сипатамасынан «Номиналды жарық ағыны» мәнін тексеріңізші (лм).
+  relevant:
+  - section: technical_picture_light.lumen
+    grade: 3
+  - section: technical_picture_light.colour_temp_k
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.picture_light.lumen; neighbouring colour_temp_k does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_luminous_flux
+  need_key: technical.picture_light.lumen|current
+  required:
+  - fact: technical.picture_light.lumen
+    sections:
+    - technical_picture_light.lumen
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_picture_light_colour_temp_k
+  category: simple
+  en: For Wall picture light, what is the specified rated colour temperature in K?
+  ru: Для «Настенная подсветка картины» какое значение указано для показателя «Номинальная цветовая температура»
+    (К)?
+  kk: «Қабырғадағы сурет жарығы» тауары үшін «Номиналды түс температурасы» көрсеткішінің мәні қандай (К)?
+  relevant:
+  - section: technical_picture_light.colour_temp_k
+    grade: 3
+  - section: technical_picture_light.cri
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Қабырғадағы сурет жарығы» үшін «Номиналды түс температурасы» (К) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.picture_light.colour_temp_k; neighbouring cri does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_light_colour
+  need_key: technical.picture_light.colour_temp_k|current
+  required:
+  - fact: technical.picture_light.colour_temp_k
+    sections:
+    - technical_picture_light.colour_temp_k
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_picture_light_cri
+  category: simple
+  en: I am comparing specifications. Find the colour rendering index for Wall picture light, in Ra.
+  ru: Сравниваю характеристики. Нужен показатель «Индекс цветопередачи» у «Настенная подсветка картины»,
+    в Ra.
+  kk: Сипаттамаларды салыстырып отырмын. «Қабырғадағы сурет жарығы» үшін «Түсті беру индексі» мәні қажет
+    (Ra).
+  relevant:
+  - section: technical_picture_light.cri
+    grade: 3
+  - section: technical_picture_light.beam_degrees
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.picture_light.cri; neighbouring beam_degrees does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_colour_rendering
+  need_key: technical.picture_light.cri|current
+  required:
+  - fact: technical.picture_light.cri
+    sections:
+    - technical_picture_light.cri
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_picture_light_beam_degrees
+  category: simple
+  en: 'Wall picture light: rated beam angle, degrees?'
+  ru: '«Настенная подсветка картины»: номинальный угол светового пучка, градусов?'
+  kk: '«Қабырғадағы сурет жарығы»: жарық шоғының номиналды бұрышы, градус?'
+  relevant:
+  - section: technical_picture_light.beam_degrees
+    grade: 3
+  - section: technical_picture_light.life_hours
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.picture_light.beam_degrees; neighbouring life_hours does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_beam_geometry
+  need_key: technical.picture_light.beam_degrees|current
+  required:
+  - fact: technical.picture_light.beam_degrees
+    sections:
+    - technical_picture_light.beam_degrees
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_picture_light_life_hours
+  category: hard
+  en: The cards look similar. What rated service life is listed for Wall picture light (hours)?
+  ru: Карточки похожи. Уточните показатель «Номинальный срок службы» именно для «Настенная подсветка картины»
+    (часов).
+  kk: Карточкалар ұқсас. «Қабырғадағы сурет жарығы» үшін нақты «Номиналды қызмет мерзімі» көрсеткішін
+    айтыңыз (сағат).
+  relevant:
+  - section: technical_picture_light.life_hours
+    grade: 3
+  - section: technical_picture_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.picture_light.life_hours; neighbouring mass_g does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_rated_lifetime
+  need_key: technical.picture_light.life_hours|current
+  required:
+  - fact: technical.picture_light.life_hours
+    sections:
+    - technical_picture_light.life_hours
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_picture_light_humidity_max_percent
+  category: unanswerable
+  en: For Wall picture light, what is the specified maximum permitted humidity in percent?
+  ru: Для «Настенная подсветка картины» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Қабырғадағы сурет жарығы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_picture_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for picture_light does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.picture_light.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_picture_light_drop_test_cm
+  category: unanswerable
+  en: For Wall picture light, what is the specified certified drop-test height in cm?
+  ru: Для «Настенная подсветка картины» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Қабырғадағы сурет жарығы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_picture_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for picture_light does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.picture_light.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_picture_light_repair_parts_price
+  category: unanswerable
+  en: For Wall picture light, what is the specified replacement-part price in KZT?
+  ru: Для «Настенная подсветка картины» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Қабырғадағы сурет жарығы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_picture_light.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for picture_light does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.picture_light.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_picture_light_certification_id
+  category: unanswerable
+  en: For Wall picture light, what is the specified certification record number in record?
+  ru: Для «Настенная подсветка картины» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Қабырғадағы сурет жарығы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_picture_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for picture_light does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.picture_light.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_track_spotlight_mass_g
+  category: hard
+  en: Check the specifcation of Adjustable track spotlight for mass (g), please.
+  ru: 'Проверьте характиристику «Поворотный трековый светильник»: интересует «Масса» (г).'
+  kk: «Бұрылмалы трек шамы» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_track_spotlight.mass_g
+    grade: 3
+  - section: technical_track_spotlight.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.track_spotlight.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.track_spotlight.mass_g|current
+  required:
+  - fact: technical.track_spotlight.mass_g
+    sections:
+    - technical_track_spotlight.mass_g
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_track_spotlight_width_mm
+  category: simple
+  en: For Adjustable track spotlight, what is the specified width in mm?
+  ru: Для «Поворотный трековый светильник» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Бұрылмалы трек шамы» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_track_spotlight.width_mm
+    grade: 3
+  - section: technical_track_spotlight.height_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.track_spotlight.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.track_spotlight.width_mm|current
+  required:
+  - fact: technical.track_spotlight.width_mm
+    sections:
+    - technical_track_spotlight.width_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_track_spotlight_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Adjustable track spotlight, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Поворотный трековый светильник», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Бұрылмалы трек шамы» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_track_spotlight.height_mm
+    grade: 3
+  - section: technical_track_spotlight.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.track_spotlight.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.track_spotlight.height_mm|current
+  required:
+  - fact: technical.track_spotlight.height_mm
+    sections:
+    - technical_track_spotlight.height_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_track_spotlight_depth_mm
+  category: simple
+  en: 'Adjustable track spotlight: depth, mm?'
+  ru: '«Поворотный трековый светильник»: глубина, мм?'
+  kk: '«Бұрылмалы трек шамы»: тереңдігі, мм?'
+  relevant:
+  - section: technical_track_spotlight.depth_mm
+    grade: 3
+  - section: technical_track_spotlight.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Поворотный трековый светильник» показатель «Глубина» (мм) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.track_spotlight.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.track_spotlight.depth_mm|current
+  required:
+  - fact: technical.track_spotlight.depth_mm
+    sections:
+    - technical_track_spotlight.depth_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_track_spotlight_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Adjustable track
+    spotlight (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Поворотный
+    трековый светильник» (C).
+  kk: Карточкалар ұқсас. «Бұрылмалы трек шамы» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_track_spotlight.operating_min_c
+    grade: 3
+  - section: technical_track_spotlight.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.track_spotlight.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.track_spotlight.operating_min_c|current
+  required:
+  - fact: technical.track_spotlight.operating_min_c
+    sections:
+    - technical_track_spotlight.operating_min_c
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_track_spotlight_operating_max_c
+  category: hard
+  en: Check the specifcation of Adjustable track spotlight for maximum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Поворотный трековый светильник»: интересует «Максимальная температура
+    воздуха при работе» (C).'
+  kk: «Бұрылмалы трек шамы» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_track_spotlight.operating_max_c
+    grade: 3
+  - section: technical_track_spotlight.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.track_spotlight.operating_max_c; neighbouring voltage_v does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.track_spotlight.operating_max_c|current
+  required:
+  - fact: technical.track_spotlight.operating_max_c
+    sections:
+    - technical_track_spotlight.operating_max_c
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_track_spotlight_voltage_v
+  category: simple
+  en: For Adjustable track spotlight, what is the specified rated supply voltage in V?
+  ru: Для «Поворотный трековый светильник» какое значение указано для показателя «Номинальное напряжение
+    питания» (В)?
+  kk: «Бұрылмалы трек шамы» тауары үшін «Номиналды қорек кернеуі» көрсеткішінің мәні қандай (В)?
+  relevant:
+  - section: technical_track_spotlight.voltage_v
+    grade: 3
+  - section: technical_track_spotlight.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.track_spotlight.voltage_v; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.track_spotlight.voltage_v|current
+  required:
+  - fact: technical.track_spotlight.voltage_v
+    sections:
+    - technical_track_spotlight.voltage_v
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_track_spotlight_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Adjustable track spotlight,
+    in W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Поворотный трековый
+    светильник», в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Бұрылмалы трек шамы» үшін «Номиналды тұтыну қуаты» мәні қажет
+    (Вт).
+  relevant:
+  - section: technical_track_spotlight.power_w
+    grade: 3
+  - section: technical_track_spotlight.lumen
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.track_spotlight.power_w; neighbouring lumen does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.track_spotlight.power_w|current
+  required:
+  - fact: technical.track_spotlight.power_w
+    sections:
+    - technical_track_spotlight.power_w
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_track_spotlight_lumen
+  category: simple
+  en: 'Adjustable track spotlight: rated luminous flux, lm?'
+  ru: '«Поворотный трековый светильник»: номинальный световой поток, лм?'
+  kk: '«Бұрылмалы трек шамы»: номиналды жарық ағыны, лм?'
+  relevant:
+  - section: technical_track_spotlight.lumen
+    grade: 3
+  - section: technical_track_spotlight.colour_temp_k
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.track_spotlight.lumen; neighbouring colour_temp_k does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_luminous_flux
+  need_key: technical.track_spotlight.lumen|current
+  required:
+  - fact: technical.track_spotlight.lumen
+    sections:
+    - technical_track_spotlight.lumen
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_track_spotlight_colour_temp_k
+  category: hard
+  en: The cards look similar. What rated colour temperature is listed for Adjustable track spotlight (K)?
+  ru: Карточки похожи. Уточните показатель «Номинальная цветовая температура» именно для «Поворотный трековый
+    светильник» (К).
+  kk: Карточкалар ұқсас. «Бұрылмалы трек шамы» үшін нақты «Номиналды түс температурасы» көрсеткішін айтыңыз
+    (К).
+  relevant:
+  - section: technical_track_spotlight.colour_temp_k
+    grade: 3
+  - section: technical_track_spotlight.cri
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.track_spotlight.colour_temp_k; neighbouring cri does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_light_colour
+  need_key: technical.track_spotlight.colour_temp_k|current
+  required:
+  - fact: technical.track_spotlight.colour_temp_k
+    sections:
+    - technical_track_spotlight.colour_temp_k
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_track_spotlight_cri
+  category: hard
+  en: Check the specifcation of Adjustable track spotlight for colour rendering index (Ra), please.
+  ru: 'Проверьте характиристику «Поворотный трековый светильник»: интересует «Индекс цветопередачи» (Ra).'
+  kk: «Бұрылмалы трек шамы» сипатамасынан «Түсті беру индексі» мәнін тексеріңізші (Ra).
+  relevant:
+  - section: technical_track_spotlight.cri
+    grade: 3
+  - section: technical_track_spotlight.beam_degrees
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Бұрылмалы трек шамы» үшін «Түсті беру индексі» (Ra) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.track_spotlight.cri; neighbouring beam_degrees does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_colour_rendering
+  need_key: technical.track_spotlight.cri|current
+  required:
+  - fact: technical.track_spotlight.cri
+    sections:
+    - technical_track_spotlight.cri
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_track_spotlight_beam_degrees
+  category: simple
+  en: For Adjustable track spotlight, what is the specified rated beam angle in degrees?
+  ru: Для «Поворотный трековый светильник» какое значение указано для показателя «Номинальный угол светового
+    пучка» (градусов)?
+  kk: «Бұрылмалы трек шамы» тауары үшін «Жарық шоғының номиналды бұрышы» көрсеткішінің мәні қандай (градус)?
+  relevant:
+  - section: technical_track_spotlight.beam_degrees
+    grade: 3
+  - section: technical_track_spotlight.life_hours
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.track_spotlight.beam_degrees; neighbouring life_hours does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_beam_geometry
+  need_key: technical.track_spotlight.beam_degrees|current
+  required:
+  - fact: technical.track_spotlight.beam_degrees
+    sections:
+    - technical_track_spotlight.beam_degrees
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_track_spotlight_life_hours
+  category: simple
+  en: I am comparing specifications. Find the rated service life for Adjustable track spotlight, in hours.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальный срок службы» у «Поворотный трековый светильник»,
+    в часов.
+  kk: Сипаттамаларды салыстырып отырмын. «Бұрылмалы трек шамы» үшін «Номиналды қызмет мерзімі» мәні қажет
+    (сағат).
+  relevant:
+  - section: technical_track_spotlight.life_hours
+    grade: 3
+  - section: technical_track_spotlight.mass_g
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.track_spotlight.life_hours; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_rated_lifetime
+  need_key: technical.track_spotlight.life_hours|current
+  required:
+  - fact: technical.track_spotlight.life_hours
+    sections:
+    - technical_track_spotlight.life_hours
+  tags:
+  - profile_derived
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_track_spotlight_humidity_max_percent
+  category: unanswerable
+  en: For Adjustable track spotlight, what is the specified maximum permitted humidity in percent?
+  ru: Для «Поворотный трековый светильник» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Бұрылмалы трек шамы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_track_spotlight.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for track_spotlight does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.track_spotlight.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_track_spotlight_drop_test_cm
+  category: unanswerable
+  en: For Adjustable track spotlight, what is the specified certified drop-test height in cm?
+  ru: Для «Поворотный трековый светильник» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Бұрылмалы трек шамы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_track_spotlight.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for track_spotlight does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.track_spotlight.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_track_spotlight_repair_parts_price
+  category: unanswerable
+  en: For Adjustable track spotlight, what is the specified replacement-part price in KZT?
+  ru: Для «Поворотный трековый светильник» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Бұрылмалы трек шамы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_track_spotlight.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for track_spotlight does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.track_spotlight.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_track_spotlight_certification_id
+  category: unanswerable
+  en: For Adjustable track spotlight, what is the specified certification record number in record?
+  ru: Для «Поворотный трековый светильник» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Бұрылмалы трек шамы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_track_spotlight.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for track_spotlight does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.track_spotlight.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_track_spotlight
+  category: multi_fragment
+  en: What does Adjustable track spotlight weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Поворотный трековый светильник» и какой вес посылки допускают пункты самовывоза?
+  kk: «Бұрылмалы трек шамы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат береді?
+  relevant:
+  - section: technical_track_spotlight.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.track_spotlight.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.track_spotlight.mass_g
+    sections:
+    - technical_track_spotlight.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_inspection_light_mass_g
+  category: simple
+  en: 'Flexible inspection light: mass, g?'
+  ru: '«Гибкий инспекционный светильник»: масса, г?'
+  kk: '«Икемді тексеру шамы»: салмағы, г?'
+  relevant:
+  - section: technical_inspection_light.mass_g
+    grade: 3
+  - section: technical_inspection_light.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.inspection_light.mass_g; neighbouring width_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.inspection_light.mass_g|current
+  required:
+  - fact: technical.inspection_light.mass_g
+    sections:
+    - technical_inspection_light.mass_g
+  tags:
+  - profile_derived
+  - domain_lighting
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_inspection_light_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Flexible inspection light (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Гибкий инспекционный светильник» (мм).
+  kk: Карточкалар ұқсас. «Икемді тексеру шамы» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_inspection_light.width_mm
+    grade: 3
+  - section: technical_inspection_light.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.inspection_light.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.inspection_light.width_mm|current
+  required:
+  - fact: technical.inspection_light.width_mm
+    sections:
+    - technical_inspection_light.width_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_inspection_light_height_mm
+  category: hard
+  en: Check the specifcation of Flexible inspection light for height (mm), please.
+  ru: 'Проверьте характиристику «Гибкий инспекционный светильник»: интересует «Высота» (мм).'
+  kk: «Икемді тексеру шамы» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_inspection_light.height_mm
+    grade: 3
+  - section: technical_inspection_light.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.inspection_light.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.inspection_light.height_mm|current
+  required:
+  - fact: technical.inspection_light.height_mm
+    sections:
+    - technical_inspection_light.height_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_inspection_light_depth_mm
+  category: simple
+  en: For Flexible inspection light, what is the specified depth in mm?
+  ru: Для «Гибкий инспекционный светильник» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Икемді тексеру шамы» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_inspection_light.depth_mm
+    grade: 3
+  - section: technical_inspection_light.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.inspection_light.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.inspection_light.depth_mm|current
+  required:
+  - fact: technical.inspection_light.depth_mm
+    sections:
+    - technical_inspection_light.depth_mm
+  tags:
+  - profile_derived
+  - domain_lighting
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_inspection_light_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Flexible inspection
+    light, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Гибкий
+    инспекционный светильник», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Икемді тексеру шамы» үшін «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    мәні қажет (C).
+  relevant:
+  - section: technical_inspection_light.operating_min_c
+    grade: 3
+  - section: technical_inspection_light.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Гибкий инспекционный светильник» показатель «Минимальная температура воздуха при работе»
+    (C) нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.inspection_light.operating_min_c; neighbouring operating_max_c
+    does not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.inspection_light.operating_min_c|current
+  required:
+  - fact: technical.inspection_light.operating_min_c
+    sections:
+    - technical_inspection_light.operating_min_c
+  tags:
+  - profile_derived
+  - domain_lighting
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_inspection_light_operating_max_c
+  category: hard
+  en: 'Flexible inspection light: maximum operating ambient temperature, C?'
+  ru: '«Гибкий инспекционный светильник»: максимальная температура воздуха при работе, C?'
+  kk: '«Икемді тексеру шамы»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_inspection_light.operating_max_c
+    grade: 3
+  - section: technical_inspection_light.voltage_v
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.inspection_light.operating_max_c; neighbouring voltage_v does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.inspection_light.operating_max_c|current
+  required:
+  - fact: technical.inspection_light.operating_max_c
+    sections:
+    - technical_inspection_light.operating_max_c
+  tags:
+  - profile_derived
+  - domain_lighting
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_inspection_light_voltage_v
+  category: hard
+  en: The cards look similar. What rated supply voltage is listed for Flexible inspection light (V)?
+  ru: Карточки похожи. Уточните показатель «Номинальное напряжение питания» именно для «Гибкий инспекционный
+    светильник» (В).
+  kk: Карточкалар ұқсас. «Икемді тексеру шамы» үшін нақты «Номиналды қорек кернеуі» көрсеткішін айтыңыз
+    (В).
+  relevant:
+  - section: technical_inspection_light.voltage_v
+    grade: 3
+  - section: technical_inspection_light.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.inspection_light.voltage_v; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_electrical_supply
+  need_key: technical.inspection_light.voltage_v|current
+  required:
+  - fact: technical.inspection_light.voltage_v
+    sections:
+    - technical_inspection_light.voltage_v
+  tags:
+  - profile_derived
+  - domain_lighting
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_inspection_light_power_w
+  category: hard
+  en: Check the specifcation of Flexible inspection light for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Гибкий инспекционный светильник»: интересует «Номинальная потребляемая
+    мощность» (Вт).'
+  kk: «Икемді тексеру шамы» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_inspection_light.power_w
+    grade: 3
+  - section: technical_inspection_light.lumen
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.inspection_light.power_w; neighbouring lumen does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.inspection_light.power_w|current
+  required:
+  - fact: technical.inspection_light.power_w
+    sections:
+    - technical_inspection_light.power_w
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_inspection_light_lumen
+  category: simple
+  en: For Flexible inspection light, what is the specified rated luminous flux in lm?
+  ru: Для «Гибкий инспекционный светильник» какое значение указано для показателя «Номинальный световой
+    поток» (лм)?
+  kk: «Икемді тексеру шамы» тауары үшін «Номиналды жарық ағыны» көрсеткішінің мәні қандай (лм)?
+  relevant:
+  - section: technical_inspection_light.lumen
+    grade: 3
+  - section: technical_inspection_light.colour_temp_k
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.inspection_light.lumen; neighbouring colour_temp_k does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_luminous_flux
+  need_key: technical.inspection_light.lumen|current
+  required:
+  - fact: technical.inspection_light.lumen
+    sections:
+    - technical_inspection_light.lumen
+  tags:
+  - profile_derived
+  - domain_lighting
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_inspection_light_colour_temp_k
+  category: simple
+  en: I am comparing specifications. Find the rated colour temperature for Flexible inspection light,
+    in K.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная цветовая температура» у «Гибкий инспекционный
+    светильник», в К.
+  kk: Сипаттамаларды салыстырып отырмын. «Икемді тексеру шамы» үшін «Номиналды түс температурасы» мәні
+    қажет (К).
+  relevant:
+  - section: technical_inspection_light.colour_temp_k
+    grade: 3
+  - section: technical_inspection_light.cri
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.inspection_light.colour_temp_k; neighbouring cri does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_light_colour
+  need_key: technical.inspection_light.colour_temp_k|current
+  required:
+  - fact: technical.inspection_light.colour_temp_k
+    sections:
+    - technical_inspection_light.colour_temp_k
+  tags:
+  - profile_derived
+  - domain_lighting
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_inspection_light_cri
+  category: simple
+  en: 'Flexible inspection light: colour rendering index, Ra?'
+  ru: '«Гибкий инспекционный светильник»: индекс цветопередачи, Ra?'
+  kk: '«Икемді тексеру шамы»: түсті беру индексі, Ra?'
+  relevant:
+  - section: technical_inspection_light.cri
+    grade: 3
+  - section: technical_inspection_light.beam_degrees
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.inspection_light.cri; neighbouring beam_degrees does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_colour_rendering
+  need_key: technical.inspection_light.cri|current
+  required:
+  - fact: technical.inspection_light.cri
+    sections:
+    - technical_inspection_light.cri
+  tags:
+  - profile_derived
+  - domain_lighting
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_inspection_light_beam_degrees
+  category: hard
+  en: The cards look similar. What rated beam angle is listed for Flexible inspection light (degrees)?
+  ru: Карточки похожи. Уточните показатель «Номинальный угол светового пучка» именно для «Гибкий инспекционный
+    светильник» (градусов).
+  kk: Карточкалар ұқсас. «Икемді тексеру шамы» үшін нақты «Жарық шоғының номиналды бұрышы» көрсеткішін
+    айтыңыз (градус).
+  relevant:
+  - section: technical_inspection_light.beam_degrees
+    grade: 3
+  - section: technical_inspection_light.life_hours
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Икемді тексеру шамы» үшін «Жарық шоғының номиналды бұрышы» (градус) керек, уточните по этой
+    модели, пожалуйста.
+  rationale: Authored target technical.inspection_light.beam_degrees; neighbouring life_hours does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_beam_geometry
+  need_key: technical.inspection_light.beam_degrees|current
+  required:
+  - fact: technical.inspection_light.beam_degrees
+    sections:
+    - technical_inspection_light.beam_degrees
+  tags:
+  - profile_derived
+  - domain_lighting
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_inspection_light_life_hours
+  category: hard
+  en: Check the specifcation of Flexible inspection light for rated service life (hours), please.
+  ru: 'Проверьте характиристику «Гибкий инспекционный светильник»: интересует «Номинальный срок службы»
+    (часов).'
+  kk: «Икемді тексеру шамы» сипатамасынан «Номиналды қызмет мерзімі» мәнін тексеріңізші (сағат).
+  relevant:
+  - section: technical_inspection_light.life_hours
+    grade: 3
+  - section: technical_inspection_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.inspection_light.life_hours; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_rated_lifetime
+  need_key: technical.inspection_light.life_hours|current
+  required:
+  - fact: technical.inspection_light.life_hours
+    sections:
+    - technical_inspection_light.life_hours
+  tags:
+  - profile_derived
+  - domain_lighting
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_inspection_light_humidity_max_percent
+  category: unanswerable
+  en: For Flexible inspection light, what is the specified maximum permitted humidity in percent?
+  ru: Для «Гибкий инспекционный светильник» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Икемді тексеру шамы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_inspection_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for inspection_light does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.inspection_light.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_inspection_light_drop_test_cm
+  category: unanswerable
+  en: For Flexible inspection light, what is the specified certified drop-test height in cm?
+  ru: Для «Гибкий инспекционный светильник» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Икемді тексеру шамы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_inspection_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for inspection_light does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.inspection_light.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_inspection_light_repair_parts_price
+  category: unanswerable
+  en: For Flexible inspection light, what is the specified replacement-part price in KZT?
+  ru: Для «Гибкий инспекционный светильник» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Икемді тексеру шамы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_inspection_light.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for inspection_light does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.inspection_light.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_inspection_light_certification_id
+  category: unanswerable
+  en: For Flexible inspection light, what is the specified certification record number in record?
+  ru: Для «Гибкий инспекционный светильник» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Икемді тексеру шамы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_inspection_light.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for inspection_light does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.inspection_light.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_lighting
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact

@@ -1,0 +1,4920 @@
+# Compiled from explicit technical_profiles/1 facts and native LLM-authored templates.
+schema_version: retrieval_scale_source/1
+origin: llm_generated
+review_status: draft
+author: Codex (LLM); explicit profiles and native templates compiled deterministically
+allowed_use: eval_only
+licence_note: Original fictional store specifications for internal demo and evaluation; no external manufacturer
+  data or real customer data. Fluent human review pending.
+items:
+- id: catalog_corded_drill_mass_g
+  category: simple
+  en: For Variable-speed corded drill, what is the specified mass in g?
+  ru: Для «Проводная дрель с регулировкой оборотов» какое значение указано для показателя «Масса» (г)?
+  kk: «Айналымы реттелетін сымды бұрғы» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_corded_drill.mass_g
+    grade: 3
+  - section: technical_corded_drill.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.corded_drill.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.corded_drill.mass_g|current
+  required:
+  - fact: technical.corded_drill.mass_g
+    sections:
+    - technical_corded_drill.mass_g
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corded_drill_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Variable-speed corded drill, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Проводная дрель с регулировкой оборотов»,
+    в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Айналымы реттелетін сымды бұрғы» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_corded_drill.width_mm
+    grade: 3
+  - section: technical_corded_drill.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.corded_drill.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.corded_drill.width_mm|current
+  required:
+  - fact: technical.corded_drill.width_mm
+    sections:
+    - technical_corded_drill.width_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corded_drill_height_mm
+  category: simple
+  en: 'Variable-speed corded drill: height, mm?'
+  ru: '«Проводная дрель с регулировкой оборотов»: высота, мм?'
+  kk: '«Айналымы реттелетін сымды бұрғы»: биіктігі, мм?'
+  relevant:
+  - section: technical_corded_drill.height_mm
+    grade: 3
+  - section: technical_corded_drill.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.corded_drill.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.corded_drill.height_mm|current
+  required:
+  - fact: technical.corded_drill.height_mm
+    sections:
+    - technical_corded_drill.height_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corded_drill_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Variable-speed corded drill (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Проводная дрель с регулировкой оборотов»
+    (мм).
+  kk: Карточкалар ұқсас. «Айналымы реттелетін сымды бұрғы» үшін нақты «Тереңдігі» көрсеткішін айтыңыз
+    (мм).
+  relevant:
+  - section: technical_corded_drill.depth_mm
+    grade: 3
+  - section: technical_corded_drill.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Проводная дрель с регулировкой оборотов» показатель «Глубина» (мм) нақтылап беріңізші, осы
+    үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.corded_drill.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.corded_drill.depth_mm|current
+  required:
+  - fact: technical.corded_drill.depth_mm
+    sections:
+    - technical_corded_drill.depth_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corded_drill_operating_min_c
+  category: hard
+  en: Check the specifcation of Variable-speed corded drill for minimum operating ambient temperature
+    (C), please.
+  ru: 'Проверьте характиристику «Проводная дрель с регулировкой оборотов»: интересует «Минимальная температура
+    воздуха при работе» (C).'
+  kk: «Айналымы реттелетін сымды бұрғы» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    мәнін тексеріңізші (C).
+  relevant:
+  - section: technical_corded_drill.operating_min_c
+    grade: 3
+  - section: technical_corded_drill.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.corded_drill.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.corded_drill.operating_min_c|current
+  required:
+  - fact: technical.corded_drill.operating_min_c
+    sections:
+    - technical_corded_drill.operating_min_c
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corded_drill_operating_max_c
+  category: hard
+  en: For Variable-speed corded drill, what is the specified maximum operating ambient temperature in
+    C?
+  ru: Для «Проводная дрель с регулировкой оборотов» какое значение указано для показателя «Максимальная
+    температура воздуха при работе» (C)?
+  kk: «Айналымы реттелетін сымды бұрғы» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_corded_drill.operating_max_c
+    grade: 3
+  - section: technical_corded_drill.power_w
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.corded_drill.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.corded_drill.operating_max_c|current
+  required:
+  - fact: technical.corded_drill.operating_max_c
+    sections:
+    - technical_corded_drill.operating_max_c
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corded_drill_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Variable-speed corded drill,
+    in W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Проводная дрель
+    с регулировкой оборотов», в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Айналымы реттелетін сымды бұрғы» үшін «Номиналды тұтыну қуаты»
+    мәні қажет (Вт).
+  relevant:
+  - section: technical_corded_drill.power_w
+    grade: 3
+  - section: technical_corded_drill.speed_min_rpm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.corded_drill.power_w; neighbouring speed_min_rpm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.corded_drill.power_w|current
+  required:
+  - fact: technical.corded_drill.power_w
+    sections:
+    - technical_corded_drill.power_w
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corded_drill_speed_min_rpm
+  category: hard
+  en: 'Variable-speed corded drill: minimum spindle speed, rpm?'
+  ru: '«Проводная дрель с регулировкой оборотов»: минимальная частота вращения шпинделя, об/мин?'
+  kk: '«Айналымы реттелетін сымды бұрғы»: шпиндельдің ең төмен айналу жиілігі, айн/мин?'
+  relevant:
+  - section: technical_corded_drill.speed_min_rpm
+    grade: 3
+  - section: technical_corded_drill.speed_max_rpm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.corded_drill.speed_min_rpm; neighbouring speed_max_rpm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spindle_speed
+  need_key: technical.corded_drill.speed_min_rpm|current
+  required:
+  - fact: technical.corded_drill.speed_min_rpm
+    sections:
+    - technical_corded_drill.speed_min_rpm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corded_drill_speed_max_rpm
+  category: hard
+  en: The cards look similar. What maximum spindle speed is listed for Variable-speed corded drill (rpm)?
+  ru: Карточки похожи. Уточните показатель «Максимальная частота вращения шпинделя» именно для «Проводная
+    дрель с регулировкой оборотов» (об/мин).
+  kk: Карточкалар ұқсас. «Айналымы реттелетін сымды бұрғы» үшін нақты «Шпиндельдің ең жоғары айналу жиілігі»
+    көрсеткішін айтыңыз (айн/мин).
+  relevant:
+  - section: technical_corded_drill.speed_max_rpm
+    grade: 3
+  - section: technical_corded_drill.grip_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.corded_drill.speed_max_rpm; neighbouring grip_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spindle_speed
+  need_key: technical.corded_drill.speed_max_rpm|current
+  required:
+  - fact: technical.corded_drill.speed_max_rpm
+    sections:
+    - technical_corded_drill.speed_max_rpm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corded_drill_grip_mm
+  category: hard
+  en: Check the specifcation of Variable-speed corded drill for grip diameter (mm), please.
+  ru: 'Проверьте характиристику «Проводная дрель с регулировкой оборотов»: интересует «Диаметр рукоятки»
+    (мм).'
+  kk: «Айналымы реттелетін сымды бұрғы» сипатамасынан «Тұтқа диаметрі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_corded_drill.grip_mm
+    grade: 3
+  - section: technical_corded_drill.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.corded_drill.grip_mm; neighbouring cable_cm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_grip_geometry
+  need_key: technical.corded_drill.grip_mm|current
+  required:
+  - fact: technical.corded_drill.grip_mm
+    sections:
+    - technical_corded_drill.grip_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corded_drill_cable_cm
+  category: simple
+  en: For Variable-speed corded drill, what is the specified supplied cable length in cm?
+  ru: Для «Проводная дрель с регулировкой оборотов» какое значение указано для показателя «Длина комплектного
+    кабеля» (см)?
+  kk: «Айналымы реттелетін сымды бұрғы» тауары үшін «Жинақтағы кабель ұзындығы» көрсеткішінің мәні қандай
+    (см)?
+  relevant:
+  - section: technical_corded_drill.cable_cm
+    grade: 3
+  - section: technical_corded_drill.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Айналымы реттелетін сымды бұрғы» үшін «Жинақтағы кабель ұзындығы» (см) керек, уточните по этой
+    модели, пожалуйста.
+  rationale: Authored target technical.corded_drill.cable_cm; neighbouring noise_db does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.corded_drill.cable_cm|current
+  required:
+  - fact: technical.corded_drill.cable_cm
+    sections:
+    - technical_corded_drill.cable_cm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corded_drill_noise_db
+  category: simple
+  en: I am comparing specifications. Find the rated sound pressure level for Variable-speed corded drill,
+    in dB.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальный уровень звукового давления» у «Проводная
+    дрель с регулировкой оборотов», в дБ.
+  kk: Сипаттамаларды салыстырып отырмын. «Айналымы реттелетін сымды бұрғы» үшін «Номиналды дыбыс қысымының
+    деңгейі» мәні қажет (дБ).
+  relevant:
+  - section: technical_corded_drill.noise_db
+    grade: 3
+  - section: technical_corded_drill.accessories_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.corded_drill.noise_db; neighbouring accessories_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.corded_drill.noise_db|current
+  required:
+  - fact: technical.corded_drill.noise_db
+    sections:
+    - technical_corded_drill.noise_db
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_corded_drill_accessories_count
+  category: simple
+  en: 'Variable-speed corded drill: number of supplied accessories, units?'
+  ru: '«Проводная дрель с регулировкой оборотов»: число комплектных принадлежностей, шт.?'
+  kk: '«Айналымы реттелетін сымды бұрғы»: жинақтағы керек-жарақтар саны, дана?'
+  relevant:
+  - section: technical_corded_drill.accessories_count
+    grade: 3
+  - section: technical_corded_drill.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.corded_drill.accessories_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_accessories
+  need_key: technical.corded_drill.accessories_count|current
+  required:
+  - fact: technical.corded_drill.accessories_count
+    sections:
+    - technical_corded_drill.accessories_count
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_corded_drill_humidity_max_percent
+  category: unanswerable
+  en: For Variable-speed corded drill, what is the specified maximum permitted humidity in percent?
+  ru: Для «Проводная дрель с регулировкой оборотов» какое значение указано для показателя «Максимальная
+    допустимая влажность» (процентов)?
+  kk: «Айналымы реттелетін сымды бұрғы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_corded_drill.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for corded_drill does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.corded_drill.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_corded_drill_drop_test_cm
+  category: unanswerable
+  en: For Variable-speed corded drill, what is the specified certified drop-test height in cm?
+  ru: Для «Проводная дрель с регулировкой оборотов» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Айналымы реттелетін сымды бұрғы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_corded_drill.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for corded_drill does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.corded_drill.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_corded_drill_repair_parts_price
+  category: unanswerable
+  en: For Variable-speed corded drill, what is the specified replacement-part price in KZT?
+  ru: Для «Проводная дрель с регулировкой оборотов» какое значение указано для показателя «Цена запасной
+    детали» (тенге)?
+  kk: «Айналымы реттелетін сымды бұрғы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_corded_drill.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for corded_drill does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.corded_drill.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_corded_drill_certification_id
+  category: unanswerable
+  en: For Variable-speed corded drill, what is the specified certification record number in record?
+  ru: Для «Проводная дрель с регулировкой оборотов» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Айналымы реттелетін сымды бұрғы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_corded_drill.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for corded_drill does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.corded_drill.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_corded_drill
+  category: multi_fragment
+  en: What does Variable-speed corded drill weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Проводная дрель с регулировкой оборотов» и какой вес посылки допускают пункты самовывоза?
+  kk: «Айналымы реттелетін сымды бұрғы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына
+    рұқсат береді?
+  relevant:
+  - section: technical_corded_drill.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.corded_drill.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.corded_drill.mass_g
+    sections:
+    - technical_corded_drill.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_prepublication_mass_corded_drill
+  category: unanswerable
+  en: According to the instructions valid on 15 October 2026, what was the stated mass of Variable-speed
+    corded drill?
+  ru: По инструкциям, действовавшим 15 октября 2026 года, какая масса была указана для «Проводная дрель
+    с регулировкой оборотов»?
+  kk: 2026 жылғы 15 қазанда қолданылған нұсқаулықтар бойынша «Айналымы реттелетін сымды бұрғы» үшін қандай
+    салмақ көрсетілген еді?
+  relevant:
+  - section: technical_corded_drill.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The technical source starts on 1 November 2026. Its current mass cannot establish a fact
+    at the requested earlier date.
+  family_id: profile_physical_mass
+  need_key: technical.corded_drill.mass_g|2026_10_15_before_document_validity
+  required: []
+  tags:
+  - profile_derived
+  - temporal
+  - outside_validity
+  - hard_negative
+  as_of: '2026-10-15'
+  all_versions: false
+  negative_reason: expired
+- id: catalog_rotary_engraver_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Precision rotary engraver (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Точный роторный гравёр» (г).
+  kk: Карточкалар ұқсас. «Дәл роторлы ойғыш» үшін нақты «Салмағы» көрсеткішін айтыңыз (г).
+  relevant:
+  - section: technical_rotary_engraver.mass_g
+    grade: 3
+  - section: technical_rotary_engraver.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rotary_engraver.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.rotary_engraver.mass_g|current
+  required:
+  - fact: technical.rotary_engraver.mass_g
+    sections:
+    - technical_rotary_engraver.mass_g
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rotary_engraver_width_mm
+  category: hard
+  en: Check the specifcation of Precision rotary engraver for width (mm), please.
+  ru: 'Проверьте характиристику «Точный роторный гравёр»: интересует «Ширина» (мм).'
+  kk: «Дәл роторлы ойғыш» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_rotary_engraver.width_mm
+    grade: 3
+  - section: technical_rotary_engraver.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rotary_engraver.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rotary_engraver.width_mm|current
+  required:
+  - fact: technical.rotary_engraver.width_mm
+    sections:
+    - technical_rotary_engraver.width_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rotary_engraver_height_mm
+  category: simple
+  en: For Precision rotary engraver, what is the specified height in mm?
+  ru: Для «Точный роторный гравёр» какое значение указано для показателя «Высота» (мм)?
+  kk: «Дәл роторлы ойғыш» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_rotary_engraver.height_mm
+    grade: 3
+  - section: technical_rotary_engraver.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rotary_engraver.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rotary_engraver.height_mm|current
+  required:
+  - fact: technical.rotary_engraver.height_mm
+    sections:
+    - technical_rotary_engraver.height_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rotary_engraver_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Precision rotary engraver, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Точный роторный гравёр», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Дәл роторлы ойғыш» үшін «Тереңдігі» мәні қажет (мм).
+  relevant:
+  - section: technical_rotary_engraver.depth_mm
+    grade: 3
+  - section: technical_rotary_engraver.operating_min_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rotary_engraver.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.rotary_engraver.depth_mm|current
+  required:
+  - fact: technical.rotary_engraver.depth_mm
+    sections:
+    - technical_rotary_engraver.depth_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rotary_engraver_operating_min_c
+  category: hard
+  en: 'Precision rotary engraver: minimum operating ambient temperature, C?'
+  ru: '«Точный роторный гравёр»: минимальная температура воздуха при работе, C?'
+  kk: '«Дәл роторлы ойғыш»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_rotary_engraver.operating_min_c
+    grade: 3
+  - section: technical_rotary_engraver.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Точный роторный гравёр» показатель «Минимальная температура воздуха при работе» (C) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.rotary_engraver.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rotary_engraver.operating_min_c|current
+  required:
+  - fact: technical.rotary_engraver.operating_min_c
+    sections:
+    - technical_rotary_engraver.operating_min_c
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rotary_engraver_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Precision rotary
+    engraver (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Точный
+    роторный гравёр» (C).
+  kk: Карточкалар ұқсас. «Дәл роторлы ойғыш» үшін нақты «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_rotary_engraver.operating_max_c
+    grade: 3
+  - section: technical_rotary_engraver.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rotary_engraver.operating_max_c; neighbouring power_w does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.rotary_engraver.operating_max_c|current
+  required:
+  - fact: technical.rotary_engraver.operating_max_c
+    sections:
+    - technical_rotary_engraver.operating_max_c
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rotary_engraver_power_w
+  category: hard
+  en: Check the specifcation of Precision rotary engraver for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Точный роторный гравёр»: интересует «Номинальная потребляемая мощность»
+    (Вт).'
+  kk: «Дәл роторлы ойғыш» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші (Вт).
+  relevant:
+  - section: technical_rotary_engraver.power_w
+    grade: 3
+  - section: technical_rotary_engraver.speed_min_rpm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rotary_engraver.power_w; neighbouring speed_min_rpm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.rotary_engraver.power_w|current
+  required:
+  - fact: technical.rotary_engraver.power_w
+    sections:
+    - technical_rotary_engraver.power_w
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rotary_engraver_speed_min_rpm
+  category: hard
+  en: For Precision rotary engraver, what is the specified minimum spindle speed in rpm?
+  ru: Для «Точный роторный гравёр» какое значение указано для показателя «Минимальная частота вращения
+    шпинделя» (об/мин)?
+  kk: «Дәл роторлы ойғыш» тауары үшін «Шпиндельдің ең төмен айналу жиілігі» көрсеткішінің мәні қандай
+    (айн/мин)?
+  relevant:
+  - section: technical_rotary_engraver.speed_min_rpm
+    grade: 3
+  - section: technical_rotary_engraver.speed_max_rpm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rotary_engraver.speed_min_rpm; neighbouring speed_max_rpm does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spindle_speed
+  need_key: technical.rotary_engraver.speed_min_rpm|current
+  required:
+  - fact: technical.rotary_engraver.speed_min_rpm
+    sections:
+    - technical_rotary_engraver.speed_min_rpm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rotary_engraver_speed_max_rpm
+  category: hard
+  en: I am comparing specifications. Find the maximum spindle speed for Precision rotary engraver, in
+    rpm.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная частота вращения шпинделя» у «Точный роторный
+    гравёр», в об/мин.
+  kk: Сипаттамаларды салыстырып отырмын. «Дәл роторлы ойғыш» үшін «Шпиндельдің ең жоғары айналу жиілігі»
+    мәні қажет (айн/мин).
+  relevant:
+  - section: technical_rotary_engraver.speed_max_rpm
+    grade: 3
+  - section: technical_rotary_engraver.grip_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rotary_engraver.speed_max_rpm; neighbouring grip_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spindle_speed
+  need_key: technical.rotary_engraver.speed_max_rpm|current
+  required:
+  - fact: technical.rotary_engraver.speed_max_rpm
+    sections:
+    - technical_rotary_engraver.speed_max_rpm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rotary_engraver_grip_mm
+  category: simple
+  en: 'Precision rotary engraver: grip diameter, mm?'
+  ru: '«Точный роторный гравёр»: диаметр рукоятки, мм?'
+  kk: '«Дәл роторлы ойғыш»: тұтқа диаметрі, мм?'
+  relevant:
+  - section: technical_rotary_engraver.grip_mm
+    grade: 3
+  - section: technical_rotary_engraver.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rotary_engraver.grip_mm; neighbouring cable_cm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_grip_geometry
+  need_key: technical.rotary_engraver.grip_mm|current
+  required:
+  - fact: technical.rotary_engraver.grip_mm
+    sections:
+    - technical_rotary_engraver.grip_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rotary_engraver_cable_cm
+  category: hard
+  en: The cards look similar. What supplied cable length is listed for Precision rotary engraver (cm)?
+  ru: Карточки похожи. Уточните показатель «Длина комплектного кабеля» именно для «Точный роторный гравёр»
+    (см).
+  kk: Карточкалар ұқсас. «Дәл роторлы ойғыш» үшін нақты «Жинақтағы кабель ұзындығы» көрсеткішін айтыңыз
+    (см).
+  relevant:
+  - section: technical_rotary_engraver.cable_cm
+    grade: 3
+  - section: technical_rotary_engraver.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rotary_engraver.cable_cm; neighbouring noise_db does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.rotary_engraver.cable_cm|current
+  required:
+  - fact: technical.rotary_engraver.cable_cm
+    sections:
+    - technical_rotary_engraver.cable_cm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rotary_engraver_noise_db
+  category: hard
+  en: Check the specifcation of Precision rotary engraver for rated sound pressure level (dB), please.
+  ru: 'Проверьте характиристику «Точный роторный гравёр»: интересует «Номинальный уровень звукового давления»
+    (дБ).'
+  kk: «Дәл роторлы ойғыш» сипатамасынан «Номиналды дыбыс қысымының деңгейі» мәнін тексеріңізші (дБ).
+  relevant:
+  - section: technical_rotary_engraver.noise_db
+    grade: 3
+  - section: technical_rotary_engraver.accessories_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Дәл роторлы ойғыш» үшін «Номиналды дыбыс қысымының деңгейі» (дБ) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.rotary_engraver.noise_db; neighbouring accessories_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.rotary_engraver.noise_db|current
+  required:
+  - fact: technical.rotary_engraver.noise_db
+    sections:
+    - technical_rotary_engraver.noise_db
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_rotary_engraver_accessories_count
+  category: simple
+  en: For Precision rotary engraver, what is the specified number of supplied accessories in units?
+  ru: Для «Точный роторный гравёр» какое значение указано для показателя «Число комплектных принадлежностей»
+    (шт.)?
+  kk: «Дәл роторлы ойғыш» тауары үшін «Жинақтағы керек-жарақтар саны» көрсеткішінің мәні қандай (дана)?
+  relevant:
+  - section: technical_rotary_engraver.accessories_count
+    grade: 3
+  - section: technical_rotary_engraver.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.rotary_engraver.accessories_count; neighbouring mass_g does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_accessories
+  need_key: technical.rotary_engraver.accessories_count|current
+  required:
+  - fact: technical.rotary_engraver.accessories_count
+    sections:
+    - technical_rotary_engraver.accessories_count
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_rotary_engraver_humidity_max_percent
+  category: unanswerable
+  en: For Precision rotary engraver, what is the specified maximum permitted humidity in percent?
+  ru: Для «Точный роторный гравёр» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Дәл роторлы ойғыш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_rotary_engraver.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rotary_engraver does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.rotary_engraver.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rotary_engraver_drop_test_cm
+  category: unanswerable
+  en: For Precision rotary engraver, what is the specified certified drop-test height in cm?
+  ru: Для «Точный роторный гравёр» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Дәл роторлы ойғыш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_rotary_engraver.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rotary_engraver does not state drop_test_cm. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.rotary_engraver.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_rotary_engraver_repair_parts_price
+  category: unanswerable
+  en: For Precision rotary engraver, what is the specified replacement-part price in KZT?
+  ru: Для «Точный роторный гравёр» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Дәл роторлы ойғыш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_rotary_engraver.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rotary_engraver does not state repair_parts_price. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.rotary_engraver.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_rotary_engraver_certification_id
+  category: unanswerable
+  en: For Precision rotary engraver, what is the specified certification record number in record?
+  ru: Для «Точный роторный гравёр» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Дәл роторлы ойғыш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_rotary_engraver.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for rotary_engraver does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.rotary_engraver.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_angle_grinder_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Compact angle grinder, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Компактная угловая шлифмашина», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Ықшам бұрыштық тегістегіш» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_angle_grinder.mass_g
+    grade: 3
+  - section: technical_angle_grinder.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.angle_grinder.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.angle_grinder.mass_g|current
+  required:
+  - fact: technical.angle_grinder.mass_g
+    sections:
+    - technical_angle_grinder.mass_g
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_angle_grinder_width_mm
+  category: simple
+  en: 'Compact angle grinder: width, mm?'
+  ru: '«Компактная угловая шлифмашина»: ширина, мм?'
+  kk: '«Ықшам бұрыштық тегістегіш»: ені, мм?'
+  relevant:
+  - section: technical_angle_grinder.width_mm
+    grade: 3
+  - section: technical_angle_grinder.height_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.angle_grinder.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.angle_grinder.width_mm|current
+  required:
+  - fact: technical.angle_grinder.width_mm
+    sections:
+    - technical_angle_grinder.width_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_angle_grinder_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Compact angle grinder (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Компактная угловая шлифмашина» (мм).
+  kk: Карточкалар ұқсас. «Ықшам бұрыштық тегістегіш» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_angle_grinder.height_mm
+    grade: 3
+  - section: technical_angle_grinder.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.angle_grinder.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.angle_grinder.height_mm|current
+  required:
+  - fact: technical.angle_grinder.height_mm
+    sections:
+    - technical_angle_grinder.height_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_angle_grinder_depth_mm
+  category: hard
+  en: Check the specifcation of Compact angle grinder for depth (mm), please.
+  ru: 'Проверьте характиристику «Компактная угловая шлифмашина»: интересует «Глубина» (мм).'
+  kk: «Ықшам бұрыштық тегістегіш» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_angle_grinder.depth_mm
+    grade: 3
+  - section: technical_angle_grinder.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.angle_grinder.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.angle_grinder.depth_mm|current
+  required:
+  - fact: technical.angle_grinder.depth_mm
+    sections:
+    - technical_angle_grinder.depth_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_angle_grinder_operating_min_c
+  category: hard
+  en: For Compact angle grinder, what is the specified minimum operating ambient temperature in C?
+  ru: Для «Компактная угловая шлифмашина» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Ықшам бұрыштық тегістегіш» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_angle_grinder.operating_min_c
+    grade: 3
+  - section: technical_angle_grinder.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.angle_grinder.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.angle_grinder.operating_min_c|current
+  required:
+  - fact: technical.angle_grinder.operating_min_c
+    sections:
+    - technical_angle_grinder.operating_min_c
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_angle_grinder_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Compact angle
+    grinder, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Компактная
+    угловая шлифмашина», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Ықшам бұрыштық тегістегіш» үшін «Жұмыс кезіндегі ауаның ең жоғары
+    температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_angle_grinder.operating_max_c
+    grade: 3
+  - section: technical_angle_grinder.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Компактная угловая шлифмашина» показатель «Максимальная температура воздуха при работе» (C)
+    нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.angle_grinder.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.angle_grinder.operating_max_c|current
+  required:
+  - fact: technical.angle_grinder.operating_max_c
+    sections:
+    - technical_angle_grinder.operating_max_c
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_angle_grinder_power_w
+  category: simple
+  en: 'Compact angle grinder: rated power consumption, W?'
+  ru: '«Компактная угловая шлифмашина»: номинальная потребляемая мощность, Вт?'
+  kk: '«Ықшам бұрыштық тегістегіш»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_angle_grinder.power_w
+    grade: 3
+  - section: technical_angle_grinder.speed_min_rpm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.angle_grinder.power_w; neighbouring speed_min_rpm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.angle_grinder.power_w|current
+  required:
+  - fact: technical.angle_grinder.power_w
+    sections:
+    - technical_angle_grinder.power_w
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_angle_grinder_speed_min_rpm
+  category: hard
+  en: The cards look similar. What minimum spindle speed is listed for Compact angle grinder (rpm)?
+  ru: Карточки похожи. Уточните показатель «Минимальная частота вращения шпинделя» именно для «Компактная
+    угловая шлифмашина» (об/мин).
+  kk: Карточкалар ұқсас. «Ықшам бұрыштық тегістегіш» үшін нақты «Шпиндельдің ең төмен айналу жиілігі»
+    көрсеткішін айтыңыз (айн/мин).
+  relevant:
+  - section: technical_angle_grinder.speed_min_rpm
+    grade: 3
+  - section: technical_angle_grinder.speed_max_rpm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.angle_grinder.speed_min_rpm; neighbouring speed_max_rpm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spindle_speed
+  need_key: technical.angle_grinder.speed_min_rpm|current
+  required:
+  - fact: technical.angle_grinder.speed_min_rpm
+    sections:
+    - technical_angle_grinder.speed_min_rpm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_angle_grinder_speed_max_rpm
+  category: hard
+  en: Check the specifcation of Compact angle grinder for maximum spindle speed (rpm), please.
+  ru: 'Проверьте характиристику «Компактная угловая шлифмашина»: интересует «Максимальная частота вращения
+    шпинделя» (об/мин).'
+  kk: «Ықшам бұрыштық тегістегіш» сипатамасынан «Шпиндельдің ең жоғары айналу жиілігі» мәнін тексеріңізші
+    (айн/мин).
+  relevant:
+  - section: technical_angle_grinder.speed_max_rpm
+    grade: 3
+  - section: technical_angle_grinder.grip_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.angle_grinder.speed_max_rpm; neighbouring grip_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spindle_speed
+  need_key: technical.angle_grinder.speed_max_rpm|current
+  required:
+  - fact: technical.angle_grinder.speed_max_rpm
+    sections:
+    - technical_angle_grinder.speed_max_rpm
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_angle_grinder_grip_mm
+  category: simple
+  en: For Compact angle grinder, what is the specified grip diameter in mm?
+  ru: Для «Компактная угловая шлифмашина» какое значение указано для показателя «Диаметр рукоятки» (мм)?
+  kk: «Ықшам бұрыштық тегістегіш» тауары үшін «Тұтқа диаметрі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_angle_grinder.grip_mm
+    grade: 3
+  - section: technical_angle_grinder.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.angle_grinder.grip_mm; neighbouring cable_cm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_grip_geometry
+  need_key: technical.angle_grinder.grip_mm|current
+  required:
+  - fact: technical.angle_grinder.grip_mm
+    sections:
+    - technical_angle_grinder.grip_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_angle_grinder_cable_cm
+  category: simple
+  en: I am comparing specifications. Find the supplied cable length for Compact angle grinder, in cm.
+  ru: Сравниваю характеристики. Нужен показатель «Длина комплектного кабеля» у «Компактная угловая шлифмашина»,
+    в см.
+  kk: Сипаттамаларды салыстырып отырмын. «Ықшам бұрыштық тегістегіш» үшін «Жинақтағы кабель ұзындығы»
+    мәні қажет (см).
+  relevant:
+  - section: technical_angle_grinder.cable_cm
+    grade: 3
+  - section: technical_angle_grinder.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.angle_grinder.cable_cm; neighbouring noise_db does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.angle_grinder.cable_cm|current
+  required:
+  - fact: technical.angle_grinder.cable_cm
+    sections:
+    - technical_angle_grinder.cable_cm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_angle_grinder_noise_db
+  category: simple
+  en: 'Compact angle grinder: rated sound pressure level, dB?'
+  ru: '«Компактная угловая шлифмашина»: номинальный уровень звукового давления, дБ?'
+  kk: '«Ықшам бұрыштық тегістегіш»: номиналды дыбыс қысымының деңгейі, дБ?'
+  relevant:
+  - section: technical_angle_grinder.noise_db
+    grade: 3
+  - section: technical_angle_grinder.accessories_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.angle_grinder.noise_db; neighbouring accessories_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.angle_grinder.noise_db|current
+  required:
+  - fact: technical.angle_grinder.noise_db
+    sections:
+    - technical_angle_grinder.noise_db
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_angle_grinder_accessories_count
+  category: hard
+  en: The cards look similar. What number of supplied accessories is listed for Compact angle grinder
+    (units)?
+  ru: Карточки похожи. Уточните показатель «Число комплектных принадлежностей» именно для «Компактная
+    угловая шлифмашина» (шт.).
+  kk: Карточкалар ұқсас. «Ықшам бұрыштық тегістегіш» үшін нақты «Жинақтағы керек-жарақтар саны» көрсеткішін
+    айтыңыз (дана).
+  relevant:
+  - section: technical_angle_grinder.accessories_count
+    grade: 3
+  - section: technical_angle_grinder.mass_g
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: «Ықшам бұрыштық тегістегіш» үшін «Жинақтағы керек-жарақтар саны» (дана) керек, уточните по этой
+    модели, пожалуйста.
+  rationale: Authored target technical.angle_grinder.accessories_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_accessories
+  need_key: technical.angle_grinder.accessories_count|current
+  required:
+  - fact: technical.angle_grinder.accessories_count
+    sections:
+    - technical_angle_grinder.accessories_count
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_angle_grinder_humidity_max_percent
+  category: unanswerable
+  en: For Compact angle grinder, what is the specified maximum permitted humidity in percent?
+  ru: Для «Компактная угловая шлифмашина» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Ықшам бұрыштық тегістегіш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_angle_grinder.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for angle_grinder does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.angle_grinder.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_angle_grinder_drop_test_cm
+  category: unanswerable
+  en: For Compact angle grinder, what is the specified certified drop-test height in cm?
+  ru: Для «Компактная угловая шлифмашина» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Ықшам бұрыштық тегістегіш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_angle_grinder.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for angle_grinder does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.angle_grinder.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_angle_grinder_repair_parts_price
+  category: unanswerable
+  en: For Compact angle grinder, what is the specified replacement-part price in KZT?
+  ru: Для «Компактная угловая шлифмашина» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Ықшам бұрыштық тегістегіш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_angle_grinder.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for angle_grinder does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.angle_grinder.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_angle_grinder_certification_id
+  category: unanswerable
+  en: For Compact angle grinder, what is the specified certification record number in record?
+  ru: Для «Компактная угловая шлифмашина» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Ықшам бұрыштық тегістегіш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_angle_grinder.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for angle_grinder does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.angle_grinder.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_angle_grinder
+  category: multi_fragment
+  en: What does Compact angle grinder weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Компактная угловая шлифмашина» и какой вес посылки допускают пункты самовывоза?
+  kk: «Ықшам бұрыштық тегістегіш» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_angle_grinder.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.angle_grinder.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.angle_grinder.mass_g
+    sections:
+    - technical_angle_grinder.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trim_router_mass_g
+  category: hard
+  en: Check the specifcation of Wood edge trim router for mass (g), please.
+  ru: 'Проверьте характиристику «Кромочный фрезер по дереву»: интересует «Масса» (г).'
+  kk: «Ағаш жиегінің фрезері» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_trim_router.mass_g
+    grade: 3
+  - section: technical_trim_router.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trim_router.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.trim_router.mass_g|current
+  required:
+  - fact: technical.trim_router.mass_g
+    sections:
+    - technical_trim_router.mass_g
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trim_router_width_mm
+  category: simple
+  en: For Wood edge trim router, what is the specified width in mm?
+  ru: Для «Кромочный фрезер по дереву» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Ағаш жиегінің фрезері» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_trim_router.width_mm
+    grade: 3
+  - section: technical_trim_router.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trim_router.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.trim_router.width_mm|current
+  required:
+  - fact: technical.trim_router.width_mm
+    sections:
+    - technical_trim_router.width_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trim_router_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Wood edge trim router, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Кромочный фрезер по дереву», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Ағаш жиегінің фрезері» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_trim_router.height_mm
+    grade: 3
+  - section: technical_trim_router.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trim_router.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.trim_router.height_mm|current
+  required:
+  - fact: technical.trim_router.height_mm
+    sections:
+    - technical_trim_router.height_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trim_router_depth_mm
+  category: simple
+  en: 'Wood edge trim router: depth, mm?'
+  ru: '«Кромочный фрезер по дереву»: глубина, мм?'
+  kk: '«Ағаш жиегінің фрезері»: тереңдігі, мм?'
+  relevant:
+  - section: technical_trim_router.depth_mm
+    grade: 3
+  - section: technical_trim_router.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trim_router.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.trim_router.depth_mm|current
+  required:
+  - fact: technical.trim_router.depth_mm
+    sections:
+    - technical_trim_router.depth_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trim_router_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Wood edge trim
+    router (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Кромочный
+    фрезер по дереву» (C).
+  kk: Карточкалар ұқсас. «Ағаш жиегінің фрезері» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_trim_router.operating_min_c
+    grade: 3
+  - section: technical_trim_router.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trim_router.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.trim_router.operating_min_c|current
+  required:
+  - fact: technical.trim_router.operating_min_c
+    sections:
+    - technical_trim_router.operating_min_c
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trim_router_operating_max_c
+  category: hard
+  en: Check the specifcation of Wood edge trim router for maximum operating ambient temperature (C), please.
+  ru: 'Проверьте характиристику «Кромочный фрезер по дереву»: интересует «Максимальная температура воздуха
+    при работе» (C).'
+  kk: «Ағаш жиегінің фрезері» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_trim_router.operating_max_c
+    grade: 3
+  - section: technical_trim_router.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trim_router.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.trim_router.operating_max_c|current
+  required:
+  - fact: technical.trim_router.operating_max_c
+    sections:
+    - technical_trim_router.operating_max_c
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trim_router_power_w
+  category: simple
+  en: For Wood edge trim router, what is the specified rated power consumption in W?
+  ru: Для «Кромочный фрезер по дереву» какое значение указано для показателя «Номинальная потребляемая
+    мощность» (Вт)?
+  kk: «Ағаш жиегінің фрезері» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай (Вт)?
+  relevant:
+  - section: technical_trim_router.power_w
+    grade: 3
+  - section: technical_trim_router.speed_min_rpm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Кромочный фрезер по дереву» показатель «Номинальная потребляемая мощность» (Вт) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.trim_router.power_w; neighbouring speed_min_rpm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.trim_router.power_w|current
+  required:
+  - fact: technical.trim_router.power_w
+    sections:
+    - technical_trim_router.power_w
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trim_router_speed_min_rpm
+  category: hard
+  en: I am comparing specifications. Find the minimum spindle speed for Wood edge trim router, in rpm.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная частота вращения шпинделя» у «Кромочный
+    фрезер по дереву», в об/мин.
+  kk: Сипаттамаларды салыстырып отырмын. «Ағаш жиегінің фрезері» үшін «Шпиндельдің ең төмен айналу жиілігі»
+    мәні қажет (айн/мин).
+  relevant:
+  - section: technical_trim_router.speed_min_rpm
+    grade: 3
+  - section: technical_trim_router.speed_max_rpm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trim_router.speed_min_rpm; neighbouring speed_max_rpm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spindle_speed
+  need_key: technical.trim_router.speed_min_rpm|current
+  required:
+  - fact: technical.trim_router.speed_min_rpm
+    sections:
+    - technical_trim_router.speed_min_rpm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trim_router_speed_max_rpm
+  category: hard
+  en: 'Wood edge trim router: maximum spindle speed, rpm?'
+  ru: '«Кромочный фрезер по дереву»: максимальная частота вращения шпинделя, об/мин?'
+  kk: '«Ағаш жиегінің фрезері»: шпиндельдің ең жоғары айналу жиілігі, айн/мин?'
+  relevant:
+  - section: technical_trim_router.speed_max_rpm
+    grade: 3
+  - section: technical_trim_router.grip_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trim_router.speed_max_rpm; neighbouring grip_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spindle_speed
+  need_key: technical.trim_router.speed_max_rpm|current
+  required:
+  - fact: technical.trim_router.speed_max_rpm
+    sections:
+    - technical_trim_router.speed_max_rpm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trim_router_grip_mm
+  category: hard
+  en: The cards look similar. What grip diameter is listed for Wood edge trim router (mm)?
+  ru: Карточки похожи. Уточните показатель «Диаметр рукоятки» именно для «Кромочный фрезер по дереву»
+    (мм).
+  kk: Карточкалар ұқсас. «Ағаш жиегінің фрезері» үшін нақты «Тұтқа диаметрі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_trim_router.grip_mm
+    grade: 3
+  - section: technical_trim_router.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trim_router.grip_mm; neighbouring cable_cm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_grip_geometry
+  need_key: technical.trim_router.grip_mm|current
+  required:
+  - fact: technical.trim_router.grip_mm
+    sections:
+    - technical_trim_router.grip_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trim_router_cable_cm
+  category: hard
+  en: Check the specifcation of Wood edge trim router for supplied cable length (cm), please.
+  ru: 'Проверьте характиристику «Кромочный фрезер по дереву»: интересует «Длина комплектного кабеля» (см).'
+  kk: «Ағаш жиегінің фрезері» сипатамасынан «Жинақтағы кабель ұзындығы» мәнін тексеріңізші (см).
+  relevant:
+  - section: technical_trim_router.cable_cm
+    grade: 3
+  - section: technical_trim_router.noise_db
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trim_router.cable_cm; neighbouring noise_db does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.trim_router.cable_cm|current
+  required:
+  - fact: technical.trim_router.cable_cm
+    sections:
+    - technical_trim_router.cable_cm
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trim_router_noise_db
+  category: simple
+  en: For Wood edge trim router, what is the specified rated sound pressure level in dB?
+  ru: Для «Кромочный фрезер по дереву» какое значение указано для показателя «Номинальный уровень звукового
+    давления» (дБ)?
+  kk: «Ағаш жиегінің фрезері» тауары үшін «Номиналды дыбыс қысымының деңгейі» көрсеткішінің мәні қандай
+    (дБ)?
+  relevant:
+  - section: technical_trim_router.noise_db
+    grade: 3
+  - section: technical_trim_router.accessories_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trim_router.noise_db; neighbouring accessories_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.trim_router.noise_db|current
+  required:
+  - fact: technical.trim_router.noise_db
+    sections:
+    - technical_trim_router.noise_db
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_trim_router_accessories_count
+  category: simple
+  en: I am comparing specifications. Find the number of supplied accessories for Wood edge trim router,
+    in units.
+  ru: Сравниваю характеристики. Нужен показатель «Число комплектных принадлежностей» у «Кромочный фрезер
+    по дереву», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Ағаш жиегінің фрезері» үшін «Жинақтағы керек-жарақтар саны»
+    мәні қажет (дана).
+  relevant:
+  - section: technical_trim_router.accessories_count
+    grade: 3
+  - section: technical_trim_router.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.trim_router.accessories_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_accessories
+  need_key: technical.trim_router.accessories_count|current
+  required:
+  - fact: technical.trim_router.accessories_count
+    sections:
+    - technical_trim_router.accessories_count
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_trim_router_humidity_max_percent
+  category: unanswerable
+  en: For Wood edge trim router, what is the specified maximum permitted humidity in percent?
+  ru: Для «Кромочный фрезер по дереву» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Ағаш жиегінің фрезері» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_trim_router.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for trim_router does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.trim_router.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_trim_router_drop_test_cm
+  category: unanswerable
+  en: For Wood edge trim router, what is the specified certified drop-test height in cm?
+  ru: Для «Кромочный фрезер по дереву» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Ағаш жиегінің фрезері» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_trim_router.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for trim_router does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.trim_router.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_trim_router_repair_parts_price
+  category: unanswerable
+  en: For Wood edge trim router, what is the specified replacement-part price in KZT?
+  ru: Для «Кромочный фрезер по дереву» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Ағаш жиегінің фрезері» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_trim_router.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for trim_router does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.trim_router.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_trim_router_certification_id
+  category: unanswerable
+  en: For Wood edge trim router, what is the specified certification record number in record?
+  ru: Для «Кромочный фрезер по дереву» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Ағаш жиегінің фрезері» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_trim_router.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for trim_router does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.trim_router.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_orbital_sander_mass_g
+  category: simple
+  en: 'Random-orbit sander: mass, g?'
+  ru: '«Эксцентриковая шлифмашина»: масса, г?'
+  kk: '«Эксцентрлі тегістегіш»: салмағы, г?'
+  relevant:
+  - section: technical_orbital_sander.mass_g
+    grade: 3
+  - section: technical_orbital_sander.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Эксцентрлі тегістегіш» үшін «Салмағы» (г) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.orbital_sander.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.orbital_sander.mass_g|current
+  required:
+  - fact: technical.orbital_sander.mass_g
+    sections:
+    - technical_orbital_sander.mass_g
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orbital_sander_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Random-orbit sander (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Эксцентриковая шлифмашина» (мм).
+  kk: Карточкалар ұқсас. «Эксцентрлі тегістегіш» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_orbital_sander.width_mm
+    grade: 3
+  - section: technical_orbital_sander.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orbital_sander.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.orbital_sander.width_mm|current
+  required:
+  - fact: technical.orbital_sander.width_mm
+    sections:
+    - technical_orbital_sander.width_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orbital_sander_height_mm
+  category: hard
+  en: Check the specifcation of Random-orbit sander for height (mm), please.
+  ru: 'Проверьте характиристику «Эксцентриковая шлифмашина»: интересует «Высота» (мм).'
+  kk: «Эксцентрлі тегістегіш» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_orbital_sander.height_mm
+    grade: 3
+  - section: technical_orbital_sander.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orbital_sander.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.orbital_sander.height_mm|current
+  required:
+  - fact: technical.orbital_sander.height_mm
+    sections:
+    - technical_orbital_sander.height_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orbital_sander_depth_mm
+  category: simple
+  en: For Random-orbit sander, what is the specified depth in mm?
+  ru: Для «Эксцентриковая шлифмашина» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Эксцентрлі тегістегіш» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_orbital_sander.depth_mm
+    grade: 3
+  - section: technical_orbital_sander.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orbital_sander.depth_mm; neighbouring operating_min_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.orbital_sander.depth_mm|current
+  required:
+  - fact: technical.orbital_sander.depth_mm
+    sections:
+    - technical_orbital_sander.depth_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orbital_sander_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Random-orbit sander,
+    in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Эксцентриковая
+    шлифмашина», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Эксцентрлі тегістегіш» үшін «Жұмыс кезіндегі ауаның ең төмен
+    температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_orbital_sander.operating_min_c
+    grade: 3
+  - section: technical_orbital_sander.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orbital_sander.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.orbital_sander.operating_min_c|current
+  required:
+  - fact: technical.orbital_sander.operating_min_c
+    sections:
+    - technical_orbital_sander.operating_min_c
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orbital_sander_operating_max_c
+  category: hard
+  en: 'Random-orbit sander: maximum operating ambient temperature, C?'
+  ru: '«Эксцентриковая шлифмашина»: максимальная температура воздуха при работе, C?'
+  kk: '«Эксцентрлі тегістегіш»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_orbital_sander.operating_max_c
+    grade: 3
+  - section: technical_orbital_sander.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orbital_sander.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.orbital_sander.operating_max_c|current
+  required:
+  - fact: technical.orbital_sander.operating_max_c
+    sections:
+    - technical_orbital_sander.operating_max_c
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orbital_sander_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Random-orbit sander (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Эксцентриковая
+    шлифмашина» (Вт).
+  kk: Карточкалар ұқсас. «Эксцентрлі тегістегіш» үшін нақты «Номиналды тұтыну қуаты» көрсеткішін айтыңыз
+    (Вт).
+  relevant:
+  - section: technical_orbital_sander.power_w
+    grade: 3
+  - section: technical_orbital_sander.speed_min_rpm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orbital_sander.power_w; neighbouring speed_min_rpm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.orbital_sander.power_w|current
+  required:
+  - fact: technical.orbital_sander.power_w
+    sections:
+    - technical_orbital_sander.power_w
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orbital_sander_speed_min_rpm
+  category: hard
+  en: Check the specifcation of Random-orbit sander for minimum spindle speed (rpm), please.
+  ru: 'Проверьте характиристику «Эксцентриковая шлифмашина»: интересует «Минимальная частота вращения
+    шпинделя» (об/мин).'
+  kk: «Эксцентрлі тегістегіш» сипатамасынан «Шпиндельдің ең төмен айналу жиілігі» мәнін тексеріңізші (айн/мин).
+  relevant:
+  - section: technical_orbital_sander.speed_min_rpm
+    grade: 3
+  - section: technical_orbital_sander.speed_max_rpm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Эксцентриковая шлифмашина» показатель «Минимальная частота вращения шпинделя» (об/мин) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.orbital_sander.speed_min_rpm; neighbouring speed_max_rpm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spindle_speed
+  need_key: technical.orbital_sander.speed_min_rpm|current
+  required:
+  - fact: technical.orbital_sander.speed_min_rpm
+    sections:
+    - technical_orbital_sander.speed_min_rpm
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orbital_sander_speed_max_rpm
+  category: hard
+  en: For Random-orbit sander, what is the specified maximum spindle speed in rpm?
+  ru: Для «Эксцентриковая шлифмашина» какое значение указано для показателя «Максимальная частота вращения
+    шпинделя» (об/мин)?
+  kk: «Эксцентрлі тегістегіш» тауары үшін «Шпиндельдің ең жоғары айналу жиілігі» көрсеткішінің мәні қандай
+    (айн/мин)?
+  relevant:
+  - section: technical_orbital_sander.speed_max_rpm
+    grade: 3
+  - section: technical_orbital_sander.grip_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orbital_sander.speed_max_rpm; neighbouring grip_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spindle_speed
+  need_key: technical.orbital_sander.speed_max_rpm|current
+  required:
+  - fact: technical.orbital_sander.speed_max_rpm
+    sections:
+    - technical_orbital_sander.speed_max_rpm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orbital_sander_grip_mm
+  category: simple
+  en: I am comparing specifications. Find the grip diameter for Random-orbit sander, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Диаметр рукоятки» у «Эксцентриковая шлифмашина», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Эксцентрлі тегістегіш» үшін «Тұтқа диаметрі» мәні қажет (мм).
+  relevant:
+  - section: technical_orbital_sander.grip_mm
+    grade: 3
+  - section: technical_orbital_sander.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orbital_sander.grip_mm; neighbouring cable_cm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_grip_geometry
+  need_key: technical.orbital_sander.grip_mm|current
+  required:
+  - fact: technical.orbital_sander.grip_mm
+    sections:
+    - technical_orbital_sander.grip_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orbital_sander_cable_cm
+  category: simple
+  en: 'Random-orbit sander: supplied cable length, cm?'
+  ru: '«Эксцентриковая шлифмашина»: длина комплектного кабеля, см?'
+  kk: '«Эксцентрлі тегістегіш»: жинақтағы кабель ұзындығы, см?'
+  relevant:
+  - section: technical_orbital_sander.cable_cm
+    grade: 3
+  - section: technical_orbital_sander.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orbital_sander.cable_cm; neighbouring noise_db does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.orbital_sander.cable_cm|current
+  required:
+  - fact: technical.orbital_sander.cable_cm
+    sections:
+    - technical_orbital_sander.cable_cm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orbital_sander_noise_db
+  category: hard
+  en: The cards look similar. What rated sound pressure level is listed for Random-orbit sander (dB)?
+  ru: Карточки похожи. Уточните показатель «Номинальный уровень звукового давления» именно для «Эксцентриковая
+    шлифмашина» (дБ).
+  kk: Карточкалар ұқсас. «Эксцентрлі тегістегіш» үшін нақты «Номиналды дыбыс қысымының деңгейі» көрсеткішін
+    айтыңыз (дБ).
+  relevant:
+  - section: technical_orbital_sander.noise_db
+    grade: 3
+  - section: technical_orbital_sander.accessories_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orbital_sander.noise_db; neighbouring accessories_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.orbital_sander.noise_db|current
+  required:
+  - fact: technical.orbital_sander.noise_db
+    sections:
+    - technical_orbital_sander.noise_db
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_orbital_sander_accessories_count
+  category: hard
+  en: Check the specifcation of Random-orbit sander for number of supplied accessories (units), please.
+  ru: 'Проверьте характиристику «Эксцентриковая шлифмашина»: интересует «Число комплектных принадлежностей»
+    (шт.).'
+  kk: «Эксцентрлі тегістегіш» сипатамасынан «Жинақтағы керек-жарақтар саны» мәнін тексеріңізші (дана).
+  relevant:
+  - section: technical_orbital_sander.accessories_count
+    grade: 3
+  - section: technical_orbital_sander.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.orbital_sander.accessories_count; neighbouring mass_g does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_accessories
+  need_key: technical.orbital_sander.accessories_count|current
+  required:
+  - fact: technical.orbital_sander.accessories_count
+    sections:
+    - technical_orbital_sander.accessories_count
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_orbital_sander_humidity_max_percent
+  category: unanswerable
+  en: For Random-orbit sander, what is the specified maximum permitted humidity in percent?
+  ru: Для «Эксцентриковая шлифмашина» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Эксцентрлі тегістегіш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_orbital_sander.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for orbital_sander does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.orbital_sander.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_orbital_sander_drop_test_cm
+  category: unanswerable
+  en: For Random-orbit sander, what is the specified certified drop-test height in cm?
+  ru: Для «Эксцентриковая шлифмашина» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Эксцентрлі тегістегіш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_orbital_sander.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for orbital_sander does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.orbital_sander.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_orbital_sander_repair_parts_price
+  category: unanswerable
+  en: For Random-orbit sander, what is the specified replacement-part price in KZT?
+  ru: Для «Эксцентриковая шлифмашина» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Эксцентрлі тегістегіш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_orbital_sander.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for orbital_sander does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.orbital_sander.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_orbital_sander_certification_id
+  category: unanswerable
+  en: For Random-orbit sander, what is the specified certification record number in record?
+  ru: Для «Эксцентриковая шлифмашина» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Эксцентрлі тегістегіш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_orbital_sander.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for orbital_sander does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.orbital_sander.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_orbital_sander
+  category: multi_fragment
+  en: What does Random-orbit sander weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Эксцентриковая шлифмашина» и какой вес посылки допускают пункты самовывоза?
+  kk: «Эксцентрлі тегістегіш» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_orbital_sander.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.orbital_sander.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.orbital_sander.mass_g
+    sections:
+    - technical_orbital_sander.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bench_grinder_mass_g
+  category: simple
+  en: For Bench grinding machine, what is the specified mass in g?
+  ru: Для «Настольный точильный станок» какое значение указано для показателя «Масса» (г)?
+  kk: «Үстел қайрау станогы» тауары үшін «Салмағы» көрсеткішінің мәні қандай (г)?
+  relevant:
+  - section: technical_bench_grinder.mass_g
+    grade: 3
+  - section: technical_bench_grinder.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bench_grinder.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.bench_grinder.mass_g|current
+  required:
+  - fact: technical.bench_grinder.mass_g
+    sections:
+    - technical_bench_grinder.mass_g
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bench_grinder_width_mm
+  category: simple
+  en: I am comparing specifications. Find the width for Bench grinding machine, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Ширина» у «Настольный точильный станок», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел қайрау станогы» үшін «Ені» мәні қажет (мм).
+  relevant:
+  - section: technical_bench_grinder.width_mm
+    grade: 3
+  - section: technical_bench_grinder.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Үстел қайрау станогы» үшін «Ені» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.bench_grinder.width_mm; neighbouring height_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.bench_grinder.width_mm|current
+  required:
+  - fact: technical.bench_grinder.width_mm
+    sections:
+    - technical_bench_grinder.width_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bench_grinder_height_mm
+  category: simple
+  en: 'Bench grinding machine: height, mm?'
+  ru: '«Настольный точильный станок»: высота, мм?'
+  kk: '«Үстел қайрау станогы»: биіктігі, мм?'
+  relevant:
+  - section: technical_bench_grinder.height_mm
+    grade: 3
+  - section: technical_bench_grinder.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bench_grinder.height_mm; neighbouring depth_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.bench_grinder.height_mm|current
+  required:
+  - fact: technical.bench_grinder.height_mm
+    sections:
+    - technical_bench_grinder.height_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bench_grinder_depth_mm
+  category: hard
+  en: The cards look similar. What depth is listed for Bench grinding machine (mm)?
+  ru: Карточки похожи. Уточните показатель «Глубина» именно для «Настольный точильный станок» (мм).
+  kk: Карточкалар ұқсас. «Үстел қайрау станогы» үшін нақты «Тереңдігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_bench_grinder.depth_mm
+    grade: 3
+  - section: technical_bench_grinder.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bench_grinder.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.bench_grinder.depth_mm|current
+  required:
+  - fact: technical.bench_grinder.depth_mm
+    sections:
+    - technical_bench_grinder.depth_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bench_grinder_operating_min_c
+  category: hard
+  en: Check the specifcation of Bench grinding machine for minimum operating ambient temperature (C),
+    please.
+  ru: 'Проверьте характиристику «Настольный точильный станок»: интересует «Минимальная температура воздуха
+    при работе» (C).'
+  kk: «Үстел қайрау станогы» сипатамасынан «Жұмыс кезіндегі ауаның ең төмен температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_bench_grinder.operating_min_c
+    grade: 3
+  - section: technical_bench_grinder.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bench_grinder.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.bench_grinder.operating_min_c|current
+  required:
+  - fact: technical.bench_grinder.operating_min_c
+    sections:
+    - technical_bench_grinder.operating_min_c
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bench_grinder_operating_max_c
+  category: hard
+  en: For Bench grinding machine, what is the specified maximum operating ambient temperature in C?
+  ru: Для «Настольный точильный станок» какое значение указано для показателя «Максимальная температура
+    воздуха при работе» (C)?
+  kk: «Үстел қайрау станогы» тауары үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_bench_grinder.operating_max_c
+    grade: 3
+  - section: technical_bench_grinder.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bench_grinder.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.bench_grinder.operating_max_c|current
+  required:
+  - fact: technical.bench_grinder.operating_max_c
+    sections:
+    - technical_bench_grinder.operating_max_c
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bench_grinder_power_w
+  category: simple
+  en: I am comparing specifications. Find the rated power consumption for Bench grinding machine, in W.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальная потребляемая мощность» у «Настольный точильный
+    станок», в Вт.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел қайрау станогы» үшін «Номиналды тұтыну қуаты» мәні қажет
+    (Вт).
+  relevant:
+  - section: technical_bench_grinder.power_w
+    grade: 3
+  - section: technical_bench_grinder.speed_min_rpm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bench_grinder.power_w; neighbouring speed_min_rpm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.bench_grinder.power_w|current
+  required:
+  - fact: technical.bench_grinder.power_w
+    sections:
+    - technical_bench_grinder.power_w
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bench_grinder_speed_min_rpm
+  category: hard
+  en: 'Bench grinding machine: minimum spindle speed, rpm?'
+  ru: '«Настольный точильный станок»: минимальная частота вращения шпинделя, об/мин?'
+  kk: '«Үстел қайрау станогы»: шпиндельдің ең төмен айналу жиілігі, айн/мин?'
+  relevant:
+  - section: technical_bench_grinder.speed_min_rpm
+    grade: 3
+  - section: technical_bench_grinder.speed_max_rpm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bench_grinder.speed_min_rpm; neighbouring speed_max_rpm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spindle_speed
+  need_key: technical.bench_grinder.speed_min_rpm|current
+  required:
+  - fact: technical.bench_grinder.speed_min_rpm
+    sections:
+    - technical_bench_grinder.speed_min_rpm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bench_grinder_speed_max_rpm
+  category: hard
+  en: The cards look similar. What maximum spindle speed is listed for Bench grinding machine (rpm)?
+  ru: Карточки похожи. Уточните показатель «Максимальная частота вращения шпинделя» именно для «Настольный
+    точильный станок» (об/мин).
+  kk: Карточкалар ұқсас. «Үстел қайрау станогы» үшін нақты «Шпиндельдің ең жоғары айналу жиілігі» көрсеткішін
+    айтыңыз (айн/мин).
+  relevant:
+  - section: technical_bench_grinder.speed_max_rpm
+    grade: 3
+  - section: technical_bench_grinder.grip_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Настольный точильный станок» показатель «Максимальная частота вращения шпинделя» (об/мин)
+    нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.bench_grinder.speed_max_rpm; neighbouring grip_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spindle_speed
+  need_key: technical.bench_grinder.speed_max_rpm|current
+  required:
+  - fact: technical.bench_grinder.speed_max_rpm
+    sections:
+    - technical_bench_grinder.speed_max_rpm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bench_grinder_grip_mm
+  category: hard
+  en: Check the specifcation of Bench grinding machine for grip diameter (mm), please.
+  ru: 'Проверьте характиристику «Настольный точильный станок»: интересует «Диаметр рукоятки» (мм).'
+  kk: «Үстел қайрау станогы» сипатамасынан «Тұтқа диаметрі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_bench_grinder.grip_mm
+    grade: 3
+  - section: technical_bench_grinder.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bench_grinder.grip_mm; neighbouring cable_cm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_grip_geometry
+  need_key: technical.bench_grinder.grip_mm|current
+  required:
+  - fact: technical.bench_grinder.grip_mm
+    sections:
+    - technical_bench_grinder.grip_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bench_grinder_cable_cm
+  category: simple
+  en: For Bench grinding machine, what is the specified supplied cable length in cm?
+  ru: Для «Настольный точильный станок» какое значение указано для показателя «Длина комплектного кабеля»
+    (см)?
+  kk: «Үстел қайрау станогы» тауары үшін «Жинақтағы кабель ұзындығы» көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_bench_grinder.cable_cm
+    grade: 3
+  - section: technical_bench_grinder.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bench_grinder.cable_cm; neighbouring noise_db does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.bench_grinder.cable_cm|current
+  required:
+  - fact: technical.bench_grinder.cable_cm
+    sections:
+    - technical_bench_grinder.cable_cm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bench_grinder_noise_db
+  category: simple
+  en: I am comparing specifications. Find the rated sound pressure level for Bench grinding machine, in
+    dB.
+  ru: Сравниваю характеристики. Нужен показатель «Номинальный уровень звукового давления» у «Настольный
+    точильный станок», в дБ.
+  kk: Сипаттамаларды салыстырып отырмын. «Үстел қайрау станогы» үшін «Номиналды дыбыс қысымының деңгейі»
+    мәні қажет (дБ).
+  relevant:
+  - section: technical_bench_grinder.noise_db
+    grade: 3
+  - section: technical_bench_grinder.accessories_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bench_grinder.noise_db; neighbouring accessories_count does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.bench_grinder.noise_db|current
+  required:
+  - fact: technical.bench_grinder.noise_db
+    sections:
+    - technical_bench_grinder.noise_db
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_bench_grinder_accessories_count
+  category: simple
+  en: 'Bench grinding machine: number of supplied accessories, units?'
+  ru: '«Настольный точильный станок»: число комплектных принадлежностей, шт.?'
+  kk: '«Үстел қайрау станогы»: жинақтағы керек-жарақтар саны, дана?'
+  relevant:
+  - section: technical_bench_grinder.accessories_count
+    grade: 3
+  - section: technical_bench_grinder.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.bench_grinder.accessories_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_accessories
+  need_key: technical.bench_grinder.accessories_count|current
+  required:
+  - fact: technical.bench_grinder.accessories_count
+    sections:
+    - technical_bench_grinder.accessories_count
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_bench_grinder_humidity_max_percent
+  category: unanswerable
+  en: For Bench grinding machine, what is the specified maximum permitted humidity in percent?
+  ru: Для «Настольный точильный станок» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Үстел қайрау станогы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_bench_grinder.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for bench_grinder does not state humidity_max_percent. Dimensions, the retail
+    price or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.bench_grinder.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_bench_grinder_drop_test_cm
+  category: unanswerable
+  en: For Bench grinding machine, what is the specified certified drop-test height in cm?
+  ru: Для «Настольный точильный станок» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Үстел қайрау станогы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің мәні
+    қандай (см)?
+  relevant:
+  - section: technical_bench_grinder.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for bench_grinder does not state drop_test_cm. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.bench_grinder.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_bench_grinder_repair_parts_price
+  category: unanswerable
+  en: For Bench grinding machine, what is the specified replacement-part price in KZT?
+  ru: Для «Настольный точильный станок» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Үстел қайрау станогы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_bench_grinder.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for bench_grinder does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.bench_grinder.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_bench_grinder_certification_id
+  category: unanswerable
+  en: For Bench grinding machine, what is the specified certification record number in record?
+  ru: Для «Настольный точильный станок» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Үстел қайрау станогы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай (жазба)?
+  relevant:
+  - section: technical_bench_grinder.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for bench_grinder does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.bench_grinder.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_polisher_mass_g
+  category: hard
+  en: The cards look similar. What mass is listed for Variable-speed rotary polisher (g)?
+  ru: Карточки похожи. Уточните показатель «Масса» именно для «Роторная полировальная машина» (г).
+  kk: Карточкалар ұқсас. «Айналымы реттелетін роторлы жылтыратқыш» үшін нақты «Салмағы» көрсеткішін айтыңыз
+    (г).
+  relevant:
+  - section: technical_polisher.mass_g
+    grade: 3
+  - section: technical_polisher.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.polisher.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.polisher.mass_g|current
+  required:
+  - fact: technical.polisher.mass_g
+    sections:
+    - technical_polisher.mass_g
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_polisher_width_mm
+  category: hard
+  en: Check the specifcation of Variable-speed rotary polisher for width (mm), please.
+  ru: 'Проверьте характиристику «Роторная полировальная машина»: интересует «Ширина» (мм).'
+  kk: «Айналымы реттелетін роторлы жылтыратқыш» сипатамасынан «Ені» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_polisher.width_mm
+    grade: 3
+  - section: technical_polisher.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.polisher.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.polisher.width_mm|current
+  required:
+  - fact: technical.polisher.width_mm
+    sections:
+    - technical_polisher.width_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_polisher_height_mm
+  category: simple
+  en: For Variable-speed rotary polisher, what is the specified height in mm?
+  ru: Для «Роторная полировальная машина» какое значение указано для показателя «Высота» (мм)?
+  kk: «Айналымы реттелетін роторлы жылтыратқыш» тауары үшін «Биіктігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_polisher.height_mm
+    grade: 3
+  - section: technical_polisher.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Айналымы реттелетін роторлы жылтыратқыш» үшін «Биіктігі» (мм) керек, уточните по этой модели,
+    пожалуйста.
+  rationale: Authored target technical.polisher.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.polisher.height_mm|current
+  required:
+  - fact: technical.polisher.height_mm
+    sections:
+    - technical_polisher.height_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_polisher_depth_mm
+  category: simple
+  en: I am comparing specifications. Find the depth for Variable-speed rotary polisher, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Глубина» у «Роторная полировальная машина», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Айналымы реттелетін роторлы жылтыратқыш» үшін «Тереңдігі» мәні
+    қажет (мм).
+  relevant:
+  - section: technical_polisher.depth_mm
+    grade: 3
+  - section: technical_polisher.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.polisher.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.polisher.depth_mm|current
+  required:
+  - fact: technical.polisher.depth_mm
+    sections:
+    - technical_polisher.depth_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_polisher_operating_min_c
+  category: hard
+  en: 'Variable-speed rotary polisher: minimum operating ambient temperature, C?'
+  ru: '«Роторная полировальная машина»: минимальная температура воздуха при работе, C?'
+  kk: '«Айналымы реттелетін роторлы жылтыратқыш»: жұмыс кезіндегі ауаның ең төмен температурасы, C?'
+  relevant:
+  - section: technical_polisher.operating_min_c
+    grade: 3
+  - section: technical_polisher.operating_max_c
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.polisher.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.polisher.operating_min_c|current
+  required:
+  - fact: technical.polisher.operating_min_c
+    sections:
+    - technical_polisher.operating_min_c
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_polisher_operating_max_c
+  category: hard
+  en: The cards look similar. What maximum operating ambient temperature is listed for Variable-speed
+    rotary polisher (C)?
+  ru: Карточки похожи. Уточните показатель «Максимальная температура воздуха при работе» именно для «Роторная
+    полировальная машина» (C).
+  kk: Карточкалар ұқсас. «Айналымы реттелетін роторлы жылтыратқыш» үшін нақты «Жұмыс кезіндегі ауаның
+    ең жоғары температурасы» көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_polisher.operating_max_c
+    grade: 3
+  - section: technical_polisher.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.polisher.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.polisher.operating_max_c|current
+  required:
+  - fact: technical.polisher.operating_max_c
+    sections:
+    - technical_polisher.operating_max_c
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_polisher_power_w
+  category: hard
+  en: Check the specifcation of Variable-speed rotary polisher for rated power consumption (W), please.
+  ru: 'Проверьте характиристику «Роторная полировальная машина»: интересует «Номинальная потребляемая
+    мощность» (Вт).'
+  kk: «Айналымы реттелетін роторлы жылтыратқыш» сипатамасынан «Номиналды тұтыну қуаты» мәнін тексеріңізші
+    (Вт).
+  relevant:
+  - section: technical_polisher.power_w
+    grade: 3
+  - section: technical_polisher.speed_min_rpm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.polisher.power_w; neighbouring speed_min_rpm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.polisher.power_w|current
+  required:
+  - fact: technical.polisher.power_w
+    sections:
+    - technical_polisher.power_w
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_polisher_speed_min_rpm
+  category: hard
+  en: For Variable-speed rotary polisher, what is the specified minimum spindle speed in rpm?
+  ru: Для «Роторная полировальная машина» какое значение указано для показателя «Минимальная частота вращения
+    шпинделя» (об/мин)?
+  kk: «Айналымы реттелетін роторлы жылтыратқыш» тауары үшін «Шпиндельдің ең төмен айналу жиілігі» көрсеткішінің
+    мәні қандай (айн/мин)?
+  relevant:
+  - section: technical_polisher.speed_min_rpm
+    grade: 3
+  - section: technical_polisher.speed_max_rpm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.polisher.speed_min_rpm; neighbouring speed_max_rpm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spindle_speed
+  need_key: technical.polisher.speed_min_rpm|current
+  required:
+  - fact: technical.polisher.speed_min_rpm
+    sections:
+    - technical_polisher.speed_min_rpm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_polisher_speed_max_rpm
+  category: hard
+  en: I am comparing specifications. Find the maximum spindle speed for Variable-speed rotary polisher,
+    in rpm.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная частота вращения шпинделя» у «Роторная
+    полировальная машина», в об/мин.
+  kk: Сипаттамаларды салыстырып отырмын. «Айналымы реттелетін роторлы жылтыратқыш» үшін «Шпиндельдің ең
+    жоғары айналу жиілігі» мәні қажет (айн/мин).
+  relevant:
+  - section: technical_polisher.speed_max_rpm
+    grade: 3
+  - section: technical_polisher.grip_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.polisher.speed_max_rpm; neighbouring grip_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spindle_speed
+  need_key: technical.polisher.speed_max_rpm|current
+  required:
+  - fact: technical.polisher.speed_max_rpm
+    sections:
+    - technical_polisher.speed_max_rpm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_polisher_grip_mm
+  category: simple
+  en: 'Variable-speed rotary polisher: grip diameter, mm?'
+  ru: '«Роторная полировальная машина»: диаметр рукоятки, мм?'
+  kk: '«Айналымы реттелетін роторлы жылтыратқыш»: тұтқа диаметрі, мм?'
+  relevant:
+  - section: technical_polisher.grip_mm
+    grade: 3
+  - section: technical_polisher.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Роторная полировальная машина» показатель «Диаметр рукоятки» (мм) нақтылап беріңізші, осы
+    үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.polisher.grip_mm; neighbouring cable_cm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_grip_geometry
+  need_key: technical.polisher.grip_mm|current
+  required:
+  - fact: technical.polisher.grip_mm
+    sections:
+    - technical_polisher.grip_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_polisher_cable_cm
+  category: hard
+  en: The cards look similar. What supplied cable length is listed for Variable-speed rotary polisher
+    (cm)?
+  ru: Карточки похожи. Уточните показатель «Длина комплектного кабеля» именно для «Роторная полировальная
+    машина» (см).
+  kk: Карточкалар ұқсас. «Айналымы реттелетін роторлы жылтыратқыш» үшін нақты «Жинақтағы кабель ұзындығы»
+    көрсеткішін айтыңыз (см).
+  relevant:
+  - section: technical_polisher.cable_cm
+    grade: 3
+  - section: technical_polisher.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.polisher.cable_cm; neighbouring noise_db does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.polisher.cable_cm|current
+  required:
+  - fact: technical.polisher.cable_cm
+    sections:
+    - technical_polisher.cable_cm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_polisher_noise_db
+  category: hard
+  en: Check the specifcation of Variable-speed rotary polisher for rated sound pressure level (dB), please.
+  ru: 'Проверьте характиристику «Роторная полировальная машина»: интересует «Номинальный уровень звукового
+    давления» (дБ).'
+  kk: «Айналымы реттелетін роторлы жылтыратқыш» сипатамасынан «Номиналды дыбыс қысымының деңгейі» мәнін
+    тексеріңізші (дБ).
+  relevant:
+  - section: technical_polisher.noise_db
+    grade: 3
+  - section: technical_polisher.accessories_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.polisher.noise_db; neighbouring accessories_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.polisher.noise_db|current
+  required:
+  - fact: technical.polisher.noise_db
+    sections:
+    - technical_polisher.noise_db
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_polisher_accessories_count
+  category: simple
+  en: For Variable-speed rotary polisher, what is the specified number of supplied accessories in units?
+  ru: Для «Роторная полировальная машина» какое значение указано для показателя «Число комплектных принадлежностей»
+    (шт.)?
+  kk: «Айналымы реттелетін роторлы жылтыратқыш» тауары үшін «Жинақтағы керек-жарақтар саны» көрсеткішінің
+    мәні қандай (дана)?
+  relevant:
+  - section: technical_polisher.accessories_count
+    grade: 3
+  - section: technical_polisher.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.polisher.accessories_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_accessories
+  need_key: technical.polisher.accessories_count|current
+  required:
+  - fact: technical.polisher.accessories_count
+    sections:
+    - technical_polisher.accessories_count
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_polisher_humidity_max_percent
+  category: unanswerable
+  en: For Variable-speed rotary polisher, what is the specified maximum permitted humidity in percent?
+  ru: Для «Роторная полировальная машина» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Айналымы реттелетін роторлы жылтыратқыш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_polisher.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for polisher does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.polisher.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_polisher_drop_test_cm
+  category: unanswerable
+  en: For Variable-speed rotary polisher, what is the specified certified drop-test height in cm?
+  ru: Для «Роторная полировальная машина» какое значение указано для показателя «Сертифицированная высота
+    испытания падением» (см)?
+  kk: «Айналымы реттелетін роторлы жылтыратқыш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі»
+    көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_polisher.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for polisher does not state drop_test_cm. Dimensions, the retail price or a diagnostic
+    fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.polisher.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_polisher_repair_parts_price
+  category: unanswerable
+  en: For Variable-speed rotary polisher, what is the specified replacement-part price in KZT?
+  ru: Для «Роторная полировальная машина» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Айналымы реттелетін роторлы жылтыратқыш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні
+    қандай (теңге)?
+  relevant:
+  - section: technical_polisher.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for polisher does not state repair_parts_price. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.polisher.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_polisher_certification_id
+  category: unanswerable
+  en: For Variable-speed rotary polisher, what is the specified certification record number in record?
+  ru: Для «Роторная полировальная машина» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Айналымы реттелетін роторлы жылтыратқыш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_polisher.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for polisher does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.polisher.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_polisher
+  category: multi_fragment
+  en: What does Variable-speed rotary polisher weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Роторная полировальная машина» и какой вес посылки допускают пункты самовывоза?
+  kk: «Айналымы реттелетін роторлы жылтыратқыш» салмағы қандай және беру пункттері сәлемдеменің қандай
+    салмағына рұқсат береді?
+  relevant:
+  - section: technical_polisher.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.polisher.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.polisher.mass_g
+    sections:
+    - technical_polisher.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_die_grinder_mass_g
+  category: simple
+  en: I am comparing specifications. Find the mass for Long-neck die grinder, in g.
+  ru: Сравниваю характеристики. Нужен показатель «Масса» у «Прямая шлифмашина с длинной шейкой», в г.
+  kk: Сипаттамаларды салыстырып отырмын. «Ұзын мойынды түзу тегістегіш» үшін «Салмағы» мәні қажет (г).
+  relevant:
+  - section: technical_die_grinder.mass_g
+    grade: 3
+  - section: technical_die_grinder.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.die_grinder.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.die_grinder.mass_g|current
+  required:
+  - fact: technical.die_grinder.mass_g
+    sections:
+    - technical_die_grinder.mass_g
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_die_grinder_width_mm
+  category: simple
+  en: 'Long-neck die grinder: width, mm?'
+  ru: '«Прямая шлифмашина с длинной шейкой»: ширина, мм?'
+  kk: '«Ұзын мойынды түзу тегістегіш»: ені, мм?'
+  relevant:
+  - section: technical_die_grinder.width_mm
+    grade: 3
+  - section: technical_die_grinder.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.die_grinder.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.die_grinder.width_mm|current
+  required:
+  - fact: technical.die_grinder.width_mm
+    sections:
+    - technical_die_grinder.width_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_die_grinder_height_mm
+  category: hard
+  en: The cards look similar. What height is listed for Long-neck die grinder (mm)?
+  ru: Карточки похожи. Уточните показатель «Высота» именно для «Прямая шлифмашина с длинной шейкой» (мм).
+  kk: Карточкалар ұқсас. «Ұзын мойынды түзу тегістегіш» үшін нақты «Биіктігі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_die_grinder.height_mm
+    grade: 3
+  - section: technical_die_grinder.depth_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.die_grinder.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.die_grinder.height_mm|current
+  required:
+  - fact: technical.die_grinder.height_mm
+    sections:
+    - technical_die_grinder.height_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_die_grinder_depth_mm
+  category: hard
+  en: Check the specifcation of Long-neck die grinder for depth (mm), please.
+  ru: 'Проверьте характиристику «Прямая шлифмашина с длинной шейкой»: интересует «Глубина» (мм).'
+  kk: «Ұзын мойынды түзу тегістегіш» сипатамасынан «Тереңдігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_die_grinder.depth_mm
+    grade: 3
+  - section: technical_die_grinder.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Ұзын мойынды түзу тегістегіш» үшін «Тереңдігі» (мм) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.die_grinder.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.die_grinder.depth_mm|current
+  required:
+  - fact: technical.die_grinder.depth_mm
+    sections:
+    - technical_die_grinder.depth_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_die_grinder_operating_min_c
+  category: hard
+  en: For Long-neck die grinder, what is the specified minimum operating ambient temperature in C?
+  ru: Для «Прямая шлифмашина с длинной шейкой» какое значение указано для показателя «Минимальная температура
+    воздуха при работе» (C)?
+  kk: «Ұзын мойынды түзу тегістегіш» тауары үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» көрсеткішінің
+    мәні қандай (C)?
+  relevant:
+  - section: technical_die_grinder.operating_min_c
+    grade: 3
+  - section: technical_die_grinder.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.die_grinder.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.die_grinder.operating_min_c|current
+  required:
+  - fact: technical.die_grinder.operating_min_c
+    sections:
+    - technical_die_grinder.operating_min_c
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_die_grinder_operating_max_c
+  category: hard
+  en: I am comparing specifications. Find the maximum operating ambient temperature for Long-neck die
+    grinder, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Максимальная температура воздуха при работе» у «Прямая
+    шлифмашина с длинной шейкой», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Ұзын мойынды түзу тегістегіш» үшін «Жұмыс кезіндегі ауаның ең
+    жоғары температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_die_grinder.operating_max_c
+    grade: 3
+  - section: technical_die_grinder.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.die_grinder.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.die_grinder.operating_max_c|current
+  required:
+  - fact: technical.die_grinder.operating_max_c
+    sections:
+    - technical_die_grinder.operating_max_c
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_die_grinder_power_w
+  category: simple
+  en: 'Long-neck die grinder: rated power consumption, W?'
+  ru: '«Прямая шлифмашина с длинной шейкой»: номинальная потребляемая мощность, Вт?'
+  kk: '«Ұзын мойынды түзу тегістегіш»: номиналды тұтыну қуаты, Вт?'
+  relevant:
+  - section: technical_die_grinder.power_w
+    grade: 3
+  - section: technical_die_grinder.speed_min_rpm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.die_grinder.power_w; neighbouring speed_min_rpm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.die_grinder.power_w|current
+  required:
+  - fact: technical.die_grinder.power_w
+    sections:
+    - technical_die_grinder.power_w
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_die_grinder_speed_min_rpm
+  category: hard
+  en: The cards look similar. What minimum spindle speed is listed for Long-neck die grinder (rpm)?
+  ru: Карточки похожи. Уточните показатель «Минимальная частота вращения шпинделя» именно для «Прямая
+    шлифмашина с длинной шейкой» (об/мин).
+  kk: Карточкалар ұқсас. «Ұзын мойынды түзу тегістегіш» үшін нақты «Шпиндельдің ең төмен айналу жиілігі»
+    көрсеткішін айтыңыз (айн/мин).
+  relevant:
+  - section: technical_die_grinder.speed_min_rpm
+    grade: 3
+  - section: technical_die_grinder.speed_max_rpm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.die_grinder.speed_min_rpm; neighbouring speed_max_rpm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spindle_speed
+  need_key: technical.die_grinder.speed_min_rpm|current
+  required:
+  - fact: technical.die_grinder.speed_min_rpm
+    sections:
+    - technical_die_grinder.speed_min_rpm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_die_grinder_speed_max_rpm
+  category: hard
+  en: Check the specifcation of Long-neck die grinder for maximum spindle speed (rpm), please.
+  ru: 'Проверьте характиристику «Прямая шлифмашина с длинной шейкой»: интересует «Максимальная частота
+    вращения шпинделя» (об/мин).'
+  kk: «Ұзын мойынды түзу тегістегіш» сипатамасынан «Шпиндельдің ең жоғары айналу жиілігі» мәнін тексеріңізші
+    (айн/мин).
+  relevant:
+  - section: technical_die_grinder.speed_max_rpm
+    grade: 3
+  - section: technical_die_grinder.grip_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.die_grinder.speed_max_rpm; neighbouring grip_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spindle_speed
+  need_key: technical.die_grinder.speed_max_rpm|current
+  required:
+  - fact: technical.die_grinder.speed_max_rpm
+    sections:
+    - technical_die_grinder.speed_max_rpm
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_die_grinder_grip_mm
+  category: simple
+  en: For Long-neck die grinder, what is the specified grip diameter in mm?
+  ru: Для «Прямая шлифмашина с длинной шейкой» какое значение указано для показателя «Диаметр рукоятки»
+    (мм)?
+  kk: «Ұзын мойынды түзу тегістегіш» тауары үшін «Тұтқа диаметрі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_die_grinder.grip_mm
+    grade: 3
+  - section: technical_die_grinder.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.die_grinder.grip_mm; neighbouring cable_cm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_grip_geometry
+  need_key: technical.die_grinder.grip_mm|current
+  required:
+  - fact: technical.die_grinder.grip_mm
+    sections:
+    - technical_die_grinder.grip_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_die_grinder_cable_cm
+  category: simple
+  en: I am comparing specifications. Find the supplied cable length for Long-neck die grinder, in cm.
+  ru: Сравниваю характеристики. Нужен показатель «Длина комплектного кабеля» у «Прямая шлифмашина с длинной
+    шейкой», в см.
+  kk: Сипаттамаларды салыстырып отырмын. «Ұзын мойынды түзу тегістегіш» үшін «Жинақтағы кабель ұзындығы»
+    мәні қажет (см).
+  relevant:
+  - section: technical_die_grinder.cable_cm
+    grade: 3
+  - section: technical_die_grinder.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Прямая шлифмашина с длинной шейкой» показатель «Длина комплектного кабеля» (см) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.die_grinder.cable_cm; neighbouring noise_db does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.die_grinder.cable_cm|current
+  required:
+  - fact: technical.die_grinder.cable_cm
+    sections:
+    - technical_die_grinder.cable_cm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_die_grinder_noise_db
+  category: simple
+  en: 'Long-neck die grinder: rated sound pressure level, dB?'
+  ru: '«Прямая шлифмашина с длинной шейкой»: номинальный уровень звукового давления, дБ?'
+  kk: '«Ұзын мойынды түзу тегістегіш»: номиналды дыбыс қысымының деңгейі, дБ?'
+  relevant:
+  - section: technical_die_grinder.noise_db
+    grade: 3
+  - section: technical_die_grinder.accessories_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.die_grinder.noise_db; neighbouring accessories_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.die_grinder.noise_db|current
+  required:
+  - fact: technical.die_grinder.noise_db
+    sections:
+    - technical_die_grinder.noise_db
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_die_grinder_accessories_count
+  category: hard
+  en: The cards look similar. What number of supplied accessories is listed for Long-neck die grinder
+    (units)?
+  ru: Карточки похожи. Уточните показатель «Число комплектных принадлежностей» именно для «Прямая шлифмашина
+    с длинной шейкой» (шт.).
+  kk: Карточкалар ұқсас. «Ұзын мойынды түзу тегістегіш» үшін нақты «Жинақтағы керек-жарақтар саны» көрсеткішін
+    айтыңыз (дана).
+  relevant:
+  - section: technical_die_grinder.accessories_count
+    grade: 3
+  - section: technical_die_grinder.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.die_grinder.accessories_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_accessories
+  need_key: technical.die_grinder.accessories_count|current
+  required:
+  - fact: technical.die_grinder.accessories_count
+    sections:
+    - technical_die_grinder.accessories_count
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_die_grinder_humidity_max_percent
+  category: unanswerable
+  en: For Long-neck die grinder, what is the specified maximum permitted humidity in percent?
+  ru: Для «Прямая шлифмашина с длинной шейкой» какое значение указано для показателя «Максимальная допустимая
+    влажность» (процентов)?
+  kk: «Ұзын мойынды түзу тегістегіш» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні
+    қандай (пайыз)?
+  relevant:
+  - section: technical_die_grinder.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for die_grinder does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.die_grinder.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_die_grinder_drop_test_cm
+  category: unanswerable
+  en: For Long-neck die grinder, what is the specified certified drop-test height in cm?
+  ru: Для «Прямая шлифмашина с длинной шейкой» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Ұзын мойынды түзу тегістегіш» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_die_grinder.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for die_grinder does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.die_grinder.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_die_grinder_repair_parts_price
+  category: unanswerable
+  en: For Long-neck die grinder, what is the specified replacement-part price in KZT?
+  ru: Для «Прямая шлифмашина с длинной шейкой» какое значение указано для показателя «Цена запасной детали»
+    (тенге)?
+  kk: «Ұзын мойынды түзу тегістегіш» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_die_grinder.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for die_grinder does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.die_grinder.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_die_grinder_certification_id
+  category: unanswerable
+  en: For Long-neck die grinder, what is the specified certification record number in record?
+  ru: Для «Прямая шлифмашина с длинной шейкой» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Ұзын мойынды түзу тегістегіш» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні
+    қандай (жазба)?
+  relevant:
+  - section: technical_die_grinder.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for die_grinder does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.die_grinder.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_drill_press_mass_g
+  category: hard
+  en: Check the specifcation of Small drill press for mass (g), please.
+  ru: 'Проверьте характиристику «Малый сверлильный станок»: интересует «Масса» (г).'
+  kk: «Шағын бұрғылау станогы» сипатамасынан «Салмағы» мәнін тексеріңізші (г).
+  relevant:
+  - section: technical_drill_press.mass_g
+    grade: 3
+  - section: technical_drill_press.width_mm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drill_press.mass_g; neighbouring width_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.drill_press.mass_g|current
+  required:
+  - fact: technical.drill_press.mass_g
+    sections:
+    - technical_drill_press.mass_g
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drill_press_width_mm
+  category: simple
+  en: For Small drill press, what is the specified width in mm?
+  ru: Для «Малый сверлильный станок» какое значение указано для показателя «Ширина» (мм)?
+  kk: «Шағын бұрғылау станогы» тауары үшін «Ені» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_drill_press.width_mm
+    grade: 3
+  - section: technical_drill_press.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drill_press.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.drill_press.width_mm|current
+  required:
+  - fact: technical.drill_press.width_mm
+    sections:
+    - technical_drill_press.width_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drill_press_height_mm
+  category: simple
+  en: I am comparing specifications. Find the height for Small drill press, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Высота» у «Малый сверлильный станок», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Шағын бұрғылау станогы» үшін «Биіктігі» мәні қажет (мм).
+  relevant:
+  - section: technical_drill_press.height_mm
+    grade: 3
+  - section: technical_drill_press.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drill_press.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.drill_press.height_mm|current
+  required:
+  - fact: technical.drill_press.height_mm
+    sections:
+    - technical_drill_press.height_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drill_press_depth_mm
+  category: simple
+  en: 'Small drill press: depth, mm?'
+  ru: '«Малый сверлильный станок»: глубина, мм?'
+  kk: '«Шағын бұрғылау станогы»: тереңдігі, мм?'
+  relevant:
+  - section: technical_drill_press.depth_mm
+    grade: 3
+  - section: technical_drill_press.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drill_press.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.drill_press.depth_mm|current
+  required:
+  - fact: technical.drill_press.depth_mm
+    sections:
+    - technical_drill_press.depth_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drill_press_operating_min_c
+  category: hard
+  en: The cards look similar. What minimum operating ambient temperature is listed for Small drill press
+    (C)?
+  ru: Карточки похожи. Уточните показатель «Минимальная температура воздуха при работе» именно для «Малый
+    сверлильный станок» (C).
+  kk: Карточкалар ұқсас. «Шағын бұрғылау станогы» үшін нақты «Жұмыс кезіндегі ауаның ең төмен температурасы»
+    көрсеткішін айтыңыз (C).
+  relevant:
+  - section: technical_drill_press.operating_min_c
+    grade: 3
+  - section: technical_drill_press.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Шағын бұрғылау станогы» үшін «Жұмыс кезіндегі ауаның ең төмен температурасы» (C) керек, уточните
+    по этой модели, пожалуйста.
+  rationale: Authored target technical.drill_press.operating_min_c; neighbouring operating_max_c does
+    not answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.drill_press.operating_min_c|current
+  required:
+  - fact: technical.drill_press.operating_min_c
+    sections:
+    - technical_drill_press.operating_min_c
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drill_press_operating_max_c
+  category: hard
+  en: Check the specifcation of Small drill press for maximum operating ambient temperature (C), please.
+  ru: 'Проверьте характиристику «Малый сверлильный станок»: интересует «Максимальная температура воздуха
+    при работе» (C).'
+  kk: «Шағын бұрғылау станогы» сипатамасынан «Жұмыс кезіндегі ауаның ең жоғары температурасы» мәнін тексеріңізші
+    (C).
+  relevant:
+  - section: technical_drill_press.operating_max_c
+    grade: 3
+  - section: technical_drill_press.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drill_press.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.drill_press.operating_max_c|current
+  required:
+  - fact: technical.drill_press.operating_max_c
+    sections:
+    - technical_drill_press.operating_max_c
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drill_press_power_w
+  category: simple
+  en: For Small drill press, what is the specified rated power consumption in W?
+  ru: Для «Малый сверлильный станок» какое значение указано для показателя «Номинальная потребляемая мощность»
+    (Вт)?
+  kk: «Шағын бұрғылау станогы» тауары үшін «Номиналды тұтыну қуаты» көрсеткішінің мәні қандай (Вт)?
+  relevant:
+  - section: technical_drill_press.power_w
+    grade: 3
+  - section: technical_drill_press.speed_min_rpm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drill_press.power_w; neighbouring speed_min_rpm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.drill_press.power_w|current
+  required:
+  - fact: technical.drill_press.power_w
+    sections:
+    - technical_drill_press.power_w
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drill_press_speed_min_rpm
+  category: hard
+  en: I am comparing specifications. Find the minimum spindle speed for Small drill press, in rpm.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная частота вращения шпинделя» у «Малый сверлильный
+    станок», в об/мин.
+  kk: Сипаттамаларды салыстырып отырмын. «Шағын бұрғылау станогы» үшін «Шпиндельдің ең төмен айналу жиілігі»
+    мәні қажет (айн/мин).
+  relevant:
+  - section: technical_drill_press.speed_min_rpm
+    grade: 3
+  - section: technical_drill_press.speed_max_rpm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drill_press.speed_min_rpm; neighbouring speed_max_rpm does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spindle_speed
+  need_key: technical.drill_press.speed_min_rpm|current
+  required:
+  - fact: technical.drill_press.speed_min_rpm
+    sections:
+    - technical_drill_press.speed_min_rpm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drill_press_speed_max_rpm
+  category: hard
+  en: 'Small drill press: maximum spindle speed, rpm?'
+  ru: '«Малый сверлильный станок»: максимальная частота вращения шпинделя, об/мин?'
+  kk: '«Шағын бұрғылау станогы»: шпиндельдің ең жоғары айналу жиілігі, айн/мин?'
+  relevant:
+  - section: technical_drill_press.speed_max_rpm
+    grade: 3
+  - section: technical_drill_press.grip_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drill_press.speed_max_rpm; neighbouring grip_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spindle_speed
+  need_key: technical.drill_press.speed_max_rpm|current
+  required:
+  - fact: technical.drill_press.speed_max_rpm
+    sections:
+    - technical_drill_press.speed_max_rpm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drill_press_grip_mm
+  category: hard
+  en: The cards look similar. What grip diameter is listed for Small drill press (mm)?
+  ru: Карточки похожи. Уточните показатель «Диаметр рукоятки» именно для «Малый сверлильный станок» (мм).
+  kk: Карточкалар ұқсас. «Шағын бұрғылау станогы» үшін нақты «Тұтқа диаметрі» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_drill_press.grip_mm
+    grade: 3
+  - section: technical_drill_press.cable_cm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drill_press.grip_mm; neighbouring cable_cm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_grip_geometry
+  need_key: technical.drill_press.grip_mm|current
+  required:
+  - fact: technical.drill_press.grip_mm
+    sections:
+    - technical_drill_press.grip_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drill_press_cable_cm
+  category: hard
+  en: Check the specifcation of Small drill press for supplied cable length (cm), please.
+  ru: 'Проверьте характиристику «Малый сверлильный станок»: интересует «Длина комплектного кабеля» (см).'
+  kk: «Шағын бұрғылау станогы» сипатамасынан «Жинақтағы кабель ұзындығы» мәнін тексеріңізші (см).
+  relevant:
+  - section: technical_drill_press.cable_cm
+    grade: 3
+  - section: technical_drill_press.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drill_press.cable_cm; neighbouring noise_db does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.drill_press.cable_cm|current
+  required:
+  - fact: technical.drill_press.cable_cm
+    sections:
+    - technical_drill_press.cable_cm
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drill_press_noise_db
+  category: simple
+  en: For Small drill press, what is the specified rated sound pressure level in dB?
+  ru: Для «Малый сверлильный станок» какое значение указано для показателя «Номинальный уровень звукового
+    давления» (дБ)?
+  kk: «Шағын бұрғылау станогы» тауары үшін «Номиналды дыбыс қысымының деңгейі» көрсеткішінің мәні қандай
+    (дБ)?
+  relevant:
+  - section: technical_drill_press.noise_db
+    grade: 3
+  - section: technical_drill_press.accessories_count
+    grade: 0
+  cross_lingual: true
+  mix_ru: У «Малый сверлильный станок» показатель «Номинальный уровень звукового давления» (дБ) нақтылап
+    беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.drill_press.noise_db; neighbouring accessories_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.drill_press.noise_db|current
+  required:
+  - fact: technical.drill_press.noise_db
+    sections:
+    - technical_drill_press.noise_db
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_drill_press_accessories_count
+  category: simple
+  en: I am comparing specifications. Find the number of supplied accessories for Small drill press, in
+    units.
+  ru: Сравниваю характеристики. Нужен показатель «Число комплектных принадлежностей» у «Малый сверлильный
+    станок», в шт..
+  kk: Сипаттамаларды салыстырып отырмын. «Шағын бұрғылау станогы» үшін «Жинақтағы керек-жарақтар саны»
+    мәні қажет (дана).
+  relevant:
+  - section: technical_drill_press.accessories_count
+    grade: 3
+  - section: technical_drill_press.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.drill_press.accessories_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_accessories
+  need_key: technical.drill_press.accessories_count|current
+  required:
+  - fact: technical.drill_press.accessories_count
+    sections:
+    - technical_drill_press.accessories_count
+  tags:
+  - profile_derived
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_drill_press_humidity_max_percent
+  category: unanswerable
+  en: For Small drill press, what is the specified maximum permitted humidity in percent?
+  ru: Для «Малый сверлильный станок» какое значение указано для показателя «Максимальная допустимая влажность»
+    (процентов)?
+  kk: «Шағын бұрғылау станогы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің мәні қандай
+    (пайыз)?
+  relevant:
+  - section: technical_drill_press.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for drill_press does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.drill_press.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_drill_press_drop_test_cm
+  category: unanswerable
+  en: For Small drill press, what is the specified certified drop-test height in cm?
+  ru: Для «Малый сверлильный станок» какое значение указано для показателя «Сертифицированная высота испытания
+    падением» (см)?
+  kk: «Шағын бұрғылау станогы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі» көрсеткішінің
+    мәні қандай (см)?
+  relevant:
+  - section: technical_drill_press.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for drill_press does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.drill_press.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_drill_press_repair_parts_price
+  category: unanswerable
+  en: For Small drill press, what is the specified replacement-part price in KZT?
+  ru: Для «Малый сверлильный станок» какое значение указано для показателя «Цена запасной детали» (тенге)?
+  kk: «Шағын бұрғылау станогы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай (теңге)?
+  relevant:
+  - section: technical_drill_press.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for drill_press does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.drill_press.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_drill_press_certification_id
+  category: unanswerable
+  en: For Small drill press, what is the specified certification record number in record?
+  ru: Для «Малый сверлильный станок» какое значение указано для показателя «Номер сертификационной записи»
+    (запись)?
+  kk: «Шағын бұрғылау станогы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің мәні қандай
+    (жазба)?
+  relevant:
+  - section: technical_drill_press.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for drill_press does not state certification_id. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.drill_press.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_pickup_mass_drill_press
+  category: multi_fragment
+  en: What does Small drill press weigh, and what parcel weight limit do pickup points state?
+  ru: Какая масса у «Малый сверлильный станок» и какой вес посылки допускают пункты самовывоза?
+  kk: «Шағын бұрғылау станогы» салмағы қандай және беру пункттері сәлемдеменің қандай салмағына рұқсат
+    береді?
+  relevant:
+  - section: technical_drill_press.mass_g
+    grade: 3
+  - section: delivery_faq.pickup_weight
+    grade: 3
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The two requested quantities require two documents. Item mass is not packed-parcel mass and
+    does not establish live pickup availability.
+  family_id: profile_pickup_weight_comparison
+  need_key: technical.drill_press.mass_g|pickup_parcel_weight_limit
+  required:
+  - fact: technical.drill_press.mass_g
+    sections:
+    - technical_drill_press.mass_g
+  - fact: pickup_max_weight_kg
+    sections:
+    - delivery_faq.pickup_weight
+  tags:
+  - profile_derived
+  - multi_document
+  - multi_fragment
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_lathe_mass_g
+  category: simple
+  en: 'Miniature wood lathe: mass, g?'
+  ru: '«Миниатюрный токарный станок по дереву»: масса, г?'
+  kk: '«Ағашқа арналған шағын токарь станогы»: салмағы, г?'
+  relevant:
+  - section: technical_mini_lathe.mass_g
+    grade: 3
+  - section: technical_mini_lathe.width_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_lathe.mass_g; neighbouring width_mm does not answer this predicate.
+    Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_physical_mass
+  need_key: technical.mini_lathe.mass_g|current
+  required:
+  - fact: technical.mini_lathe.mass_g
+    sections:
+    - technical_mini_lathe.mass_g
+  tags:
+  - profile_derived
+  - domain_tools
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_lathe_width_mm
+  category: hard
+  en: The cards look similar. What width is listed for Miniature wood lathe (mm)?
+  ru: Карточки похожи. Уточните показатель «Ширина» именно для «Миниатюрный токарный станок по дереву»
+    (мм).
+  kk: Карточкалар ұқсас. «Ағашқа арналған шағын токарь станогы» үшін нақты «Ені» көрсеткішін айтыңыз (мм).
+  relevant:
+  - section: technical_mini_lathe.width_mm
+    grade: 3
+  - section: technical_mini_lathe.height_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_lathe.width_mm; neighbouring height_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.mini_lathe.width_mm|current
+  required:
+  - fact: technical.mini_lathe.width_mm
+    sections:
+    - technical_mini_lathe.width_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_lathe_height_mm
+  category: hard
+  en: Check the specifcation of Miniature wood lathe for height (mm), please.
+  ru: 'Проверьте характиристику «Миниатюрный токарный станок по дереву»: интересует «Высота» (мм).'
+  kk: «Ағашқа арналған шағын токарь станогы» сипатамасынан «Биіктігі» мәнін тексеріңізші (мм).
+  relevant:
+  - section: technical_mini_lathe.height_mm
+    grade: 3
+  - section: technical_mini_lathe.depth_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_lathe.height_mm; neighbouring depth_mm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.mini_lathe.height_mm|current
+  required:
+  - fact: technical.mini_lathe.height_mm
+    sections:
+    - technical_mini_lathe.height_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_lathe_depth_mm
+  category: simple
+  en: For Miniature wood lathe, what is the specified depth in mm?
+  ru: Для «Миниатюрный токарный станок по дереву» какое значение указано для показателя «Глубина» (мм)?
+  kk: «Ағашқа арналған шағын токарь станогы» тауары үшін «Тереңдігі» көрсеткішінің мәні қандай (мм)?
+  relevant:
+  - section: technical_mini_lathe.depth_mm
+    grade: 3
+  - section: technical_mini_lathe.operating_min_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_lathe.depth_mm; neighbouring operating_min_c does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_external_dimensions
+  need_key: technical.mini_lathe.depth_mm|current
+  required:
+  - fact: technical.mini_lathe.depth_mm
+    sections:
+    - technical_mini_lathe.depth_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_lathe_operating_min_c
+  category: hard
+  en: I am comparing specifications. Find the minimum operating ambient temperature for Miniature wood
+    lathe, in C.
+  ru: Сравниваю характеристики. Нужен показатель «Минимальная температура воздуха при работе» у «Миниатюрный
+    токарный станок по дереву», в C.
+  kk: Сипаттамаларды салыстырып отырмын. «Ағашқа арналған шағын токарь станогы» үшін «Жұмыс кезіндегі
+    ауаның ең төмен температурасы» мәні қажет (C).
+  relevant:
+  - section: technical_mini_lathe.operating_min_c
+    grade: 3
+  - section: technical_mini_lathe.operating_max_c
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_lathe.operating_min_c; neighbouring operating_max_c does not
+    answer this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.mini_lathe.operating_min_c|current
+  required:
+  - fact: technical.mini_lathe.operating_min_c
+    sections:
+    - technical_mini_lathe.operating_min_c
+  tags:
+  - profile_derived
+  - domain_tools
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_lathe_operating_max_c
+  category: hard
+  en: 'Miniature wood lathe: maximum operating ambient temperature, C?'
+  ru: '«Миниатюрный токарный станок по дереву»: максимальная температура воздуха при работе, C?'
+  kk: '«Ағашқа арналған шағын токарь станогы»: жұмыс кезіндегі ауаның ең жоғары температурасы, C?'
+  relevant:
+  - section: technical_mini_lathe.operating_max_c
+    grade: 3
+  - section: technical_mini_lathe.power_w
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: «Ағашқа арналған шағын токарь станогы» үшін «Жұмыс кезіндегі ауаның ең жоғары температурасы»
+    (C) керек, уточните по этой модели, пожалуйста.
+  rationale: Authored target technical.mini_lathe.operating_max_c; neighbouring power_w does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_operating_temperature
+  need_key: technical.mini_lathe.operating_max_c|current
+  required:
+  - fact: technical.mini_lathe.operating_max_c
+    sections:
+    - technical_mini_lathe.operating_max_c
+  tags:
+  - profile_derived
+  - domain_tools
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_lathe_power_w
+  category: hard
+  en: The cards look similar. What rated power consumption is listed for Miniature wood lathe (W)?
+  ru: Карточки похожи. Уточните показатель «Номинальная потребляемая мощность» именно для «Миниатюрный
+    токарный станок по дереву» (Вт).
+  kk: Карточкалар ұқсас. «Ағашқа арналған шағын токарь станогы» үшін нақты «Номиналды тұтыну қуаты» көрсеткішін
+    айтыңыз (Вт).
+  relevant:
+  - section: technical_mini_lathe.power_w
+    grade: 3
+  - section: technical_mini_lathe.speed_min_rpm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_lathe.power_w; neighbouring speed_min_rpm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_power_consumption
+  need_key: technical.mini_lathe.power_w|current
+  required:
+  - fact: technical.mini_lathe.power_w
+    sections:
+    - technical_mini_lathe.power_w
+  tags:
+  - profile_derived
+  - domain_tools
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_lathe_speed_min_rpm
+  category: hard
+  en: Check the specifcation of Miniature wood lathe for minimum spindle speed (rpm), please.
+  ru: 'Проверьте характиристику «Миниатюрный токарный станок по дереву»: интересует «Минимальная частота
+    вращения шпинделя» (об/мин).'
+  kk: «Ағашқа арналған шағын токарь станогы» сипатамасынан «Шпиндельдің ең төмен айналу жиілігі» мәнін
+    тексеріңізші (айн/мин).
+  relevant:
+  - section: technical_mini_lathe.speed_min_rpm
+    grade: 3
+  - section: technical_mini_lathe.speed_max_rpm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_lathe.speed_min_rpm; neighbouring speed_max_rpm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spindle_speed
+  need_key: technical.mini_lathe.speed_min_rpm|current
+  required:
+  - fact: technical.mini_lathe.speed_min_rpm
+    sections:
+    - technical_mini_lathe.speed_min_rpm
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_lathe_speed_max_rpm
+  category: hard
+  en: For Miniature wood lathe, what is the specified maximum spindle speed in rpm?
+  ru: Для «Миниатюрный токарный станок по дереву» какое значение указано для показателя «Максимальная
+    частота вращения шпинделя» (об/мин)?
+  kk: «Ағашқа арналған шағын токарь станогы» тауары үшін «Шпиндельдің ең жоғары айналу жиілігі» көрсеткішінің
+    мәні қандай (айн/мин)?
+  relevant:
+  - section: technical_mini_lathe.speed_max_rpm
+    grade: 3
+  - section: technical_mini_lathe.grip_mm
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_lathe.speed_max_rpm; neighbouring grip_mm does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_spindle_speed
+  need_key: technical.mini_lathe.speed_max_rpm|current
+  required:
+  - fact: technical.mini_lathe.speed_max_rpm
+    sections:
+    - technical_mini_lathe.speed_max_rpm
+  tags:
+  - profile_derived
+  - domain_tools
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_lathe_grip_mm
+  category: simple
+  en: I am comparing specifications. Find the grip diameter for Miniature wood lathe, in mm.
+  ru: Сравниваю характеристики. Нужен показатель «Диаметр рукоятки» у «Миниатюрный токарный станок по
+    дереву», в мм.
+  kk: Сипаттамаларды салыстырып отырмын. «Ағашқа арналған шағын токарь станогы» үшін «Тұтқа диаметрі»
+    мәні қажет (мм).
+  relevant:
+  - section: technical_mini_lathe.grip_mm
+    grade: 3
+  - section: technical_mini_lathe.cable_cm
+    grade: 0
+  cross_lingual: true
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_lathe.grip_mm; neighbouring cable_cm does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_grip_geometry
+  need_key: technical.mini_lathe.grip_mm|current
+  required:
+  - fact: technical.mini_lathe.grip_mm
+    sections:
+    - technical_mini_lathe.grip_mm
+  tags:
+  - profile_derived
+  - domain_tools
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_lathe_cable_cm
+  category: simple
+  en: 'Miniature wood lathe: supplied cable length, cm?'
+  ru: '«Миниатюрный токарный станок по дереву»: длина комплектного кабеля, см?'
+  kk: '«Ағашқа арналған шағын токарь станогы»: жинақтағы кабель ұзындығы, см?'
+  relevant:
+  - section: technical_mini_lathe.cable_cm
+    grade: 3
+  - section: technical_mini_lathe.noise_db
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_lathe.cable_cm; neighbouring noise_db does not answer this
+    predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_cable
+  need_key: technical.mini_lathe.cable_cm|current
+  required:
+  - fact: technical.mini_lathe.cable_cm
+    sections:
+    - technical_mini_lathe.cable_cm
+  tags:
+  - profile_derived
+  - domain_tools
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_lathe_noise_db
+  category: hard
+  en: The cards look similar. What rated sound pressure level is listed for Miniature wood lathe (dB)?
+  ru: Карточки похожи. Уточните показатель «Номинальный уровень звукового давления» именно для «Миниатюрный
+    токарный станок по дереву» (дБ).
+  kk: Карточкалар ұқсас. «Ағашқа арналған шағын токарь станогы» үшін нақты «Номиналды дыбыс қысымының
+    деңгейі» көрсеткішін айтыңыз (дБ).
+  relevant:
+  - section: technical_mini_lathe.noise_db
+    grade: 3
+  - section: technical_mini_lathe.accessories_count
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: Authored target technical.mini_lathe.noise_db; neighbouring accessories_count does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_acoustic_noise
+  need_key: technical.mini_lathe.noise_db|current
+  required:
+  - fact: technical.mini_lathe.noise_db
+    sections:
+    - technical_mini_lathe.noise_db
+  tags:
+  - profile_derived
+  - domain_tools
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_mini_lathe_accessories_count
+  category: hard
+  en: Check the specifcation of Miniature wood lathe for number of supplied accessories (units), please.
+  ru: 'Проверьте характиристику «Миниатюрный токарный станок по дереву»: интересует «Число комплектных
+    принадлежностей» (шт.).'
+  kk: «Ағашқа арналған шағын токарь станогы» сипатамасынан «Жинақтағы керек-жарақтар саны» мәнін тексеріңізші
+    (дана).
+  relevant:
+  - section: technical_mini_lathe.accessories_count
+    grade: 3
+  - section: technical_mini_lathe.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: У «Миниатюрный токарный станок по дереву» показатель «Число комплектных принадлежностей» (шт.)
+    нақтылап беріңізші, осы үлгі үшін.
+  mix_kk: null
+  rationale: Authored target technical.mini_lathe.accessories_count; neighbouring mass_g does not answer
+    this predicate. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_supplied_accessories
+  need_key: technical.mini_lathe.accessories_count|current
+  required:
+  - fact: technical.mini_lathe.accessories_count
+    sections:
+    - technical_mini_lathe.accessories_count
+  tags:
+  - profile_derived
+  - domain_tools
+  - typo
+  - rare_document
+  as_of: null
+  all_versions: false
+  negative_reason: null
+- id: catalog_missing_mini_lathe_humidity_max_percent
+  category: unanswerable
+  en: For Miniature wood lathe, what is the specified maximum permitted humidity in percent?
+  ru: Для «Миниатюрный токарный станок по дереву» какое значение указано для показателя «Максимальная
+    допустимая влажность» (процентов)?
+  kk: «Ағашқа арналған шағын токарь станогы» тауары үшін «Ең жоғары рұқсат етілген ылғалдылық» көрсеткішінің
+    мәні қандай (пайыз)?
+  relevant:
+  - section: technical_mini_lathe.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mini_lathe does not state humidity_max_percent. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_humidity
+  need_key: technical.mini_lathe.humidity_max_percent|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_mini_lathe_drop_test_cm
+  category: unanswerable
+  en: For Miniature wood lathe, what is the specified certified drop-test height in cm?
+  ru: Для «Миниатюрный токарный станок по дереву» какое значение указано для показателя «Сертифицированная
+    высота испытания падением» (см)?
+  kk: «Ағашқа арналған шағын токарь станогы» тауары үшін «Құлауды сынаудың сертификатталған биіктігі»
+    көрсеткішінің мәні қандай (см)?
+  relevant:
+  - section: technical_mini_lathe.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mini_lathe does not state drop_test_cm. Dimensions, the retail price or a
+    diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_drop_test
+  need_key: technical.mini_lathe.drop_test_cm|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
+- id: catalog_missing_mini_lathe_repair_parts_price
+  category: unanswerable
+  en: For Miniature wood lathe, what is the specified replacement-part price in KZT?
+  ru: Для «Миниатюрный токарный станок по дереву» какое значение указано для показателя «Цена запасной
+    детали» (тенге)?
+  kk: «Ағашқа арналған шағын токарь станогы» тауары үшін «Қосалқы бөлшек бағасы» көрсеткішінің мәні қандай
+    (теңге)?
+  relevant:
+  - section: technical_mini_lathe.mass_g
+    grade: 0
+  - section: warranty_service.diagnostics
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mini_lathe does not state repair_parts_price. Dimensions, the retail price
+    or a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_parts_price
+  need_key: technical.mini_lathe.repair_parts_price|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: partial_evidence
+- id: catalog_missing_mini_lathe_certification_id
+  category: unanswerable
+  en: For Miniature wood lathe, what is the specified certification record number in record?
+  ru: Для «Миниатюрный токарный станок по дереву» какое значение указано для показателя «Номер сертификационной
+    записи» (запись)?
+  kk: «Ағашқа арналған шағын токарь станогы» тауары үшін «Сертификаттау жазбасының нөмірі» көрсеткішінің
+    мәні қандай (жазба)?
+  relevant:
+  - section: technical_mini_lathe.mass_g
+    grade: 0
+  cross_lingual: false
+  mix_ru: null
+  mix_kk: null
+  rationale: The source for mini_lathe does not state certification_id. Dimensions, the retail price or
+    a diagnostic fee cannot supply it. Profile SHA256 6fb209d598561bb48286a6f835e83b1025659663f6109cf0b19b70e4bdb1e16c.
+  family_id: profile_missing_unlisted_certificate
+  need_key: technical.mini_lathe.certification_id|not_stated
+  required: []
+  tags:
+  - profile_derived
+  - hard_negative
+  - domain_tools
+  as_of: null
+  all_versions: false
+  negative_reason: missing_fact
