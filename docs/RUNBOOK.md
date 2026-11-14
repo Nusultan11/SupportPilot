@@ -36,6 +36,18 @@ kaggle kernels status nurs2005/supportpilot-stage7-selected-training-run/1
 Confirm Dataset `ready` before push. Kernel submission is separate from completed
 training. Provisioning or a previous preflight never proves future free quota.
 
+Verified account quota check (CLI2.2.5, PowerShell, 2026-11-14):
+
+```powershell
+kaggle quota -v
+```
+
+The command reports current weekly GPU/TPU used/remaining totals and refresh time;
+displayed hours are rounded. This is account quota, not experiment-specific process
+wall time or billed GPU-hours. Available quota does not prove immediate GPU assignment:
+retain QUEUED as pending, preserve the existing job, and never treat submission as a
+successful experiment or silently start a duplicate.
+
 Verified explicit-version result/source retrieval (routing experiment):
 
 ```powershell
@@ -52,7 +64,8 @@ Never change an old `submission.json` while repackaging: `llm.kaggle.package` re
 changed bytes in an existing destination. Use a distinct local destination for a new
 payload; retain each submitted manifest with its corresponding remote version.
 For adapter inference payloads, use `llm.adapters.export_inference_adapter` on the verified
-training bundle first (verified on a real Stage 7 all-linear pilot). It preserves exact
+training bundle first (verified on a real Stage 7 all-linear pilot and restored selected
+512-step adapter). It preserves exact
 weight bytes and model-card/config/tokenizer files, derives a manifest with origin hashes,
 and excludes training pickle. Keep the full raw training/checkpoint archive for resume;
 the inference bundle is not an optimizer checkpoint. Validate the export before packaging.
