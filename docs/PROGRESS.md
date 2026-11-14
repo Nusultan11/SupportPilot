@@ -12,6 +12,45 @@ Stage 6.1 remains completed with its quality limitations below. Stage 8 is not s
 
 #### Active continuation (2026-11-14)
 
+- Queue diagnostics: authenticated `kaggle quota -v` reports GPU2.61h used /27.39h
+  remaining of30h, refresh2026-11-21 UTC (display precision.01h). This is current
+  weekly account quota, not experiment-specific device/billed hours. All eight
+  previous own SupportPilot kernels currently COMPLETE; no competing project job
+  found. Both latest and explicit final version1 report QUEUED with no failure message.
+  GPU assignment/Docker image/final predictions remain unobserved. Raw quota and
+  account-status evidence under `artifacts/kaggle/stage7_final_evaluation/`;
+  derived scoped quota receipt `artifacts/reports/llm/accelerator_quota.json`.
+- Local precision/postprocessing checkpoint restore-verified: reports171 files
+  `stage7_reports/20261114T112157Z-b78d95c2`, tracking2210 files
+  `stage7_tracking/20261114T112203Z-5ef1efb3` (SQLite integrity ok), ledger
+  `precision_checkpoint_backups.json`. Failed fp16 setup remains FAILED in MLflow;
+  added conclusion/failure-phase annotation without changing its status, predictions
+  or parameters; before/after audit `local_fp16_failure_annotation.json`.
+- Before inspecting any final LLM output, recorded narrow scorer/proxy scope and
+  supplemental citation-independent action declaration counters in
+  `postprocess_scope.json`. Original scorer, selection and benchmark parameters stay
+  frozen. Cited refusals can fail the citation-free proxy; no semantic accuracy claim.
+  Validation plot `validation_comparison.png/.svg` with source-hash provenance reviewed;
+  point diagnostics only, no test/gold or semantic acceptance shown.
+
+- Supplementary local fp16 diagnostics (sealed benchmark precision, no parameter tuning)
+  succeed on the same three operational queries per isolation/joint scope:3/3 schema
+  valid per scope, zero execution errors, all six actual calls delivered fallback on
+  semantic UNKNOWN. Isolated allocated peak1,757,544,448 bytes, generation10.08–20.97s;
+  joint allocated4,031,543,296 / reserved4,357,881,856 vs physical4,294,443,008,
+  generation23.36–41.49s. Do not claim fully VRAM-resident serving or a causal precision
+  ablation (original NF4 prompt bytes not captured). Main frozen configs unchanged.
+  Initial FAILED attempt `8fac9d001d674490b6166302a215d959` has zero LLM observations:
+  Docker/Qdrant was stopped during the user's pause. Docker restarted in background,
+  existing Qdrant healthy; preserved failure then distinct recovery attempts FINISHED:
+  isolated `84f7434cd31045fdac9bb91caebd66f0`, joint `a4bde6eda4d14e64b41a1496b6227ef1`.
+  Audit `artifacts/reports/llm/local_precision_diagnostics.json`; no failed attempt hidden.
+- Final GPU version1 remains QUEUED after the first bounded20-minute watcher; no
+  restart or duplicate submission. Current watcher `watch_final_status.py --until terminal
+  --minutes360` only reads exact-version status and appends timestamped history.
+  Final independent LLM results remain unobserved. Source/image/runtime verification
+  and all-file checksums must precede importing or reporting final metrics.
+
 - Frozen inference backup `stage7_selected_inference/20261114T103634Z-3786a359`
   restored and actually loaded in local NF4, identical weight SHA256;
   MLflow `e56f6bca5eac47cca70edfdb5e1dc8b5`. Further restore-verified snapshots:

@@ -76,6 +76,8 @@ Gold allowed citation sections do not define an AND-proof. Report reference cove
 
 Grounded-answer accuracy, semantic citation precision, unsupported-claim and false-answer rates remain NOT_EVALUATED without calibrated independent judgments. Abstention/false-refusal values are labeled behavioral proxies. Gold/safety are LLM-authored drafts; independent fluent KK review is absent. Default generation returns safe escalation whenever semantic support is UNKNOWN; a valid schema or citation membership does not authorize customer-facing factual answers.
 
+The frozen scorer's abstention proxy requires missing_information or needs_human **and no citations**. A legitimate refusal citing conflicting/partial evidence can fail that narrow proxy. Before inspecting final LLM completions, supplemental declared-action counts were specified irrespective of citations, including cited non-answer declarations. They supplement the original metrics without changing selection or scorer math and still do not establish semantic refusal/false-answer accuracy (`postprocess_scope.json`). Offline fallback-required/analytic delivered-abstention fields are policy implications, not observed Stage 8 API delivery; actual boundary evidence comes from local probes and integration tests.
+
 The baseline/sweep/routing/selected archives, predictions, CIs, numerical audit, error census, MLflow runs and restored backups are local ignored artifacts. Public Git contains implementation, authored diagnostic source and aggregate documentation only. No Stage 8 implementation is introduced.
 
 ## Independent frozen encoder assessment
@@ -104,3 +106,12 @@ EN/KK raw responses fail schema; RU remains semantic UNKNOWN. All delivered resp
 The adapter contains 40,422,168 weight bytes; its complete inference bundle is 51,853,699 bytes. The logical unquantized base weight file is 1,503,300,328 bytes. These are file sizes, not NF4 runtime allocation or allocated disk. The selected inference backup is deep-verified, restored, hash-identical and actually loaded as PeftModelForCausalLM in NF4. Full training checkpoints remain separate for resume.
 
 Final LLM inputs are independently frozen: test 286, gold 936 (79 semantic-near-train), safety 150, sufficiency 144 and conflict 9. All 5,219 exported passages/ranking IDs match the immutable active KB/index; state files predate export. Gold reference coverage still does not establish sufficiency. Full identities and audit scopes are in `heldout_retrieval_identity.json` and `final_cohort_census.json`; no final LLM quality is inferred from submission or queue status.
+
+An additional local fp16 diagnostic executes the same three operational queries per scope with the frozen model/schema. Both isolation and joint retrieval produce3/3 valid AssistantResponse objects without execution errors, all falling back on semantic UNKNOWN. Initial setup failed before LLM generation because Docker/Qdrant was stopped; that FAILED run with zero model observations is retained separately from the successful retries.
+
+|Additional fp16 scope|Peak allocated bytes|Peak reserved bytes|Valid schema|Generation time range|
+|---|---:|---:|---:|---|
+|Isolated generation|1,757,544,448|1,828,716,544|3/3|10.08–20.97s|
+|Active retrieval plus LLM|4,031,543,296|4,357,881,856|3/3|23.36–41.49s|
+
+Reserved memory exceeds the physical4,294,443,008-byte budget; these successful requests do not prove entirely VRAM-resident serving. Allocation counters exclude other processes/driver memory, and shared-memory spill was not instrumented. The NF4 and fp16 runs share queries/formatter/immutable corpus but original NF4 prompt bytes were not captured, so this is an exploratory compatibility observation, not a causal quantization ablation or a full-validation precision guarantee. No frozen benchmark parameter changes. Audit: `artifacts/reports/llm/local_precision_diagnostics.json`.
