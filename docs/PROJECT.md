@@ -1,60 +1,59 @@
-# PROJECT — goal, scope, requirements
+# PROJECT — requirements
 
-## Goal
+## Goal and users
 
-An end-to-end, reproducible, measured ML system that resolves online-store customer requests
-in RU/KK/EN with grounded, cited answers and correct escalation to humans. Quality and
-verifiability beat the number of technologies used.
+Build a reproducible, measured online-store support assistant for RU/KK/EN and mixed RU–KK.
+Customers ask free-form questions; operators receive unresolved cases with a summary and
+evidence. The fictional Kazakhstan store uses KZT and synthetic policies/catalogue/orders.
+Quality and verifiability take priority over technology count.
 
-## Users and setting
-
-- **Customer**: writes free text (chat) in RU, KK, EN or mixed RU–KK; may be vague, angry, or off-topic.
-- **Operator**: receives escalations with a summary, detected intent, and the evidence gathered.
-- **Store**: a fictional Kazakhstan-based online store ("demo store"). It uses KZT and has
-  synthetic policies, catalogue, customers and orders.
-
-## In scope (functional requirements)
+## Functional scope
 
 | ID | Requirement |
 |---|---|
-| F1 | Delivery and order tracking (via orders API) |
-| F2 | Returns and refunds: policy (KB) and status (payments/orders API) |
-| F3 | Payment methods and issues; cancelling or changing an order (policy from the KB, state from the API) |
-| F4 | Product attributes (KB catalogue) and availability (inventory API) |
-| F5 | Store rules, terms, FAQ (KB) |
-| F6 | Intent detection for routing to an action |
-| F7 | Ambiguous request → one targeted clarification question |
-| F8 | Escalation to a human for complaints, legal/safety topics, repeated failure, explicit request, low confidence |
-| F9 | Language ID (en/ru/kk + code-switch) and reply in the user's language |
-| F10 | Answers cite KB chunks. The reply separates facts, assumptions and missing information |
-| F11 | Short dialogue memory: the current session only, bounded turns, order id carried over |
+| F1 | Delivery and order tracking through an authorized orders API |
+| F2 | Return/refund policy from KB; refund/order state from tools |
+| F3 | Payment methods/issues, order cancellation/change; distinguish policy from state |
+| F4 | Product attributes from KB; availability from inventory API |
+| F5 | Store rules, terms and FAQ with evidence |
+| F6 | Intent/action routing |
+| F7 | One targeted clarification for an ambiguous request |
+| F8 | Human assistance for complaints, legal/safety/privacy risks, repeated failure, explicit request or insufficient confidence |
+| F9 | Detect RU/KK/EN and code-switching; reply in the user's language |
+| F10 | Cite policy evidence; separate supported facts, assumptions and missing information |
+| F11 | Bounded session-only dialogue memory and carried slots such as order ID |
 
-## Out of scope
-
-General document-analysis platform, CRM, marketplace, operator workspace beyond a simple
-escalation queue, payment execution, real customer data, voice, and images. Any expansion
-needs an ADR.
+These are product requirements, not claims that every feature is implemented.
+Implementation status belongs to [PROGRESS](PROGRESS.md).
 
 ## Non-functional requirements
 
-| ID | Requirement | Initial target |
-|---|---|---|
-| N1 | Groundedness | No unsupported policy/price/status claims (metric targets: EVALUATION §2) |
-| N2 | Language | Reply-language compliance tracked per language; KK reported separately |
-| N3 | Latency (local demo, 4 GB GPU) | p95 measured and reported. The target is set in Stage 9 after the baselines |
-| N4 | Reproducibility | Every dataset, index and model is traceable to code commit + data manifest + seed |
-| N5 | Scale readiness | Pipelines stream/batch and support incremental updates; stress-tested at 1M+ records (Stage 9) |
-| N6 | Privacy and security | No PII in logs. Prompt-injection tests. Secrets only in env |
-| N7 | Cost | Runs locally; training on free cloud GPUs; paid APIs only with user approval |
-| N8 | Robustness | Timeouts, retries and fallbacks for every external call; health checks |
+| ID | Requirement |
+|---|---|
+| N1 | No unsupported policies, prices, status or customer facts; insufficient evidence leads to clarification/abstention/escalation |
+| N2 | Evaluate every language separately, including KK and mixed RU–KK |
+| N3 | Measure local end-to-end p95; establish the serving target in Stage 9 |
+| N4 | Trace datasets, indexes and models to code, manifest, configuration and seed |
+| N5 | Stream/batch and incrementally update data; test 1M+ records in Stage 9 |
+| N6 | No real customer PII; redact logs, protect secrets, test prompt injection and authorization |
+| N7 | Fit the local 4 GB GPU/15.4 GB RAM constraints or use authorized free cloud compute; paid use requires approval |
+| N8 | Bound external-call timeouts/retries and provide typed failures, fallbacks and health checks |
 
-## Units of measure (do not mix)
+Current numerical acceptance targets and review requirements: [EVALUATION](EVALUATION.md).
 
-Customer request ≠ SFT example ≠ KB document ≠ chunk ≠ token. Targets: ~100k *quality* SFT
-examples (planned EN 30% / RU 35% / KK 35%) and a 90k/5k/5k split. These are targets. The
-actual size is set by quality gates in Stages 3–4. Duplicating data to reach them is forbidden.
+## Boundaries
 
-## Success criteria
+Excluded: general document-analysis platform, CRM/marketplace, payment execution,
+real customer data, voice/images and an operator workspace beyond a simple escalation queue.
+Expansion needs an explicit scope decision.
 
-The project is complete when Stage 10's definition of done is met (see ROADMAP). Metric targets
-are in EVALUATION.md. They are goals, not guarantees, and misses are reported with error analysis.
+Facts live in KB/tools, not weights. Training uses altered fictional KB values.
+A request, SFT row, document, chunk and token are different counting units.
+The original ~100k SFT / 90k–5k–5k split and EN/RU/KK 30/35/35 distribution are planning
+targets bounded by quality, not quotas to satisfy through duplication.
+
+## Success
+
+Complete the [Stage 10 acceptance criteria](ROADMAP.md#stage-10--production-readiness-and-delivery).
+Report missed targets and uncertainty with error analysis; valid JSON or a running demo alone
+does not establish grounded quality. Detailed feature dependencies live in ROADMAP.

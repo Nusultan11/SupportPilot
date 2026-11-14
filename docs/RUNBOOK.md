@@ -1,745 +1,397 @@
-# RUNBOOK: verified operational commands
+# RUNBOOK — operations and recovery
 
-Only commands that were actually run go here, each marked with the stage that verified it.
-Shell: Git Bash on Windows unless stated otherwise. Run everything from the repo root.
+Run from the repository root. Default shell: PowerShell on Windows; uv/CLI commands are
+also usable from Git Bash. Examples with <placeholders> are command forms, not literal paths.
+Use existing manifests/PROGRESS to resolve identities. CLI JSON goes to stdout, logs to stderr;
+exit 0 = success, 1 = failed check, 2 = usage/operation error. Status/results belong to PROGRESS/reviews.
 
-## Stage 7 Kaggle hardware preflight
-
-Verified CLI 2.2.5 commands (PowerShell; hardware-only private kernel, no project inputs):
+## 1. Environment
 
 ```powershell
-kaggle kernels status nurs2005/supportpilot-stage7-preflight/1
-kaggle kernels output nurs2005/supportpilot-stage7-preflight/1 -p artifacts/kaggle/stage7_preflight/output
-kaggle kernels pull nurs2005/supportpilot-stage7-preflight/1 -p artifacts/kaggle/stage7_preflight/remote -m
+uv run supportpilot env --no-benchmark
+uv run supportpilot env --save
 ```
 
-Require COMPLETE for the explicit version. Compare output SHA256 with the downloaded
-sidecar and submitted vs downloaded source; verify private metadata and input sources.
-Submission is not completion. Hardware success does not establish training compatibility,
-free quota for later sessions or semantic quality. The remote environment differs from
-the local Python 3.12 lock. Execution receipts and status are in PROGRESS.md.
+The second form includes the 2048-square FP16 matmul and writes an environment report.
+The reference laptop is RTX 3050 Laptop 4 GB, roughly 15.4 GB RAM, Python 3.12 and cu126 Torch.
+Available RAM/VRAM/disk are live observations, never fixed setup requirements.
+Use `nvidia-smi` for driver/process inspection. No local CUDA toolkit is required by the wheels.
 
-## Stage 7 private experiment execution and retrieval
-
-Verified CLI 2.2.5 commands (PowerShell, 2026-11-14). The payload is prepared locally
-and its concrete private upload/execution is authorized before the create/push calls.
-Keep the absolute Windows Dataset path: the CLI upload sidecar failed with relative
-and slash-normalized drive paths in earlier attempts.
+## 2. Setup and configuration
 
 ```powershell
-kaggle datasets create -p 'C:\Users\nurs\SupportPilot\artifacts\kaggle\stage7_selected_training\dataset' -q
+git clone https://github.com/Nusultan11/SupportPilot.git
+cd SupportPilot
+uv sync --locked
+uv run pre-commit install
+uv run supportpilot --help
+```
+
+The lock installs dev/gpu/ml groups by default. Cold cache downloads weights/dependencies;
+preserve the active .venv, uv and HF caches during normal maintenance.
+CPU-only installation requires separately verified dependency choices; it is not a claim
+that every pipeline runs without Torch.
+Settings: configs/base.yaml, `--config` or SUPPORTPILOT_CONFIG.
+Environment overrides: SUPPORTPILOT_<SECTION>__<KEY>. Secrets belong in ignored .env/env.
+
+## 3. Quality checks
+
+```powershell
+uv run ruff check .
+uv run ruff format --check .
+uv run mypy
+docker compose up -d qdrant
+uv run pytest -q
+uv run pre-commit run --all-files
+```
+
+Full pytest includes GPU/server checks when resources exist. Skipped gpu/qdrant_server cases
+are unverified, not passed. Pre-commit runs only the fast test subset:
+`uv run pytest -q -m "not slow and not gpu and not qdrant_server"`.
+Read warning/skip/failure summaries and preserve the log.
+
+Use pytest's system-temp default, or --basetemp pointing to a new task-owned directory
+outside the checkout. Git-isolation tests otherwise discover the ignored parent repository:
+an inside-checkout run failed for that reason, while the isolated test passed unchanged.
+Pytest owns/recreates basetemp; never point it at data, models or reports. Record the exact
+task-owned path and remove it after verification, retaining required failure evidence.
+Other disposable work belongs under artifacts/tmp; create its parent before using it.
+
+If sandboxed uv cannot write its interpreter/cache metadata, use the already-synchronized
+`.venv/Scripts/python.exe -m pytest`, `-m mypy`, `-m ruff`, or request the authorized
+operation outside the sandbox. Do not rebuild/delete the environment as a workaround.
+
+## 4. Services
+
+```powershell
+docker desktop start --detach
+docker compose up -d qdrant
+docker inspect -f '{{.State.Health.Status}}' supportpilot-qdrant
+uv run supportpilot check qdrant
+uv run supportpilot check qdrant --mode memory
+uv run supportpilot check mlflow
+```
+
+Use127.0.0.1:6333, not localhost (observed IPv6 delay). Qdrant uses its named Docker volume.
+`docker compose down` stops services without deleting that volume; never add -v for cleanup.
+Do not stop unrelated containers/processes. Temporary service isolation requires ownership
+checks and restoration of health/collection inventory afterward.
+
+MLflow:
+```powershell
+uv run mlflow ui --backend-store-uri sqlite:///mlruns/mlflow.db --host 127.0.0.1 --port 5055
+```
+
+SQLite and artifacts under mlruns are one recovery unit. Snapshot after writers close;
+verify restored SQLite integrity. The UI/MCP is not required to log runs.
+
+## 4a. Agent-tool setup
+
+MCP is optional development tooling, not runtime. Rules: AGENTS §12; decision: ADR-012.
+.mcp.json and .serena/project.yml contain project setup; user-local Codex/Claude state is private.
+Do not copy secrets into them or edit private client state to change activation.
+
+Remote Context7/Exa/HuggingFace use public minimal queries; GitHub is read-only and uses
+GITHUB_MCP_PAT from user environment. Local Serena/Playwright/MLflow are off by default;
+the owner enables one when a task needs it, then disables it.
+Claude Code's verified2026-11-12 setup uses /mcp to disable local project servers once per clone.
+Other clients may differ; use that client's supported controls, never assume identical toggles.
+Serena keeps tool/no-onboarding/no-memories settings; Playwright uses installed isolated Edge;
+MLflow is read-only. Pipelines/tests must work with all servers disconnected.
+Current connector availability/keys are not project implementation status.
+
+## 5. Code backup and restore
+
+Location: backups/code (ignored; ADR-013). Create a unique bundle:
+```powershell
+$stamp = (Get-Date).ToUniversalTime().ToString('yyyyMMddTHHmmssZ')
+$bundle = Join-Path (Get-Location) "backups/code/supportpilot-$stamp.bundle"
+git bundle create $bundle --all
+git bundle verify $bundle
+Get-FileHash -LiteralPath $bundle -Algorithm SHA256
+```
+
+Record SHA256 in a sidecar/receipt. Actually clone the bundle into a new isolated directory,
+compare HEAD and a clean worktree; never restore over the live repository:
+```powershell
+git clone -b main <bundle-path> <new-restore-directory>
+git -C <new-restore-directory> rev-parse HEAD
+git -C <new-restore-directory> status --porcelain
+```
+
+GitHub/main protects public code only. Same-disk bundles do not protect against disk loss.
+Retention eligibility is latest10 plus pinned stage bundles; deletion needs separate owner approval.
+After an actual verified drill, the temporary clone can be removed under §17.
+
+## 6. Data/model snapshots
+
+Root: ignored backups. Layout:
+`<root>/<data|model>/<name>/<snapshot_id>/{archive.tar,manifest.json}`.
+Uncompressed tar and per-file/archive/content hashes support atomic publication and dedup.
+A root inside the repository is refused unless Git ignores it.
+
+```text
+uv run supportpilot backup create <source> --name <name> --kind data --pin --note "<purpose>"
+uv run supportpilot backup list
+uv run supportpilot backup verify data/<name>/<snapshot_id>
+uv run supportpilot backup verify data/<name>/<snapshot_id> --quick
+uv run supportpilot backup restore data/<name>/<snapshot_id> --target <new-or-empty-directory>
+uv run supportpilot backup pin data/<name>/<snapshot_id>
+uv run supportpilot backup prune --keep 3
+```
+
+Verify defaults to deep (archive and all member hashes); quick verifies archive bytes only.
+Restore verifies every file before publishing and refuses a nonempty target.
+Create reuses identical newest content; pin stage/expensive results.
+Prune without --yes is a dry-run eligibility report. **Do not execute deletion or unpinning
+without separate owner authorization**, even for unpinned/old snapshots.
+
+Snapshot datasets, KB/indexes/caches, raw experiment outputs/checkpoints, reports and MLflow
+after significant results. Record manifest/restore/check receipts, not repeated full path lists
+in every document. Verify DB integrity with PRAGMA integrity_check on the restored SQLite copy.
+Do not keep full duplicate restore trees indefinitely after the drill.
+
+## 7. Source acquisition and conversion
+
+Registry/rights: configs/sources.yaml and DATA_CONTRACTS §2.
+```powershell
+uv run supportpilot data sources
+uv run supportpilot data acquire --all
+uv run supportpilot data convert --all
+uv run supportpilot data verify --all
+```
+
+Explicit source IDs and --force conversion are supported. Reruns verify and skip unchanged work.
+Interrupted .partial-revision downloads resume/reverify with the same command.
+Corrupt immutable raw revisions stop acquisition/conversion: restore, never edit them.
+A gated source needs owner account/accepted terms/HF_TOKEN, registry eligibility and a converter;
+this is not permission to acquire every candidate. Back up newly acquired revisions/records.
+
+## 7b. Cleaning, canonical gates and EDA
+
+```powershell
+uv run supportpilot data clean --all
+uv run supportpilot data gates
+uv run supportpilot data eda
+uv run supportpilot data eda --no-tokens
+```
+
+Per-source clean and --force rebuild exist. Configuration: clean/eda sections, draft intent map
+and synthetic placeholder catalogue. Changed transformation logic must invalidate its cache version.
+Atomic checkpoints preserve the prior build on interruption/gate failure; inspect
+data/interim/canonical.failed/quality_report.json. Do not erase failure evidence blindly.
+EDA samples and annotations are linked by sample identity; changed samples require re-review.
+Back up clean/canonical/EDA results. Contracts: DATA_CONTRACTS §§4–4d/10.
+
+## 7c. SFT, MT, training KB and gold
+
+```powershell
+uv run supportpilot data taxonomy
+uv run supportpilot data select
+uv run supportpilot data kb-train
+uv run supportpilot data mt-compare
+uv run supportpilot data translate --lang kk
+uv run supportpilot data translate --lang ru
+uv run supportpilot data qe-score
+uv run supportpilot data sft
+uv run supportpilot data gold
+```
+
+Pinned models download into HF cache on first use; set HF_HUB_OFFLINE=1 only after weights
+are complete. MT shards resume; SFT does not silently fill missing translations.
+--no-semantic diagnostics leave semantic leakage checking unverified.
+Never change frozen gold questions to accommodate copied training input: exclude copied SFT
+inputs under ADR-029. Gates retain failed builds/current pointer and explicit reasons.
+Back up stage4 interim/MT caches, training KB, each published SFT and gold version.
+Do not rerun these commands against the active sealed Stage 7 cohort for housekeeping.
+
+## 7d. Knowledge base
+
+```powershell
+uv run supportpilot kb render
+uv run supportpilot kb build
+uv run supportpilot kb validate
+uv run supportpilot kb status
+```
+
+Explicit --version validation, --force build and `kb activate <kb_version>` support diagnostics/
+rollback. Build reads specs/facts/catalogue, renders deterministically, parses/chunks/gates and
+publishes immutable versions. Same content reuses a version; changed documents produce changes.json.
+Quote YAML values containing commas; scanned PDF/invalid structure fail explicitly.
+A failed version never replaces current. Edited rendered files require rerendering, not hash edits.
+Restore a self-contained KB snapshot to an isolated data root and validate it before activation.
+Activation and retrieval synchronization remain separate (§9/§16).
+
+## 7e. Native inputs and independent retrieval queries
+
+```powershell
+uv run supportpilot data native
+uv run supportpilot data retrieval-set
+```
+
+Native licensed inputs use normal acquire/convert/clean policy; only explicit reliable labels enter.
+SFT refreshes selection/native/QE/training KB as needed and preserves heldout coverage.
+Retrieval current.json points to queries/qrels/manifest bound to a KB/SFT version.
+After real KB/SFT changes rebuild with leakage/reference gates; do not alter frozen cohorts in place.
+No training or retrieval inference is performed by data retrieval-set itself.
+Review provenance remains draft/LLM where no fluent independent review exists.
+
+## 8. Diagnostics
+
+| Symptom | Action |
+|---|---|
+| CUDA unavailable | Check nvidia-smi, locked cu126 Torch and driver; do not reinstall blindly |
+| CUDA OOM/shared-memory slowdown | Inspect actual scope/other processes; reduce batch/context only in a new authorized configuration |
+| Docker npipe unavailable | Start Docker Desktop, wait for docker info, then compose/health |
+| Embedded SQLite locked | Close owning process; don't remove live lock/storage files |
+| Config error | Check named unknown/invalid YAML/env key; extra fields are forbidden |
+| Raw immutable/hash failure | Restore verified original, never repair its manifest |
+| Data gate failure | Inspect failed quality_report; previous current output should remain |
+| Missing translation/cache | Resume owning pipeline; clear HF_HUB_OFFLINE only for authorized missing downloads |
+| Pre-commit line-ending changes | Review, stage fixed LF files, repeat commit |
+| Redirected KK text corrupted | Set PYTHONUTF8=1 / PYTHONIOENCODING=utf-8 |
+| HTTP/private-kernel access denied | Record status UNKNOWN; use owner OAuth recovery below; do not infer remote failure |
+
+## 9. Retrieval and experiments
+
+Model registry: configs/retrieval_models.yaml. Parameters/namespace: configs/base.yaml.
+```powershell
+uv run supportpilot retrieval index
+uv run supportpilot retrieval query 'Алматыға жеткізу қанша тұрады?' --lang ru --budget 1024 --as-of 2026-11-12
+uv run supportpilot retrieval query 'Доставка' --lang kk --doc-id missing-document --as-of 2026-11-12
+```
+
+--lang filters corpus, independently of input language; omit to search all languages.
+--doc-id/--doc-type repeat; --as-of is inclusive. Serving defaults to today;
+experiments pin evaluation_date. Empty filters/budget produce explicit no-evidence reasons.
+Metadata consumes context budget; chunks/facts are not cut to fit.
+For warm repeated requests use `with open_retriever(settings)`; CLI startup is cold.
+
+Resume retrieval index with the same inputs; preserve checksummed caches/OS lock files.
+After KB activation, synchronize index before serving. Explicit --kb-version indexing does
+not activate KB; fail-closed readers reject mismatch. Rollback uses exact prior inventories.
+Keep KB-scoped sparse IDF; global IDF drifted after delete/restore.
+
+```powershell
+uv run supportpilot retrieval experiment --stage prepare
+uv run supportpilot retrieval experiment --stage compare
+uv run supportpilot retrieval experiment --stage batch
+uv run supportpilot retrieval experiment --stage rerank
+uv run supportpilot retrieval experiment --stage report
+uv run supportpilot retrieval experiment --stage profile
+uv run supportpilot retrieval experiment --stage drill
+```
+
+These are experiment entry points, not permission to retune an already exposed/frozen study.
+Check artifact/environment bindings before resuming. Profile bypasses query/pair caches;
+drill restores a saved snapshot into a separate collection and verifies vectors/payloads/queries.
+Baseline reports under artifacts/reports/retrieval are frozen; delivery receipt sits outside them.
+Do not overwrite raw failures/measurements or infer semantic answerability from retrieval scores.
+
+## 16. Scale retrieval and serving rollback
+
+The historical section number is retained for existing references.
+Preregistration: docs/reviews/stage6_scale_protocol.md; configured phases:
+```powershell
+$cohort='data/benchmarks/retrieval_scale/6fab32c16b3a6e05b29f'
+uv run supportpilot retrieval scale --stage audit --semantic --kb-version kb_demo_store-20261113-f3b204a6
+uv run supportpilot retrieval scale --stage development --frozen $cohort
+uv run supportpilot retrieval scale --stage holdout --frozen $cohort
+uv run supportpilot retrieval scale --stage profile --frozen $cohort
+uv run supportpilot retrieval scale --stage recovery --frozen $cohort --restore-root artifacts/restore_drills/stage6_scale_runtime
+uv run supportpilot retrieval scale --stage diagnostic --frozen $cohort
+uv run supportpilot retrieval scale --stage report --frozen $cohort
+uv run supportpilot retrieval scale --stage load --count 100000
+uv run supportpilot retrieval scale --stage update-drill
+```
+
+author/freeze phases also exist; do not regenerate a sealed input during cleanup.
+Recovery requires the verified isolated KB/index runtime. Check local/terminal MLflow receipts.
+Random-vector load/update collections never enter serving or quality qrels.
+
+Expanded serving uses the namespace/KB named in PROGRESS.
+Baseline configuration is preserved at
+`artifacts/reports/retrieval_scale/6fab32c16b3a6e05b29f/serving/baseline_config.yaml`.
+To roll back, activate baseline KB `kb_demo_store-20261112-d58e3f93`, use global --config
+with that file, synchronize and verify evidence. Restore expanded KB before current config.
+The actual exercised transition is in serving/activation_rollback.json. Never delete either
+collection or modify frozen queries/proofs/selection to force a resume.
+
+## Stage 7 private cloud execution
+
+Verified host clients: Kaggle CLI 2.2.5 / kagglesdk 0.1.38 (2026-11-14).
+Prepare/verify the concrete allowlisted private package and respect its existing owner authorization.
+Use absolute Windows Dataset paths; relative/normalized upload paths previously failed.
+Example command forms from selected-training execution:
+
+```powershell
 kaggle datasets status nurs2005/supportpilot-stage7-selected-training
-kaggle kernels push -p artifacts/kaggle/stage7_selected_training/kernel --accelerator NvidiaTeslaT4
 kaggle kernels status nurs2005/supportpilot-stage7-selected-training-run/1
-```
-
-Confirm Dataset `ready` before push. Kernel submission is separate from completed
-training. Provisioning or a previous preflight never proves future free quota.
-
-Verified account quota check (CLI2.2.5, PowerShell, 2026-11-14):
-
-```powershell
+kaggle kernels status nurs2005/supportpilot-stage7-final-evaluation-run/2
 kaggle quota -v
 ```
 
-The command reports current weekly GPU/TPU used/remaining totals and refresh time;
-displayed hours are rounded. This is account quota, not experiment-specific process
-wall time or billed GPU-hours. Available quota does not prove immediate GPU assignment:
-retain QUEUED as pending, preserve the existing job, and never treat submission as a
-successful experiment or silently start a duplicate.
+Dataset create/version and kernel push are external writes, not monitoring actions:
+do not submit a duplicate merely because a job is queued. Remaining quota does not prove GPU
+assignment; rounded weekly quota is not experiment GPU-hours. Timeout limits execution,
+not queue wait. Two queued own batch jobs were observed to occupy the two batch slots.
 
-Verified OAuth recovery (owner executed, 2026-11-14): if API quota requires
-authentication and exact private-kernel access is denied while `kaggle auth login`
-only reports an already cached login, refresh the session explicitly:
-
+OAuth recovery when cached login exists but API access/quota is denied:
 ```powershell
 kaggle auth login --force
 kaggle quota -v
 kaggle kernels status nurs2005/supportpilot-stage7-final-evaluation-run/2
 ```
 
-The owner completes browser sign-in; never request password/token contents. Verify both
-quota and the exact private kernel after login. Web login and CLI login are separate:
-an authenticated ordinary Edge session resolved the observed private-page404. Access
-errors are monitoring failures, not proof that the remote computation failed. Preserve
-last observed status and UNKNOWN until access is restored; stop repeated failed polling.
+Owner completes browser sign-in; never request token/password contents. Browser/CLI login differ.
+Keep last observed state plus UNKNOWN_ACCESS_DENIED; stop repeated unauthorized polling.
+A transient query failure does not authorize cancelling/restarting the remote computation.
 
-Verified queue recovery (CLI2.2.5 / official kagglesdk 0.1.38, 2026-11-14):
-`kernels push --timeout 120` limits execution; it did not end a request still queued
-beyond 120s. `Maximum batch GPU session count of 2 reached` was observed while two
-own queued requests occupied the batch slots. Do not submit a chain of inference retries.
-
-The CLI has no cancellation command. The official SDK exposes
-`cancel_kernel_session(ApiCancelKernelSessionRequest)` with **kernel_session_id**,
-which is distinct from the notebook/kernel ID. Resolve it through
-`download_kernel_output(ApiDownloadKernelOutputRequest)` with explicit owner, slug and
-version_number: its server redirect path `/v1/kernels/output/download_zip/<session_id>`
-was verified for each requested version. Keep that mapping and downloaded ZIP hash.
-Before cancelling, recheck exact-version QUEUED and inspect the output inventory; never
-silently discard observed work. The successful cancellation returned an empty error
-message and subsequent `CANCEL_ACKNOWLEDGED`; the notebook and Dataset were retained.
-This status records a cancelled attempt, not successful evaluation. A technical retry
-must retain the original submission, unchanged payload/config hashes and its own exact
-version metadata. Pinning a previously working image does not establish queue root cause.
-
-Verified explicit-version result/source retrieval (routing experiment):
-
+Require terminal COMPLETE for an explicit version before quality import:
 ```powershell
-kaggle kernels output nurs2005/supportpilot-stage7-routing-run/2 -p artifacts/kaggle/stage7_routing/output/2 --file-pattern '^results/' -q
 kaggle kernels pull nurs2005/supportpilot-stage7-routing-run/2 -p artifacts/kaggle/stage7_routing/remote/2 -m
+kaggle kernels output nurs2005/supportpilot-stage7-routing-run/2 -p artifacts/kaggle/stage7_routing/output/2 --file-pattern '^results/' -q
 ```
 
-Require terminal COMPLETE for that version, then use `llm.results.verify_kernel_source`
-and `verify_results` before `import_results`. Verify the entire output inventory and
-each SHA256; a partial download is not a completed archive. Interrupted downloads may
-be resumed in disjoint exact-file groups after comparison with the remote checksum
-manifest; keep download plans/receipts outside the checksummed `results/` directory.
-Never change an old `submission.json` while repackaging: `llm.kaggle.package` rejects
-changed bytes in an existing destination. Use a distinct local destination for a new
-payload; retain each submitted manifest with its corresponding remote version.
-For adapter inference payloads, use `llm.adapters.export_inference_adapter` on the verified
-training bundle first (verified on a real Stage 7 all-linear pilot and restored selected
-512-step adapter). It preserves exact
-weight bytes and model-card/config/tokenizer files, derives a manifest with origin hashes,
-and excludes training pickle. Keep the full raw training/checkpoint archive for resume;
-the inference bundle is not an optimizer checkpoint. Validate the export before packaging.
-
-Kaggle may expand `payload.zip` inside its mounted Dataset. The bootstrap handles either
-layout and checks its allowlist manifest before execution. CUDA worker subprocesses
-each expose one device, avoiding TRL DataParallel rejection. Training checkpoint resume
-requires the original configuration/input/runtime binding; increasing `max_steps` is a
-new run, not an interchangeable resume. Prompt/adapter selection is sealed before test
-or gold export. Operational launchers and private artifacts live under git-ignored
-`artifacts/`; their restore-verified snapshots are listed in PROGRESS.md.
-
-## 1. Environment check (verified Stage 1)
-
-```bash
-uv run supportpilot env --save      # JSON report; --save writes artifacts/reports/env/env-<ts>.json
-uv run supportpilot env --no-benchmark   # skip the 2048² fp16 matmul GPU test
-```
-
-Exit code 1 means `problems` is non-empty (e.g. CUDA unavailable). Reference result from
-2026-11-11, saved as `artifacts/reports/env/env-20261111T113143Z.json`:
-
-| Item | Value |
-|---|---|
-| CPU | AMD Ryzen 7 5800HS, 8 cores / 16 threads |
-| RAM | 15.41 GiB total, ~6.4 GiB available with a normal desktop load |
-| GPU | RTX 3050 Laptop, compute 8.6, 4.0 GiB VRAM (3.23 GiB free), bf16 supported |
-| Driver / CUDA | NVIDIA 566.07; torch 2.14.1+cu126, CUDA 12.6, cuDNN 9.10.2 |
-| GPU smoke test | fp16 matmul correct, 7.64 TFLOPS |
-| Disk | 728 GiB free on C: |
-| Python | 3.12.3 (venv by uv 0.12.1). No CUDA toolkit (`nvcc`) installed |
-
-## 2. Project setup (verified Stage 1, clean clone)
-
-```bash
-git clone https://github.com/Nusultan11/SupportPilot.git && cd SupportPilot
-uv sync --locked              # dev + gpu groups by default; torch comes from the cu126 index
-uv run pre-commit install     # once per clone
-```
-
-- `uv sync --locked` took 20 s on a clean clone with a warm uv cache. A cold cache downloads
-  about 3 GB (mostly torch and CUDA libraries). The `.venv` is about 4.6 GB.
-- Without a GPU, or for CI: `uv sync --locked --no-group gpu`. **Not verified yet** (planned
-  for CI in Stage 10). The code path that reports "torch not installed" exists but has not
-  been run.
-- Configuration: `configs/base.yaml`. Override with env vars `SUPPORTPILOT_<SECTION>__<KEY>`,
-  or a file via `--config` / `SUPPORTPILOT_CONFIG`. Secrets go in `.env` (git-ignored).
-- Agents: disable the local MCP servers once per clone (§4a step 1).
-
-## 3. Quality checks (verified Stage 6)
-
-```bash
-uv run ruff check . && uv run ruff format --check .
-uv run mypy                   # strict; src + tests
-uv run pytest -q              # Stage 6: 367 passed, 0 skipped, 114 s; GPU + Qdrant up
-uv run pytest -q -m "not slow and not gpu and not qdrant_server"   # fast subset
-uv run pre-commit run --all-files                                  # all hooks
-```
-
-Markers:
-- `slow`: MLflow and GPU tests.
-- `gpu`: needs CUDA.
-- `qdrant_server`: needs a server at `QDRANT_URL` (default `http://127.0.0.1:6333`). It is
-  skipped, not failed, when no server is reachable, so read the skip summary.
-
-The pre-commit hook runs the fast subset.
-
-## 4. Services (verified Stage 1)
-
-**Qdrant** (ADR-014). Requires Docker Desktop to be running:
-```bash
-docker compose up -d qdrant                       # qdrant/qdrant:v1.20.0, named volume
-docker inspect -f '{{.State.Health.Status}}' supportpilot-qdrant   # -> healthy
-uv run supportpilot check qdrant                  # server-mode round trip, exit 0 = ok
-uv run supportpilot check qdrant --mode memory    # no Docker needed
-docker compose down                               # stop; data stays in volume supportpilot_qdrant_storage
-```
-
-If the daemon is stopped, `docker desktop start --detach` starts Docker Desktop in the
-background (PowerShell, verified Stage 7). Then run `docker compose up -d qdrant` and
-confirm healthy. Tests skipped while the server was unavailable remain unverified until
-they are actually rerun with the server reachable.
-
-Always use `127.0.0.1`, not `localhost`. On this machine `localhost` added about 2 s to every
-call because of the IPv6-first lookup.
-
-**MLflow** (ADR-011):
-```bash
-uv run supportpilot check mlflow       # logs a run and reads it back (params, metric history, tags)
-uv run mlflow ui --backend-store-uri sqlite:///mlruns/mlflow.db --host 127.0.0.1 --port 5055   # browse runs
-```
-
-Experiments are named `supportpilot/<name>`. The database is `mlruns/mlflow.db` and
-artifacts are in `mlruns/artifacts/`. Both are git-ignored, so back them up with §6.
-
-## 4a. MCP servers for agents (verified 2026-11-12, ADR-012)
-
-Dev tools only, not SupportPilot runtime. Usage rules: AGENTS.md §12. Client: Claude Code
-(2.1.321, the Claude desktop app's Code tab). It reads `.mcp.json` at session start and
-loads tool schemas lazily (tool search), so an idle server costs no schema tokens.
-
-| Server | Transport (no secrets in Git) | Default | Auth |
-|---|---|---|---|
-| `context7` | HTTP `https://mcp.context7.com/mcp` | on | none (anonymous rate limit) |
-| `exa` | HTTP `https://mcp.exa.ai/mcp?tools=web_search_exa,web_fetch_exa` | on | none (anonymous rate limit, direct IPv4) |
-| `github` | HTTP `https://api.githubcopilot.com/mcp/`, `X-MCP-Readonly: true`, toolsets `context,repos,issues,pull_requests,actions` (29 read tools) | on | `GITHUB_MCP_PAT` user env var |
-| `huggingface` | HTTP `https://huggingface.co/mcp` | on | none |
-| `serena` | stdio `uvx -p 3.13 --from serena-agent==2.1.0 serena start-mcp-server --context claude-code --project-from-cwd`, dashboard off, telemetry off; project config `.serena/project.yml` (tool interface, no onboarding, no memories) | **off** | none |
-| `playwright` | stdio `npx -y @playwright/mcp@0.0.84 --browser msedge --headless --isolated --output-dir artifacts/playwright` | **off** | none |
-| `mlflow` | stdio `uv run --locked mlflow mcp run` (read tools only) | **off** | none |
-
-`.claude/settings.json` denies the MLflow write tools and Playwright `browser_run_code_unsafe`.
-
-**Per-clone setup (once).**
-1. Open a session in the repo. In `/mcp`, select `serena`, `playwright` and `mlflow` and
-   choose *Disable*. Claude Code stores this per project in `~/.claude.json`
-   (`projects.<path>.disabledMcpServers`). Until then the three local servers start with
-   every session.
-2. Optional, for `github`: create a fine-grained PAT (repository `Nusultan11/SupportPilot`,
-   or public repos only; permissions read-only: Metadata, Contents, Issues, Pull requests,
-   Actions), then set it as a user env var and restart the app:
-   ```powershell
-   [Environment]::SetEnvironmentVariable("GITHUB_MCP_PAT", "<token>", "User")
-   ```
-   Without it `github` fails with HTTP 400/401 and the other servers are unaffected.
-3. Optional keys (higher rate limits) go into local scope, never `.mcp.json`, e.g.
-   `claude mcp add --scope local --transport http context7 https://mcp.context7.com/mcp --header "Authorization: Bearer <key>"`
-   (a local entry with the same name overrides the project one). An empty `Bearer ` header
-   breaks the connection, so the project config carries no optional key.
-
-**On demand.** Enable a local server in `/mcp` for the task that needs it; per the Claude
-Code docs it connects in the running session (not exercised here). Disable it in `/mcp` when done. Ending the session also ends the
-server's process tree. No server is needed by `uv run pytest`, the CLI or any pipeline.
-
-**Check without an agent** (`claude` = the CLI; the desktop copy lives under
-`%LOCALAPPDATA%\Claude-Data\...\claude-code\<version>\`). A plain `claude mcp list` shows
-"Pending approval" because the desktop app approves project servers itself:
-```bash
-claude --settings '{"enableAllProjectMcpServers":true}' mcp list   # health-checks enabled servers
-claude mcp get github                                              # headers and status
-```
-Expected: `context7`, `exa`, `huggingface` "Connected"; `github` "Connected" when
-`GITHUB_MCP_PAT` is set; `serena`, `playwright`, `mlflow` "Disabled for this project", not started.
-
-**Diagnostics.**
-| Symptom | Fix |
-|---|---|
-| `github`: "Authorization header is badly formatted" / 401, warning "Missing environment variables: GITHUB_MCP_PAT" | Set the PAT (step 2) and restart the app |
-| `exa`: 403 | Keyless access needs a direct IPv4 connection; use a key in local scope |
-| `serena` times out on first start | It installs Pyright via uv on first use; start it once in a terminal or set `MCP_TIMEOUT=60000` |
-| `serena` offers onboarding or memories | Check `added_modes` in `.serena/project.yml`; project facts belong in docs, not `.serena/memories` |
-| `playwright`: browser not found | It uses the installed Edge (`--browser msedge`); no `playwright install` needed |
-| A local server keeps running | Disable it in `/mcp` or end the session; `Get-CimInstance Win32_Process` filtered on `serena\|pyright\|playwright` must be empty |
-
-How it was verified (2026-11-12): Claude Code `mcp list` connected `context7`, `exa`,
-`huggingface`, `mlflow` and (token in the process env only) `github`; it reported the
-disabled servers without starting them. A fastmcp client started each server exactly as
-declared and ran one safe call: `context7` `resolve-library-id` (polars), `exa`
-`web_search_exa` (Qdrant hybrid search docs), `github` `list_commits` on this repo,
-`serena` `find_referencing_symbols` for `find_project_root`, `playwright` `browser_navigate`
-to an inline `data:` page. After each stdio probe no `serena`, `pyright` or `playwright`
-process was left.
-
-## 5. Code backup (git bundle): verified Stage 0, new location verified Stage 2
-
-Location: `backups/code/` in the project root (git-ignored, ADR-013).
-
-Create:
-```bash
-BK=/c/Users/nurs/SupportPilot/backups/code; mkdir -p "$BK"
-TS=$(date -u +%Y%m%dT%H%M%SZ); F="$BK/supportpilot-$TS.bundle"
-git -C /c/Users/nurs/SupportPilot bundle create "$F" --all
-git bundle verify "$F" && (cd "$BK" && sha256sum "$(basename "$F")" > "$(basename "$F").sha256")
-```
-
-Restore into a new directory, never over the live repo:
-```bash
-cd /c/Users/nurs/SupportPilot/backups/code && sha256sum -c supportpilot-<TS>.bundle.sha256
-git clone -b main supportpilot-<TS>.bundle /c/Users/nurs/SupportPilot-restore
-```
-
-Retention: keep the 10 newest bundles plus the stage-end bundles listed in PROGRESS.md, and
-delete others by hand. `main` is also pushed to GitHub, which is an off-machine copy.
-
-## 6. Data and model snapshots (verified Stage 1)
-
-Root: `backup.root` = `backups` (= `<project>/backups/`). A root inside the repo is refused
-unless git confirms it is ignored, so snapshots can never be committed to the public remote.
-Layout: `<root>/<data|model>/<name>/<snapshot_id>/{archive.tar, manifest.json}`.
-
-```bash
-uv run supportpilot backup create data/raw/bitext --name bitext_raw --kind data [--note "..."] [--pin]
-uv run supportpilot backup list [--kind data] [--name bitext_raw]
-uv run supportpilot backup verify data/bitext_raw/<snapshot_id>          # deep: every file hash
-uv run supportpilot backup verify data/bitext_raw/<snapshot_id> --quick  # archive hash only
-uv run supportpilot backup restore data/bitext_raw/<snapshot_id> --target <new-or-empty-dir>
-uv run supportpilot backup pin data/bitext_raw/<snapshot_id> [--unpin]  # stage-end snapshots
-uv run supportpilot backup prune [--keep 3]        # dry run: lists what would be deleted
-uv run supportpilot backup prune --keep 3 --yes    # deletes; pinned snapshots always stay
-```
-
-Behaviour:
-- Identical content to the newest snapshot of the same name is reused, not duplicated.
-- Restore refuses a non-empty target. Files are verified against the manifest before the
-  directory appears.
-
-Measured on 1 GiB, including ~0.8 s CLI start:
-
-| Operation | Time |
-|---|---|
-| create | 3.8 s |
-| verify (deep) | 2.6 s |
-| verify (quick) | 1.6 s |
-| restore | 3.8 s, byte-identical |
-
-## 7. Source data (verified Stage 2)
-
-The registry is `configs/sources.yaml` (DATA_CONTRACTS §2). Data lives in `data/` and is git-ignored.
-
-```bash
-uv run supportpilot data sources [--status selected]   # registry + acquired/converted state
-uv run supportpilot data acquire --all                 # all status=selected; or name ids
-uv run supportpilot data convert --all [--force]       # raw -> data/interim/records
-uv run supportpilot data verify --all                  # deep sha256 check of raw + records; exit 1 on mismatch
-```
-
-Behaviour:
-- **Re-runs:** acquisition skips verified revisions without any network call. Conversion skips
-  outputs that are still current. `--force` rebuilds and produced byte-identical Parquet in the test.
-- **Interrupted downloads:** run the same command again. Files already complete in
-  `data/raw/<id>/.partial-<rev>/` are re-verified and kept, and incomplete ones resume.
-  Verified with a real `kill -9` during a 70 MB download.
-- **Corrupt raw revision:** `acquire` and `convert` stop with "immutable". Restore that source
-  from its pinned snapshot (below). Never edit files under `data/raw`.
-- **Gated sources** (`kazparc`, `flores_plus`, `kazqad`):
-  1. Accept the terms on huggingface.co.
-  2. Put `HF_TOKEN=...` in `.env` or the environment.
-  3. Set the entry's `status: selected`.
-  4. Add a converter for it.
-
-  The token is never written to the registry or the logs. This path has not been tried (no account).
-
-Timings (2026-11-11): first acquisition of the 5 sources took 31 s (151.5 MB). Conversion of
-99,882 records took 9 s.
-
-Backup after a new acquisition, one pinned snapshot per source:
-```bash
-uv run supportpilot backup create data/raw/<source_id> --name <source_id>_raw --kind data --pin
-uv run supportpilot backup create data/interim/records --name raw_records --kind data
-```
-
-Restore a raw source:
-```bash
-uv run supportpilot backup restore data/<source_id>_raw/<snapshot_id> --target <empty-dir>
-# then move <empty-dir>/<revision> to data/raw/<source_id>/<revision> and run `data verify`
-```
-
-## 7b. Stage 3: cleaning, dedup, gates, EDA (verified Stage 3)
-
-```bash
-uv run supportpilot data clean --all          # clean every selected source, build data/interim/canonical, run gates
-uv run supportpilot data clean --all --force  # rebuild everything (same input -> byte-identical Parquet)
-uv run supportpilot data clean bitext_retail_ecom   # only the per-source clean checkpoint, no build
-uv run supportpilot data gates                # re-run the quality gates on the current build; exit 1 on failure
-uv run supportpilot data eda                  # profile + report -> artifacts/reports/eda/ (downloads 2 Qwen tokenizer.json once)
-uv run supportpilot data eda --no-tokens      # offline: skip token counts
-```
-
-Outputs and their meaning are in DATA_CONTRACTS §4–4d. The configuration lives in
-`configs/base.yaml`:
-- `clean:` has the thresholds (ADR-020/022);
-- `eda:` has the review sample sizes and the pinned tokenizers;
-- `configs/intent_map.yaml` is the draft v0 label map;
-- `configs/placeholders.yaml` is the synthetic slot catalogue.
-
-Behaviour:
-- **Re-runs.** A step is skipped when its inputs, parameters and file hashes are unchanged:
-  clean per source (input records hash + params), build (all clean hashes + params,
-  including the intent-map sha). After a change in `clean.py` / `build.py` logic, bump
-  `CLEAN_VERSION` / `BUILD_VERSION`, or run with `--force`.
-- **Interruption.** Outputs are written to `.partial-*` and swapped in at the end.
-  - Verified with `taskkill /F` twice: once during grouping and once while the partial
-    canonical directory was being written.
-  - Both times the previous build stayed intact, and `data verify --all` and `data gates`
-    passed. A plain re-run skipped everything in 2.8 s.
-  - Any leftover partial is removed on the next run.
-- **Failed gates.** The new build is not swapped in. It is kept at
-  `data/interim/canonical.failed/` (see its `quality_report.json`), the previous build stays
-  in place, and the exit code is 1.
-- **RAM.** The full forced build peaked at 2.84 GiB RSS. `data clean --all` warns when less
-  than 3 GiB is free. Stop Docker/IDE first if RAM is low.
-
-Timings (2026-11-11, full `--force`, 99,882 records):
-
-| Step | Time |
-|---|---|
-| clean bitext_retail / bitext_cs / while-ai / support_json_ru / belebele | 23 / 11 / 78 / 0.7 / 2 s |
-| build (dedup, 7.6M LSH candidates, groups, gates) | ~104 s |
-| eda (incl. two tokenizers over all texts) | ~63 s |
-
-Qualitative review:
-- `data eda` writes deterministic samples to `artifacts/reports/eda/review/<source>.md`
-  (100 random + up to 100 flagged, seed 20261111).
-- The hand-written annotations live in `docs/reviews/stage3_review.yaml` and are rendered
-  into the report.
-- After a change that alters the samples (`review/samples.json`), re-check the annotations;
-  the report shows them by sample id.
-
-Backup after a rebuild:
-```bash
-uv run supportpilot backup create data/interim/clean --name clean_records --kind data
-uv run supportpilot backup create data/interim/canonical --name canonical --kind data --pin --note "stage end"
-uv run supportpilot backup create artifacts/reports/eda --name eda_report --kind data --pin
-```
-
-## 7c. Stage 4: multilingual SFT dataset and gold benchmark (verified Stage 4)
-
-Inputs: the Stage 3 build (`data/interim/canonical/`, read-only), `configs/taxonomy.yaml`
-(taxonomy v1), `configs/locale_kz.yaml`, `authored/` (scenarios, answer templates, training KB,
-gold sources) and `kb_sources/demo_store/facts.yaml`. Settings: `configs/base.yaml` `stage4:`.
-
-```bash
-uv run supportpilot data taxonomy             # validate taxonomy v1, show how labels were split
-uv run supportpilot data select               # v1 relabel + EN backbone + MT queue
-uv run supportpilot data kb-train             # training KB variant (6 stores x 3 languages)
-uv run supportpilot data mt-compare           # MT systems on a 100-item sample -> artifacts/reports/stage4/mt_compare/ (GPU)
-uv run supportpilot data translate --lang kk  # MADLAD-400 en->kk + kk->en back-translation (GPU, resumable)
-uv run supportpilot data translate --lang ru  # en->ru + Opus-MT ru->en back-translation
-uv run supportpilot data qe-score             # QE + glossary -> data/interim/stage4/translated/
-uv run supportpilot data sft                  # select/kb/qe if stale, then SFT -> data/processed/sft/<version>/
-uv run supportpilot data gold                 # gold benchmark -> data/gold/<version>/ (needs the SFT build)
-```
-
-Behaviour:
-- **Models.** `translate`, `mt-compare` and the semantic leakage check download pinned models
-  into the HF cache on first use (MADLAD-400-3B 11.8 GB, Opus-MT 0.3 GB each, M2M100 1.9 GB,
-  multilingual-e5-small 0.5 GB). Afterwards set `HF_HUB_OFFLINE=1`. `--no-semantic` on `sft` /
-  `gold` skips e5 (the lexical and id checks still run).
-- **GPU time.** MADLAD in nf4 uses about 3.4 GB VRAM and translates about 2.5 short texts/s on
-  the RTX 3050 (batch 8, 2 beams). The 7,554-row queue per language takes about 50 min forward
-  plus the back-translation. Close other GPU programs; `nvidia-smi` should show < 300 MiB used.
-- **Interruption.** Translations are cached per 512-row shard
-  (`data/interim/stage4/mt/<system>/<pair>/`). A killed run loses at most one shard; re-run the
-  same command. A finished run re-translates nothing.
-- **Re-runs.** `select`, `kb-train`, `qe-score`, `sft` and `gold` skip when inputs, parameters
-  and file hashes are unchanged; `--force` rebuilds (`sft` reproduces the same
-  `dataset_version` for the same inputs). Outputs are written to `.partial-*` and renamed;
-  leftovers are removed by the next run.
-- **Failed gates.** The SFT or gold build is kept at `<root>/current.failed/` with its
-  `quality_report.json`, and the exit code is 1. A gold leakage hit lists the gold ids
-  (`leakage_items`): preserve `authored/gold/` and diagnose copied SFT inputs. Rebuild SFT
-  with the ADR-029 copy-exclusion policy, then rebuild gold; do not rewrite evaluation
-  questions to accommodate training data.
-- **Long runs that must survive a closed terminal or agent session:** start them detached, e.g.
-  in PowerShell `Start-Process cmd -ArgumentList '/c uv run supportpilot data translate --lang kk > mt.log 2>&1' -WindowStyle Hidden`.
-
-Backup after a stage build:
-```bash
-uv run supportpilot backup create data/interim/stage4 --name stage4_interim --kind data --pin
-uv run supportpilot backup create data/processed/kb_train --name kb_train --kind data --pin
-uv run supportpilot backup create data/processed/sft/<dataset_version> --name sft --kind data --pin
-uv run supportpilot backup create data/gold/<benchmark_version> --name gold --kind data --pin
-```
-
-## 7d. Stage 5: demo-store knowledge base (verified Stage 5)
-
-Inputs: `kb_sources/demo_store/` (`facts.yaml`, `catalog.yaml`, `docs/<doc_id>.yaml`),
-`configs/locale_kz.yaml` (city / carrier / payment names), `authored/gold/` (evidence gate).
-Settings: `configs/base.yaml` `kb:`. Output: `data/kb/demo_store/` (ADR-027, DATA_CONTRACTS §8).
-
-```bash
-uv run supportpilot kb render                  # specs + facts -> data/kb/demo_store/sources/ (30 files)
-uv run supportpilot kb build                   # render, then extract, chunk, gate, activate a new version
-uv run supportpilot kb build --force           # re-parse every document (same content -> "unchanged")
-uv run supportpilot kb validate                # re-run all 13 gates on the current version (exit 1 on failure)
-uv run supportpilot kb validate --version <kb_version>
-uv run supportpilot kb status                  # current version, stored versions, sources_match_current
-uv run supportpilot kb activate <kb_version>   # switch the current version (rollback)
-```
-
-Behaviour:
-- **Updating the KB.** Edit a value in `facts.yaml` / `catalog.yaml` or a text in
-  `docs/<doc_id>.yaml`, then `kb build`. Only the files whose bytes change are re-rendered and
-  re-parsed; `versions/<new>/changes.json` lists the documents changed/added/removed and the
-  chunk ids to delete and upsert (the Stage 6 reindex input). Deleting a spec removes its
-  documents from the next version. Quote YAML values that contain commas (the loader rejects
-  split values).
-- **Identical content** (same chunks, same ground truth) creates no version: the build reports
-  `unchanged`, or `activated_existing` when it matches an older stored version (a reverted
-  edit). The tokenizer is the pinned Qwen3 `tokenizer.json` from the HF cache
-  (`HF_HUB_OFFLINE=1` once cached).
-- **Failed gates.** The version is kept as `versions/<kb_version>.failed/` with its
-  `quality_report.json`, `current.json` is not changed, and the exit code is 1. A source file
-  edited after rendering is refused (`changed after rendering`): run `kb render` again.
-  Extraction errors (scanned PDF page, missing header row, no effective date) exit 2.
-- **Timings (laptop):** render ≈ 2.4 s; full build ≈ 8 s including start-up and the tokenizer;
-  `--force` re-parse of 30 documents 6.4 s, peak RSS 269 MiB; 2.4 MB on disk per version set.
-
-Backup and restore drill:
-```bash
-uv run supportpilot backup create data/kb/demo_store --name kb_demo_store --kind data --pin
-uv run supportpilot backup restore data/kb_demo_store/<snapshot_id> --target <empty-dir>/kb/demo_store
-SUPPORTPILOT_PATHS__DATA_DIR=<empty-dir> uv run supportpilot kb validate   # gates on the restored copy
-```
-A version directory is self-contained (its own copy of the sources), so a restored version
-validates without re-rendering.
-
-## 7e. Multilingual data expansion and retrieval queries (2026-11-12)
-
-The new sources use the same pinned acquire/convert/clean pipeline; source licence evidence
-and attribution are in `configs/sources.yaml`. Existing raw data and MT caches can be reused.
-
-```bash
-uv run supportpilot data acquire mangi_kk_support_qa massive_en_ru
-uv run supportpilot data convert mangi_kk_support_qa massive_en_ru
-uv run supportpilot data clean --all
-uv run supportpilot data verify --all
-uv run supportpilot data native
-uv run supportpilot kb build
-uv run supportpilot data sft
-uv run supportpilot data gold
-uv run supportpilot data retrieval-set
-```
-
-`data sft` refreshes selection/native/training-KB/QE inputs, preserves assigned evaluation
-coverage and excludes copied training inputs, including copies of gold questions. It does
-not silently fill a missing MT cache: resume `data translate --lang ru|kk` as in §7c.
-`--no-semantic` is available for offline diagnostics; it leaves the semantic check
-unverified and is not the evidence for the completed data build.
-
-Retrieval output: `data/benchmarks/retrieval/current.json` identifies the immutable directory
-containing `queries.jsonl`, `qrels.tsv`, `stats.json`, `quality_report.json`, `manifest.json`.
-Each query states its corpus language and KB version. Evaluate with that KB, not with
-arbitrary latest chunks. After KB/SFT changes, rebuild: stale section references, corrupt
-inputs or prohibited overlaps fail without changing the current pointer. No encoder/index
-or RAG experiment is run by this command. Evaluation details: EVALUATION §2.
-
-Snapshot the significant outputs after completion, using §6 verification and restore:
-
-```bash
-uv run supportpilot backup create data/interim/stage4 --name stage4_interim --kind data --pin
-uv run supportpilot backup create data/processed/kb_train --name kb_train --kind data --pin
-uv run supportpilot backup create data/processed/sft/<dataset_version> --name sft --kind data --pin
-uv run supportpilot backup create data/kb/demo_store --name kb_demo_store --kind data --pin
-uv run supportpilot backup create data/benchmarks/retrieval --name retrieval --kind data --pin
-uv run supportpilot backup create data/gold/<benchmark_version> --name gold --kind data --pin
-```
-
-Processed datasets and backups stay git-ignored. Authored YAML sources are versioned in Git;
-do not publish processed datasets under an invented project-wide licence. Review status is
-`draft` for gold/retrieval; fluent human review remains pending. Input-language sample
-evidence and the distinction from historical MT error estimates are in
-`docs/reviews/data_expansion_review.yaml`.
-
-## 8. Diagnostics
-
-| Symptom | Check |
-|---|---|
-| `torch.cuda.is_available()` False | Does `nvidia-smi` work? Did `uv sync` install `+cu126` torch (`uv pip list \| grep torch`)? Was `--no-group gpu` used? |
-| CUDA OOM on 4 GB | Batch size 1, gradient checkpointing, shorter `max_seq_length`, 4-bit; close GPU apps (`nvidia-smi`). The desktop already uses ~0.8 GiB |
-| Docker "cannot connect to npipe" | Start Docker Desktop (`"C:\Program Files\Docker\Docker\Docker Desktop.exe"`), then wait for `docker info` |
-| Qdrant calls take ~2 s each | URL uses `localhost`. Switch to `http://127.0.0.1:6333` |
-| Embedded Qdrant dir cannot be deleted | Windows keeps `storage.sqlite` locked while the process lives. Exit the process first |
-| `config error: ...` from the CLI | Unknown key or bad value in YAML/env. `extra="forbid"` names the field |
-| pre-commit "mixed line ending" | A tool wrote CRLF. The hook fixes it, so re-stage and commit again |
-| `data acquire`: "is gated" | Needs `HF_TOKEN` from an account that accepted the dataset's terms |
-| `data acquire`: "fails verification ... immutable" | A raw file changed on disk. Restore from the pinned snapshot (§7) |
-| `data convert`: "rows rejected (> 1.00%)" | Upstream format changed. Inspect `rejected` reasons, then fix the converter and bump its version |
-| Console shows `?` instead of Kazakh letters | Windows code page. Set `PYTHONIOENCODING=utf-8` for ad-hoc scripts |
-| `data clean --all`: "quality gates failed" | Open `data/interim/canonical.failed/quality_report.json`, fix the cause, re-run. The previous build is untouched |
-| `data clean`: "not cleaned yet" / "fails verification" | Run `data clean --all` (rebuilds checkpoints); for records problems run `data verify --all` and re-convert |
-| `data clean` re-runs although nothing changed | `configs/placeholders.yaml`, `intent_map.yaml`, `clean:` params or the lingua version changed. This is expected |
-| `data eda`: tokenizer download fails or sha256 mismatch | Offline or upstream changed: use `--no-tokens`, or re-pin `eda.tokenizers` after checking the new revision |
-| HF warning "cache-system uses symlinks" | Harmless on Windows. Set `HF_HUB_DISABLE_SYMLINKS_WARNING=1` |
-| `data/interim/.partial-*` directories exist | A run was killed. The next run of the same step removes them |
-| `data translate` very slow, `nvidia-smi` near 4 GB | VRAM spills into shared memory. Close GPU apps; keep MADLAD `batch_size` at 8 in `stage4.mt_systems` |
-| `data sft`: "translations missing" | Run `data translate --lang <ru|kk>` until it reports `translated: 0` |
-| `data gold` fails `leakage` | Keep gold unchanged. Rebuild SFT with copy exclusion; diagnose remaining SFT inputs using `current.failed/quality_report.json` |
-
-## 9. Retrieval and experiments (verified Stage 6, ADR-030)
-
-Start Docker Desktop, wait for `docker info`, then `docker compose up -d qdrant`.
-`docker desktop start --detach` was also verified on this Windows installation.
-The selected defaults are in `configs/base.yaml`: BGE-M3, word sparse, weighted .75,
-20 candidates/channel, BGE rerank 20, output up to 10 and context 1024 Qwen tokens.
-Model revisions/licences and pooling/prefixes are pinned in `configs/retrieval_models.yaml`.
-
-Commands below were run in PowerShell (UTF-8 is needed for redirected KK text):
-
-```powershell
-$env:PYTHONUTF8='1'
-uv sync --locked
-uv run --locked supportpilot retrieval index
-uv run --locked supportpilot retrieval query 'Алматыға жеткізу қанша тұрады?' --lang ru --budget 1024 --as-of 2026-11-12
-uv run --locked supportpilot retrieval query 'Доставка' --lang kk --doc-id missing-document --as-of 2026-11-12
-```
-
-`--lang` filters the **corpus**, independently of query language (the first example is
-KK input / RU evidence). Omit it to search all KB languages. `--doc-id`/`--doc-type`
-are repeatable. `--as-of` is inclusive; serving defaults to today's date, experiments
-pin `retrieval.evaluation_date`. CLI returns JSON evidence with original locators,
-scores, KB/index versions, token budget and `abstain/reason`. Empty document filter
-returned zero tokens/evidence and `no_retrieval_evidence`. `--budget 0` rejects all
-evidence; fragments are never cut to fit. Retrieval does not generate store answers.
-
-Library (the equivalent persistent-model API was used for all 681 online requests):
-
-```python
-from supportpilot.common.config import load_settings
-from supportpilot.retrieval import SearchFilters, open_retriever
-
-with open_retriever(load_settings()) as retrieval:
-    context = retrieval.context(
-        "Алматыға жеткізу қанша тұрады?",
-        filters=SearchFilters(corpus_lang="ru"),
-        budget=1024,
-    )
-```
-
-Resume/index versions:
-
-- Re-run `retrieval index` after interruption. Checksummed embeddings are committed in
-  batches; Qdrant inventory supplies the remaining upserts/deletes. OS locks release on
-  process death. Do not remove persistent `.lock` files or SQLite caches to recover.
-- KB activation and retrieval synchronisation are separate. After `kb activate <version>`,
-  run `retrieval index` before serving; queries fail closed until they agree. To roll back,
-  activate the previous verified KB and run the same index command. Cached immutable
-  snapshots avoid re-encoding unchanged text. The activate command itself is Stage 5;
-  Stage 6 tested real parent/current index transitions without changing the active KB pointer.
-- `retrieval index --kb-version <version>` materialises an explicit version; it does not
-  activate the KB. Queries still require agreement with active KB. Never serve a mismatched
-  collection or clear the live collection as a recovery shortcut.
-- A matching parent validates `changes.json`; other transitions use exact inventories.
-  Selected forward update: 90 deletes/171 upserts/198 vectors retained; rerun 0/0.
-  Global sparse IDF is unsuitable after these transitions: preserve the implemented
-  KB-scoped IDF query settings (requires the pinned Qdrant 1.20 feature).
-
-Experiment stages were verified individually; all reuse existing checkpoints where valid:
-
-```powershell
-# After a successful first download; omit this on a cold cache:
-$env:HF_HUB_OFFLINE='1'
-uv run --locked supportpilot retrieval experiment --stage prepare
-uv run --locked supportpilot retrieval experiment --stage compare
-uv run --locked supportpilot retrieval experiment --stage batch
-uv run --locked supportpilot retrieval experiment --stage rerank
-uv run --locked supportpilot retrieval experiment --stage report
-uv run --locked supportpilot retrieval experiment --stage profile
-uv run --locked supportpilot retrieval experiment --stage drill
-```
-
-Cold execution downloads pinned public weights; it does not need remote inference or
-paid API credentials. The gated Gemma candidate was only screened, not downloaded.
-HF cache completeness is checked against actual weight files (BGE-M3 uses `.bin` at its
-pinned revision); a config-only snapshot is not a usable offline model. Clear the
-offline env flag for a missing download. Model changes produce a separate recipe/cache.
-
-Reranking all 13,620 pairs is substantially slower with Qwen; interrupted committed
-batches resume. Qwen batch 4 is retained: measured 4/8/16 pair throughput 4.87/4.88/4.41 s^-1.
-Do not run concurrent model jobs during measurement. `profile` runs all 681 queries
-through the public API without query/pair caches and measures the packed context.
-All results remain conditional on draft qrels. A confidence-rule amendment followed
-an initial holdout inspection; later holdout results are exploratory. No gold tuning.
-
-Read `artifacts/reports/retrieval/comparison.md`, `summary.json`, per-configuration
-`metrics.json`/`observations.json`, `online_context_metrics.json`, `performance.json`,
-`context_audit.json`, `indexing_upload.json`, `error_analysis.md`, `mlflow_audit.json`.
-The scripts `error_analysis.py`, `context_audit.py`, `measure_index_upload.py` in that
-backed-up report directory reproduce the detailed diagnostic census and isolated upload
-measurement; they are analysis artifacts, not runtime dependencies. MLflow experiment
-`supportpilot/retrieval` contains 96 audited current comparison runs and nine retained
-failed attempts, as well as preparation/probe/profile runs and superseded measurements.
-
-Measured laptop profile: warm p50/p95 297/841 ms, 2.18 sequential requests/s; cold first
-request 16.93 s. Python peak RSS 4.80 GiB, PyTorch allocated/reserved VRAM 2.145/2.174 GiB.
-These exclude Docker/desktop memory. Document encoding 40.37 units/s; portable selected
-index files 2,123,262 bytes, snapshot 7,687,680 bytes. Larger/multi-user workloads and
-simultaneous LLM residency are unverified. Earlier short samples were faster; use the
-681-query result for planning. Keep models alive between requests; CLI startup is cold.
-
-**Evidence limit:** score gating is disabled by default because all tested positive
-thresholds violate the cross-language recall guard. `evidence_threshold` optionally
-rejects a whole query by maximum reranker score; `min_rerank_score` instead prunes
-individual chunks. Do not transfer either threshold to a different model. When disabling
-the reranker, also disable its thresholds. Default top-k returns candidates for all 48
-unanswerable benchmark queries; it cannot prove a missing policy or live order fact.
-Future routing/claim grounding is required before customer-facing answers. `draft`
-judgements and a six-query RU–KK slice do not establish production readiness.
-
-Back up `data/indexes/`, `artifacts/reports/retrieval/` and `mlruns/` with §6 after all
-writers finish. Deep-verify each pinned snapshot. `experiment --stage drill` verifies
-the saved snapshot hash, uploads the local file into a separate collection and compares
-all payloads/named vectors plus six dense/sparse queries. Reruns verify the receipt;
-they do not reset the serving collection. Restoring the backup archive to a new empty
-directory also verifies files before publication. Stage-end IDs and code bundles are
-in PROGRESS.md. Keep earlier failed/superseded artifacts and never prune pinned backups.
-
-Stage-end restore receipts: 84 index/cache files (10 immutable indexes, six SQLite
-integrity checks), 557 report files (556 manifest members), 1,926 MLflow files (SQLite
-integrity plus FINISHED delivery run). Restores live under `artifacts/restore_drills/`;
-snapshot IDs and the separate code bundle are in PROGRESS.md. The frozen report's
-`manifest.json` is a standard `DatasetManifest` with `retrieval_report/1`; delivery
-source fingerprints refer to implementation commit `326d223`. Publication receipts
-are outside that frozen directory at `artifacts/reports/retrieval_delivery_receipt.json`.
-
-## 16. Large-scale retrieval and serving rollback
-
-Verified phase commands; immutable selection and holdout must never be retuned in place:
-
-```powershell
-$env:HF_HUB_OFFLINE='1'
-$cohort='data/benchmarks/retrieval_scale/6fab32c16b3a6e05b29f'
-uv run --locked supportpilot retrieval scale --stage author
-uv run --locked supportpilot retrieval scale --stage audit --semantic --kb-version kb_demo_store-20261113-f3b204a6
-uv run --locked supportpilot retrieval scale --stage freeze --semantic --kb-version kb_demo_store-20261113-f3b204a6
-uv run --locked supportpilot retrieval scale --stage development --frozen $cohort
-uv run --locked supportpilot retrieval scale --stage holdout --frozen $cohort
-uv run --locked supportpilot retrieval scale --stage profile --frozen $cohort
-uv run --locked supportpilot retrieval scale --stage recovery --frozen $cohort --restore-root artifacts/restore_drills/stage6_scale_runtime
-uv run --locked supportpilot retrieval scale --stage diagnostic --frozen $cohort
-uv run --locked supportpilot retrieval scale --stage report --frozen $cohort
-uv run --locked supportpilot retrieval scale --stage load --count 100000
-uv run --locked supportpilot retrieval scale --stage update-drill
-```
-
-Recovery requires verified KB/index restores under that isolated runtime/restore namespace.
-Check local attempts and terminal MLflow FINISHED. Candidate checkpoints reject changed
-code/query/index/filter hashes. No modification of frozen files to force resume. Random
-load/update collections are isolated from serving. Diagnostic is development-only.
-
-Current serving: activate expanded KB and set retrieval.namespace to
-`scale_6fab32c16b3a6e05b29f`. Ranking defaults are unchanged. Original complete config is
-`artifacts/reports/retrieval_scale/6fab32c16b3a6e05b29f/serving/baseline_config.yaml`.
-Rollback: activate `kb_demo_store-20261112-d58e3f93`, then use global `--config` pointing
-to that preserved file; it addresses the baseline index. Restore expanded active KB before
-using current config. Real rollback and final active identity are in
-`serving/activation_rollback.json`. Never delete either collection.
-
-Read quantitative comparison, family sensitivity, source-traced errors and resource-scope
-audit together. No certified fluency or semantic abstention claim. After all writers close,
-back up KB, benchmarks (primary and diagnostic), indexes, scale cache, load, reports and
-MLflow (§6). Deep-verify and restore, check restored SQLite integrity, bundle code (§5).
-Preserve partial attempts; snapshot identities and completion status live in PROGRESS.
+Compare submitted/downloaded source, private metadata/input identity and every result checksum
+with llm.results.verify_kernel_source/verify_results before import_results.
+Preserve partial/earlier archives; resume downloads in exact disjoint groups against the checksum
+manifest. Keep download receipts outside checksummed results directories.
+Remote execution provenance differs from local importer environment/Git metadata.
+
+The CLI has no cancel command. SDK cancellation takes kernel_session_id, not kernel ID.
+Resolve exact-version owner/slug/version through download_kernel_output and retain its proven
+session mapping. Download URLs may later redirect to object storage; use the verified session
+mapping with download_kernel_output_zip rather than guessing numeric IDs from a GCS URL.
+Before cancelling any own queued task, recheck status and output inventory; preserve observations.
+Retain CANCEL_ACKNOWLEDGED and empty archive hash. No notebook/Dataset deletion is needed.
+
+Payload packaging refuses changed bytes at an existing destination; identical replay preserves it.
+Export a verified immutable inference adapter first, exclude training pickle, retain raw checkpoints.
+A mounted Dataset may expand payload.zip; bootstrap verifies either layout's manifest.
+One GPU per subprocess avoids TRL DataParallel mismatch. Checkpoint resume requires the original
+runtime/config/input binding; increased steps are a distinct run. Sealed prompts/adapters do not
+change during retry or housekeeping. Current job/helpers are listed only in PROGRESS.
+
+## 17. Safe maintenance
+
+1. Inventory tracked/untracked/ignored files, per-directory bytes/counts, active jobs and recovery
+   dependencies. Keep a local cleanup plan/receipt under artifacts/reports/maintenance.
+2. Protect immutable raw/dataset/KB/index/model/checkpoint/benchmark outputs, MLflow, seals,
+   active environments, needed model caches and Qdrant volume. Never modify checksums to hide drift.
+3. Remove proven disposable Python/tool caches and finished test work. Never blanket-delete
+   .partial files, lock files, ignored directories or all files matched by an extension.
+4. A restore-drill tree is disposable only after matching retained backup files/hashes and deep
+   archive verification (or a clean cloned HEAD with a verified bundle). Preserve proof/receipts.
+   If unique/mismatched, keep it until its purpose is established.
+5. Use one shell and literal resolved targets; verify each recursive target stays inside its
+   intended workspace directory. Reject symlinks/junctions. Do not delete backups without separate
+   owner permission, regardless of age, retention or successful drills.
+6. Report logical removed-file bytes/counts separately from observed free-disk change.
+   Concurrent system writes, allocation and hardlinks can make them differ.
+7. Run applicable/full checks, verify frozen identities/operational health, clear disposable test
+   work created by validation, update the owning docs and publish source/docs only.
+
+Keep one canonical maintenance summary and machine-readable evidence; don't copy deletion logs
+into PROGRESS. Remove temporary debug helpers when no longer needed; retain a small reproducer
+only when needed to audit/repeat a meaningful operation. AGENTS §7 owns general lifecycle rules.

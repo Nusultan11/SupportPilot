@@ -1,152 +1,144 @@
-# AGENTS.md — rules for every AI agent working on SupportPilot
+# AGENTS.md — SupportPilot agent rules
 
-This is the **only** canonical instruction file. Tool-specific files (e.g. `CLAUDE.md`)
-may only point here. Do not copy these rules elsewhere.
+This is the only canonical instruction file. Tool-specific files may only reference it.
+Write documentation, code and commits in English; communicate with the owner in Russian.
 
-## 1. Project in one paragraph
+## 1. Scope
 
-SupportPilot is a domain-limited AI assistant for an online store's customer support in
-Russian, Kazakh and English (incl. RU–KK code-switching). Store policies and FAQ come from
-RAG over business documents; orders, stock and payments come from separate (mock) APIs;
-fine-tuning (LoRA/QLoRA) improves behaviour only (language, instruction following, intent,
-JSON, grounding, abstention, escalation), never facts. Details: [docs/PROJECT.md](docs/PROJECT.md).
+SupportPilot is a fictional-store support assistant for RU, KK, EN and mixed RU–KK.
+Policies come from versioned KB evidence; orders, stock and payments come from tools.
+Fine-tuning changes behaviour, never store facts. Requirements: [PROJECT](docs/PROJECT.md).
 
 ## 2. Hard constraints
 
-- Never invent policies, prices, order/payment statuses or customer data. No evidence → abstain or escalate.
-- Answer in the user's language; KK quality is evaluated separately, never averaged away.
-- Facts that change live in the KB or tool APIs, not in model weights.
-- Real customer PII is never collected. Demo customers/orders are synthetic.
-- Use only data whose licence permits our use; record it in the source registry.
-- Hardware: RTX 3050 Laptop 4 GB VRAM, 15.4 GB RAM, Windows 11. Larger training goes to Kaggle/Colab; never assume free GPU quota.
-- No new service, framework or abstraction without a measured need (see §7).
+- No evidence → abstain or escalate. Never invent policies, prices, live state or customer data.
+- Reply in the user's language. Report KK and mixed-language quality separately.
+- Use synthetic customers/orders only. Keep secrets in environment or ignored local files.
+- Check source licences and usage policy in `configs/sources.yaml`.
+- Preserve train/validation/test/gold isolation; select on development only.
+- JSON validity, citation membership and number matching do not prove semantic support.
+  Unmeasured results are UNKNOWN/NOT_EVALUATED; failed and partial attempts stay recorded.
+- Hardware: Windows 11, RTX 3050 Laptop 4 GB, about 15.4 GB RAM. Larger jobs use authorized
+  free cloud compute; verify quota and assignment. Costs require owner approval.
+- Add a dependency, service or abstraction only for a measured need.
 
-## 3. Where things are
+## 3. Documentation ownership
 
-| Path | Purpose |
+| Question | Authoritative source |
 |---|---|
-| `docs/PROGRESS.md` | **Current state. Read first.** The only doc describing status. |
-| `docs/ROADMAP.md` | Stages, sub-tasks, definitions of done |
-| `docs/PROJECT.md` | Product goal, scope, requirements |
-| `docs/ARCHITECTURE.md` | Components, data flow, interfaces, scaling |
-| `docs/DATA_CONTRACTS.md` | Schemas, IDs, language codes, versioning, validation |
-| `docs/EVALUATION.md` | Datasets, metrics, experiment protocol |
-| `docs/DECISIONS.md` | ADRs: chosen option, alternatives, revisit conditions |
-| `docs/RUNBOOK.md` | Verified commands: setup, run, backup, restore, diagnostics |
-| `src/supportpilot/` | Python package: `common/` (foundation), `ops/` (env, backup, checks), `data/` (Stages 2–4), `kb/` (Stage 5 KB), `cli.py` |
-| `configs/base.yaml` | Default settings; override via `SUPPORTPILOT_<SECTION>__<KEY>` |
-| `configs/intent_map.yaml`, `configs/placeholders.yaml` | Draft v0 label map (ADR-021), synthetic slot catalogue (ADR-020) |
-| `configs/taxonomy.yaml`, `configs/locale_kz.yaml` | Intent taxonomy v1 + source mapping (ADR-023), Kazakhstan localisation catalogue (ADR-024) |
-| `authored/` | LLM-agent-authored content (Stage 4): native scenarios, answer templates, training KB variant, gold sources. Labelled `llm_generated`; human review pending |
-| `kb_sources/` | Demo-store KB sources: `demo_store/facts.yaml` (policy values), `catalog.yaml` (products, zones), `docs/<doc_id>.yaml` (document specs, RU/KK/EN). Rendered and versioned KB: `data/kb/demo_store/` (ADR-027) |
-| `docs/reviews/` | Qualitative reviews (Stage 3: `stage3_review.yaml`; Stage 4: `stage4_mt_review.yaml`, `stage4_sft_review.yaml`). LLM reviews are labelled as such |
-| `tests/unit`, `tests/integration` | pytest suites (markers: `slow`, `gpu`, `qdrant_server`) |
-| `compose.yaml` | Local services (Qdrant) |
-| `.mcp.json`, `.claude/settings.json`, `.serena/project.yml` | Agent dev-tool MCP servers (not runtime): usage rules in §12; setup RUNBOOK §4a; ADR-012 |
-| `apps/` | UI (created in Stage 8) |
-| `data/`, `artifacts/`, `mlruns/` | Local only, git-ignored |
+| Current status, blockers, next action | [PROGRESS](docs/PROGRESS.md) |
+| Stages, dependencies, acceptance | [ROADMAP](docs/ROADMAP.md) |
+| Product requirements | [PROJECT](docs/PROJECT.md) |
+| Implemented components and target integration | [ARCHITECTURE](docs/ARCHITECTURE.md) |
+| Schemas, identities, invariants | [DATA_CONTRACTS](docs/DATA_CONTRACTS.md) |
+| Metrics and experiment rules | [EVALUATION](docs/EVALUATION.md) |
+| Decisions, alternatives, revisit conditions | [DECISIONS](docs/DECISIONS.md) |
+| Verified operational commands | [RUNBOOK](docs/RUNBOOK.md) |
+| Experiment interpretation and reviews | `docs/reviews/`; raw evidence in local artifacts/MLflow |
 
-## 4. Task procedure (one large stage per work cycle)
+Update the owning document when behaviour changes; link to it elsewhere.
+Do not copy inventories, commands, rules or results across documents.
+PROGRESS is a current handoff, never a transcript of commands, retries or commits.
+Keep only conclusions needed to continue, evidence locations, limitations and the next action.
+Do not create a new document/report without a concrete reader, purpose and canonical location.
+Keep original protocols, authored review records and frozen evidence unchanged.
 
-1. Read `AGENTS.md` → `docs/PROGRESS.md` → the stage in `docs/ROADMAP.md` → only the docs/files you need.
-2. Check the real state (`git log`, `git status`, code). If it contradicts PROGRESS.md, fix the doc.
-3. Research alternatives for non-trivial decisions (official docs, model/dataset cards, papers); compare ≥2 real options.
-4. Write the plan, implement all sub-tasks of the stage, test, fix, self-review.
-5. Back up significant results (RUNBOOK §3–4), update PROGRESS.md (+ DECISIONS.md if a decision was made), commit.
-6. Report in the format of ROADMAP §Report. Then **stop and wait for user confirmation** before the next stage.
+## 4. Task procedure
 
-Ask the user only for: costs, external accounts/credentials, irreversible deletion of important resources, changes to agreed goals.
+1. Read this file → PROGRESS → the relevant ROADMAP scope → only necessary specifications/code.
+2. Check Git and actual artifacts. Resolve discrepancies before relying on a status claim.
+3. For significant choices, compare real alternatives, costs, risks, verification and rollback;
+   record durable architectural changes as an ADR. Do not reopen accepted decisions without evidence.
+4. State a plan, implement the authorized scope, verify, fix and review the final diff.
+5. Back up significant results and verify restoration (RUNBOOK §§5–6), update the owning docs,
+   commit and push. Maintenance is a separate task, not a new product stage.
+6. Report evidence, limitations and completion status using ROADMAP's report format.
+   Stop before the next development stage until the owner authorizes it.
 
-## 5. Commands
+Ask only for costs, missing accounts/credentials, irreversible deletion of important
+resources, or changes to agreed goals. Existing task authorization covers routine fixes/retries.
 
-Standard checks. RUNBOOK §2–4 is the authoritative, verified list.
+## 5. Verification
 
-```bash
-uv sync --locked                                   # reproduce the locked env (incl. CUDA torch)
-uv run pre-commit install                          # once per clone
-uv run ruff check . && uv run ruff format --check .
-uv run mypy                                        # strict, src + tests
-uv run pytest -q                                   # full suite; start Qdrant first (below)
-docker compose up -d qdrant                        # Qdrant server for qdrant_server tests
-```
+Use [RUNBOOK §3](docs/RUNBOOK.md#3-quality-checks) for exact commands:
+Ruff check and format, strict mypy, full pytest, plus applicable GPU/Qdrant integration.
+A skipped check is unverified. Pre-commit's fast subset does not replace the full suite.
+Run checks appropriate to changed behaviour; do not add tests that only mirror a harmless edit.
 
-A stage is not done while any of these fail. A *skipped* `qdrant_server` or `gpu` test means
-the check did not run, so report it as unverified. Operational CLI: `uv run supportpilot --help`
-(`env`, `backup`, `check`, `data`; Stage 3: `data clean --all`, `data gates`, `data eda`;
-Stage 4: `data select|native|kb-train|mt-compare|translate|qe-score|sft|gold|retrieval-set|taxonomy`;
-Stage 5: `kb render|build|validate|status|activate`).
+## 6. Code and files
 
-## 6. Code and data standards
+- Python 3.12, uv/lockfile, src layout, typed public interfaces, Pydantic boundaries.
+- Keep business logic in domain modules; UI/API handlers only orchestrate.
+- YAML configuration + `SUPPORTPILOT_<SECTION>__<KEY>`; no secrets in Git.
+- Batched/streaming pipelines, atomic publication, idempotency and checkpointed expensive work.
+- Raw revisions and published datasets/indexes/models are immutable and manifest-verified.
+- Split by scenario/paraphrase family; never random rows across related examples.
+- Cover transforms with unit tests, pipelines with integration tests, and LLM boundaries with
+  schema/language/refusal/injection/escalation cases.
+- One canonical working path per artifact; identities belong in manifests/version directories.
+  Do not create ad-hoc `new/old/fixed/corrected/final/v2` copies. Preserve externally assigned
+  experiment versions and already-sealed paths; never rename them during housekeeping.
+- No root-level temporary files, dead code or notebooks as runtime source of truth.
 
-- Python 3.12, `uv`, src layout, type hints on public functions, Pydantic models at boundaries.
-- Small modules by responsibility (data / kb / retrieval / llm / routing / tools / api / eval). No business logic in UI or API handlers.
-- Config in `configs/*.yaml` + env vars; secrets only in `.env` (git-ignored).
-- Pipelines are idempotent, streaming/batched (Polars lazy, Parquet), restartable from checkpoints.
-- Raw data is immutable; every derived dataset has a manifest (source versions, code commit, row counts, sha256). See DATA_CONTRACTS.
-- Splits are by `scenario_id` / paraphrase family, never by row. Gold benchmark never touches training or tuning.
-- Tests: unit tests for every transform; integration tests per pipeline; LLM tests for schema, language, refusal, injection, escalation.
-- One canonical path per artifact. Forbidden name suffixes: `final`, `new`, `old`, `fixed`, `corrected`, `v1/v2/...`. History lives in Git or data snapshots.
-- No dead code, no root-level temp files, no notebooks as the source of truth (EDA output goes to `artifacts/reports/`).
+## 7. Artifact lifecycle and cleanup
 
-## 7. Decision rule
-
-Before a significant change answer: what problem, is it proven by data/tests, alternatives,
-cost, risks, how verified, how rolled back, does it break contracts, is it needless complexity.
-Hard-to-reverse choices go to DECISIONS.md. Do not reopen a closed ADR without new evidence.
+- Store datasets/KB/indexes under `data/`, models under `artifacts/models/`,
+  experiment payloads/results under `artifacts/kaggle/`, reports under `artifacts/reports/`,
+  tracking under `mlruns/`, backups under `backups/`.
+- Put disposable work under artifacts/tmp in a task subdirectory. Tests that initialize or
+  inspect Git repositories need an isolated system-temp directory outside this checkout;
+  otherwise Git may discover the parent repository. Record and remove only task-owned paths
+  after verification, preserving required failure evidence.
+- Keep raw predictions, manifests, checksums, selected models/checkpoints, negative attempts
+  and decision evidence. Link detailed history instead of copying it into operational docs.
+- Before cleanup, inventory tracked/untracked/ignored paths and identify active writers,
+  frozen inputs and recovery dependencies. Record candidate paths, reasons and before/after sizes.
+- Delete only proven disposable caches, test fixtures or exact redundant restore copies.
+  For restore copies, verify the retained backup and matching bytes first; retain the restore receipt.
+  Resolve every recursive-delete target inside its named workspace directory; reject links/escapes.
+- Never run blanket `git clean -xfd`, remove environments/model caches blindly, clear Qdrant
+  volumes, alter seals/checksums or delete resumable partial work. Follow the owning pipeline.
+- Remove a temporary file when its task ends; do not keep multiple full restore trees per checkpoint.
+  Cleanup rules must preserve reproducibility, not optimize file counts.
 
 ## 8. Git
 
-- Work on `main` only (project rule; no feature branches unless the user changes it).
-- Commit after each stage; verified intermediate commits allowed. Conventional prefixes:
-  `docs:`, `data:`, `kb:`, `rag:`, `ml:`, `eval:`, `api:`, `ui:`, `ops:`, `test:`. No `fix`/`update` one-word messages.
-- Before committing: review `git diff`, run checks, confirm no secrets, datasets, weights or files > 5 MB.
-- Remote `origin` (https://github.com/Nusultan11/SupportPilot) is **public**. Push `main` after each stage, and never push data, models or anything private.
+Work on `main` only. Conventional commits: `docs:`, `data:`, `kb:`, `rag:`, `ml:`,
+`eval:`, `api:`, `ui:`, `ops:`, `test:` (optional scope).
+Review staged paths/diff, checks, secrets and the 5 MB file limit before committing.
+`origin` is public: https://github.com/Nusultan11/SupportPilot.
+Push authorized completed work to `origin/main`; never publish local data/models/tracking/backups.
 
-## 9. Experiments and backups
+## 9. Tracking and backups
 
-- Every experiment is logged in MLflow with: hypothesis, control, changed params, data version, model, seed, env, metrics per language, cost, conclusion. Protocol: EVALUATION.md.
-- Backups live in `backups/` at the project root (`code/` bundles, `data/` snapshots). It is git-ignored and must stay so: never commit or push it, and never delete it without the owner's OK. They have sha256 manifests and bounded retention (RUNBOOK §5–6, ADR-013). Back up before destructive operations, after each stage, and after expensive datasets/models.
+Log experiments with provenance, control, changed parameters, seed, environment, per-language
+metrics, resource/cost scope and conclusion (EVALUATION).
+Backups are ignored, SHA256-verified and restore-tested (RUNBOOK §§5–6; ADR-013/017).
+**Never delete any backup without separate owner permission**, including pruning.
+Retention settings describe eligibility, not permission to delete. Keep pinned stage evidence.
+Code on GitHub does not back up private data; same-disk snapshots do not protect against disk loss.
 
-## 10. Definition of done for a stage
+## 10. Completion
 
-All ROADMAP DoD items met with evidence; checks green; docs updated (PROGRESS always);
-backup taken; commit created; report delivered. Unverifiable items are stated as unverified, never as passed.
+Meet the authorized acceptance criteria with evidence; checks green, docs accurate,
+significant results backed up/restored, commit pushed. Explicitly identify anything unverified.
+A submitted/running cloud job or live log is not a completed experiment.
 
-## 11. Handing over to another agent
+## 11. Continuation and active jobs
 
-Everything needed to continue must be in PROGRESS.md (state, artifacts, open issues, next action)
-and DECISIONS.md — not in chat history. Subagents only for independent tasks; integrate and verify centrally.
-Project skills / MCP servers are added only for repeatable processes with proven value (see DECISIONS ADR-012).
+Keep enough in PROGRESS to resume without chat history: exact job/version, frozen identity,
+canonical evidence paths, verified latest state, unresolved work and next action.
+Preserve existing jobs; recheck status before submitting a retry. An API/authentication failure
+means status UNKNOWN, not remote execution failure. Do not tune from held-out outcomes.
+Use subagents only for authorized independent work; integrate and verify centrally.
 
-## 12. MCP servers: on demand only
+## 12. Agent tools
 
-MCP servers are agent dev tools, never SupportPilot runtime: no `src/` code, config or
-dependency may require them. Setup, toggling, diagnostics: RUNBOOK §4a. Rationale: ADR-012.
-
-- **Built-in tools first.** Reading a file, grep/glob, a local `git` command, running tests or
-  `gh` already answer most questions. Use an MCP server only when it gives what they cannot.
-- **Never activate or call every server by default** on a task, and never call one "just to
-  check". Pick the one server the current step needs; most tasks need none.
-- Tool schemas load lazily (tool search). Remote servers start no local process; local
-  stdio servers (`serena`, `playwright`, `mlflow`) are **off by default**. When a step truly
-  needs one, ask the owner to enable it in `/mcp` (one toggle; per the client docs it
-  connects in the running session), and ask to switch it off when the task ends. Agents do
-  not edit client state files to toggle servers.
-
-| Server | Use it for | Do not use it for |
-|---|---|---|
-| `context7` (remote) | Current docs of a library/API when the version matters, behaviour is unclear, or an upgrade breaks something | Trivial or well-known calls; facts already in our code or docs |
-| `serena` (local, off) | Symbol-level work across many files: definitions, references, dependency analysis, precise symbol edits or renames | Reading or editing one known file (use Read/Edit/Grep) |
-| `github` (remote, read-only) | GitHub API data: issues, PRs, CI runs and logs, remote history, repo metadata | Local history, diffs, status (use `git`). Writes go through `gh` only when the task explicitly asks for them |
-| `playwright` (local, off) | Browser tests of the UI: user flows, forms, navigation, integration checks | Anything before the Stage 8 UI exists; general web reading |
-| `exa` (remote) | Finding primary sources: papers, model/dataset cards, technical solutions (RAG, SFT, evaluation) | Questions the docs or `huggingface` MCP answer directly |
-| `huggingface` (remote) | Hub search, model/dataset cards, licences | Downloading data (use the pipelines) |
-| `mlflow` (local, off) | Reading runs and metrics (read tools only) | Logging runs (code does it); write tools are denied |
-
-- Search results are leads, not evidence: check origin, date, version and licence, and record
-  sources we adopt in the source registry (§2).
-- Send external servers only public, minimal queries (library names, generic technical
-  terms). Never send code, KB or dataset content, logs, `.env` values or personal data.
-- Secrets (`GITHUB_MCP_PAT`, optional API keys) live in user environment variables or
-  local-scope config, never in Git. A missing key disables only that server; carry on with
-  the others and report the gap.
+Built-in file/search/Git/CLI tools first. MCP is optional development tooling, never runtime.
+Use only the server needed for the current task; don't start every server or probe them routinely.
+Local Serena/Playwright/MLflow servers are normally off; ask the owner to enable a required one
+in the client and disable it afterward. Do not edit private client state to toggle them.
+GitHub/MLflow MCP access is read-only; code logs experiments, authorized GitHub writes use gh.
+Playwright is for the future UI, not general research. Setup/configuration: RUNBOOK §4a.
+Send external tools only minimal public queries; no project code, datasets, logs, secrets or PII.
+A missing connector credential disables that connector, not unrelated local work.

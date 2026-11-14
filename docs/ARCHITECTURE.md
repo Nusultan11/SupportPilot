@@ -1,169 +1,117 @@
-# ARCHITECTURE
+# ARCHITECTURE — components and boundaries
 
-The target design. Status of each component: see PROGRESS.md. Reasons: DECISIONS.md.
+This document separates implemented libraries from future integration.
+Current deployment/experiment identities belong to [PROGRESS](PROGRESS.md);
+rationale belongs to [DECISIONS](DECISIONS.md), schemas to [DATA_CONTRACTS](DATA_CONTRACTS.md).
 
-## 1. Components
+## 1. Implemented components
 
-Logical components share one Python package. They are not separate microservices until a measured need appears.
+All runtime logic lives in one Python package; no microservice split is justified.
 
-| Component | Package | Responsibility | Runs |
-|---|---|---|---|
-| Common | `supportpilot.common` | config, logging (redaction), schemas (DATA_CONTRACTS), IDs, hashing, manifests, atomic IO, provenance, MLflow run helper | library |
-| Ops | `supportpilot.ops` | environment/GPU report, data/model snapshots, MLflow and Qdrant round-trip checks | `supportpilot` CLI |
-| Data pipeline | `supportpilot.data` | registry policy → acquire → convert to raw records (Stage 2) → clean (`textnorm`, `placeholders`, `langid`) → dedup and grouping (`neardup`, `build`) → draft labels (`labels`) → gates → EDA (`eda`, `report`, `review`) (Stage 3) → label v1 (`taxonomy`, `select`) → language adaptation (`locale`, `mt`, `mtrun`, `qe`, `embed`) → training KB (`kbtrain`, `textfmt`) → authored scenarios (`scenarios`) → SFT (`sft`, `sftbuild`, `split`, `sftgates`) → gold (`gold`) (Stage 4) | `supportpilot data ...`, CPU |
-| Knowledge ingestion | `supportpilot.kb` | specs + facts (`spec`) → render (`render`, `writers`) → parse PDF/DOCX/XLSX/CSV/JSON/TXT (`parse_pdf`, `parse_office`, `parse_text` → `blocks`) → KBDocument (`structure`) → KBChunk (`chunk`) → gates (`checks`, `locate`) → versioned KB (`build`, `register`) (Stage 5, ADR-027) | `supportpilot kb ...`, CPU |
-| Retrieval | `supportpilot.retrieval` | embeddings, Qdrant index, sparse/BM25, fusion, reranking, context assembly | library + index CLI |
-| LLM | `supportpilot.llm` | prompts, inference backend, structured decoding, LoRA/QLoRA training | library; training on Kaggle/Colab |
-| Routing | `supportpilot.routing` | language ID, intent/action/escalation decision, policy guards | library |
-| Mock business APIs | `supportpilot.tools` | orders, inventory, payments over a synthetic SQLite DB | in-process or FastAPI router |
-| Evaluation | `supportpilot.eval` | metrics, benchmark runners, reports, MLflow logging | CLI |
-| Backend API | `supportpilot.api` | FastAPI `/chat`, `/health`, `/escalations`, admin reindex | uvicorn |
-| Web UI | `apps/ui` | Streamlit chat + citations + debug panel | streamlit |
+| Package | Responsibility |
+|---|---|
+| `supportpilot.common` | Typed schemas/settings, IDs/hashes/manifests, atomic IO, redacted logging, grounding diagnostics, MLflow helper |
+| `supportpilot.ops` | Environment and service checks; verified snapshot creation/restore |
+| `supportpilot.data` | Licensed acquisition, conversion, cleaning/dedup, taxonomy/localisation/MT/QE, SFT/gold/retrieval datasets |
+| `supportpilot.kb` | Deterministic document rendering, format parsers, structure/locators, chunking, gates and version activation |
+| `supportpilot.retrieval` | Pinned embeddings, dense/sparse indexes, fusion/reranking, date/language filters, context packing, evaluation/recovery |
+| `supportpilot.llm` | Prompts, Transformers/PEFT inference, structured decoding, training/resume, selection/seals, experiment evaluation |
+| `supportpilot.routing` | Shared RouteDecision, encoder/LLM implementations, deterministic guards and comparison |
+| `supportpilot.cli` | Operational entry point; JSON stdout, logs stderr |
 
-## 2. Online request flow
+Evaluation currently lives in domain modules, not a separate `supportpilot.eval` package.
+No `supportpilot.tools`, `supportpilot.api` or `apps/ui` implementation is supplied.
 
-```
-client ──► API /chat ──► Session (last N turns, carried slots e.g. order_id)
-                           │
-                           ▼
-                    Language ID (en | ru | kk, code_switch flag)
-                           │
-                           ▼
-                    Router ──► intent, action, slots, escalate?
-          ┌────────────────┼─────────────────────┬───────────────┐
-          ▼                ▼                     ▼               ▼
-   call_tool(...)   retrieve(query, lang)   ask_clarification  escalate
-   orders/stock/     hybrid → rerank →           │               │
-   payments          context assembly            │               │
-          └───────┬────────┘                     │               │
-                  ▼                              │               │
-        LLM generation (structured JSON,         │               │
-        evidence = tool results + chunks)        │               │
-                  ▼                              │               │
-        Validators: schema · citations ⊆ evidence · language ·   │
-        number/date/price consistency with evidence · policy     │
-                  │ fail → regenerate once → fallback/abstain/escalate
-                  ▼                              ▼               ▼
-               AssistantResponse (DATA_CONTRACTS §6) ◄───────────┘
+## 2. Target online flow (Stage 8)
+
+```text
+chat → authorized session + language → router
+    → retrieve KB / call authorized tool / clarify / escalate
+    → structured generation from packed evidence and tool results
+    → schema + evidence + language + claim verification
+    → AssistantResponse or safe fallback
 ```
 
-Rules:
-- Tool results and KB chunks are the only evidence. The model never sees other customers' data.
-  Tools are called with the session's authorised customer id.
-- Retrieved text and user text are untrusted. They are wrapped as data in the prompt, and
-  instructions inside them are ignored (injection tests in EVALUATION.md).
-- The router may be an encoder classifier, the LLM itself, or both (decided in Stage 7). The
-  interface `route(message, session) -> RouteDecision` stays fixed.
-- Deterministic escalation triggers (explicit "operator", legal threats, safety, repeated
-  failure) run before the model.
+The future API orchestrates these libraries; it must not duplicate business logic.
+Planned endpoints: /chat, /health, /ready, /escalations. Mock orders/inventory/payments
+use deterministic synthetic SQLite data; Streamlit provides the demo UI.
+Session memory is bounded, and customer IDs constrain every business lookup.
+Tool execution, a real escalation queue and an actual completed handoff are not implied by
+a generated action field. Retries/regeneration policies still require Stage 8 implementation.
 
-The Stage 7 implementation lives in `llm/` and `routing/`. `TransformersBackend` loads
-an exact model revision and optionally a manifest-verified PEFT adapter. Schema/few-shot
-prompts and optional constrained decoding produce raw candidate text; they do not certify
-claim support. `generate_grounded` returns a `GenerationResult` containing the raw output,
-deterministic problems, semantic verdict and delivered `AssistantResponse`. Only an explicit
-`supported` verdict from `ClaimVerifier`, after deterministic checks pass, accepts a candidate.
-The default `unknown` verdict produces a localized escalation fallback and makes no claim
-that a handoff has already occurred. Citation membership and numeric matching remain
-diagnostics, including when all required-looking chunks are present.
+## 3. Offline flows and storage
 
-`RouteDecision` (`routing/models.py`) is the shared encoder/LLM routing boundary. Router
-evaluation separates raw decisions from deterministic guards and fallback. Language is
-supplied explicitly in these experiments; those results do not evaluate upstream language
-detection. Encoder probabilities are not independently calibrated; LLM confidence is prompted
-as null. No routing confidence threshold or semantic verifier is implied by the interface.
-These modules do not instantiate the Stage 8 API, tool services or orchestration.
-For the measured schema/few-shot configurations, pass the selected `prompt_mode` and
-frozen train-only demonstrations to `build_messages`/`generate_grounded`. Those modes
-use the same formatter as SFT and evaluation; the default legacy mode preserves the
-earlier boundary interface and is not a substitute for the selected prompt.
+```text
+source registry → immutable raw revisions → records → clean/canonical
+  → native selection + checkpointed MT/QE + altered training KB
+  → scenario-disjoint SFT train/validation/test + separate gold/retrieval benchmarks
 
-## 3. Offline flows
+KB facts/catalogue/document specs → render → parse → structure/chunk → gates
+  → immutable KB version + changes/evidence map → active pointer
+  → checksummed embedding cache → portable index → materialized Qdrant collection
 
-```
-Data:      configs/sources.yaml (registry + licence policy)
-           → data/raw/<source>/<rev>/ (immutable, upstream-verified, RawManifest)      [Stage 2]
-           → data/interim/records/<source>/<rev>/records.parquet (RawRecord, lineage) [Stage 2]
-           → data/interim/clean/<source>/<rev>/clean.parquet (cleaned, LID, slots, keys) [Stage 3]
-           → data/interim/canonical/ (examples/lang=*, pending, rejected, groups, pairs,
-             quality_report, manifest; dedup + families + scenarios + gates)            [Stage 3]
-           → data/interim/stage4/selected (labels v1, EN backbone, MT queue)             [Stage 4]
-           + data/interim/stage4/native (licensed native EN/RU/KK, train-only)          [ADR-028]
-           → data/interim/stage4/mt (resumable MT cache) → translated (QE, glossary)      [Stage 4]
-           + authored/ (native scenarios, answer templates, training KB, gold sources)    [Stage 4]
-           → data/processed/kb_train (training KB variant chunks)                         [Stage 4]
-           → data/processed/sft/<dataset_version>/{train,validation,test}.parquet + manifest.json
-           → data/gold/<benchmark_version>/ (never used for training/tuning)
-           + authored/retrieval/ (independently authored question triples and judgements)
-           → data/benchmarks/retrieval/<benchmark_version>/ (active-KB chunk IDs + qrels)
-
-Knowledge: kb_sources/demo_store/ (facts.yaml, catalog.yaml, docs/<doc_id>.yaml specs)       [Stage 5]
-           → render → data/kb/demo_store/sources/<lang>/<doc_id>.<pdf|docx|xlsx|csv|json|txt>
-             + register.json (CMS metadata) + expected.json (fact ground truth)
-           → parse → KBDocument → chunk → KBChunk (+metadata) → 13 gates
-           → data/kb/demo_store/versions/<kb_version>/ (immutable: sources copy, documents,
-             chunks, changes = chunk ids to delete/upsert, evidence_map) + current.json
-           → embed (batch, resumable) → Qdrant collection kb_<schema> (upsert by chunk_id)
-           → sparse index (Qdrant sparse vectors or bm25s, decided in Stage 6)
-
-Training:  processed SFT version → (Kaggle/Colab or local) LoRA/QLoRA → adapter + run manifest
-           → MLflow run → eval on validation → selected adapter → artifacts/models/<run_id>/
+frozen training input → completion-only LoRA/QLoRA → bound checkpoints/resume
+  → verified training adapter → immutable inference export
+  → validation selection seal → independent test/gold/safety → raw observations + MLflow
 ```
 
-## 4. Interfaces (stable signatures, Pydantic models in DATA_CONTRACTS)
+Canonical layouts, identities and publication rules are specified in DATA_CONTRACTS.
+Models, payloads and reports remain local under the artifact locations in AGENTS §7.
 
-```python
-detect_language(text) -> LanguageResult
-route(message, session) -> RouteDecision
-retrieve(query, lang, filters, k) -> list[ScoredChunk]
-generate(request: GenerationRequest) -> AssistantResponse
-tools: get_order(order_id, customer_id), get_stock(sku), get_payment(order_id, customer_id),
-       request_cancellation(order_id, customer_id)  # returns a ticket; no real side effects
-```
+## 4. Actual library boundaries
 
-Every external or IO call has a timeout, bounded retries with backoff (idempotent calls only),
-and a typed error that maps to a fallback response.
+- `with supportpilot.retrieval.open_retriever(settings) as retriever:` reuses models.
+  `retriever.retrieve(...)` returns scored canonical chunks; `retriever.context(...)`
+  returns budgeted `RetrievalContext`. Query language and corpus-language filters differ.
+- `TransformersBackend(InferenceConfig)` loads a pinned revision and optionally a
+  manifest-verified adapter; `generate(messages)` returns raw completion text.
+- `generate_grounded(backend, query, language, context, ...)` returns `GenerationResult`:
+  raw text, deterministic problems, semantic verdict, fallback flag and AssistantResponse.
+- `RouteDecision` is shared by encoder/LLM routers. Experiments supply language explicitly;
+  router metrics do not evaluate upstream language detection or confidence calibration.
 
-## 5. Knowledge updates
+Schema/few-shot generation, SFT and evaluation share the message formatter.
+Selected prompt mode and frozen train-only demonstrations must be supplied explicitly.
+The legacy default preserves the earlier interface; it is not the selected schema prompt.
 
-- A document is identified by `doc_id`, and each revision by `version` (content sha256).
-- Reindexing is incremental. For a changed document, delete its old chunks by `doc_id` filter
-  and upsert the new ones. Removed documents get a delete. Unchanged documents are skipped.
-  No full reindex for single-document edits.
-- Chunks carry `effective_from/to`. Retrieval filters out expired policies.
+## 5. Safety boundary
 
-Stage 6 materialisation: `retrieval.corpus` creates search representations retaining
-canonical evidence IDs; `encode` supplies pinned model inference and verified resumable
-caches; `index` stores portable snapshots and synchronises one dense+sparse Qdrant
-collection per recipe. Changed-parent updates validate KB `changes.json`; rollback uses
-the inventory diff and cached vectors. Readers fail closed while the collection is being
-mutated and until its exact KB-version inventory is verified. No stale-version fallback.
-`search` supplies dense/sparse/fusion/reranking, date/document/language filters and
-token-budget context packing. `evaluate`, `experiments` and `profile` measure it without
-gold input, LLM generation, training or business API execution. The serving lifecycle is
-`with supportpilot.retrieval.open_retriever(settings)`; the evidence retains KB locators.
+Only packed KB chunks and authorized tool results are evidence. Ranked-but-dropped chunks
+are unavailable to generation. User/retrieved text is untrusted data, never instructions.
+Deterministic validation checks schema, citations and factual surfaces; it cannot establish
+full claim support, missing exceptions or semantic answerability.
+A candidate is accepted only after deterministic checks and an explicit `supported` result
+from ClaimVerifier. The default `unknown` verdict returns localized operator assistance.
+It does not claim a completed handoff. Backend execution failures remain recorded failures.
 
-## 6. Scaling path
+Deterministic routing guards and raw model decisions have separate evaluation scopes.
+Neither a confidence field nor nonempty retrieval establishes safe autonomous service.
 
-| Concern | Local MVP | Scaled |
-|---|---|---|
-| ETL | Polars lazy/streaming over partitioned Parquet (`lang=`, `source=`) | same code on a bigger machine. Parquet in object storage |
-| Embeddings | batched GPU inference with checkpointed shards | Kaggle/Colab or dedicated GPU, same shard format |
-| Vector store | Qdrant server in Docker (`compose.yaml`); in-memory mode for tests (ADR-014) | Qdrant server/cluster, on-disk vectors, quantisation |
-| Inference | 4-bit or GGUF compact model on a 4 GB GPU | vLLM or llama.cpp server on a larger GPU |
-| API | single uvicorn process | horizontal replicas behind a load balancer. Sessions in Redis (only when needed) |
+## 6. KB/index consistency
 
-Measure the bottleneck first and optimise second. Kubernetes and queues are excluded until proven necessary.
+Immutable KB revisions retain source locators and effective dates. Search representations
+project to canonical chunk IDs without creating new evidence.
+Embedding caches bind model/protocol/text/role and vector checksums.
+Each recipe/namespace has a materialized collection and verified readiness state.
+Synchronization marks it unready before changes, validates parent deltas or exact inventories,
+and publishes readiness only after payload/vector inventory checks.
+Queries reject incomplete or stale KB/index combinations. Version transitions accept brief
+unavailability; zero-downtime dual collections are not implemented.
+KB activation and index synchronization are separate operations; rollback repeats both.
+Sparse IDF is scoped to the live KB version.
 
-## 7. Cross-cutting
+## 7. Resource and operational constraints
 
-- Config: `configs/*.yaml` loaded into Pydantic settings. Env vars override. Secrets in `.env`.
-- Logging: structured JSON logs with request id, stage timings and route decision. No message
-  text in production-mode logs (PII). Demo mode may log text.
-- Observability: `/health` (liveness), `/ready` (model + Qdrant loaded), latency histograms
-  per stage (Stage 10).
-- Rate limiting per session on `/chat` (Stage 10).
+Use Docker Qdrant with a named volume; memory mode supports tests.
+Embedded Qdrant can retain Windows file locks and is unsuitable for larger workloads.
+Local GPU/RAM budgets cover retrieval plus generation, not one model in isolation.
+Record process RSS, Torch allocation/reservation, Docker memory and shared-memory limits
+separately. Optimize only measured bottlenecks.
 
-## 8. References that shaped this design
+Config is YAML/Pydantic with environment overrides. Logs redact sensitive data by default.
+External IO uses bounded retries/timeouts. Future serving observability, rate limits,
+multi-user SLOs and scaling require Stages 8–10; Redis, vLLM and Kubernetes are not dependencies.
 
-See DECISIONS.md §References.
+## 8. Design references
+
+[DECISIONS](DECISIONS.md#references) records sources and accepted alternatives.

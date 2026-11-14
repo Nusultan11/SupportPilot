@@ -1,16 +1,26 @@
 # DATA_CONTRACTS — schemas, identifiers, versioning, validation
 
-Schemas are implemented as Pydantic models in `supportpilot.common.schemas` and ID helpers in
-`supportpilot.common.ids`. §2–4 and §9 have been implemented since Stage 1, §8 since Stage 5. Polars schemas
-are added with the first Parquet pipeline (Stage 2–3). This doc is the specification. Any breaking change needs a new `schema_version`
-and an entry in DECISIONS.md.
+Executable models live in `common/schemas.py`, domain model modules and `ops/backup.py`;
+ID helpers live in `common/ids.py`. This document specifies invariants and storage compatibility.
+A breaking change requires a new schema_version and an ADR. Counts/status belong to PROGRESS
+and measured reports, not this specification.
+
+Package paths below are relative to src/supportpilot; configs paths are repository-relative.
+
+| Contract group | Sections | Implementation / registry |
+|---|---|---|
+| Sources and raw/canonical records | 1–4d | common/schemas.py, data/ |
+| SFT, responses, taxonomy | 5–7, 10–12 | common/schemas.py, data/sft*.py, configs/taxonomy.yaml |
+| KB and manifests | 8–9 | common/schemas.py, kb/, ops/backup.py |
+| Gold and retrieval benchmarks | 13–16 | data/gold.py, data/retrievalset.py, retrieval/scale*.py |
+| LLM, sealed selection and routing | 17 | llm/, routing/models.py |
 
 ## 1. Conventions
 
 - **Language codes**: ISO 639-1 `en`, `ru`, `kk`. Mixed text gets `lang` = the dominant language
   and `code_switch: true`, plus `langs: list[str]`.
-  Kazakh is Cyrillic script (`kk-Cyrl`). Latin-script Kazakh is accepted as input, flagged
-  `script: Latn`, and not generated.
+  Kazakh output uses Cyrillic (`kk-Cyrl`). Script metadata can record Latin input;
+  reliable Latin-script Kazakh detection is not established by the language checks.
 - **IDs**: deterministic, no PII. All are lowercase except `source_row_key`.
   - `source_id`: slug `^[a-z0-9]+([_-][a-z0-9]+)*$`, e.g. `bitext_retail_ecom`.
   - `record_id` = `{source_id}:{source_row_key}`. The key is the source's own key or the row
@@ -150,8 +160,8 @@ and the content hash.
 | quality | struct | ✓ | `{lid_conf, mt_qe?, intent_agree?, dup_cluster?, flags: list[str]}` |
 | split | enum? | – | assigned in Stage 4 only |
 
-Stage 3 status: canonical rows exist only for train-allowed sources with a mapped draft-v0
-label. Each such row carries the flag `labels:intent_map_draft_v0` (ADR-021).
+The Stage 3 canonical build admits train-allowed sources with a mapped draft-v0 label;
+rows carry `labels:intent_map_draft_v0` (ADR-021). V1 selection does not rewrite that build.
 `quality.dup_cluster` is the exact-duplicate group (`dup_<16 hex>`) when the text had duplicates.
 
 ## 4c. Pending example (`data/interim/canonical/pending.parquet`, `pending/1`)
@@ -180,21 +190,16 @@ label compatibility.
 
 ## 5. SFT example (`data/processed/sft/{dataset_version}/`)
 
-```json
-{
-  "schema_version": "sft/1",
-  "example_id": "…", "scenario_id": "…", "lang": "kk", "task": "grounded_answer",
-  "messages": [
-    {"role": "system", "content": "<system prompt id + rendered text>"},
-    {"role": "user", "content": "…"},
-    {"role": "tool", "name": "get_order", "content": "{…}"},
-    {"role": "assistant", "content": "<AssistantResponse JSON>"}
-  ],
-  "context_chunk_ids": ["returns_policy:3fa2c1d0:0002"],
-  "distractor_chunk_ids": ["delivery_faq:…"],
-  "target": { "AssistantResponse": "…" }
-}
-```
+Required shape: `schema_version=sft/1`; stable example/scenario/family IDs; language and
+code-switch flag; task; ordered messages; context/distractor chunk IDs; direct
+`AssistantResponse` target; split and provenance.
+
+Invariants:
+- First message is system; last is assistant and parses exactly to target; at least one user turn.
+- Tool messages have a name, other roles do not.
+- Target language equals input language unless code-switching is declared.
+- Target citations are a subset of context IDs and never cite distractors.
+- Machine-translated rows require translation_of and translation_system.
 
 `task` ∈ `grounded_answer`, `tool_answer`, `clarify`, `escalate`, `abstain_no_evidence`,
 `refuse_oos`, `conflicting_context`, `injection_resist`. Context chunks used for SFT come from a
@@ -214,7 +219,7 @@ On disk: `data/processed/sft/<dataset_version>/{train,validation,test}.parquet` 
 `user_text`, `history_len`, `intent`, `action`; `stats.json` (counts per split x language x
 task, leakage filter), `quality_report.json` (gates) and `manifest.json`.
 
-## 6. AssistantResponse (model output and API output)
+## 6. AssistantResponse (model output; future API boundary)
 
 ```json
 {
@@ -231,36 +236,26 @@ task, leakage filter), `quality_report.json` (gates) and `manifest.json`.
 }
 ```
 
-Validation:
-- `citations` ⊆ the chunk ids provided in context.
-- Each number, date or price in `answer` appears in the cited evidence or in a tool result.
-- `language` = the detected user language unless the user asked for another.
-- `needs_human` ⇒ `escalation_reason`.
+Schema validation:
+- Known language/intent/action, nonempty answer, valid citation ID format; extra fields rejected.
+- `needs_human` and a nonempty `escalation_reason` occur together.
+- Escalate action requires needs_human; clarify action has a clarification_question exactly.
+- refuse_oos cannot cite KB chunks.
 
-## 7. Intent taxonomy (v1, frozen in Stage 4, ADR-023)
+Evidence-dependent diagnostics are separate: citations must be supplied evidence, factual
+surfaces must match cited/tool evidence, language must match the requested language.
+They do not certify semantic support. Generation acceptance additionally requires an explicit
+supported ClaimVerifier verdict; UNKNOWN falls back (ARCHITECTURE §5).
 
-The authoritative v1 list, with actions, tools, KB documents and clarify / escalate / refuse
-conditions, is `configs/taxonomy.yaml` (35 intents). v1 adds `change_address`, `product_defect`,
-`contact_info`, `personal_data`, `newsletter`, `cart_help`, `app_help` and `technical_issue` to
-the v0 table below, which remains the Stage 3 draft (`INTENTS_V0`).
+## 7. Intent taxonomy
 
-### Draft v0 (Stage 3)
+`configs/taxonomy.yaml` is authoritative for the 35 v1 intents, actions/tools, KB documents,
+clarification/refusal conditions and escalation reasons (ADR-023). `common.schemas.INTENTS`
+is checked against it. Do not maintain a second copied taxonomy table.
 
-Derived from the Bitext retail (46 intents) and customer-support (27 intents) labels, merged
-into product scope. Each source intent maps to exactly one SupportPilot intent. The mapping
-table lives in `configs/intent_map.yaml`.
-
-| Group | Intents |
-|---|---|
-| order | `track_order`, `cancel_order`, `change_order`, `order_history`, `place_order` |
-| delivery | `delivery_time`, `delivery_options_cost`, `delivery_problem` (damaged / missing / wrong item) |
-| returns | `return_policy`, `return_product`, `exchange_product`, `request_refund`, `refund_status` |
-| payment | `payment_methods`, `payment_problem`, `invoice` |
-| product | `product_info`, `availability` |
-| store | `store_info` (location, hours, sales periods), `policy_faq` |
-| account | `account_help` |
-| contact | `human_agent`, `complaint`, `feedback` |
-| meta | `unclear`, `out_of_scope`, `greeting` |
+`configs/intent_map.yaml` and `INTENTS_V0` retain the Stage 3 draft mapping only.
+Those historical canonical outputs remain valid under their original contract;
+v1 relabelling belongs to the separate Stage 4 selection output (§11).
 
 ## 8. KB document and chunk (Stage 5, ADR-027)
 
@@ -325,9 +320,8 @@ File paths in every manifest are relative POSIX paths without `..`. This is enfo
 
 ## 10. Validation gates (enforced in code)
 
-They are implemented in `supportpilot.data.gates` (Stage 3) and run on every build. The
-results go to `quality_report.json`, and `supportpilot data gates` re-runs them. Stage 3 also
-checks:
+The canonical build uses `supportpilot.data.gates`; results go to `quality_report.json`
+and `supportpilot data gates` re-runs them. Canonical invariants include:
 - `accounting`: every record exactly once;
 - `ids`: example ids are unique and recomputable, and each family sits in one scenario;
 - `pii`: no unmasked e-mail, phone or card in the text;
@@ -596,8 +590,8 @@ Abstention proxies record their scope (`draft_task_label` or known missing suppo
 retain malformed completions as failures and never establish semantic correctness.
 
 `route_decision/1` includes language/code-switch, one of the 35 intents, action, optional
-confidence, slots, escalation flag and reason. Extra fields are forbidden; an escalation
-flag requires a reason and an escalate action requires the flag. The encoder and LLM
+confidence, slots, escalation flag and reason. Extra fields are forbidden; the escalation
+flag and nonempty reason occur together, and an escalate action requires the flag. The encoder and LLM
 implementations share this type; confidence availability does not establish calibration.
 
 `authored/safety/scenarios.yaml` is the internal source registry for

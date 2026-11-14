@@ -115,3 +115,14 @@ An additional local fp16 diagnostic executes the same three operational queries 
 |Active retrieval plus LLM|4,031,543,296|4,357,881,856|3/3|23.36–41.49s|
 
 Reserved memory exceeds the physical4,294,443,008-byte budget; these successful requests do not prove entirely VRAM-resident serving. Allocation counters exclude other processes/driver memory, and shared-memory spill was not instrumented. The NF4 and fp16 runs share queries/formatter/immutable corpus but original NF4 prompt bytes were not captured, so this is an exploratory compatibility observation, not a causal quantization ablation or a full-validation precision guarantee. No frozen benchmark parameter changes. Audit: `artifacts/reports/llm/local_precision_diagnostics.json`.
+
+The 2B FP16 control has a separate operational study on three already-exposed longest
+eligible validation prompts (one per language), without test/gold. Two attempts failed at
+the unchanged 6-GiB available-RAM guard before model loading. After temporarily stopping
+this project's Qdrant/Docker services, all three calls completed with valid JSON:
+EN/RU/KK generation24.42/27.81/33.07s and peak allocated4.839/4.857/4.903GB versus
+physical4.294GB. Shared-memory residency was not instrumented; full-VRAM/full-suite feasibility
+is NOT_ESTABLISHED. Services were restored healthy with unchanged collection names.
+Failures, successful calls and service restoration remain in
+`artifacts/reports/llm/local_control_fp16/` and three separate MLflow runs.
+These resource probes do not change selection or establish semantic quality.

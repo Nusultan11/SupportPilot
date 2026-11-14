@@ -41,3 +41,5 @@ Thumbs.db
 /.serena/*
 !/.serena/project.yml
 .claude/settings.local.json
+# User-local Codex connector/client configuration is not project source.
+/.codex/

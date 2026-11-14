@@ -1,162 +1,143 @@
-# ROADMAP
+# ROADMAP — deliverables and acceptance
 
-One stage per work cycle. Never start the next stage without user confirmation.
-Status lives in PROGRESS.md, not here.
+Status is owned by [PROGRESS](PROGRESS.md). Complete one development stage per work cycle;
+start the next only with owner authorization. Maintenance is an independent engineering task.
 
-Dependencies: 0 → 1 → 2 → 3 → 4. Stage 5 needs 1 and can run in parallel with 2–4. Stage 6
-needs 5 and the retrieval queries from 4. Stage 7 needs 4 and 6 (grounded SFT needs retrieved
-context). Then 8 → 9 → 10.
+Dependencies: 0 → 1 → 2 → 3 → 4; Stage 5 needs foundation and can overlap data work.
+Stage 6 needs KB + retrieval queries; 6.1 extends its evidence; Stage 7 needs SFT + retrieval.
+Then 8 → 9 → 10. Preserve earlier frozen results when extending a stage.
 
----
+## Shared acceptance
+
+Every delivery requires appropriate unit/integration checks, Ruff check/format, strict mypy,
+full pytest with skipped checks explicitly unverified, accurate owning documents, significant
+artifact backup/deep verification/actual restore, reviewed commit and push to origin/main.
+Measurements retain failures, denominators, language slices and uncertainty.
+A missed quality target is a documented negative result, never a fabricated pass.
 
 ## Stage 0 — Project audit and research
 
-Sub-tasks: audit the folder, git and hardware; research models, embeddings, rerankers, vector
-store and data sources; write the instruction and doc set; define the roadmap; take a verified backup; commit.
-**DoD:** all docs exist without contradictions; environment facts recorded; open questions
-listed for the user; backup and restore verified once; commit on `main`.
+Audit repository/hardware and research data/model/retrieval options. Establish canonical
+instructions, requirements, architecture, contracts, evaluation and roadmap.
+**DoD:** consistent documents, recorded constraints/open decisions, verified backup/restore,
+commit on main.
 
 ## Stage 1 — Architecture and engineering foundation
 
-- `pyproject.toml` + `uv.lock`, Python 3.12, src layout, package skeleton only for modules used in Stages 2–3.
-- Ruff (lint + format), mypy, pytest, pre-commit hook running them.
-- Torch with CUDA 12.x wheel from the pinned index, plus a GPU smoke check script (`supportpilot.common.env`).
-- Config loading (Pydantic settings + YAML), structured logging, deterministic ID helpers, manifest/sha256 helpers.
-- Pydantic schemas from DATA_CONTRACTS §2–4 with unit tests.
-- Backup and restore CLI for data snapshots (tar + sha256 manifest + retention), restore tested.
-- MLflow local backend verified (one dummy run logged and read back).
-- Decide whether Qdrant runs in Docker or embedded mode for dev (both checked).
-
-**DoD:** `uv sync` on a clean clone works; lint, type and test checks are green; GPU check
-prints a CUDA device; backup and restore round-trip test passes; RUNBOOK commands verified.
+Python 3.12/uv lock/src package; typed settings/schemas, deterministic IDs/hashes/manifests,
+atomic IO/redacted logs, CUDA environment check, local MLflow, Qdrant mode decision,
+snapshot/restore CLI, pytest/Ruff/mypy/pre-commit.
+**DoD:** reproducible clean-clone setup, actual CUDA/service round trips, working backup/restore,
+green checks and verified RUNBOOK.
 
 ## Stage 2 — Data acquisition and source registry
 
-- Research and evaluate candidate sources (DECISIONS ADR-006 list + new search). Record licence, revision, size, purpose and overlaps in `configs/sources.yaml`.
-- Downloader with pinned revisions (HF `revision=` commit sha), sha256 manifests, resumable and incremental (skips unchanged revisions).
-- Converters from each source to raw canonical rows (`record_id` lineage).
-- Tests: manifest integrity, idempotent re-run, unknown licence blocks the source.
-
-**DoD:** every used source has a registry entry with a verified licence; raw data reproducible
-from the registry on a clean machine; integrity check passes; source inventory in PROGRESS.md.
+Review licences/revisions/use/overlaps; implement pinned resumable downloads with upstream
+integrity verification and streaming raw-record conversion. Reject unknown/prohibited licences.
+**DoD:** every used source registered, original files reproducible and immutable, idempotency
+and integrity verified, acquisition/conversion manifests and inventory available.
 
 ## Stage 3 — EDA and data quality engineering
 
-- EDA report per source: counts, unique scenarios, language, intent and category
-  distribution, text/token lengths (with Qwen tokenizer), missing and corrupt rows,
-  placeholders, template patterns, register tags.
-- Qualitative review: ≥ 100 random + ≥ 100 flagged rows per source, findings written down.
-- Cleaning (normalisation, artefacts, placeholders → synthetic slot values), exact dedup
-  (normalised hash), near-dup (MinHash/LSH and/or embedding similarity), scenario/family clustering.
-- Automatic quality gates (DATA_CONTRACTS §10) as code + report.
-
-**DoD:** reproducible `data/interim` with the canonical schema; gates pass (validity ≥ 99.5%);
-EDA report in `artifacts/reports/` with key numbers copied to PROGRESS.md; issues listed with decisions.
+Profile source/language/intent/length/register/defects; review >=100 random and up to100
+available flagged rows per source. Normalize/mask PII/fill synthetic slots, exact/near dedup,
+family/scenario grouping and executable quality gates.
+**DoD:** accounting and canonical contracts pass, validity >=99.5%, reproducible interim
+outputs/EDA/review with provenance and unresolved quality issues.
 
 ## Stage 4 — Multilingual dataset engineering
 
-- Freeze the intent taxonomy v1 and the source→SupportPilot intent mapping. Label actions and escalation.
-- RU/KK creation: compare MT options on a human-checked sample, then translate and localise
-  (KZT, local cities, names, delivery services). Back-translation and QE filters. Kazakh
-  quality checks (LID, KK-specific letters, RU leakage, human spot checks).
-- Native-style generation for gaps: code-switching, ambiguous requests, complaints,
-  out-of-scope, multi-turn. Reviewed samples only.
-- Training KB variant (different policy values) and grounded SFT tasks (DATA_CONTRACTS §5),
-  including abstention, conflicting context and injection.
-- Group split by `scenario_id` (target 90k/5k/5k if quality allows), leakage checks.
-- Gold benchmark ≥ 300/lang authored and reviewed per EVALUATION §1.
-
-**DoD:** versioned SFT dataset with a manifest; language distribution reported vs the 30/35/35
-plan; leakage = 0; translation error rate measured on a sample; gold benchmark versioned with
-review status per item.
+Freeze taxonomy/source mapping; compare/localize/filter RU/KK MT with QE/back-translation;
+add native/authored gaps (mixed, ambiguity, complaints, OOS, multi-turn).
+Use altered training KB values and grounded/abstention/conflict/injection targets.
+Split by scenario/family and decontaminate; build separate gold >=300 items/language.
+**DoD:** versioned manifests/gates, exact leakage exclusions, reported language distribution
+against30/35/35 target, sample translation errors and honest per-item review status.
+Original100k/90k–5k–5k volumes are quality-bounded targets; do not duplicate to fill them.
+Fluent independent review is required for a human-verification claim.
 
 ## Stage 5 — Knowledge base and document extraction
 
-- Author the synthetic demo-store KB: canonical facts (YAML) rendered to PDF/DOCX/XLSX/CSV/JSON/TXT in RU/KK/EN, with versioned policies.
-- Parsers per format. Candidates: PyMuPDF / pdfplumber, Docling, python-docx, openpyxl. Pick by a measured extraction-accuracy test. Hierarchy and table structure kept. OCR only for scanned pages.
-- Chunking per doc type (FAQ = Q+A; policy = section-aware; catalogue = row/record), metadata per DATA_CONTRACTS §8.
-- Extraction tests: every canonical fact (price, date, period, ID) recoverable from chunks with the correct locator.
-
-**DoD:** 100% of canonical facts found in the chunks with correct locators; incremental update
-and delete tested; KB version manifest.
+Render canonical synthetic facts into PDF/DOCX/XLSX/CSV/JSON/TXT across RU/KK/EN.
+Measure parser alternatives; preserve hierarchy/tables/locators; chunk by document type.
+**DoD:** 100% canonical facts recovered at correct source locators, metadata/language/evidence
+gates pass, incremental change/delete and immutable version/activation demonstrated.
+Evaluate OCR only when scans require it.
 
 ## Stage 6 — Retrieval and RAG experiments
 
-- Retrieval set (per lang + cross-lingual). Embedding candidates: multilingual-e5 (base/large), BGE-M3, Qwen3-Embedding-0.6B (+ any newer model found).
-- Qdrant collection with dense + sparse vectors. BM25 variant (Qdrant IDF sparse vs bm25s), with KK tokenisation checked.
-- Fusion (RRF vs weighted), rerankers (bge-reranker-v2-m3, Qwen3-Reranker-0.6B), top-k, context assembly with a token budget.
-- Comparisons per EVALUATION §5. Latency and memory measured on the laptop.
-
-**DoD:** chosen pipeline backed by a results table with CIs; Recall@5 per language reported
-vs target; ADR written; index build is resumable and incremental.
+Compare licensed pinned multilingual encoders (E5/BGE/Qwen and relevant alternatives),
+dense/sparse Qdrant/BM25S, fusion, rerankers, top-k, chunk views and budgeted context.
+Measure mono/cross/mixed retrieval, latency and memory; build resumable incremental indexes.
+**DoD:** selected pipeline has per-language ranking results/paired CIs vs targets,
+documented alternatives/limits, an ADR and exercised update/rollback/recovery.
 
 ## Stage 6.1 — Large-scale multilingual RAG and robustness evaluation
 
-- Preserve Stage 6 versions, decisions, reports and its exploratory holdout warning.
-- Expand the same fictional store to >=200 document IDs, >=600 language versions,
-  >=7,500 substantive chunks and >=2,500 canonical facts. Preserve earlier policy values
-  and gold citations; live order/payment/stock state belongs to tools. Check semantic
-  diversity, multilingual agreement, provenance, locators and overlapping validity periods.
-- Build >=2,500 original information needs with RU/KK/EN, >=1,000 cross-language variants,
-  >=300 distinct mixed needs and >=750 unanswerable needs. Translations/paraphrases do
-  not increase independent needs. Include difficult confusers, incomplete/contradictory
-  conditions, multi-document support, temporal cases, typos and rare products.
-- Freeze a family-disjoint benchmark before selection. Preserve SFT/gold decontamination
-  and label authorship/review status honestly. Use development only for tuning; holdout
-  once after sealed selection. An inspected prior holdout is not fresh confirmation.
-- Compare the BGE-M3 hybrid control with ranking/fusion/reranking alternatives. Report
-  grouped 95% CIs, paired comparisons, Recall@5/MRR@10/nDCG@10, full evidence and packed
-  coverage, per-language/directional/mixed/difficulty slices and a real error census.
-- Evaluate semantic abstention separately: unanswerable FPR, answerable FNR and abstention
-  accuracy, including partial proofs and tool-only requests. Keep unsolved limits open.
-- Isolate >=100k synthetic load chunks; measure indexing/update/recovery, exact/ANN,
-  p50/p95, throughput, RAM/VRAM and storage. Synthetic load cannot stand in for quality.
+- Preserve original KB values/citations, baseline results and exposed-holdout warning.
+- Expand to >=200 document IDs, >=600 language versions, >=7,500 substantive chunks,
+  >=2,500 canonical facts; audit diversity, locators, multilingual agreement and validity.
+- Build >=2,500 original needs, >=1,000 cross variants, >=300 mixed needs and >=750
+  unanswerable needs. Translations/slots/paraphrases do not add independent needs.
+- Cover confusers, multi-document/partial/conflicting support, temporal/rare/typo cases.
+  Freeze family-disjoint development/holdout after leakage/coverage audits.
+- Compare ranking/fusion/reranking controls; report Recall/MRR/nDCG, full/packed proof,
+  language/direction/mixed/difficulty slices, scenario/family95% CIs and error census.
+- Report unanswerable FPR, answerable FNR and abstention separately, including unresolved limits.
+- Isolate >=100k synthetic load chunks; measure exact/ANN agreement, upload/build,
+  update/recovery, latency/throughput, RAM/VRAM/storage. Synthetic load is not quality.
 
-**DoD:** every requirement above has verified artifacts; standard checks pass with skipped
-checks explicitly unverified; significant data/index/report/MLflow backups are deep-verified
-and restored; PROGRESS/EVALUATION/DECISIONS/RUNBOOK updated; commit and push `origin/main`.
-Stage 7 does not start in this work cycle. Protocol: `configs/retrieval_scale.yaml` and
-`docs/reviews/stage6_scale_protocol.md`. Current execution status is only in PROGRESS.md.
+**DoD:** all volume/diversity/protocol requirements have verified evidence and shared checks/
+delivery requirements pass. Protocol: `configs/retrieval_scale.yaml` and immutable
+[preregistration](reviews/stage6_scale_protocol.md). No semantic or human acceptance is
+implied by synthetic benchmark execution.
 
-## Stage 7 — LLM baselines and LoRA/QLoRA fine-tuning
+## Stage 7 — Multilingual LLM baselines, grounding and fine-tuning
 
-- Model audit (ADR-008 shortlist + newer releases): licence, tokenizer efficiency on KK, VRAM, tooling support on Windows/Kaggle.
-- Zero-shot and few-shot baselines on validation and gold (JSON validity, intent, grounding, language, abstention, escalation).
-- Training pipeline (TRL SFT + PEFT; Unsloth if it measurably helps), checkpoint/resume, manifest, MLflow.
-- Smoke test locally, then sweeps on Kaggle/Colab per EVALUATION §5. Router comparison: encoder classifier vs LLM.
-- Error analysis per language. Adapter saved with model card.
+- Audit compact candidates: licence/full revision, KK tokenization, measured RU/KK/EN,
+  Windows/Kaggle compatibility, memory and speed.
+- Real inference and AssistantResponse boundary; compare zero-/few-shot/schema/constrained
+  modes. Keep raw output, deterministic validation and delivered fallback separate.
+- Full validation baselines with language/task slices; preserve initial0/6 negative smoke.
+- Reproducible completion-only TRL/PEFT LoRA/QLoRA comparisons (rank/LR/targets/length/
+  packing/precision), checkpoint/resume, reloaded adapter and >=3 seeds where feasible.
+- Compare encoder and LLM routing across 35 intents with macro-F1, actions, escalation,
+  latency and resources; retain a typed RouteDecision.
+- Seal model/prompt/adapter/router before independent test/gold; no retuning from holdout.
+  Report paired scenario95% CIs and family sensitivity for finalists.
+- Execute safety >=50 needs/language and full/partial/irrelevant/absent/conflicting
+  evidence studies, multi-document support and packing loss; distinguish pipeline failure causes.
+- Report schema/intent/action/language/abstention/escalation and credible semantic metrics.
+  Missing calibrated judges or fluent reviewers require NOT_EVALUATED and a readiness limitation.
+- Preserve model card, configs, predictions, adapters/checkpoints, manifests and MLflow.
+  Measure cost scopes, latency/throughput, sizes and local RTX 3050 isolated/joint compatibility.
 
-**DoD:** best configuration vs baseline with paired-bootstrap CIs per language; or a documented
-conclusion that fine-tuning does not help enough, with evidence. Artifacts backed up.
+**DoD:** every requested experiment has terminal/source/checksum-verified accounting;
+best configuration vs baseline has per-language paired CIs, or a supported negative conclusion.
+State readiness for Stage 8, including semantic/KK/resource/critical-escalation limits;
+backups/restores and shared engineering checks pass. Do not implement Stage 8.
 
 ## Stage 8 — End-to-end SupportPilot
 
-- Mock APIs (orders, inventory, payments) over a synthetic SQLite DB with deterministic seed data.
-- Orchestration per ARCHITECTURE §2: router, tools, retrieval, generation, validators, fallback, escalation queue.
-- FastAPI (`/chat`, `/health`, `/ready`, `/escalations`), Streamlit UI with citations and a debug view.
-- Tests: API validation, timeouts, tool errors, injection, PII access control, e2e scenarios.
-
-**DoD:** e2e scenario suite runs from one command with per-language results; demo works locally on the laptop.
+Authorized synthetic orders/inventory/payments SQLite APIs; router/tools/retrieval/generation/
+validators/fallback/escalation orchestration; FastAPI /chat,/health,/ready,/escalations;
+Streamlit citations/debug view; auth/error/timeout/injection/PII and multi-turn scenarios.
+**DoD:** one-command multilingual e2e suite and local laptop demo work.
 
 ## Stage 9 — System evaluation and optimisation
 
-- Full benchmark (gold + e2e + safety), latency and throughput load test, memory profile.
-- Optimise measured bottlenecks (quantisation, caching, batch sizes, context size).
-- 1M+ record stress test of the data and indexing pipelines (synthetic scale-up). Record throughput, RAM and disk.
-
-**DoD:** final metrics table with CIs; scaling limits documented; regressions = 0 against Stage 8 results.
+Gold/e2e/safety evaluation; latency/throughput/resource/load tests; measured quantization,
+caching/batch/context trade-offs; isolated1M+ record stress test.
+**DoD:** final per-language metrics/CIs, scaling limits and no Stage 8 regressions.
 
 ## Stage 10 — Production readiness and delivery
 
-- Dockerfiles + Compose (API, UI, Qdrant), env-based config, CI (lint, type, test, small eval), structured logs, metrics, rate limiting, security review, backup and restore drill, final README and model/data cards.
+Reproducible packaging/Compose, CI (lint/types/tests/small evaluation), operational logs/
+metrics/health/rate limits, security review, backups/restore and model/data cards.
+**DoD:** clean-machine setup/demo and CI pass; restore works; limitations remain explicit.
 
-**DoD:** clean-machine setup from the README works; CI is green; restore drill passes; limitations documented honestly.
+## Report format
 
----
-
-## Report format (after every stage)
-
-Stage · Status (COMPLETED / BLOCKED / PARTIALLY COMPLETED) · Implemented · Data · Experiments ·
-Results (real numbers) · Checks (what ran, passed, could not be verified) · Git and backups
-(commits, snapshot IDs, paths) · Problems · Engineering decisions · Next stage · Completion
-decision with evidence.
+Stage or maintenance task · Status (COMPLETED / BLOCKED / PARTIALLY COMPLETED) ·
+Implemented · Data/experiments (when applicable) · Measured results · Checks/unverified items ·
+Git/backups · Problems/decisions · Next action · Completion decision with evidence.

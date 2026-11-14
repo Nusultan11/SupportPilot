@@ -1,59 +1,48 @@
 # SupportPilot
 
-A multilingual (Russian / Kazakh / English) customer-support assistant for an online store.
-It combines retrieval-augmented generation over store documents, tool calls to order /
-inventory / payment APIs, and a compact LoRA/QLoRA-tuned LLM. It is built to answer only
-from evidence, cite its sources, and hand hard cases to a human operator.
+A reproducible customer-support research project for a fictional Kazakhstan online store:
+Russian, Kazakh, English and mixed RU–KK. Store facts come from cited KB evidence;
+live order, payment and stock state must come from authorized tools. Fine-tuning teaches behaviour.
 
-> **Status:** the data and knowledge-base pipelines are implemented, including a multilingual
-> data expansion and an independent retrieval query set. The assistant itself is not built yet.
-> Current state: [docs/PROGRESS.md](docs/PROGRESS.md).
+Implemented: licensed data pipelines, versioned multilingual KB, hybrid retrieval,
+LLM inference/evaluation/training and typed routing. End-to-end APIs, business tools and UI
+are future work. See [current status and next action](docs/PROGRESS.md);
+research measurements do not imply production or autonomous-answer readiness.
 
-## What it will do
+## Start here
 
-- Delivery and order tracking, returns and refunds, payment, cancellation and order changes,
-  product details and availability, store policies and FAQ.
-- Detects the user's language, including mixed RU–KK, and replies in it.
-- Every policy statement carries a citation to a KB chunk. Dynamic facts come only from APIs.
-- Abstains when evidence is missing. Escalates complaints, sensitive or unresolved cases.
-
-## Planned stack
-
-Python 3.12 · uv · Polars/PyArrow · PyTorch/Transformers/PEFT/TRL · Qdrant · FastAPI/Pydantic ·
-Streamlit · MLflow · pytest/Ruff/mypy · Docker Compose (only where needed).
-The rationale is in [docs/DECISIONS.md](docs/DECISIONS.md).
-
-## Documentation
-
-| Doc | Content |
+| Need | Document |
 |---|---|
-| [AGENTS.md](AGENTS.md) | Rules for AI agents (canonical) |
-| [PROJECT](docs/PROJECT.md) | Goal, scope, requirements |
-| [ARCHITECTURE](docs/ARCHITECTURE.md) | Components and data flow |
-| [ROADMAP](docs/ROADMAP.md) | Stages and definitions of done |
-| [DATA_CONTRACTS](docs/DATA_CONTRACTS.md) | Schemas and versioning |
-| [EVALUATION](docs/EVALUATION.md) | Metrics and experiment protocol |
-| [DECISIONS](docs/DECISIONS.md) | Architecture decision records |
-| [PROGRESS](docs/PROGRESS.md) | Current state |
-| [RUNBOOK](docs/RUNBOOK.md) | Operations, backup and restore |
+| Agent rules | [AGENTS.md](AGENTS.md) |
+| Current work / stages | [PROGRESS](docs/PROGRESS.md) · [ROADMAP](docs/ROADMAP.md) |
+| Requirements / design | [PROJECT](docs/PROJECT.md) · [ARCHITECTURE](docs/ARCHITECTURE.md) |
+| Contracts / evaluation | [DATA_CONTRACTS](docs/DATA_CONTRACTS.md) · [EVALUATION](docs/EVALUATION.md) |
+| Decisions / commands | [DECISIONS](docs/DECISIONS.md) · [RUNBOOK](docs/RUNBOOK.md) |
+| Measured results | [Retrieval](docs/reviews/stage6_scale_results.md) · [LLM](docs/reviews/stage7_results.md) |
 
-## Install and run
+## Local setup
 
-Requirements: Windows or Linux, Python 3.12 (installed by `uv` if missing), an NVIDIA GPU
-with a CUDA 12.6-capable driver (optional for most tasks), and Docker for Qdrant.
+Python 3.12 managed by uv; Docker Desktop for Qdrant. CUDA checks require a compatible
+NVIDIA driver. Dependencies and model revisions are pinned in the lockfile/configuration.
 
-```bash
-uv sync --locked              # locked environment incl. CUDA torch
+```powershell
+uv sync --locked
 uv run pre-commit install
-docker compose up -d qdrant   # local vector database
-uv run supportpilot env       # hardware / CUDA report
-uv run pytest -q              # test suite
+docker compose up -d qdrant
+uv run supportpilot env
+uv run supportpilot --help
 ```
 
-The end-to-end demo arrives in Stage 8. All commands are in [RUNBOOK](docs/RUNBOOK.md).
+Verification, pipeline commands, cloud execution, backup/restore and safe cleanup:
+[RUNBOOK](docs/RUNBOOK.md). No end-to-end chat server is supplied yet.
 
-## Data and licences
+## Data and storage
 
-Training data comes from public datasets whose licences are recorded per source. For example,
-Bitext datasets are CDLA-Sharing-1.0, so derived data shared publicly must keep that licence.
-All customers, orders and store documents are synthetic.
+Source licences/attribution: `configs/sources.yaml`. All demo customers/orders are synthetic.
+Authored datasets and reviews disclose LLM authorship and missing independent human review.
+Bitext-derived published data retains CDLA-Sharing obligations; no unrestricted project-wide
+dataset licence is implied.
+
+Git contains source, configuration, tests and documentation. Local datasets, model weights,
+experiment outputs, MLflow and backups are ignored. Their locations and retention rules are
+defined in [AGENTS](AGENTS.md#7-artifact-lifecycle-and-cleanup).
