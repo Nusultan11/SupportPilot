@@ -12,6 +12,16 @@ Stage 6.1 remains completed with its quality limitations below. Stage 8 is not s
 
 #### Active continuation (2026-11-14)
 
+- Closed-diagnostic checkpoint deep-verified and actually restored: final execution27
+  files `stage7_queue_execution/20261114T143836Z-47a03e90`, diagnostics17 files
+  `stage7_queue_diagnostics/20261114T143837Z-90d9bc18`, reports199 files
+  `stage7_reports/20261114T143838Z-e864feaf`;
+  receipt `closed_queue_diagnostics_backups.json`. Tracking unchanged since the
+  restored2214-file snapshot below. Published **a2c37a86b9d1eec952921f60a0a16f414d7b4c0f**
+  has an actually restored clean code bundle `supportpilot-20261114T133459Z.bundle`,
+  SHA256 `53b53805e00c7adb8e3fd5f59f526f30eb4f77c6aa4a51487034735779214524`;
+  receipt `queue_recovery_code_backup.json`. Only documentation changed since then.
+
 - Queue-recovery checkpoint deep-verified and actually restored: final execution27
   files `stage7_queue_execution/20261114T133212Z-4db45473`, diagnostics15 files
   `stage7_queue_diagnostics/20261114T133213Z-83b90410`, reports190 files
@@ -40,8 +50,11 @@ Stage 6.1 remains completed with its quality limitations below. Stage 8 is not s
   Dataset listing confirmed automatic ZIP extraction. That diagnostic assumed a
   mounted ZIP (the main bootstrap already supports extracted files); it was cancelled
   while QUEUED with an empty output ZIP, then corrected to verify the frozen file
-  manifest. Corrected probe **/3**, internet disabled, remains QUEUED. No final model
-  calls or model/scorer changes resulted from either diagnostic attempt.
+  manifest. Corrected probe **/3**, internet disabled, also remained QUEUED beyond20min.
+  Explicit-version output redirect resolved session369529612; empty22-byte ZIP
+  verified, cancellation acknowledged to release the second batch slot. Only final
+  /2 remains queued. Manifest mount verification is NOT_OBSERVED, root cause UNKNOWN.
+  No final model calls or model/scorer changes resulted from these diagnostics.
   Hardware preflight1 imported with separate remote/importer provenance into MLflow
   run **9f75d1b1b8c5484f940d168db917bf07** (`queue_preflight_mlflow.json`).
   `artifacts/kaggle/stage7_final_evaluation/technical_retry.json` records the change;
@@ -71,6 +84,18 @@ Stage 6.1 remains completed with its quality limitations below. Stage 8 is not s
   routers on test, with raw vs guarded/fallback scopes separated. Local implementation
   update recorded before inspecting any final LLM completions in `postprocess_scope.json`;
   primary scorer/selection math and all model inputs/parameters are unchanged.
+  Later pre-output review additionally requires an exact-version COMPLETE receipt
+  before import and makes any missing planned prediction file block a complete report;
+  syntax verified, updated analysis hash retained in the same scope ledger.
+  Prepared `artifacts/reports/llm/launch/download_terminal_final.py` (syntax checked,
+  not executed): it requires exact /2 COMPLETE, writes `output/2/terminal_status.json`,
+  preserves earlier empty archives, verifies redirected session369527684, downloads
+  `terminal_download.zip`, pulls exact source and verifies every result SHA before
+  analysis. Use global Python312 (installed Kaggle SDK), then project `.venv` Python
+  for `final_analysis.py`, model card and cost accounting. If /2 ERROR, preserve the
+  partial archive/attempts as failures instead of bypassing COMPLETE for metric import.
+  One transient WinError10053 status-query failure at13:59UTC recovered; explicit /2
+  QUEUED reverified at14:01UTC. It was not an observed remote execution failure.
 
 - Queue diagnostics: authenticated `kaggle quota -v` reports GPU2.61h used /27.39h
   remaining of30h, refresh2026-11-21 UTC (display precision.01h). This is current
