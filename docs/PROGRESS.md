@@ -4,7 +4,7 @@ Last updated: 2026-11-14 (Stage 7 final assessment technical retry queued)
 
 ## Current stage
 
-**Stage 7: IN PROGRESS — final LLM assessment /1 CANCEL_ACKNOWLEDGED, /2 QUEUED; local held-out router/resources measured.**
+**Stage 7: IN PROGRESS — final LLM assessment /1 CANCEL_ACKNOWLEDGED, /2 QUEUED (OAuth access restored); local held-out router/resources measured.**
 Owner authorized the complete Stage 7 task and Kaggle CLI execution on 2026-11-13.
 Stage 6.1 remains completed with its quality limitations below. Stage 8 is not started.
 
@@ -12,12 +12,64 @@ Stage 6.1 remains completed with its quality limitations below. Stage 8 is not s
 
 #### Active continuation (2026-11-14)
 
+- Execution-recovery checkpoint deep-verified and actually restored: final package 32
+  files `stage7_queue_execution/20261114T161914Z-e051065e`, diagnostics 35 files
+  `stage7_queue_diagnostics/20261114T161915Z-2b41b60e`, reports 208 files
+  `stage7_reports/20261114T161916Z-5754fcfa` (`execution_recovery_backups.json`).
+  These preserve owner UI evidence, access recovery, explicit-run experiment receipts
+  and the unsubmitted one-GPU runner. MLflow unchanged since restored 2214-file snapshot.
+  Host operational client versions verified: kaggle 2.2.5, kagglesdk 0.1.38.
+
+- L4 probe4 also remained QUEUED with empty output; resolved session 369560325 via
+  explicit-version output redirect and received CANCEL_ACKNOWLEDGED. One controlled
+  repeat **preflight/5** uses the identical private/no-input hardware code, L4 and 120s,
+  with public SDK `SAVE_AND_RUN_ALL=1` explicit instead of CLI's unspecified type.
+  Accepted version5 and exact source/private metadata verified; still QUEUED, no
+  immediate effect observed. No claim this identifies a CLI bug or queue root cause.
+  `explicit_execution_submission.json`, `explicit_execution_source.json` and cancelled
+  /4 receipt retain all evidence. Conditional L4 runner now requires verified probe5.
+  Main final T4 /2 is untouched. Raw status defaults to QUEUED in SDK; logs/files are
+  empty and owner UI corroborates Queued. Weekly quota remains 27.38h at 15:48UTC.
+
+- API access denied from 14:58UTC: exact /2 `kernels.get` denied,
+  quota authentication required. Owner CLI confirms cached nurs2005 login; ordinary
+  `auth login` does not refresh it, so owner was given `kaggle auth login --force`.
+  During the outage remote job status was **UNKNOWN_ACCESS_DENIED**, last QUEUED;
+  no evidence of remote execution failure. Local status watcher stopped to avoid
+  repeated unauthenticated requests; the remote /2 request is untouched.
+  Owner forced OAuth refresh; owner and agent verified quota and /2 QUEUED again.
+  `kaggle_access_recovery.json` retains outage and recovery scope.
+- Official current Kaggle CLI docs also list NvidiaL4 (eligibility is account-dependent).
+  Prepared one hardware-only 120s L4 probe without Dataset/models; push failed with
+  authentication required. After recovery GetKernel proved latest version3, so no
+  version was created by that failure. The same hardware-only request was then
+  accepted as **preflight/4**, source/private/no-input identity verified; requested
+  NvidiaL4, subsequently cancelled queued/empty as recorded above; actual GPU/eligibility
+  still NOT_OBSERVED.
+  `artifacts/kaggle/stage7_queue_preflight/l4_submission.json` records the scope.
+  Main T4 /2 is preserved. Final inference payload, model and selection unchanged;
+  no paid service/subscription was invoked.
+  A one-GPU alternative is prepared only at `stage7_final_evaluation/l4/kernel`,
+  with binding `l4/preparation.json`: the identical 12 frozen task dictionaries,
+  regrouped onto one worker, same payload/weights/prompts/seeds/precision. It is
+  **NOT_SUBMITTED** and requires verified L4 preflight plus the T4 /2 still QUEUED
+  with empty output and acknowledged cancellation; preserve /2 if already RUNNING.
+  Read-only status monitoring resumed after verified OAuth refresh.
+
+- Owner authenticated Edge view now opens the private notebook: screenshot confirms
+  author Nurs2005, QUEUED, GPU T4 x2, output 0 B, no visible warning. Initial web404 access
+  problem is resolved. Screenshot itself does not expose version number; latest API
+  and instructed assessment target remain /2. UI says Latest Container Image while
+  API metadata records the explicit digest; actual runtime remains unobserved. Local
+  screenshot/hash/scope receipt `queue_ui_confirmation.png/.json`. Queue root cause
+  still UNKNOWN; no additional inference retries or parameter changes.
+
 - Closed-diagnostic checkpoint deep-verified and actually restored: final execution27
   files `stage7_queue_execution/20261114T143836Z-47a03e90`, diagnostics17 files
   `stage7_queue_diagnostics/20261114T143837Z-90d9bc18`, reports199 files
   `stage7_reports/20261114T143838Z-e864feaf`;
   receipt `closed_queue_diagnostics_backups.json`. Tracking unchanged since the
-  restored2214-file snapshot below. Published **a2c37a86b9d1eec952921f60a0a16f414d7b4c0f**
+  restored 2214-file snapshot below. Published **a2c37a86b9d1eec952921f60a0a16f414d7b4c0f**
   has an actually restored clean code bundle `supportpilot-20261114T133459Z.bundle`,
   SHA256 `53b53805e00c7adb8e3fd5f59f526f30eb4f77c6aa4a51487034735779214524`;
   receipt `queue_recovery_code_backup.json`. Only documentation changed since then.
@@ -52,8 +104,8 @@ Stage 6.1 remains completed with its quality limitations below. Stage 8 is not s
   while QUEUED with an empty output ZIP, then corrected to verify the frozen file
   manifest. Corrected probe **/3**, internet disabled, also remained QUEUED beyond20min.
   Explicit-version output redirect resolved session369529612; empty22-byte ZIP
-  verified, cancellation acknowledged to release the second batch slot. Only final
-  /2 remains queued. Manifest mount verification is NOT_OBSERVED, root cause UNKNOWN.
+  verified, cancellation acknowledged to release the second batch slot. At that checkpoint final
+  /2 was preserved; the later active L4 probe is documented above. Manifest mount verification is NOT_OBSERVED, root cause UNKNOWN.
   No final model calls or model/scorer changes resulted from these diagnostics.
   Hardware preflight1 imported with separate remote/importer provenance into MLflow
   run **9f75d1b1b8c5484f940d168db917bf07** (`queue_preflight_mlflow.json`).

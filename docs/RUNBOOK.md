@@ -48,7 +48,23 @@ wall time or billed GPU-hours. Available quota does not prove immediate GPU assi
 retain QUEUED as pending, preserve the existing job, and never treat submission as a
 successful experiment or silently start a duplicate.
 
-Verified queue recovery (CLI2.2.5 / installed official SDK, 2026-11-14):
+Verified OAuth recovery (owner executed, 2026-11-14): if API quota requires
+authentication and exact private-kernel access is denied while `kaggle auth login`
+only reports an already cached login, refresh the session explicitly:
+
+```powershell
+kaggle auth login --force
+kaggle quota -v
+kaggle kernels status nurs2005/supportpilot-stage7-final-evaluation-run/2
+```
+
+The owner completes browser sign-in; never request password/token contents. Verify both
+quota and the exact private kernel after login. Web login and CLI login are separate:
+an authenticated ordinary Edge session resolved the observed private-page404. Access
+errors are monitoring failures, not proof that the remote computation failed. Preserve
+last observed status and UNKNOWN until access is restored; stop repeated failed polling.
+
+Verified queue recovery (CLI2.2.5 / official kagglesdk 0.1.38, 2026-11-14):
 `kernels push --timeout 120` limits execution; it did not end a request still queued
 beyond 120s. `Maximum batch GPU session count of 2 reached` was observed while two
 own queued requests occupied the batch slots. Do not submit a chain of inference retries.
