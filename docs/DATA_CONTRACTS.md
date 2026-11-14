@@ -551,7 +551,7 @@ never increase independent-need counts or enter selection. Authorship is llm_gen
 `ModelSpec` (`llm/models.py`) pins a full 40-hex model revision and its licence;
 `InferenceConfig` binds precision, quantization, token/time limits, seed, adapter and
 constrained-decoding choice. `TrainingConfig` adds rank/alpha, target modules, optimizer
-learning rate, completion length, packing, step budget, checkpoints and MT down-weighting.
+learning rate, sequence length, packing, step budget, checkpoints and MT down-weighting.
 The training `binding.json` hashes the complete inputs, configuration and runtime source/
 library identity. Resume requires the same binding. Overlength targets are excluded with
 reasons, never truncated; prepared supervised JSON and terminal EOS are checked before

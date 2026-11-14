@@ -1,16 +1,60 @@
 # PROGRESS: current state (single source of truth for status)
 
-Last updated: 2026-11-14 (Stage 7 finalists sealed; held-out export)
+Last updated: 2026-11-14 (Stage 7 final assessment queued)
 
 ## Current stage
 
-**Stage 7: IN PROGRESS — training verified, finalists sealed; independent evaluation pending.**
+**Stage 7: IN PROGRESS — final LLM assessment version1 QUEUED; local held-out router/resources measured.**
 Owner authorized the complete Stage 7 task and Kaggle CLI execution on 2026-11-13.
 Stage 6.1 remains completed with its quality limitations below. Stage 8 is not started.
 
 ### Stage 7 execution checkpoint
 
 #### Active continuation (2026-11-14)
+
+- Frozen inference backup `stage7_selected_inference/20261114T103634Z-3786a359`
+  restored and actually loaded in local NF4, identical weight SHA256;
+  MLflow `e56f6bca5eac47cca70edfdb5e1dc8b5`. Further restore-verified snapshots:
+  heldout `stage7_heldout/20261114T103653Z-fd4fdd8b`, final payload
+  `stage7_final_payload/20261114T103654Z-23d6368f`, reports147 files
+  `stage7_reports/20261114T103654Z-27971fac`, tracking2208 files
+  `stage7_tracking/20261114T103700Z-2806a22f` (SQLite integrity ok).
+  Ledger `artifacts/reports/llm/sealed_evaluation_backups.json`.
+  External `artifacts/reports/llm/model_card.md` records current measured evidence;
+  later final metrics may update that card, never the sealed adapter README/manifests.
+
+- Owner answered "продолжай" to the concrete final private Dataset/upload/evaluation
+  request; authorization receipt `artifacts/reports/llm/final_upload_authorization.json`.
+  Private Dataset `nurs2005/supportpilot-stage7-final-evaluation` created, ready verified;
+  kernel `nurs2005/supportpilot-stage7-final-evaluation-run/1` submitted with T4,
+  currently QUEUED. Private metadata/source verified; Docker digest is not assigned
+  yet (UNKNOWN). Do not duplicate this job or change the sealed settings.
+- Final payload40,775,103 bytes /127 allowlisted files, every internal SHA256 verified:
+  test286 (EN90/RU95/KK101; mixed16), gold936 (312/language; mixed59), safety150,
+  sufficiency144, conflict9, three train demonstrations, inference adapter/source/lock.
+  No full train/validation, credentials or optimizer/checkpoint pickle. Gold79 rows
+  flagged semantic-near-train; keep their evaluation separate. Twelve planned tasks.
+  Payload SHA256 `6ad278d4b7ceb78bf37b83ea96f1e03b3bdf61b660484871c9885de9229a379a`.
+  Frozen local inputs: `data/benchmarks/llm_heldout/570521fe81adaf13af962728b66f76da4f98e05aed8c47a47c891402699fa935/`.
+- Exported passages audited against immutable active KB `kb_demo_store-20261113-f3b204a6`
+  and index `rindex-20261113-9ba94665`: all5,219 packed passages and ranking IDs match;
+  pointer/index state predate export. No retrieval rerun or tuning. Scope/provenance:
+  `heldout_retrieval_identity.json`, `final_payload_audit.json`, `final_cohort_census.json`.
+- Actual selected512-step adapter local NF4 probes FINISHED, three languages each in
+  isolation and joint retrieval; no execution errors, all six model calls observed.
+  Joint retrieval is called after LLM loading, both resident. Peak allocated
+  isolated1,104,847,360 / joint3,376,806,912 bytes vs physical4,294,443,008.
+  Raw EN/KK fail schema; RU remains semantic UNKNOWN; all delivered localized fallback.
+  Three cases are operational evidence only, not quality/SLO or max-context acceptance.
+  Python RSS includes retrieval preparation even in the isolated scope.
+  Receipts `local_selected_adapter.json`; MLflow `3b6cc805ab364cafa3aaeebbfbb70954`
+  and `eaf2b5f8cefd42cd871a29f877d8c0c8`.
+- Frozen encoder independent test/gold/safety FINISHED, no refit. Test macro-F1 EN/RU/KK
+  .71047/.63844/.34668 (mixed .07143); gold .54107/.57066/.43001. Safety missed
+  required escalations22/26,22/26,23/26. These conditional draft diagnostics do not
+  accept autonomous routing. Warm test p50 approximately7.2–7.3ms on local GPU;
+  do not claim a same-hardware LLM speedup. Full receipts/raw predictions under
+  `artifacts/reports/llm/routing/heldout/`, MLflow `290a2e47a62d4b0f8fd9e3a0af6e209d`.
 
 - Selected-training all218 output hashes, source/payload identity and all9 planned
   attempts verified; all FINISHED and imported to MLflow. Actual checkpoint256/resume512

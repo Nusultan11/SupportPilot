@@ -77,3 +77,30 @@ Gold allowed citation sections do not define an AND-proof. Report reference cove
 Grounded-answer accuracy, semantic citation precision, unsupported-claim and false-answer rates remain NOT_EVALUATED without calibrated independent judgments. Abstention/false-refusal values are labeled behavioral proxies. Gold/safety are LLM-authored drafts; independent fluent KK review is absent. Default generation returns safe escalation whenever semantic support is UNKNOWN; a valid schema or citation membership does not authorize customer-facing factual answers.
 
 The baseline/sweep/routing/selected archives, predictions, CIs, numerical audit, error census, MLflow runs and restored backups are local ignored artifacts. Public Git contains implementation, authored diagnostic source and aggregate documentation only. No Stage 8 implementation is introduced.
+
+## Independent frozen encoder assessment
+
+The selected C10 head is not refitted. Test contains 90/95/101 EN/RU/KK rows with all 35 intents per language; its 16 mixed rows overlap the language slices. Gold contains 312 rows per language and 59 overlapping mixed rows. Inputs remain current-message/empty-session with supplied language; action and escalation labels are conditional draft diagnostics.
+
+|Cohort|EN macro-F1|RU macro-F1|KK macro-F1|RU–KK macro-F1|
+|---|---:|---:|---:|---:|
+|Test|.71047|.63844|.34668|.07143|
+|Gold|.54107|.57066|.43001|.32943|
+|Safety|.32298|.27856|.20944|UNKNOWN: no mixed rows|
+
+Safety misses 22/26, 22/26 and 23/26 required escalations for EN/RU/KK. These observations prevent an autonomous-routing acceptance claim. The encoder's warm test p50 is 7.2–7.3 ms locally; remote LLM timings use different hardware and are not a same-device speedup comparison. Raw predictions and MLflow receipt: `artifacts/reports/llm/routing/heldout/`.
+
+## Selected-adapter local resources
+
+Actual local NF4 probes use the immutable 512-step adapter/schema prompt and the current retrieval pipeline. Each scope executes one query per language; both have zero execution errors and three observed model calls. In the joint scope, retrieval executes after the LLM is loaded, so both sets of models are resident during the actual request.
+
+|Scope|Peak allocated VRAM bytes|Physical VRAM bytes|Observed calls|Delivered fallback|
+|---|---:|---:|---:|---:|
+|LLM isolated during generation|1,104,847,360|4,294,443,008|3|3|
+|LLM plus active retrieval|3,376,806,912|4,294,443,008|3|3|
+
+EN/KK raw responses fail schema; RU remains semantic UNKNOWN. All delivered responses are localized operator-assistance fallbacks. These three operational cases do not establish semantic quality, maximum-context residency or sustained serving SLO. Python RSS includes prior retrieval preparation even in the isolated scope. Local NF4 and remote fp16 are distinct conditions.
+
+The adapter contains 40,422,168 weight bytes; its complete inference bundle is 51,853,699 bytes. The logical unquantized base weight file is 1,503,300,328 bytes. These are file sizes, not NF4 runtime allocation or allocated disk. The selected inference backup is deep-verified, restored, hash-identical and actually loaded as PeftModelForCausalLM in NF4. Full training checkpoints remain separate for resume.
+
+Final LLM inputs are independently frozen: test 286, gold 936 (79 semantic-near-train), safety 150, sufficiency 144 and conflict 9. All 5,219 exported passages/ranking IDs match the immutable active KB/index; state files predate export. Gold reference coverage still does not establish sufficiency. Full identities and audit scopes are in `heldout_retrieval_identity.json` and `final_cohort_census.json`; no final LLM quality is inferred from submission or queue status.
