@@ -125,13 +125,19 @@ def export_heldout(
                     "target": target.model_dump(mode="json"),
                     "messages": messages,
                     "required_facts": [f.model_dump() for f in item.required_facts],
-                    "required_groups": groups,
+                    "accepted_reference_groups": groups,
+                    "required_groups": None,
+                    "support_scope": "accepted_citation_sections_only",
                     "ranking": [r.chunk_id for r in ranking],
                     "packed_ids": list(packed),
-                    "retrieval_sufficient": all(ranked & set(g) for g in groups)
-                    if groups
-                    else None,
-                    "packed_sufficient": all(packed & set(g) for g in groups) if groups else None,
+                    "retrieval_reference_coverage": (
+                        sum(bool(ranked & set(g)) for g in groups) / len(groups) if groups else None
+                    ),
+                    "packed_reference_coverage": (
+                        sum(bool(packed & set(g)) for g in groups) / len(groups) if groups else None
+                    ),
+                    "retrieval_sufficient": None,
+                    "packed_sufficient": None,
                     "review_status": item.review.status.value,
                     "semantic_near_train": "semantic_near_train" in item.review.notes,
                     "tool_scope": "conditional synthetic fixture"

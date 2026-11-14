@@ -17,8 +17,16 @@ from supportpilot.data.sftgates import evidence_of
 
 def score_output(row: dict[str, Any], raw: str | None, lid: LanguageIdentifier) -> dict[str, Any]:
     target = AssistantResponse.model_validate(row["target"])
-    negative = row["task"] in {"abstain_no_evidence", "absent", "partial", "irrelevant"}
-    positive = row["task"] in {"grounded_answer", "complete", "multi_document"}
+    negative = row["task"] in {"abstain_no_evidence", "abstain", "absent", "partial", "irrelevant"}
+    positive = row["task"] in {"grounded_answer", "grounded", "complete", "multi_document"}
+    abstention_scope = "draft_task_label" if negative or positive else None
+    if (
+        positive
+        and row.get("support_scope") == "required_proof_groups"
+        and row.get("packed_sufficient") is False
+    ):
+        positive, negative = False, True
+        abstention_scope = "known_support_missing_from_packed_context"
     result: dict[str, Any] = {
         "example_id": row["example_id"],
         "scenario_id": row["scenario_id"],
@@ -26,6 +34,7 @@ def score_output(row: dict[str, Any], raw: str | None, lid: LanguageIdentifier) 
         "lang": row["lang"],
         "code_switch": row.get("code_switch", False),
         "task": row["task"],
+        "abstention_scope": abstention_scope,
         "expected_intent": target.intent,
         "predicted_intent": "INVALID",
         "json_parseability": 0.0,

@@ -12,6 +12,18 @@ Stage 6.1 remains completed with its quality limitations below. Stage 8 is not s
 
 #### Active continuation (2026-11-14)
 
+- Published inference-export checkpoint **09df539c4d0de5d85d2a4f0f1c5df30579a47d26**;
+  selected-training version1 still RUNNING on continuation. Before opening gold,
+  corrected category aliases (`grounded`/`abstain`) and separated accepted-citation
+  coverage from proof sufficiency: gold allowed references are not AND-proof groups.
+  Explicit required-proof loss has a separate abstention scope; semantic quality remains
+  NOT_EVALUATED. Three synthetic regressions plus selection/runner tests17 pass;
+  Ruff and strict mypy pass. Full GPU/server suite **465 passed, zero skipped**,391.33s,
+  one expected Qdrant warning; `artifacts/reports/llm/pytest_gold_scope.log`.
+  No held-out results read. Supplemental conflict fixture frozen before final selection:
+  one artificial policy need, three translations x complete/conflict/absent =9 rows,
+  `data/benchmarks/llm_context_conflicts/`; no new independent-need claim.
+
 - Prompt-boundary checkpoint **c25b4a80035cabbb624bc7ea07521e51b28cc726** published;
   all commit hooks pass, remote main verified. Full suite after that change:
   **460 passed, zero skipped**,378.10s, expected Qdrant warning, log

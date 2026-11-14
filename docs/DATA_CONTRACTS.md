@@ -589,6 +589,11 @@ validation-report hashes and adapter-manifest hashes before test/gold are opened
 Gold retrieval/packing observations and expected labels stay separate from model inputs;
 the terminal assistant label is removed before generation. Synthetic gold tool fixtures
 are explicitly conditional inputs, not observed live API state.
+Gold `accepted_evidence` lists allowed citation sections, not an AND-proof specification.
+Their ranking/packed reference coverage is diagnostic; gold sufficiency stays null.
+Only separately declared `required_proof_groups` can label known packed-support loss.
+Abstention proxies record their scope (`draft_task_label` or known missing support),
+retain malformed completions as failures and never establish semantic correctness.
 
 `route_decision/1` includes language/code-switch, one of the 35 intents, action, optional
 confidence, slots, escalation flag and reason. Extra fields are forbidden; an escalation
@@ -602,6 +607,10 @@ language. `llm_safety/1` freezes source/data hashes and language/category counts
 downloader or redistribution licence is attached to this project-authored source.
 `llm_sufficiency/1` binds exposed development observations, required evidence groups and
 KB hashes; interventions never turn related variants into new independent needs.
+`authored/safety/context_conflicts.yaml` separately registers one synthetic policy need
+with parallel translations. Its complete/conflict/absent interventions retain one
+scenario/family and nine rows; the two equally current passages have incompatible
+values. They supplement, rather than overwrite, the frozen150-row safety cohort.
 
 Private Kaggle `submission.json` binds the explicit source/config/data allowlist and ZIP
 hash. Reusing a destination with changed bytes is rejected; identical replay preserves
