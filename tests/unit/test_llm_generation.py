@@ -8,6 +8,7 @@ import pytest
 from supportpilot.common.hashing import sha256_text
 from supportpilot.common.schemas import Action, AssistantResponse, KBChunk, Locator
 from supportpilot.llm.generation import build_messages, generate_grounded
+from supportpilot.llm.prompts import prepare_messages
 from supportpilot.retrieval.models import RetrievalContext, ScoredChunk
 
 
@@ -15,9 +16,11 @@ class FakeBackend:
     def __init__(self, raw: str) -> None:
         self.raw = raw
         self.calls = 0
+        self.messages: list[dict[str, str]] = []
 
     def generate(self, messages: list[dict[str, str]]) -> str:
         self.calls += 1
+        self.messages = messages
         return self.raw
 
 
@@ -86,6 +89,54 @@ def test_empty_context_does_not_call_model(context: RetrievalContext) -> None:
     assert result.fallback
     assert backend.calls == 0
     assert result.response.needs_human
+
+
+def test_runtime_schema_mode_uses_the_shared_prompt_and_only_supplied_evidence(
+    context: RetrievalContext,
+) -> None:
+    messages = build_messages("Returns?", "en", context, prompt_mode="schema")
+    shared = prepare_messages(
+        [{"role": "user", "content": "Returns?"}], mode="schema", language="en"
+    )
+    assert messages[0] == shared[0]
+    assert messages[1] == {"role": "user", "content": "Returns?"}
+    assert messages[2]["role"] == "tool"
+    assert (
+        json.loads(messages[2]["content"])["results"][0]["chunk_id"] == context.evidence[0].chunk_id
+    )
+    assert context.evidence[0].chunk.text not in messages[0]["content"]
+
+
+def test_runtime_fewshot_mode_forwards_demonstrations_and_preserves_semantic_fallback(
+    context: RetrievalContext,
+) -> None:
+    demo = [
+        {"role": "user", "content": "Training-only example"},
+        {"role": "assistant", "content": response().model_dump_json()},
+    ]
+    backend = FakeBackend(response().model_dump_json())
+    result = generate_grounded(
+        backend,
+        "Returns?",
+        "en",
+        context,
+        identify_language=lambda _: "en",
+        prompt_mode="fewshot",
+        demonstrations=[demo],
+    )
+    assert backend.messages[1:3] == demo
+    assert result.fallback
+    assert result.semantic_support == "unknown"
+    with pytest.raises(ValueError, match="demonstrations"):
+        generate_grounded(
+            backend,
+            "Returns?",
+            "en",
+            context,
+            identify_language=lambda _: "en",
+            prompt_mode="fewshot",
+        )
+    assert backend.calls == 1
 
 
 def test_digits_are_not_semantic_proof(context: RetrievalContext) -> None:

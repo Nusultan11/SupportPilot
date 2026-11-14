@@ -73,6 +73,10 @@ supplied explicitly in these experiments; those results do not evaluate upstream
 detection. Encoder probabilities are not independently calibrated; LLM confidence is prompted
 as null. No routing confidence threshold or semantic verifier is implied by the interface.
 These modules do not instantiate the Stage 8 API, tool services or orchestration.
+For the measured schema/few-shot configurations, pass the selected `prompt_mode` and
+frozen train-only demonstrations to `build_messages`/`generate_grounded`. Those modes
+use the same formatter as SFT and evaluation; the default legacy mode preserves the
+earlier boundary interface and is not a substitute for the selected prompt.
 
 ## 3. Offline flows
 

@@ -556,6 +556,10 @@ The training `binding.json` hashes the complete inputs, configuration and runtim
 library identity. Resume requires the same binding. Overlength targets are excluded with
 reasons, never truncated; prepared supervised JSON and terminal EOS are checked before
 training. Checkpoints, step receipts and failed attempts remain distinct artifacts.
+Prompt mode and frozen train-only demonstrations are separate from model-loading
+configuration. The generation boundary accepts them explicitly; schema/few-shot modes
+share `prepare_messages` with training/evaluation, while omitted mode preserves legacy
+serialization. A few-shot call without demonstrations fails before model generation.
 
 `llm_adapter/1` manifests (`adapter_manifest.json`) bind the exact base model/revision,
 training identity and relative file hashes. Loading checks all adapter bytes. A selection

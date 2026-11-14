@@ -12,6 +12,17 @@ Stage 6.1 remains completed with its quality limitations below. Stage 8 is not s
 
 #### Active continuation (2026-11-14)
 
+- Runtime prompt parity: `build_messages`/`generate_grounded` now accept explicit
+  schema/few-shot mode and frozen demonstrations through the shared formatter used
+  by SFT/evaluation. Omitted mode preserves the legacy boundary and earlier smoke
+  behavior. Two focused tests verify shared schema prefix, evidence isolation,
+  few-shot forwarding/missing-demo failure and semantic UNKNOWN fallback; focused
+  generation+runner suite17 passed. This does not change training or benchmark prompts
+  in the already submitted selected-training package. Full rerun after this additive
+  boundary change remains pending.
+- Contract/integration checkpoint **417a7f4a3709c260627d17311182f0fbf568e80d** published
+  and remote main verified; all commit hooks pass. Selected training remains RUNNING.
+
 - Selected-training private Dataset ready and explicit kernel version1 RUNNING verified
   after the owner's direct upload/execution/retry approval. Remote source matches the
   submitted bootstrap; Docker image digest matches baseline. Inputs, prompts and
