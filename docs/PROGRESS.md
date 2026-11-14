@@ -1,16 +1,51 @@
 # PROGRESS: current state (single source of truth for status)
 
-Last updated: 2026-11-14 (Stage 7 final assessment technical retry queued)
+Last updated: 2026-11-14 (Stage 7 final assessment /2 RUNNING)
 
 ## Current stage
 
-**Stage 7: IN PROGRESS — final LLM assessment /1 CANCEL_ACKNOWLEDGED, /2 QUEUED (OAuth access restored); local held-out router/resources measured.**
+**Stage 7: IN PROGRESS — final LLM assessment /1 CANCEL_ACKNOWLEDGED, /2 RUNNING; local held-out router/resources measured.**
 Owner authorized the complete Stage 7 task and Kaggle CLI execution on 2026-11-13.
 Stage 6.1 remains completed with its quality limitations below. Stage 8 is not started.
 
 ### Stage 7 execution checkpoint
 
 #### Active continuation (2026-11-14)
+
+- Exact final **/2 transitioned to RUNNING at 17:24:05 UTC** (22:24 local),
+  recorded in `stage7_final_evaluation/status_history.jsonl`. At 18:03 UTC both local
+  watchers encountered another API authentication failure and were stopped; remote
+  execution was preserved. Fresh CLI query at 18:34 UTC confirms **RUNNING** again,
+  without another submission or parameter change. Logs remain empty; completion,
+  predictions and runtime environment are not yet verified. A fresh bounded terminal
+  watcher is active. Do not submit the prepared L4/local alternative while /2 runs.
+- Independently downloaded private Dataset version1 into `received_dataset/1`:
+  all 128 archive members match the frozen package, including every one of the 127
+  manifest file hashes. Receipt `received_dataset/1/verification.json`; this proves
+  uploaded content integrity, not execution or Dataset mounting by a worker.
+- Local Qwen3.5-2B FP16 resource attempts are preserved separately under
+  `local_control_fp16`: two FAILED before model loading at the unchanged 6-GiB RAM
+  guard, then one FINISHED after temporarily stopping this project's Qdrant and
+  Docker Desktop. The three already-exposed validation prompts had valid JSON,
+  generation times 24.42/27.81/33.07s (EN/RU/KK); peak allocated CUDA memory
+  4.84/4.86/4.90 GB exceeds physical 4.29 GB. Full VRAM residency and full-suite
+  feasibility are **NOT_ESTABLISHED**; these are not held-out quality results.
+  Docker/Qdrant were restored healthy, with identical collection names, and no
+  volumes deleted (`service_pause.json`). Three MLflow runs retain both failures
+  and the successful operational probe. No local full assessment was launched.
+- Running-assessment checkpoint deep-verified and actually restored: final package
+  34 files `stage7_queue_execution/20261114T183557Z-060225d0`, reports 228 files
+  `stage7_reports/20261114T183558Z-0131d314`, MLflow 2217 files
+  `stage7_tracking/20261114T183606Z-c1e56159` (restored SQLite integrity `ok`).
+  `running_assessment_backups.json` records the restore locations.
+- Unnecessary L4 preflight/5 remained QUEUED with an empty archive and was cancelled
+  with **CANCEL_ACKNOWLEDGED**; explicit-version session mapping and original archive
+  are retained in `stage7_queue_preflight/output/5/cancellation.json`. No probe6 or
+  alternative final assessment was submitted. Actual L4 availability remains UNKNOWN.
+- Terminal downloader now uses the verified exact-version session mapping
+  (version2, session369527684) for the output ZIP, avoiding assumptions about GCS
+  redirect URL shape. It remains unexecuted until COMPLETE; prior empty archives
+  will be preserved. No final metrics have been inspected or imported.
 
 - Execution-recovery checkpoint deep-verified and actually restored: final package 32
   files `stage7_queue_execution/20261114T161914Z-e051065e`, diagnostics 35 files
