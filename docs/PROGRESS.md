@@ -12,6 +12,28 @@ Stage 6.1 remains completed with its quality limitations below. Stage 8 is not s
 
 #### Active continuation (2026-11-14)
 
+- After the observed Docker/Qdrant shutdown and recovery, repeated the complete
+  actual GPU/server suite: **466 passed, zero skipped**,395.97s, one expected embedded
+  Qdrant warning. Log `artifacts/reports/llm/pytest_sealed_assessment.log`.
+  The additional case is the authored-YAML parametrization covering the newly added
+  conflict source; the earlier465-case collection preceded that file. Runtime source
+  and the sealed configurations remain unchanged.
+- Published checkpoint **d3fee719be6f8393bfd80694b6acb4c217bacae4**, remote main verified.
+  Actual restored code bundle `backups/code/supportpilot-20261114T120440Z.bundle`
+  matches that HEAD and has a clean restored worktree;
+  receipt `artifacts/reports/llm/queued_assessment_code_backup.json`.
+- Final version1 remains QUEUED beyond two hours, without a reported failure or
+  assigned Docker image. Available account quota and valid source/request are verified;
+  this does not prove GPU assignment. Official Kaggle notebook docs allow queues under
+  limited GPU availability, but do not diagnose this job or provide its ETA. Preserve
+  the valid pending request; no duplicate/cancellation/parameter changes. Operational
+  reasoning and source link: `artifacts/reports/llm/queue_diagnosis.json`.
+  Final LLM performance is still UNKNOWN_NOT_OBSERVED; Stage7 is not complete.
+- Final postprocessor now includes the preregistered frozen encoder vs both LLM
+  routers on test, with raw vs guarded/fallback scopes separated. Local implementation
+  update recorded before inspecting any final LLM completions in `postprocess_scope.json`;
+  primary scorer/selection math and all model inputs/parameters are unchanged.
+
 - Queue diagnostics: authenticated `kaggle quota -v` reports GPU2.61h used /27.39h
   remaining of30h, refresh2026-11-21 UTC (display precision.01h). This is current
   weekly account quota, not experiment-specific device/billed hours. All eight
