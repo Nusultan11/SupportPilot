@@ -48,6 +48,24 @@ wall time or billed GPU-hours. Available quota does not prove immediate GPU assi
 retain QUEUED as pending, preserve the existing job, and never treat submission as a
 successful experiment or silently start a duplicate.
 
+Verified queue recovery (CLI2.2.5 / installed official SDK, 2026-11-14):
+`kernels push --timeout 120` limits execution; it did not end a request still queued
+beyond 120s. `Maximum batch GPU session count of 2 reached` was observed while two
+own queued requests occupied the batch slots. Do not submit a chain of inference retries.
+
+The CLI has no cancellation command. The official SDK exposes
+`cancel_kernel_session(ApiCancelKernelSessionRequest)` with **kernel_session_id**,
+which is distinct from the notebook/kernel ID. Resolve it through
+`download_kernel_output(ApiDownloadKernelOutputRequest)` with explicit owner, slug and
+version_number: its server redirect path `/v1/kernels/output/download_zip/<session_id>`
+was verified for each requested version. Keep that mapping and downloaded ZIP hash.
+Before cancelling, recheck exact-version QUEUED and inspect the output inventory; never
+silently discard observed work. The successful cancellation returned an empty error
+message and subsequent `CANCEL_ACKNOWLEDGED`; the notebook and Dataset were retained.
+This status records a cancelled attempt, not successful evaluation. A technical retry
+must retain the original submission, unchanged payload/config hashes and its own exact
+version metadata. Pinning a previously working image does not establish queue root cause.
+
 Verified explicit-version result/source retrieval (routing experiment):
 
 ```powershell

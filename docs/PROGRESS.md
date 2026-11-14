@@ -1,16 +1,53 @@
 # PROGRESS: current state (single source of truth for status)
 
-Last updated: 2026-11-14 (Stage 7 final assessment queued)
+Last updated: 2026-11-14 (Stage 7 final assessment technical retry queued)
 
 ## Current stage
 
-**Stage 7: IN PROGRESS — final LLM assessment version1 QUEUED; local held-out router/resources measured.**
+**Stage 7: IN PROGRESS — final LLM assessment /1 CANCEL_ACKNOWLEDGED, /2 QUEUED; local held-out router/resources measured.**
 Owner authorized the complete Stage 7 task and Kaggle CLI execution on 2026-11-13.
 Stage 6.1 remains completed with its quality limitations below. Stage 8 is not started.
 
 ### Stage 7 execution checkpoint
 
 #### Active continuation (2026-11-14)
+
+- Queue-recovery checkpoint deep-verified and actually restored: final execution27
+  files `stage7_queue_execution/20261114T133212Z-4db45473`, diagnostics15 files
+  `stage7_queue_diagnostics/20261114T133213Z-83b90410`, reports190 files
+  `stage7_reports/20261114T133213Z-1bed98d2`, tracking2214 files
+  `stage7_tracking/20261114T133222Z-7311399e` (SQLite integrity ok).
+  Receipt `artifacts/reports/llm/queue_recovery_backups.json`. Runtime source and
+  selection seal reverified unchanged; documentation hooks pass after LF normalization.
+
+- Hardware-only queue preflight **COMPLETE /1**, verified source/private metadata and
+  output SHA: two Tesla T4 (15,636,037,632 bytes each), fp16 matmul passes on both,
+  7.15s script wall time. Docker image matches the prior verified baseline/training
+  digest. Receipt `artifacts/kaggle/stage7_queue_preflight/verification.json`.
+  This proves a fresh GPU request could run, not the root cause of the old queue.
+- One authorized technical retry **final-evaluation-run/2** submitted with the same
+  SHA256 `6ad278d4b7ceb78bf37b83ea96f1e03b3bdf61b660484871c9885de9229a379a`
+  payload, all model/scorer/holdout inputs unchanged, explicit known Docker image,
+  and 21600s execution limit. Both exact versions still QUEUED at initial recheck.
+  Official explicit-version output redirect subsequently resolved session IDs safely:
+  /1=369481159, /2=369527684. Both downloaded archives were empty (22bytes), no
+  inference output observed. CancelKernelSession acknowledged cancellation of **/1**;
+  /2 remains QUEUED. Neither notebook nor Dataset was deleted. Exact mappings and
+  cancellation receipt under `output/*/download_mapping.json`, `cancellation_1.json`.
+  The briefly overlapping queued requests exhausted the two batch GPU slots; the
+  blocked mount probe push produced no kernel version. After /1 cancellation, the
+  same 120s hardware+Dataset-hash-only probe was accepted as queue-preflight/2.
+  Dataset listing confirmed automatic ZIP extraction. That diagnostic assumed a
+  mounted ZIP (the main bootstrap already supports extracted files); it was cancelled
+  while QUEUED with an empty output ZIP, then corrected to verify the frozen file
+  manifest. Corrected probe **/3**, internet disabled, remains QUEUED. No final model
+  calls or model/scorer changes resulted from either diagnostic attempt.
+  Hardware preflight1 imported with separate remote/importer provenance into MLflow
+  run **9f75d1b1b8c5484f940d168db917bf07** (`queue_preflight_mlflow.json`).
+  `artifacts/kaggle/stage7_final_evaluation/technical_retry.json` records the change;
+  final analysis/download now target explicit /2, with pre-output hash audit in
+  `postprocess_scope.json`. Monitor /2 to terminal; preserve cancelled /1 with zero
+  observed inference outputs.
 
 - After the observed Docker/Qdrant shutdown and recovery, repeated the complete
   actual GPU/server suite: **466 passed, zero skipped**,395.97s, one expected embedded
@@ -22,11 +59,12 @@ Stage 6.1 remains completed with its quality limitations below. Stage 8 is not s
   Actual restored code bundle `backups/code/supportpilot-20261114T120440Z.bundle`
   matches that HEAD and has a clean restored worktree;
   receipt `artifacts/reports/llm/queued_assessment_code_backup.json`.
-- Final version1 remains QUEUED beyond two hours, without a reported failure or
-  assigned Docker image. Available account quota and valid source/request are verified;
+- Before cancellation, final version1 remained QUEUED beyond two hours, without a
+  reported failure or assigned Docker image. Available account quota and valid source/request are verified;
   this does not prove GPU assignment. Official Kaggle notebook docs allow queues under
-  limited GPU availability, but do not diagnose this job or provide its ETA. Preserve
-  the valid pending request; no duplicate/cancellation/parameter changes. Operational
+  limited GPU availability, but do not diagnose this job or provide its ETA. At that
+  checkpoint the decision was to preserve the pending request; the later hardware probe
+  motivated the metadata-only retry above. Operational
   reasoning and source link: `artifacts/reports/llm/queue_diagnosis.json`.
   Final LLM performance is still UNKNOWN_NOT_OBSERVED; Stage7 is not complete.
 - Final postprocessor now includes the preregistered frozen encoder vs both LLM
@@ -38,9 +76,10 @@ Stage 6.1 remains completed with its quality limitations below. Stage 8 is not s
   remaining of30h, refresh2026-11-21 UTC (display precision.01h). This is current
   weekly account quota, not experiment-specific device/billed hours. All eight
   previous own SupportPilot kernels currently COMPLETE; no competing project job
-  found. Both latest and explicit final version1 report QUEUED with no failure message.
-  GPU assignment/Docker image/final predictions remain unobserved. Raw quota and
-  account-status evidence under `artifacts/kaggle/stage7_final_evaluation/`;
+  found. At that check latest and explicit final version1 reported QUEUED with no failure
+  message. Later owner CLI check confirms /2 QUEUED, empty log and 27.38h remaining.
+  Final GPU assignment/predictions remain unobserved; /2 image identity is verified.
+  Raw quota and account-status evidence under `artifacts/kaggle/stage7_final_evaluation/`;
   derived scoped quota receipt `artifacts/reports/llm/accelerator_quota.json`.
 - Local precision/postprocessing checkpoint restore-verified: reports171 files
   `stage7_reports/20261114T112157Z-b78d95c2`, tracking2210 files
