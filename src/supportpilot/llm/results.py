@@ -15,6 +15,22 @@ class FailedTaskError(RuntimeError):
     """A retained failed experiment, not a failure of the import itself."""
 
 
+def execution_tags(
+    receipt: dict[str, Any], importer: dict[str, str], submission_digest: str
+) -> dict[str, str]:
+    """Keep the remote execution environment separate from the local import process."""
+    return {
+        "importer_code_commit": importer.get("code_commit", "UNKNOWN"),
+        "importer_python": importer.get("python", "UNKNOWN"),
+        "importer_platform": importer.get("platform", "UNKNOWN"),
+        "code_commit": "UNKNOWN_REMOTE_COMMIT",
+        "python": str(receipt.get("python", "UNKNOWN")),
+        "platform": str(receipt.get("platform", "UNKNOWN")),
+        "source_manifest_sha256": submission_digest,
+        "source_identity_scope": "remote payload hashes; importer Git commit is separate",
+    }
+
+
 def verify_results(output: Path, submission: Path) -> list[Path]:
     expected = read_json(submission)["files"]
     if read_json(output / "payload_manifest.json") != expected:
@@ -96,6 +112,7 @@ def import_results(
         try:
             with start_run(spec, settings) as run:
                 run_id = run.info.run_id
+                mlflow.set_tags(execution_tags(receipt, run.data.tags, sha256_file(submission)))
                 mlflow.log_dict(receipt, "receipt.json")
                 mlflow.log_dict(read_json(submission), "submission.json")
                 mlflow.log_metric("wall_seconds", receipt["elapsed_seconds"])

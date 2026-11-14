@@ -1,16 +1,49 @@
 # PROGRESS: current state (single source of truth for status)
 
-Last updated: 2026-11-13 (Stage 7 started by owner authorization)
+Last updated: 2026-11-14 (Stage 7 selected-training preparation)
 
 ## Current stage
 
-**Stage 7: IN PROGRESS — protocol, generation boundary and Kaggle hardware preflight.**
+**Stage 7: IN PROGRESS — verified baselines, OFAT pilots and routing; selected training pending.**
 Owner authorized the complete Stage 7 task and Kaggle CLI execution on 2026-11-13.
 Stage 6.1 remains completed with its quality limitations below. Stage 8 is not started.
 
 ### Stage 7 execution checkpoint
 
-#### Active continuation (2026-11-13)
+#### Active continuation (2026-11-14)
+
+- Sweep `nurs2005/supportpilot-stage7-sweep-run/1` COMPLETE. Every output byte,
+  payload identity and remote kernel source verified. Download was interrupted after
+  slow sequential IO, then four disjoint groups fetched124 missing/corrupt files;
+  all group return codes0 and all SHA256 values verified. No experiment was rerun.
+- Eighteen sweep attempts imported to MLflow:16 FINISHED,2 FAILED (unsafe eager
+  packing and dependent adapter evaluation). Eight configurations trained80 steps.
+  Preregistered weighted-score selection chooses **all_linear .70395**, control .59921;
+  LR-high .69378, rank32 .64133. Pilot report/CIs: `artifacts/reports/llm/sweep.json`.
+  All-linear includes11,699 training rows, excludes5,158 with explicit reasons;
+  reference loss2.23033 ->1.17521, zero nonfinite gradient steps,
+  peak allocated VRAM2,826,027,520 bytes. Tuning cohort124 (EN35/RU40/KK49),
+  including22 mixed; do not compare its unpaired rates with full313-row baselines.
+- Prepared private package `artifacts/kaggle/stage7_selected_training`:512-step
+  all-linear rank16/LR1e-4, three seeds20261113/14/15, primary checkpoint256/resume512,
+  schema/few-shot validation and adapter routing; only train/validation inputs.
+  Automatic review rejected upload because prior permission named only the routing
+  Dataset. Concrete permission requested for
+  `nurs2005/supportpilot-stage7-selected-training`, including fixes/retries; pending.
+  No final selection seal. Test/gold remain closed; safety/sufficiency not evaluated.
+- Published checkpoint **c7b9349c450646668ea2f1d88c557247b9871dd9**, remote main
+  verified. Full pytest on that commit **455 passed, zero skipped**,420.12s,
+  expected Qdrant warning; log `artifacts/reports/llm/pytest_current.log`.
+  Subsequent MLflow execution/importer metadata separation passes focused regression,
+  Ruff/format and strict mypy. Prior21 remote run tags corrected with before/after
+  audit `artifacts/reports/llm/remote_metadata_repairs.json`; predictions, metrics and
+  run statuses unchanged. Remote Git commit UNKNOWN; payload hashes authoritative.
+- Restore-verified continuation snapshots:
+  `data/stage7_routing/20261113T145422Z-746a5ded`,
+  `data/stage7_reports/20261113T145422Z-26b1d904`.
+  Code bundle `backups/code/supportpilot-20261113T151119Z.bundle` verified with SHA256.
+
+#### Earlier continuation (2026-11-13)
 
 - Routing2 COMPLETE; both313-row runs FINISHED, source/payload/output hashes verified
   and imported to MLflow. Comparison/paired scenario+family CIs:
