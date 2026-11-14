@@ -19,6 +19,47 @@ Submission is not completion. Hardware success does not establish training compa
 free quota for later sessions or semantic quality. The remote environment differs from
 the local Python 3.12 lock. Execution receipts and status are in PROGRESS.md.
 
+## Stage 7 private experiment execution and retrieval
+
+Verified CLI 2.2.5 commands (PowerShell, 2026-11-14). The payload is prepared locally
+and its concrete private upload/execution is authorized before the create/push calls.
+Keep the absolute Windows Dataset path: the CLI upload sidecar failed with relative
+and slash-normalized drive paths in earlier attempts.
+
+```powershell
+kaggle datasets create -p 'C:\Users\nurs\SupportPilot\artifacts\kaggle\stage7_selected_training\dataset' -q
+kaggle datasets status nurs2005/supportpilot-stage7-selected-training
+kaggle kernels push -p artifacts/kaggle/stage7_selected_training/kernel --accelerator NvidiaTeslaT4
+kaggle kernels status nurs2005/supportpilot-stage7-selected-training-run/1
+```
+
+Confirm Dataset `ready` before push. Kernel submission is separate from completed
+training. Provisioning or a previous preflight never proves future free quota.
+
+Verified explicit-version result/source retrieval (routing experiment):
+
+```powershell
+kaggle kernels output nurs2005/supportpilot-stage7-routing-run/2 -p artifacts/kaggle/stage7_routing/output/2 --file-pattern '^results/' -q
+kaggle kernels pull nurs2005/supportpilot-stage7-routing-run/2 -p artifacts/kaggle/stage7_routing/remote/2 -m
+```
+
+Require terminal COMPLETE for that version, then use `llm.results.verify_kernel_source`
+and `verify_results` before `import_results`. Verify the entire output inventory and
+each SHA256; a partial download is not a completed archive. Interrupted downloads may
+be resumed in disjoint exact-file groups after comparison with the remote checksum
+manifest; keep download plans/receipts outside the checksummed `results/` directory.
+Never change an old `submission.json` while repackaging: `llm.kaggle.package` rejects
+changed bytes in an existing destination. Use a distinct local destination for a new
+payload; retain each submitted manifest with its corresponding remote version.
+
+Kaggle may expand `payload.zip` inside its mounted Dataset. The bootstrap handles either
+layout and checks its allowlist manifest before execution. CUDA worker subprocesses
+each expose one device, avoiding TRL DataParallel rejection. Training checkpoint resume
+requires the original configuration/input/runtime binding; increasing `max_steps` is a
+new run, not an interchangeable resume. Prompt/adapter selection is sealed before test
+or gold export. Operational launchers and private artifacts live under git-ignored
+`artifacts/`; their restore-verified snapshots are listed in PROGRESS.md.
+
 ## 1. Environment check (verified Stage 1)
 
 ```bash
@@ -84,6 +125,11 @@ uv run supportpilot check qdrant                  # server-mode round trip, exit
 uv run supportpilot check qdrant --mode memory    # no Docker needed
 docker compose down                               # stop; data stays in volume supportpilot_qdrant_storage
 ```
+
+If the daemon is stopped, `docker desktop start --detach` starts Docker Desktop in the
+background (PowerShell, verified Stage 7). Then run `docker compose up -d qdrant` and
+confirm healthy. Tests skipped while the server was unavailable remain unverified until
+they are actually rerun with the server reachable.
 
 Always use `127.0.0.1`, not `localhost`. On this machine `localhost` added about 2 s to every
 call because of the IPv6-first lookup.

@@ -1,16 +1,48 @@
 # PROGRESS: current state (single source of truth for status)
 
-Last updated: 2026-11-14 (Stage 7 selected-training preparation)
+Last updated: 2026-11-14 (Stage 7 selected-training execution)
 
 ## Current stage
 
-**Stage 7: IN PROGRESS — verified baselines, OFAT pilots and routing; selected training pending.**
+**Stage 7: IN PROGRESS — verified baselines, OFAT pilots and routing; 512-step training running.**
 Owner authorized the complete Stage 7 task and Kaggle CLI execution on 2026-11-13.
 Stage 6.1 remains completed with its quality limitations below. Stage 8 is not started.
 
 ### Stage 7 execution checkpoint
 
 #### Active continuation (2026-11-14)
+
+- Selected-training private Dataset ready and explicit kernel version1 RUNNING verified
+  after the owner's direct upload/execution/retry approval. Remote source matches the
+  submitted bootstrap; Docker image digest matches baseline. Inputs, prompts and
+  AssistantResponse schema bytes match baseline; backend changes are adapter-integrity
+  guards and inactive constrained-decoding compatibility, audited separately.
+- Added2 runner integration tests: raw schema failure vs unsupported numeric candidate,
+  retained raw observations/semantic UNKNOWN, byte-identical cached predictions, changed
+  input and corrupted-prefix rejection. Both pass. Safety source header now records
+  source_id/origin/eval-only use/licence note; all150 rows byte-identical after annotation.
+  LLM/routing/artifact contracts and verified execution/recovery commands documented.
+- Full current suite **458 passed, zero skipped**,395.07s, one expected local-Qdrant
+  warning. Log `artifacts/reports/llm/pytest_server_completion.log`. Initial restricted
+  run455 passed/3 skipped is retained in `pytest_continuation.log`: Docker was stopped
+  and sandbox TCP was blocked. Docker/Qdrant restarted healthy; unrestricted localhost
+  health200 and the full actual GPU/server rerun pass. Ruff/format and strict mypy pass
+  (156 source files). This verifies engineering checks, not semantic quality or training.
+
+- Published metadata checkpoint **98f6f5c630e2cd1778bf93aecf0d5ff0e3e4aa81**;
+  remote main verified, all commit hooks pass. Owner explicitly authorized the prepared
+  selected-training private upload, free execution and necessary fixes/retries on Nov14.
+  Private Dataset created and status ready verified. Kernel submission started with
+  NvidiaTeslaT4: `nurs2005/supportpilot-stage7-selected-training-run/1` RUNNING;
+  terminal execution/results not yet verified. Do not repack this immutable
+  payload into the same destination.
+- Verified/restored backups: sweep375 files
+  `data/stage7_sweep/20261114T024629Z-47e0f5f6`; prepared payload
+  `data/stage7_selected_training/20261114T025543Z-9f7cc66e`; reports
+  `data/stage7_reports/20261114T025543Z-76e1b565`; tracking2169 files
+  `data/stage7_tracking/20261114T025550Z-8e29c53c` (restored SQLite integrity ok).
+  Ledger `artifacts/reports/llm/pending_training_backups.json`.
+  Code bundle `backups/code/supportpilot-20261114T025553Z.bundle` verified with SHA256.
 
 - Sweep `nurs2005/supportpilot-stage7-sweep-run/1` COMPLETE. Every output byte,
   payload identity and remote kernel source verified. Download was interrupted after
@@ -29,7 +61,8 @@ Stage 6.1 remains completed with its quality limitations below. Stage 8 is not s
   schema/few-shot validation and adapter routing; only train/validation inputs.
   Automatic review rejected upload because prior permission named only the routing
   Dataset. Concrete permission requested for
-  `nurs2005/supportpilot-stage7-selected-training`, including fixes/retries; pending.
+  `nurs2005/supportpilot-stage7-selected-training`, including fixes/retries; owner approved,
+  Dataset ready and kernel version1 RUNNING verified.
   No final selection seal. Test/gold remain closed; safety/sufficiency not evaluated.
 - Published checkpoint **c7b9349c450646668ea2f1d88c557247b9871dd9**, remote main
   verified. Full pytest on that commit **455 passed, zero skipped**,420.12s,

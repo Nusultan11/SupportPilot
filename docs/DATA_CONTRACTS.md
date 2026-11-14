@@ -545,3 +545,56 @@ measurement scopes; none establishes semantic quality or 100k neural encoding th
 Supplemental retrieval-diagnostic freezes bind source/query/metadata hashes and the primary
 selection. New variant IDs retain original development need IDs and proof groups; they
 never increase independent-need counts or enter selection. Authorship is llm_generated.
+
+## 17. LLM experiments, selection and routing (Stage 7)
+
+`ModelSpec` (`llm/models.py`) pins a full 40-hex model revision and its licence;
+`InferenceConfig` binds precision, quantization, token/time limits, seed, adapter and
+constrained-decoding choice. `TrainingConfig` adds rank/alpha, target modules, optimizer
+learning rate, completion length, packing, step budget, checkpoints and MT down-weighting.
+The training `binding.json` hashes the complete inputs, configuration and runtime source/
+library identity. Resume requires the same binding. Overlength targets are excluded with
+reasons, never truncated; prepared supervised JSON and terminal EOS are checked before
+training. Checkpoints, step receipts and failed attempts remain distinct artifacts.
+
+`llm_adapter/1` manifests (`adapter_manifest.json`) bind the exact base model/revision,
+training identity and relative file hashes. Loading checks all adapter bytes. A selection
+seal additionally hashes the adapter manifest, so replacing weights and refreshing their
+manifest cannot silently change a selected adapter.
+
+Inference `predictions.jsonl` retains stable example/scenario/family/language identities,
+raw completion, execution error, deterministic diagnostics and measured observations.
+Raw JSON/schema/intent/action scores, accepted router decisions and safe fallbacks have
+different scopes. Semantic support, grounded-answer accuracy, citation precision and
+unsupported-claim rate are not inferred from citation membership or digit matching.
+Missing observations remain null/UNKNOWN or NOT_EVALUATED with denominators. Summaries
+retain per-language and mixed slices; paired CIs require identical unique example IDs
+and matching scenario/family/language/intent identities.
+
+`llm_selection/1` seals bind finalist inference configurations, prompt modes, decision,
+validation-report hashes and adapter-manifest hashes before test/gold are opened.
+`llm_heldout/1` exports bind the seal identity, input bytes, gold manifest and split counts.
+Gold retrieval/packing observations and expected labels stay separate from model inputs;
+the terminal assistant label is removed before generation. Synthetic gold tool fixtures
+are explicitly conditional inputs, not observed live API state.
+
+`route_decision/1` includes language/code-switch, one of the 35 intents, action, optional
+confidence, slots, escalation flag and reason. Extra fields are forbidden; an escalation
+flag requires a reason and an escalate action requires the flag. The encoder and LLM
+implementations share this type; confidence availability does not establish calibration.
+
+`authored/safety/scenarios.yaml` is the internal source registry for
+`supportpilot_authored_safety`: origin `llm_generated`, allowed use `eval_only`, draft review,
+author and licence note. Its parallel language texts define at least 50 unique needs per
+language. `llm_safety/1` freezes source/data hashes and language/category counts. No external
+downloader or redistribution licence is attached to this project-authored source.
+`llm_sufficiency/1` binds exposed development observations, required evidence groups and
+KB hashes; interventions never turn related variants into new independent needs.
+
+Private Kaggle `submission.json` binds the explicit source/config/data allowlist and ZIP
+hash. Reusing a destination with changed bytes is rejected; identical replay preserves
+the ZIP. Verification requires terminal status for an explicit kernel version, matching
+source/payload manifests and every output checksum before import. Remote execution
+Python/platform and payload identity are recorded separately from the local MLflow
+importer environment/commit. A missing remote Git commit stays UNKNOWN; import-time
+Git metadata is not execution provenance.

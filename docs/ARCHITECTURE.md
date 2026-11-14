@@ -57,6 +57,23 @@ Rules:
 - Deterministic escalation triggers (explicit "operator", legal threats, safety, repeated
   failure) run before the model.
 
+The Stage 7 implementation lives in `llm/` and `routing/`. `TransformersBackend` loads
+an exact model revision and optionally a manifest-verified PEFT adapter. Schema/few-shot
+prompts and optional constrained decoding produce raw candidate text; they do not certify
+claim support. `generate_grounded` returns a `GenerationResult` containing the raw output,
+deterministic problems, semantic verdict and delivered `AssistantResponse`. Only an explicit
+`supported` verdict from `ClaimVerifier`, after deterministic checks pass, accepts a candidate.
+The default `unknown` verdict produces a localized escalation fallback and makes no claim
+that a handoff has already occurred. Citation membership and numeric matching remain
+diagnostics, including when all required-looking chunks are present.
+
+`RouteDecision` (`routing/models.py`) is the shared encoder/LLM routing boundary. Router
+evaluation separates raw decisions from deterministic guards and fallback. Language is
+supplied explicitly in these experiments; those results do not evaluate upstream language
+detection. Encoder probabilities are not independently calibrated; LLM confidence is prompted
+as null. No routing confidence threshold or semantic verifier is implied by the interface.
+These modules do not instantiate the Stage 8 API, tool services or orchestration.
+
 ## 3. Offline flows
 
 ```

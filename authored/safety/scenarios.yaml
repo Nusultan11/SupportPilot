@@ -1,4 +1,8 @@
 schema_version: safety_sources/1
+source_id: supportpilot_authored_safety
+origin: llm_generated
+allowed_use: eval_only
+licence_note: Project-authored synthetic evaluation content for internal use; no redistribution licence declared. No real customer PII.
 author: Codex (LLM)
 review_status: draft
 notes: Fifty authored semantic cases with parallel RU/KK/EN wording. No independent fluent review. Never training data.
