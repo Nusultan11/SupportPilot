@@ -768,6 +768,50 @@ config/index and exercised rollback. No additional service needed. Future packin
 changes require new development evidence and a new confirmation cohort. Current results
 and status are in PROGRESS.
 
+## ADR-033 — validation-selected behaviour adapter and separate routing boundary
+
+- **Date:** 2026-11-14. **Status:** accepted for frozen independent assessment;
+  autonomous factual-answer and critical-escalation acceptance is not implied.
+- **Problem/evidence:** the initial legacy smoke returned 0/6 valid responses. Full
+  validation compares schema/few-shot 0.6B and 2B bases; eight 80-step OFAT training pilots
+  compare rank, LR, targets, length and NF4. These are measured development alternatives,
+  not a full factorial search or a universal LoRA-versus-QLoRA result. Unsafe eager
+  packing is rejected before training rather than introducing a new attention framework.
+- **Choice:** Qwen3-0.6B at `c1899de289a04d12100db370d81485cdf75e47ca`,
+  all-linear rank 16 / alpha 32, LR 1e-4, 512 steps, fp16 LoRA/FP32 trainable parameters,
+  MT weight 0.5 and schema prompt. Primary seed 20261113 remains fixed. The validation
+  score .83906 exceeds the Qwen3.5-2B few-shot control .51049; adapter few-shot fails
+  the preregistered KK guard. Keep both finalists for independent assessment.
+- **Evidence limits:** matched 0.6B paired schema/intent/action/language CIs exclude
+  zero per language; KK intent superiority over the stronger 2B remains inconclusive.
+  Absolute KK intent accuracy .51327 is still limited. Secondary seeds each log one
+  NaN grad_norm; final weights are finite, but optimizer skip counts are UNKNOWN.
+  No favorable-seed substitution or semantic-quality inference from JSON is allowed.
+- **Routing:** keep the frozen E5-small/C10 head and typed RouteDecision interface.
+  Its validation macro-F1 exceeds the measured base/adapter LLM routers per language.
+  Action targets are conditional on omitted context/history; deterministic guards,
+  raw decisions and fallback escalation remain distinct. Critical misses prevent an
+  autonomous escalation guarantee; confidence is not calibrated.
+- **Resources/cost:** use verified free Kaggle jobs for training and full inference.
+  Remote fp16 and laptop NF4 are different execution conditions. The 2B joint local
+  allocation exceeds physical 4GB; selected-adapter local/joint acceptance requires
+  actual observations. Process-wall GPU-hours are separate from UNKNOWN session/billed
+  allocation. No paid resource, new runtime service or external agent dependency is added.
+- **Isolation/contracts:** seal model revisions/configs, prompts/demonstrations, head,
+  validation evidence/source hashes and immutable inference-export manifests before
+  opening test/gold. The export excludes training pickle and leaves checkpoints intact.
+  Test/gold cannot retune these settings. Gold accepted references are not AND-proofs.
+- **Safety:** only an explicit supported claim verdict can accept factual generation.
+  With no calibrated independent verifier, UNKNOWN yields localized operator assistance
+  without claiming a completed handoff. Semantic quality stays NOT_EVALUATED. Draft
+  LLM-authored labels and missing fluent KK review limit all conclusions.
+- **Verification/rollback/revisit:** complete raw receipts, per-language paired CIs,
+  checkpoint 256 / resume 512, finite-weight audits and restored archives support this
+  choice; details in `docs/reviews/stage7_results.md` and the sealed local reports.
+  Preserve all failure attempts. Adapter=None and legacy prompt mode retain the earlier
+  interface. Revisit parameters only with new development evidence and a fresh independent
+  confirmation cohort; held-out failures change readiness, not frozen parameters.
+
 ## Open decisions (owner input needed; see PROGRESS.md)
 1. Budget for a paid LLM API (MT for KK/RU, data generation, LLM judge). Without it: open MT + local models, with lower expected KK quality.
 2. Availability of fluent KK and RU reviewers for the gold benchmark and translation audits.

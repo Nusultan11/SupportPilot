@@ -1,16 +1,66 @@
 # PROGRESS: current state (single source of truth for status)
 
-Last updated: 2026-11-14 (Stage 7 selected-training execution)
+Last updated: 2026-11-14 (Stage 7 finalists sealed; held-out export)
 
 ## Current stage
 
-**Stage 7: IN PROGRESS — verified baselines, OFAT pilots and routing; 512-step training running.**
+**Stage 7: IN PROGRESS — training verified, finalists sealed; independent evaluation pending.**
 Owner authorized the complete Stage 7 task and Kaggle CLI execution on 2026-11-13.
 Stage 6.1 remains completed with its quality limitations below. Stage 8 is not started.
 
 ### Stage 7 execution checkpoint
 
 #### Active continuation (2026-11-14)
+
+- Selected-training all218 output hashes, source/payload identity and all9 planned
+  attempts verified; all FINISHED and imported to MLflow. Actual checkpoint256/resume512
+  retains every step, optimizer and scheduler states. All three seeds reach512.
+  Primary seed20261113: zero nonfinite gradients; secondary20261114/15: one logged
+  NaN grad_norm each (steps387/124), not silently discarded. All saved adapter weights
+  are finite. Optimizer skip counts were not instrumented (UNKNOWN).
+- Validation primary schema EN/RU/KK validity .98969/.98058/.95575; intent accuracy
+  .80412/.78641/.51327; language compliance .98969/.98058/.92920. Mixed22 schema1.0,
+  intent .59091. Weighted score .83906 vs .51049 selected2B base. Paired scenario CIs
+  for matched0.6B schema/intent/action/language improvements exclude zero in each
+  language; KK intent vs stronger2B remains inconclusive (CI lower bound0).
+  Few-shot adapter fails the preregistered KK guard (.50402); schema selected.
+  Reports: `selected_training.json`, `selected_execution_audit.json`,
+  `selected_checkpoint_resume.json`, `selected_numerical_audit.json` under reports/llm.
+- Finalists sealed before test/gold access: adapter primary seed20261113/schema and
+  Qwen3.5-2B/few-shot control; encoder C10 remains routing choice. Adapter direct routing
+  macro-F1 EN/RU/KK .43987/.31286/.12123, below encoder .53411/.53250/.38675.
+  No autonomous escalation or semantic-answer acceptance. Selection identity
+  `570521fe81adaf13af962728b66f76da4f98e05aed8c47a47c891402699fa935`,
+  `artifacts/reports/llm/selection.json`; immutable inference adapter/card in
+  `artifacts/models/llm/selected_inference`. Held-out retrieval export now executing;
+  final model inference and external transfer have not started. Do not retune sealed
+  configurations or overwrite validation reports/manifests bound by the seal.
+- Restore-verified training236 files
+  `stage7_selected_training/20261114T054643Z-613ff4e9`, reports122 files
+  `stage7_reports/20261114T054657Z-54173864`, tracking2204 files
+  `stage7_tracking/20261114T054704Z-f523ae0a` (SQLite integrity ok).
+  Ledger `artifacts/reports/llm/selected_verified_backups.json`.
+
+- Selected-training explicit version1 terminal COMPLETE verified. Its root inventory
+  has218 files and12 optimizer checkpoints; both worker exit codes0. Full archive is
+  downloading in four disjoint groups; all-file SHA256 and nine-task accounting must
+  pass before reporting training/model results. No final seal or test/gold inference yet.
+- Published **6f099a736f7e6307f62451e376aa3160c554dfcd**, remote main verified.
+  Restore-verified scope checkpoint backups: reports111 files
+  `stage7_reports/20261114T051422Z-e65fd5f9`, tracking2172 files
+  `stage7_tracking/20261114T051428Z-48dec7ea` (SQLite integrity ok).
+  `backups/code/supportpilot-20261114T051434Z.bundle` verified and actually cloned
+  into `artifacts/restore_drills/code/20261114T051434Z`: same HEAD, clean worktree.
+  Ledger `artifacts/reports/llm/scope_checkpoint_backups.json`.
+- Prepared continuation analysis scripts in the ignored reports/launch area
+  (the snapshot above predates the latest helper additions):
+  `download_selected.py`, `selected_analysis.py`, `audit_selected_resume.py`,
+  `seal_finalists.py`, `prepare_final_evaluation.py`, `encoder_final_evaluation.py`,
+  `local_selected_adapter.py`, `final_analysis.py`, `cost_accounting.py`.
+  Selection/export/evaluation scripts have not run. Actual held-out export requires
+  a valid seal. A final private Dataset containing test/gold will need concrete owner
+  permission: prior Dataset grants explicitly excluded them. Do not reuse a training
+  Dataset for that transfer.
 
 - Gold-scope checkpoint **0b326bc** committed; all hooks pass. Local actual NF4
   constrained-decoding compatibility probe on three fixed validation items: ordinary
