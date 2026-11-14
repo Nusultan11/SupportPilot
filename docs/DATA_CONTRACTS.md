@@ -565,6 +565,14 @@ serialization. A few-shot call without demonstrations fails before model generat
 training identity and relative file hashes. Loading checks all adapter bytes. A selection
 seal additionally hashes the adapter manifest, so replacing weights and refreshing their
 manifest cannot silently change a selected adapter.
+`export_inference_adapter` derives a separately hashed inference bundle from a verified
+training bundle. Safetensors/config/tokenizer bytes are preserved; the card is copied
+or explicitly supplied before sealing. The opaque
+`training_args.bin` remains only in the source archive, and origin-manifest/excluded-file
+hashes are recorded. Exports cannot be nested in the immutable source or overwritten
+with changed provenance/card inputs. Model cards used inside a sealed bundle are fixed;
+subsequent held-out results belong in external evaluation reports, not mutated weights
+or adapter metadata.
 
 Inference `predictions.jsonl` retains stable example/scenario/family/language identities,
 raw completion, execution error, deterministic diagnostics and measured observations.

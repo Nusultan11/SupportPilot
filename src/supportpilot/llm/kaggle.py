@@ -105,6 +105,7 @@ def package(
                     ".txt",
                     ".model",
                     ".jinja",
+                    ".md",
                 }:
                     raise ValueError("unexpected file in adapter payload")
                 files[f"adapters/{key}/{relative.as_posix()}"] = file.read_bytes()

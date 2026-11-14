@@ -12,6 +12,26 @@ Stage 6.1 remains completed with its quality limitations below. Stage 8 is not s
 
 #### Active continuation (2026-11-14)
 
+- Prompt-boundary checkpoint **c25b4a80035cabbb624bc7ea07521e51b28cc726** published;
+  all commit hooks pass, remote main verified. Full suite after that change:
+  **460 passed, zero skipped**,378.10s, expected Qdrant warning, log
+  `artifacts/reports/llm/pytest_prompt_boundary.log`.
+- Real PEFT bundles include README.md and training_args.bin, which the previous
+  inference upload allowlist rejected. Added immutable inference export: exact
+  safetensors/config/tokenizer bytes, copied or supplied card, origin/exclusion hashes,
+  no training pickle. Full training archive remains unchanged for resume. Packaging
+  accepts model-card Markdown. Two regressions and existing related tests7 passed;
+  Ruff/format and strict mypy pass. Export of the verified80-step all-linear pilot
+  retains identical weight SHA256 and reloads as PeftModelForCausalLM on local NF4.
+  MLflow receipt `artifacts/reports/llm/adapter_export_reload.json`; this is loader
+  verification only, not512-step or quality acceptance. Full rerun after export support
+  remains pending.
+- Isolation scope: real test/gold artifacts have not entered Stage7 model runners,
+  training or selection. Existing Stage4 hygiene/build tests do parse authored gold
+  source YAML with fake ML components; no blind-to-author source claim is made.
+  Scope audit `artifacts/reports/llm/isolation_scope.json`. Actual final inference/export
+  remains gated by the selection seal; no holdout performance has been used for tuning.
+
 - Runtime prompt parity: `build_messages`/`generate_grounded` now accept explicit
   schema/few-shot mode and frozen demonstrations through the shared formatter used
   by SFT/evaluation. Omitted mode preserves the legacy boundary and earlier smoke

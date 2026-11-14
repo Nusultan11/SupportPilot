@@ -51,6 +51,11 @@ manifest; keep download plans/receipts outside the checksummed `results/` direct
 Never change an old `submission.json` while repackaging: `llm.kaggle.package` rejects
 changed bytes in an existing destination. Use a distinct local destination for a new
 payload; retain each submitted manifest with its corresponding remote version.
+For adapter inference payloads, use `llm.adapters.export_inference_adapter` on the verified
+training bundle first (verified on a real Stage 7 all-linear pilot). It preserves exact
+weight bytes and model-card/config/tokenizer files, derives a manifest with origin hashes,
+and excludes training pickle. Keep the full raw training/checkpoint archive for resume;
+the inference bundle is not an optimizer checkpoint. Validate the export before packaging.
 
 Kaggle may expand `payload.zip` inside its mounted Dataset. The bootstrap handles either
 layout and checks its allowlist manifest before execution. CUDA worker subprocesses
