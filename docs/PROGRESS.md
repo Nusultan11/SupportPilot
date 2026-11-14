@@ -12,6 +12,20 @@ Stage 6.1 remains completed with its quality limitations below. Stage 8 is not s
 
 #### Active continuation (2026-11-14)
 
+- Gold-scope checkpoint **0b326bc** committed; all hooks pass. Local actual NF4
+  constrained-decoding compatibility probe on three fixed validation items: ordinary
+  schema prompt0/3 valid, constrained1/3 valid (EN). RU contains invalid control text;
+  KK is incomplete JSON. No execution errors; EN constrained output still fails
+  evidence diagnostics (unsupported number/answer without evidence). Do not treat
+  enforcer support as a multilingual JSON or semantic guarantee. Frozen selection
+  protocol remains unchanged. Receipts, raw outputs and MLflow runs under
+  `artifacts/reports/llm/local_constraints/`; summary `constraint_compatibility.json`.
+  Initial setup attempt failed before inference because RunSpec params were not scalar;
+  failure log/receipt retained, config serialization fixed, two actual runs FINISHED.
+- Validation automatic error census generated for all four baselines, per language/mixed,
+  contract error types, intent confusions and up to50 distinct failed needs:
+  `artifacts/reports/llm/validation_error_census.json`. No semantic/human-review claim.
+
 - Published inference-export checkpoint **09df539c4d0de5d85d2a4f0f1c5df30579a47d26**;
   selected-training version1 still RUNNING on continuation. Before opening gold,
   corrected category aliases (`grounded`/`abstain`) and separated accepted-citation
