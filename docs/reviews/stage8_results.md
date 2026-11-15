@@ -39,7 +39,7 @@ the engineering choices and alternatives.
 Raw checks: `artifacts/reports/service/checks/`; real-port receipt: `service/live_ports.json`.
 The final single-command suite plus real models is attempt
 `4dcde951fdb847818ccb481cbbc07b58`; it retains the 328-case log and captured prompts/raw
-completions, with source/config hashes matching the delivered code. It is under
+completions, with runtime/config hashes matching the delivered service code. It is under
 `artifacts/reports/service/attempts/`; `latest_probe.json` binds the latest report.
 The earlier matching-source probe `c2abd6e39cfc4bc792fe54d0c9ede6d3` precedes the final
 policy/tool regression fix and supplies the scoped resource observations below.
@@ -76,6 +76,13 @@ MLflow. Earlier attempts remain visible: the first included stale last-backend m
 non-model responses and overbroad KK guard matching; the first e2e load_seconds also included
 the controlled-test prelude. Neither is silently promoted to additional inference evidence
 or a controlled quality comparison. Later reports separate these scopes and retain raw calls.
+A subsequent full run recorded793 passed/1 failed: the injected-router-exception test used a
+10ms whole-request deadline, allowing cold/busy LID to time out first. Delivery still correctly
+queued assistance. The test now reserves10ms for its explicit timeout branch and allows60s for
+the exception branch; both pass in a cold isolated process. Runtime/model inputs are unchanged.
+The final test-file hash therefore differs from the probe's captured harness hash; recovery
+receipts record that explicit delta and verify every runtime/config hash unchanged.
+The failed full-run log remains `service/checks/pytest_deadline_failure.log`.
 The sandbox-only controlled test invocation was interrupted before observable results;
 the successful authorized reruns do not establish its outcome.
 

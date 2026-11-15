@@ -141,7 +141,7 @@ is observed; external operator response is not promised. Research generation rem
 with every unverified candidate withheld. No sealed model, prompt, index or heldout selection changed.
 
 Canonical private evidence is under `artifacts/reports/service/`; `latest_probe.json` points to
-final attempt `4dcde951fdb847818ccb481cbbc07b58` with matching delivered source/config hashes.
+final attempt `4dcde951fdb847818ccb481cbbc07b58` with matching delivered runtime/config hashes.
 The same one-command attempt contains the final controlled E2E log
 and actual inference calls. The report distinguishes scenario-state cases from linguistic needs,
 model calls from tool/guard outcomes, and earlier timing/metric limitations. Five retained probe

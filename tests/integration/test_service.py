@@ -281,7 +281,11 @@ class SlowRouter(FailedRouter):
 def test_component_failures(runtime: tuple[TestClient, SupportService], slow: bool) -> None:
     client, service = runtime
     service.router = SlowRouter() if slow else FailedRouter()
-    service.settings = service.settings.model_copy(update={"request_timeout_s": 0.01})
+    # The exception case must allow cold LID to reach the injected router. Only the
+    # timeout case intentionally races the deadline; both must persist a safe queue entry.
+    service.settings = service.settings.model_copy(
+        update={"request_timeout_s": 0.01 if slow else 60.0}
+    )
     result = chat(client, "Tell me about the store")
     assert result["delivery"] == "queued"
     assert result["diagnostic"] == ("component_timeout" if slow else "component_unavailable")
