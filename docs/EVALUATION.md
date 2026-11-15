@@ -181,3 +181,27 @@ work and sequential vs concurrent throughput. Distinguish process/device wall-ho
 allocated session time, billed hours and weekly account quota; unknown scopes stay UNKNOWN.
 Free use means no paid service invoked, not zero local electricity or measured billing.
 Do not run unrelated concurrent local model jobs during controlled performance measurements.
+
+## 9. Stage 8 operational E2E scope
+
+`tests/integration/test_service.py` exercises actual FastAPI/auth/SQLite/session/queue/UI
+boundaries with controlled router/retriever failures. Its 100 scenario-state cases per language
+are ten customer situations crossed with ten business states (ownership, missing records,
+lifecycle, payment, stock and replayed cancellation state). Report 300 cases, ten linguistic
+needs and ten state configurations, not 300 independent semantic needs. Follow-up reference
+turns are part of the case, not additional independent scenarios. Mixed-language detection,
+client isolation, injection, queue failure, timeout, confirmation and operator delivery have
+separate tests. Fixtures are authored draft engineering checks; no training/model selection
+uses their outcomes. They are not a new independent gold/semantic or fluent-language benchmark.
+
+`service.demo e2e --generation` runs those checks and an actual local frozen-router/retrieval/
+NF4-generation HTTP-boundary probe. Attempt directories preserve logs, source hashes, prompts,
+raw completions, delivered responses and resources; failures are retained. Count actual model
+calls separately from tool/guard responses; never attach a preceding call's metrics to a tool.
+The first historical probe did attach last-observed backend metrics to non-model calls: those
+are stale diagnostics, not additional inference observations; its receipt remains unchanged.
+Report load/first/warm latency, RSS and Torch allocation/reservation scopes separately. This
+small operational probe establishes compatibility only, not sustained throughput, residency,
+critical-risk generalization or a Stage 9 SLO. Semantic quality stays NOT_EVALUATED; generated
+UNKNOWN candidates cannot pass customer delivery. Local queue recording is observed handoff
+scope, not external operator acceptance. No exposed Stage 7 test/gold cohort is rerun or tuned.

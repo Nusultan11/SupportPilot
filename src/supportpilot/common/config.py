@@ -187,6 +187,19 @@ class RetrievalSettings(_Section):
     evaluation_date: date = date(2026, 11, 12)
 
 
+class ServingSettings(_Section):
+    database: Path = Path("data/service/supportpilot.sqlite")
+    # Synthetic principal -> secret bearer token; operator is a reserved principal.
+    tokens: dict[str, SecretStr] = Field(default_factory=dict)
+    router: Path = Path("artifacts/reports/llm/routing/router.json")
+    retrieval_enabled: bool = True
+    generation_enabled: bool = False
+    request_timeout_s: float = Field(default=60, gt=0, le=180)
+    session_ttl_s: int = Field(default=1800, ge=1)
+    memory_turns: int = Field(default=6, ge=1, le=20)
+    max_sessions: int = Field(default=1000, ge=1)
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_prefix=ENV_PREFIX,
@@ -208,6 +221,7 @@ class Settings(BaseSettings):
     backup: BackupSettings = BackupSettings()
     mlflow: MLflowSettings = MLflowSettings()
     qdrant: QdrantSettings = QdrantSettings()
+    serving: ServingSettings = ServingSettings()
 
     @classmethod
     def settings_customise_sources(

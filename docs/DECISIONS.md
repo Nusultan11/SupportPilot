@@ -326,6 +326,34 @@ These draft-label diagnostics and absent calibrated semantics prevent autonomous
 Keep the selected research configuration unchanged; use the measured report for full uncertainty,
 source-traced failure analysis and operational resource limits.
 
+## ADR-034 — Authorized local delivery with an untrusted research generator
+
+Accepted 2026-11-15 for Stage 8. Keep one local service and SQLite rather than adding CRM,
+Redis or paid inference: there is no measured need for distributed operation. Use existing
+encoder/retriever/generation boundaries; load the router on CPU and optionally the frozen
+adapter in measured NF4 mode. Verify selection identity and sealed router/adapter bytes;
+record Stage 8 source/lock identity separately from the immutable Stage 7 execution environment.
+Do not rewrite its seal when adding serving dependencies.
+
+Deliver deterministic authorized tool values; require explicit confirmation for a cancellation
+request. Model confidence and action fields cannot authorize business writes. Preserve semantic
+UNKNOWN-to-fallback, with actual transactional queue insertion before acknowledging recording.
+Use an independent risk guard, bounded identity-owned process-local sessions, durable idempotent
+receipts and a simple operator-only status transition. Persist allowlisted structured context
+rather than raw messages, model candidates, arbitrary customer IDs or PII.
+
+Always loading the generator adds memory/latency while no calibrated verifier can accept facts;
+therefore default to evidence retrieval plus queued assistance and offer explicit research mode.
+Returning model candidates based on schema/numbers would contradict ADR-033. Extractive excerpts
+are labeled source material, not semantic answers. Regex coverage and draft fixtures do not
+establish unrestricted multilingual critical-risk recall or fluent KK acceptance.
+
+Serialize local requests and bound component waits with one worker; late read/inference results
+cannot mutate tools or sessions. Hung drivers require restart; SQLite queue/state survives it.
+Revisit distribution or independent semantic delivery only with new measured need and fresh
+review/calibration evidence. Rollback: stop API/UI; existing offline libraries/artifacts and
+Stage 7 selection remain intact. Queue/business DB stays preserved.
+
 ## Open decisions
 
 Owner input is needed only if the work requires a paid MT/generation/judge budget or fluent

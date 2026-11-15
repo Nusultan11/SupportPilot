@@ -129,3 +129,15 @@ retrieval:
   device: auto
   seed: 20261112
   evaluation_date: '2026-11-12'
+
+# Stage 8 single-process local prototype. Credentials belong in environment/ignored .env.
+serving:
+  database: data/service/supportpilot.sqlite
+  tokens: {}
+  router: artifacts/reports/llm/routing/router.json
+  retrieval_enabled: true
+  generation_enabled: false
+  request_timeout_s: 60
+  session_ttl_s: 1800
+  memory_turns: 6
+  max_sessions: 1000

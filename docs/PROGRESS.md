@@ -10,13 +10,16 @@ belong to the linked reviews, commands to RUNBOOK, and raw evidence to local art
 | Stages 0–6.1 | COMPLETED | Retrieval and synthetic-evaluation limits remain documented |
 | Stage 7 | COMPLETED: engineering and research assessment | Autonomous factual support NOT_READY; critical escalation NOT_ACCEPTED |
 | Repository maintenance | COMPLETED: independent owner-authorized task | Preserve the documentation and artifact lifecycle rules |
-| Stages 8–10 | NOT_STARTED | Separate owner authorization required |
+| Stage 8 | COMPLETED: guarded local engineering prototype | Semantic quality NOT_EVALUATED; autonomous support NOT_READY |
+| Stages 9–10 | NOT_STARTED | Separate owner authorization required |
 
-No jobs remain to watch for the final assessment. Do not retune from the exposed test/gold
-outcomes or start Stage 8. Future improvements need fresh development evidence, independent
+No cloud jobs remain to watch for the Stage 7 assessment. Do not retune from the exposed test/gold
+outcomes. Stage 8 is delivered; Stage 9 is not authorized. Future improvements need fresh
+development evidence, independent
 fluent RU/KK review, calibrated claim support and measured end-to-end delivery.
 Semantic quality remains NOT_EVALUATED; UNKNOWN factual support must take the safe fallback.
-No customer-facing API/tools/UI or actual operator-delivery integration exists yet.
+Stage 8 now implements authorized local tools, API/UI and a durable operator queue;
+recording in that queue is not an external operator response or production acceptance.
 
 ## Frozen Stage 7 identity
 
@@ -125,5 +128,30 @@ followed those checks. Final documentation/provenance checks and recovery receip
   `artifacts/reports/retrieval_scale_delivery_receipt.json`.
 - Backups are local/same disk: they do not protect against disk loss. No backup deletion is
   authorized. Remove only newly created verified restore copies, retaining archives/receipts.
-- Stop here. The next product stage requires the owner's instruction and must retain the
+- Stop before Stage 9. The next product stage requires the owner's instruction and retains the
   explicit semantic, KK, escalation and resource limitations above.
+
+## Stage 8 delivery and next boundary
+
+[Stage 8 report](reviews/stage8_results.md) owns implementation scope, actual laptop observations,
+E2E denominators and limitations. Contracts: DATA_CONTRACTS §18; decisions: ADR-034;
+verified local launch and one-command E2E: RUNBOOK §18. FastAPI/Streamlit, authorized synthetic
+SQLite tools, bounded sessions and the persistent operator queue are implemented. Queue recording
+is observed; external operator response is not promised. Research generation remains optional,
+with every unverified candidate withheld. No sealed model, prompt, index or heldout selection changed.
+
+Canonical private evidence is under `artifacts/reports/service/`; `latest_probe.json` points to
+final attempt `c2abd6e39cfc4bc792fe54d0c9ede6d3` with matching delivered source/config hashes.
+One-command attempt `e21763d4a5f5427e8dfd028fc4aa3c51` contains the final controlled E2E log
+and actual inference calls. The report distinguishes scenario-state cases from linguistic needs,
+model calls from tool/guard outcomes, and earlier timing/metric limitations. Four retained probe
+attempts are imported into MLflow with execution provenance separate from importer Git metadata.
+
+Shared checks, final targeted E2E/UI checks and actual loopback API/UI verification passed.
+Data/service state, reports and updated MLflow have pinned deep-verified snapshots and actual
+restore/SQLite/run-identity proofs. Final code-bundle recovery and origin/main publication are
+indexed by `artifacts/reports/stage8_delivery_receipt.json`. Task-owned verification servers are
+stopped. Backups remain same-disk; no backup deletion was authorized.
+
+Stop before Stage 9. Continue only on owner instruction, retaining semantic, KK, critical-risk
+coverage and sustained-resource limitations; do not tune from exposed Stage 7 test/gold outcomes.

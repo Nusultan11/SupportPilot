@@ -411,3 +411,59 @@ change during retry or housekeeping. Current job/helpers are listed only in PROG
 Keep one canonical maintenance summary and machine-readable evidence; don't copy deletion logs
 into PROGRESS. Remove temporary debug helpers when no longer needed; retain a small reproducer
 only when needed to audit/repeat a meaningful operation. AGENTS §7 owns general lifecycle rules.
+
+## 18. Local end-to-end prototype (Stage 8)
+
+Use the current local sealed router/adapter and active KB/index from PROGRESS; preserve their
+manifests and caches. Start Qdrant using §4. Install dependencies with `uv sync --locked`.
+Create local bearer credentials (principal -> secret), initialize synthetic business state, then
+start the API in one terminal:
+
+```powershell
+$aliceToken = .venv/Scripts/python.exe -c "import secrets; print(secrets.token_urlsafe(32))"
+$bobToken = .venv/Scripts/python.exe -c "import secrets; print(secrets.token_urlsafe(32))"
+$operatorToken = .venv/Scripts/python.exe -c "import secrets; print(secrets.token_urlsafe(32))"
+$env:SUPPORTPILOT_SERVING__TOKENS = (@{demo_alice=$aliceToken; demo_bob=$bobToken; operator=$operatorToken} | ConvertTo-Json -Compress)
+uv run python -m supportpilot.service.demo seed
+uv run uvicorn supportpilot.api:app --host 127.0.0.1 --port 8000 --workers 1 --no-access-log
+```
+
+In another terminal, run the UI, enter `$aliceToken` from the first terminal into the password
+field (never put it into a public log/document), and choose auto/RU/KK/EN:
+
+```powershell
+uv run streamlit run apps/ui.py --server.address 127.0.0.1 --server.port 8501 --server.headless true --browser.gatherUsageStats false
+```
+
+Open http://127.0.0.1:8501. Try `Где заказ SP-1001`, then `Оплата`; read shared stock with
+`Наличие TV-5501`; ask a policy question and inspect retrieved sources/queue status; request an
+operator and refresh tickets. `SP-1002` belongs to demo_bob and must not disclose its state to
+Alice. A new session or changed bearer token clears UI history. Confirm a cancellation request
+only with the explicit checkbox; the result records a request, never completed cancellation.
+Customers cannot advance queue status. An operator bearer may GET /escalations and PATCH
+/escalations/<UUID> with `{"status":"in_progress"}` then `{"status":"resolved"}`.
+GET /health is public; /ready and all customer/queue operations need a Bearer header.
+Use UUID request_id per new /chat operation; preserve it for an identical network retry.
+
+The default mode loads retrieval/router but omits generation; it retrieves source material and
+queues questions requiring unverified semantics. To exercise research inference, set
+`SUPPORTPILOT_SERVING__GENERATION_ENABLED=true` before starting the API. This uses the selected
+adapter with operational NF4/45-second generation limit, not the sealed FP16 assessment mode.
+No semantic verifier is enabled. Driver hangs require process restart; sessions expire on
+restart, but SQLite business state/queue/receipts survive. Stop task-owned servers with Ctrl+C.
+Do not run multiple workers, expose these demo services publicly, or use real customer data.
+
+One command runs the controlled multilingual HTTP/SQLite/UI suite and actual local components:
+
+```powershell
+uv run python -m supportpilot.service.demo e2e --generation
+```
+
+For only the 300 scenario-state cases and separate boundary/UI tests:
+`uv run pytest tests/integration/test_service.py -q`.
+For only the actual-model operational probe: `uv run python -m supportpilot.service.demo probe --generation`.
+Both probe modes create isolated synthetic databases under ignored attempt directories and retain
+failures, prompts, completions and observations; `artifacts/reports/service/latest_probe.json`
+points to the latest attempt. They do not overwrite live demo state or evaluate exposed gold.
+Use full shared checks in §3 as well. Semantic/KK/generalization/sustained-serving limitations
+remain separate from successful execution; evaluation scope is EVALUATION §9.

@@ -613,3 +613,35 @@ source/payload manifests and every output checksum before import. Remote executi
 Python/platform and payload identity are recorded separately from the local MLflow
 importer environment/commit. A missing remote Git commit stays UNKNOWN; import-time
 Git metadata is not execution provenance.
+
+## 18. Local service contracts (Stage 8)
+
+`service/contracts.py` forbids extra fields. `ChatRequest` contains a nonblank <=2,000-character
+message, UUID request_id, optional UUID session_id, optional ru/kk/en reply preference and
+explicit confirm_cancellation (false by default). Customer identity comes only from a configured
+bearer principal; the body cannot choose it. Reusing a request_id with different input returns409;
+identical retries return the committed receipt without repeating writes. Receipts are scoped by
+customer. Unknown/expired/foreign sessions return the same404. Unsupported tool references do
+not disclose whether another customer owns an order.
+
+`ChatResult` wraps AssistantResponse with session/request IDs, retrieved Source records,
+optional escalation_id, code_switch, actual delivery category and a bounded diagnostic code.
+Sources expose chunk/doc/KB/index IDs, locator and original text, never filesystem paths.
+They are not semantic answer citations. Deterministic tool facts are serialized from authorized
+SQLite rows; generated facts never authorize execution. A cancellation request is not a refund
+or a completed cancellation. Orders/payments are customer-scoped; authenticated stock reads are
+shared catalogue state. Demo data initialization is explicit and preserves existing mutable state.
+
+The service DB owns orders, stock, escalations and idempotent receipts. An escalation has UUID,
+session UUID, open/in_progress/resolved status, reason, language, bounded structured context,
+evidence chunk IDs and creation time. Customer list access is identity-scoped. Operator bearer
+access lists the local queue and permits only open -> in_progress -> resolved via PATCH.
+No customer-facing field promises operator response time. Queue acknowledgement/receipt are
+transactional; storage failure returns503 and no successful delivery record.
+
+Sessions carry only an authorized order/SKU, pending clarification, language and <=memory_turns
+structured summaries; TTL and max_sessions bound memory. They are intentionally process-local.
+Operator context excludes raw user messages and model output. Bearer values are SecretStr,
+>=24 characters and unique; only demo_ customers and the reserved operator principal are accepted.
+Validation errors return a generic422 without echoing submitted PII. Public health is liveness;
+readiness is authenticated local tool/fallback readiness, not autonomous semantic acceptance.

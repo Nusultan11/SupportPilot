@@ -20,9 +20,10 @@ All runtime logic lives in one Python package; no microservice split is justifie
 | `supportpilot.cli` | Operational entry point; JSON stdout, logs stderr |
 
 Evaluation currently lives in domain modules, not a separate `supportpilot.eval` package.
-No `supportpilot.tools`, `supportpilot.api` or `apps/ui` implementation is supplied.
+`supportpilot.service` implements SQLite tools, bounded sessions, guarded orchestration and
+the durable operator queue. `supportpilot.api` and `apps/ui.py` are thin HTTP/UI boundaries.
 
-## 2. Target online flow (Stage 8)
+## 2. Implemented online flow (Stage 8)
 
 ```text
 chat → authorized session + language → router
@@ -32,12 +33,31 @@ chat → authorized session + language → router
     → AssistantResponse or safe fallback
 ```
 
-The future API orchestrates these libraries; it must not duplicate business logic.
-Planned endpoints: /chat, /health, /ready, /escalations. Mock orders/inventory/payments
-use deterministic synthetic SQLite data; Streamlit provides the demo UI.
-Session memory is bounded, and customer IDs constrain every business lookup.
-Tool execution, a real escalation queue and an actual completed handoff are not implied by
-a generated action field. Retries/regeneration policies still require Stage 8 implementation.
+FastAPI composes existing libraries through `service.runtime.open_service`. Bearer principals
+constrain order/payment lookup; stock is an authenticated read of shared synthetic inventory.
+Explicit operation/slot recognizers handle supported tool requests; other messages use the
+frozen CPU encoder router. Unknown actions clarify or queue assistance; model-proposed tools
+never execute. Cancellation additionally requires explicit confirmation and records a request,
+not completed cancellation. Queue insertion and its idempotent response commit before delivery.
+
+Sessions are process-local, TTL/capacity/turn bounded, and store only owned order/SKU slots
+and structured intent/delivery summaries. Restart expires sessions; business state, operator
+queue and request receipts survive in SQLite. Replayed receipts do not resurrect sessions.
+Run one process/worker; distributed sessions/delivery are outside this stage.
+
+An independent multilingual risk guard precedes learned routing. The selected retriever checks
+active KB/index readiness on each search. Sources are retrieved excerpts with locators, not
+validated answers. Optional NF4 generation uses the existing schema/grounding boundary without
+a calibrated semantic verifier: factual candidates are withheld. Generation is off by default
+because UNKNOWN cannot deliver factual answers and loading the model consumes resources.
+The explicit research mode exercises real inference without changing the sealed assessment.
+
+One component worker serializes LID/routing/retrieval/generation. Deadline expiry discards late
+results, which cannot mutate business state; a still-running worker rejects more component work.
+GPU driver hangs require process restart; Python cannot forcibly cancel a driver call. Service
+requests serialize session/SQLite mutation; concurrent requests receive503. SQLite failures
+return503 without claiming queue insertion. This local queue confirms recording, not external
+CRM delivery or an operator response. Decisions: ADR-034; commands: RUNBOOK §18.
 
 ## 3. Offline flows and storage
 
