@@ -93,6 +93,8 @@ ignore = ["S101"]  # assert is fine in tests (and only used there)
 "src/supportpilot/kb/{blocks,spec,profiles}.py" = ["RUF001", "RUF002", "RUF003"]
 "src/supportpilot/retrieval/scale_author.py" = ["RUF001", "RUF002", "RUF003"]
 "src/supportpilot/service/orchestrator.py" = ["RUF001"]
+"src/supportpilot/service/decisions.py" = ["RUF001"]
+"src/supportpilot/service/workload.py" = ["RUF001"]
 "apps/ui.py" = ["RUF001"]
 
 [tool.mypy]

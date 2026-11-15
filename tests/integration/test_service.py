@@ -450,7 +450,7 @@ def test_followup_never_downgrades_critical_reason(
     second = chat(client, "What is the return policy?", session=str(first["session_id"]))
     assert second["escalation_id"] == first["escalation_id"]
     ticket = client.get("/escalations").json()[0]
-    assert ticket["reason"] == "independent_safety_guard"
+    assert ticket["reason"] == "safety_risk"
 
 
 @pytest.mark.parametrize(

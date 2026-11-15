@@ -107,12 +107,21 @@ class Store:
             (customer, str(session)),
         ).fetchone()
         if row:
-            if row["reason"] in {
-                "independent_safety_guard",
-                "safety_risk",
-                "legal_threat",
-                "privacy_request",
-            }:
+            priority = {
+                "independent_safety_guard": 100,
+                "safety_risk": 100,
+                "fraud_suspected": 90,
+                "legal_threat": 80,
+                "privacy_request": 80,
+                "payment_dispute": 80,
+                "repeated_failure": 60,
+                "complaint": 40,
+                "technical_issue": 30,
+                "customer_requested_human": 20,
+            }
+            if priority.get(row["reason"], 0) > 0 and (
+                priority[row["reason"]] >= priority.get(reason, 0)
+            ):
                 reason = row["reason"]
             db.execute(
                 "UPDATE escalations SET reason=?,context=?,evidence=? WHERE id=?",

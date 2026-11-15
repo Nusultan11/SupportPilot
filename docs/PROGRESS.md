@@ -10,14 +10,14 @@ live in ROADMAP, interpretation in reviews, commands in RUNBOOK and raw evidence
 | Stages 0–6.1 | COMPLETED | Synthetic retrieval/data and independent-review limits remain |
 | Stage 7 | COMPLETED: engineering and research assessment | Autonomous factual support NOT_READY; critical escalation NOT_ACCEPTED |
 | Stage 8 | COMPLETED: guarded local engineering prototype | Semantic quality NOT_EVALUATED; local recording is not external operator response |
-| Stage 9 | PARTIALLY COMPLETED | Engineering assessment delivered; intent/critical/independent-semantic acceptance incomplete |
-| Stage 9 quality continuation / 9Q1 | IN_PROGRESS, unpublished staged increment | Development selected; confirmation, recovery and publication unfinished |
+| Stage 9 / 9Q1–9Q4 | PARTIALLY COMPLETED; available engineering scope delivered | Intent/KK-critical targets missed; independent semantic qualification unavailable |
+| Stage 9 continuation / 9Q1 | Terminal development and once-only confirmation | Draft operational gains do not certify independent product quality; delivery proof below |
 | Maintenance and engineering MCP integration | COMPLETED: separate owner-authorized tasks | Prior recovery/publication receipts below; MCPs opt-in |
 | Architecture and development-control redesign | COMPLETED: separate engineering task | Product-quality gates remain open; verify delivery receipt below |
 | Stage 10 | NOT_STARTED | Separate owner authorization after quality acceptance or an explicit changed delivery goal |
 
-The active task is architecture/control redesign, not a quality experiment or new product stage.
-The already authorized 9Q1 continuation remains separate: no confirmation is consumed by this task.
+The active owner authorization covers all Stage 9 packages9Q1–9Q4 and A1/A2/A3/A6/A7.
+Both9Q1 confirmation variants are consumed and terminal; no reselection/retuning is permitted.
 Do not tune exposed Stage 7/Stage 9 outcomes, relabel flagged rows or replace sealed artifacts.
 Independent fluent reviewers and labelled calibration are unavailable; semantic acceptance remains
 NOT_EVALUATED. ROADMAP 9Q2/9Q3 stay open. A passing engineering delivery cannot waive those gates.
@@ -26,7 +26,8 @@ NOT_EVALUATED. ROADMAP 9Q2/9Q3 stay open. A passing engineering delivery cannot 
 
 The delivered baseline is a single-worker FastAPI/Streamlit synthetic-store prototype with
 SQLite tools, bounded ephemeral sessions and durable queue/replay. Generation is off by default;
-all service KB candidates are withheld and queued. Authorized tool values may be delivered;
+default service KB candidates are withheld and queued. An optional qualified acceptance adapter
+is implemented, but no real qualified assessor/approval is installed. Authorized tool values may be delivered;
 cancellation records a confirmed request only. `/ready` checks local worker/SQLite state, not
 full RAG/model or semantic readiness. ARCHITECTURE owns the detailed boundaries and limitations.
 
@@ -68,21 +69,37 @@ failed cold-query/deadline attempt. Source `a7057c9dfb70c66d718c`, collection
 Full1M payload/vector and six exact-query restore checks are recorded in the original receipt.
 Do not rerun/delete source or restore collections; random-vector fidelity is not semantic quality.
 
-The separately authorized 9Q1 continuation is present but not published. Its draft protocol and
-ADR-037 remain staged with its code; they are not accepted/published by architecture maintenance.
+The9Q1 continuation and whole-stage engineering increment have terminal verification evidence.
+ADR-037 covers service interpretation; ADR-039 covers optional qualified factual acceptance.
 Canonical private evidence: `artifacts/reports/system/quality/`; fresh inputs:
 `authored/system/quality.yaml`, freeze `f77c5353fb3b85df5c82` under `data/benchmarks/system_quality/`.
 The original Stage 9 source/protocol/results and Stage 7 selection are unchanged.
 
-Development control `4b426acf3fb74419b6082f6171bff559` and candidate
-`b73821f9c83a49adbf1e902a422895ba` are terminal. `selection_pointer.json` names the content-addressed
-seal `501740b786cb90f5cc624ecb6e9acfc186cf8144b2eab7e9e15c4584c943b99b`.
-The prior seal is retained/rejected for wrong-type reference reuse; regression and corrected
-selection precede confirmation. Audit retains2 lexical,133 prior embedding and80 cross-split row
-flags: disjoint family IDs do not certify independence. Eight critical draft needs/language do
-not meet broad safety coverage. No confirmation attempt is present at architecture audit.
-Its retained `checks/pytest_final.log` records829 passed/zero skipped; `checks/precommit.log`
-passes. Recheck source/seal/check identities before continuation, rather than assuming publication.
+Development control `4b426acf3fb74419b6082f6171bff559` is reused. CRLF-to-LF-only drift from the
+prior seal was proved before confirmation; candidate development was rebound as
+`b64e210fd76644f9bdbf801d61aa3ca6`. Current selection seal:
+`5af7f5db893972d79a8e7a240669b5b709c6b77ab839ac6a9fd2db66e9fdd1b1`,
+`quality/selection_pointer.json`; earlier seals/attempts are preserved. Confirmation control
+`612d87b7447a4a879cd88c7bed1f6252` and candidate `a35bb092c14c456f983072fd458e4256` are FINISHED.
+Exact sealed source bytes are archived under `quality/sources/<seal>/`; later dormant acceptance
+and workload code are a separately verified increment. Raw reports/markers remain unchanged;
+`quality/confirmation_analysis.json` owns corrected action scoring, uncertainty and error census.
+
+Audit retains2 lexical,133 prior embedding and80 cross-split row flags without exclusions or
+adjudication. Independent reviewers/calibration remain unavailable;9Q2 product qualification and
+9Q3 real activation are open. The acceptance adapter is HTTP/SQLite-tested with explicitly
+fabricated engineering doubles, never human quality evidence. Default generation remains off.
+
+9Q4 guarded workload is terminal:
+`artifacts/reports/system/workload/7f8a295f22214c6583419f418df036b2/report.json`.
+It includes auth/tool/queue/KB, four slices, concurrency1/4/16, failures, resources and actual
+new-process SQLite replay. Concurrent overload remains a limitation; no capacity change is adopted.
+Real default-unqualified generation probe:
+`system/live_generation/7196612afcf9485880fd02862be8d922/receipt.json` (three model calls).
+Full-scope audit/accounting/checks: `artifacts/reports/system/completion/`.
+Final working-tree checks:925 pytest passed/zero skipped, Ruff/format205 files, strict mypy185
+files plus UI; C4 validate/parse/inspect pass with the two retained external-document INFO findings.
+Final recovery/publication proof is indexed separately below; engineering checks do not close G2.
 
 ## Architecture redesign delivery
 
@@ -109,6 +126,7 @@ work and preserves the existing quality-continuation task. It never closes a pro
 | Stage 7 | `artifacts/reports/stage7_delivery_receipt.json` |
 | Stage 8 | `artifacts/reports/stage8_delivery_receipt.json` |
 | Original Stage 9 assessment | `artifacts/reports/stage9_delivery_receipt.json` |
+| Full Stage 9 continuation /9Q1–9Q4 | `artifacts/reports/stage9_continuation_delivery_receipt.json` |
 | Maintenance | `artifacts/reports/maintenance_delivery_receipt.json` |
 | Engineering MCP integration | `artifacts/reports/engineering_delivery_receipt.json` |
 | Architecture redesign | `artifacts/reports/architecture_delivery_receipt.json` |
@@ -117,11 +135,12 @@ Prior stage evidence, selected inference/training checkpoints and pinned backups
 Backups are local/same-disk and do not protect against disk loss. No backup deletion is authorized.
 Optional engineering MCPs must be off after this task; runtime needs no engineering daemon.
 
-Architecture evidence/task snapshots are pinned, deep-verified and actually restored; code-bundle
-restoration and exact origin/main publication are indexed by the final receipt. Only architecture
-documents/model are published; pending Stage 9 source/protocol/results remain staged. Same-disk
-recovery remains the limit.
+Earlier architecture evidence/task snapshots are pinned and restore-tested; that delivery
+published architecture documents/model and preserved the then-pending quality increment.
+The full Stage 9 continuation has its own recovery/publication index. Require its exact checks,
+snapshot restoration, code-bundle clone and origin/main readback before relying on delivery.
+Same-disk recovery remains the limit; no backup deletion is authorized.
 
-Next: resume only the existing authorized9Q1 scope: verify selected runtime/inputs and checks,
-run each sealed confirmation variant once, interpret without retuning and finish its own recovery/
-publication. Independent quality dependencies remain open. Stop before Stage 10.
+Next product dependency: independently verified reviewers, human calibration/overlap adjudication,
+a real qualified assessor and fresh quality evidence. Verify the final continuation delivery index
+when resuming. Do not repeat confirmation, modify exposed labels/rules or start Stage 10.

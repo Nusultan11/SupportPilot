@@ -213,6 +213,19 @@ scope, not external operator acceptance. No exposed Stage 7 test/gold cohort is 
 
 ## 11. Stage 9 system assessment
 
+Further guarded-quality work uses the separate immutable
+[quality continuation protocol](reviews/stage9_quality_protocol.md). Compare the archived starting
+orchestrator/Store and candidate on identical new needs; preserve earlier assessments. Report
+raw encoder and interpreted service intent separately. Classifier accuracy does not establish
+correct service action. Count requested actions, confirmation clarification, UNKNOWN semantic
+fallback and final delivery separately. An expected tool succeeds only when the captured actual
+customer/operation/returned values and delivered facts match the authorized fixture. Critical
+recall checks the persisted queue; reason correctness is a separate metric. Ordinary requests
+queued for unverified semantics are not false *critical* escalation. Dialogue success requires
+both initial and followup outcomes; followups add no independent needs. Report all metric
+numerators/denominators, paired scenario/family CIs (including all35 macro-F1), raw errors and
+resource scope. Unadjudicated embedding overlaps limit independence despite disjoint family IDs.
+
 [Preregistration](reviews/stage9_protocol.md) and `configs/system_eval.yaml` freeze the control,
 development selection and once-only confirmation. `service.evaluation` exercises actual models
 through FastAPI with isolated SQLite state. Raw encoder intent/action, guarded delivered outcome,
@@ -242,3 +255,29 @@ established during Stage 9 and is not a generation, freeform or concurrent multi
 Count overload503 as failures. Throughput is successful requests divided by wall time, not the
 reciprocal of summed concurrent request durations. Stage 10 readiness depends on actual quality,
 critical misses, calibration and scaling limits in the measured report.
+
+The quality continuation's `confirmation_analysis.json` derives absolute scenario/family CIs,
+all35 confusion/error accounting and paired comparisons from immutable terminal reports. Action
+scoring uses frozen `expected_action`, including required confirmation clarification, rather
+than the requested operation. The preconfirmation audit registered this measurement correction;
+it does not change labels, delivery-based selection or raw reports. Declared reply-language
+matching is an automatic contract diagnostic, not fluent compliance. Safe queue delivery is not
+grounded-answer accuracy or a measured semantic false-refusal rate.
+
+`configs/system_workload.yaml` declares the continuation's seven-kind/four-slice guarded workload
+before measurement. `service.workload` uses real loopback HTTP, unique IDs, no chat retries,
+separate first/warm calls and concurrency1/4/16. Expected401 denials remain in attempt counts but
+never count as successful business throughput;503, transport errors and incorrect200 outcomes
+remain failures. Successful throughput divides correct200 deliveries by actual wall time.
+Report all-attempt and successful p50/p95, queue readback, recovery, process RSS/Torch VRAM,
+Qdrant cgroup samples and actual new-process SQLite replay. Child restart resources are outside
+parent RSS/Torch counters; whole-machine available RAM includes them. Graceful service closure
+plus a new process is not a crash/power-loss test. This mix has no newly inferred numerical SLO;
+the original deterministic concurrency1 target retains its original scope. Qualified sustained
+generation remains unavailable pending9Q2/9Q3; previous matched precision studies are retained.
+
+`service.acceptance` engineering fixtures validate HTTP admission/fallback, not semantics or real
+human calibration. No fixture packet, echoed call binding or LLM self-check can qualify a real
+assessor. Grounded-answer accuracy/language and sustained generation targets still require
+independent development evidence and preregistration before a fresh confirmation; they are not
+selected from these exposed observations.

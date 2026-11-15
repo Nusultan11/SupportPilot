@@ -36,7 +36,7 @@ class ChatResult(Contract):
     sources: list[Source] = Field(default_factory=list)
     escalation_id: UUID | None = None
     code_switch: bool = False
-    delivery: Literal["tool", "clarification", "queued", "fallback", "refusal"]
+    delivery: Literal["tool", "clarification", "queued", "fallback", "refusal", "grounded"]
     diagnostic: str
 
 

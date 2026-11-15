@@ -416,6 +416,33 @@ requirement. Rollback disconnects these tools/stops only the engineering service
 task state/backups and the DSL. Runtime, sealed inputs and historical assessments stay unchanged.
 Reproduction/lifecycle and client-specific activation: RUNBOOK §4a.
 
+## ADR-037 — Service interpretation over the sealed research router
+
+2026-11-15, owner-authorized Stage 9 quality continuation. Preserve the selected encoder/head,
+adapter, taxonomy, prompts, KB/index and exposed evaluation inputs. Correct the service boundary
+instead of retraining from disclosed errors: pass bounded reference context; interpret all35
+taxonomy classes; execute allowlisted read operations only with the correct reference type;
+require an explicit cancellation request plus confirmation before the sole allowed mutation.
+Ignore model-proposed slots/actions as authority. Policy terminology must not cause a live read;
+ambiguous/multiple operations clarify. Unsupported facts still take UNKNOWN-to-queue.
+
+Replace isolated-word safety triggers with bounded incident/request expressions in a service-only
+module. Password recovery, a retry word and product nouns alone are not emergencies. This is
+finite lexical coverage, not a calibrated multilingual safety classifier. Keep typed reasons,
+preserve higher-priority critical ticket reasons, and acknowledge actual transactional queue
+state. No new process, component/storage boundary, runtime dependency or external service.
+
+Alternatives: retraining needs independently reviewed data and would reopen the seal; honoring
+model tool/slot fields weakens authority; expanding a substring blacklist retains false positives.
+Rules are inexpensive and inspectable but have language/negation/coverage limits. Adopt only on
+new development delivery evidence and retain once-only confirmation as assessment, never tuning.
+Exact selection, negative attempts and limits belong to the Stage 9 results continuation section.
+
+Rollback: restore orchestrator/Store from the recorded starting commit and remove the service
+interpretation import; retain queue/state, fresh inputs, all reports and archived control source.
+No sealed Stage 7 artifact is replaced. Revisit broader routing/safety only on fresh development
+and independent fluent review. Stage 10 and autonomous factual generation remain outside scope.
+
 ## ADR-038 — Evidence-gated target architecture on existing boundaries
 
 Accepted 2026-11-15 for the owner-authorized architecture and development-control redesign.
@@ -455,6 +482,38 @@ separate owner authorization. Rollback restores only this documentation/DSL chan
 contracts, frozen models/data/indexes, existing task history and backups remain unchanged.
 Revisit on independently reviewed fresh quality evidence, a measured serving/recovery requirement,
 or an explicit changed delivery goal, not exposed-holdout retuning or infrastructure fashion.
+
+## ADR-039 — Qualified, call-bound factual service acceptance
+
+Accepted 2026-11-15 within the owner-authorized complete Stage 9 scope. Implement the missing
+service admission boundary while preserving default UNKNOWN-to-queue. A trusted offline factory
+checks owner approval against review/provenance hashes, existing independent calibration and
+assessment validation, pinned judge/rubric, language scopes, KB/index and expiry. Software cannot
+verify the truth of human identity/fluency/adjudication declarations; the owner must verify the
+referenced evidence. No real qualified assessor or approval is available or installed.
+
+Adapt a fresh structured assessment to existing `ClaimVerifier`. Bind each verdict to a nonce,
+exact query/candidate/packed evidence, language/mixed scope and qualification identity. Recheck
+judge/rubric, issue/expiry times, evidence dates/checksums/provenance and allowed response shape.
+Only current supported KB answers can return the additive `grounded` delivery category. No model
+tool facts/actions or handoff claim are admitted. Unknown, unsupported, stale/mismatched results,
+errors and timeout retain transactional assistance fallback. Preserve all Stage 8 fields/values,
+auth, serialized writes and durable replay. Default composition injects no verifier; no HTTP
+field or settings flag enables one.
+
+Alternatives: accepting an arbitrary supported string cannot distinguish stale/cross-request
+results; a self-judge cannot replace independent qualification; a remote judging service adds
+unapproved cost/dependency; waiting for reviewers would leave the independently testable service
+boundary unimplemented. The local adapter has no added dependency/service. Its cost is a hash
+of bounded request/evidence and explicit trusted composition; correctness tests do not establish
+semantic competence. Real activation remains gated by9Q2/9Q3 and fresh independent assessment.
+
+Verification: HTTP/SQLite regression cases for qualified engineering doubles, every rejection
+class, mutation isolation, replay, mixed scope and default withholding; actual frozen-model
+probe, full shared checks, canonical DSL validate/parse/inspect and delivery recovery. No routing
+rules, models or labels are tuned from confirmation. Rollback removes the optional injection and
+restores unconditional withholding; retain committed receipts/queue and all qualification evidence.
+No Stage 10 release, distributed serving or sustained generation SLO is introduced.
 
 ## Open decisions
 

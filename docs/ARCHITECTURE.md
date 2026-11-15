@@ -30,10 +30,11 @@ vector store, a workflow platform or a replacement inference framework.
 | Domain evaluation modules in `llm/`, `retrieval/`, `service/` | Training/resume, development selection, frozen assessment, overlap/semantic review, resources | Offline evaluation cannot promote online delivery or consume new holdout implicitly |
 | `common/`, `ops/`, `cli.py` | Typed settings/manifests, atomic IO, redacted logs, tracking helpers, recovery and commands | MLflow and engineering MCPs are not online dependencies |
 
-The pending Stage 9 continuation implements `service/decisions.py` over the sealed encoder
-and changes queue-reason priority (draft ADR-037, unpublished). Code exists in the working tree; confirmation
-and publication remain unfinished. It creates no new process/store or accepted semantic
-capability. Archived controls and original assessments remain distinguishable.
+Stage 9 adds `service/decisions.py` interpretation over the sealed encoder and preserves critical
+queue-reason priority (ADR-037). Its once-only draft confirmation is terminal; quality limits live
+in the measured report. `service/acceptance.py` implements an optional qualified acceptance adapter
+(ADR-039). Default composition supplies no verifier. Neither increment establishes independent
+semantic quality or adds an online process/store. Archived controls remain distinguishable.
 
 ## 2. Current online flow and dialogue
 
@@ -47,15 +48,15 @@ capability. Archived controls and original assessments remain distinguishable.
    Unsupported/undetermined detection does not establish reliable language support.
 4. Critical/requested-human and repeated-failure guards precede learned routing. Explicit
    operations or encoder intent lead to allowlisted tools, KB retrieval, clarification,
-   refusal or assistance. Model slots/confidence never authorize execution. Continuation
-   interpretation/reference-type corrections await their own confirmation.
+   refusal or assistance. Model slots/confidence never authorize execution. Typed current and
+   owned carried references remain separate from predicted slots.
 5. Missing/ambiguous references clarify; cancellation additionally requires explicit intent
    and confirmation. Store checks ownership. Policy is KB evidence; order/payment/stock
    values come only from authorized Store execution.
-6. KB requests retrieve and pack sources. Default generation-off queues assistance. Research
-   mode can generate/validate a candidate, but the service still queues even if the library
-   could accept a supplied verifier. There is no service path delivering a generated KB answer.
-   Authorized tools deliver deterministic returned values directly.
+6. KB requests retrieve and pack sources. Default generation-off queues assistance; research
+   generation without a qualified verifier also queues. An explicitly injected qualified verifier
+   can authorize `grounded` delivery only through the call-bound acceptance adapter. No qualified
+   implementation/approval is installed. Authorized tools deliver returned values directly.
 7. Business mutation if any, queue insertion/reuse and serialized `ChatResult` receipt commit
    in one SQLite transaction. Session state publishes only after commit. Storage errors return503
    without a delivery claim. A lost HTTP reply can replay the same ID without repeating writes.
@@ -118,7 +119,7 @@ public contracts; breaking storage/API changes need versioning and an ADR before
 | Client -> principal | Unique >=24-character configured bearers, constant-time comparison, strict request fields | Stage 10 transport/exposure, rotation and abuse controls before network expansion |
 | Request/session -> state | Store ownership, typed references, explicit confirmed cancellation, parameterized SQL | Cross-principal/stale/wrong-type/replay/rollback regressions |
 | User/KB/model -> actions | Text is data; independent risk policy; generated tool/slot proposals never execute | Fresh multilingual risk/negation/ambiguity review; finite regex coverage cannot certify it |
-| Evidence -> factual answer | Packed evidence; library deterministic checks plus `supported` verifier; service withholds KB answers | Calibrated verifier AND explicit service acceptance wiring, tested for unknown/unsupported/error/timeout |
+| Evidence -> factual answer | Packed evidence, deterministic checks and optional call-bound qualified verdict; default UNKNOWN-to-queue | Independent real verifier qualification and delivered quality; engineering doubles prove mechanics only |
 | Service -> operator | Transactional queue acknowledgement, scoped listing, operator transitions | Actual committed reasons/evidence and restart recovery; external CRM/SLA outside scope |
 | Files/Hub/cloud -> runtime | Rights/revision registries, manifests/seals, no arbitrary remote model code | Controlled offline publication; no private code/data/logs sent to research tools |
 
@@ -161,7 +162,7 @@ map to [ROADMAP work packages](ROADMAP.md#target-architecture-work-packages); li
 | ID | Gap -> target design | Boundary | Gate and rollback |
 |---|---|---|---|
 | A1 | Separate language/risk/intent/requested action from authorized action | Existing LID/router/service policy | 9Q1/9Q3 fresh four-slice assessment; revert service intervention only, preserve evidence |
-| A2 | Calibrated support over exact packed evidence plus explicit factual-delivery decision | Planned verifier behind `ClaimVerifier` AND service integration | 9Q2/9Q3 independent calibration/untouched assessment; default off/UNKNOWN-to-queue |
+| A2 | Calibrated support over exact packed evidence plus explicit factual-delivery decision | Implemented optional service adapter to `ClaimVerifier`; qualified real assessor unavailable | 9Q2/9Q3 independent calibration/untouched assessment; default off/UNKNOWN-to-queue |
 | A3 | Bounded owned slots and correct policy/state/mixed-language followups | Session copy/publish and existing request/result types | 9Q1/9Q3 cross-turn/reference tests; restart expires sessions, keeps receipts |
 | A4 | Qualified release binding code/config/model/router/prompt/KB/index and evidence | Planned offline release qualification using existing manifests; specify schema before coding | 10P1 clean-machine start/mismatch/rollback, preserve original identities |
 | A5 | Observable bounded operation, dependency diagnostics and durable-state growth policy | Planned operational controls in current API/service | 10P2 error-inclusive SLO/security/timeout/retention checks; stop unsafe deployment |
@@ -188,7 +189,7 @@ Offline training/stress jobs must not contaminate controlled serving measurement
 | Chat overload | Nonblocking serialized mutation lock returns503 | Qualify single-user workload first; bounded admission needs measured demand and saturation behavior |
 | Missing/stale index | Retrieval fails closed; request queues assistance or fails | Dependency-specific diagnostics; do not promote `/ready` to full RAG readiness |
 | SQLite failure | Roll back/503 without delivery claim | Disk-full/lock/restart and retention/capacity checks for declared operation |
-| Bad model/verifier output | Research candidate withheld, error retained | Target actual HTTP supported/unsupported/unknown/failure tests, not just library mocks |
+| Bad model/verifier output | Missing qualification, unknown/unsupported, expired/mismatched verdict or error queues; late result discarded | HTTP/SQLite engineering checks exist; independent semantic qualification remains unavailable |
 
 `/health` is liveness. Current authenticated `/ready` checks closed/busy state and SQLite
 quick_check only; it probes neither all models nor Qdrant and certifies no semantic quality/SLO.

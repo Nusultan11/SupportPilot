@@ -20,17 +20,17 @@ workspace "SupportPilot" "Guarded multilingual local prototype and its offline e
             ui = container "Local UI" "Chat, labeled source excerpts, diagnostics and authorized ticket listing; no status editor. apps/ui.py." "Streamlit / HTTP" "Implemented"
             online = container "Guarded local service" "One Python worker/process; bounded requests and process-local sessions. src/supportpilot/service/runtime.py." "Python 3.12 / FastAPI / PyTorch" "Implemented" {
                 api = component "HTTP boundary" "Auth principals, chat/health/ready/escalations; api.py." "FastAPI / Pydantic" "Implemented"
-                orchestration = component "Orchestrator and sessions" "Independent risk guards, interpreted intent/action, explicit confirmed tools and bounded sessions; service/orchestrator.py. Pending service/decisions.py continuation is unconfirmed." "Python / single worker" "Implemented"
+                orchestration = component "Orchestrator and sessions" "Independent risk guards, interpreted intent/action, explicit confirmed tools and bounded sessions; service/orchestrator.py, decisions.py. Draft confirmation measured; product gates remain open." "Python / single worker" "Implemented"
                 lid = component "Language identification" "Dominant language and mixed detection; data/langid.py." "Lingua" "Implemented"
                 router = component "Intent/action router" "Frozen CPU encoder head and typed decisions; routing/. Uncalibrated." "E5-small / classifier" "Implemented"
                 tools = component "Authorized business tools" "Owned orders/payments, shared stock, cancellation requests; service/store.py." "SQLite transactions" "Implemented"
                 retrieval = component "Hybrid retrieval" "Active KB/index readiness, dense+sparse search and filters; retrieval/search.py, index.py." "BGE-M3 / Qdrant" "Implemented"
                 packing = component "Reranking and context packing" "Canonical chunks with locators, rerank20, budgeted context; retrieval/search.py." "BGE reranker / token budget" "Implemented"
-                generator = component "Research generation" "Optional frozen adapter; off by default and all service KB candidates withheld; llm/backend.py, generation.py." "Transformers / PEFT" "Implemented,Experimental"
-                verification = component "Response boundary" "Library schema/citation/number/language checks then explicit support verdict; service still withholds every KB candidate. common/grounding.py, llm/generation.py." "Pydantic / ClaimVerifier protocol" "Implemented"
+                generator = component "Research generation" "Optional frozen adapter; off by default and unqualified KB candidates withheld; llm/backend.py, generation.py." "Transformers / PEFT" "Implemented,Experimental"
+                verification = component "Response boundary" "Library diagnostics plus optional call-bound qualified service acceptance; default UNKNOWN-to-queue. service/acceptance.py, common/grounding.py, llm/generation.py. No qualified assessor installed." "Pydantic / ClaimVerifier adapter" "Implemented,Experimental"
                 queue = component "Durable assistance queue" "Transactional queue and idempotent delivery receipts; service/store.py. No external handoff promise." "SQLite" "Implemented"
                 operations = component "Operational controls" "A5/A6: dependency diagnostics, bounded admission, security and retention-growth controls in existing service; Stage 10P2/10P3, not implemented." "Planned Python boundary" "Planned"
-                calibrated = component "Calibrated semantic verifier" "A2: independently calibrated ClaimVerifier plus explicit fail-closed service acceptance path, unavailable today. Stage 9Q2/9Q3." "UNDECIDED" "Planned"
+                calibrated = component "Calibrated semantic verifier" "A2: real independently qualified assessor and verified human packet unavailable; optional service adapter implemented. Stage 9Q2/9Q3." "UNDECIDED" "Planned"
             }
             offline = container "Offline pipeline / CLI" "Existing package reused by local commands and authorized cloud payloads; cli.py. A process role, not a new service." "Python 3.12 / uv" "Implemented" {
                 acquisition = component "Source acquisition" "Registry rights, pinned resumable downloads and immutable conversion; data/acquire.py, convert.py." "Hub / manifests" "Implemented"
@@ -69,7 +69,7 @@ workspace "SupportPilot" "Guarded multilingual local prototype and its offline e
         sp.online.retrieval -> sp.online.packing "Ranks and packs canonical evidence" "Python calls"
         sp.online.orchestration -> sp.online.generator "Optionally requests an untrusted candidate" "Research mode only"
         sp.online.generator -> sp.online.verification "Checks candidate against packed evidence" "Python calls"
-        sp.online.verification -> sp.online.orchestration "Returns diagnostics and untrusted result; current service queues every KB candidate" "GenerationResult"
+        sp.online.verification -> sp.online.orchestration "Returns qualified call-bound result or fallback; default service queues KB candidates" "GenerationResult"
         sp.online.verification -> sp.online.calibrated "Future calibrated support verdict; unavailable today" "Planned Python boundary" {
             tags "Planned"
         }

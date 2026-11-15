@@ -303,3 +303,245 @@ Keep autonomous generation off and Stage 10 **NOT_READY/NOT_STARTED**. Completin
 acceptance requires independently adjudicated/fresh needs, fluent review/calibration and new
 development-only improvement studies followed by untouched confirmation; do not retune from
 the now-exposed Stage 7 or Stage 9 outcomes.
+
+## Quality continuation — guarded service interpretation
+
+This owner-authorized increment follows the separate immutable
+[quality protocol](stage9_quality_protocol.md); the preceding assessment is preserved.
+Its private canonical evidence is `artifacts/reports/system/quality/`. The Stage 7
+selection/router/inference export, taxonomy, previous holdouts, KB/index and original
+Stage 9 protocol/configuration/inputs/results are unchanged. No training or Stage 10 work.
+
+The service now consumes typed routing decisions instead of turning a learned CALL_TOOL into
+a generic clarification; passes authorized carried references; retains pending intent for a
+reference-only followup; ignores predicted slots; and enforces reference type, explicit
+cancellation intent and confirmation before the allowed cancellation request. Policy vocabulary
+bypasses live lookup, and conflicting operations clarify. Contextual guard expressions replace
+isolated retry/password/product words. The queue retains critical reason priority and its
+acknowledgement reads the actual transactional reason. ADR-037 owns alternatives/rollback.
+`get_order` and `get_payment` are read-only assistance: successful tool delivery does not mean
+that an order edit or refund has been executed. Cancellation records a request only.
+
+### Fresh draft input and isolation limits
+
+Freeze `f77c5353fb3b85df5c82893d464e7d01f68fcad20ce99fc670eec70d80994c20` binds
+90 draft need IDs, 45 per split, four parallel language rows each (360 rows). Each split has
+all35 intents and 45 declared concrete families; three dialogues per split add turns, not
+independent needs. Eight required critical needs per split/language cover privacy, technical
+failure, human request, complaint, fraud, physical safety, legal action and repeated failure.
+This is below the broader50-needs/language safety goal and does not establish unrestricted
+threat/dispute/linguistic coverage. Mixed rows explicitly prefer KK; this is not fluent-language
+review or independent code-switch detection acceptance.
+
+The diagnostic screens18,963 prior text surfaces (18,483 verified prior normalized references
+plus480 earlier system rows), retaining2 lexical flags,133 prior embedding flags (development78,
+confirmation55) and80 cross-split row flags at cosine>=.95. Translations are not independent
+observations. Family IDs are structurally disjoint; semantic independence remains NOT_CERTIFIED
+without adjudication. No flagged row is excluded/relabelled. Provenance is project-authored LLM
+draft, eval_only; no independent human review is claimed. Audit:
+`overlap/8869492dd97544bfafdb0f6112a75235/report.json`.
+
+Protocol deviations are retained in `attempt_ledger.json`: the execution smoke used4/360 rows
+(1.11%, slightly above1%); the audit completed after initial control inference and before the
+first full candidate, without subsequent exclusions; initial intent/action extraction conflated
+fallback metadata with routing, so its control remains diagnostic and was replaced before
+selection. The original preconfirmation seal is retained, rejected after code review discovered
+wrong-type reference reuse; the corrected candidate received fresh development verification and
+a new content-addressed seal before confirmation. A full-check attempt interrupted by that fix
+is retained. None of these technical/development attempts refreshes consumed confirmation.
+
+### Development decision
+
+Primary control `4b426acf3fb74419b6082f6171bff559` archives exact orchestrator/Store from
+`4b082d371b42feb4e91f85375ad36c0cf8c7ba98`; candidate
+`b73821f9c83a49adbf1e902a422895ba`. `selection_pointer.json` identifies immutable seal
+`501740b786cb90f5cc624ecb6e9acfc186cf8144b2eab7e9e15c4584c943b99b`.
+Both variants use identical new needs, frozen models, retrieval and synthetic fixtures.
+Candidate choice uses development only; no code/rule/label tuning follows confirmation.
+
+|Language|Control service macro-F1 / candidate, all35|Control / candidate correct delivery|Paired delivery delta pp, scenario95% CI|
+|---|---|---|---|
+|EN|.6186 / .8045|33/45 / 42/45|+20.00 [8.89,33.33]|
+|RU|.6340 / .7838|33/45 / 44/45|+24.44 [13.33,37.78]|
+|KK|.4057 / .6116|26/45 / 37/45|+24.44 [13.33,37.78]|
+|Mixed|.5557 / .7397|31/45 / 41/45|+22.22 [11.11,35.56]|
+
+Family sensitivity remains positive in every language. No observed critical queue delivery is
+lost; all8 required needs/language reach the candidate queue on development. Intent .90 is
+missed in every language. These are draft operational outcomes, not grounded-answer accuracy.
+Selection is a combined service interpretation/guard intervention, not a causal ablation of
+individual expressions. The initial uninstrumented control is not used for macro-F1 claims.
+
+
+## Full Stage 9 continuation: 9Q1–9Q4
+
+The owner's complete Stage 9 authorization supersedes the earlier bounded9Q1 handoff; Stage 10
+is excluded. **PARTIALLY COMPLETED / autonomous factual support NOT_READY** remains the product
+decision. All available packages have terminal engineering work or a specific external dependency;
+shared verification/recovery/publication is owned by
+`artifacts/reports/stage9_continuation_delivery_receipt.json`. This extension preserves the original
+assessment, protocols, frozen inputs, controls, negative attempts and million-record study.
+
+### 9Q1 terminal confirmation and interpretation
+
+Before confirmation, the selected runtime differed only by three recorded CRLF-to-LF changes.
+The continuation proved those exact byte transformations, repeated candidate development as
+`b64e210fd76644f9bdbf801d61aa3ca6`, and sealed current runtime
+`5af7f5db893972d79a8e7a240669b5b709c6b77ab839ac6a9fd2db66e9fdd1b1`
+(seal-file SHA256 `82008659afe7a45d9fac66d120a9bd28a13f4f9a9a167bdda5075403fb42fb89`).
+The preceding candidate, normalization receipt and seals remain unchanged. A sandbox attempt
+blocked on local Qdrant is separately INTERRUPTED/KILLED with zero observed rows; its original
+partial bytes and the successful authorized retry remain accounted.
+
+Each sealed variant consumes confirmation once: control `612d87b7447a4a879cd88c7bed1f6252`,
+candidate `a35bb092c14c456f983072fd458e4256`. Both are FINISHED,180 language rows/45 global
+needs and three dialogues per language; all35 labels occur. Confirmation improves operational
+delivery on these draft inputs but cannot certify semantic independence or unrestricted quality.
+No rule, label, threshold, model, prompt or retriever is retuned from these outcomes.
+
+|Language|Service all35 macro-F1 control -> candidate|Correct delivery control -> candidate|Paired delta pp, scenario95%|Family95%|
+|---|---|---|---|---|
+|EN|0.6462 -> 0.7906|30/45 -> 39/45|+20.00 [8.89,33.33]|[8.89,33.33]|
+|RU|0.6756 -> 0.8743|30/45 -> 44/45|+31.11 [17.78,44.44]|[17.78,46.67]|
+|KK|0.4873 -> 0.7245|29/45 -> 40/45|+24.44 [11.11,37.78]|[13.28,37.78]|
+|Mixed RU–KK|0.4048 -> 0.6005|26/45 -> 36/45|+22.22 [8.89,35.56]|[11.11,35.56]|
+
+|Language|Candidate critical queue / reason correct|Wilson95% critical sensitivity|Tool facts correct|Complete dialogue|False critical queue / ordinary needs|
+|---|---|---|---|---|---|
+|EN|8/8 / 8/8|[0.68,1.00]|10/13|3/3|0/37|
+|RU|8/8 / 8/8|[0.68,1.00]|13/13|3/3|0/37|
+|KK|7/8 / 7/8|[0.53,0.98]|12/13|3/3|0/37|
+|Mixed|7/8 / 7/8|[0.53,0.98]|11/13|3/3|1/37|
+
+No control-delivered critical need is lost. Nevertheless KK/mixed miss one required critical
+need each, and8 needs/slice are below the50-needs safety goal. All intent points miss .90.
+The sparse fixed35-class bootstrap is nonregular: resampling omits singleton classes and its
+percentiles can sit below the observed point. Candidate scenario percentile sensitivity:
+EN [0.45,0.66], RU [0.50,0.73], KK [0.41,0.62], MIXED [0.34,0.54]
+is retained as exploratory uncertainty, not a calibrated population interval or acceptance test.
+Every metric's denominator and scenario/family interval, raw encoder scores, confusion tables and
+the complete operational error census (up to50 distinct needs/language) are retained in
+`quality/confirmation_analysis.json`. Its action scores use frozen expected_action, including
+confirmation clarification. That measurement defect was registered before confirmation outcomes;
+raw reports, labels and delivery-based selection are unchanged. Declared reply-language fields
+match45/45 per slice; fluent language quality and semantic refusal correctness remain NOT_EVALUATED.
+
+### 9Q2 independent qualification and preserved RAG evidence
+
+`completion/qualification_audit.json` verifies provenance, available review surfaces and retained
+overlap evidence:2 lexical,133 prior embedding and80 cross-split row flags, with no exclusions or
+adjudication. No verified fluent reviewer registry, human-labelled calibration, identifiable
+per-language agreement or independent assessment packet is available. The existing evaluator is
+executed with no fabricated reviews: all four semantic statuses remain NOT_EVALUATED and numeric
+values null. Independent identity/fluency cannot be supplied by software or LLM self-review.
+
+Retained locator retrieval Recall@5 EN/RU1.000 and KK/mixed.9688 exceeds .85 only for those finite
+draft references. Missing/partial/conflicting/absent support and packing limitations remain as
+reported above; all absent-reference needs still retrieve nonempty context. These are not
+semantic false-answer, citation-precision or proof-sufficiency measurements. No retrieval budget,
+model, index, cache, batching or precision change is selected from exposed outcomes.
+
+### 9Q3 explicit service acceptance, default closed
+
+ADR-039 and `service/acceptance.py` implement the independently testable service boundary.
+The offline factory checks exact owner-approved review/provenance hashes, existing calibration
+validation, pinned judge/rubric, approved mono/mixed scopes, KB/index and expiry. Each structured
+assessment binds a fresh nonce, exact query/candidate/packed evidence, requested language/mixed
+scope and qualification identity. It checks issue/expiry times, evidence dates/checksums and
+allowed response shape before adapting to ClaimVerifier. Expiry/deadline is checked again inside
+the publication transaction. Unknown/unsupported, missing qualification, errors, timeout, replayed
+or mismatched verdicts queue assistance; model tool proposals never execute. Verifiers receive
+copies and cannot mutate the delivered candidate/evidence. Additive grounded delivery leaves
+existing Stage 8 fields/categories valid; auth/tool/queue/receipt contracts stay in force.
+
+HTTP/SQLite tests exercise supported and rejection branches with explicitly fabricated engineering
+packets. They are not real humans, calibration, semantic judges or product metrics. No qualified
+real assessor/owner packet is installed; default composition supplies none, generation remains off,
+and research candidates remain withheld. The real NF4 HTTP probe
+`live_generation/7196612afcf9485880fd02862be8d922/receipt.json` completes three actual model calls
+and real queued delivery, preserving the frozen model/adapter. Later expiry-before-publication
+hardening affects only the optional qualified branch and is separately covered by final tests.
+Original matched FP16/NF4 resources remain distinct; no sustained generation SLO is inferred.
+
+9Q2/9Q3 product qualification is BLOCKED on verified independent resources and fresh assessment.
+Grounded-answer/language and sustained-generation numerical goals still needing definition must
+be preregistered from independent development evidence before new confirmation, never retrofitted
+to these observations. Existing durable replay returns a previously committed response; it is
+not a new factual verification or a long-lived freshness policy. Release/retention qualification
+remains outside this Stage 9 engineering claim.
+
+### 9Q4 declared guarded workload and recovery
+
+`configs/system_workload.yaml` is registered before measurement: seven kinds (authentication,
+stock, order, payment, confirmed cancellation request, operator, KB), four slices, four repeats,
+concurrency1/4/16. The one-request smoke is FINISHED. Full attempt
+`workload/7f8a295f22214c6583419f418df036b2/report.json` retains all first calls and336 warm attempts.
+It remeasures the exact final runtime after the qualified-publication expiry check and full suite;
+the preceding `14bd466c28b6450fa5acd708cecbb4c5` measurement is retained, not overwritten.
+This is a capacity mix, not independent quality data. No hidden chat retries occur. Expected401
+denials remain attempts and never count as successful business throughput.
+
+|Concurrency|Attempts|HTTP200 / expected401 /503|Correct200 req/s|Successful p50 / p95 ms|Verified acknowledged queues|
+|---:|---:|---|---:|---|---|
+|1|112|96 / 16 / 0|15.61|8.86 / 349.33|32/32|
+|4|112|6 / 16 / 90|9.09|20.26 / 445.66|2/2|
+|16|112|4 / 16 / 92|6.01|72.01 / 533.47|1/1|
+
+Concurrency1 has zero incorrect outcomes;4/16 have90/92 overload failures. All-attempt p95 is
+346.93/18.64/81.52ms respectively; rapid rejections do not establish successful capacity.
+The first EN KB call is21.195s including lazy loads; first stock is23.46ms. The warm mix's349ms
+p95 includes retrieval and cannot be compared causally with the earlier deterministic10.61ms
+p95/100ms target. Per-kind/scope raw timing and status denominators remain in the report.
+
+Sampled parent Python peak RSS6,399,561,728 bytes; Torch allocated/reserved peaks
+2,298,684,416/2,313,158,656 bytes. Minimum whole-machine available RAM654,757,888 bytes includes
+the separately restarted child. Parent RSS/Torch counters exclude that child and Docker;
+Qdrant cgroup samples are separate. This short run is not maximum context residency or a
+multi-user/generation capacity qualification. Paid services invoked0 USD; local energy/billing
+and uninstrumented shared-GPU scopes remain UNKNOWN.
+
+Readiness and authorized tool recovery return200 after every level. A new OS process on the
+same synthetic DB becomes ready in5.184s, reproduces exact cancellation/queue JSON results,
+retains cancellation_requested=1/queue records, passes SQLite integrity_check and returns404 for
+expired process-local sessions. The original service closes normally; this is not a process-crash
+or power-loss drill. No multi-worker/admission/infrastructure change is adopted.
+
+The original million-vector terminal study and actual full-inventory/six-query restoration are
+reused. `completion/preserved_stress_verification.json` rechecks the original continuation link,
+4,374,258,176 snapshot bytes and SHA256 against the original receipt; no upload, search cohort,
+collection deletion or new restore collection is performed. The initial deadline failure stays
+FAILED. Random-vector recovery remains numerical index fidelity, not semantic quality.
+
+### Full-scope acceptance and transition gates
+
+|Owner criterion|Evidence and remaining limit|
+|---|---|
+|1 Entire9Q1–9Q4|Terminal engineering results and explicit9Q2/9Q3 external blockers above; no Stage 10 work|
+|2 Routing/dialogue|Paired sealed all35/four-slice confirmation, actual tools/queue/followups; intent target missed|
+|3 RAG|Original verified locator/packing/negative studies reused; semantic sufficiency unqualified, no unsupported config promotion|
+|4 Factual boundary|Optional call-bound qualified adapter and HTTP publication/fallback checks; default closed|
+|5 Independent review|Provenance/overlap/availability audit complete; verified humans/calibration/adjudication unavailable, NOT_EVALUATED|
+|6 Safety|Auth/ownership/confirmed writes/injection/conflict/failure/timeout/replay/queue regressions; KK/mixed critical target and broad risk coverage remain open|
+|7 Metrics|Four-slice points, counts, absolute/paired scenario/family intervals and errors; semantic/fluent measures remain null|
+|8 Isolation|Original seals/once-only markers/failures retained; LF-only rebinding before confirmation; no outcome-informed retuning|
+|9 Performance|Declared mix, first/warm, error-inclusive1/4/16 load/resources/restart; original generation controls separate; no sustained qualified generation|
+|10 Scale/resilience|Original1M actual inventory recovery and six exact queries; snapshot bytes reverified; named collections retained|
+|11 Compatibility|Full shared suite covers Stage 8 API/UI/auth/transactions and additive optional acceptance; see delivery receipt|
+|12 Reproducibility|Exact frozen/selected sources, raw attempts/config/provenance and restoration evidence; same-disk limit remains|
+|13 Engineering checks|Final Ruff/format/strict mypy/full pytest/GPU/Qdrant and hooks recorded by delivery receipt; skips never treated as passes|
+|14 Documentation/publication|Owning architecture/model/contracts/evaluation/ADR/report/handoff updated; exact Git/bundle/origin proof in delivery receipt|
+|15 Readiness|PARTIALLY COMPLETED, NOT_READY; product gates cannot close from engineering fixtures or task scores|
+
+Full shared pytest is925 passed/zero skipped (445.96s), including GPU/Qdrant and API/UI checks;
+Ruff/format205 files and strict mypy185 files plus UI pass. The canonical C4 model passes
+validate/parse/inspect with only the two retained external-document INFO findings. Normal hooks,
+recovery and exact publication identities are recorded in the delivery receipt.
+
+G0 authorization/entry is satisfied for the whole Stage 9 scope. G1 engineering and G5 delivery
+are established only by the final receipt's actual checks/backup restoration/Git readback.
+G2 remains NOT_ACCEPTED/NOT_EVALUATED for missed intent/critical and unavailable independent
+semantics. G3 engineering authority/fallback regressions are available; broad critical-risk
+acceptance remains open. G4 is measured only for the declared guarded local workload; saturation
+and unqualified generation prevent broader serving acceptance. The next product dependency is
+independent reviewers/calibration/overlap adjudication and fresh qualification evidence, not
+another attempt on consumed confirmation. Stage 10 stays NOT_STARTED.

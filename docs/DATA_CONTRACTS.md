@@ -644,10 +644,39 @@ transactional; storage failure returns503 and no successful delivery record.
 
 Sessions carry only an authorized order/SKU, pending clarification, language and <=memory_turns
 structured summaries; TTL and max_sessions bound memory. They are intentionally process-local.
+The service passes authorized carried references plus current, untrusted request references to
+the router; predicted slots are ignored. The Store checks ownership before carrying an order.
+Service action interpretation uses the frozen taxonomy, reference type and explicit operation;
+a model cancellation class alone cannot authorize a write. Cancellation also needs the explicit
+request confirmation. Multiple references/operations clarify. Policy questions bypass live reads.
+Ephemeral Session.decision records the current interpreted route for diagnostics, resets each
+turn, and is neither a persisted model output nor a new source of business authority.
+Queue reuse keeps the higher-priority critical reason (safety, fraud, legal/privacy/payment,
+repeated failure, then complaint/technical/human requests); acknowledgements read the stored
+reason inside the same transaction. This prioritization is local queue metadata, not triage SLA.
 Operator context excludes raw user messages and model output. Bearer values are SecretStr,
 >=24 characters and unique; only demo_ customers and the reserved operator principal are accepted.
 Validation errors return a generic422 without echoing submitted PII. Public health is liveness;
 readiness is authenticated local tool/fallback readiness, not autonomous semantic acceptance.
+
+`ChatResult.delivery` additionally allows `grounded` for the optional qualified factual path;
+all Stage 8 values and fields remain valid. No HTTP request/config flag can supply a verifier
+or an approval. `service.acceptance.qualify_verifier` requires a trusted offline owner approval,
+the exact review packet and checksummed reviewer-registry/overlap-adjudication receipts. It
+validates `ClaimReview` calibration/assessment, >=100 calibration items and identifiable kappa>=.6
+for every approved scope, pinned judge/rubric, KB/index scope and an aware validity interval.
+Software validates declarations; the owner verifies real identities, fluency and adjudication.
+
+`verifier_approval/1` binds those hashes, approver, verified-provenance declarations, scopes,
+judge/rubric, KB/index and validity dates. Each `ClaimAssessment` contains a typed verdict,
+qualification identity, judge/rubric, issued/expiry time and a SHA256 binding of a fresh call
+nonce, exact query/candidate/packed context, reply language and mixed flag. An old result cannot
+authorize a new call, even with identical text. Only current `supported` can adapt to
+`ClaimVerifier`; missing/unknown/unsupported/mismatched/expired/error/timeout results queue.
+Only ANSWER_KB with citations and no tool facts/missing-information/handoff claim can pass;
+evidence provenance, checksums/effective dates and deterministic language/citation checks also
+apply. Default composition has no qualified implementation or approval. Test packets are
+explicitly fabricated engineering fixtures, never calibration or product-quality evidence.
 
 ## 19. System evaluation (Stage 9)
 
@@ -665,6 +694,19 @@ identities, raw encoder decisions separately from HTTP responses, failures, foll
 customer-scoped SQLite queue-record checks. FINISHED means terminal execution, not perfect
 quality. Selection binds completed development reports by hash; once-only holdout markers
 prevent silent repeat assessments. Original attempts remain unchanged by analysis.
+
+The separate quality continuation uses `authored/system/quality.yaml` and
+`configs/system_quality.yaml`. Each nine-field need specifies ID, split, family, intent,
+requested action, delivery, required critical reason, expected tool and four parallel texts.
+Followups/confirmation controls remain part of the same need. `quality_evaluation` freezes these
+inputs and the new protocol, archives the exact original orchestrator and Store from Git, and
+keeps all observations under `system/quality/`. No original freeze/pointer/result is replaced.
+Action scoring distinguishes requested operation, required confirmation clarification, semantic
+fallback and final delivery. Instrumentation captures actual Store calls/authorized values and
+committed customer/session-scoped queue records; predicted slots never count as tool success.
+Selection seals candidate runtime/config hashes; confirmation markers are created exclusively
+before execution and reject a second attempt. Family IDs are disjoint but embedding flags remain
+unadjudicated: structural splitting never certifies semantic independence or human verification.
 
 `authored/system/retrieval.yaml` is a separately frozen, post-selection assessment supplement.
 Section-reference groups are AND across sections, OR across matching canonical language chunks.

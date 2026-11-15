@@ -575,6 +575,30 @@ remain separate from successful execution; evaluation scope is EVALUATION §10.
 
 ## 19. System evaluation (Stage 9)
 
+For the separately authorized quality continuation, use the new frozen inputs/protocol and
+private `artifacts/reports/system/quality/` directory. Do not reuse original exposed holdout:
+
+```powershell
+uv run python -m supportpilot.service.quality_evaluation freeze
+uv run python -m supportpilot.service.quality_audit
+uv run python -m supportpilot.service.quality_evaluation evaluate --smoke
+uv run python -m supportpilot.service.quality_evaluation evaluate --phase development --variant control
+uv run python -m supportpilot.service.quality_evaluation evaluate --phase development --variant candidate
+uv run python -m supportpilot.service.quality_evaluation select --control <control-report.json> --candidate <candidate-report.json>
+uv run python -m supportpilot.service.quality_evaluation evaluate --phase confirmation --variant control
+uv run python -m supportpilot.service.quality_evaluation evaluate --phase confirmation --variant candidate
+uv run python -m supportpilot.service.quality_evaluation report
+```
+
+These commands describe the continuation sequence, not permission to repeat consumed confirmation.
+Selection/runtime mismatch and existing confirmation markers fail closed. Preserve failed and
+superseded development attempts; a source change requires a new development candidate before
+sealing. The audit reuses checksum-verified pinned reference embeddings and verifies original
+reference readbacks; prior system needs and cross-split embedding flags are added explicitly.
+Flags never automatically remove/relabel rows or certify semantic independence. The full local
+evaluation needs access to Qdrant, model caches and MLflow SQLite; sandbox denial is an execution
+failure, not evidence of remote/service/model quality.
+
 Run only on isolated synthetic state, with the existing Qdrant healthy. No new paid service,
 model selection or exposed Stage 7 test/gold rerun is involved. Protocol and source inputs are
 immutable after freeze. Results/status belong to the Stage 9 review and PROGRESS.
@@ -652,3 +676,21 @@ isolated demo outputs under `system/live_generation/`, preserving Stage 8's orig
 Final analysis imports terminal execution receipts and the retained preflight failure with
 execution provenance distinct from the analysis/import run. It never promotes JSON/locator checks
 to semantic acceptance. Preserve all source-version archives and failed/partial attempts.
+
+Full-scope continuation analysis and declared guarded capacity:
+
+```powershell
+uv run python -m supportpilot.service.quality_evaluation analyse
+uv run python -m supportpilot.service.workload --smoke
+uv run python -m supportpilot.service.workload
+```
+
+`analyse` reads terminal sealed confirmation and writes a separate derived analysis; it never
+rewrites raw observations or refreshes confirmation. Corrected action scoring and uncertainty
+limits are defined in EVALUATION. A new source increment is not the archived confirmation
+runtime: retain its exact source archive and checksums. Do not reseal consumed confirmation.
+The workload uses configs/system_workload.yaml, isolated synthetic SQLite/credentials and a
+new attempt directory, retains failures and stops its own HTTP server/restart child. Its smoke
+is one HTTP request. Do not run other model jobs concurrently. No capacity/config change is
+selected by this command. A real qualified verifier requires the trusted offline factory and
+verified owner packet in DATA_CONTRACTS; no default implementation or enable flag is supplied.
