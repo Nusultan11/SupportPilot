@@ -1,0 +1,29 @@
+schema_version: system_retrieval/1
+origin: llm_generated
+review: draft
+allowed_use: eval_only
+licence: project-authored synthetic queries
+# Supplemental assessment, authored before retrieval inference, after system guard selection.
+# Locator-reference groups are diagnostic; they do not certify semantic sufficiency.
+# id, family, AND sections (OR matching chunks), en, ru, kk, mixed.
+needs:
+  - [r01, return_conditions, [returns_policy.window], 'Do detached labels affect an unworn item return?', 'Влияют срезанные этикетки на возврат неношеной вещи?', 'Киілмеген заттың кесілген жапсырмасы қайтаруға әсер ете ме?', 'Срезанные этикетки қайтаруға әсер ете ме?']
+  - [r02, return_conditions, [returns_policy.window], 'When does counting the return period start?', 'От какого дня отсчитывается период возврата?', 'Қайтару мерзімі қай күннен есептеледі?', 'Период возврата қай күннен есептеледі?']
+  - [r03, return_exceptions, [returns_policy.non_returnable, warranty_policy.defect], 'Which rules handle a faulty item from a nonreturnable category?', 'Какие правила действуют для неисправного невозвратного товара?', 'Қайтарылмайтын санаттағы ақаулы затқа қандай ереже қолданылады?', 'Неисправный невозвратный затқа қандай ереже?']
+  - [r04, return_cost, [returns_policy.how_to_return], 'Who pays shipping when you sent a wrong item?', 'Кто оплачивает обратную пересылку ошибочно присланной вещи?', 'Қате жіберілген заттың кері тасымалын кім төлейді?', 'Ошибочно присланная вещь кері тасымалын кім төлейді?']
+  - [r05, return_process, [returns_policy.how_to_return], 'Can a courier collect an item for return?', 'Может курьер забрать вещь для возврата?', 'Курьер қайтарылатын затты алып кете ала ма?', 'Курьер вещь для возврата алып кете ала ма?']
+  - [r06, exchange_process, [returns_policy.exchange], 'Where do I arrange an exchange for a different colour?', 'Где оформить обмен на другой цвет?', 'Басқа түске айырбастауды қайда рәсімдеймін?', 'Обмен на другой цвет қайда рәсімдеймін?']
+  - [r07, refund_terms, [returns_policy.refund], 'By which channel is a refund sent?', 'Каким способом перечисляется возврат денег?', 'Ақша қай тәсілмен қайтарылады?', 'Возврат денег қай тәсілмен келеді?']
+  - [r08, payment_transfer, [payment_policy.methods], 'May I pay by bank transfer from my personal bank account?', 'Можно оплатить банковским переводом с личного счёта?', 'Жеке банктік шоттан аударыммен төлеуге бола ма?', 'Банковский перевод с личного счёта жасауға бола ма?']
+  - [r09, instalment_terms, [payment_policy.instalments], 'What is the maximum instalment term without overpayment?', 'Каков предельный срок рассрочки без переплаты?', 'Артық төлемсіз бөліп төлеудің ең ұзақ мерзімі қандай?', 'Срок рассрочки без переплаты қанша?']
+  - [r10, delivery_payment, [payment_policy.cod], 'Above what amount must orders be prepaid online?', 'Выше какой суммы нужна онлайн-предоплата?', 'Қай сомадан жоғары тапсырыс онлайн алдын ала төленеді?', 'Выше какой суммы онлайн алдын ала төлеу керек?']
+  - [r11, invoice_terms, [payment_policy.receipts], 'Can a company request an invoice and what reference is needed?', 'Может юрлицо запросить счёт и какой номер нужен?', 'Заңды тұлға шот сұрата ала ма, қандай нөмір керек?', 'Юрлицо шот сұрату үшін қандай номер керек?']
+  - [r12, delivery_fee, [delivery_policy.cost], 'What makes delivery free?', 'При каких условиях доставка бесплатна?', 'Қандай жағдайда жеткізу тегін болады?', 'Бесплатная доставка қандай жағдайда?']
+  - [r13, delivery_inspection, [delivery_policy.receiving, returns_policy.damaged_wrong], 'What must I document if packaging is torn on arrival?', 'Что зафиксировать, если упаковка порвана при получении?', 'Алғанда қаптама жыртық болса, нені тіркеу керек?', 'Упаковка порвана при получении, нені тіркеу керек?']
+  - [r14, order_editing, [orders_policy.cancel, orders_policy.change], 'Do cancellation and item-change rules depend on shipping status?', 'Отмена и изменение состава зависят от отправки?', 'Болдырмау мен құрамын өзгерту жөнелту күйіне тәуелді ме?', 'Отмена и изменение состава жөнелтуге тәуелді ме?']
+  - [r15, warranty_scope, [warranty_policy.exclusions], 'Does damage caused by liquid invalidate warranty cover?', 'Повреждение жидкостью исключает гарантийный ремонт?', 'Сұйықтықтан бүліну кепілдік жөндеуден шығарыла ма?', 'Повреждение жидкостью кепілдікке жата ма?']
+  - [r16, subscription_rules, [account_faq.newsletter], 'Where is the control to unsubscribe from special offers?', 'Где отключается подписка на специальные предложения?', 'Арнайы ұсыныстарға жазылуды қайдан тоқтатамын?', 'Подписка на специальные предложения қайдан өшіріледі?']
+  - [r17, absent_external_policy, [], 'What is the return policy of a different store called MoonPear?', 'Каковы правила возврата другого магазина MoonPear?', 'MoonPear деген басқа дүкеннің қайтару ережесі қандай?', 'Другой магазин MoonPear қайтару ережесі қандай?']
+  - [r18, absent_live_state, [], 'What is my bank account balance right now?', 'Какой сейчас остаток на моём банковском счёте?', 'Қазір банктік шотымда қанша ақша бар?', 'Остаток банковского счёта қазір қанша?']
+  - [r19, absent_future_policy, [], 'State the store policy that will become effective in 2035.', 'Назовите правила магазина, которые вступят в силу в 2035 году.', '2035 жылы күшіне енетін дүкен ережесін атаңыз.', 'Правила магазина на 2035 жыл қандай?']
+  - [r20, absent_private_state, [], 'Which products are in another customer private wishlist?', 'Какие товары в закрытом списке желаний другого клиента?', 'Басқа клиенттің жабық қалау тізімінде не бар?', 'В закрытом списке желаний другого клиента не бар?']

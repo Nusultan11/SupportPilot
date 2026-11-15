@@ -354,6 +354,32 @@ Revisit distribution or independent semantic delivery only with new measured nee
 review/calibration evidence. Rollback: stop API/UI; existing offline libraries/artifacts and
 Stage 7 selection remain intact. Queue/business DB stays preserved.
 
+## ADR-035 — Narrow system guard correction without semantic promotion
+
+Accepted 2026-11-15 on fresh Stage 9 development evidence, before confirmation. Add word
+boundaries to English risk terms and prefix boundaries to inflected RU/KK roots. The existing
+substring guard conflates ordinary product words with risks before authorized tools execute.
+Keep the frozen encoder/model/prompt/KB/index unchanged. A learned semantic guard or new SFT
+needs broader independently reviewed data; the small draft development cohort does not justify
+training or recalibrating the sealed models. No model confidence authorizes facts or actions.
+
+Compare paired Stage 8 vs candidate HTTP outcomes on identical draft needs; preserve family
+sensitivity and distinguish raw routing from delivery. Confirmation does not establish overall
+quality improvement. Retain the narrowly justified lexical correction without claiming a
+multilingual semantic/risk solution; the measured report owns effects, critical misses and
+readiness. Do not respond to exposed confirmation failures by extending the keyword list.
+
+Reject deployment changes to context budget, cache, batching or precision from speed or
+locator-hit proxies alone. Batched encoder throughput is not single-request latency, exact-
+repeat cache hits do not model diverse traffic, and smaller precision does not guarantee speed
+or schema quality. Keep generation off and semantic UNKNOWN-to-queue. The measured overload
+limit is evidence for future design work, not permission to introduce distributed serving or
+silently change Stage 8's serialized mutation boundary. No added dependency is needed.
+
+Rollback restores the original risk pattern from the Stage 9 freeze; keep all attempts and
+the selected research seal unchanged. Revisit with fresh development/confirmation families,
+independent fluent review/calibrated claim support and measured end-to-end trade-offs.
+
 ## Open decisions
 
 Owner input is needed only if the work requires a paid MT/generation/judge budget or fluent

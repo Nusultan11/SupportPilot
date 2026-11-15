@@ -26,6 +26,24 @@ ROOT = Path(__file__).resolve().parents[2]
 TOKENS = {"demo_alice": "a" * 32, "demo_bob": "b" * 32, "operator": "o" * 32}
 
 
+@pytest.mark.parametrize(
+    ("message", "lang"),
+    [
+        ("Stock TV-5501 in magenta", "en"),
+        ("Order SP-1001 contains a reagent", "en"),
+        ("Stock TV-5501 with a fireproof case", "en"),
+        ("Наличие TV-5501, посуда", "ru"),
+        ("Заказ SP-1001 с посудой", "ru"),
+    ],
+)
+def test_guard_word_boundaries_preserve_authorized_tools(
+    runtime: tuple[TestClient, SupportService], message: str, lang: LanguageCode
+) -> None:
+    result = chat(runtime[0], message, lang)
+    assert result["delivery"] == "tool"
+    assert result["escalation_id"] is None
+
+
 @pytest.fixture
 def runtime(tmp_path: Path) -> Iterator[tuple[TestClient, SupportService]]:
     serving = ServingSettings(

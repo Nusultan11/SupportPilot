@@ -171,6 +171,20 @@ def main() -> None:
                     raise RuntimeError("HTTP probe failed")
             report["ready"] = client.get("/ready").json()
             report["queue_count"] = len(client.get("/escalations").json())
+            components = {
+                "router_encoder": getattr(service.router, "encoder", None),
+                "retrieval_encoder": getattr(service.retriever, "encoder", None),
+                "reranker": getattr(service.retriever, "reranker", None),
+                "generator": capture.backend if capture else None,
+            }
+            report["component_loads"] = {
+                name: {
+                    "loaded": getattr(component, "model", None) is not None,
+                    "load_seconds": getattr(component, "load_seconds", None),
+                    "device": getattr(component, "device", None),
+                }
+                for name, component in components.items()
+            }
             report["status"] = "COMPLETE"
     except Exception as exc:
         report["status"] = "FAILED"

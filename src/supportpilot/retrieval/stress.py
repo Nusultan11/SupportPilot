@@ -382,7 +382,46 @@ def vector_update_drill(settings: Settings) -> dict[str, Any]:
     return {"path": str(out), **result}
 
 
-def run_stress(settings: Settings, *, count: int | None = None) -> dict[str, Any]:
+def verify_resume(
+    client: Any, name: str, vectors: Any, previous: dict[str, Any], source_identity: str
+) -> dict[str, Any]:
+    """Continue only an acknowledged complete upload before incremental mutations."""
+    if (
+        previous.get("status") != "FAILED"
+        or previous.get("collection") != name
+        or previous.get("source", {}).get("identity") != source_identity
+        or previous.get("upload", {}).get("vectors") != len(vectors)
+        or previous.get("hnsw_build", {}).get("points") != len(vectors)
+        or previous.get("incremental")
+    ):
+        raise ValueError("resume requires the same complete upload before incremental changes")
+    if client.count(name, exact=True).count != len(vectors):
+        raise ValueError("resume collection count changed")
+    ids = np.unique(np.linspace(0, len(vectors) - 1, min(256, len(vectors)), dtype=int)).tolist()
+    points = client.retrieve(name, ids=ids, with_payload=True, with_vectors=True)
+    if {p.id for p in points} != set(ids):
+        raise ValueError("resume sample missing")
+    for point in points:
+        expected = {
+            "synthetic_only": True,
+            "chunk_id": f"load_{point.id}",
+            "lang": ("ru", "kk", "en")[int(point.id) % 3],
+            "revision": 0,
+        }
+        if point.payload != expected or not np.allclose(
+            point.vector, vectors[int(point.id)], atol=1e-6, rtol=1e-6
+        ):
+            raise ValueError("resume payload/vector sample changed")
+    return {
+        "sampled_points": len(ids),
+        "total_points": len(vectors),
+        "scope": "acknowledged upload plus distributed sample; full inventory recovery follows",
+    }
+
+
+def run_stress(
+    settings: Settings, *, count: int | None = None, resume: Path | None = None
+) -> dict[str, Any]:
     """Real server run, retaining collections, snapshot and all failed MLflow attempts."""
     import mlflow
 
@@ -402,13 +441,17 @@ def run_stress(settings: Settings, *, count: int | None = None) -> dict[str, Any
         seed=protocol["seed"],
     )
     name = cfg["collection_prefix"] + source["identity"]
+    previous = json.loads(resume.read_text("utf-8")) if resume else None
     spec = RunSpec(
         experiment="retrieval_scale",
         run_name=f"load_{source['identity']}",
-        hypothesis="Measure isolated 100k random-vector indexing, ANN fidelity and recovery",
+        hypothesis=(
+            f"Measure isolated {cfg['chunks']} random-vector indexing, ANN fidelity and recovery"
+        ),
         dataset_version=source["identity"],
         seed=protocol["seed"],
         base_model="none_precomputed_random_vectors",
+        control_run_id=previous.get("run_id") if previous else None,
         params={
             "chunks": cfg["chunks"],
             "dimensions": cfg["dimensions"],
@@ -416,6 +459,9 @@ def run_stress(settings: Settings, *, count: int | None = None) -> dict[str, Any
             "semantic_quality": "NOT_EVALUATED",
             "uv_lock_sha256": sha256_file(settings.root / "uv.lock"),
             "protocol_sha256": sha256_file(settings.root / "configs/retrieval_scale.yaml"),
+            "code_sha256": sha256_file(Path(__file__)),
+            "client_timeout_s": settings.qdrant.timeout_s,
+            "resume": str(resume) if resume else "none",
         },
     )
     client = make_qdrant_client(settings.qdrant, settings)
@@ -441,7 +487,10 @@ def run_stress(settings: Settings, *, count: int | None = None) -> dict[str, Any
             write_json(attempt / "receipt.json", result)
             try:
                 vectors = np.load(Path(source["path"]) / "vectors.npy", mmap_mode="r")
-                if not client.collection_exists(name):
+                exists = client.collection_exists(name)
+                if previous is not None and not exists:
+                    raise ValueError("resume collection is absent")
+                if not exists:
                     qdrant_call(
                         client.create_collection,
                         name,
@@ -456,8 +505,14 @@ def run_stress(settings: Settings, *, count: int | None = None) -> dict[str, Any
                 # Commit a partial upload, inject interruption, replay whole input idempotently.
                 initial_points = client.count(name, exact=True).count
                 result["initial_live_points"] = initial_points
-                result["indexing_scope"] = "initial" if initial_points == 0 else "replayed_upsert"
-                if initial_points == 0:
+                result["indexing_scope"] = (
+                    "resumed_existing_index"
+                    if previous is not None
+                    else "initial"
+                    if initial_points == 0
+                    else "replayed_upsert"
+                )
+                if initial_points == 0 and previous is None:
                     try:
                         upload_batches(client, name, vectors, batch=cfg["batch_size"], stop_after=2)
                     except InterruptedError as exc:
@@ -466,7 +521,20 @@ def run_stress(settings: Settings, *, count: int | None = None) -> dict[str, Any
                             "committed_points": client.count(name, exact=True).count,
                         }
                         write_json(attempt / "interruption.json", result["interruption"])
-                result["upload"] = upload_batches(client, name, vectors, batch=cfg["batch_size"])
+                if previous is not None and resume is not None:
+                    result["resume_verification"] = verify_resume(
+                        client, name, vectors, previous, source["identity"]
+                    )
+                    result["resume_receipt"] = str(resume)
+                    result["resume_receipt_sha256"] = sha256_file(resume)
+                    result["upload"] = previous["upload"]
+                    result["upload_scope"] = "inherited_from_failed_attempt_not_new_measurement"
+                    result["original_hnsw_build"] = previous["hnsw_build"]
+                else:
+                    result["upload"] = upload_batches(
+                        client, name, vectors, batch=cfg["batch_size"]
+                    )
+                    result["upload_scope"] = "measured_this_attempt"
                 if client.count(name, exact=True).count != len(vectors):
                     raise ValueError("post-resume point count differs")
                 qdrant_call(
@@ -481,6 +549,10 @@ def run_stress(settings: Settings, *, count: int | None = None) -> dict[str, Any
                 queries = rng.standard_normal((cfg["queries"], cfg["dimensions"]), dtype=np.float32)
                 queries /= np.linalg.norm(queries, axis=1, keepdims=True)
                 np.save(attempt / "query_vectors.npy", queries, allow_pickle=False)
+                if resume is not None and sha256_file(attempt / "query_vectors.npy") != sha256_file(
+                    resume.parent / "query_vectors.npy"
+                ):
+                    raise ValueError("technical continuation query vectors changed")
                 result["search"] = {
                     "exact": search_profile(client, name, queries, exact=True, ef=128)
                 }
@@ -594,6 +666,7 @@ def run_stress(settings: Settings, *, count: int | None = None) -> dict[str, Any
                 )
             except BaseException as exc:
                 result.update(status="FAILED", error=type(exc).__name__, detail=str(exc))
+                result["resources"] = vars(resources)
                 write_json(attempt / "receipt.json", result)
                 raise
             finally:

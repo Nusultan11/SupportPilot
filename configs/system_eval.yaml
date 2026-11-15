@@ -1,0 +1,16 @@
+schema_version: system_evaluation/1
+seed: 20261115
+bootstrap_samples: 1000
+source: authored/system/scenarios.yaml
+protocol: docs/reviews/stage9_protocol.md
+# Prefix boundaries retain inflected RU/KK risk roots. Complete English words avoid
+# reagent/magenta/fireproof collisions. This is a candidate until development selection.
+candidate_risk: >-
+  \b(?:operator|human|agent|fraud|stolen|injur\w*|burn\w*|fire|shock|smoke|overheat\w*|swollen|bleed\w*|allerg\w*|court|lawyer|police|privacy|password|cvv|again|repeated|ignore)\b|\b(?:оператор|менеджер|адаммен|қызметкер|жалоб|complaint|шағым|мошенн|алаяқ|взлом|ұрла|травм|ожог|горит|дым|нагрев|взду|кров|өрт|күйік|түтін|жарақат|суд|адвокат|полици|сот|заңгер|персональн|парол|құпиясөз)\w*|charged twice|дважды|екі рет|personal data|жеке дерек|delete.*account|удали.*аккаунт|\b(?:снова|опять|қайта)\b|system prompt|игнор|нұсқау|customer[_ -]?id|demo_bob|demo_alice
+context_budgets: [512, 1024, 2048]
+encoder_batches: [1, 8]
+quantization: [none, nf4]
+generation_max_new_tokens: 256
+generation_max_seconds: 45
+http_requests: 200
+http_concurrency: [1, 4, 16]

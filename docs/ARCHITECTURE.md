@@ -53,6 +53,13 @@ a calibrated semantic verifier: factual candidates are withheld. Generation is o
 because UNKNOWN cannot deliver factual answers and loading the model consumes resources.
 The explicit research mode exercises real inference without changing the sealed assessment.
 
+Stage 9 bounds English risk words and RU/KK root prefixes to avoid internal-word collisions
+before authorized tools. It does not add a general semantic risk classifier. Offline system
+evaluation, overlap audit, performance and locator-reference studies live in `service/` and
+reuse the actual API/runtime; they are not runtime dependencies or a distributed serving layer.
+Their draft/raw-routing/delivered-outcome and semantic-calibration boundaries are specified in
+DATA_CONTRACTS §19 and EVALUATION §11. ADR-035 owns the narrow intervention and rejected changes.
+
 One component worker serializes LID/routing/retrieval/generation. Deadline expiry discards late
 results, which cannot mutate business state; a still-running worker rejects more component work.
 GPU driver hangs require process restart; Python cannot forcibly cancel a driver call. Service

@@ -182,7 +182,7 @@ allocated session time, billed hours and weekly account quota; unknown scopes st
 Free use means no paid service invoked, not zero local electricity or measured billing.
 Do not run unrelated concurrent local model jobs during controlled performance measurements.
 
-## 9. Stage 8 operational E2E scope
+## 10. Stage 8 operational E2E scope
 
 `tests/integration/test_service.py` exercises actual FastAPI/auth/SQLite/session/queue/UI
 boundaries with controlled router/retriever failures. Its 100 scenario-state cases per language
@@ -205,3 +205,35 @@ small operational probe establishes compatibility only, not sustained throughput
 critical-risk generalization or a Stage 9 SLO. Semantic quality stays NOT_EVALUATED; generated
 UNKNOWN candidates cannot pass customer delivery. Local queue recording is observed handoff
 scope, not external operator acceptance. No exposed Stage 7 test/gold cohort is rerun or tuned.
+
+## 11. Stage 9 system assessment
+
+[Preregistration](reviews/stage9_protocol.md) and `configs/system_eval.yaml` freeze the control,
+development selection and once-only confirmation. `service.evaluation` exercises actual models
+through FastAPI with isolated SQLite state. Raw encoder intent/action, guarded delivered outcome,
+tool responses, followups and committed queue delivery have separate denominators.
+Report macro-F1 over all35 labels and coverage; sparse-class bootstrap is exploratory.
+Use family sensitivity and Wilson sensitivity for all-success critical slices: a degenerate
+all-success bootstrap does not establish population recall>=.95. One-cluster uncertainty is
+unidentified even if a legacy helper returns zero-width bounds. No fluent-language claim follows
+from a selected reply-language field or code-switch detector.
+
+The overlap audit covers available SFT/previous assessment lexical surfaces. A zero exact/char-
+shingle match count does not certify semantic independence. The locator supplement is authored
+and frozen before its own inference, after guard selection, and never selects a retriever.
+Recall/full/packed section-reference rates and negative nonempty-context rates are draft proxies;
+they do not become semantic citation precision, proof sufficiency or false factual answer rates.
+
+Performance studies retain identical prompt bytes for precision controls, per-call token limits,
+errors, raw schema validity, first/warm latency and resource scopes. Three deterministic repeats
+do not replace independent training seeds. Encoder batches and exact-text cache hits measure
+offline representation work, not live customer-tool caching. Keep deployed parameters unchanged
+without positive quality evidence. Million-record random-vector stress reuses the existing
+isolated scale engine and its interruption/update/snapshot/full-inventory recovery contract.
+
+Operational target: warm deterministic authorized-tool/queue HTTP p95<=100ms at concurrency1
+on this laptop, excluding loading; report the exact request mix/denominator. This target is
+established during Stage 9 and is not a generation, freeform or concurrent multi-user SLO.
+Count overload503 as failures. Throughput is successful requests divided by wall time, not the
+reciprocal of summed concurrent request durations. Stage 10 readiness depends on actual quality,
+critical misses, calibration and scaling limits in the measured report.

@@ -56,14 +56,14 @@ class Session:
 
 # These guards do not claim complete critical-risk recognition in unrestricted language.
 _RISK = re.compile(
-    r"operator|human|agent|оператор|менеджер|адаммен|қызметкер|жалоб|complaint|шағым|"
-    r"fraud|мошенн|алаяқ|stolen|взлом|ұрла|charged twice|дважды|екі рет|"
-    r"injur|burn|fire|shock|smoke|overheat|swollen|bleed|allerg|"
-    r"травм|ожог|горит|дым|нагрев|взду|кров|өрт|күйік|түтін|жарақат|"
-    r"court|lawyer|police|суд|адвокат|полици|сот|заңгер|"
-    r"personal data|privacy|персональн|жеке дерек|delete.*account|удали.*аккаунт|"
-    r"again|repeated|снова|опять|\bқайта\b|ignore|system prompt|игнор|нұсқау|"
-    r"password|парол|құпиясөз|cvv|customer[_ -]?id|demo_bob|demo_alice",
+    r"\b(?:operator|human|agent|fraud|stolen|injur\w*|burn\w*|fire|shock|smoke|"
+    r"overheat\w*|swollen|bleed\w*|allerg\w*|court|lawyer|police|privacy|password|"
+    r"cvv|again|repeated|ignore)\b|\b(?:оператор|менеджер|адаммен|қызметкер|жалоб|"
+    r"complaint|шағым|мошенн|алаяқ|взлом|ұрла|травм|ожог|горит|дым|нагрев|взду|"
+    r"кров|өрт|күйік|түтін|жарақат|суд|адвокат|полици|сот|заңгер|персональн|"
+    r"парол|құпиясөз)\w*|charged twice|дважды|екі рет|personal data|жеке дерек|"
+    r"delete.*account|удали.*аккаунт|\b(?:снова|опять|қайта)\b|system prompt|игнор|"
+    r"нұсқау|customer[_ -]?id|demo_bob|demo_alice",
     re.IGNORECASE,
 )
 _ORDER = re.compile(r"\bSP-\d{4}\b", re.IGNORECASE)

@@ -11,10 +11,11 @@ belong to the linked reviews, commands to RUNBOOK, and raw evidence to local art
 | Stage 7 | COMPLETED: engineering and research assessment | Autonomous factual support NOT_READY; critical escalation NOT_ACCEPTED |
 | Repository maintenance | COMPLETED: independent owner-authorized task | Preserve the documentation and artifact lifecycle rules |
 | Stage 8 | COMPLETED: guarded local engineering prototype | Semantic quality NOT_EVALUATED; autonomous support NOT_READY |
-| Stages 9–10 | NOT_STARTED | Separate owner authorization required |
+| Stage 9 | PARTIALLY COMPLETED: engineering assessment delivered | Independent/semantic quality acceptance incomplete |
+| Stage 10 | NOT_STARTED | Separate owner authorization required |
 
 No cloud jobs remain to watch for the Stage 7 assessment. Do not retune from the exposed test/gold
-outcomes. Stage 8 is delivered; Stage 9 is not authorized. Future improvements need fresh
+outcomes. Stage 8 is delivered; Stage 9 was authorized on 2026-11-15. Improvements need fresh
 development evidence, independent
 fluent RU/KK review, calibrated claim support and measured end-to-end delivery.
 Semantic quality remains NOT_EVALUATED; UNKNOWN factual support must take the safe fallback.
@@ -128,7 +129,7 @@ followed those checks. Final documentation/provenance checks and recovery receip
   `artifacts/reports/retrieval_scale_delivery_receipt.json`.
 - Backups are local/same disk: they do not protect against disk loss. No backup deletion is
   authorized. Remove only newly created verified restore copies, retaining archives/receipts.
-- Stop before Stage 9. The next product stage requires the owner's instruction and retains the
+- Stop before Stage 10. The next product stage requires the owner's instruction and retains the
   explicit semantic, KK, escalation and resource limitations above.
 
 ## Stage 8 delivery and next boundary
@@ -153,5 +154,49 @@ restore/SQLite/run-identity proofs. Final code-bundle recovery and origin/main p
 indexed by `artifacts/reports/stage8_delivery_receipt.json`. Task-owned verification servers are
 stopped. Backups remain same-disk; no backup deletion was authorized.
 
-Stop before Stage 9. Continue only on owner instruction, retaining semantic, KK, critical-risk
-coverage and sustained-resource limitations; do not tune from exposed Stage 7 test/gold outcomes.
+Stage 9 is authorized. Retain semantic, KK, critical-risk coverage and resource limitations;
+do not tune from exposed Stage 7 test/gold outcomes.
+
+## Stage 9 current work
+
+Protocol: [Stage 9 preregistration](reviews/stage9_protocol.md). New draft inputs are under
+`authored/system/`; the private freeze is indexed by `artifacts/reports/system/freeze_pointer.json`.
+Translations/followups share needs. Semantic independence is uncertified; Stage 7 is unchanged.
+
+Development-only selection is sealed in `artifacts/reports/system/selection.json`.
+Both once-only confirmation attempts finished; `holdout_stage8.json` and
+`holdout_boundary_guard.json` identify raw reports. The narrow word-boundary guard fix is
+selected; overall confirmation delivery improvement is not established. Intent targets are
+missed; critical coverage and independent semantic review remain limitations. Do not tune from
+these now-exposed confirmation outcomes.
+
+Resource/HTTP/precision studies are complete: `artifacts/reports/system/performance/`;
+supplemental locator assessment: `system/retrieval/17f947d9ce20441285435e7457b2364b/`.
+[Stage 9 results](reviews/stage9_results.md) owns measured effects/limits; logs: `system/checks/`.
+
+Million stress source `a7057c9dfb70c66d718c`, collection `sp_scale_load_a7057c9dfb70c66d718c`.
+Initial run `16e4cc274a9a44a5b83f98f461995f7a` FAILED at the first cold exact query's10s
+deadline after successful1M upload/HNSW. Receipt:
+`artifacts/reports/retrieval_scale/load/a7057c9dfb70c66d718c-1794727860994123100/receipt.json`.
+Server stayed healthy; no restart/OOM. Technical continuation `c0d5b3bf62e448ada7c97350949949b8`
+FINISHED with the same source/query bytes and120s research deadline, without upload/build replay.
+Receipt directory ends `a7057c9dfb70c66d718c-1794734687280595500`; wrapper:
+`artifacts/reports/system/stress/7d1c37ce1b8d4c9794189f2e0354be43/report.json`.
+All1M vector/payload records and six exact-query rankings match after actual snapshot restore.
+Do not rerun or remove the retained source/restore collections.
+
+Embedding audit and real HTTP-generation probe finished; all3 actual generated candidates were
+withheld and actually queued. Audit flags89/480 rows (38 near-train); do not exclude or relabel
+them after outcomes. No independent-semantic/gold claim is valid. Owner confirmed that fluent
+reviewers and labelled calibration data are unavailable; semantics stays NOT_EVALUATED.
+
+Shared checks:810 passed/zero skipped (429.55s), Ruff/format195, strict mypy176 plus UI.
+Five pinned snapshots cover benchmarks, load vectors/evidence, system reports and tracking;
+deep verification and actual restores pass, including nine service SQLite databases and17
+current MLflow run identities/statuses. Exact snapshots, code-bundle restore and origin/main
+publication proof are indexed by `artifacts/reports/stage9_delivery_receipt.json`; check that
+receipt rather than inferring publication from this handoff. Backups remain local/same-disk.
+
+Next: independent overlap adjudication, fluent calibration and fresh development/confirmation
+within Stage 9 before quality acceptance/advancement. Do not retune exposed outcomes.
+Stage 10 and autonomous generation remain unauthorized/not ready.

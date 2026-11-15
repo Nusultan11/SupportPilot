@@ -645,3 +645,33 @@ Operator context excludes raw user messages and model output. Bearer values are 
 >=24 characters and unique; only demo_ customers and the reserved operator principal are accepted.
 Validation errors return a generic422 without echoing submitted PII. Public health is liveness;
 readiness is authenticated local tool/fallback readiness, not autonomous semantic acceptance.
+
+## 19. System evaluation (Stage 9)
+
+`authored/system/scenarios.yaml` (`system_needs/1`) is project-authored, eval_only, LLM-generated
+draft data. Each row contains need ID, development/holdout phase, family, expected intent,
+delivered outcome, critical flag and four parallel EN/RU/KK/mixed texts. Mixed requests prefer
+KK replies; translations share one global need and followups do not add independent needs.
+IDs are unique, all35 intent identifiers are validated, and development/holdout families are
+disjoint. No test/gold data is repurposed for training. Review/semantic independence is uncertified.
+
+`system_freeze/1` binds source/protocol/configuration hashes, starting code HEAD, Stage 7 seal
+file hash, control/candidate guard patterns, needs and counts. Its content digest verifies all
+fields; changed inputs are rejected. Attempts retain source/lock/runtime settings, KB/index
+identities, raw encoder decisions separately from HTTP responses, failures, followups and actual
+customer-scoped SQLite queue-record checks. FINISHED means terminal execution, not perfect
+quality. Selection binds completed development reports by hash; once-only holdout markers
+prevent silent repeat assessments. Original attempts remain unchanged by analysis.
+
+`authored/system/retrieval.yaml` is a separately frozen, post-selection assessment supplement.
+Section-reference groups are AND across sections, OR across matching canonical language chunks.
+They are finite locator proxies, not certified atomic-fact proofs or semantic sufficiency.
+Absent-reference queries have no positive groups. Random stress vectors have zero semantic role.
+
+`ClaimReview` requires distinct author/human-reviewer identities, fluent-language declarations
+(both RU/KK for mixed), review provenance, pinned judge/rubric, calibration/assessment phase,
+support labels and citation/claim/completeness counts. Duplicate items, self-review, nonfluent
+review, inconsistent citation counts, mixed judge/rubric identities and overlapping calibration/
+assessment families are rejected. Software validates declarations; the owner must verify human
+identity/fluency/provenance. Without >=100 calibration items per language, identifiable kappa>=.6
+and separate assessment, semantic metrics remain NOT_EVALUATED with null numerical values.

@@ -466,4 +466,84 @@ Both probe modes create isolated synthetic databases under ignored attempt direc
 failures, prompts, completions and observations; `artifacts/reports/service/latest_probe.json`
 points to the latest attempt. They do not overwrite live demo state or evaluate exposed gold.
 Use full shared checks in §3 as well. Semantic/KK/generalization/sustained-serving limitations
-remain separate from successful execution; evaluation scope is EVALUATION §9.
+remain separate from successful execution; evaluation scope is EVALUATION §10.
+
+## 19. System evaluation (Stage 9)
+
+Run only on isolated synthetic state, with the existing Qdrant healthy. No new paid service,
+model selection or exposed Stage 7 test/gold rerun is involved. Protocol and source inputs are
+immutable after freeze. Results/status belong to the Stage 9 review and PROGRESS.
+
+```powershell
+uv run python -m supportpilot.service.evaluation freeze
+uv run python -m supportpilot.service.evaluation_audit
+uv run python -m supportpilot.service.evaluation evaluate --smoke
+uv run python -m supportpilot.service.evaluation evaluate --phase development --variant stage8
+uv run python -m supportpilot.service.evaluation evaluate --phase development --variant boundary_guard
+uv run python -m supportpilot.service.evaluation select --control <control-report.json> --candidate <candidate-report.json>
+uv run python -m supportpilot.service.evaluation evaluate --phase holdout --variant stage8
+uv run python -m supportpilot.service.evaluation evaluate --phase holdout --variant boundary_guard
+```
+
+These are the verified original sequence, not permission to refresh inspected confirmation.
+`freeze_pointer.json` locates the immutable input; attempts/selection/holdout markers retain exact
+identities. Existing selection/holdout markers reject blind reruns. A technical retry must retain
+the failed attempt and exact source/configuration/input identity; changing labels or creating a
+fresh output path cannot restore independence. `stage8` swaps only the captured original guard;
+both variants otherwise use the same current frozen runtime/components.
+
+```powershell
+uv run python -m supportpilot.service.performance retrieval
+uv run python -m supportpilot.service.performance http
+uv run python -m supportpilot.service.performance precision --prompts <captured_prompts.json> --quantization none
+uv run python -m supportpilot.service.performance precision --prompts <same-captured_prompts.json> --quantization nf4
+uv run python -m supportpilot.service.performance precision_joint --prompts <same-captured_prompts.json> --quantization nf4
+```
+
+The retrieval study emits captured prompts in its unique attempt directory. Do not run concurrent
+model jobs during resource measurements. HTTP uses an ephemeral loopback port/credentials and
+isolated SQLite; its task-owned Uvicorn thread stops in finally. Report failures/503 and successful
+throughput separately. `precision_joint` performs actual retrieval with the generator resident.
+Limits, output-token truncation and semantic UNKNOWN remain visible; schema validity is diagnostic.
+
+Without independent review, the semantic entry point emits NOT_EVALUATED:
+
+```powershell
+uv run python -m supportpilot.service.semantic_evaluation --output artifacts/reports/system/semantic_review_status.json
+```
+
+Optional `--reviews <review-array.json>` validates ClaimReview and independent fluent calibration
+declarations (DATA_CONTRACTS §19). The owner verifies human provenance. Never invent reviewers.
+
+The million workload uses the existing scale engine and isolated collection; do not replace its
+1024-dimensional vectors with a cheaper semantic stand-in. Original and technical-continuation
+attempts remain separate. A research deadline override changes this driver only, not base.yaml.
+
+```powershell
+uv run python -m supportpilot.service.system_stress --count 1000
+uv run python -m supportpilot.service.system_stress
+uv run python -m supportpilot.service.system_stress --resume <failed-receipt.json> --timeout 120
+```
+
+Continuation requires the same complete source/upload/index before incremental mutations,
+matching collection count and distributed payload/vector samples. It preserves query-vector
+bytes and original timings as inherited, avoids upload/build replay, and retains the negative
+attempt. It is not a new favorable benchmark. `stress_latest.json` identifies the latest wrapper;
+actual scale-engine receipts remain under `artifacts/reports/retrieval_scale/load/`.
+
+Additional measured diagnostics and final analysis:
+
+```powershell
+uv run python -m supportpilot.service.retrieval_assessment
+uv run python -m supportpilot.service.semantic_overlap
+uv run python -m supportpilot.service.system_probe
+uv run python -m supportpilot.service.system_report
+```
+
+The locator supplement is once-only and rejects an existing attempt marker. Embedding overlap
+does not exclude inspected rows; changed diagnostic references are read from the starting Git
+blob only when its SHA256 matches the lexical freeze. The actual-generation wrapper puts its
+isolated demo outputs under `system/live_generation/`, preserving Stage 8's original latest pointer.
+Final analysis imports terminal execution receipts and the retained preflight failure with
+execution provenance distinct from the analysis/import run. It never promotes JSON/locator checks
+to semantic acceptance. Preserve all source-version archives and failed/partial attempts.
