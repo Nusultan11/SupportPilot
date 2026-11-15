@@ -347,6 +347,22 @@ Owner completes browser sign-in; never request token/password contents. Browser/
 Keep last observed state plus UNKNOWN_ACCESS_DENIED; stop repeated unauthorized polling.
 A transient query failure does not authorize cancelling/restarting the remote computation.
 
+If the existing cached OAuth grant is still valid, the official SDK can renew the access token
+without another browser login (verified 2026-11-15). Run with the Kaggle-enabled Python:
+```python
+from kaggle.api.kaggle_api_extended import KaggleApi
+from kagglesdk.kaggle_creds import KaggleCredentials
+
+api = KaggleApi()
+api.authenticate()
+with api.build_kaggle_client() as client:
+    credentials = KaggleCredentials.load(client=client)
+    assert credentials is not None and credentials.get_username() == "nurs2005"
+    credentials.refresh_access_token()
+```
+Then start a fresh CLI query/client and verify the exact version. Never print the credentials.
+An invalid/revoked grant still requires owner sign-in; renewal never changes experiment inputs.
+
 Require terminal COMPLETE for an explicit version before quality import:
 ```powershell
 kaggle kernels pull nurs2005/supportpilot-stage7-routing-run/2 -p artifacts/kaggle/stage7_routing/remote/2 -m

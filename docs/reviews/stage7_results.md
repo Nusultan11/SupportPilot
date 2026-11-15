@@ -2,6 +2,8 @@
 
 Execution status is maintained only in PROGRESS.md. This report describes measurement scopes and results.
 
+Readiness: **NOT_READY for autonomous factual support or critical escalation**. Structural gains and verified experiment execution do not certify semantic quality.
+
 ## Validation
 
 Frozen SFT validation: 313 rows (EN 97 / RU 103 / KK 113), including 22 overlapping RU–KK rows. Language is supplied to the model; this is not upstream language-ID accuracy. All values below are raw output diagnostics, not delivered fallback quality or semantic correctness.
@@ -126,3 +128,95 @@ is NOT_ESTABLISHED. Services were restored healthy with unchanged collection nam
 Failures, successful calls and service restoration remain in
 `artifacts/reports/llm/local_control_fp16/` and three separate MLflow runs.
 These resource probes do not change selection or establish semantic quality.
+
+## Verified independent assessment
+
+The explicit final kernel /2 completed; both workers exited 0. All 12 FINISHED tasks, 3,622 observations and source/payload hashes were verified before analysis. All 64 root-manifest members and both 30-member worker checksum manifests match. The original queued/cancelled /1 and empty archives remain separate. Readback/analysis receipts are in artifacts/reports/llm/assessment_verification.json and artifacts/kaggle/stage7_final_evaluation/output/2/.
+
+This compares the sealed 0.6B adapter/schema deployment with 2B/few-shot. Both base model and prompt differ: it is not a pure SFT effect. Matched 0.6B development comparisons above remain the causal intervention control. No model, prompt, seed, router or metric was selected again from these outcomes.
+
+|Cohort|Language|n|Base JSON %|Adapter JSON %|Base intent %|Adapter intent %|Base action %|Adapter action %|
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+|test|en|90|58.89|98.89|36.67|74.44|48.89|88.89|
+|test|ru|95|67.37|98.95|34.74|71.58|54.74|85.26|
+|test|kk|101|66.34|99.01|30.69|47.52|52.48|81.19|
+|gold|en|312|80.77|91.99|35.26|52.24|54.49|61.22|
+|gold|ru|312|79.81|92.95|33.01|44.55|52.56|62.82|
+|gold|kk|312|78.53|94.55|27.56|35.90|49.68|62.82|
+|safety|en|50|58.00|100.00|18.00|48.00|20.00|40.00|
+|safety|ru|50|40.00|98.00|16.00|50.00|10.00|40.00|
+|safety|kk|50|44.00|100.00|22.00|30.00|12.00|26.00|
+
+Selected adapter RU–KK test n=16: JSON100%, intent50%, action81.25%; gold n=59: JSON94.92%, intent49.15%, action61.02%. Mixed rows overlap language slices. Safety has no mixed rows; mixed safety quality is UNKNOWN.
+
+### Paired uncertainty
+
+Intent deltas are percentage points,1,000 scenario-cluster resamples with family sensitivity.
+
+|Cohort|Language|Intent delta pp|Scenario 95% CI pp|Family sensitivity 95% CI pp|
+|---|---|---:|---|---|
+|test|en|37.78|[21.11, 52.81]|[22.91, 50.00]|
+|test|ru|36.84|[22.22, 53.20]|[25.25, 50.55]|
+|test|kk|16.83|[0.00, 33.35]|[3.37, 29.47]|
+|gold|en|16.99|[10.26, 24.04]|[1.94, 27.97]|
+|gold|ru|11.54|[5.45, 18.27]|[-5.51, 26.18]|
+|gold|kk|8.33|[1.92, 14.74]|[-10.58, 23.78]|
+
+Schema improvement excludes zero per language under both resampling units on test/gold. KK test intent superiority is inconclusive under the primary scenario CI; gold RU/KK intent improvements are not robust to the coarse family sensitivity. Gold has only 9 category families, not independently reviewed paraphrase families.
+
+KK gold intent macro-F1 is.22428 for the adapter vs.22443 for the 2B control; its paired scenario CI[-.05187,.06260] includes zero. Sparse 35-class cluster percentile F1 bootstrap can omit entire rare intent clusters: RU test point delta.33943 lies outside its scenario interval[.14246,.31239]. Keep the frozen values; these F1 intervals are exploratory calibration evidence, not a guarantee. Schema/accuracy intervals and raw points are unchanged.
+
+Local plot/provenance: artifacts/reports/llm/independent_comparison.png/.svg and independent_comparison_manifest.json. Full paired metrics, mixed slices and families are in final_evaluation.json.
+
+### Safety, evidence and failure attribution
+
+|Cohort|Language|Required escalations|Base raw misses|Adapter raw misses|
+|---|---|---:|---:|---:|
+|test|en|10|6|6|
+|test|ru|9|8|6|
+|test|kk|10|8|9|
+|gold|en|42|31|40|
+|gold|ru|42|39|38|
+|gold|kk|42|36|41|
+|safety|en|26|17|16|
+|safety|ru|26|20|18|
+|safety|kk|26|22|24|
+
+These are draft-label raw escalation failures, not measured harm rates: a refusal instead of the required escalation also counts as a miss. On safety, the adapter declares a non-answer action on 50/50 EN, 49/50 RU and 50/50 KK rows, with zero answer_kb declarations. This does not establish correct refusal: one inspected RU candidate requests a username/password. Safety abstention_accuracy has denominator 0 under the frozen task-label proxy, so remains UNKNOWN rather than 0 or 100%.
+
+Sufficiency interventions reuse 18 exposed development needs (144 rows). Complete context has 9 rows/language, partial 3, and packed/absent/irrelevant12 each. In the natural packed subset, 3/12 per language have known proof lost after sufficient retrieval. Loss counters for absent/irrelevant/partial interventions are deliberately removed evidence, not an estimate of natural packing failure. Gold proof sufficiency remains unknown; allowed-reference coverage is reported separately.
+
+All 36 absent-evidence adapter cases declare a non-answer. In partial/irrelevant contexts, however, no valid adapter completion declares a non-answer: EN partial 2/3 and irrelevant 10/12 answer_kb (others invalid); RU 3/3 and 12/12; KK 3/3 and 12/12. These declarations/known-proof diagnostics are not semantic false-answer rates. Deterministic citation/number errors and contract failures are retained separately; semantic generation errors remain NOT_EVALUATED.
+
+The one-need conflict fixture produces valid adapter JSON in all 9 rows. Complete 11-day evidence yields 11-day answers, but equal-current 11/27-day conflict yields factual answer_kb in all 3 languages, inventing/merging conditions rather than rejecting the conflict. Absent contexts produce non-answer declarations; one KK raw candidate promises an operator handoff that has not occurred. This is one qualitative controlled need, not 9 independent scenarios; between-family uncertainty is UNKNOWN.
+
+A targeted qualitative triage read 50 distinct failed needs/language, prioritizing required-escalation failures, with representative source checks. It is an LLM self-review, not random representative semantic scoring or fluent human review. IDs, sample texts, selection scope and findings: error_review_samples.json/error_review.json. Common patterns: explicit human requests map to account/contact templates; complaints/injury/fraud map to ordinary policy answers; the latest turn is overridden by earlier topic cues; missing/irrelevant evidence prompts generic order clarification. Some deterministic checks pass despite these failures.
+
+Representative source-traced cases include EN g_es_safety_battery_en (packed stop-use/operator instructions ignored for charging advice), RU 2e822aa69114edf7 (credential solicitation with no evidence), RU/KK g_es_repeat_failure_* (unverified dialogue status promoted to current state), and KK g_x_es_safety_car_seat_kk (catalogue confusers instead of risk escalation). Retrieval/packing gaps, generation/intent errors and validation failures have distinct scopes; no semantic rate is inferred from these examples.
+
+Gold flagged-near-train rows: EN 16/RU 21/KK 42, total 79. On unflagged rows, adapter intent accuracy is EN 52.36% (n=296), RU 43.30% (n=291), KK 33.70% (n=270); flagged values are 50%, 61.90%, 50%. The 857 unflagged rows are not certified contamination-free. Conditional tool fixtures and per-task slices remain separate in final_evaluation.json.
+
+### Frozen routing assessment
+
+|Language|Encoder macro-F1|2B LLM macro-F1|Adapter LLM macro-F1|2B raw→guarded misses|Adapter raw→guarded misses|
+|---|---:|---:|---:|---|---|
+|en|0.71047|0.49817|0.34808|10→4|9→5|
+|ru|0.63844|0.42079|0.30204|9→3|8→1|
+|kk|0.34668|0.32489|0.08483|10→4|10→5|
+|ru_kk|0.07143|0.12857|0.04286|1→0|1→0|
+
+The encoder remains selected. Raw and guarded LLM F1 are identical here; guards/fallback alter escalation outcomes. The LLM guard/fallback cannot be interpreted as calibrated model judgement. Current-message/empty-session draft action labels can require omitted history/evidence; supplied language does not test language detection. All 35 intents occur per test language; no routing configuration was refitted.
+
+### Resources, provenance and readiness
+
+Selected-adapter test p50/p95 generation seconds EN 7.91/9.71, RU 8.30/10.51, KK 11.84/15.91; gold EN 8.79/12.02, RU 9.76/14.64, KK 13.87/22.63. Generation throughput is about 12.4–12.5 tokens/s; loading and failed calls are separate. On gold, peak allocated/reserved CUDA bytes are 1,860,946,944/2,004,877,312 for the adapter versus 5,047,095,296/6,845,104,128 for the 2B control. These are Torch/process scopes, not whole-machine usage or local joint-serving guarantees.
+
+Remote metadata requests NvidiaTeslaT4 shape with two successful CUDA workers; a separate final device-name sample was not recorded. Remote Python 3.13.16/Torch 2.11+cu130 differs from local Python 3.12/Torch 2.14.1+cu126. The pinned image/source and actual package versions are preserved in the exact-version archive. All 3,050 inference rows have no execution exception; both routing tasks completed 286 calls each without a propagated generation exception. Token caps remain failures/diagnostics, not discarded rows.
+
+Final observed assigned-device process wall time 8.16972h; total measured across 68 retained attempts 17.71093h, with 25 older attempts lacking device-hour observations. Active-compute/session-allocated/billed hours remain UNKNOWN; paid compute invoked 0 USD, with local power/hardware and uninstrumented bootstrap/idle allocation excluded. Weekly account quota is not this cost metric. See cost_accounting.json.
+
+Every final MLflow run has a verified assessment_identity.json with real cohort/input/selection/evidence fingerprints. Generic legacy importer parent-SFT/training-variant defaults are explicitly disambiguated; original receipts/metrics are unchanged. Validation reports, immutable adapter card/manifests and the selection seal still verify.
+
+**Readiness:** research/inference/training/routing libraries are implemented and measured, but autonomous factual support and critical escalation are NOT_ACCEPTED. KK intent/generalization, raw escalation failures, missing calibrated claim verification/independent fluent review, and local joint FP16 residency prevent acceptance. UNKNOWN-to-localized-fallback remains mandatory; actual local boundary probes, not analytic heldout policy implications, establish that path. Do not switch to the baseline or retune from these results.
+
+Future work requires new development/confirmation evidence: review/calibrate claim sufficiency; contrast escalation/privacy/human-request cases across languages; validate latest-turn handling and proof packing; measure sustained local authorized service. Keep exposed gold/test reserved as observed evidence. Stage 8 implementation requires separate owner authorization. Readiness decision and mutable external card: readiness.json/model_card.md.

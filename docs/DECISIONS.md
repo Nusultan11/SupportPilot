@@ -302,7 +302,8 @@ cannot tune packing/gating. Operationally use the expanded namespace with exerci
 Revisit fresh development/confirmation data for real conversation diversity and packing changes.
 
 ## ADR-033 — Sealed behaviour adapter and separate router
-Accepted 2026-11-14 for independent assessment, not autonomous factual/critical-escalation use.
+Accepted 2026-11-14 for guarded research/integration assessment, not autonomous factual/
+critical-escalation use. Independent outcomes support this restriction, not a new selection.
 Choose Qwen3-0.6B full pinned revision, all-linear rank16/alpha32/LR1e-4/512steps,
 FP16 base/FP32 adapters, MT.5, schema mode, preregistered primary seed 20261113.
 Validation score.83906 vs Qwen3.5-2B few-shot.51049 supports the engineering choice;
@@ -319,6 +320,11 @@ Actual remote/local precision/resource scopes and per-language results:
 [Stage 7 measured report](reviews/stage7_results.md).
 Revisit only with new development evidence/fresh confirmation; heldout failures alter readiness,
 not sealed parameters. Rollback preserves adapter=None/legacy boundary and earlier artifacts.
+The sealed independent assessment improves raw structure but leaves KK gold macro-F1 about .224,
+with no improvement over the 2B control, and misses 24/26 required KK safety escalations.
+These draft-label diagnostics and absent calibrated semantics prevent autonomous acceptance.
+Keep the selected research configuration unchanged; use the measured report for full uncertainty,
+source-traced failure analysis and operational resource limits.
 
 ## Open decisions
 
