@@ -43,3 +43,6 @@ Thumbs.db
 .claude/settings.local.json
 # User-local Codex connector/client configuration is not project source.
 /.codex/
+
+# Optional engineering MCP dependencies; persistent state stays under artifacts/.
+/tools/mcp/node_modules/

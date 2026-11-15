@@ -5,8 +5,8 @@ Russian, Kazakh, English and mixed RU–KK. Store facts come from cited KB evide
 live order, payment and stock state must come from authorized tools. Fine-tuning teaches behaviour.
 
 Implemented: licensed data pipelines, versioned multilingual KB, hybrid retrieval,
-LLM inference/evaluation/training and typed routing. End-to-end APIs, business tools and UI
-are future work. See [current status and next action](docs/PROGRESS.md);
+LLM inference/evaluation/training, typed routing and a guarded local FastAPI/Streamlit prototype
+with authorized synthetic tools and a durable assistance queue. See [current status and next action](docs/PROGRESS.md);
 research measurements do not imply production or autonomous-answer readiness.
 
 ## Start here
@@ -15,10 +15,10 @@ research measurements do not imply production or autonomous-answer readiness.
 |---|---|
 | Agent rules | [AGENTS.md](AGENTS.md) |
 | Current work / stages | [PROGRESS](docs/PROGRESS.md) · [ROADMAP](docs/ROADMAP.md) |
-| Requirements / design | [PROJECT](docs/PROJECT.md) · [ARCHITECTURE](docs/ARCHITECTURE.md) |
+| Requirements / design | [PROJECT](docs/PROJECT.md) · [ARCHITECTURE](docs/ARCHITECTURE.md) · [C4 model](docs/architecture/workspace.dsl) |
 | Contracts / evaluation | [DATA_CONTRACTS](docs/DATA_CONTRACTS.md) · [EVALUATION](docs/EVALUATION.md) |
 | Decisions / commands | [DECISIONS](docs/DECISIONS.md) · [RUNBOOK](docs/RUNBOOK.md) |
-| Measured results | [Retrieval](docs/reviews/stage6_scale_results.md) · [LLM](docs/reviews/stage7_results.md) |
+| Measured results | [Retrieval](docs/reviews/stage6_scale_results.md) · [LLM](docs/reviews/stage7_results.md) · [Service](docs/reviews/stage8_results.md) · [System](docs/reviews/stage9_results.md) |
 
 ## Local setup
 
@@ -34,7 +34,8 @@ uv run supportpilot --help
 ```
 
 Verification, pipeline commands, cloud execution, backup/restore and safe cleanup:
-[RUNBOOK](docs/RUNBOOK.md). No end-to-end chat server is supplied yet.
+[RUNBOOK](docs/RUNBOOK.md). Local API/UI commands are in §18; optional Shrimp/Structurizr
+engineering setup is in §4a. Neither MCP tool is a runtime dependency.
 
 ## Data and storage
 

@@ -50,7 +50,12 @@ Expansion needs an explicit scope decision.
 Facts live in KB/tools, not weights. Training uses altered fictional KB values.
 A request, SFT row, document, chunk and token are different counting units.
 The original ~100k SFT / 90k–5k–5k split and EN/RU/KK 30/35/35 distribution are planning
-targets bounded by quality, not quotas to satisfy through duplication.
+targets bounded by quality, not quotas to satisfy through duplication. This remains the target
+scale; the smaller sealed research cohort is not a replacement for it. Dataset rows are not
+independent needs, and expanding the corpus requires a separately authorized data scope.
+The substantive KB document/language-version/chunk/fact targets are specified in ROADMAP §6.1;
+its isolated synthetic load floor and Stage 9's million-record load are capacity inputs, never
+training examples or evidence of semantic corpus quality.
 
 ## Success
 

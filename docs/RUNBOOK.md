@@ -100,6 +100,111 @@ Serena keeps tool/no-onboarding/no-memories settings; Playwright uses installed 
 MLflow is read-only. Pipelines/tests must work with all servers disconnected.
 Current connector availability/keys are not project implementation status.
 
+### Optional Shrimp + Structurizr workflow (ADR-036)
+
+For substantial authorized engineering work only. Prerequisites: Node.js>=20 (verified24.18),
+npm (verified11.16) and existing Docker Desktop. Runtime uv/Compose Qdrant usage stays unchanged.
+From this repository root:
+
+```powershell
+npm ci --prefix tools/mcp --ignore-scripts --no-fund --no-audit
+node tools/mcp/configure.mjs
+docker compose --profile engineering up -d structurizr
+node tools/mcp/check.mjs
+```
+
+The lockfile pins Shrimp1.0.21/SDK and the Compose image is digest-pinned. No install-time scripts
+run. configure.mjs adds only two managed entries to ignored project .codex/config.toml, preserves
+other settings and refuses conflicting preexisting entries. It is idempotent; no global client
+state or permission settings are changed. Codex verifies the entries with:
+
+```powershell
+codex mcp get shrimp --json
+codex mcp get structurizr --json
+codex -c 'mcp_servers.shrimp.enabled=true' -c 'mcp_servers.structurizr.enabled=true'
+```
+
+The installed entries default to enabled=false; the last command opts in for that CLI session.
+For Shrimp-only work omit the Structurizr override/service. An already-running desktop chat's
+catalogue is not hot-reloaded by the installer. A fresh client session/its supported MCP controls
+are needed for native agent tool exposure; the checks above use actual protocol clients without
+an LLM/account/billing call. No security bypass flags are needed. Keep other local MCPs off unless
+their existing activation requirements are met. Managed policy may independently restrict tools.
+
+Claude Code: the existing .mcp.json remains the default unrelated-tool configuration. The separate
+opt-in configuration avoids adding engineering servers to every ordinary session:
+
+```powershell
+claude --mcp-config tools/mcp/claude.json
+```
+
+Run from the root; Claude Code merges its normal configuration unless its documented strict mode
+is selected. Existing local MCP controls still apply. JSON config is for clients supporting MCP
+stdio and streamable HTTP; a stdio-only desktop client needs a separately verified bridge, not
+an assumed transport substitution. Codex config resolution and direct MCP transports were tested;
+interactive Claude/other-desktop tool use must be verified in that client before claiming it.
+
+check.mjs checks initialize/tools/list/calls,10 allowlisted Shrimp tools, persistent reads across
+separate processes and changed client roots, a competing-writer refusal, forbidden destructive
+modes/tools and oversized inputs. It calls Structurizr validate/parse/inspect, checks all four
+view keys/types, and rejects invalid DSL. It does not run models or change task status.
+Receipts: artifacts/reports/engineering/mcp/attempts/; latest-check.json locates the latest
+attempt without replacing earlier success/failure evidence. Two INFO inspections refer to documentation/ADRs
+intentionally kept in their owning Markdown documents; no blanket inspection suppression exists.
+
+For explicit MCP calls when the host cannot reload tools:
+
+```powershell
+node tools/mcp/client.mjs shrimp list
+node tools/mcp/client.mjs shrimp list_tasks <arguments.json> <receipt.json>
+node tools/mcp/client.mjs structurizr validate <dsl-arguments.json> <receipt.json>
+```
+
+The first lists schemas. list_tasks arguments are `{"status":"all"}`. Structurizr arguments
+are `{"dsl":"<workspace text>"}`; create JSON with a serializer, never shell interpolation.
+Shrimp split_tasks takes `updateMode: "append"|"selective"` and `tasksRaw`, a JSON-encoded array
+of tasks (not a tasks array field). Set name/description/implementationGuide/dependencies/
+verificationCriteria and concise evidence/continuation pointers. Dependency references use
+existing task names/UUIDs. Read returned errors AND persisted state: upstream tools sometimes
+return textual refusals without isError. execute_task marks an eligible task in_progress;
+verify_task records summary/score and completes at>=80. A lower score leaves it in progress.
+Completion requires actual task evidence, and stage completion still uses ROADMAP criteria.
+
+Resume: read AGENTS -> PROGRESS -> relevant ROADMAP scope -> list/query/get_task_detail for the
+current task. Check Git/artifacts before executing; use update_task for an unfinished task's
+next action/blocker. Do not seed completed stages or create a parallel journal. Historical state
+is referenced in task scope notes; only this authorized engineering task was decomposed here.
+There is no automatic stage scheduler or permission to start Stage 10.
+
+Persistent store: artifacts/engineering/shrimp/tasks.json, with UUID dependency edges, statuses,
+verification criteria and completed summaries. GUI is off. Client roots never alter its path.
+The local adapter excludes rules generation/deletion/reset/thought-history tools, limits each
+call to256KiB and<=100 tasks, serializes calls, and refuses a second writer. Do not bypass it
+with a direct upstream launch. No secrets are forwarded to the upstream child environment.
+Shrimp does not provide transactional/power-loss-safe writes; after interruption preserve all
+bytes and restore a verified snapshot to an isolated target before replacing any live state.
+For a stale writer.lock inspect its recorded PID and actual process command/ownership; remove
+only that task-owned lock after proving its process exited. Never reset tasks to recover a lock.
+
+Stop the client before snapshotting the task store with §6. Deep-verify and actually restore it;
+compare all IDs/dependencies/statuses/results and the file hashes. Snapshot engineering receipts
+separately; code bundle recovery follows §5. Task state and outputs are ignored, never public.
+Inspect `npm audit --prefix tools/mcp --omit=dev` before a dependency change. The verified tree
+retains the upstream Zod3 oversized-collection advisory; do not force a breaking major upgrade.
+It is local trusted stdio with bounded input, not an exposed task HTTP service. Audit receipts
+include the original negative attempt and the updated tree; no zero-vulnerability claim is made.
+
+Structurizr exposes only loopback3010/mcp and only validate/parse/inspect, with no host mounts or
+cloud publishing. Treat submitted DSL as executable-tool input; use the reviewed canonical
+self-contained model, never untrusted !script/!plugin/remote includes. Stop after verification:
+
+```powershell
+docker compose --profile engineering stop structurizr
+```
+
+Do not use compose down/-v to stop this tool: preserve Qdrant and its volume/collections.
+Shrimp exits with its stdio client; no GUI/viewer/server daemon is required between tasks.
+
 ## 5. Code backup and restore
 
 Location: backups/code (ignored; ADR-013). Create a unique bundle:

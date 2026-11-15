@@ -1,6 +1,10 @@
 # ARCHITECTURE — components and boundaries
 
-This document separates implemented libraries from future integration.
+The single editable C4 model is [workspace.dsl](architecture/workspace.dsl): System Context,
+Containers, OnlineComponents and OfflineComponents. It models process roles within the same
+Python package, not a microservice rewrite. `Implemented` means a code boundary exists, not
+quality/production acceptance; `Planned` elements/relationships are unavailable capabilities.
+This document owns the interpretation and constraints, not a second architecture model.
 Current deployment/experiment identities belong to [PROGRESS](PROGRESS.md);
 rationale belongs to [DECISIONS](DECISIONS.md), schemas to [DATA_CONTRACTS](DATA_CONTRACTS.md).
 
@@ -137,9 +141,35 @@ Record process RSS, Torch allocation/reservation, Docker memory and shared-memor
 separately. Optimize only measured bottlenecks.
 
 Config is YAML/Pydantic with environment overrides. Logs redact sensitive data by default.
-External IO uses bounded retries/timeouts. Future serving observability, rate limits,
-multi-user SLOs and scaling require Stages 8–10; Redis, vLLM and Kubernetes are not dependencies.
+External IO uses bounded retries/timeouts. Production serving observability, rate limits,
+multi-user SLOs and scaling remain Stage 10 work; Redis, vLLM and Kubernetes are not dependencies.
 
-## 8. Design references
+## 8. Architecture review against delivered code (2026-11-15)
+
+The model traces acquisition/conversion -> preparation/EDA -> MT/QE/SFT/gold, and canonical
+facts -> document rendering -> format extraction -> structure/tables/locators -> gated KB ->
+checksummed index -> dense/sparse retrieval -> rerank/packing -> optional generation ->
+response verification/actual assistance delivery. Training/checkpoints, cloud assessment,
+MLflow and recovery remain separate offline responsibilities. No pipeline replacement is needed.
+Scanned/unstructured real-world document extraction is not established by the synthetic six-format
+KB checks; OCR is conditional future work when actual scan requirements justify measurement.
+
+| Concern | Confirmed boundary and consequence | Continuation gate |
+|---|---|---|
+| Factual safety and multilingual quality | Default ClaimVerifier is UNKNOWN; KK/mixed routing and critical coverage miss acceptance. Queue success is not semantic support. | Stage 9 independent fluent calibration, overlap adjudication and fresh confirmation; EVALUATION §11 |
+| Extraction/KB consistency | Typed section/locator gates and immutable versions are implemented; KB activation and index synchronization are separate, briefly unavailable operations. | Preserve fail-closed readiness and exercise both steps on any authorized KB change |
+| Dataset scale | Smaller sealed SFT is research evidence; substantive KB and random-vector load count different units. | PROJECT targets and ROADMAP quality/volume gates; no duplication to reach 100k |
+| Capacity | Stage 9 deterministic concurrency1 mix meets its scoped target; concurrency4/16 rejects most requests. Generation has only short-call observations. | Declared workload, joint RAM/VRAM and error-inclusive SLO before Stage 10 scaling choices |
+| Failure recovery | SQLite commits delivery and replay state; sessions expire on restart. Timed-out GPU calls cannot be forcibly cancelled by Python. | Keep single-worker ownership and process restart recovery; distributed sessions require evidence/ADR |
+| Security | Bearer principals and owned synthetic records restrict tools; model tool proposals do not execute; component failures queue or return503. | Production threat/security review and operational rate limits; no public deployment acceptance |
+| Reproducibility | Pinned raw/models, manifests/seals, retained failures and deep-verified actual restores exist. | Same-disk backups leave disk-loss risk unresolved; no permission to delete backups |
+
+Review evidence: unchanged [Stage 7](reviews/stage7_results.md),
+[Stage 8](reviews/stage8_results.md), [Stage 9](reviews/stage9_results.md), source paths in the
+DSL and private `artifacts/reports/engineering/mcp/`. Structurizr checks structure, not code
+equivalence, data licences, semantic support or production readiness. Agent review of actual
+module boundaries is still required when code changes. ADR-036 owns the engineering tooling.
+
+## 9. Design references
 
 [DECISIONS](DECISIONS.md#references) records sources and accepted alternatives.

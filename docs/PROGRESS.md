@@ -10,6 +10,7 @@ belong to the linked reviews, commands to RUNBOOK, and raw evidence to local art
 | Stages 0–6.1 | COMPLETED | Retrieval and synthetic-evaluation limits remain documented |
 | Stage 7 | COMPLETED: engineering and research assessment | Autonomous factual support NOT_READY; critical escalation NOT_ACCEPTED |
 | Repository maintenance | COMPLETED: independent owner-authorized task | Preserve the documentation and artifact lifecycle rules |
+| Engineering MCP integration | COMPLETED: independent owner-authorized task | Opt-in lifecycle and upstream advisory/recovery limits retained; delivery receipt below |
 | Stage 8 | COMPLETED: guarded local engineering prototype | Semantic quality NOT_EVALUATED; autonomous support NOT_READY |
 | Stage 9 | PARTIALLY COMPLETED: engineering assessment delivered | Independent/semantic quality acceptance incomplete |
 | Stage 10 | NOT_STARTED | Separate owner authorization required |
@@ -200,3 +201,21 @@ receipt rather than inferring publication from this handoff. Backups remain loca
 Next: independent overlap adjudication, fluent calibration and fresh development/confirmation
 within Stage 9 before quality acceptance/advancement. Do not retune exposed outcomes.
 Stage 10 and autonomous generation remain unauthorized/not ready.
+
+## Engineering MCP integration (standalone owner request)
+
+Scope: optional Shrimp internal task tracking and a single validated Structurizr C4 model;
+no new product stage, data/training experiment or runtime change. Canonical model/architecture
+review: ARCHITECTURE; decision: ADR-036; reproducible setup and opt-in lifecycle: RUNBOOK §4a.
+Native project Codex entries are installed disabled by default; direct stdio/HTTP MCP clients
+verify actual operations. An existing host chat does not hot-reload its native tool catalogue.
+Shrimp's private dependency graph/results are under `artifacts/engineering/shrimp/`;
+verified live checks/DSL parse/inspection receipts: `artifacts/reports/engineering/mcp/`.
+Original stage reports and frozen identities are unchanged. The Zod3 advisory and nontransactional
+upstream writes remain documented; local bounded single-writer operation/verified snapshots apply.
+Full pytest:810 passed/zero skipped; Ruff/format195 and strict mypy176 plus UI pass. Verified
+task-state/evidence snapshots, actual restores, final hooks, code-bundle recovery and exact
+origin/main publication are indexed by `artifacts/reports/engineering_delivery_receipt.json`;
+verify that receipt rather than inferring publication from this handoff. Both MCPs default off
+between tasks; no engineering daemon is required. Native interactive Claude remains unverified.
+Stage 9 quality limitations and the Stage 10 authorization boundary above remain in force.

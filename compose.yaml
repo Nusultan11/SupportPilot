@@ -20,6 +20,24 @@ services:
       timeout: 3s
       retries: 6
 
+  structurizr:
+    profiles: ["engineering"]
+    image: structurizr/mcp@sha256:fc4ef98b7da925d62b08c71a90eb995a527fae30e2c04b39e3041f253c135539
+    command: ["-dsl"]
+    ports:
+      - "127.0.0.1:3010:3000"
+    environment:
+      PORT: "3000"
+      JAVA_TOOL_OPTIONS: "-Xmx256m -XX:ActiveProcessorCount=2"
+    user: "65532:65532"
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    cap_drop: ["ALL"]
+    security_opt: ["no-new-privileges:true"]
+    mem_limit: 512m
+    restart: "no"
+
 volumes:
   qdrant_storage:
     name: supportpilot_qdrant_storage

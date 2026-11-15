@@ -15,6 +15,13 @@ artifact backup/deep verification/actual restore, reviewed commit and push to or
 Measurements retain failures, denominators, language slices and uncertainty.
 A missed quality target is a documented negative result, never a fabricated pass.
 
+Each owner-authorized large stage/task has one bounded outcome and the criteria below.
+Shrimp tracks its internal dependency graph, evidence and remaining work; it neither replaces
+this roadmap/PROGRESS nor authorizes another stage. Resume from verified evidence before
+creating new tasks. Completed research stages are not rerun to populate a task tracker.
+Tool/model maintenance is a separate engineering delivery with the same checks/recovery/Git
+requirements, not an implicit authorization for Stage 9 quality experiments or Stage 10.
+
 ## Stage 0 — Project audit and research
 
 Audit repository/hardware and research data/model/retrieval options. Establish canonical
@@ -53,7 +60,7 @@ Use altered training KB values and grounded/abstention/conflict/injection target
 Split by scenario/family and decontaminate; build separate gold >=300 items/language.
 **DoD:** versioned manifests/gates, exact leakage exclusions, reported language distribution
 against30/35/35 target, sample translation errors and honest per-item review status.
-Original100k/90k–5k–5k volumes are quality-bounded targets; do not duplicate to fill them.
+The quality-bounded SFT volume/split/language targets in PROJECT remain in force.
 Fluent independent review is required for a human-verification claim.
 
 ## Stage 5 — Knowledge base and document extraction
@@ -128,13 +135,30 @@ Streamlit citations/debug view; auth/error/timeout/injection/PII and multi-turn 
 
 Gold/e2e/safety evaluation; latency/throughput/resource/load tests; measured quantization,
 caching/batch/context trade-offs; isolated1M+ record stress test.
-**DoD:** final per-language metrics/CIs, scaling limits and no Stage 8 regressions.
+**Engineering outcome:** reproducible per-language system assessment, measured laptop limits,
+controlled optimisation decisions and verified million-record recovery. Its delivery can be
+complete while quality acceptance remains PARTIALLY COMPLETED; see the preserved measured report.
+**Quality DoD:** EVALUATION targets assessed separately for RU/KK/EN/mixed, calibrated independent
+semantic assessment, adjudicated overlap/critical-risk coverage, no Stage 8 regressions and
+shared delivery checks. Missing reviewers/calibration means NOT_EVALUATED, not a waived gate.
+Use fresh family-disjoint development/confirmation for further improvements; do not tune exposed
+Stage 7 or Stage 9 outcomes. No new data generation/training is authorized by tool maintenance.
 
 ## Stage 10 — Production readiness and delivery
 
 Reproducible packaging/Compose, CI (lint/types/tests/small evaluation), operational logs/
 metrics/health/rate limits, security review, backups/restore and model/data cards.
-**DoD:** clean-machine setup/demo and CI pass; restore works; limitations remain explicit.
+**Entry:** separate owner authorization after Stage 9 quality acceptance, or an explicit owner
+decision changing the delivery goal while retaining the unresolved limitations.
+**Outcome:** a reproducible, operated guarded deployment with a measured declared workload.
+**DoD:** documented clean-machine setup and RU/KK/EN/mixed demo pass; CI runs lint/types/full
+applicable tests and a frozen small evaluation; auth/ownership/injection/overload/timeout and
+restart/recovery checks pass. Record p95/throughput/error rate and resource budgets for the
+declared request mix/concurrency, including rejected work; do not generalize deterministic-tool
+latency to generation. Verify persistent state and exact model/data identities after actual
+restore. Security findings, observability/rate limits, cards and remaining quality restrictions
+are reviewed; shared backup/Git delivery passes. No distributed infrastructure is prespecified:
+adopt it only for a measured capacity requirement and an ADR with rollback.
 
 ## Report format
 

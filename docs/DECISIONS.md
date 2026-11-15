@@ -380,6 +380,42 @@ Rollback restores the original risk pattern from the Stage 9 freeze; keep all at
 the selected research seal unchanged. Revisit with fresh development/confirmation families,
 independent fluent review/calibrated claim support and measured end-to-end trade-offs.
 
+## ADR-036 — Optional task orchestration and one local architecture model
+
+Accepted 2026-11-15 for the owner's standalone engineering integration. Keep ROADMAP as stage
+criteria, PROGRESS as verified state/authorization, and AGENTS as the only agent instructions.
+Use upstream Shrimp Task Manager 1.0.21 for internal tasks with dependencies, verification and
+continuation notes. A score>=80 completes only an internal task, never stage acceptance.
+Preserve completed stages by references to existing evidence, not synthetic reruns or backdated
+task completion. Small fixes need neither MCP. No GSD, separate Mermaid MCP or extra task system.
+
+Use the official Structurizr MCP image pinned by digest with only DSL tools, loopback HTTP,
+no host mounts, non-root/read-only execution and an opt-in Compose profile. Keep one versioned
+DSL at docs/architecture/workspace.dsl and narrative interpretation in ARCHITECTURE. Existing
+ADRs/review records stay authoritative; do not copy them into a second generated workspace.
+Two external-document inspection findings are explicitly INFO, with owning paths in the model;
+structural inspection failures remain errors. No Structurizr visualization/cloud service needed.
+
+Measured upstream constraints justify the small local Shrimp MCP adapter: client roots otherwise
+change DATA_DIR, direct JSON writes have no concurrency protection, and the tool catalogue includes
+history resets/rule generation. Fix storage to ignored artifacts/engineering/shrimp, exclude
+dangerous tools/modes, bound request bytes/task counts, serialize calls and hold an exclusive
+process lock. No alternate task engine or runtime dependency is introduced. Upstream writes
+remain nontransactional; stop writers and use verified project snapshots for recovery. Never
+auto-clear a stale lock or corrupt state. Keep secrets out of the child environment and no GUI.
+
+Pin the npm tree with package-lock; SDK 1.32.2 and compatible Hono/uuid overrides resolve measured
+advisories. Upstream Zod 3 still has an oversized-collection DoS advisory (two npm high entries,
+one affected dependency path); local trusted stdio and adapter input bounds limit exposure.
+Do not claim a vulnerability-free upstream or force an incompatible Zod major migration.
+
+Alternatives: direct upstream launch risks divergent stores/concurrent writes; always-on MCPs
+add unnecessary processes/context; remote Structurizr would transmit the model; replacing working
+runtime modules lacks measured need. Revisit upstream storage/SDK fixes or a measured multi-writer
+requirement. Rollback disconnects these tools/stops only the engineering service; retain private
+task state/backups and the DSL. Runtime, sealed inputs and historical assessments stay unchanged.
+Reproduction/lifecycle and client-specific activation: RUNBOOK §4a.
+
 ## Open decisions
 
 Owner input is needed only if the work requires a paid MT/generation/judge budget or fluent
@@ -390,6 +426,9 @@ invented measurements or unrelated service dependencies.
 
 Historical source checks informed these ADRs. Current adopted versions/licences are pinned
 in source/model registries; recheck primary sources before adopting a new version.
+
+- [Shrimp upstream](https://github.com/cjo4m06/mcp-shrimp-task-manager) · [Structurizr MCP](https://docs.structurizr.com/ai/mcp) · [Inspections](https://docs.structurizr.com/workspaces/inspections)
+- [Codex MCP configuration](https://developers.openai.com/codex/mcp/) · [Remaining upstream Zod advisory](https://github.com/advisories/GHSA-mrhx-c7xc-m3w5)
 
 - [Qwen3 report](https://arxiv.org/abs/2505.09388) · [Qwen3 blog](https://qwenlm.github.io/blog/qwen3/)
 - [Qwen3.5-0.8B](https://huggingface.co/Qwen/Qwen3.5-0.8B) · [2B](https://huggingface.co/Qwen/Qwen3.5-2B)
