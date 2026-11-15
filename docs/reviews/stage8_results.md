@@ -21,9 +21,9 @@ the engineering choices and alternatives.
 
 ## Observed engineering checks
 
-- Full shared pytest: **789 passed, zero skipped**, 440.48 seconds. One known embedded-Qdrant
-  exact-search warning; real GPU/Qdrant checks executed. The final added critical-reason
-  regression is included in the subsequent Stage 8 suite below.
+- Full shared pytest: **794 passed, zero skipped**, 499.42 seconds. One known embedded-Qdrant
+  exact-search warning; real GPU/Qdrant checks executed. All final Stage 8 regressions
+  are included.
 - Final controlled Stage 8 suite: **328 passed**, 37.73 seconds. This includes 100
   scenario-state cases each for RU/KK/EN and separate auth, idempotency, ownership, injection,
   queue rollback, timeout, mixed-language, session, policy/tool boundary and Streamlit checks.
@@ -76,7 +76,7 @@ MLflow. Earlier attempts remain visible: the first included stale last-backend m
 non-model responses and overbroad KK guard matching; the first e2e load_seconds also included
 the controlled-test prelude. Neither is silently promoted to additional inference evidence
 or a controlled quality comparison. Later reports separate these scopes and retain raw calls.
-A subsequent full run recorded793 passed/1 failed: the injected-router-exception test used a
+A retained pre-correction full run recorded793 passed/1 failed: the injected-router-exception test used a
 10ms whole-request deadline, allowing cold/busy LID to time out first. Delivery still correctly
 queued assistance. The test now reserves10ms for its explicit timeout branch and allows60s for
 the exception branch; both pass in a cold isolated process. Runtime/model inputs are unchanged.
