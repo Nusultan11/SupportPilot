@@ -416,6 +416,46 @@ requirement. Rollback disconnects these tools/stops only the engineering service
 task state/backups and the DSL. Runtime, sealed inputs and historical assessments stay unchanged.
 Reproduction/lifecycle and client-specific activation: RUNBOOK §4a.
 
+## ADR-038 — Evidence-gated target architecture on existing boundaries
+
+Accepted 2026-11-15 for the owner-authorized architecture and development-control redesign.
+Preserve the modular Python monolith, thin HTTP/UI boundaries, domain libraries, Qdrant and
+transactional synthetic SQLite Store. Separate online request authority, offline data/ML
+qualification and deployment acceptance. The single DSL labels implemented, experimental and
+planned capability; ARCHITECTURE interprets it, ROADMAP owns package/transition criteria and
+PROGRESS owns verified state. Earlier ADRs, protocols, frozen experiments and contract versions
+remain in force. This decision authorizes design documentation, not Stage 10 implementation.
+
+Evidence: service code always withholds KB candidates despite the library's verifier protocol;
+readiness only checks local worker/SQLite state; UI lists tickets but has no transition editor;
+receipts grow without expiry; loaded retrievers retain their index artifact. Stage 9 measured
+overload/quality limitations do not justify autonomous delivery or a multi-worker deployment.
+The pending Stage 9 continuation is a separate unconfirmed working-tree increment, not a new
+baseline quality claim. ARCHITECTURE §§1–8 and ROADMAP's A1–A8/9Q/10P mapping own the resulting
+design and acceptance details, avoiding a second copied inventory here.
+
+Choose independently calibrated claim verification AND an explicit fail-closed service delivery
+path before factual answers; independent language/critical-risk evidence before quality promotion;
+release identity binding before deployment; scoped diagnostics/retention/admission controls before
+long-lived operation. Keep synchronous allowlisted tools and atomic queue/mutation/receipt commits.
+Preserve existing API/storage contracts until a separately reviewed versioned change is needed.
+
+Alternatives: schema/citation/score-only promotion is unsafe; always loading the generator spends
+memory without deliverable facts; a microservice/agent framework rewrite duplicates working code;
+multi-worker flags break process-local session/mutation assumptions; new databases/caches/queues
+add migration/operations cost before a qualified workload exists. A single monolith limits capacity
+and cannot forcibly cancel a hung inference thread, but its authority and recovery boundaries are
+inspectable and already tested. Measure admission/process isolation first; choose further scaling
+only on a declared bottleneck with quality parity, costs and rollback assessed.
+
+Verification: source-to-model review, Structurizr validate/parse/inspect, linked package gates,
+shared checks and protected-artifact/unrelated-change comparison. Engineering delivery cannot
+waive independent semantic/fluent review or incomplete Stage 9 targets. Stage 10 still requires
+separate owner authorization. Rollback restores only this documentation/DSL change; runtime,
+contracts, frozen models/data/indexes, existing task history and backups remain unchanged.
+Revisit on independently reviewed fresh quality evidence, a measured serving/recovery requirement,
+or an explicit changed delivery goal, not exposed-holdout retuning or infrastructure fashion.
+
 ## Open decisions
 
 Owner input is needed only if the work requires a paid MT/generation/judge budget or fluent

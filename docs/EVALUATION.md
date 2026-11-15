@@ -5,6 +5,11 @@ This document owns metric definitions and experiment rules. Dataset schemas/iden
 Detailed preregistrations under `docs/reviews/` are immutable experimental inputs;
 result reports describe observations, not new tuning rules.
 
+ROADMAP's transition gates and target packages consume this document's metric definitions;
+they do not redefine targets or certify quality through engineering completion. ARCHITECTURE
+§7 maps planned runtime acceptance to those packages. A calibrated offline judge is not by
+itself an implemented online verifier or evidence of actual supported HTTP delivery.
+
 ## 1. Evaluation datasets
 
 | Set | Use | Planning target |

@@ -219,7 +219,7 @@ On disk: `data/processed/sft/<dataset_version>/{train,validation,test}.parquet` 
 `user_text`, `history_len`, `intent`, `action`; `stats.json` (counts per split x language x
 task, leakage filter), `quality_report.json` (gates) and `manifest.json`.
 
-## 6. AssistantResponse (model output; future API boundary)
+## 6. AssistantResponse (model output and delivered response payload)
 
 ```json
 {
@@ -246,6 +246,9 @@ Evidence-dependent diagnostics are separate: citations must be supplied evidence
 surfaces must match cited/tool evidence, language must match the requested language.
 They do not certify semantic support. Generation acceptance additionally requires an explicit
 supported ClaimVerifier verdict; UNKNOWN falls back (ARCHITECTURE §5).
+The service wraps this payload in `ChatResult` (§18). Library generation acceptance is not
+an implemented service factual-delivery path: the current service withholds every KB candidate.
+ARCHITECTURE §7 specifies the planned integration; it changes no schema/version in this delivery.
 
 ## 7. Intent taxonomy
 

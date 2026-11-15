@@ -7,6 +7,26 @@ Dependencies: 0 → 1 → 2 → 3 → 4; Stage 5 needs foundation and can overla
 Stage 6 needs KB + retrieval queries; 6.1 extends its evidence; Stage 7 needs SFT + retrieval.
 Then 8 → 9 → 10. Preserve earlier frozen results when extending a stage.
 
+Historical stages retain their original IDs and delivered evidence. Their completion is not
+retroactive certification of every product target; unmet targets carry forward explicitly.
+Each stage below has an entry dependency, bounded output and exit evidence. Current states
+are deliberately kept only in PROGRESS.
+
+| Stage | Entry dependency | Output handed to the next stage |
+|---|---|---|
+| 0 | Owner scope + available repository/hardware | Audited requirements, constraints and engineering plan |
+| 1 | Stage 0 decisions | Reproducible typed foundation, tests, actual recovery/services |
+| 2 | Foundation + approved registry rights | Verified immutable raw/conversion manifests |
+| 3 | Verified converted records | Accounted canonical/pending/rejected data and quality review |
+| 4 | Canonical data + taxonomy/rights + explicit data scope | Isolated versioned SFT/gold inputs with draft/review limits |
+| 5 | Foundation + canonical fictional facts/specifications | Gated source-located immutable KB |
+| 6 | KB + separately frozen retrieval needs | Selected measured retrieval and exercised update/rollback |
+| 6.1 | Stage 6 baseline + separately authorized expansion | Larger substantive KB/benchmark and isolated load/recovery evidence |
+| 7 | SFT + retrieval + licensed pinned model candidates | Sealed behavior model/router assessment and explicit readiness limits |
+| 8 | Stage 7 assessment + authorization for guarded integration despite quality limits | Authorized synthetic tools, API/UI, durable assistance and measured demo |
+| 9 | Stage 8 + authorized frozen system protocol | Separate engineering assessment and product-quality acceptance decision |
+| 10 | Stage 9 quality gate + separate owner authorization, or explicit changed delivery goal | Qualified guarded release and operated workload/recovery evidence |
+
 ## Shared acceptance
 
 Every delivery requires appropriate unit/integration checks, Ruff check/format, strict mypy,
@@ -21,6 +41,31 @@ this roadmap/PROGRESS nor authorizes another stage. Resume from verified evidenc
 creating new tasks. Completed research stages are not rerun to populate a task tracker.
 Tool/model maintenance is a separate engineering delivery with the same checks/recovery/Git
 requirements, not an implicit authorization for Stage 9 quality experiments or Stage 10.
+
+## Stage transition and implementation control
+
+Before a substantial authorized increment, identify its scope/package IDs, entry evidence,
+named control, changed boundary, dependencies, resource/cost scope and rollback. Link an existing
+protocol or register a new one only when new experiments need it. Shrimp tracks these internal
+deliverables/dependencies; it is neither an approval scheduler nor a second status document.
+
+| Gate | Required evidence to close | When unavailable or failed |
+|---|---|---|
+| G0 Authorization/entry | Owner-authorized bounded outcome, required artifact identities, unresolved dependency list | Do independent design/checks only; do not start the next stage or infer permission from task status |
+| G1 Engineering correctness | Actual affected interfaces/transactions, applicable regressions and full shared checks; DSL validate/parse/inspect when boundaries change | Failed/skipped/unrun scope remains explicit; tests do not establish product quality |
+| G2 Product quality | EVALUATION targets and reviewed methodology, separate RU/KK/EN/mixed results, failures/denominators/uncertainty; independent calibration where required | Missed target = not accepted; missing semantic evidence = NOT_EVALUATED; retain negative attempts |
+| G3 Safety/authority | Auth/ownership, wrong/stale references, explicit confirmed writes, injection/conflict/unknown/failure handling and actual queue checks | No autonomous facts or unsupported tool actions; widen deployment only after findings resolved |
+| G4 Capacity/operation | Declared request mix/concurrency/token limits, load/first/warm timing, error-inclusive throughput/p95, joint memory, dependency and restart behavior | UNKNOWN outside measured workload; queue success or rejected traffic cannot prove an SLO |
+| G5 Reproducible delivery | Sealed provenance, reviewed docs/model, deep-verified/restored private results, reviewed public diff, commit/bundle restoration and exact origin/main readback | Engineering delivery incomplete until verified; preserve important private/staged work |
+
+Gate applicability is explicit: architecture-only maintenance closes G0/G1/G5 and reviews G3/G4
+as design; it cannot close product G2 or deployment G4 through documentation. A research stage
+can deliver an engineering/negative assessment while quality acceptance stays open. Do not mark
+the whole product ready because a Shrimp task, test suite or experiment execution finished.
+
+Completion reports name evidence for every applicable gate, distinguish implementation from
+quality and operation, and state the next authorized action. If a delivery goal changes, record
+the owner decision and remaining restrictions; do not silently waive a failed target.
 
 ## Stage 0 — Project audit and research
 
@@ -130,6 +175,8 @@ Authorized synthetic orders/inventory/payments SQLite APIs; router/tools/retriev
 validators/fallback/escalation orchestration; FastAPI /chat,/health,/ready,/escalations;
 Streamlit citations/debug view; auth/error/timeout/injection/PII and multi-turn scenarios.
 **DoD:** one-command multilingual e2e suite and local laptop demo work.
+This historical guarded-engineering acceptance does not imply semantic support, a full operator
+workspace, production security or sustained concurrent-serving acceptance.
 
 ## Stage 9 — System evaluation and optimisation
 
@@ -143,6 +190,28 @@ semantic assessment, adjudicated overlap/critical-risk coverage, no Stage 8 regr
 shared delivery checks. Missing reviewers/calibration means NOT_EVALUATED, not a waived gate.
 Use fresh family-disjoint development/confirmation for further improvements; do not tune exposed
 Stage 7 or Stage 9 outcomes. No new data generation/training is authorized by tool maintenance.
+
+### Target architecture work packages
+
+These packages implement ARCHITECTURE §7 (ADR-038) without renumbering completed stages.
+They are a dependency plan, not new authorization or claims of completion. Resume the existing
+Stage 9 continuation before proposing another experiment; its protocol/seal and once-only markers
+remain authoritative. Schema changes, new data scope or further training need their own bounded
+authorization. Reviewer/calibration absence is a real dependency, not a software task to fake.
+
+| Package / target IDs | Entry | Concrete output and measurable exit evidence |
+|---|---|---|
+| 9Q1 Service interpretation and dialogue / A1,A3 | Stage 8 control + current authorized continuation's fresh frozen inputs | Terminal paired control/candidate development and once-only sealed confirmation; all35 classes/four slices, actual tool values/queue/reasons/followups, wrong-type and confirmation regressions; preserve archived control and every deviation/failure |
+| 9Q2 Independent qualification / A2,A7 | Verified reviewer identities/fluency, human-labelled calibration, adjudicated overlaps, separately authorized assessment scope | EVALUATION §3/11 calibration and independent assessment requirements, family isolation and critical coverage; numeric targets owned by EVALUATION; otherwise semantic acceptance remains NOT_EVALUATED |
+| 9Q3 Grounded delivery and quality acceptance / A1,A2,A3,A7 | 9Q1 terminal interpretation + 9Q2 independent evidence + fresh authorized development/confirmation | Qualify existing `ClaimVerifier`, implement explicit service acceptance with unknown/unsupported/error/timeout fallback, and confirm actual delivered facts/citations/language/critical escalation against EVALUATION targets in RU/KK/EN/mixed; library acceptance alone cannot close this package |
+| 9Q4 Workload qualification / A6 | 9Q1 behavior identity + declared workload; generation workload additionally needs qualified 9Q3 path | Error-inclusive baseline including auth/tool/queue/KB and optional generation separately, cold/warm/load/joint RAM/VRAM and saturation/restart; freeze target workload and measured limits before choosing capacity changes |
+
+9Q1 development gains alone do not close 9Q2/9Q3. Frozen original Stage 9 engineering/stress
+evidence is reused with its limitations, not rerun to populate these packages. Candidate changes
+after exposed confirmation require new development/confirmation scope; technical retries preserve
+inputs/settings and every prior failure. A missed intent/critical/grounding target keeps the quality
+gate open. Grounded-answer/language and generation-serving numerical targets still requiring
+definition must be preregistered from development evidence before confirmation, not chosen afterward.
 
 ## Stage 10 — Production readiness and delivery
 
@@ -159,6 +228,18 @@ latency to generation. Verify persistent state and exact model/data identities a
 restore. Security findings, observability/rate limits, cards and remaining quality restrictions
 are reviewed; shared backup/Git delivery passes. No distributed infrastructure is prespecified:
 adopt it only for a measured capacity requirement and an ADR with rollback.
+
+| Package / target IDs | Dependency after authorized Stage 10 entry | Concrete output and exit evidence |
+|---|---|---|
+| 10P1 Release qualification / A4 | Explicit release scope + frozen qualified component identities | Specify release-binding schema using existing manifests/seals; clean-machine installation/start, code/config/prompt/router/model/KB/index mismatch rejection, explicit KB/index sync + service reopen, version rollback drill without losing committed business state |
+| 10P2 Operational and security controls / A5 | 10P1 release + declared exposure/threat model | CI with existing quality commands/small frozen evaluation; redacted request/outcome/dependency diagnostics, authenticated readiness scope, abuse/rate/admission limits, secret handling, receipt/queue retention-growth policy; auth/ownership/injection/storage/timeout/restart regressions and findings reviewed |
+| 10P3 Measured capacity / A6 | 9Q4 baseline + 10P1/10P2 controls | Reproduce declared workload and error-inclusive p95/throughput/resources; optimize only observed bottleneck with quality parity and rollback; retain single-worker baseline. Multiple workers need tested session/idempotency/storage ownership plus ADR, never only a Uvicorn worker flag |
+| 10P4 Recovery and handover / A8 | 10P1–10P3 evidence + declared recovery objectives | Actual release + business DB + index/file restore, model/data cards, achieved RPO/RTO, operator handover and local/off-device loss limitations; off-device transfer/service/cost only when separately authorized; exact reviewed Git publication |
+
+Production acceptance closes G1–G5 for the declared delivery goal and workload. A narrower guarded
+goal, if explicitly chosen by the owner, retains withheld factual generation and all unaccepted
+quality dimensions in the release/readiness statement. External CRM, real PII/payment execution,
+OCR and distributed infrastructure are not implicit work packages.
 
 ## Report format
 
