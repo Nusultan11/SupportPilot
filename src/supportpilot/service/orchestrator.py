@@ -68,6 +68,11 @@ _RISK = re.compile(
 )
 _ORDER = re.compile(r"\bSP-\d{4}\b", re.IGNORECASE)
 _SKU = re.compile(r"\b(?!SP-)[A-Z]{2}-\d{4}\b", re.IGNORECASE)
+# Mentioning a live-state noun does not turn a policy question into a tool request.
+_POLICY = re.compile(
+    r"\b(?:polic\w*|methods|rules|правил\w*|способ\w*|услов\w*|ереж\w*|әдіс\w*|шарт\w*)",
+    re.IGNORECASE,
+)
 _COMMANDS: tuple[tuple[str, re.Pattern[str]], ...] = (
     ("cancel_order", re.compile(r"\b(cancel|отмен\w*|бас тарт\w*|болдырма\w*)", re.I)),
     ("payment_problem", re.compile(r"\b(payment|оплат\w*|плат[её]ж\w*|төлем\w*)", re.I)),
@@ -212,6 +217,8 @@ class SupportService:
             reason = "repeated_failure"
         else:
             matched = [name for name, pattern in _COMMANDS if pattern.search(request.message)]
+            if _POLICY.search(request.message):
+                matched = []
             # Cancel/payment/order overlap is expected. Distinct stock+order requests clarify.
             malformed = any(
                 not (_ORDER.fullmatch(value) or _SKU.fullmatch(value))

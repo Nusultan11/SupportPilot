@@ -429,3 +429,33 @@ def test_followup_never_downgrades_critical_reason(
     assert second["escalation_id"] == first["escalation_id"]
     ticket = client.get("/escalations").json()[0]
     assert ticket["reason"] == "independent_safety_guard"
+
+
+@pytest.mark.parametrize(
+    ("language", "message"),
+    [
+        ("en", "What payment methods do you accept?"),
+        ("ru", "Какие способы оплаты заказа доступны?"),
+        ("kk", "Тапсырыс төлем әдістері қандай?"),
+    ],
+)
+def test_policy_terms_bypass_live_state_shortcuts(
+    runtime: tuple[TestClient, SupportService], language: LanguageCode, message: str
+) -> None:
+    client, service = runtime
+    service.router, service.retriever = PolicyRouter(), EmptyRetriever()
+    result = chat(client, message, language)
+    assert result["delivery"] == "queued"
+    assert result["diagnostic"] == "generation_disabled:semantic_unknown"
+
+
+def test_cancellation_policy_never_mutates_order(
+    runtime: tuple[TestClient, SupportService],
+) -> None:
+    client, service = runtime
+    service.router, service.retriever = PolicyRouter(), EmptyRetriever()
+    result = chat(client, "Explain cancellation policy for order SP-1001")
+    assert result["delivery"] == "queued"
+    with service.store.transaction() as db:
+        row = db.execute("SELECT cancellation_requested FROM orders WHERE id='SP-1001'").fetchone()
+    assert row[0] == 0

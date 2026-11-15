@@ -35,7 +35,8 @@ chat → authorized session + language → router
 
 FastAPI composes existing libraries through `service.runtime.open_service`. Bearer principals
 constrain order/payment lookup; stock is an authenticated read of shared synthetic inventory.
-Explicit operation/slot recognizers handle supported tool requests; other messages use the
+Explicit operation/slot recognizers handle supported tool requests. Policy/method terminology
+bypasses these shortcuts; policy questions and other messages use the
 frozen CPU encoder router. Unknown actions clarify or queue assistance; model-proposed tools
 never execute. Cancellation additionally requires explicit confirmation and records a request,
 not completed cancellation. Queue insertion and its idempotent response commit before delivery.

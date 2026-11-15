@@ -24,9 +24,9 @@ the engineering choices and alternatives.
 - Full shared pytest: **789 passed, zero skipped**, 440.48 seconds. One known embedded-Qdrant
   exact-search warning; real GPU/Qdrant checks executed. The final added critical-reason
   regression is included in the subsequent Stage 8 suite below.
-- Final controlled Stage 8 suite: **324 passed**, 31.40 seconds. This includes 100
+- Final controlled Stage 8 suite: **328 passed**, 37.73 seconds. This includes 100
   scenario-state cases each for RU/KK/EN and separate auth, idempotency, ownership, injection,
-  queue rollback, timeout, mixed-language, session and Streamlit checks.
+  queue rollback, timeout, mixed-language, session, policy/tool boundary and Streamlit checks.
 - The 300 multilingual cases are ten customer situations crossed with ten distinct business
   states, not 300 independently authored linguistic needs. Their correlated draft templates
   prove engineering outcomes, not semantic or fluent-language quality. Mixed detection and
@@ -37,15 +37,16 @@ the engineering choices and alternatives.
   escalation and the UI HTTP page. The task-owned servers were stopped after verification.
 
 Raw checks: `artifacts/reports/service/checks/`; real-port receipt: `service/live_ports.json`.
-The single-command suite plus real models completed in attempt
-`e21763d4a5f5427e8dfd028fc4aa3c51`; it contains the final 324-case log and captured prompts/raw
-completions. The final LF-normalized source/config probe is
-`c2abd6e39cfc4bc792fe54d0c9ede6d3`; all its source hashes match the delivered code/config.
-Both are under `artifacts/reports/service/attempts/`; `latest_probe.json` binds the latest report.
+The final single-command suite plus real models is attempt
+`4dcde951fdb847818ccb481cbbc07b58`; it retains the 328-case log and captured prompts/raw
+completions, with source/config hashes matching the delivered code. It is under
+`artifacts/reports/service/attempts/`; `latest_probe.json` binds the latest report.
+The earlier matching-source probe `c2abd6e39cfc4bc792fe54d0c9ede6d3` precedes the final
+policy/tool regression fix and supplies the scoped resource observations below.
 
 ## Actual laptop observations
 
-Final probe: CPU E5 router plus active GPU retrieval plus the selected Qwen3-0.6B adapter in
+Resource probe `c2abd6e39cfc4bc792fe54d0c9ede6d3`: CPU E5 router plus active GPU retrieval plus the selected Qwen3-0.6B adapter in
 operational NF4, schema prompt, input limit6144/output512 and generation limit45s. This differs
 from the immutable Stage 7 FP16/90s assessment configuration; no seal was rewritten.
 Active KB/index: `kb_demo_store-20261113-f3b204a6` / `rindex-20261113-9ba94665`.
@@ -70,7 +71,7 @@ local energy/hardware costs are excluded.
 
 ## Accounting, recovery and acceptance limits
 
-All four operational attempts remain recorded in `service/tracking_receipts.json` and local
+All five operational attempts remain recorded in `service/tracking_receipts.json` and local
 MLflow. Earlier attempts remain visible: the first included stale last-backend metrics on
 non-model responses and overbroad KK guard matching; the first e2e load_seconds also included
 the controlled-test prelude. Neither is silently promoted to additional inference evidence
