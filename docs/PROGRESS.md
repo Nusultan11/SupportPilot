@@ -196,3 +196,18 @@ under `artifacts/reports/system/independent_qualification/`; delivery index:
 before relying on delivery). Do not repeat completed experiments/confirmation, alter negative
 results or exposed labels, recruit external help without approval, claim product readiness or
 start Stage 10. Product qualification remains unfinished until real independent evidence passes.
+
+Renewed autonomous qualification audit (2026-11-16): all 204 historical preservation hashes
+match. The manual-attempt census contains 25 attempts: 20 COMPLETE with raw output, 4 FAILED,
+and 1 retained RUNNING record with no observed result (UNKNOWN, not a success). These repeated
+convenience questions are diagnostic observations, not independent confirmation needs. Packed
+exceptions can be retrieved yet omitted by generation; formally valid outputs can use a wrong
+contact channel or contain malformed language. The additive agent-authored diagnostic census
+and exact raw-file hashes are in
+`artifacts/reports/system/independent_qualification/resumption/audit.json`.
+No model/rule was selected from these exposed examples and no independent quality gain is
+claimed. Existing negative experiments and qualification/contact restrictions remain binding.
+The pending human-qualification task is resumed, not recreated. The concrete first external
+dependency remains permission to lift the RWS hold for the exact generic USD0 inquiry; no
+private material, purchase or verifier activation is included. Delivery evidence for this audit:
+`artifacts/reports/stage9_resumption_delivery_receipt.json` (verify before relying on delivery).
