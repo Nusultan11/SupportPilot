@@ -543,6 +543,32 @@ acceptance/publication records. Numerical results and runtime tests are not reru
 Revisit product acceptance only with separately authorized new evidence; revisit the delivery
 scope only through another explicit owner decision. Do not silently waive a quality gate.
 
+## ADR-041 — Isolated local manual generation inspection
+
+Accepted 2026-11-16 under explicit owner authorization to test real LLM behavior through a local
+interface while holding RWS correspondence. Add a separate loopback Streamlit workbench and
+read-only disposable inference worker. Reuse the sealed selected adapter, schema prompt, current
+KB/index and deterministic checks. Keep model output, diagnostics and safe fallback distinct;
+raw invalid completions remain visible without repair. Questions are independent, including
+mixed RU-KK with explicit reply language. Never invoke business tools or customer delivery.
+
+The primary API, default generation flag, guards and qualification boundary remain unchanged.
+The workbench is an owner research surface, not an independent reviewer or9Q2/9Q3 evidence.
+No model selection, training, exposed-cohort rerun, paid service or Stage10 is authorized.
+
+Alternatives: exposing raw generations on the customer API expands its trust boundary; removing
+semantic guards would allow unqualified delivery; a second inference framework adds no measured
+value. A small child process is justified by the known inability of thread deadlines/Transformers
+max_time to stop a hung driver (RUNBOOK §18). One serialized worker is terminated after180s and
+automatically reloaded for the next question. CPU retrieval reserves the4GB GPU for NF4 inference;
+this operational profile does not change the sealed FP16 experiment. Cache-only offline loading
+avoids cloud calls. Retain raw attempts and failures privately with source/model/evidence identity.
+
+Verify diagnostics, raw-output UI, worker failure/timeout isolation and real four-slice inference,
+then shared regressions, protected artifact hashes and restore-tested delivery. Rollback stops
+only the workbench and removes its source/UI additions; preserve receipts and the guarded service.
+Revisit only for a measured inspection need or separately authorized qualification scope.
+
 ## Open decisions
 
 No further Stage 9 local-delivery acceptance is pending. Product-quality criteria remain open

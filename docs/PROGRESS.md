@@ -166,7 +166,27 @@ all204 preserved artifact/source hashes in the owner-acceptance receipt. Mangi's
 is already a training source; KazMMLU does not supply store-grounding labels; Qorgau data use is
 blocked pending rights evidence. No fresh independent evaluation or model selection occurred.
 
-Next action: owner decision on the USD0, no-upload email inquiry to RWS TrainAI in the
+The owner explicitly put RWS contact on hold on 2026-11-16. Do not send the prepared inquiry
+or start supplier correspondence until a new explicit authorization. The owner instead authorized
+a separate local manual-generation workbench: real selected-model outputs, packed KB sources and
+honest diagnostics, isolated from the guarded API and business state. This is engineering tooling,
+not independent9Q2/9Q3 qualification; the accepted stage scope and quality statuses are unchanged.
+
+The workbench is `apps/manual_testing.py` / `service/manual_testing.py`; operations belong to
+RUNBOOK §18. It uses the unchanged selected adapter with operational NF4 and CPU retrieval,
+cache-only weights, no business tools and a disposable180s-deadline worker. Four-slice actual
+execution smoke is terminal; all four raw completions are retained, including invalid EN JSON.
+This proves execution, not answer quality. Earlier process-loss/Qdrant-unavailable attempts remain
+explicitly accounted for. Full regression:951 passed, zero skipped; Ruff/format217, strict mypy192
+plus both UIs and C4 validate/parse/inspect pass (the two existing INFO findings remain).
+All204 checked historical artifact/source hashes match. Engineering evidence and attempt accounting:
+`artifacts/reports/system/manual_testing/`; raw owner inspections:
+`artifacts/reports/manual_testing/attempts/`. Recovery/publication index:
+`artifacts/reports/manual_testing_delivery_receipt.json`; verify its contents before relying on
+delivery. Owner next action: use the local manual interface; no independent evidence or real
+verifier approval has been acquired. NOT_EVALUATED/NOT_MET/NOT_READY and Stage10 NOT_STARTED remain.
+
+External-resource next action, currently on hold: owner decision on the USD0 email inquiry in the
 [independent qualification resource plan](reviews/stage9_independent_qualification_plan.md).
 The exact unsent message, staffing/custody requirements, cohort floors and illustrative budget
 are ready; actual availability and price remain UNKNOWN. No contact, spending, private-data

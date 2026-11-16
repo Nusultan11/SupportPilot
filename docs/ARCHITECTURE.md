@@ -26,6 +26,7 @@ vector store, a workflow platform or a replacement inference framework.
 | `retrieval/search.py`, `index.py` | Version readiness, dated/language filters, dense/sparse exact search, fusion, rerank and packing | Service corpus filter follows reply language; relevance is not answerability |
 | `llm/backend.py`, `generation.py`, `common/grounding.py` | Pinned inference, deterministic diagnostics, `ClaimVerifier` protocol | Research only; default UNKNOWN and service withholding remain enforced |
 | `apps/ui.py` | Chat, labeled source excerpts, delivery diagnostics, authorized queue listing | No status editor; operator transitions use the API |
+| `apps/manual_testing.py`, `service/manual_testing.py` | Separate loopback owner UI with a disposable local model worker; raw completions, packed evidence and deterministic diagnostics | Read-only research inspection; no API, Store, queue, tool execution or semantic admission; ADR-041 |
 | `data/`, `kb/` | Rights/provenance, preparation, MT/QE, isolated splits; extraction, structure/locators, immutable KB | Draft semantic/linguistic review; born-digital extraction scope |
 | Domain evaluation modules in `llm/`, `retrieval/`, `service/` | Training/resume, development selection, frozen assessment, overlap/semantic review, resources | Offline evaluation cannot promote online delivery or consume new holdout implicitly |
 | `common/`, `ops/`, `cli.py` | Typed settings/manifests, atomic IO, redacted logs, tracking helpers, recovery and commands | MLflow and engineering MCPs are not online dependencies |

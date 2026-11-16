@@ -573,6 +573,35 @@ points to the latest attempt. They do not overwrite live demo state or evaluate 
 Use full shared checks in §3 as well. Semantic/KK/generalization/sustained-serving limitations
 remain separate from successful execution; evaluation scope is EVALUATION §10.
 
+### Owner manual LLM workbench
+
+Run the separate read-only inspection UI; no bearer token or main API setup is required:
+
+```powershell
+uv run streamlit run apps/manual_testing.py --server.address 127.0.0.1 --server.port 8502 --server.headless true --browser.gatherUsageStats false
+```
+
+Open http://127.0.0.1:8502, choose RU/KK/EN reply language and ask a synthetic question, including
+mixed RU-KK. The selected Qwen3-0.6B adapter generates actual raw completions using the current
+KB/index and schema prompt. Each question is independent; display history is not model memory.
+Sources are exactly the packed chunks sent to the model, including dates/locators/checksums.
+Invalid output is shown verbatim, with no repair or substituted answer. Diagnostics reuse the
+schema, citation/number/tool checks and language detector; they never certify semantic support.
+The worker generates even with empty evidence so abstention behavior can be inspected explicitly.
+
+Only existing cached models are loaded (Hub/Transformers offline, telemetry disabled); no paid
+API, tool execution, Store/queue access or qualified verifier is involved. Qdrant must be healthy
+on loopback (§4); index readiness remains enforced. Retrieval runs on CPU to reserve laptop VRAM;
+generation uses the operational NF4/45s profile, not the frozen FP16 assessment configuration.
+A serialized disposable child owns models; the180s parent deadline terminates a hung worker.
+The next query reloads it automatically. Errors/timeouts stay in ignored
+`artifacts/reports/manual_testing/attempts/<id>/record.json`, alongside prompt, raw output, packed
+sources, configuration/selection/source identity and available resource observations. An unknown
+call count after worker loss remains UNKNOWN. UI download exports the same private record.
+Use fictional data only; these local records are not training/gold or independent qualification.
+Screen clearing removes only displayed history. Stop the task-owned Streamlit process to release
+its worker. Leave the primary API/UI, models, KB/index and all earlier evidence unchanged.
+
 ## 19. System evaluation (Stage 9)
 
 For the separately authorized quality continuation, use the new frozen inputs/protocol and

@@ -18,6 +18,7 @@ workspace "SupportPilot" "Guarded multilingual local prototype and its offline e
                 "structurizr.inspection.model.softwaresystem.decisions" "info"
             }
             ui = container "Local UI" "Chat, labeled source excerpts, diagnostics and authorized ticket listing; no status editor. apps/ui.py." "Streamlit / HTTP" "Implemented"
+            manual = container "Owner model inspection" "Separate loopback research UI and disposable local inference child; raw completions, packed sources and diagnostics. No API, business tools, Store or qualification. apps/manual_testing.py, service/manual_testing.py; ADR-041." "Streamlit / local child process" "Implemented,Experimental"
             online = container "Guarded local service" "One Python worker/process; bounded requests and process-local sessions. src/supportpilot/service/runtime.py." "Python 3.12 / FastAPI / PyTorch" "Implemented" {
                 api = component "HTTP boundary" "Auth principals, chat/health/ready/escalations; api.py." "FastAPI / Pydantic" "Implemented"
                 orchestration = component "Orchestrator and sessions" "Independent risk guards, interpreted intent/action, explicit confirmed tools and bounded sessions; service/orchestrator.py, decisions.py. Draft confirmation measured; product gates remain open." "Python / single worker" "Implemented"
@@ -56,6 +57,9 @@ workspace "SupportPilot" "Guarded multilingual local prototype and its offline e
         operator -> sp.ui "Lists authorized recorded tickets" "Authenticated HTTP"
         operator -> sp.online.api "Reviews queue and performs allowed ticket transitions" "Operator bearer HTTP"
         engineer -> sp.offline "Runs authorized pipelines and checks" "CLI"
+        engineer -> sp.manual "Inspects actual model candidates; no customer delivery" "HTTP loopback"
+        sp.manual -> sp.files "Reads sealed adapter and KB/index; retains private inspection attempts" "Local files / offline cache"
+        sp.manual -> sp.vector "Searches current ready evidence; no index mutation" "REST loopback"
         engineer -> engineering "Plans/verifies internal tasks and validates the canonical DSL" "MCP stdio / HTTP loopback"
         sp.ui -> sp.online.api "Chat and ticket requests" "Bearer HTTP loopback"
         sp.online.api -> sp.online.orchestration "Validates and dispatches authorized requests" "Python calls"
