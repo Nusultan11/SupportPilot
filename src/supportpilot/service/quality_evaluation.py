@@ -352,6 +352,7 @@ def bootstrap(
     *,
     family: bool = False,
     samples: int = 1000,
+    seed: int = SEED,
 ) -> list[float] | None:
     key = "family_id" if family else "scenario_id"
     groups = sorted({r[key] for r in left})
@@ -359,7 +360,7 @@ def bootstrap(
         return None
     a = {g: [r for r in left if r[key] == g] for g in groups}
     b = {g: [r for r in right if r[key] == g] for g in groups}
-    rng = np.random.default_rng(SEED)
+    rng = np.random.default_rng(seed)
     values = []
     for _ in range(samples):
         drawn = rng.choice(groups, size=len(groups)).tolist()
@@ -414,7 +415,7 @@ def summarise(rows: list[dict[str, Any]]) -> dict[str, Any]:
     return result
 
 
-def compare(left: dict[str, Any], right: dict[str, Any]) -> dict[str, Any]:
+def compare(left: dict[str, Any], right: dict[str, Any], *, seed: int = SEED) -> dict[str, Any]:
     a, b = {r["id"]: r for r in left["rows"]}, {r["id"]: r for r in right["rows"]}
     if len(a) != len(left["rows"]) or len(b) != len(right["rows"]) or a.keys() != b.keys():
         raise ValueError("paired IDs differ or duplicate")
@@ -455,8 +456,8 @@ def compare(left: dict[str, Any], right: dict[str, Any]) -> dict[str, Any]:
             )
             metrics[metric] = {
                 "delta": delta,
-                "ci95": bootstrap(cx, cy, metric),
-                "family_ci95": bootstrap(cx, cy, metric, family=True),
+                "ci95": bootstrap(cx, cy, metric, seed=seed),
+                "family_ci95": bootstrap(cx, cy, metric, family=True, seed=seed),
                 "denominator": len(cx),
             }
         result[scope] = metrics

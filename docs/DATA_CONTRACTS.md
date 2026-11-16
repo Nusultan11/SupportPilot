@@ -680,6 +680,11 @@ explicitly fabricated engineering fixtures, never calibration or product-quality
 
 ## 19. System evaluation (Stage 9)
 
+The offline `TransformersBackend(output_schema=...)` boundary accepts a trusted research JSON
+schema only with constrained decoding enabled; otherwise construction fails before model loading.
+The schema is copied on admission. Without the override, AssistantResponse remains the default.
+This constructor option is not an HTTP field or an assessor qualification.
+
 `authored/system/scenarios.yaml` (`system_needs/1`) is project-authored, eval_only, LLM-generated
 draft data. Each row contains need ID, development/holdout phase, family, expected intent,
 delivered outcome, critical flag and four parallel EN/RU/KK/mixed texts. Mixed requests prefer
@@ -720,3 +725,13 @@ review, inconsistent citation counts, mixed judge/rubric identities and overlapp
 assessment families are rejected. Software validates declarations; the owner must verify human
 identity/fluency/provenance. Without >=100 calibration items per language, identifiable kappa>=.6
 and separate assessment, semantic metrics remain NOT_EVALUATED with null numerical values.
+
+The separate local-only increment uses `authored/system/local_quality.yaml`: 35 needs per split,
+four parallel language slices and disjoint declared families. Its freeze binds both train-only
+heads, protocol and runtime; exclusive confirmation markers prevent reruns. Authorship and
+overlap flags remain explicit, so a structural split does not certify semantic independence.
+`authored/system/local_support.yaml` contains eight fictional-policy needs under full,
+counterfactual, partial, irrelevant, absent and conflicting proof conditions. These fixtures are
+not store KB facts. Their authored expected labels are diagnostic references, not human-reviewed
+ClaimReview records. Object, enum-smoke and constrained-enum attempts retain separate freezes,
+raw replies, failures and executed source archives.

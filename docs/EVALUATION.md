@@ -281,3 +281,18 @@ human calibration. No fixture packet, echoed call binding or LLM self-check can 
 assessor. Grounded-answer accuracy/language and sustained generation targets still require
 independent development evidence and preregistration before a fresh confirmation; they are not
 selected from these exposed observations.
+
+The local-only follow-up is governed by `reviews/stage9_local_protocol.md`. Train-only class
+weighting is selected from its frozen development observations before once-only confirmation;
+old exposed outcomes never select the candidate. Paired bootstrap accepts an explicit seed:
+the previous default stays unchanged and this protocol uses20261116. Declared family separation
+and automated overlap diagnostics do not establish independent semantic assessment.
+
+Local support fixture agreement and strict JSON validity are separate diagnostics, never real
+assessor calibration. The object baseline, enum-smoke format revision and constrained-enum
+revision have separate preregistrations/freezes. The latter combines representation and grammar
+enforcement on exposed fixtures: it cannot isolate their causal effects or provide fresh
+confirmation. Count invalid, truncated, timed-out and backend-error calls as failed judgements;
+bootstrap by the eight distinct needs, not192 independent rows. Owner confirmation may accept
+a named local research delivery, but cannot turn its self-labels into human labels or missed
+product thresholds into passing measurements.

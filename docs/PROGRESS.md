@@ -1,6 +1,6 @@
 # PROGRESS — current handoff
 
-Updated 2026-11-15. This file owns verified state, authorization and next action. Stage criteria
+Updated 2026-11-16. This file owns verified state, authorization and next action. Stage criteria
 live in ROADMAP, interpretation in reviews, commands in RUNBOOK and raw evidence in private artifacts.
 
 ## State and authorization
@@ -12,11 +12,25 @@ live in ROADMAP, interpretation in reviews, commands in RUNBOOK and raw evidence
 | Stage 8 | COMPLETED: guarded local engineering prototype | Semantic quality NOT_EVALUATED; local recording is not external operator response |
 | Stage 9 / 9Q1–9Q4 | PARTIALLY COMPLETED; available engineering scope delivered | Intent/KK-critical targets missed; independent semantic qualification unavailable |
 | Stage 9 continuation / 9Q1 | Terminal development and once-only confirmation | Draft operational gains do not certify independent product quality; delivery proof below |
+| Stage 9 local-only research | Measured; OWNER_REVIEW_PENDING | Balanced head and local semantic judge rejected; independent-human quality NOT_EVALUATED |
 | Maintenance and engineering MCP integration | COMPLETED: separate owner-authorized tasks | Prior recovery/publication receipts below; MCPs opt-in |
 | Architecture and development-control redesign | COMPLETED: separate engineering task | Product-quality gates remain open; verify delivery receipt below |
 | Stage 10 | NOT_STARTED | Separate owner authorization after quality acceptance or an explicit changed delivery goal |
 
 The active owner authorization covers all Stage 9 packages9Q1–9Q4 and A1/A2/A3/A6/A7.
+The current continuation additionally authorizes fresh development/confirmation and local ML
+experiments. External experts/helpers and further recruitment/contact are prohibited. The owner
+requests self-check first, then a concrete final acceptance review. No confirmation or changed
+completion status is inferred before that review; independent-human criteria remain NOT_EVALUATED.
+New private evidence: `artifacts/reports/system/qualification/`. The train-only C10 control
+reproduces the frozen head exactly. Both local heads have terminal development and once-only
+confirmation; development rejected balancing, so the original head remains selected. The local
+support diagnostic rejected the pinned model as an assessor despite a verified JSON-enforcement
+fix. `acceptance_packet.json` is the current owner-review packet; `owner_review.json` is an older
+intermediate audit. Exact attempts, source archives and limitations live in the results review.
+The shared local regression passes937 tests with zero skips, Ruff/format and strict mypy plus UI.
+Delivery task `c42b010d-5e11-4f30-8200-2d60750fb52f` owns the exact hooks/recovery/publication
+receipt; verify it before relying on delivery. Do not recreate completed engineering tasks.
 Both9Q1 confirmation variants are consumed and terminal; no reselection/retuning is permitted.
 Do not tune exposed Stage 7/Stage 9 outcomes, relabel flagged rows or replace sealed artifacts.
 Independent fluent reviewers and labelled calibration are unavailable; semantic acceptance remains
@@ -127,6 +141,7 @@ work and preserves the existing quality-continuation task. It never closes a pro
 | Stage 8 | `artifacts/reports/stage8_delivery_receipt.json` |
 | Original Stage 9 assessment | `artifacts/reports/stage9_delivery_receipt.json` |
 | Full Stage 9 continuation /9Q1–9Q4 | `artifacts/reports/stage9_continuation_delivery_receipt.json` |
+| Local-only Stage 9 research increment | `artifacts/reports/stage9_local_delivery_receipt.json` |
 | Maintenance | `artifacts/reports/maintenance_delivery_receipt.json` |
 | Engineering MCP integration | `artifacts/reports/engineering_delivery_receipt.json` |
 | Architecture redesign | `artifacts/reports/architecture_delivery_receipt.json` |
@@ -141,6 +156,7 @@ The full Stage 9 continuation has its own recovery/publication index. Require it
 snapshot restoration, code-bundle clone and origin/main readback before relying on delivery.
 Same-disk recovery remains the limit; no backup deletion is authorized.
 
-Next product dependency: independently verified reviewers, human calibration/overlap adjudication,
-a real qualified assessor and fresh quality evidence. Verify the final continuation delivery index
-when resuming. Do not repeat confirmation, modify exposed labels/rules or start Stage 10.
+Next action: owner review of the concrete local acceptance packet and verified delivery receipt.
+Owner acceptance of local research scope is pending; original product quality and human
+calibration remain unmet/unmeasured, and no external help is authorized. Verify the local delivery
+index when resuming. Do not repeat confirmation, modify exposed labels/rules or start Stage 10.

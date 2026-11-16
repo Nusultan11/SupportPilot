@@ -694,3 +694,29 @@ new attempt directory, retains failures and stops its own HTTP server/restart ch
 is one HTTP request. Do not run other model jobs concurrently. No capacity/config change is
 selected by this command. A real qualified verifier requires the trusted offline factory and
 verified owner packet in DATA_CONTRACTS; no default implementation or enable flag is supplied.
+
+The local-only increment's historical sequence is below. Both confirmation variants and full
+support diagnostic markers are consumed: do not rerun or reseal them. Use the exact archived
+executed source and frozen inputs when inspecting an old attempt, not the current runtime.
+
+```powershell
+uv run python -m supportpilot.service.local_evaluation freeze
+uv run python -m supportpilot.service.local_evaluation audit
+uv run python -m supportpilot.service.local_evaluation evaluate --phase development --variant control
+uv run python -m supportpilot.service.local_evaluation evaluate --phase development --variant balanced
+uv run python -m supportpilot.service.local_evaluation select --control <control-report> --balanced <balanced-report>
+uv run python -m supportpilot.service.local_evaluation evaluate --phase confirmation --variant control
+uv run python -m supportpilot.service.local_evaluation evaluate --phase confirmation --variant balanced
+uv run python -m supportpilot.service.local_evaluation report
+uv run python -m supportpilot.service.local_support --smoke
+uv run python -m supportpilot.service.local_support
+uv run python -m supportpilot.service.local_support --format enum --smoke
+uv run python -m supportpilot.service.local_support --format enum --enforce-enum --smoke
+uv run python -m supportpilot.service.local_support --format enum --enforce-enum
+```
+
+`system/qualification/` retains train-only head provenance, overlap, terminal reports, negative
+attempts, checks and the owner acceptance packet. Grammar enforcement requires the existing
+constrained decoder; it never repairs raw strings. No local diagnostic installs a qualified
+verifier or changes the selected service head. See the results review and local delivery receipt
+before considering owner acceptance; the original quality gates remain separately recorded.

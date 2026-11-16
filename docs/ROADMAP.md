@@ -191,6 +191,11 @@ shared delivery checks. Missing reviewers/calibration means NOT_EVALUATED, not a
 Use fresh family-disjoint development/confirmation for further improvements; do not tune exposed
 Stage 7 or Stage 9 outcomes. No new data generation/training is authorized by tool maintenance.
 
+The owner-authorized local-only research increment is awaiting concrete owner acceptance after
+self-check and delivery. Its acceptance may explicitly close that research scope while retaining
+missed targets, NOT_READY and independent-human NOT_EVALUATED. Until confirmation, Stage9 stays
+PARTIALLY COMPLETED; neither self-check nor an internal task score changes the Quality DoD.
+
 ### Target architecture work packages
 
 These packages implement ARCHITECTURE §7 (ADR-038) without renumbering completed stages.

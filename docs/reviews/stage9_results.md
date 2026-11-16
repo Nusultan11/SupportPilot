@@ -545,3 +545,107 @@ acceptance remains open. G4 is measured only for the declared guarded local work
 and unqualified generation prevent broader serving acceptance. The next product dependency is
 independent reviewers/calibration/overlap adjudication and fresh qualification evidence, not
 another attempt on consumed confirmation. Stage 10 stays NOT_STARTED.
+
+
+## Local-only owner-review increment (2026-11-16)
+
+Owner scope: local models, automatic self-check and then a concrete owner acceptance review;
+no external experts/helpers or further recruitment/contact. Original gates/negative evidence
+remain explicit. This increment is not independent-human qualification or Stage 10.
+New experiment preregistration: [local protocol](stage9_local_protocol.md),
+[format diagnostic](stage9_local_format_protocol.md),
+[constrained diagnostic](stage9_local_decoding_protocol.md). Raw records, immutable input
+and source bindings: `artifacts/reports/system/qualification/`; current owner packet:
+`acceptance_packet.json`. Delivery/check/recovery/Git identities are indexed separately by
+`artifacts/reports/stage9_local_delivery_receipt.json`.
+
+### Train-only diagnosis and controlled router result
+
+The original training input has16,576 distinct utterance/intent pairs,114 mixed examples and
+class counts30..2096. Four normalized training surfaces have conflicting labels; no labels
+are automatically changed or removed. Encoder query=True is consistent between training
+and inference; a prefix mismatch is not established. Train-only C10 reproduction matches
+original weights exactly; class_weight=balanced is the sole intervention, same seed/features.
+Both local fits are finite/converged. No old validation/test/gold outcomes select new parameters.
+
+Fresh draft source has35 global needs/split and four parallel forms:280 total language rows,
+not280 independent needs. Overlap audit retains1 lexical,120 embedding and34 cross-split flags
+against19,323 retained prior input surfaces; no exclusions or independence certificate.
+Both full development variants and once-only sealed confirmation variants are FINISHED.
+
+|Language|Development control -> balanced delivery|Development service macro-F1 control -> balanced|Confirmation control -> balanced delivery|Confirmation service macro-F1 control -> balanced|
+|---|---|---|---|---|
+|EN|28/35 -> 29/35|0.7190 -> 0.7714|33/35 -> 33/35|0.7905 -> 0.8286|
+|RU|34/35 -> 33/35|0.8143 -> 0.8476|31/35 -> 31/35|0.8476 -> 0.8476|
+|KK|30/35 -> 32/35|0.5733 -> 0.7000|31/35 -> 33/35|0.7476 -> 0.7448|
+|Mixed|29/35 -> 31/35|0.5810 -> 0.6190|26/35 -> 30/35|0.6143 -> 0.7190|
+
+Decision: **reject balanced head for serving**, sealed before confirmation. Development loses
+the RU sorting-centre need (track_order -> product_info, tool -> clarification), and a mixed
+out-of-scope coursework request becomes a privacy queue. Delivery improves in other rows but
+every positive paired delivery CI includes zero; RU point delivery loses one need. All four
+required critical needs/slice queue in both variants. This tiny explicit slice does not meet
+the50-need broad safety goal. Confirmation improvements cannot reverse the sealed rejection.
+Original serving head/model/prompt/KB/index/Stage7 seal remain unchanged.
+
+All35 macro-F1 points miss .90. Operational tool facts/queue delivery are not fully supported
+natural-language answers. Paired scenario/family95% intervals use1,000 draws, seed20261116;
+raw encoder and effective service scores, HTTP observations/errors, actual tool values/queue
+records, raw failures and error census are retained. Sparse35-class intervals are exploratory.
+The dependency preflight initially found Docker/Qdrant unavailable; its negative receipt and
+tool-only smoke are retained. Existing Docker/Qdrant was restored and health-checked before
+full evaluation; no collection or experiment was silently replaced.
+
+### Measured interface correction and rejected semantic judge
+
+Eight fictional diagnostic needs crossed with six evidence conditions and four languages
+produce192 rows. Expected labels are self-authored controlled-fixture hypotheses, not human
+calibration. Original object-format full run has183 invalid outputs. Free-enum smoke retains
+its trailing-period error. The final optional backend output_schema reuses existing LM Format
+Enforcer core; it requires constrained=True and copies the supplied schema. Default constructor
+and AssistantResponse schema remain unchanged; no HTTP setting or new dependency is introduced.
+Unit tests verify enum completion/EOS, rejection of a trailing period and rejection of a schema
+override without enforcement before any model import.
+
+The combined explicit JSON-enum plus constrained decoder yields0/192 syntax failures. Earlier
+formats/smokes and their frozen source are retained; this is exploratory correction on exposed
+fixtures, not independent confirmation or a causal isolation of representation and decoding.
+
+|Language|Object-contract fixture correct|Constrained-enum fixture correct|Always-unknown control correct|Constrained invalid|Constrained false-supported / nonsupport fixtures|
+|---|---|---|---|---|---|
+|EN|6/48|17/48|32/48|0/48|0/40|
+|RU|0/48|14/48|32/48|0/48|2/40|
+|KK|1/48|10/48|32/48|0/48|0/40|
+|Mixed|0/48|14/48|32/48|0/48|0/40|
+
+**Reject this local0.6B model as a qualified support verifier.** It remains below always-unknown
+in every slice and produces two false-supported RU verdicts despite valid syntax. Root enums
+are not semantic proof. Need-cluster paired95% intervals and the complete error census are
+retained; all invalid/timeout/token-limit/backend results stay failures, never correct unknowns.
+Semantic citation precision, independent grounding/language quality and human calibration stay
+NOT_EVALUATED. No ClaimReview human packet or qualification approval is fabricated.
+
+Pinned base model is unadapted NF4, greedy seed20261113, max1024 input/64 output tokens and15s
+soft backend budget; observed over-budget output is failed. The completed constrained192-call
+scope takes66.12s, sampled Python peak RSS2,067,767,296 bytes and Torch allocated/reserved peaks
+582,850,048/1,149,239,296 bytes. These are isolated short classifier calls, not joint serving
+capacity or a sustained generation SLO. Backend model-load timing excludes tokenizer-enforcer
+preparation; total measured scope includes it. Paid services invoked0 USD; local energy is UNKNOWN.
+
+### Acceptance boundary
+
+The tested local research increment delivers the negative router decision, a real constrained
+format fix, measured local-verifier rejection and reproducible evidence. It does not establish
+the original product-quality DoD. Default unqualified factual generation remains closed.
+Full shared checks, pinned/deep verified/actual-restored evidence and exact Git readback must
+be confirmed by the delivery receipt. The owner receives this concrete package before acceptance.
+The increment's full regression passes937 tests with zero skips, including available GPU/Qdrant
+checks; Ruff/format, strict mypy189 source files and strict UI typing pass. The single warning
+records embedded Qdrant exact-search behavior. Hooks, backup restoration, source-archive hashes
+and final publication identities are recorded in the delivery receipt rather than inferred from
+these test counts.
+
+Owner acceptance may explicitly close Stage9 as a **local self-assessment/research delivery**
+while retaining NOT_READY and unmet/NOT_EVALUATED product gates. It is not per-item human review,
+not evidence that numerical targets passed and not authorization for Stage10. Until that final
+acceptance, Stage9 remains PARTIALLY COMPLETED / OWNER_REVIEW_PENDING; no status is fabricated.

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import copy
 import gc
 import importlib
 import time
@@ -16,7 +17,12 @@ from supportpilot.llm.prompts import response_schema
 
 
 class TransformersBackend:
-    def __init__(self, config: InferenceConfig) -> None:
+    def __init__(
+        self, config: InferenceConfig, *, output_schema: dict[str, Any] | None = None
+    ) -> None:
+        if output_schema is not None and not config.constrained:
+            raise ValueError("an output schema requires constrained decoding")
+        self._output_schema = copy.deepcopy(output_schema)
         self.config = config
         if config.adapter is not None:
             validate_adapter(config.adapter, config.model)
@@ -81,7 +87,8 @@ class TransformersBackend:
         }
         if self.config.constrained:
             kwargs["prefix_allowed_tokens_fn"] = prefix_filter(
-                self._tokenizer_data, response_schema()
+                self._tokenizer_data,
+                self._output_schema if self._output_schema is not None else response_schema(),
             )
         cuda = self.config.device.startswith("cuda")
         if cuda:
