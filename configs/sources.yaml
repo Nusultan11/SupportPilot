@@ -271,6 +271,38 @@ sources:
       needed.
 
   # ------------------------------------------------------------------ rejected
+  - source_id: kazmmlu_qualification
+    url: https://huggingface.co/datasets/MBZUAI/KazMMLU
+    revision: 567b9e3fea223afc7d7ea98f7255c4c5b140f91a
+    licence: cc-by-nc-4.0
+    licence_evidence: HF card metadata license cc-by-nc-4.0 (checked 2026-11-16).
+    allowed_use: eval_only
+    status: rejected
+    languages: [kk, ru]
+    reviewed_at: 2026-11-16
+    purpose: Investigated for independent Stage 9 multilingual qualification.
+    decision: >-
+      Not acquired. Academic multiple-choice QA cannot establish store claim support,
+      actual delivery, all35 intents or mixed-language quality. Non-commercial licence
+      does not grant general product use; no rights exception is inferred.
+
+  - source_id: qorgau_qualification
+    url: https://github.com/mbzuai-nlp/qorgau-kaz-ru-safety
+    revision: a3dd5dea94eefb8ae225c03755c25e96a41b1c22
+    licence: unknown
+    licence_evidence: >-
+      No LICENSE/LICENCE file in the exact recursive repository tree checked 2026-11-16;
+      a public paper/repository is not a dataset usage licence.
+    allowed_use: blocked
+    status: rejected
+    languages: [en, kk, ru]
+    reviewed_at: 2026-11-16
+    purpose: Investigated bilingual/code-switch safety and sample human annotations for Stage 9.
+    decision: >-
+      No dataset downloaded or scored. Usage blocked pending explicit rights evidence.
+      Published labels assess other models, not SupportPilot answers or store evidence;
+      they cannot close independent semantic or critical-delivery qualification.
+
   - source_id: kazakh_instruction_v2
     url: https://huggingface.co/datasets/AmanMussa/kazakh-instruction-v2
     revision: c641407ee50723c84a43ea2ec867b464d3893c12

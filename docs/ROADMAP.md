@@ -221,6 +221,11 @@ inputs/settings and every prior failure. A missed intent/critical/grounding targ
 gate open. Grounded-answer/language and generation-serving numerical targets still requiring
 definition must be preregistered from development evidence before confirmation, not chosen afterward.
 
+The [independent qualification resource decision](reviews/stage9_independent_qualification_plan.md)
+specifies a proposed human-authored/calibration/assessment procurement and exact unsent inquiry.
+It is preparation for 9Q2/9Q3, not evidence that entry dependencies or quality targets are met;
+contact, spending and private-data disclosure retain their separate authorization boundaries.
+
 ## Stage 10 — Production readiness and delivery
 
 Reproducible packaging/Compose, CI (lint/types/tests/small evaluation), operational logs/

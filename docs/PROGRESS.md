@@ -12,6 +12,7 @@ live in ROADMAP, interpretation in reviews, commands in RUNBOOK and raw evidence
 | Stage 8 | COMPLETED: guarded local engineering prototype | Semantic quality NOT_EVALUATED; local recording is not external operator response |
 | Stage 9 | COMPLETED (local engineering and research scope, owner accepted) | Owner decision: ADR-040; product-quality acceptance remains open |
 | Stage 9 product-quality acceptance | OPEN | Unmet numerical targets NOT_MET; independent human/semantic assessment NOT_EVALUATED; autonomous factual support NOT_READY |
+| Stage 9 9Q2 / real 9Q3 qualification | BLOCKED: external resources/permission | Independent human labels, verified reviewers, real assessor and budget unavailable; resource decision prepared below |
 | Maintenance and engineering MCP integration | COMPLETED: separate owner-authorized tasks | Prior recovery/publication receipts below; MCPs opt-in |
 | Architecture and development-control redesign | COMPLETED: separate engineering task | Product-quality gates remain open; verify delivery receipt below |
 | Stage 10 | NOT_STARTED | Requires separate explicit owner authorization; Stage 9 acceptance grants none |
@@ -158,8 +159,20 @@ The full Stage 9 continuation has its own recovery/publication index. Require it
 snapshot restoration, code-bundle clone and origin/main readback before relying on delivery.
 Same-disk recovery remains the limit; no backup deletion is authorized.
 
-Next action: await separate owner authorization for further work. Stage 9 is accepted and complete
-in the local engineering/research scope; product-quality criteria remain open. Verify the owner
-acceptance delivery index when resuming. Do not repeat completed experiments/confirmation, alter
-negative results or exposed labels, recruit external help, claim production readiness or start
-Stage 10 without separate authorization.
+The owner renewed autonomous Stage 9 product-qualification work on 2026-11-16, including public
+resource research and preparation of a concrete external-resource decision. Existing contact,
+spending and Stage 10 restrictions remain until separately approved. The re-entry audit matches
+all204 preserved artifact/source hashes in the owner-acceptance receipt. Mangi's public KK sample
+is already a training source; KazMMLU does not supply store-grounding labels; Qorgau data use is
+blocked pending rights evidence. No fresh independent evaluation or model selection occurred.
+
+Next action: owner decision on the USD0, no-upload email inquiry to RWS TrainAI in the
+[independent qualification resource plan](reviews/stage9_independent_qualification_plan.md).
+The exact unsent message, staffing/custody requirements, cohort floors and illustrative budget
+are ready; actual availability and price remain UNKNOWN. No contact, spending, private-data
+disclosure or verifier activation has occurred. Private audit/check/recovery evidence belongs
+under `artifacts/reports/system/independent_qualification/`; delivery index:
+`artifacts/reports/stage9_independent_preparation_delivery_receipt.json` (verify existence/content
+before relying on delivery). Do not repeat completed experiments/confirmation, alter negative
+results or exposed labels, recruit external help without approval, claim product readiness or
+start Stage 10. Product qualification remains unfinished until real independent evidence passes.
