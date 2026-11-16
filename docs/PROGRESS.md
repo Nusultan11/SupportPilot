@@ -21,7 +21,8 @@ On 2026-11-16 the owner explicitly accepted Stage 9's local research, engineerin
 and self-assessment delivery after reviewing the concrete package. [ADR-040](DECISIONS.md#adr-040--owner-accepted-stage-9-local-engineering-and-research-scope)
 records the completion boundary and retained restrictions. This closes the stage in that scope,
 not its unmet product-quality criteria. No production-readiness claim or additional stage is
-authorized. External experts/helpers and further recruitment/contact remain prohibited.
+authorized. External engagement/recruitment remains prohibited; the owner separately authorized
+the exact RWS quotation inquiry and handling its replies on 2026-11-16 (USD 0, no private materials).
 New private evidence: `artifacts/reports/system/qualification/`. The train-only C10 control
 reproduces the frozen head exactly. Both local heads have terminal development and once-only
 confirmation; development rejected balancing, so the original head remains selected. The local
@@ -166,9 +167,9 @@ all204 preserved artifact/source hashes in the owner-acceptance receipt. Mangi's
 is already a training source; KazMMLU does not supply store-grounding labels; Qorgau data use is
 blocked pending rights evidence. No fresh independent evaluation or model selection occurred.
 
-The owner explicitly put RWS contact on hold on 2026-11-16. Do not send the prepared inquiry
-or start supplier correspondence until a new explicit authorization. The owner instead authorized
-a separate local manual-generation workbench: real selected-model outputs, packed KB sources and
+The earlier RWS contact hold was superseded by explicit owner permission on 2026-11-16 for
+the prepared generic inquiry and handling replies only. The separately authorized local
+manual-generation workbench provides real selected-model outputs, packed KB sources and
 honest diagnostics, isolated from the guarded API and business state. This is engineering tooling,
 not independent9Q2/9Q3 qualification; the accepted stage scope and quality statuses are unchanged.
 
@@ -186,15 +187,22 @@ All204 checked historical artifact/source hashes match. Engineering evidence and
 delivery. Owner next action: use the local manual interface; no independent evidence or real
 verifier approval has been acquired. NOT_EVALUATED/NOT_MET/NOT_READY and Stage10 NOT_STARTED remain.
 
-External-resource next action, currently on hold: owner decision on the USD0 email inquiry in the
+External-resource next action: obtain RWS's response to the owner-authorized USD 0 inquiry in the
 [independent qualification resource plan](reviews/stage9_independent_qualification_plan.md).
-The exact unsent message, staffing/custody requirements, cohort floors and illustrative budget
-are ready; actual availability and price remain UNKNOWN. No contact, spending, private-data
-disclosure or verifier activation has occurred. Private audit/check/recovery evidence belongs
+The exact prepared text was sent through connected Gmail on 2026-11-16 at 17:19 Asia/Qyzylorda.
+Gmail SENT readback matches recipient, subject and body; it contains no attachments. Recipient
+delivery and supplier availability/price remain UNKNOWN; no supplier response was observed at
+the first thread check. The original preparation record remains unchanged. The private message/
+thread identity and exact readback are in
+`artifacts/reports/system/independent_qualification/rws_contact/send_receipt.json`.
+Only the generic inquiry and ordinary sender identity were disclosed. No spending, engagement,
+private project disclosure or verifier activation is authorized or performed. Handle availability,
+staffing, custody, rights and price replies within this scope; any purchase or private evidence
+transfer needs separate approval of concrete terms/materials. Private audit/check/recovery evidence belongs
 under `artifacts/reports/system/independent_qualification/`; delivery index:
 `artifacts/reports/stage9_independent_preparation_delivery_receipt.json` (verify existence/content
 before relying on delivery). Do not repeat completed experiments/confirmation, alter negative
-results or exposed labels, recruit external help without approval, claim product readiness or
+results or exposed labels, engage external help without approval, claim product readiness or
 start Stage 10. Product qualification remains unfinished until real independent evidence passes.
 
 Renewed autonomous qualification audit (2026-11-16): all 204 historical preservation hashes
@@ -207,7 +215,8 @@ and exact raw-file hashes are in
 `artifacts/reports/system/independent_qualification/resumption/audit.json`.
 No model/rule was selected from these exposed examples and no independent quality gain is
 claimed. Existing negative experiments and qualification/contact restrictions remain binding.
-The pending human-qualification task is resumed, not recreated. The concrete first external
-dependency remains permission to lift the RWS hold for the exact generic USD0 inquiry; no
-private material, purchase or verifier activation is included. Delivery evidence for this audit:
+The pending human-qualification task is resumed, not recreated. Limited RWS inquiry/reply
+correspondence is now authorized and the inquiry is sent; the next external dependency is a
+supplier response with real staffing, custody, terms and price. No private material, purchase
+or verifier activation is included. Delivery evidence for this audit:
 `artifacts/reports/stage9_resumption_delivery_receipt.json` (verify before relying on delivery).
