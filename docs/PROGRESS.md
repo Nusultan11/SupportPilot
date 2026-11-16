@@ -10,24 +10,25 @@ live in ROADMAP, interpretation in reviews, commands in RUNBOOK and raw evidence
 | Stages 0–6.1 | COMPLETED | Synthetic retrieval/data and independent-review limits remain |
 | Stage 7 | COMPLETED: engineering and research assessment | Autonomous factual support NOT_READY; critical escalation NOT_ACCEPTED |
 | Stage 8 | COMPLETED: guarded local engineering prototype | Semantic quality NOT_EVALUATED; local recording is not external operator response |
-| Stage 9 / 9Q1–9Q4 | PARTIALLY COMPLETED; available engineering scope delivered | Intent/KK-critical targets missed; independent semantic qualification unavailable |
-| Stage 9 continuation / 9Q1 | Terminal development and once-only confirmation | Draft operational gains do not certify independent product quality; delivery proof below |
-| Stage 9 local-only research | Measured; OWNER_REVIEW_PENDING | Balanced head and local semantic judge rejected; independent-human quality NOT_EVALUATED |
+| Stage 9 | COMPLETED (local engineering and research scope, owner accepted) | Owner decision: ADR-040; product-quality acceptance remains open |
+| Stage 9 product-quality acceptance | OPEN | Unmet numerical targets NOT_MET; independent human/semantic assessment NOT_EVALUATED; autonomous factual support NOT_READY |
 | Maintenance and engineering MCP integration | COMPLETED: separate owner-authorized tasks | Prior recovery/publication receipts below; MCPs opt-in |
 | Architecture and development-control redesign | COMPLETED: separate engineering task | Product-quality gates remain open; verify delivery receipt below |
-| Stage 10 | NOT_STARTED | Separate owner authorization after quality acceptance or an explicit changed delivery goal |
+| Stage 10 | NOT_STARTED | Requires separate explicit owner authorization; Stage 9 acceptance grants none |
 
-The active owner authorization covers all Stage 9 packages9Q1–9Q4 and A1/A2/A3/A6/A7.
-The current continuation additionally authorizes fresh development/confirmation and local ML
-experiments. External experts/helpers and further recruitment/contact are prohibited. The owner
-requests self-check first, then a concrete final acceptance review. No confirmation or changed
-completion status is inferred before that review; independent-human criteria remain NOT_EVALUATED.
+On 2026-11-16 the owner explicitly accepted Stage 9's local research, engineering implementation
+and self-assessment delivery after reviewing the concrete package. [ADR-040](DECISIONS.md#adr-040--owner-accepted-stage-9-local-engineering-and-research-scope)
+records the completion boundary and retained restrictions. This closes the stage in that scope,
+not its unmet product-quality criteria. No production-readiness claim or additional stage is
+authorized. External experts/helpers and further recruitment/contact remain prohibited.
 New private evidence: `artifacts/reports/system/qualification/`. The train-only C10 control
 reproduces the frozen head exactly. Both local heads have terminal development and once-only
 confirmation; development rejected balancing, so the original head remains selected. The local
 support diagnostic rejected the pinned model as an assessor despite a verified JSON-enforcement
-fix. `acceptance_packet.json` is the current owner-review packet; `owner_review.json` is an older
-intermediate audit. Exact attempts, source archives and limitations live in the results review.
+fix. `acceptance_packet.json` is the preserved preacceptance packet; `owner_review.json` is an
+older intermediate audit. The additive owner acceptance record is
+`artifacts/reports/stage9_owner_acceptance.json`; earlier receipts/packets remain unchanged.
+Exact attempts, source archives and limitations live in the results review.
 The shared local regression passes937 tests with zero skips, Ruff/format and strict mypy plus UI.
 Delivery task `c42b010d-5e11-4f30-8200-2d60750fb52f` owns the exact hooks/recovery/publication
 receipt; verify it before relying on delivery. Do not recreate completed engineering tasks.
@@ -142,6 +143,7 @@ work and preserves the existing quality-continuation task. It never closes a pro
 | Original Stage 9 assessment | `artifacts/reports/stage9_delivery_receipt.json` |
 | Full Stage 9 continuation /9Q1–9Q4 | `artifacts/reports/stage9_continuation_delivery_receipt.json` |
 | Local-only Stage 9 research increment | `artifacts/reports/stage9_local_delivery_receipt.json` |
+| Stage 9 owner acceptance and status publication | `artifacts/reports/stage9_owner_acceptance_delivery_receipt.json` |
 | Maintenance | `artifacts/reports/maintenance_delivery_receipt.json` |
 | Engineering MCP integration | `artifacts/reports/engineering_delivery_receipt.json` |
 | Architecture redesign | `artifacts/reports/architecture_delivery_receipt.json` |
@@ -156,7 +158,8 @@ The full Stage 9 continuation has its own recovery/publication index. Require it
 snapshot restoration, code-bundle clone and origin/main readback before relying on delivery.
 Same-disk recovery remains the limit; no backup deletion is authorized.
 
-Next action: owner review of the concrete local acceptance packet and verified delivery receipt.
-Owner acceptance of local research scope is pending; original product quality and human
-calibration remain unmet/unmeasured, and no external help is authorized. Verify the local delivery
-index when resuming. Do not repeat confirmation, modify exposed labels/rules or start Stage 10.
+Next action: await separate owner authorization for further work. Stage 9 is accepted and complete
+in the local engineering/research scope; product-quality criteria remain open. Verify the owner
+acceptance delivery index when resuming. Do not repeat completed experiments/confirmation, alter
+negative results or exposed labels, recruit external help, claim production readiness or start
+Stage 10 without separate authorization.

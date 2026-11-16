@@ -6,8 +6,12 @@ and recovery receipts remain private under `artifacts/reports/system/`.
 
 ## Assessment scope and decision
 
-Status: **PARTIALLY COMPLETED**. Engineering/research measurements are complete; full quality
-acceptance is not established. Delivery is complete only with the recovery/publication receipt.
+Status: **COMPLETED (local engineering and research scope, owner accepted)** on 2026-11-16;
+see [ADR-040](../DECISIONS.md#adr-040--owner-accepted-stage-9-local-engineering-and-research-scope).
+Product-quality acceptance remains open: unmet numerical thresholds are **NOT_MET**;
+independent human and semantic assessment are **NOT_EVALUATED**. Earlier partial/pending decisions
+below record their historical assessment scope; they are superseded only as stage status by
+the explicit owner decision, not as measurements or quality findings.
 Autonomous factual support and Stage 10 readiness: **NOT_READY**. The measured intent target
 is missed; semantic quality remains **NOT_EVALUATED**. No Stage 7 model, adapter, selection,
 prompt, demonstration, heldout result, KB or index is retuned. Generation remains disabled.
@@ -645,7 +649,21 @@ records embedded Qdrant exact-search behavior. Hooks, backup restoration, source
 and final publication identities are recorded in the delivery receipt rather than inferred from
 these test counts.
 
-Owner acceptance may explicitly close Stage9 as a **local self-assessment/research delivery**
-while retaining NOT_READY and unmet/NOT_EVALUATED product gates. It is not per-item human review,
-not evidence that numerical targets passed and not authorization for Stage10. Until that final
-acceptance, Stage9 remains PARTIALLY COMPLETED / OWNER_REVIEW_PENDING; no status is fabricated.
+### Owner acceptance decision (2026-11-16)
+
+After the delivered self-check package, the owner explicitly accepted Stage 9 as **COMPLETED
+(local engineering and research scope, owner accepted)**, covering local research, engineering
+implementation and self-assessment of quality. This is an explicit delivery-scope
+decision, not independent human expertise, per-item labels or evidence of passing missed targets.
+
+Unmet numerical quality thresholds remain **NOT_MET**. Independent human and semantic assessment
+remain **NOT_EVALUATED**; autonomous factual support remains **NOT_READY**. Unsatisfied product
+acceptance criteria remain open. No industrial/production-readiness claim is made. Balanced-head
+and semantic-judge rejections, original model selection, raw errors, protocols, source archives,
+experiments and all limitations are preserved. Default unqualified factual generation stays closed.
+
+The preacceptance packet and delivery receipt remain unchanged historical evidence. The additive
+owner record is `artifacts/reports/stage9_owner_acceptance.json`; status-publication/recovery proof
+is `artifacts/reports/stage9_owner_acceptance_delivery_receipt.json`. No completed experiments are
+repeated for this documentation decision. External experts/helpers remain prohibited. Stage 10
+is **NOT_STARTED** and requires separate explicit owner authorization.

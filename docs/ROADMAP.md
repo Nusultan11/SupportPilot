@@ -25,7 +25,7 @@ are deliberately kept only in PROGRESS.
 | 7 | SFT + retrieval + licensed pinned model candidates | Sealed behavior model/router assessment and explicit readiness limits |
 | 8 | Stage 7 assessment + authorization for guarded integration despite quality limits | Authorized synthetic tools, API/UI, durable assistance and measured demo |
 | 9 | Stage 8 + authorized frozen system protocol | Separate engineering assessment and product-quality acceptance decision |
-| 10 | Stage 9 quality gate + separate owner authorization, or explicit changed delivery goal | Qualified guarded release and operated workload/recovery evidence |
+| 10 | Separate owner authorization, after quality acceptance or an explicit changed delivery goal | Qualified guarded release and operated workload/recovery evidence |
 
 ## Shared acceptance
 
@@ -184,17 +184,20 @@ Gold/e2e/safety evaluation; latency/throughput/resource/load tests; measured qua
 caching/batch/context trade-offs; isolated1M+ record stress test.
 **Engineering outcome:** reproducible per-language system assessment, measured laptop limits,
 controlled optimisation decisions and verified million-record recovery. Its delivery can be
-complete while quality acceptance remains PARTIALLY COMPLETED; see the preserved measured report.
+complete while product-quality acceptance remains open; see the preserved measured report.
 **Quality DoD:** EVALUATION targets assessed separately for RU/KK/EN/mixed, calibrated independent
 semantic assessment, adjudicated overlap/critical-risk coverage, no Stage 8 regressions and
 shared delivery checks. Missing reviewers/calibration means NOT_EVALUATED, not a waived gate.
 Use fresh family-disjoint development/confirmation for further improvements; do not tune exposed
 Stage 7 or Stage 9 outcomes. No new data generation/training is authorized by tool maintenance.
 
-The owner-authorized local-only research increment is awaiting concrete owner acceptance after
-self-check and delivery. Its acceptance may explicitly close that research scope while retaining
-missed targets, NOT_READY and independent-human NOT_EVALUATED. Until confirmation, Stage9 stays
-PARTIALLY COMPLETED; neither self-check nor an internal task score changes the Quality DoD.
+[ADR-040](DECISIONS.md#adr-040--owner-accepted-stage-9-local-engineering-and-research-scope)
+records the owner's accepted completion scope: local research, engineering implementation and
+self-assessment, supported by terminal experiments, retained negative evidence, shared checks,
+restore-tested backups and verified publication. This permits stage completion in that scope;
+it does not satisfy the separate Quality DoD. Unmet numerical targets remain NOT_MET,
+independent human/semantic assessment NOT_EVALUATED and autonomous factual support NOT_READY.
+Unsatisfied product-acceptance criteria stay open. PROGRESS owns the current stage state.
 
 ### Target architecture work packages
 
@@ -224,6 +227,8 @@ Reproducible packaging/Compose, CI (lint/types/tests/small evaluation), operatio
 metrics/health/rate limits, security review, backups/restore and model/data cards.
 **Entry:** separate owner authorization after Stage 9 quality acceptance, or an explicit owner
 decision changing the delivery goal while retaining the unresolved limitations.
+Both cases require separate explicit authorization to start Stage 10; acceptance of Stage 9
+alone grants none.
 **Outcome:** a reproducible, operated guarded deployment with a measured declared workload.
 **DoD:** documented clean-machine setup and RU/KK/EN/mixed demo pass; CI runs lint/types/full
 applicable tests and a frozen small evaluation; auth/ownership/injection/overload/timeout and

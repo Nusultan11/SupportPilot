@@ -515,11 +515,40 @@ rules, models or labels are tuned from confirmation. Rollback removes the option
 restores unconditional withholding; retain committed receipts/queue and all qualification evidence.
 No Stage 10 release, distributed serving or sustained generation SLO is introduced.
 
+## ADR-040 — Owner-accepted Stage 9 local engineering and research scope
+
+Accepted by the owner on 2026-11-16 after the concrete local self-check package and publication
+of commit9e2e7af68f17e5778984010f39f047d378f4761b. The owner explicitly confirmed completion in
+the scope of local research, engineering implementation and self-assessment of quality.
+
+Record Stage 9 as **COMPLETED (local engineering and research scope, owner accepted)**. This
+changes the stage's accepted completion scope, not its experimental observations or product
+quality gates. Unmet numerical quality thresholds remain **NOT_MET**. Independent human and
+semantic assessment remain **NOT_EVALUATED**. Autonomous factual support remains **NOT_READY**;
+unsatisfied product-acceptance criteria stay open. This is not production acceptance or an
+independent human review/calibration record.
+
+Retain rejected candidates, negative/partial attempts, immutable protocols, models, inputs,
+raw results, uncertainty, source archives and prior delivery/recovery receipts. Keep the
+preacceptance packet unchanged and record acceptance additively. Do not repeat completed
+experiments, recruit external experts/helpers or enable unqualified factual answers. Stage 10
+remains NOT_STARTED; starting it requires separate explicit owner authorization.
+
+Alternatives: keeping stage completion pending would contradict the explicit owner acceptance;
+declaring the original Quality DoD passed would contradict measured failures and missing evidence.
+The accepted distinction closes the authorized local delivery while exposing its product limits.
+It adds no runtime change, dependency, service or compute cost. Verification is a documentation
+consistency/diff review, applicable hooks, preserved-evidence hash checks and restore-tested
+acceptance/publication records. Numerical results and runtime tests are not rerun for this decision.
+Revisit product acceptance only with separately authorized new evidence; revisit the delivery
+scope only through another explicit owner decision. Do not silently waive a quality gate.
+
 ## Open decisions
 
-Owner input is needed only if the work requires a paid MT/generation/judge budget or fluent
-independent RU/KK reviewers. Their absence limits quality claims; it does not authorize
-invented measurements or unrelated service dependencies.
+No further Stage 9 local-delivery acceptance is pending. Product-quality criteria remain open
+under ADR-040. External reviewers/helpers are prohibited; no recruitment or completed experiment
+rerun is authorized. Costs, missing access, goal changes or any Stage 10 start require explicit
+owner authorization. Missing evidence never authorizes invented measurements or unrelated services.
 
 ## References
 
