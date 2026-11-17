@@ -88,6 +88,7 @@ USE_RANK: dict[AllowedUse, int] = {
 LICENCE_MAX_USE: dict[str, AllowedUse] = {
     "cdla-sharing-1.0": AllowedUse.TRAIN,  # share-alike for published derived data
     "cc-by-4.0": AllowedUse.TRAIN,
+    "cc-by-3.0": AllowedUse.TRAIN,  # attribution only, like 4.0 (ADR-043)
     "cc-by-sa-4.0": AllowedUse.TRAIN,  # share-alike
     "cc0-1.0": AllowedUse.TRAIN,
     "mit": AllowedUse.TRAIN,

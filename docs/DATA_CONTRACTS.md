@@ -738,20 +738,21 @@ not store KB facts. Their authored expected labels are diagnostic references, no
 ClaimReview records. Object, enum-smoke and constrained-enum attempts retain separate freezes,
 raw replies, failures and executed source archives.
 
-## 20. Human-authored training corpus (`data/processed/human/<dataset_version>/`, ADR-042)
+## 20. Human-authored training corpus (`data/processed/human/<dataset_version>/`, ADR-042/043)
 
-Recipe: `configs/human_corpus.yaml` (`human_recipe/1`, validated against the frozen taxonomy;
+Recipe: `configs/human_corpus.yaml` (`human_recipe/2`, validated against the frozen taxonomy;
 it never edits `taxonomy.yaml`). Active version: `human.active_corpus` in `configs/base.yaml`.
 Versions are immutable (`human-<yyyymmdd>-<hash8>`); an existing version is verified and reused.
 
 Files: `train|validation|test.parquet` (active), `unverified.parquet`, `excluded.parquet`,
-`quality_report.json`, `stats.json`, `manifest.json` (`dataset_manifest/1`, file SHA256s).
+`quality_report.json`, `stats.json`, `manifest.json` (`dataset_manifest/1`, file SHA256s), and
+the grounded component files of §20.1 when the recipe has a `grounded` section.
 Active and unverified rows use `human_example/1`:
 
 | Field | Notes |
 |---|---|
-| example_id, record_id, source_id, source_split | §1 lineage; `record_id` traces to the raw revision (`abcd:convo-<id>`, Stage 3 ids for MASSIVE/mangi) |
-| origin | `human_roleplay`, `human_written`, `human_localised` (active); `undocumented` only in unverified |
+| example_id, record_id, source_id, source_split | §1 lineage; `record_id` traces to the raw revision (`abcd:convo-<id>`, `minds14_ru:<audio id>`, `xsid_kk:<split>.<id>`, `clinc150:<split>.<row>`, Stage 3 ids for MASSIVE/mangi) |
+| origin | `human_roleplay`, `human_written`, `human_localised`, `human_spoken_asr` (spoken by a person, automatic transcription) (active); `undocumented` only in unverified |
 | authorship_evidence | recipe text citing where human authorship is documented |
 | label_status | `source_label_mapped`: source label through the authored table/rules; never human-adjudicated |
 | review_status | `unreviewed` unless an independent reviewer record exists |
@@ -761,7 +762,7 @@ Active and unverified rows use `human_example/1`:
 | slots_json | `{"order_id": "<order_id>"}` when the request carries a reference |
 | source_label, rule, intent, action, escalate, escalation_reason | v1 intent/action; `needs_reference` resolves to call_tool/clarify |
 | scenario_id, family_id, split | family = near-copy component (char-5-gram Jaccard >= recipe `family_jaccard`) joined with aligned translations; one scenario per family; split unit |
-| flags, reason | `reason` set only in unverified (e.g. `prompt_echo`, `template_cluster`, `too_short`, `language_mismatch`, `family_label_conflict`, `authorship_undocumented`, `corrupted_text`) |
+| flags, reason | `reason` set only in unverified (e.g. `prompt_echo`, `template_cluster`, `too_short`, `language_mismatch`, `family_label_conflict`, `authorship_undocumented`, `corrupted_text`, `possible_personal_name`) |
 
 `excluded.parquet`: `record_id, source_id, source_label, lang, text, reason, detail` for rows
 without a v1 label (`excluded`, `unlabelled`, `not_in_map`, `no_request`), `exact_duplicate`,
@@ -774,4 +775,31 @@ phone incl. North-American format, card); exact duplicates; split isolation (no 
 in two splits, no cross-split exact/lexical copy, semantic train copies removed); historical
 leakage against every earlier SFT split, gold and frozen benchmark/confirmation user text
 (exact, char-5-gram Jaccard, 13-gram recomputed; e5 cosine from the build, mandatory);
-`no_substituted_targets`. Intent and language coverage are reported in `stats.json`, never padded.
+`no_substituted_targets`; `heldout_placement` (a `placement: heldout` source, e.g. xSID, never in
+train). Native caps: recipe `native_max_per_label`, overridden by `authorship.<id>.max_per_label`
+and a label `cap`. Intent and language coverage are reported in `stats.json`, never padded.
+
+### 20.1 External grounded responses (`grounded_*.parquet`, ADR-043)
+
+Files: `grounded_train|validation|test.parquet`, `grounded_unverified.parquet`
+(`human_grounded/1`) and `grounded_excluded.parquet` (`record_id, source_id, text, reason,
+detail`: `act_not_mapped`, `no_user_turn`, `document_missing`, `historical_*`). Every agent turn
+of the source appears in exactly one file. `stats.json` → `grounded` holds the counts.
+
+| Field | Notes |
+|---|---|
+| example_id, record_id, source_id, source_split | `doc2dial:<dial_id>:<turn_id>`; source split kept for lineage only |
+| origin, authorship_evidence | `human_written`; recipe `grounded.evidence` |
+| namespace | recipe `grounded.namespace` (`doc2dial_external`); never a SupportPilot KB namespace |
+| domain, doc_id, doc_title | source document; `family_id = doc_<sha16(domain|doc_id)>` is the split unit |
+| context_json, query | earlier turns `[{role, content}]`; the user turn(s) answered by this agent turn |
+| evidence_json | `[{sp_id, label, section, text}]`: writer-selected spans, offsets checked against the document text |
+| target, source_act, behaviour | human agent utterance; source dialogue act; `answer` or `clarify` (recipe `grounded.acts`) |
+| grounding_status, review_status | `source_annotated` (writer's own spans), `unreviewed` |
+| evidence_recall | share of target content tokens (>= 4 alphanumerics) found in the evidence; lexical proxy, not semantic support |
+| split, reason | unverified reasons: `evidence_missing`, `corrupted_text` (incl. placeholder queries such as `Null`), `contact_pattern` (e-mail/phone/card pattern, often a public agency contact), `weak_evidence_overlap` (recall < `min_evidence_recall`) |
+
+Gates: `grounded_provenance_namespace` (train policy, schema, origin, status, namespace, unique
+ids), `grounded_evidence` (non-empty spans/query/target, recall threshold), `grounded_pii`,
+`grounded_split_isolation` (no document in two splits) and `grounded_historical_leakage` (query and
+target exact/lexical/13-gram vs history recomputed; e5 on queries during the build).

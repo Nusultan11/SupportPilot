@@ -204,6 +204,130 @@ sources:
       repo_id: asappresearch/abcd
       include: ["data/abcd_v1.1.json.gz", "data/ontology.json", "data/kb.json", "data/guidelines.json", "LICENSE", "README.md"]
 
+  # ------------------------------------------------------------------ human-corpus extension (2026-11-17, ADR-043)
+  - source_id: minds14_ru
+    url: https://huggingface.co/datasets/PolyAI/minds14
+    revision: 40ce77cb32a384e4d50a568e1ec39ac804019d33
+    licence: cc-by-4.0
+    licence_evidence: >-
+      HF card metadata `license: cc-by-4.0`; the paper (arXiv:2104.08524) releases the data
+      as a "training and evaluation resource" (checked 2026-11-17).
+    allowed_use: train
+    status: selected
+    languages: [ru]
+    size: {rows: 539, files: 2, bytes: 34518082}
+    reviewed_at: 2026-11-17
+    purpose: >-
+      Natural spoken Russian requests by native speakers (e-banking voice-assistant prompts):
+      the first non-translated RU customer requests of the human corpus.
+    decision: >-
+      Selected for the human corpus only. Gerz et al. 2021 §2: native speakers recruited on
+      Prolific spoke new utterances for an intent after seeing a description and three
+      examples; the text is the Google ASR 1-best transcription of that speech (§4), so the
+      origin is `human_spoken_asr` (human wording, machine transcription; ASR errors stay).
+      Banking-only intents map to out_of_scope; app_error / address map to technical_issue /
+      change_address only without bank-specific cues; card, debit, payment-history and bill
+      intents are excluded because a store would treat them as payment problems.
+    notes: >-
+      Attribution: Gerz, Su, Kusztos, Mondal, Lis, Singhal, Mrksic, Wen, Vulic (2021)
+      "Multilingual and Cross-Lingual Intent Detection from Spoken Data", PolyAI, CC BY 4.0.
+      Only the ru-RU parquet is fetched; audio bytes are stored in the raw revision only.
+    pipelines: [human]
+    fetch:
+      repo_id: PolyAI/minds14
+      include: ["ru-RU/train-00000-of-00001.parquet", "README.md"]
+
+  - source_id: xsid_kk
+    url: https://github.com/mainlp/xsid
+    revision: 761d926c3f2e9f6bea13192d2f39cec1d04d9777
+    licence: cc-by-sa-4.0
+    licence_evidence: >-
+      Repository LICENSE "Attribution-ShareAlike 4.0 International" (git blob
+      a73481c4be14b761eddf04cb18317cbc63416dc6) and GitHub licence metadata CC-BY-SA-4.0
+      (checked 2026-11-17).
+    allowed_use: train
+    status: selected
+    languages: [kk]
+    size: {rows: 800, files: 4, bytes: 357188}
+    reviewed_at: 2026-11-17
+    purpose: >-
+      Human-translated Kazakh virtual-assistant requests (alarm, reminder, weather, music,
+      restaurants, films, books): Kazakh out-of-scope evaluation rows.
+    decision: >-
+      Selected for held-out splits only. van der Goot et al. 2021 (NAACL, §2.2): 800 English
+      Snips/Facebook dev+test utterances translated by native-speaker annotators (not
+      professional translators, not MT); the paper states xSID "is intended to serve as
+      evaluation data only", so the recipe places these rows in validation/test, never train.
+      The machine-translated `projectedTrain` files are not fetched.
+    notes: >-
+      Attribution: van der Goot, Sharaf, Imankulova, Ustun, Stepanovic, Ramponi, Khairunnisa,
+      Komachi, Plank (2021) "From Masked Language Modeling to Translation", xSID 0.7, CC BY-SA 4.0
+      (derived data that is shared must keep the licence).
+    pipelines: [human]
+    fetch:
+      type: github_repo
+      repo_id: mainlp/xsid
+      include: ["data/xSID-0.7/kk.valid.conll", "data/xSID-0.7/kk.test.conll", "LICENSE", "README.md"]
+
+  - source_id: clinc150
+    url: https://huggingface.co/datasets/clinc/clinc_oos
+    revision: 155b9c710419136e17307b80d0a13e68cd46b4ec
+    licence: cc-by-3.0
+    licence_evidence: "HF card metadata `license: cc-by-3.0` (checked 2026-11-17)"
+    allowed_use: train
+    status: selected
+    languages: [en]
+    size: {rows: 23700, files: 4, bytes: 526729}
+    reviewed_at: 2026-11-17
+    purpose: >-
+      Crowd-written EN assistant queries: greetings/thanks, card-declined payment problems and
+      out-of-scope domains (travel, kitchen, auto, work, small talk) for the human corpus.
+    decision: >-
+      Selected for the human corpus only. Larson et al. 2019 (EMNLP, §3): queries written by
+      crowd workers from scenario and paraphrase prompts. Only labels with an unambiguous v1
+      meaning are mapped; banking/credit-card account labels, the generic `oos` class and
+      labels that order goods through a third party are excluded.
+    notes: >-
+      Attribution: Larson et al. (2019) "An Evaluation Dataset for Intent Classification and
+      Out-of-Scope Prediction", CC BY 3.0. The `plus` configuration is fetched.
+    pipelines: [human]
+    fetch:
+      repo_id: clinc/clinc_oos
+      include: ["plus/*.parquet", "README.md"]
+
+  - source_id: doc2dial
+    url: https://github.com/doc2dial/sharedtask-dialdoc2021
+    revision: 7584ac0c1c617496d644f1ea34a6b812a5771539
+    licence: cc-by-3.0
+    licence_evidence: >-
+      IBM's dataset card huggingface.co/datasets/IBM/doc2dial (rev
+      fc8ede49f0d67fcb21dbcbc1bde387a6ef7a126b): metadata `license: cc-by-3.0` and "Licensing
+      Information: Creative Commons Attribution 3.0 Unported" for doc2dial v1.0.1. The shared-task
+      repository that hosts the same v1.0.1 JSON files has no licence file (checked 2026-11-17).
+    allowed_use: train
+    status: selected
+    languages: [en]
+    size: {rows: 4470, files: 4, bytes: 81620306}
+    reviewed_at: 2026-11-17
+    purpose: >-
+      Human-written, document-grounded agent responses with annotated evidence spans: the
+      external grounded-response component of the human corpus (ADR-043).
+    decision: >-
+      Selected for the grounded component only. Feng et al. 2020 (EMNLP, §2.1): about 70
+      qualified appen.com contributors wrote every user and agent utterance from a dialogue
+      scene that names the grounding span. Documents are US government service pages
+      (ssa.gov, va.gov, studentaid.gov, DMV): their rules are evidence only inside the
+      component's own `doc2dial` namespace and never enter the SupportPilot KB.
+    notes: >-
+      Attribution: Feng, Wan, Gunasekara, Patel, Joshi, Lastras (2020) "doc2dial: A
+      Goal-Oriented Document-Grounded Dialogue Dataset", IBM Research, CC BY 3.0. Only the
+      train/validation dialogues are public; the shared-task test set is not used.
+    pipelines: [human]
+    fetch:
+      type: github_repo
+      repo_id: doc2dial/sharedtask-dialdoc2021
+      include: ["data/doc2dial/v1.0.1/*.json", "data/doc2dial/DATA_README.md"]
+
   # ------------------------------------------------------------------ unavailable (gated)
   - source_id: kazparc
     url: https://huggingface.co/datasets/issai/kazparc
@@ -484,3 +608,79 @@ sources:
     decision: >-
       Not used: insurance/banking/finance/travel domains do not cover store intents, and the
       licence was not verified; no data downloaded.
+
+  # ------------------------------------------------------------------ human-corpus extension research (2026-11-17, ADR-043)
+  - source_id: krcs_kk_ru_codeswitch
+    url: https://huggingface.co/datasets/BorisovMaksim/kk_ru_csw
+    revision: 2f28809e509d949c0cc2628de49ea3457828a735
+    licence: apache-2.0
+    licence_evidence: "HF card metadata `license: apache-2.0` (checked 2026-11-17)"
+    allowed_use: reference_only
+    status: candidate
+    languages: [kk, ru]
+    size: {rows: 619}
+    reviewed_at: 2026-11-17
+    purpose: Investigated as natural mixed RU-KK text for the human corpus.
+    decision: >-
+      Not acquired. 619 code-switched sentences extracted from social-media posts (card) with
+      bilingual normalisations: authentic mixing, but the posts are not support requests and the
+      curator's licence does not settle the original authors' or platforms' rights (same
+      reasoning as KazSAnDRA). Useful only as a language-style reference after an owner decision.
+
+  - source_id: til_kk_intent
+    url: https://huggingface.co/datasets/TilQazyna/til-kk-intent-v1
+    revision: 0fae271080f8640682e1fc21fb744091435d0856
+    licence: apache-2.0
+    licence_evidence: "HF card metadata `license: apache-2.0`; gated (manual) (checked 2026-11-17)"
+    allowed_use: reference_only
+    status: rejected
+    access: gated
+    languages: [kk]
+    reviewed_at: 2026-11-17
+    purpose: Kazakh intent detection (question/complaint/information/opinion/command).
+    decision: >-
+      Rejected: the card states the rows are synthetic/semi-synthetic from an LLM teacher; the
+      five coarse labels are not store intents.
+
+  - source_id: ru_grocery_complaints
+    url: https://huggingface.co/datasets/Denn231/external_ds_v_0.65
+    revision: 883c9b0d9553f6218928afecbec71d57ee432bbe
+    licence: unknown
+    licence_evidence: "No licence metadata, card or licence file (checked 2026-11-17)"
+    allowed_use: blocked
+    status: rejected
+    languages: [ru]
+    reviewed_at: 2026-11-17
+    purpose: Russian grocery-delivery customer messages with complaint categories.
+    decision: >-
+      Rejected: the preview shows apparently real customer messages with real order numbers
+      from an unnamed retailer, published without licence, provenance or consent statement.
+      Rights and personal-data status are unknown; nothing was downloaded.
+
+  - source_id: ru_messages_gateway
+    url: https://huggingface.co/datasets/sfbalaba/ru_messages_gateway
+    revision: c42f220ef8452b8593a39f36b61039ac06d42378
+    licence: unknown
+    licence_evidence: "No licence metadata or card (checked 2026-11-17)"
+    allowed_use: blocked
+    status: rejected
+    languages: [ru]
+    reviewed_at: 2026-11-17
+    purpose: Short labelled RU support messages (order status, feature requests).
+    decision: "Rejected: no licence and no authorship documentation; nothing was downloaded."
+
+  - source_id: russian_multiwoz
+    url: https://github.com/vonCount/Russian-MultiWOZ
+    revision: 1bd77673533e568ba0746ee304f758296f8dc77f
+    licence: mit
+    licence_evidence: "GitHub licence metadata MIT (checked 2026-11-17)"
+    allowed_use: reference_only
+    status: rejected
+    languages: [ru]
+    size: {rows: 10438}
+    reviewed_at: 2026-11-17
+    purpose: Russian task-oriented dialogues (hotels, restaurants, trains, taxi).
+    decision: >-
+      Rejected: a Russian version of MultiWOZ with the same dialogue counts; the README does not
+      document how the Russian text was produced (human or machine translation), and the domains
+      would only supply out-of-scope rows.

@@ -13,6 +13,7 @@ from pydantic import ValidationError
 from supportpilot.common.config import find_project_root
 from supportpilot.data.acquire import AcquireError, GitHubRepoRemote, remote_for
 from supportpilot.data.human import (
+    ACTIVE_ORIGINS,
     HumanRecipe,
     Row,
     _strings,
@@ -51,7 +52,7 @@ def test_project_recipe_is_valid_and_admits_only_documented_humans(recipe: Human
     assert not recipe.authorship["mangi_kk_support_qa"].active
     for a in recipe.authorship.values():
         if a.active:
-            assert set(a.origin.values()) <= {"human_roleplay", "human_written", "human_localised"}
+            assert set(a.origin.values()) <= ACTIVE_ORIGINS
 
 
 def test_recipe_rejects_active_machine_origin(recipe: HumanRecipe) -> None:
@@ -256,3 +257,32 @@ def test_github_remote_rejects_lfs_pointer(tmp_path: Path) -> None:
     (rf,) = remote.list_files()
     with pytest.raises(AcquireError, match="LFS pointer"):
         remote.download(rf, tmp_path)
+
+
+def test_heldout_families_never_enter_train() -> None:
+    groups = {f"f{i}": "out_of_scope" for i in range(40)}
+    held = frozenset(f"f{i}" for i in range(20))
+    out = assign_splits(groups, {"train": 0.8, "validation": 0.1, "test": 0.1}, 7, held)
+    assert {out[f] for f in held} == {"validation", "test"}
+    assert "train" in {out[f] for f in groups if f not in held}
+
+
+def test_project_recipe_caps_placement_and_name_patterns(recipe: HumanRecipe) -> None:
+    assert recipe.heldout_only("xsid_kk")
+    assert not recipe.heldout_only("abcd")
+    assert recipe.cap("clinc150", "greeting") == 60  # label cap
+    assert recipe.cap("clinc150", "weather") == 6  # source cap
+    assert recipe.cap("massive_en_ru", "weather_query") == recipe.native_max_per_label
+    names = [re.compile(p, re.IGNORECASE) for p in recipe.personal_name_patterns]
+
+    def hit(t: str) -> bool:
+        return any(p.search(t) for p in names)
+
+    assert hit("Hello my name is Crustal <name> and I want a refund")
+    assert hit("здравствуйте меня зовут Елена")
+    assert hit("Менің атым Айгүл")
+    assert not hit("my name is spelled wrong on my account")
+    assert not hit("my name is <name>")
+    assert not hit("встречи между первым и шестнадцатым марта")
+    assert recipe.grounded is not None
+    assert recipe.grounded.namespace.endswith("_external")

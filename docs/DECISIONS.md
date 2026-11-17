@@ -601,6 +601,35 @@ is reported as such. Rollback sets `human.active_corpus: null`; published versio
 Revisit when licensed human RU/KK/mixed support requests, independent label review or
 human-written grounded answers become available, or a controlled experiment shows a defect.
 
+## ADR-043 — Human corpus extension and external grounded responses
+
+Accepted 2026-11-17 under the owner's authorization to continue the ADR-042 rework. The active
+corpus becomes `human-20261117-fedfa10a`; `3f1ed9e4` stays published and verifiable for rollback.
+Three intent sources are read straight from pinned raw revisions (not Stage 3, so the sealed
+canonical build is unchanged): MINDS-14 ru-RU (native speakers' spoken requests, Google-ASR
+text, new origin `human_spoken_asr`), xSID 0.7 Kazakh dev/test (native-speaker translations,
+`human_localised`) and CLINC150 (crowd-written EN). xSID's authors intend evaluation use, so a
+recipe `placement: heldout` keeps its rows out of train (gate `heldout_placement`). Banking and
+assistant labels map only where the store meaning is unambiguous; card, bill, debit, payment
+history and generic out-of-scope classes are excluded. Per-source/label caps stop out-of-scope
+domains from dominating. Self-introduced names that masking cannot remove go to unverified.
+CC BY 3.0 is added to the licence policy with the same train ceiling as CC BY 4.0.
+
+The corpus also carries an external grounded-response component (`grounded_*.parquet`,
+DATA_CONTRACTS §20.1): doc2dial agent turns written by crowd contributors from cited spans of US
+government pages. Evidence stays in namespace `doc2dial_external`; nothing enters the SupportPilot
+KB, and intent rows keep `no_human_target`. Grounding is `source_annotated` (the writer's own
+spans); a lexical evidence-recall proxy >= 0.5 and contact/placeholder filters gate trusted rows.
+
+Alternatives: MT or LLM paraphrase of ABCD into RU/KK (rejected by ADR-042); scraped social-media
+or marketplace text (KRCS, wb-questions, KazSAnDRA; author/platform rights unsettled); unlicensed
+real retailer complaints (rights and personal data unknown); LLM-teacher KK intent data; Russian
+MultiWOZ (undocumented translation method); training on xSID (contradicts its stated use).
+Verification: ADR-042 gates plus placement, grounded provenance/namespace, evidence, contact,
+document-split isolation and grounded historical leakage; agent label audits are reported as such.
+Rollback: `human.active_corpus: human-20261117-3f1ed9e4`. Revisit with licensed natural RU/KK/mixed
+store requests, independent label review, or store-grounded human answers.
+
 ## Open decisions
 
 No further Stage 9 local-delivery acceptance is pending. Product-quality criteria remain open

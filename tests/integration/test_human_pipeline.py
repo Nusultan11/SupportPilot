@@ -107,6 +107,7 @@ def setup(tmp_path: Path) -> tuple[BuildInputs, HumanRecipe]:
     data = full.model_dump()
     data["authorship"] = {"abcd": data["authorship"]["abcd"]}
     data["sources"] = {"abcd": data["sources"]["abcd"]}
+    data["grounded"] = None
     data["split_ratios"] = {"train": 0.6, "validation": 0.2, "test": 0.2}
     recipe = HumanRecipe.model_validate(data)
     abcd = entry(

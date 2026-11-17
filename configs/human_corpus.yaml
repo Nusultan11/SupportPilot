@@ -1,4 +1,4 @@
-# Human-authored corpus recipe (ADR-042, DATA_CONTRACTS §20). Validated by
+# Human-authored corpus recipe (ADR-042, ADR-043, DATA_CONTRACTS §20). Validated by
 # `supportpilot.data.human.HumanRecipe` against configs/taxonomy.yaml (frozen v1 intents).
 #
 # This file deliberately does NOT extend `taxonomy.yaml` `sources:`: the taxonomy hash is a
@@ -12,7 +12,7 @@
 # Rules run in order on the customer request (case-insensitive); the first match decides.
 # A text matching no rule is `unlabelled` (never guessed). `action` overrides the intent's
 # default taxonomy action (needs_reference stays: call_tool with a reference, else clarify).
-schema_version: human_recipe/1
+schema_version: human_recipe/2
 seed: 20261117
 split_ratios: {train: 0.8, validation: 0.1, test: 0.1}
 family_jaccard: 0.6          # char-5-gram near-copies join one family (split unit with scenario)
@@ -21,7 +21,8 @@ leak_jaccard: 0.8            # vs historical SFT/gold/benchmark user texts
 leak_ngram: 13
 leak_cosine: 0.95
 min_words: 3                 # a request shorter than this carries no intent on its own
-native_max_per_label: 20     # MASSIVE / mangi: per (source label, language), one per family first
+native_max_per_label: 20     # native sources: per (source label, language), one per family
+                             # first; `authorship.<id>.max_per_label` / a label `cap` override it
 
 # Documented authorship per admitted source. `active` = may enter train/validation/test.
 authorship:
@@ -46,6 +47,31 @@ authorship:
       The card does not state how the questions were produced and says answers "appear to be
       manually written/templated"; human authorship is not established, so the rows go to the
       unverified pool only.
+  minds14_ru:
+    origin: {ru: human_spoken_asr}
+    active: true
+    max_per_label: 40
+    evidence: >-
+      Gerz et al. 2021 (arXiv:2104.08524 §2, §4): native Russian speakers recruited on Prolific
+      spoke new requests for an intent after a description and three examples; the text is the
+      Google ASR 1-best transcription of that speech. Human wording, machine transcription
+      (ASR errors kept); not a translation and not generated.
+  xsid_kk:
+    origin: {kk: human_localised}
+    active: true
+    placement: heldout
+    max_per_label: 60
+    evidence: >-
+      van der Goot et al. 2021 (NAACL, §2.2): Snips/Facebook English dev+test utterances
+      translated into Kazakh by native-speaker annotators (not MT); intended as evaluation
+      data, so rows enter validation/test only. A translation, not natural Kazakh requests.
+  clinc150:
+    origin: {en: human_written}
+    active: true
+    max_per_label: 6
+    evidence: >-
+      Larson et al. 2019 (EMNLP, arXiv:1909.02027 §3): queries written by crowd workers on
+      Mechanical Turk from scenario and paraphrase prompts; no generator.
 
 # Patterns of scenario-prompt text copied into the customer turn (second-person prompt voice).
 prompt_echo_patterns:
@@ -55,6 +81,13 @@ prompt_echo_patterns:
   - '\byou (?:never|already) (?:bought|returned|ordered)\b'
   - '\bwhen you checked\b|\bthe item you want\b|\byou were charged\b'
   - '\bbecause you (?:want|need|are|bought|ordered)\b'
+
+# A self-introduced personal name that masking cannot remove (free speech/ASR text). Masked
+# ABCD names (`<name>`) do not match.
+personal_name_patterns:
+  - '\bmy name is\s+(?!(?:spelled|misspelled|incorrect\w*|wrong\w*|not|on|in|listed|shown|showing|missing|different|also|still|now|changed|under)\b)[a-z]{3,}'
+  - '(?:меня зовут|моё имя|мое имя|моя фамилия)'
+  - '(?<!\w)(?:менің атым|атым)\s+(?-i:[А-ЯӘҒҚҢӨҰҮҺІ])'
 
 # A request that is only a greeting / connection check is context, not the request.
 greeting_only: '^\W*(?:(?:<\w+>\W*)+|hiya|good|fine|great|i''m good|i am good|i''m fine|thanks|thank you|hi+|hello+|hey+|hii+|good (?:morning|afternoon|evening|day)|greetings|yes|yeah|ok|okay|hi there|hello there|hey there|am i connected|is anyone there|hello\?|help|hi,? can you help me|can you help me|i need (?:some )?help|i have a question|i need help with something|how are you(?: doing)?(?: today)?)\W*(?:\s+\w+)?\W*$'
@@ -254,3 +287,249 @@ sources:
       rules:
         - {pattern: '\b(?:slow|load|loading|lag|website|site|speed|forever)\b', intent: technical_issue}
         - {pattern: '.', exclude: "no site-problem cue"}
+
+  # MINDS-14 ru-RU (e-banking voice assistant). Bank-account requests are not about the store
+  # (out_of_scope); card / debit / payment-history / bill requests are excluded because in a
+  # store chat they would read as payment problems.
+  minds14_ru:
+    abroad:
+      rules:
+        - {pattern: 'карт|банк|сч[её]т|снять|наличн', intent: out_of_scope}
+        - {pattern: '.', exclude: "paying abroad without a bank-card cue may be a store payment question"}
+    atm_limit: {intent: out_of_scope}
+    balance:
+      rules:
+        - {pattern: 'сч[её]т|сч[её]те|счету|банк|карт|кредит', intent: out_of_scope}
+        - {pattern: '.', exclude: "balance without a bank cue (may be a store bonus balance)"}
+    business_loan:
+      rules:
+        - {pattern: 'бизнес|предпри|банк', intent: out_of_scope}
+        - {pattern: '.', exclude: "loan/credit without a bank or business cue (may be store instalments)"}
+    cash_deposit:
+      rules:
+        - {pattern: 'сч[её]т|сч[её]те|счету|банк|банкомат|вклад|депозит', intent: out_of_scope}
+        - {pattern: '.', exclude: "deposit without a bank-account cue"}
+    joint_account:
+      rules:
+        - {pattern: 'сч[её]т|сч[её]те|счету|банк', intent: out_of_scope}
+        - {pattern: '.', exclude: "joint 'account' without a bank cue may be a store account (account_help)"}
+    app_error:
+      rules:
+        - {pattern: 'банк|сч[её]т|баланс|перевод|карт|транзакц', exclude: "bank-specific app problem (account, balance, transfer)"}
+        - {pattern: 'приложени|сайт|не работает|не загруж|ошибк|завис|вылета|не открыва', intent: technical_issue}
+        - {pattern: '.', exclude: "no app/site-problem cue"}
+    address:
+      rules:
+        - {pattern: 'банк|карт|сч[её]т|корреспонденц|письма|прописк|официальн|запис', exclude: "address held by the bank (card, account, mail records)"}
+        - {pattern: 'личн\w* кабинет|профил|аккаунт|уч[её]тн', intent: account_help}
+        - {pattern: 'адрес|мест\w* жительств|переех', intent: change_address}
+        - {pattern: '.', exclude: "no address cue"}
+    card_issues: {exclude: "card problem: a payment problem in a store chat, not separable here"}
+    freeze: {exclude: "card/account freeze: ambiguous with fraud on a store account"}
+    direct_debit: {exclude: "direct-debit requests include double charges (payment_problem)"}
+    high_value_payment: {exclude: "bank payment authorisation: ambiguous with a store payment problem"}
+    latest_transactions: {exclude: "transaction history includes unrecognised charges (payment_problem)"}
+    pay_bill: {exclude: "bill payment: ambiguous with store invoices/payments"}
+
+  # xSID 0.7 Kazakh dev/test (Snips + Facebook assistant domains): all out of scope.
+  xsid_kk:
+    weather/find: {intent: out_of_scope}
+    alarm/set_alarm: {intent: out_of_scope}
+    alarm/cancel_alarm: {intent: out_of_scope}
+    alarm/modify_alarm: {intent: out_of_scope}
+    alarm/show_alarms: {intent: out_of_scope}
+    alarm/snooze_alarm: {intent: out_of_scope}
+    alarm/time_left_on_alarm: {intent: out_of_scope}
+    reminder/set_reminder: {intent: out_of_scope}
+    reminder/cancel_reminder: {intent: out_of_scope}
+    reminder/show_reminders: {intent: out_of_scope}
+    AddToPlaylist: {intent: out_of_scope}
+    PlayMusic: {intent: out_of_scope}
+    RateBook: {intent: out_of_scope}
+    SearchCreativeWork: {intent: out_of_scope}
+    SearchScreeningEvent: {intent: out_of_scope}
+    BookRestaurant: {intent: out_of_scope}
+
+  # CLINC150 (plus). In-scope store meanings are capped higher than the out-of-scope domains.
+  clinc150:
+    greeting: {intent: greeting, cap: 60}
+    thank_you: {intent: greeting, cap: 60}
+    card_declined:
+      cap: 60
+      rules:
+        - {pattern: '\b(?:at|in|from)\s+\w|\b(?:buy|buying|bought|purchase|purchasing|food|groceries|gas|lunch|dinner|coffee)\b', exclude: "card declined at another merchant/place or for an outside purchase"}
+        - {pattern: "\\bdeclin|not (?:get )?accepted|denied|rejected|refused|(?:did not|didn't) go through", intent: payment_problem}
+        - {pattern: '.', exclude: "no declined-payment cue"}
+    order_status:
+      cap: 60
+      rules:
+        - {pattern: '\b(?:amazon|ebay|walmart|target|etsy|alibaba)\b', exclude: "order at another shop"}
+        - {pattern: '\b(?:order|package|parcel|purchase|item|shipment|delivery|delivered|track)', intent: track_order}
+        - {pattern: '.', exclude: "no order-status cue"}
+    # out-of-scope domains: travel, kitchen, auto, utility, work, small talk, assistant media
+    book_flight: {intent: out_of_scope}
+    book_hotel: {intent: out_of_scope}
+    car_rental: {intent: out_of_scope}
+    flight_status: {intent: out_of_scope}
+    lost_luggage: {intent: out_of_scope}
+    carry_on: {intent: out_of_scope}
+    international_visa: {intent: out_of_scope}
+    travel_alert: {intent: out_of_scope}
+    travel_suggestion: {intent: out_of_scope}
+    travel_notification: {intent: out_of_scope}
+    plug_type: {intent: out_of_scope}
+    exchange_rate: {intent: out_of_scope}
+    timezone: {intent: out_of_scope}
+    translate: {intent: out_of_scope}
+    recipe: {intent: out_of_scope}
+    cook_time: {intent: out_of_scope}
+    nutrition_info: {intent: out_of_scope}
+    calories: {intent: out_of_scope}
+    ingredients_list: {intent: out_of_scope}
+    ingredient_substitution: {intent: out_of_scope}
+    meal_suggestion: {intent: out_of_scope}
+    food_last: {intent: out_of_scope}
+    restaurant_reviews: {intent: out_of_scope}
+    restaurant_suggestion: {intent: out_of_scope}
+    restaurant_reservation: {intent: out_of_scope}
+    accept_reservations: {intent: out_of_scope}
+    confirm_reservation: {intent: out_of_scope}
+    cancel_reservation: {intent: out_of_scope}
+    how_busy: {intent: out_of_scope}
+    oil_change_how: {intent: out_of_scope}
+    oil_change_when: {intent: out_of_scope}
+    gas: {intent: out_of_scope}
+    gas_type: {intent: out_of_scope}
+    tire_change: {intent: out_of_scope}
+    tire_pressure: {intent: out_of_scope}
+    jump_start: {intent: out_of_scope}
+    mpg: {intent: out_of_scope}
+    last_maintenance: {intent: out_of_scope}
+    schedule_maintenance: {intent: out_of_scope}
+    traffic: {intent: out_of_scope}
+    directions: {intent: out_of_scope}
+    distance: {intent: out_of_scope}
+    uber: {intent: out_of_scope}
+    weather: {intent: out_of_scope}
+    time: {intent: out_of_scope}
+    date: {intent: out_of_scope}
+    timer: {intent: out_of_scope}
+    alarm: {intent: out_of_scope}
+    calculator: {intent: out_of_scope}
+    definition: {intent: out_of_scope}
+    spelling: {intent: out_of_scope}
+    measurement_conversion: {intent: out_of_scope}
+    flip_coin: {intent: out_of_scope}
+    roll_dice: {intent: out_of_scope}
+    find_phone: {intent: out_of_scope}
+    share_location: {intent: out_of_scope}
+    current_location: {intent: out_of_scope}
+    make_call: {intent: out_of_scope}
+    text: {intent: out_of_scope}
+    pto_request: {intent: out_of_scope}
+    pto_request_status: {intent: out_of_scope}
+    pto_balance: {intent: out_of_scope}
+    pto_used: {intent: out_of_scope}
+    payday: {intent: out_of_scope}
+    income: {intent: out_of_scope}
+    taxes: {intent: out_of_scope}
+    w2: {intent: out_of_scope}
+    rollover_401k: {intent: out_of_scope}
+    schedule_meeting: {intent: out_of_scope}
+    meeting_schedule: {intent: out_of_scope}
+    insurance: {intent: out_of_scope}
+    insurance_change: {intent: out_of_scope}
+    direct_deposit: {intent: out_of_scope}
+    tell_joke: {intent: out_of_scope}
+    fun_fact: {intent: out_of_scope}
+    meaning_of_life: {intent: out_of_scope}
+    what_are_your_hobbies: {intent: out_of_scope}
+    do_you_have_pets: {intent: out_of_scope}
+    how_old_are_you: {intent: out_of_scope}
+    where_are_you_from: {intent: out_of_scope}
+    who_made_you: {intent: out_of_scope}
+    who_do_you_work_for: {intent: out_of_scope}
+    what_is_your_name: {intent: out_of_scope}
+    smart_home: {intent: out_of_scope}
+    play_music: {intent: out_of_scope}
+    next_song: {intent: out_of_scope}
+    update_playlist: {intent: out_of_scope}
+    what_song: {intent: out_of_scope}
+    change_volume: {intent: out_of_scope}
+    calendar: {intent: out_of_scope}
+    calendar_update: {intent: out_of_scope}
+    reminder: {intent: out_of_scope}
+    reminder_update: {intent: out_of_scope}
+    todo_list: {intent: out_of_scope}
+    todo_list_update: {intent: out_of_scope}
+    vaccines: {intent: out_of_scope}
+    next_holiday: {intent: out_of_scope}
+    balance: {intent: out_of_scope}
+    transfer: {intent: out_of_scope}
+    interest_rate: {intent: out_of_scope}
+    routing: {intent: out_of_scope}
+    credit_score: {intent: out_of_scope}
+    improve_credit_score: {intent: out_of_scope}
+    apr: {intent: out_of_scope}
+    order_checks: {intent: out_of_scope}
+    # excluded: no reliable v1 store meaning
+    oos: {exclude: "CLINC's generic out-of-scope class can contain store-like requests"}
+    order: {exclude: "orders goods through a third-party assistant, not this store's place_order how-to"}
+    shopping_list: {exclude: "shopping lists are shopping-adjacent (MASSIVE lists_* are excluded too)"}
+    shopping_list_update: {exclude: "shopping lists are shopping-adjacent"}
+    account_blocked: {exclude: "a blocked account may be a store account (account_help) or a bank account"}
+    freeze_account: {exclude: "ambiguous between bank and store accounts"}
+    report_fraud: {exclude: "fraud reports may concern store orders (fraud_suspected)"}
+    transactions: {exclude: "transaction questions include store payments"}
+    spending_history: {exclude: "spending history includes store purchases"}
+    bill_balance: {exclude: "bills: ambiguous with store invoices"}
+    bill_due: {exclude: "bills: ambiguous with store invoices"}
+    pay_bill: {exclude: "bills: ambiguous with store invoices"}
+    min_payment: {exclude: "credit-card payment: ambiguous with instalments (payment_methods)"}
+    credit_limit: {exclude: "card limit: ambiguous with a declined store payment"}
+    credit_limit_change: {exclude: "card limit: ambiguous with a declined store payment"}
+    international_fees: {exclude: "card fees: ambiguous with a store charge"}
+    redeem_rewards: {exclude: "rewards: ambiguous with store loyalty points (policy_faq)"}
+    rewards_balance: {exclude: "rewards: ambiguous with store loyalty points (policy_faq)"}
+    report_lost_card: {exclude: "card problem: payment-adjacent"}
+    damaged_card: {exclude: "card problem: payment-adjacent"}
+    new_card: {exclude: "card problem: payment-adjacent"}
+    replacement_card_duration: {exclude: "card problem: payment-adjacent"}
+    pin_change: {exclude: "card problem: payment-adjacent"}
+    expiration_date: {exclude: "card expiry: payment-adjacent"}
+    application_status: {exclude: "application status: ambiguous with store order/refund status"}
+    "yes": {exclude: "dialogue act, not a request"}
+    "no": {exclude: "dialogue act, not a request"}
+    maybe: {exclude: "dialogue act, not a request"}
+    cancel: {exclude: "assistant 'cancel' command: ambiguous with cancel_order"}
+    repeat: {exclude: "dialogue act, not a request"}
+    goodbye: {exclude: "closing, not a greeting or request (v1 greeting covers greetings/thanks)"}
+    are_you_a_bot: {exclude: "may precede a human-agent request"}
+    what_can_i_ask_you: {exclude: "capability question: no v1 intent"}
+    change_language: {exclude: "language setting: ambiguous with app settings"}
+    change_accent: {exclude: "assistant setting"}
+    change_speed: {exclude: "assistant setting"}
+    change_ai_name: {exclude: "assistant setting"}
+    user_name: {exclude: "assistant user name: ambiguous with account_help"}
+    change_user_name: {exclude: "ambiguous with account_help"}
+    whisper_mode: {exclude: "assistant setting"}
+    reset_settings: {exclude: "ambiguous with app settings"}
+    sync_device: {exclude: "ambiguous with app_help"}
+
+# External grounded-response component (ADR-043, DATA_CONTRACTS §20.1). doc2dial documents are
+# US government service pages: their rules are evidence only inside `namespace`, never in the
+# SupportPilot KB, and a target is a writer's response to the cited spans.
+grounded:
+  source_id: doc2dial
+  namespace: doc2dial_external
+  origin: human_written
+  evidence: >-
+    Feng et al. 2020 (EMNLP, §2.1): about 70 qualified appen.com contributors wrote every user
+    and agent utterance from a dialogue scene naming the document span to ground it in; the
+    span references are the writer's own grounding, not an independent verification.
+  acts:
+    respond_solution: answer
+    respond_solution_positive: answer
+    respond_solution_negative: answer
+    query_condition: clarify
+  min_evidence_recall: 0.5

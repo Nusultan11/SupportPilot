@@ -38,6 +38,7 @@ import numpy as np
 import numpy.typing as npt
 import polars as pl
 import pyarrow as pa
+import pyarrow.parquet as pq
 import yaml
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
@@ -62,14 +63,19 @@ from supportpilot.data.textnorm import (
     word_count,
 )
 
-HUMAN_VERSION = 1
+HUMAN_VERSION = 2
 SCHEMA = "human_example/1"
-ACTIVE_ORIGINS = frozenset({"human_roleplay", "human_written", "human_localised"})
+# `human_spoken_asr`: a person spoke the request; the text is an automatic transcription of
+# that speech (human wording, machine transcription, ASR errors kept). Not a translation.
+ACTIVE_ORIGINS = frozenset(
+    {"human_roleplay", "human_written", "human_localised", "human_spoken_asr"}
+)
 FORBIDDEN_ORIGINS = frozenset({"machine_translated", "llm_generated", "post_edited", "original"})
 LABEL_STATUS = "source_label_mapped"
 REVIEW_STATUS = "unreviewed"
 TARGET_STATUS = "no_human_target"
 SPLITS = ("train", "validation", "test")
+HELDOUT = ("validation", "test")
 FILES = (*(f"{s}.parquet" for s in SPLITS), "unverified.parquet", "excluded.parquet")
 Encoder = Callable[[Sequence[str]], npt.NDArray[np.float32]]
 
@@ -103,6 +109,7 @@ class HumanLabel(_Model):
     action: str | None = None
     rules: list[HumanRule] = Field(default_factory=list)
     exclude: str | None = None
+    cap: int | None = Field(default=None, ge=1)  # native sources: rows per (label, language)
 
     @model_validator(mode="after")
     def _one(self) -> Self:
@@ -115,6 +122,9 @@ class Authorship(_Model):
     origin: dict[str, str] = Field(min_length=1)
     active: bool
     evidence: str = Field(min_length=20)
+    # `heldout`: rows may enter validation/test only (the publisher intends evaluation use)
+    placement: Literal["all", "heldout"] = "all"
+    max_per_label: int | None = Field(default=None, ge=1)  # overrides native_max_per_label
 
     @model_validator(mode="after")
     def _origins(self) -> Self:
@@ -124,8 +134,19 @@ class Authorship(_Model):
         return self
 
 
+class GroundedRecipe(_Model):
+    """Human-written, document-grounded responses (ADR-043): external evidence namespace."""
+
+    source_id: str
+    namespace: str = Field(min_length=3)
+    origin: Literal["human_written"]
+    evidence: str = Field(min_length=20)
+    acts: dict[str, Literal["answer", "clarify"]] = Field(min_length=1)
+    min_evidence_recall: float = Field(gt=0.0, le=1.0)
+
+
 class HumanRecipe(_Model):
-    schema_version: Literal["human_recipe/1"]
+    schema_version: Literal["human_recipe/2"]
     seed: int
     split_ratios: dict[str, float]
     family_jaccard: float = Field(gt=0.0, le=1.0)
@@ -137,16 +158,31 @@ class HumanRecipe(_Model):
     native_max_per_label: int = Field(ge=1)
     authorship: dict[str, Authorship]
     prompt_echo_patterns: list[str]
+    personal_name_patterns: list[str] = Field(default_factory=list)
     greeting_only: str
     sources: dict[str, dict[str, HumanLabel]]
+    grounded: GroundedRecipe | None = None
 
     @model_validator(mode="after")
     def _ok(self) -> Self:
         if set(self.split_ratios) != set(SPLITS) or abs(sum(self.split_ratios.values()) - 1) > 1e-9:
             raise ValueError("split_ratios must give train/validation/test summing to 1")
-        for p in (*self.prompt_echo_patterns, self.greeting_only):
+        for p in (*self.prompt_echo_patterns, *self.personal_name_patterns, self.greeting_only):
             re.compile(p)
         return self
+
+    def cap(self, source_id: str, label: str) -> int:
+        lab = self.sources.get(source_id, {}).get(label)
+        if lab is not None and lab.cap is not None:
+            return lab.cap
+        a = self.authorship.get(source_id)
+        if a is not None and a.max_per_label is not None:
+            return a.max_per_label
+        return self.native_max_per_label
+
+    def heldout_only(self, source_id: str) -> bool:
+        a = self.authorship.get(source_id)
+        return a is not None and a.placement == "heldout"
 
     def check_taxonomy(self, tax: Taxonomy) -> None:
         allowed = {*tax.actions, "needs_reference"}
@@ -402,6 +438,91 @@ def read_native(entries: Sequence[SourceEntry], data_dir: Path, recipe: HumanRec
     return rows
 
 
+# ----------------------------------------------------------------------------- raw native sources
+
+# Intent-labelled sources read straight from their pinned raw revision (ADR-043); they are not
+# Stage 3 sources, so the sealed canonical build stays byte-identical.
+
+
+def _raw_root(entry: SourceEntry, data_dir: Path) -> Path:
+    root = raw_dir(data_dir, entry)
+    if problems := verify_raw(root):
+        raise StepError(f"{entry.source_id}: raw revision fails verification: {problems[0]}")
+    return root
+
+
+def _class_names(path: Path, column: str) -> list[str]:
+    """ClassLabel names that the Hub stores in the parquet schema metadata."""
+    meta = pq.read_schema(path).metadata or {}
+    info = json.loads(meta[b"huggingface"])["info"]["features"][column]
+    return list(info["names"])
+
+
+def read_minds14(entry: SourceEntry, data_dir: Path, recipe: HumanRecipe) -> list[Row]:
+    root = _raw_root(entry, data_dir)
+    origin = recipe.authorship[entry.source_id].origin["ru"]
+    rows: list[Row] = []
+    for path in sorted(root.glob("ru-RU/*.parquet")):
+        names = _class_names(path, "intent_class")
+        table = pq.read_table(path, columns=["path", "transcription", "intent_class"])
+        for r in table.to_pylist():
+            key = Path(str(r["path"]).replace("~", "/")).stem
+            text = clean_text(str(r["transcription"] or "")).text
+            label = names[int(r["intent_class"])]
+            rows.append(
+                Row(f"{entry.source_id}:{key}", entry.source_id, "ru", origin, text, label, "train")
+            )
+    return rows
+
+
+def read_xsid(entry: SourceEntry, data_dir: Path, recipe: HumanRecipe) -> list[Row]:
+    """Only the human-translated dev/test files; `projectedTrain` (MT) is never fetched."""
+    root = _raw_root(entry, data_dir)
+    origin = recipe.authorship[entry.source_id].origin["kk"]
+    rows: list[Row] = []
+    for split in ("valid", "test"):
+        for path in sorted(root.glob(f"data/*/kk.{split}.conll")):
+            block: dict[str, str] = {}
+            for line in [*path.read_text(encoding="utf-8").splitlines(), ""]:
+                if line.startswith("# ") and " = " in line:
+                    k, v = line[2:].split(" = ", 1)
+                    block[k.strip()] = v
+                elif not line.strip() and block:
+                    text = clean_text(block.get("text", "")).text
+                    rid = f"{entry.source_id}:{split}.{block.get('id', '')}"
+                    rows.append(
+                        Row(
+                            rid, entry.source_id, "kk", origin, text, block.get("intent", ""), split
+                        )
+                    )
+                    block = {}
+    return rows
+
+
+def read_clinc(entry: SourceEntry, data_dir: Path, recipe: HumanRecipe) -> list[Row]:
+    root = _raw_root(entry, data_dir)
+    origin = recipe.authorship[entry.source_id].origin["en"]
+    rows: list[Row] = []
+    for path in sorted(root.glob("plus/*.parquet")):
+        split = path.name.split("-", 1)[0]
+        names = _class_names(path, "intent")
+        for i, r in enumerate(pq.read_table(path, columns=["text", "intent"]).to_pylist()):
+            text = clean_text(str(r["text"] or "")).text
+            rid = f"{entry.source_id}:{split}.{i}"
+            rows.append(
+                Row(rid, entry.source_id, "en", origin, text, names[int(r["intent"])], split)
+            )
+    return rows
+
+
+RAW_READERS: dict[str, Callable[[SourceEntry, Path, HumanRecipe], list[Row]]] = {
+    "minds14_ru": read_minds14,
+    "xsid_kk": read_xsid,
+    "clinc150": read_clinc,
+}
+STAGE3_NATIVE = frozenset({"massive_en_ru", "mangi_kk_support_qa"})
+
+
 # ----------------------------------------------------------------------------- labels
 
 
@@ -486,13 +607,19 @@ def families(rows: Sequence[Row], jaccard: float, seed: int) -> list[int]:
 
 
 def assign_splits(
-    groups: Mapping[str, str], ratios: Mapping[str, float], seed: int
+    groups: Mapping[str, str],
+    ratios: Mapping[str, float],
+    seed: int,
+    heldout: frozenset[str] = frozenset(),
 ) -> dict[str, str]:
     """family id -> split, stratified by intent in sha256 order (no RNG state).
-    An intent with >= 3 families gets at least one validation and one test family."""
+    An intent with >= 3 families gets at least one validation and one test family.
+    `heldout` families (evaluation-only sources) go to validation/test only, in the
+    validation:test ratio, and do not count towards the train/held-out stratification."""
     by_intent: dict[str, list[str]] = defaultdict(list)
+    held_by_intent: dict[str, list[str]] = defaultdict(list)
     for fam, intent in groups.items():
-        by_intent[intent].append(fam)
+        (held_by_intent if fam in heldout else by_intent)[intent].append(fam)
     out: dict[str, str] = {}
     for _intent, fams in sorted(by_intent.items()):
         fams.sort(key=lambda f: sha256_text(f"{seed}|split|{f}"))
@@ -502,6 +629,12 @@ def assign_splits(
             n_test, n_val = max(1, n_test), max(1, n_val)
         for i, fam in enumerate(fams):
             out[fam] = "test" if i < n_test else "validation" if i < n_test + n_val else "train"
+    share_test = ratios["test"] / (ratios["test"] + ratios["validation"])
+    for _intent, fams in sorted(held_by_intent.items()):
+        fams.sort(key=lambda f: sha256_text(f"{seed}|heldout|{f}"))
+        n_test = round(len(fams) * share_test)
+        for i, fam in enumerate(fams):
+            out[fam] = "test" if i < n_test else "validation"
     return out
 
 
@@ -611,17 +744,27 @@ def build_rows(inp: BuildInputs) -> BuildResult:
         abcd_rows, abcd_excluded = read_abcd(by_id["abcd"], inp.data_dir, recipe)
         rows += abcd_rows
         excluded += abcd_excluded
-    rows += read_native([by_id[s] for s in recipe.authorship if s != "abcd"], inp.data_dir, recipe)
+    rows += read_native(
+        [by_id[s] for s in recipe.authorship if s in STAGE3_NATIVE], inp.data_dir, recipe
+    )
+    for sid in recipe.authorship:
+        if sid in RAW_READERS:
+            rows += RAW_READERS[sid](by_id[sid], inp.data_dir, recipe)
+    unknown = set(recipe.authorship) - {"abcd", *STAGE3_NATIVE, *RAW_READERS}
+    if unknown:
+        raise StepError(f"no reader for recipe sources {sorted(unknown)}")
     read_counts = Counter(r.source_id for r in rows) + Counter(x["source_id"] for x in excluded)
 
     unverified: list[tuple[Row, str]] = []
     echo = [re.compile(p, re.IGNORECASE) for p in recipe.prompt_echo_patterns]
+    names = [re.compile(p, re.IGNORECASE) for p in recipe.personal_name_patterns]
 
     # 1. text quality and label mapping
     lid = inp.lid([r.text for r in rows])
     kept: list[Row] = []
     for r, (lang, conf, cs, langs) in zip(rows, lid, strict=True):
-        r.lid_conf, r.code_switch, r.langs = conf, cs, sorted(langs)
+        # rounded: the detector can differ in the last float ulp between runs
+        r.lid_conf, r.code_switch, r.langs = round(conf, 6), cs, sorted(langs)
         d = map_label(recipe, tax, r)
         if d.status != "mapped":
             excluded.append(
@@ -639,6 +782,8 @@ def build_rows(inp: BuildInputs) -> BuildResult:
             reason = "too_short"
         elif any(p.search(r.text) for p in echo):
             reason = "prompt_echo"
+        elif any(p.search(r.text) for p in names):
+            reason = "possible_personal_name"
         elif lang != r.lang and not cs:
             reason = "language_mismatch"
         if reason is not None:
@@ -684,7 +829,7 @@ def build_rows(inp: BuildInputs) -> BuildResult:
     for _cap, idx in sorted(cap_groups.items()):
         seen: set[int] = set()
         for i in idx:
-            if len(seen) < recipe.native_max_per_label and comp[i] not in seen:
+            if len(seen) < recipe.cap(_cap[0], _cap[1]) and comp[i] not in seen:
                 native_keep.add(i)
                 seen.add(comp[i])
     final: list[Row] = []
@@ -700,7 +845,8 @@ def build_rows(inp: BuildInputs) -> BuildResult:
                     r.lang,
                     r.text,
                     "label_cap",
-                    f"one per family, at most {recipe.native_max_per_label} per label/lang",
+                    f"one per family, at most {recipe.cap(r.source_id, r.source_label)}"
+                    " per label/lang",
                 )
             )
     comp = families(final, recipe.family_jaccard, recipe.seed)  # aligned EN/RU stay together
@@ -767,7 +913,8 @@ def build_rows(inp: BuildInputs) -> BuildResult:
 
     # 6. family-disjoint stratified split, then cross-split semantic decontamination
     fam_intent = {r.family_id: r.intent or "" for r in active}
-    split_of = assign_splits(fam_intent, recipe.split_ratios, recipe.seed)
+    heldout = frozenset(r.family_id for r in active if recipe.heldout_only(r.source_id))
+    split_of = assign_splits(fam_intent, recipe.split_ratios, recipe.seed, heldout)
     for r in active:
         r.split = split_of[r.family_id]
     cross = 0

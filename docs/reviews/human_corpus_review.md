@@ -74,3 +74,92 @@ KK or mixed RU–KK, or 15 intents. Completion of the original goal therefore re
 PARTIAL: closing it needs licensed human RU/KK/mixed requests, independent fluent label review
 and human-written answers grounded in this store's KB/tools (owner decisions on any paid,
 gated or external resource).
+
+## 5. Extension (ADR-043, 2026-11-17)
+
+Sections 1–4 record the original ADR-042 delivery and stay unchanged. Active corpus is now
+`human-20261117-fedfa10a`; raw evidence in its `{stats,quality_report,manifest}.json`.
+
+### 5.1 Sources examined in this round
+
+| Source | Human authorship evidence | Rights | Decision |
+|---|---|---|---|
+| MINDS-14 ru-RU (PolyAI @40ce77cb) | native speakers spoke new requests (Prolific); Google-ASR 1-best text | CC BY 4.0 | **Active**, origin `human_spoken_asr`; bank-only intents → out_of_scope, app/address → technical_issue/change_address; card/bill/debit/history excluded |
+| xSID 0.7 kk dev/test (mainlp/xsid @761d926c) | native-speaker translations of Snips/Facebook (paper §2.2); MT `projectedTrain` not fetched | CC BY-SA 4.0 | **Active, held-out only** (authors: evaluation data), out_of_scope |
+| CLINC150 plus (clinc/clinc_oos @155b9c71) | crowd-written queries (Larson et al. 2019) | CC BY 3.0 | **Active**: greeting/thanks, card-declined, order-status, out-of-scope domains; ambiguous banking/meta labels excluded |
+| doc2dial v1.0.1 (shared-task repo @7584ac0c) | ~70 appen.com contributors wrote all utterances from span-annotated scenes | CC BY 3.0 (IBM card; host repo has no licence file) | **Active grounded component**, namespace `doc2dial_external` |
+| mangi kk support QA | card now says "hand-curated"; authorship of the questions still undocumented | CC BY 4.0 | Unchanged: unverified only |
+| KRCS kk–ru code-switching | social-media posts + bilingual normalisations | curator Apache-2.0 ≠ authors' rights | Not acquired (style reference only) |
+| TilQazyna til-kk-intent | LLM-teacher synthetic | Apache-2.0, gated | Rejected |
+| Denn231 grocery complaints | apparently real customer messages with order numbers | none | Rejected (rights, personal data) |
+| sfbalaba ru messages | undocumented | none | Rejected |
+| Russian MultiWOZ | translation method undocumented; hotel/travel domains | MIT | Rejected |
+| FutureBeeAI RU retail chats | 150 native speakers (vendor claim) | commercial licence only | Not contacted: paid/external resource needs owner approval |
+
+No openly licensed corpus of natural Kazakh or mixed RU–KK store requests was found. The KK rows
+are translations of assistant commands; the natural RU rows are spoken e-banking requests.
+
+### 5.2 Measured result (`human-20261117-fedfa10a`)
+
+| Measure | `3f1ed9e4` | `fedfa10a` |
+|---|---|---|
+| Active intent rows (train / validation / test) | 5,083 (3,484 / 775 / 824) | 6,512 (4,197 / 1,133 / 1,182) |
+| Independent family/scenario groups | 4,743 | 6,173 |
+| EN / RU / KK / RU–KK mixed | 4,356 / 727 / 0 / 0 | 5,103 / 896 / 513 (validation 256, test 257) / 0 |
+| Origins | roleplay 3,595; written 761; localised 727 | roleplay 3,584; written 1,519; localised 1,242; spoken_asr 167 |
+| Intents covered (all; RU; KK) | 20; 2; 0 | 20; 5 (out_of_scope 866, technical_issue 14, change_address 13, greeting 2, account_help 1); 1 (out_of_scope) |
+| Unverified / excluded | 1,357 / 35,984 | 1,515 / 59,586 (label_cap 35,357; no v1 meaning 19,922) |
+| Historical overlap removed | exact 359, lexical 5, e5 456 | exact 365, lexical 5, e5 506 |
+| Grounded human responses | none | 17,710 EN (answer 14,292; clarify 3,418; 451 documents; train/val/test 14,023 / 1,887 / 1,800) |
+
+Grounded component: 26,254 agent turns read; 1,851 without a preceding user turn and 125
+historical overlaps excluded; unverified 6,568 (weak evidence overlap 5,723, contact pattern 833,
+placeholder/corrupted 12). Evidence-recall quantiles of trusted rows: p10 0.571, p50 0.846.
+
+Still missing everywhere (15): app_help, cancel_order, cart_help, contact_info, delivery_time,
+feedback, human_agent, invoice, newsletter, order_history, payment_methods, personal_data,
+place_order, product_defect, unclear. No open human source with these store intents in RU/KK
+was found; none was synthesised. KK is evaluation-only out-of-scope; mixed RU–KK remains 0.
+
+### 5.3 Audits (agent review, not human verification)
+
+- Intent rows, sample A (80 new-source rows, seed 20261117): 2 disputable labels (a "joint
+  account" and an "existing credit" request that need not be bank-only); rules now require bank
+  cues. Sample B (60 rows, seed 2, after the fix): 1 disputable ("pay for things in America"
+  may be a payment-method question); the `abroad` rule now requires a card/bank cue. Residual
+  noise of the new sources after these fixes is not measured; ABCD's ~5% estimate (§3) stands.
+- Spoken RU rows keep ASR errors (e.g. misrecognised words); they are natural phrasing, not
+  clean text. Two self-introduced names and English-language transcripts went to unverified.
+- Grounded, sample C (30 rows, threshold 0.3): about 2 of 24 answers added details absent from
+  the cited spans and 3 of 6 clarifications were flow-driven rather than responsive; the
+  threshold was raised to 0.5 for all behaviours. Sample D (24 rows, threshold 0.5): one
+  placeholder query ("Null", now filtered) and one answer with an unsupported "Yes" lead-in.
+  Treat roughly 5–10% of grounded targets as containing unsupported or loosely responsive text.
+
+### 5.4 Attempts and limitations
+
+Development builds `f71079a6` (name filter false positives, merchant leaks in card-declined),
+`673d9304` (grounded threshold 0.3) and `fb63fc50` (before the `abroad`/placeholder fixes) are
+retained, superseded. `ac402a4c` and `0db117f2` have identical rows and stats but differed in
+the last float digit of one LID confidence between runs; `lid_conf` is now rounded to 6 digits, and
+`fedfa10a` rebuilds byte-identically (second run `skipped`). Both are retained as the
+reproducibility attempt. No model was trained or evaluated; no ML quality change is claimed.
+Grounded targets teach the behaviour of answering from cited evidence in another domain; their
+facts must never be served as store facts. Closing the remaining gaps needs licensed natural
+RU/KK/mixed store requests, independent fluent label review and human-written answers grounded
+in this store's KB/tools — each an owner decision on paid, gated or external resources.
+
+### 5.5 Owner decision: external resources for the remaining gaps
+
+No contact, purchase or data transfer was made. Prices and terms below are UNKNOWN until a
+supplier is asked, and asking needs the owner's approval (AGENTS §4; DECISIONS open decisions).
+
+| Option | What it would close | Verified so far | Needed from the owner |
+|---|---|---|---|
+| A. FutureBeeAI "Russian Retail & E-Commerce chat" (catalogue page) | natural RU store requests, many intents, human agent replies | vendor states 10,000+ chats by 150 native speakers; commercial licence, price not published | approve a quotation request; then terms, custody, PII and price review before any purchase |
+| B. Custom KK and mixed RU–KK collection (same or another vendor) | KK and RU–KK store requests for all 35 intents | vendor advertises custom call-centre/chat collection in 100+ languages; Kazakh availability not confirmed | approve an inquiry with a generic brief (no project data) |
+| C. mangi full ~10K KK QA | more KK support questions | public sample's authorship is undocumented; full set is a separate paid licence | only worth asking if the vendor can document human authorship in writing |
+| D. Fluent native reviewers (paid or volunteer) | independent label review; human store-grounded answers from our KB | none recruited (prohibited without approval) | approve recruitment, budget and a review protocol |
+
+Recommendation: decide B and D first; they are the only routes to KK/mixed coverage and to
+answers grounded in this store's KB. A alone adds RU only.

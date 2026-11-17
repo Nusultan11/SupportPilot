@@ -30,6 +30,7 @@ from supportpilot.data.human import (
     HUMAN_VERSION,
     SCHEMA,
     SPLITS,
+    STAGE3_NATIVE,
     TARGET_STATUS,
     BuildInputs,
     HumanRecipe,
@@ -37,6 +38,15 @@ from supportpilot.data.human import (
     pii_hits,
     write_outputs,
 )
+from supportpilot.data.humangrounded import (
+    GROUNDED_SCHEMA,
+    GROUNDING_STATUS,
+    build_grounded,
+    grounded_stats,
+    write_grounded,
+)
+from supportpilot.data.humangrounded import SPLITS as GROUNDED_SPLITS
+from supportpilot.data.humangrounded import pii_hits as grounded_pii
 from supportpilot.data.policy import PolicyError, Purpose, check_use
 from supportpilot.data.split import exact_leaks, lexical_leaks, ngram_leaks
 from supportpilot.data.steps import MANIFEST, StepError, commit, partial_dir, read_manifest
@@ -134,6 +144,15 @@ def run_gates(
     ]
     gates.append(_gate("labels", not bad_label, len(bad_label), 0, examples=bad_label[:5]))
 
+    misplaced = [
+        r["example_id"]
+        for r in rows
+        if recipe.heldout_only(r["source_id"]) and r["split"] == "train"
+    ]
+    gates.append(
+        _gate("heldout_placement", not misplaced, len(misplaced), 0, examples=misplaced[:5])
+    )
+
     pii = [
         r["example_id"]
         for r in [*rows, *unv.to_dicts()]
@@ -195,8 +214,98 @@ def run_gates(
             sft_target_status=dict(targets),
         )
     )
+    if recipe.grounded is not None:
+        gates.extend(grounded_gates(build, entries, recipe, history, build_report))
     ok = all(g["status"] == "pass" for g in gates)
     return {"status": "pass" if ok else "fail", "gates": gates}
+
+
+def grounded_gates(
+    build: Path,
+    entries: Sequence[SourceEntry],
+    recipe: HumanRecipe,
+    history: Sequence[str],
+    build_report: dict[str, Any],
+) -> list[dict[str, Any]]:
+    """Gates of the external grounded-response component (ADR-043)."""
+    g = recipe.grounded
+    assert g is not None
+    df = pl.concat([pl.read_parquet(build / f"grounded_{s}.parquet") for s in GROUNDED_SPLITS])
+    rows = df.to_dicts()
+    unv = pl.read_parquet(build / "grounded_unverified.parquet").to_dicts()
+    reg = {e.source_id: e for e in entries}
+    out: list[dict[str, Any]] = []
+
+    prov: list[str] = []
+    try:
+        check_use(reg[g.source_id], Purpose.TRAINING)
+    except (KeyError, PolicyError) as exc:
+        prov.append(str(exc))
+    bad = [
+        r["example_id"]
+        for r in rows
+        if r["schema_version"] != GROUNDED_SCHEMA
+        or r["source_id"] != g.source_id
+        or r["origin"] != g.origin
+        or r["grounding_status"] != GROUNDING_STATUS
+        or r["namespace"] != g.namespace
+    ]
+    ids = len(rows) - len({r["example_id"] for r in rows})
+    out.append(
+        _gate(
+            "grounded_provenance_namespace",
+            not prov and not bad and ids == 0,
+            len(prov) + len(bad) + ids,
+            0,
+            problems=prov,
+            bad_rows=bad[:5],
+            duplicate_ids=ids,
+            namespace=g.namespace,
+        )
+    )
+
+    weak = []
+    for r in rows:
+        ev = json.loads(r["evidence_json"])
+        if (
+            not ev
+            or any(not e.get("text") for e in ev)
+            or not r["target"].strip()
+            or not r["query"].strip()
+            or r["evidence_recall"] < g.min_evidence_recall
+        ):
+            weak.append(r["example_id"])
+    out.append(_gate("grounded_evidence", not weak, len(weak), 0, examples=weak[:5]))
+
+    pii = [
+        r["example_id"]
+        for r in rows
+        if grounded_pii(r["query"]) or grounded_pii(r["target"]) or grounded_pii(r["context_json"])
+    ]
+    out.append(_gate("grounded_pii", not pii, len(pii), 0, examples=pii[:5]))
+
+    fam = df.group_by("family_id").agg(pl.col("split").n_unique().alias("n"))
+    crossing = int((fam["n"] > 1).sum()) if fam.height else 0
+    out.append(_gate("grounded_split_isolation", crossing == 0, crossing, 0, documents=crossing))
+
+    texts = [r["query"] for r in [*rows, *unv]] + [r["target"] for r in [*rows, *unv]]
+    h_exact = len(exact_leaks(history, texts))
+    h_lex = len(lexical_leaks(history, texts, threshold=recipe.leak_jaccard, seed=recipe.seed))
+    h_ngram = len(ngram_leaks(history, texts, recipe.leak_ngram))
+    sem_ok = bool(build_report.get("grounded", {}).get("semantic_checked"))
+    out.append(
+        _gate(
+            "grounded_historical_leakage",
+            h_exact + h_lex + h_ngram == 0 and sem_ok,
+            h_exact + h_lex + h_ngram,
+            0,
+            exact=h_exact,
+            lexical=h_lex,
+            ngram=h_ngram,
+            semantic_checked=sem_ok,
+        )
+    )
+    return out
 
 
 def corpus_stats(
@@ -262,6 +371,8 @@ def corpus_stats(
         "review_status": dict(Counter(df["review_status"].to_list())),
         "build": build_report,
     }
+    if (build / "grounded_train.parquet").is_file():
+        stats["grounded"] = grounded_stats(build, build_report.get("grounded", {}))
     if previous is not None and previous.is_dir():
         prev = pl.concat(
             [
@@ -304,7 +415,7 @@ def build_human(
         f"{e.source_id}@{e.revision}" for e in inp.entries if e.source_id in recipe.authorship
     )
     inputs = list(sources)
-    if any(sid != "abcd" for sid in recipe.authorship):  # native rows come from Stage 3
+    if any(sid in STAGE3_NATIVE for sid in recipe.authorship):  # rows come from Stage 3
         inputs.append(f"canonical@{read_manifest(canonical_dir(inp.data_dir)).dataset_version}")
     params = {
         "human_version": HUMAN_VERSION,
@@ -314,9 +425,43 @@ def build_human(
         "history_files": [p.relative_to(inp.data_dir).as_posix() for p in inp.history_paths],
         "semantic_checked": inp.encode is not None,
     }
+    grounded = None
+    g = recipe.grounded
+    if g is not None:
+        by_id = {e.source_id: e for e in inp.entries}
+        if g.source_id not in by_id:
+            raise StepError(f"grounded source {g.source_id} is not in the registry")
+        check_use(by_id[g.source_id], Purpose.TRAINING)
+        grounded = build_grounded(
+            by_id[g.source_id],
+            inp.data_dir,
+            dict(g.acts),
+            g.min_evidence_recall,
+            dict(recipe.split_ratios),
+            recipe.seed,
+            history=history,
+            leak_jaccard=recipe.leak_jaccard,
+            leak_ngram=recipe.leak_ngram,
+            leak_cosine=recipe.leak_cosine,
+            encode=inp.encode,
+        )
+        result.report["grounded"] = grounded.report
+        inputs.append(f"{g.source_id}@{by_id[g.source_id].revision}")
     with partial_dir(root / "build") as partial:
         out = write_outputs(partial, result, recipe)
-        version = make_dataset_version("human", datetime.now(UTC).date(), out["content_sha256"])
+        content = out["content_sha256"]
+        if grounded is not None and g is not None:
+            gout = write_grounded(
+                partial,
+                grounded,
+                source_id=g.source_id,
+                origin=g.origin,
+                evidence_text=g.evidence,
+                namespace=g.namespace,
+            )
+            content = sha256_text(f"{content}|grounded|{gout['content_sha256']}")
+            out["row_counts"]["grounded"] = len(gout["active"])
+        version = make_dataset_version("human", datetime.now(UTC).date(), content)
         final = root / version
         if (final / MANIFEST).is_file():
             m = read_model_json(final / MANIFEST, DatasetManifest)
@@ -342,7 +487,7 @@ def build_human(
             inputs=inputs,
             params=params,
             row_counts=out["row_counts"],
-            content_sha256=out["content_sha256"],
+            content_sha256=content,
             quality_report="quality_report.json",
             gate=gate,
         )
@@ -356,6 +501,7 @@ def build_human(
         "excluded": stats["excluded"],
         "lang": stats["lang"],
         "intents_covered": stats["intents_covered"],
+        "grounded": stats.get("grounded", {}).get("active"),
     }
 
 
