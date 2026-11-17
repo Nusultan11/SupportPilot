@@ -16,6 +16,11 @@
 - Gold review levels: `draft` · `llm_reviewed` · `human_reviewed` · `verified`.
   `verified` needs an independent fluent human reviewer (RU/KK fluent for those languages).
   An LLM's own check is never independent review.
+- Independent label review (ADR-049, `data review`): blind relabelling by a fluent reviewer who
+  did not write the rows; a seeded ≥ 10 % (plan: 20 %) is relabelled by a second reviewer.
+  Report per stratum: agreement with the corpus label (Wilson 95% CI), Cohen's kappa
+  (< 0.6 → labels of that stratum are not `human_reviewed`), language-OK and natural rates,
+  every disagreement. A stratum without a filled sheet stays `NOT_EVALUATED`.
 
 ## 2. Metrics
 

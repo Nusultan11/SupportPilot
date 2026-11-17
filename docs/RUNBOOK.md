@@ -60,6 +60,22 @@ uv run supportpilot data corpus verify [<data/corpus/version>]
   `corpus verify` re-hashes against the manifest (default: the latest version).
   Read `REPORT.md` in the version directory.
 
+### 4.1 Commissioned data and independent review (ADR-049, [COLLECTION](COLLECTION.md))
+
+```powershell
+uv run supportpilot data collection briefs [--out <dir>]
+uv run supportpilot data collection check <delivery-dir>
+uv run supportpilot data collection intake <delivery-dir>
+uv run supportpilot data review package [--corpus <dir>] [--strata a,b] [--out <dir>]
+uv run supportpilot data review score <package-dir> --reviewer-a <id> --reviewer-b <id>
+```
+
+- `check` exits 1 on any blocking problem. Before `intake`, add the registry entry
+  (`fetch.type: delivery`, `revision` = the reported `content_sha256`) and the recipe entry
+  (`reader: commissioned`), then run `data corpus build`.
+- `key.csv` never goes to reviewers. `score` writes `review_report.json` and `REVIEW.md`
+  into the package directory.
+
 ## 5. Code backup
 
 ```powershell

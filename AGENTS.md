@@ -80,6 +80,7 @@ Tests that create Git repositories use the system temp directory, never the chec
 | Metrics, experiment rules | [EVALUATION](docs/EVALUATION.md) |
 | Decisions | [DECISIONS](docs/DECISIONS.md) |
 | Commands | [RUNBOOK](docs/RUNBOOK.md) |
+| Commissioned data process | [COLLECTION](docs/COLLECTION.md) |
 
 - Change behaviour → update its owning doc. Link; never copy rules, commands or results.
 - PROGRESS is a short current state, not a log.

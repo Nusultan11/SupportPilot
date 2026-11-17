@@ -18,6 +18,8 @@ A Python CLI (`supportpilot`) over local files. No online service yet.
 | `data/dedup.py` | MinHash/LSH near-duplicates, union-find groups |
 | `data/corpus.py` | Corpus build: gates, splits, leakage checks, reports, publish |
 | `data/records.py` | Corpus record and manifest contracts |
+| `data/collection.py` | Commissioned collection: briefs, delivery checks, intake, reader (ADR-049) |
+| `data/review.py` | Blind independent review packages, agreement and kappa scores (ADR-049) |
 | `ops/` | Backups (tar + SHA256), environment report, MLflow health check |
 | `cli.py` | Argument parsing and orchestration only |
 
@@ -27,7 +29,7 @@ Dependency direction: `cli` → `data`, `ops` → `common`. `common` imports not
 
 | Store | Content | Rule |
 |---|---|---|
-| `configs/` | Settings, source registry, taxonomy | In Git |
+| `configs/` | Settings, source registry, taxonomy, corpus recipe, collection plan | In Git |
 | `data/raw/<source>/<revision>/` | Original files + manifest | Immutable |
 | `data/corpus/<version>/` | Stage 1 corpus (DATA_CONTRACTS §7) | Immutable, versioned |
 | `artifacts/`, `mlruns/` | Retired evidence, future models/reports | Ignored |

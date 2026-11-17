@@ -164,6 +164,10 @@ def cmd_data(args: argparse.Namespace, settings: Settings) -> int:
         return 0
     if args.action == "corpus":
         return _cmd_corpus(args, settings, data_dir)
+    if args.action == "collection":
+        return _cmd_collection(args, settings, data_dir)
+    if args.action == "review":
+        return _cmd_review(args, settings, data_dir)
     entries = _selected_entries(args, settings)
     if args.action == "acquire":
         results = []
@@ -219,6 +223,74 @@ def _cmd_corpus(args: argparse.Namespace, settings: Settings, data_dir: Path) ->
     problems = verify_corpus(path)
     _emit({"path": str(path), "ok": not problems, "problems": problems})
     return 1 if problems else 0
+
+
+def _cmd_collection(args: argparse.Namespace, settings: Settings, data_dir: Path) -> int:
+    from supportpilot.common.io import atomic_write_text
+    from supportpilot.data import collection as col
+    from supportpilot.data.taxonomy import load_taxonomy
+
+    plan = col.load_plan(settings.resolve(settings.data.collection_plan))
+    taxonomy = load_taxonomy(settings.resolve(settings.data.taxonomy))
+    if args.collection_action == "briefs":
+        briefs = col.make_briefs(plan, taxonomy)
+        out = (
+            Path(args.out)
+            if args.out
+            else settings.resolve(settings.paths.artifacts_dir) / "collection" / plan.plan_id
+        )
+        atomic_write_text(out / col.BRIEFS_FILE, col.briefs_csv(briefs))
+        atomic_write_text(out / col.ROWS_FILE, ",".join(col.ROW_COLUMNS) + "\n")
+        _emit({"path": str(out), "briefs": len(briefs), "slices": sorted(plan.slices)})
+        return 0
+    path = Path(args.path)
+    if args.collection_action == "check":
+        report = col.check_delivery(path, plan, taxonomy)
+    else:
+        entry = load_source_registry(settings.resolve(settings.data.registry)).get(plan.source_id)
+        report = col.intake_delivery(path, data_dir, entry, plan, taxonomy)
+    _emit(report.model_dump())
+    return 0 if report.ok else 1
+
+
+def _cmd_review(args: argparse.Namespace, settings: Settings, data_dir: Path) -> int:
+    from supportpilot.common.io import atomic_write_text
+    from supportpilot.data import review
+    from supportpilot.data.acquire import raw_dir
+    from supportpilot.data.collection import load_plan, writers_by_example
+    from supportpilot.data.corpus import latest_corpus, load_examples
+    from supportpilot.data.taxonomy import load_taxonomy
+
+    plan = load_plan(settings.resolve(settings.data.collection_plan))
+    if args.review_action == "package":
+        corpus = Path(args.corpus) if args.corpus else latest_corpus(data_dir / "corpus")
+        out = (
+            Path(args.out)
+            if args.out
+            else settings.resolve(settings.paths.artifacts_dir) / "review" / corpus.name
+        )
+        only = frozenset(args.strata.split(",")) if args.strata else None
+        files = review.make_package(load_examples(corpus), plan, only)
+        for name, text in files.items():
+            atomic_write_text(out / name, text)
+        _emit({"path": str(out), "rows": files["key.csv"].count("\n") - 1})
+        return 0
+    path = Path(args.path)
+    registry = load_source_registry(settings.resolve(settings.data.registry))
+    writers: dict[str, str] = {}
+    known = {s.source_id: s for s in registry.sources}
+    if plan.source_id in known:
+        raw = raw_dir(data_dir, known[plan.source_id])
+        if raw.is_dir():
+            writers = writers_by_example(raw, plan.source_id)
+    tax = load_taxonomy(settings.resolve(settings.data.taxonomy))
+    report = review.score_review(
+        path, args.reviewer_a, args.reviewer_b, plan, frozenset(tax.intents), writers
+    )
+    atomic_write_text(path / "review_report.json", report.model_dump_json(indent=2) + "\n")
+    atomic_write_text(path / "REVIEW.md", review.report_markdown(report))
+    _emit(report.model_dump())
+    return 0 if not report.problems else 1
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -277,6 +349,26 @@ def build_parser() -> argparse.ArgumentParser:
     csub.add_parser("build", help="raw sources -> data/corpus/<version>/ (reuses identical)")
     cv = csub.add_parser("verify", help="re-hash a published corpus against its manifest")
     cv.add_argument("path", nargs="?", help="corpus directory (default: latest)")
+    co = dsub.add_parser("collection", help="commissioned native-speaker data (ADR-049)")
+    cosub = co.add_subparsers(dest="collection_action", required=True)
+    cb = cosub.add_parser("briefs", help="scenario briefs + empty rows.csv for writers")
+    cb.add_argument("--out", help="directory (default: artifacts/collection/<plan_id>)")
+    for name, helptext in (
+        ("check", "run all intake checks on a delivery directory"),
+        ("intake", "check, then copy the delivery into immutable data/raw"),
+    ):
+        cc = cosub.add_parser(name, help=helptext)
+        cc.add_argument("path", help="delivery directory")
+    rv = dsub.add_parser("review", help="independent blind label review (ADR-049)")
+    rvsub = rv.add_subparsers(dest="review_action", required=True)
+    rp = rvsub.add_parser("package", help="blind reviewer sheets + owner key")
+    rp.add_argument("--corpus", help="corpus directory (default: latest)")
+    rp.add_argument("--out", help="directory (default: artifacts/review/<corpus version>)")
+    rp.add_argument("--strata", help="comma-separated stratum names (default: all)")
+    rs = rvsub.add_parser("score", help="agreement, kappa and disagreements of filled sheets")
+    rs.add_argument("path", help="package directory with filled sheet_a/sheet_b")
+    rs.add_argument("--reviewer-a", required=True, help="pseudonymous id of reviewer A")
+    rs.add_argument("--reviewer-b", required=True, help="pseudonymous id of reviewer B")
     dt.set_defaults(func=cmd_data)
     return p
 
@@ -291,8 +383,10 @@ def main(argv: Sequence[str] | None = None) -> int:
     configure_logging(settings.logging)
     log.debug("start", extra={"command": args.command, "at": datetime.now(UTC).isoformat()})
     from supportpilot.data.acquire import AcquireError
+    from supportpilot.data.collection import CollectionError
     from supportpilot.data.corpus import CorpusError
     from supportpilot.data.policy import PolicyError
+    from supportpilot.data.review import ReviewError
 
     try:
         return int(args.func(args, settings))
@@ -300,6 +394,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         backup.BackupError,
         AcquireError,
         CorpusError,
+        CollectionError,
+        ReviewError,
         PolicyError,
         FileNotFoundError,
         ValueError,

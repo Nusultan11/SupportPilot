@@ -28,7 +28,7 @@ Every investigated source is listed, including rejected ones with the reason.
 | `access` | `public` or `gated` (needs `HF_TOKEN`) |
 | `languages`, `size`, `reviewed_at` | |
 | `purpose`, `decision`, `notes` | why it is used or rejected |
-| `fetch` | `{type: hf_dataset \| github_repo, repo_id, include}`; required when `selected` |
+| `fetch` | `{type: hf_dataset \| github_repo \| delivery, repo_id, include}`; required when `selected`; `delivery` has no `repo_id` and pins `revision` to its content sha256 (§10) |
 
 Minimum `allowed_use` per step (`data/policy.py`): acquire, convert, analysis → `reference_only`
 (acquire also needs status ≠ `rejected`); evaluation → `eval_only`; training → `train`.
@@ -83,7 +83,7 @@ A rebuild with identical content reuses a verified version and never overwrites 
 | `grounded/{train,validation,test}.jsonl` | `grounded_turn/1` |
 | `reports/stats.json`, `REPORT.md` | per-language counts, gaps, leakage checks |
 | `reports/near_duplicate_pairs.tsv` | verified near-duplicate pairs |
-| `review/sample_{lang}.csv` | blind sheets for an independent fluent reviewer |
+| `review/sample_{lang}.csv` | verification sheets (label shown) for a fluent reviewer; agreement needs the blind package (§10) |
 | `manifest.json` | `corpus_manifest/1` |
 
 `content_sha256` = SHA256 of the sorted `path\tsha256\n` lines of all files except
@@ -118,3 +118,30 @@ Actions: taxonomy default; `needs_reference` → `call_tool` with an order refer
 - No group, family, parallel id, exact text or near-duplicate pair crosses splits; `heldout`
   sources never reach train; grounded document families do not cross splits; no residual PII.
 - Grounded rows keep contact values printed in their own document; others are masked.
+
+## 10. Commissioned collection (`configs/collection.yaml`, ADR-049)
+
+Code: `data/collection.py`, `data/review.py`. Process and contractor terms: [COLLECTION](COLLECTION.md).
+
+- Plan `collection_plan/1`: slices (`ru`, `kk`, `ru_kk`; language, `code_switch`, required native
+  languages), `scenarios_per_intent`, `writers_per_scenario`, `min_writers_per_slice`, flag
+  thresholds, facet lists and the review strata.
+- Brief: `sc-{intent}-{nn}`, taxonomy description + seeded facets; never an example sentence.
+- Delivery directory: `delivery.json` (`commissioned_delivery/1`: plan, batch, vendor, licence
+  `commissioned-assignment` + clause, pseudonymous contributors with native/fluent languages,
+  country, contract reference, passed screening test, five signed attestations),
+  `briefs.csv` (must equal the plan's briefs), `rows.csv`
+  (`row_id, writer_id, brief_id, slice, lang, text, duration_sec`; `lang` = dominant language).
+- Blocking checks: schema, attestations, screening, writer role and language competence, brief,
+  slice language, PII pattern, exact duplicate, one row per writer per scenario and slice,
+  flagged share (language guess, code-switch mismatch, `duration_sec` below minimum,
+  near-duplicate across writers) above `max_flagged_fraction`. Coverage below target is a warning.
+- Registry: `fetch.type: delivery` (no `repo_id`), `revision` = delivery content sha256
+  (sorted `path\tsha256` lines). Intake copies the unchanged delivery to
+  `data/raw/{source_id}/{revision}/` with a raw manifest.
+- Corpus: recipe `reader: commissioned`; `source_item_id = {slice}-{row_id}`, `source_split` =
+  slice, split unit = brief (all slices and writers of a scenario share one split), origin
+  `human_written`. Real identities and signed contracts stay outside the repository.
+- Review package: `sheet_a.csv` (all sampled rows, blind: no label), `sheet_b.csv`
+  (seeded `double_label_fraction`), `key.csv` (owner only). Scores: `review_report.json`,
+  `REVIEW.md`.

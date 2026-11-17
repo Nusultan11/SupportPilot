@@ -75,6 +75,7 @@ class LabelSpec(_Model):
 
 class SourceRecipe(_Model):
     kind: Literal["intent", "grounded"] = "intent"
+    reader: Literal["commissioned"] | None = None  # shared reader; default: by source_id
     active: bool = True
     inactive_reason: str | None = None
     domain: str

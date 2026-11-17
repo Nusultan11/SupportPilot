@@ -85,6 +85,8 @@ LICENCE_MAX_USE: dict[str, AllowedUse] = {
     "apache-2.0": AllowedUse.TRAIN,
     "cc-by-nc-4.0": AllowedUse.EVAL_ONLY,
     "cc-by-nc-sa-4.0": AllowedUse.EVAL_ONLY,
+    # commissioned work: the contract assigns all rights, incl. ML training/evaluation (ADR-049)
+    "commissioned-assignment": AllowedUse.TRAIN,
     "unknown": AllowedUse.BLOCKED,
     "conflicting": AllowedUse.BLOCKED,  # declared licence contradicts the upstream data's licence
 }
@@ -104,11 +106,19 @@ class Access(StrEnum):
 
 class FetchSpec(_Contract):
     """`hf_dataset`: a Hugging Face dataset repo; `github_repo`: a public GitHub repository.
-    Both are pinned to a full commit sha and verified against upstream git/LFS hashes."""
+    Both are pinned to a full commit sha and verified against upstream git/LFS hashes.
+    `delivery`: a commissioned delivery taken in by `data collection intake` (ADR-049),
+    pinned to the sha256 of its content; it has no remote."""
 
-    type: Literal["hf_dataset", "github_repo"] = "hf_dataset"
-    repo_id: Annotated[str, Field(pattern=r"^[\w.-]+/[\w.-]+$")]
+    type: Literal["hf_dataset", "github_repo", "delivery"] = "hf_dataset"
+    repo_id: Annotated[str, Field(pattern=r"^[\w.-]+/[\w.-]+$")] | None = None
     include: list[NonEmptyStr] = Field(min_length=1, description="fnmatch patterns of repo files")
+
+    @model_validator(mode="after")
+    def _repo(self) -> Self:
+        if (self.repo_id is None) != (self.type == "delivery"):
+            raise ValueError("remote fetch types need repo_id; a delivery has none")
+        return self
 
 
 class SourceSize(_Contract):
@@ -149,7 +159,10 @@ class SourceEntry(_Contract):
                 raise ValueError("a blocked source cannot be selected")
             if self.fetch is None:
                 raise ValueError("a selected source needs a fetch spec")
-        if self.fetch is not None and not _GIT_SHA_RE.fullmatch(self.revision):
+        if self.fetch is not None and self.fetch.type == "delivery":
+            if not SHA256_RE.fullmatch(self.revision):
+                raise ValueError("delivery sources pin `revision` to their content sha256")
+        elif self.fetch is not None and not _GIT_SHA_RE.fullmatch(self.revision):
             raise ValueError(
                 f"{self.fetch.type} sources must pin `revision` to a full 40-char commit sha"
             )

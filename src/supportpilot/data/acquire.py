@@ -275,9 +275,14 @@ def remote_for(entry: SourceEntry) -> RemoteSource:
     """The remote implementation named by the registry fetch spec."""
     if entry.fetch is None:
         raise AcquireError(f"{entry.source_id}: no fetch spec in the registry")
+    repo_id = entry.fetch.repo_id
+    if entry.fetch.type == "delivery" or repo_id is None:
+        raise AcquireError(
+            f"{entry.source_id}: a delivery has no remote; use `data collection intake`"
+        )
     if entry.fetch.type == "github_repo":
-        return GitHubRepoRemote(entry.fetch.repo_id, entry.revision)
-    return HfDatasetRemote(entry.fetch.repo_id, entry.revision)
+        return GitHubRepoRemote(repo_id, entry.revision)
+    return HfDatasetRemote(repo_id, entry.revision)
 
 
 class HfDatasetRemote:

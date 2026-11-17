@@ -1,0 +1,97 @@
+# Commissioned native-speaker collection plan (ADR-049). Validated by
+# `supportpilot.data.collection.CollectionPlan`. Briefs are structured facets, never example
+# text: writers phrase every request in their own words. Contributors are pseudonymous.
+schema_version: collection_plan/1
+plan_id: kz-support-2026
+seed: 20261117
+source_id: commissioned_kz_2026   # registry entry created at intake (revision = content sha256)
+scenarios_per_intent: 10          # 35 intents x 10 = 350 independent scenarios
+writers_per_scenario: 3           # distinct writers per scenario and slice
+min_writers_per_slice: 6          # authors counted separately from rows and scenarios
+min_duration_sec: 15              # faster rows are flagged (possible paste)
+max_flagged_fraction: 0.05        # language/speed/near-duplicate flags per slice
+near_duplicate_jaccard: 0.7       # char-4-gram, within a slice, across writers
+
+slices:
+  ru:
+    lang: ru
+    code_switch: false
+    native: [ru]
+  kk:
+    lang: kk
+    code_switch: false
+    native: [kk]
+  ru_kk:
+    code_switch: true             # dominant language declared per row (ru or kk)
+    native: [kk, ru]
+
+facets:
+  product:
+    - smartphone
+    - laptop
+    - wireless headphones
+    - washing machine
+    - refrigerator
+    - sneakers
+    - winter jacket
+    - children's toy
+    - skin-care cosmetics
+    - electric kettle
+    - school backpack
+    - TV set
+    - coffee machine
+    - bicycle
+  customer:
+    - first-time buyer
+    - regular customer
+    - buying a gift for a relative
+    - parent ordering for a child
+    - ordering for an elderly parent
+    - small-business owner buying for the office
+  channel:
+    - chat in the store's mobile app
+    - chat on the website
+    - message in a messenger
+    - e-mail to support
+  city:
+    - Almaty
+    - Astana
+    - Shymkent
+    - Karaganda
+    - Aktobe
+    - Pavlodar
+    - a village in Turkestan region
+  mood:
+    - calm and polite
+    - in a hurry
+    - annoyed
+    - confused
+    - worried
+  length:
+    - one short line
+    - two or three sentences
+  reference:                      # used only for needs_reference intents
+    - gives an order number as <order_id>
+    - does not give an order number
+  topic:                          # used only for out_of_scope
+    - weather
+    - football results
+    - a cooking recipe
+    - school homework
+    - exchange rates in general
+    - a joke
+    - a city tourist route
+    - taxi to the airport
+    - a medical symptom
+    - a song recommendation
+
+review:
+  double_label_fraction: 0.2      # second independent reviewer; acceptance needs >= 0.1
+  min_kappa: 0.6                  # Cohen's kappa between reviewers, per stratum
+  strata:                         # blind relabelling sample per stratum (core rows only)
+    - {name: en_existing, lang: en, size: 100}
+    - {name: ru_existing, lang: ru, exclude_source: commissioned_kz_2026, size: 100}
+    - {name: kk_existing, lang: kk, exclude_source: commissioned_kz_2026, size: 100}
+    - {name: ru_commissioned, source: commissioned_kz_2026, slice: ru, size: 210}
+    - {name: kk_commissioned, source: commissioned_kz_2026, slice: kk, size: 210}
+    - {name: ru_kk_commissioned, source: commissioned_kz_2026, slice: ru_kk, size: 210}

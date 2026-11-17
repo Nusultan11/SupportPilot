@@ -33,6 +33,7 @@ from supportpilot.common.manifest import (
 )
 from supportpilot.common.schemas import Action, SourceRegistry
 from supportpilot.data.acquire import MANIFEST, raw_dir, verify_raw
+from supportpilot.data.collection import read_commissioned
 from supportpilot.data.dedup import UnionFind, near_duplicate_pairs
 from supportpilot.data.policy import Purpose, check_use
 from supportpilot.data.readers import INTENT_READERS, RawItem, doc_family, read_doc2dial
@@ -78,6 +79,9 @@ REPORTS_DIR = "reports"
 REVIEW_DIR = "review"
 LANGS = ("en", "ru", "kk")
 _NOT_HASHED = frozenset({MANIFEST, "REPORT.md"})
+
+
+_READERS = {**INTENT_READERS, "commissioned": read_commissioned}
 
 
 class CorpusError(Exception):
@@ -281,7 +285,7 @@ def _collect_intent_rows(data_dir: Path, inputs: Inputs) -> tuple[list[_Row], di
         raw = _raw_root(data_dir, inputs, source_id, purpose)
         raw_inputs[source_id] = sha256_file(raw / MANIFEST)
         revision = inputs.registry.get(source_id).revision
-        reader = INTENT_READERS[source_id]
+        reader = _READERS[src.reader or source_id]
         n = 0
         for item in reader(raw):
             n += 1
@@ -593,7 +597,8 @@ def language_report(
 
 
 def review_sample(examples: list[IntentExample], per_language: int, seed: int) -> dict[str, str]:
-    """Blind review sheets (CSV) for an independent fluent reviewer: round-robin over intents."""
+    """Verification sheets (CSV, label shown) for a fluent reviewer: round-robin over intents.
+    Blind relabelling with agreement scores is `review.make_package` (ADR-049)."""
     sheets: dict[str, str] = {}
     for lang in LANGS:
         core = [e for e in examples if e.lang == lang and e.pool is Pool.CORE]
@@ -794,6 +799,15 @@ def build_corpus(
         raise
     log.info("corpus published", extra={"version": version, **counts})
     return BuildResult(version, final, True, counts, leakage)
+
+
+def load_examples(path: Path) -> list[IntentExample]:
+    """Core intent examples of a published corpus (train, validation, test)."""
+    out: list[IntentExample] = []
+    for split in Split:
+        lines = (path / INTENTS_DIR / f"{split.value}.jsonl").read_text(encoding="utf-8")
+        out += [IntentExample.model_validate_json(x) for x in lines.splitlines() if x.strip()]
+    return out
 
 
 def latest_corpus(out_root: Path) -> Path:

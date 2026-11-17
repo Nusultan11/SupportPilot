@@ -137,3 +137,29 @@ and independent reviewers (owner decision, PROGRESS).
 Cost: none. Risk: cue rules stay heuristics; the audit sample is small and not independent.
 Rollback: the recipe is data; `379aa455` stays published and backed up.
 Revisit: commissioned or newly licensed KK / RU–KK / RU data, or independent review results.
+
+## ADR-049 — Commissioned collection and independent review (2026-11-17)
+Decision: close the Stage 1 gap (natural in-domain RU, KK, mixed RU–KK; independent human
+review) with commissioned native-speaker writing and blind independent review, taken in
+through `data collection` / `data review` (DATA_CONTRACTS §10, [COLLECTION](COLLECTION.md)).
+Route proposed to the owner: direct fixed-price contracts with Kazakhstan-resident freelancers
+on Upwork, maximum USD 1,628.84 including platform fees; nothing is spent before approval.
+- Route alternatives (researched 2026-11-17): Prolific (no participants in Kazakhstan; 42.9 %
+  corporate fee); Toloka self-service/experts (33 % commission plus LLM QA; Kazakh not in its
+  published expert languages; crowd text-generation authorship hard to verify); Yandex Tasks
+  (RUB billing, 22 % VAT, Russian legal entity, crowd authorship as Toloka); data vendors
+  FutureBeeAI, Pangeanic, IndecalAI (no published price; quotes need the owner's contact
+  details); KZ translation bureaus (translation, not natural requests). Upwork: KZ freelancers
+  with KK/RU annotation profiles, published fees, §6.4 assigns all work-product rights on payment.
+- Briefs are seeded structured facets over taxonomy v1 descriptions (agent-authored, no example
+  sentences); writers phrase every request. Scenario (brief) is the split unit across slices.
+- Registry: `fetch.type: delivery` pinned to the content sha256; licence id
+  `commissioned-assignment` → `train` (contract assignment, not a public licence).
+- Review: blind relabelling (the v1 `review/` sheets show the label, so they cannot measure
+  agreement), seeded 20 % second reviewer, Cohen's kappa ≥ 0.6 per stratum, Wilson CIs,
+  reviewer ≠ writer enforced.
+Cost: ≤ USD 1,628.84 if approved. Risk: contractors may use generators despite attestations
+(mitigated by screening, timing, duplicate/language flags, reviewer judgement, removal of a
+writer's rows); small reviewer pool (2) limits kappa precision. Rollback: an unapproved or
+failed collection leaves the corpus at `26d02054`; the code paths are inactive without a
+registry entry. Revisit: owner decision, vendor quotes, or a newly licensed natural source.

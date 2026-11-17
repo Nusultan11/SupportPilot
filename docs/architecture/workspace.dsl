@@ -25,10 +25,11 @@ workspace "SupportPilot" "Engineering foundation after the 2026-11-17 reset (ADR
             }
             pipeline = container "Data and ML pipeline" "Dataset build, training, evaluation; rebuilt stage by stage (ROADMAP)." "Python" "Planned" {
                 dataset = component "Corpus builder" "Stage 1: labels from configs/corpus.yaml, dedup, group splits, leakage gates, reports; data/corpus.py." "Python / NumPy / JSONL" "Implemented"
+                collection = component "Commissioned collection and review" "Scenario briefs, delivery intake checks, blind review packages, agreement scores; data/collection.py, data/review.py." "Python / Pydantic / CSV" "Implemented"
                 models = component "Model training and evaluation" "Routing and response models with per-language metrics." "PyTorch / MLflow" "Planned"
                 service = component "Support service" "Routing, evidence, tools, clarification and escalation." "Python" "Planned"
             }
-            configs = container "Configuration" "base.yaml, sources.yaml, taxonomy.yaml, corpus.yaml; in Git." "YAML" "Implemented"
+            configs = container "Configuration" "base.yaml, sources.yaml, taxonomy.yaml, corpus.yaml, collection.yaml; in Git." "YAML" "Implemented"
             raw = container "Raw data store" "data/raw/<source>/<revision>/ with manifests; immutable." "Local files" "Implemented"
             corpus = container "Corpus store" "data/corpus/<version>/ intent and grounded JSONL splits, reports, manifest; immutable." "Local files" "Implemented"
             tracking = container "Experiment tracking" "mlruns/ SQLite and artifacts." "MLflow" "Implemented"
@@ -51,6 +52,11 @@ workspace "SupportPilot" "Engineering foundation after the 2026-11-17 reset (ADR
         sp.pipeline.dataset -> sp.configs "Reads corpus.yaml, taxonomy and registry" "YAML"
         sp.pipeline.dataset -> sp.corpus "Publishes versioned corpus" "Atomic rename"
         sp.cli -> sp.pipeline.dataset "Runs `data corpus build|verify`" "Python call"
+        sp.cli -> sp.pipeline.collection "Runs `data collection` and `data review`" "Python call"
+        sp.pipeline.collection -> sp.configs "Reads collection.yaml, taxonomy and registry" "YAML"
+        sp.pipeline.collection -> sp.raw "Takes in checked deliveries" "Atomic rename"
+        sp.pipeline.collection -> sp.corpus "Samples core rows for blind review" "JSONL"
+        sp.pipeline.dataset -> sp.pipeline.collection "Reads commissioned deliveries" "Python call"
         sp.pipeline.models -> sp.corpus "Trains and evaluates on versioned splits" "JSONL"
         sp.pipeline.models -> sp.tracking "Logs experiments" "MLflow / SQLite"
         sp.pipeline.models -> cloud "Runs larger jobs" "Authorized only"

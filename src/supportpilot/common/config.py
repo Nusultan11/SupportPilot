@@ -49,6 +49,7 @@ class DataSettings(_Section):
     download_retries: int = Field(default=3, ge=1)
     taxonomy: Path = Path("configs/taxonomy.yaml")
     corpus_recipe: Path = Path("configs/corpus.yaml")
+    collection_plan: Path = Path("configs/collection.yaml")
 
 
 class LoggingSettings(_Section):
