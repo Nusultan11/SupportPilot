@@ -684,3 +684,130 @@ sources:
       Rejected: a Russian version of MultiWOZ with the same dialogue counts; the README does not
       document how the Russian text was produced (human or machine translation), and the domains
       would only supply out-of-scope rows.
+
+  # ------------------------------------------------- commercial / custom options (2026-11-17)
+  # Catalogue pages only; no contact, account, sample request or purchase. Revisions record the
+  # page check date. Any acquisition needs owner approval (AGENTS §4, human corpus review §6).
+  - source_id: futurebeeai_ru_retail_chat
+    url: https://www.futurebeeai.com/dataset/text-dataset/russian-retail-domain-conversation-text-dataset
+    revision: catalogue-2026-11-17
+    licence: unknown
+    licence_evidence: "Catalogue: owned by FutureBeeAI, commercial licence; terms and price not published"
+    allowed_use: blocked
+    status: candidate
+    languages: [ru]
+    size: {rows: 10000}
+    reviewed_at: 2026-11-17
+    purpose: Natural RU retail/e-commerce customer-agent chats (orders, returns, refunds, delivery).
+    decision: >-
+      Vendor states 10K+ chats by 150 native Russian contributors with written consent, no PII,
+      intent annotation and custom collection on request. Option A of the review; needs an
+      owner-approved quotation request, then rights/custody/price review before any purchase.
+
+  - source_id: indecalai_kk_speech
+    url: https://indecalai.com/datasets/ots/kazakh-speech-dataset/
+    revision: catalogue-2026-11-17
+    licence: unknown
+    licence_evidence: "Catalogue: licence terms agreed per customer in writing; price quoted per order"
+    allowed_use: blocked
+    status: candidate
+    languages: [kk]
+    reviewed_at: 2026-11-17
+    purpose: Kazakh speech incl. customer-service calls (accounts, orders, claims), with transcripts.
+    decision: >-
+      Vendor states ~500 h of Kazakh (scripted prompts and natural conversations, code-switching
+      to Russian acknowledged), consent of every speaker for commercial AI training, transcripts,
+      custom collection to a brief, sample clips and spec sheet on request. Share of retail
+      support content and transcript method unknown. Needs owner approval to request samples.
+
+  - source_id: pangeanic_kk_datasets
+    url: https://pangeanic.com/kazakh-datasets-for-ai-training
+    revision: catalogue-2026-11-17
+    licence: unknown
+    licence_evidence: "Catalogue: commercially licensable datasets; terms and price not published"
+    allowed_use: blocked
+    status: candidate
+    languages: [kk, ru]
+    reviewed_at: 2026-11-17
+    purpose: Kazakh and Kazakh-Russian code-switched conversational/customer-support data.
+    decision: >-
+      Marketing page claims KK-RU code-switching, customer-support messaging, e-commerce and
+      human-reviewed annotation; no sizes, authorship method or sample. Custom-collection
+      comparator for option B; needs owner approval before any inquiry.
+
+  - source_id: aidatastock_ru_support_dialogues
+    url: https://aidatastock.ru/datasets/dialogi-podderzhki
+    revision: catalogue-2026-11-17
+    licence: unknown
+    licence_evidence: "Marketplace card: commercial licence, 48,000 RUB, seller RechLab; terms not shown"
+    allowed_use: blocked
+    status: candidate
+    languages: [ru]
+    size: {rows: 42000, bytes: 26700000}
+    reviewed_at: 2026-11-17
+    purpose: Anonymised RU support tickets (customer intent + operator reply).
+    decision: >-
+      Real customer tickets from a seller's ticket system "under a processing agreement", names/
+      contacts/order numbers removed per the seller; the marketplace disclaims responsibility for
+      legality and flags the listing. Domain (sample is a login-code issue) and the customers'
+      consent to AI-training reuse are unverified. Lower priority than option A; purchase only
+      after the owner reviews the written rights chain.
+
+  - source_id: kazruscsw
+    url: https://huggingface.co/datasets/liminovna/KazRusCSW-G-T
+    revision: page-2026-11-17
+    licence: unknown
+    licence_evidence: "Gated HF dataset; licence not read without accepting the terms (checked 2026-11-17)"
+    allowed_use: blocked
+    status: rejected
+    access: gated
+    languages: [kk, ru]
+    size: {rows: 3000}
+    reviewed_at: 2026-11-17
+    purpose: Token-level KK-RU code-switching labels on YouTube/Telegram comments.
+    decision: >-
+      Rejected: scraped comments (authors' and platforms' rights unsettled, as for KRCS); LID
+      labels, not support requests. Not accessed.
+
+  - source_id: kaznlp_mixed_reviews
+    url: https://github.com/naadgob/KazNLP
+    revision: page-2026-11-17
+    licence: unknown
+    licence_evidence: "arXiv:2608.00581 abstract (CC BY 4.0 applies to the paper); data rights not documented"
+    allowed_use: blocked
+    status: rejected
+    languages: [kk, ru]
+    reviewed_at: 2026-11-17
+    purpose: KK/RU/mixed Telegram comments and Kaspi/2GIS reviews with LID/sentiment labels.
+    decision: >-
+      Rejected: scraped reviews and comments with unsettled author/platform rights; sentiment, not
+      support intents. Not accessed.
+
+  - source_id: ru_support_ticket_kaggle
+    url: https://www.kaggle.com/datasets/harshitxdev/russian-support-ticket-2
+    revision: page-2026-11-17
+    licence: apache-2.0
+    licence_evidence: "Kaggle page licence Apache 2.0, no description (checked 2026-11-17)"
+    allowed_use: reference_only
+    status: rejected
+    languages: [ru]
+    reviewed_at: 2026-11-17
+    purpose: RU delivery-service complaints with chosen/rejected replies.
+    decision: >-
+      Rejected: no authorship documentation; preference pairs with typed "boilerplate" rejections
+      look generated. Not downloaded.
+
+  - source_id: ru_ecommerce_support_qa
+    url: https://huggingface.co/datasets/Evgeny168/ecommerce-support-russian
+    revision: page-2026-11-17
+    licence: mit
+    licence_evidence: "HF card: MIT (checked 2026-11-17)"
+    allowed_use: reference_only
+    status: rejected
+    languages: [ru]
+    size: {rows: 500}
+    reviewed_at: 2026-11-17
+    purpose: RU e-commerce support question-answer pairs.
+    decision: >-
+      Rejected: 500 templated Alpaca pairs with no authorship documentation and invented store
+      policies (Moscow delivery, 3,000 RUB free shipping); cannot be shown to be human-written.

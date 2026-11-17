@@ -77,6 +77,7 @@ approved pinned sources -> immutable raw/conversion -> cleaning/accounting/EDA
 approved human-authored pinned sources -> masked requests + mapped labels (no targets)
   -> historically decontaminated, family-isolated human corpus (active training data, ADR-042)
   + external doc-grounded human responses in their own evidence namespace, never the KB (ADR-043)
+  + sealed commissioned deliveries admitted by reviewed intake checks (ADR-044; none yet)
 
 canonical fictional facts -> rendering -> extraction -> structure/tables/locators
   -> gated immutable KB -> explicit activation -> checksummed portable index

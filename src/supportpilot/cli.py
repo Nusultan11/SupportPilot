@@ -178,6 +178,11 @@ def cmd_data(args: argparse.Namespace, settings: Settings) -> int:
         return _cmd_stage3(args, settings)
     if args.action in STAGE4_ACTIONS:
         return _cmd_stage4(args, settings)
+    if args.action == "human-intake":
+        from supportpilot.data.humanrun import run_human_intake
+
+        _emit(run_human_intake(settings, args.source, seal=args.seal))
+        return 0
     if args.action in ("human", "human-verify"):
         from supportpilot.data.humanrun import run_human, run_human_verify
 
@@ -452,6 +457,11 @@ def build_parser() -> argparse.ArgumentParser:
     hu.add_argument("--no-semantic", action="store_true", help="skip e5 (gates then fail)")
     hv = dsub.add_parser("human-verify", help="checksums + gates of a human corpus version")
     hv.add_argument("--version", help="human-<date>-<hash> (default: human.active_corpus)")
+    hi = dsub.add_parser(
+        "human-intake", help="check a commissioned human delivery (DATA_CONTRACTS §20.2)"
+    )
+    hi.add_argument("--source", required=True, help="registered source_id of the delivery")
+    hi.add_argument("--seal", action="store_true", help="write its raw manifest first (once)")
     dt.set_defaults(func=cmd_data)
 
     from supportpilot.kb.cli import add_parser as add_kb_parser

@@ -49,6 +49,27 @@ def run_human(settings: Settings, *, semantic: bool = True) -> dict[str, Any]:
     )
 
 
+def run_human_intake(settings: Settings, source_id: str, *, seal: bool) -> dict[str, Any]:
+    """Seal (optionally) and assess a commissioned delivery registered in sources.yaml."""
+    from supportpilot.data import humanintake
+    from supportpilot.data.acquire import raw_dir, verify_raw
+
+    data_dir = settings.resolve(settings.paths.data_dir)
+    tax = load_taxonomy(settings.resolve(settings.stage4.taxonomy))
+    registry = load_source_registry(settings.resolve(settings.data.registry))
+    entry = next((e for e in registry.sources if e.source_id == source_id), None)
+    if entry is None:
+        raise ValueError(f"{source_id} is not in the source registry")
+    root = raw_dir(data_dir, entry)
+    if seal:
+        humanintake.seal_delivery(root, entry)
+    if problems := verify_raw(root):
+        raise ValueError(f"{source_id}: delivery fails verification: {problems[0]}")
+    d = humanintake.load_delivery(root)
+    res = humanintake.assess(d, tax, humanintake.kb_chunk_ids(data_dir, d.batch.kb_version))
+    return res.report
+
+
 def run_human_verify(settings: Settings, version: str | None) -> dict[str, Any]:
     version = version or settings.human.active_corpus
     if version is None:

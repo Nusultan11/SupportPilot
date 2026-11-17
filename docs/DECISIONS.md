@@ -630,6 +630,28 @@ document-split isolation and grounded historical leakage; agent label audits are
 Rollback: `human.active_corpus: human-20261117-3f1ed9e4`. Revisit with licensed natural RU/KK/mixed
 store requests, independent label review, or store-grounded human answers.
 
+## ADR-044 — Commissioned human data enters only through a reviewed intake contract
+
+Accepted 2026-11-17 under the owner's authorization to continue the human corpus. Public
+sources are exhausted for natural KK, mixed RU–KK, the 15 missing intents, independent label
+review and store-grounded answers (human corpus review §6). Those can only come from people
+commissioned for this store, so a delivery format and its checks are fixed before any supplier
+is asked: `human_intake/1` (DATA_CONTRACTS §20.2). Admission requires attested contributors,
+two independent reviewers competent in the variant (both RU and KK for mixed), adjudication of
+disagreements by a third person, reviewer judgements of naturalness and variant, and answers
+citing only the pinned KB and taxonomy tools with two passing rubric reviews. Admitted rows
+carry `human_agreed`/`human_adjudicated` and `independently_reviewed`; gate `review_provenance`
+keeps those statuses exclusive to intake sources.
+
+Alternatives: hand-labelled spreadsheets imported ad hoc (no reproducible provenance or
+independence checks); reusing `ClaimReview` (claim-level evaluation of model outputs, not
+request authoring/labelling); accepting a supplier's aggregate QA score (no raw records, no
+reviewer independence evidence); agent-written requests or MT (contradicts ADR-042).
+Software checks declarations, not identities or fluency: the owner verifies supplier evidence
+before registering a delivery. No delivery exists yet; the active corpus is unchanged.
+Rollback: drop the recipe `intake` source; sealed deliveries stay as raw evidence. Revisit after
+the first pilot delivery or if a supplier's raw-record format makes a field unobtainable.
+
 ## Open decisions
 
 No further Stage 9 local-delivery acceptance is pending. Product-quality criteria remain open

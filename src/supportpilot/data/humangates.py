@@ -27,7 +27,11 @@ from supportpilot.data.build import canonical_dir
 from supportpilot.data.human import (
     ACTIVE_ORIGINS,
     FORBIDDEN_ORIGINS,
+    HUMAN_LABEL_STATUSES,
     HUMAN_VERSION,
+    LABEL_STATUS,
+    REVIEW_STATUS,
+    REVIEWED,
     SCHEMA,
     SPLITS,
     STAGE3_NATIVE,
@@ -143,6 +147,31 @@ def run_gates(
         or (not r["escalate"] and r["escalation_reason"])
     ]
     gates.append(_gate("labels", not bad_label, len(bad_label), 0, examples=bad_label[:5]))
+
+    # human-reviewed labels only from a commissioned intake source; everything else is mapped
+    bad_review = [
+        r["example_id"]
+        for r in rows
+        if not (
+            (r["label_status"] == LABEL_STATUS and r["review_status"] == REVIEW_STATUS)
+            or (
+                r["label_status"] in HUMAN_LABEL_STATUSES
+                and r["review_status"] == REVIEWED
+                and r["source_id"] in recipe.authorship
+                and recipe.authorship[r["source_id"]].intake
+            )
+        )
+    ]
+    gates.append(
+        _gate(
+            "review_provenance",
+            not bad_review,
+            len(bad_review),
+            0,
+            examples=bad_review[:5],
+            review_status=dict(Counter(r["review_status"] for r in rows)),
+        )
+    )
 
     misplaced = [
         r["example_id"]
@@ -369,6 +398,11 @@ def corpus_stats(
         "sft_target_status": dict(Counter(df["sft_target_status"].to_list())),
         "label_status": dict(Counter(df["label_status"].to_list())),
         "review_status": dict(Counter(df["review_status"].to_list())),
+        "independently_reviewed_share": (
+            round(float((df["review_status"] == REVIEWED).sum()) / df.height, 4)
+            if df.height
+            else None
+        ),
         "build": build_report,
     }
     if (build / "grounded_train.parquet").is_file():

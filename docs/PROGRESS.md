@@ -15,7 +15,7 @@ live in ROADMAP, interpretation in reviews, commands in RUNBOOK and raw evidence
 | Stage 9 9Q2 / real 9Q3 qualification | BLOCKED: external resources/permission | Independent human labels, verified reviewers, real assessor and budget unavailable; resource decision prepared below |
 | Maintenance and engineering MCP integration | COMPLETED: separate owner-authorized tasks | Prior recovery/publication receipts below; MCPs opt-in |
 | Architecture and development-control redesign | COMPLETED: separate engineering task | Product-quality gates remain open; verify delivery receipt below |
-| Human-authored corpus rework (ADR-042/043) | PARTIALLY COMPLETED: extended corpus + external grounded responses active | RU natural rows 167 (5 intents); KK 513 held-out out-of-scope only; RU–KK mixed 0; 15 intents absent; no store-grounded human answers; labels source-mapped, unreviewed |
+| Human-authored corpus rework (ADR-042/043/044) | PARTIALLY COMPLETED: extended corpus active; reviewed intake contract ready, no delivery | RU natural rows 167 (5 intents); KK 513 held-out out-of-scope only; RU–KK mixed 0; 15 intents absent; no store-grounded human answers; labels source-mapped, unreviewed; needs owner decision R1/R2 |
 | Stage 10 | NOT_STARTED | Requires separate explicit owner authorization; Stage 9 acceptance grants none |
 
 On 2026-11-16 the owner explicitly accepted Stage 9's local research, engineering implementation
@@ -154,10 +154,16 @@ Agent audits (not human review): about 2–3% disputable new labels before rule 
 Interpretation, sources, attempts and the external-resource decision table:
 [human corpus review §5](reviews/human_corpus_review.md#5-extension-adr-043-2026-11-17).
 Snapshots and recovery index: `artifacts/reports/human_corpus_extension_delivery_receipt.json`
-(verify before relying on delivery); the ADR-042 receipt remains for `3f1ed9e4`. Next action
-(owner): choose among the external options in review §5.5 (custom KK/mixed collection, fluent
-reviewers/store-grounded answers, RU retail chat licence); each needs approval before any contact
-or cost. A controlled router/SFT experiment on this corpus also needs separate authorization.
+(verify before relying on delivery); the ADR-042 receipt remains for `3f1ed9e4`.
+Commissioned-data round (ADR-044, review §6): public KK/mixed sources remain exhausted; new
+vendor options (IndecalAI KK speech, Pangeanic, AI Data Stock RU tickets) are registered from
+catalogue pages only, with no contact. `human_intake/1` (DATA_CONTRACTS §20.2,
+`data/humanintake.py`, CLI `data human-intake`) admits only attested, twice independently
+reviewed, variant-competent requests and KB-cited answers; it is fixture-tested, no real
+delivery exists, and the active corpus is unchanged (rebuild reproduces `fedfa10a`). Next action
+(owner): approve R1 (USD 0 owner-run bilingual volunteer pilot) and/or R2 (USD 0 generic
+quotation inquiries) of review §6.3; R3 purchases need concrete terms. RWS stays excluded.
+A controlled router/SFT experiment on this corpus also needs separate authorization.
 Stage 10 remains NOT_STARTED.
 
 ## Recovery and next action

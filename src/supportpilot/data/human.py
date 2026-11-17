@@ -11,7 +11,8 @@ Admission (`configs/human_corpus.yaml`):
   scenario prompt (second-person prompt voice) or repeat verbatim across many dialogues are
   routed to `unverified` (`prompt_echo`, `template_cluster`);
 - labels are `source_label_mapped`: the source's own label through an authored table split
-  by regex cues; no row is reported as human-adjudicated;
+  by regex cues; only rows of a sealed commissioned delivery admitted by `humanintake`
+  (ADR-044) carry `human_agreed`/`human_adjudicated` and `independently_reviewed`;
 - no target answers: there is no human-written answer grounded in this store's KB/tools, so
   `sft_target_status` is `no_human_target` (no synthetic target is substituted).
 
@@ -73,6 +74,10 @@ ACTIVE_ORIGINS = frozenset(
 FORBIDDEN_ORIGINS = frozenset({"machine_translated", "llm_generated", "post_edited", "original"})
 LABEL_STATUS = "source_label_mapped"
 REVIEW_STATUS = "unreviewed"
+# Commissioned deliveries (humanintake, DATA_CONTRACTS §20.2): labels decided by >= 2
+# independent qualified reviewers (unanimous) or by a separate adjudicator.
+HUMAN_LABEL_STATUSES = frozenset({"human_agreed", "human_adjudicated"})
+REVIEWED = "independently_reviewed"
 TARGET_STATUS = "no_human_target"
 SPLITS = ("train", "validation", "test")
 HELDOUT = ("validation", "test")
@@ -125,6 +130,8 @@ class Authorship(_Model):
     # `heldout`: rows may enter validation/test only (the publisher intends evaluation use)
     placement: Literal["all", "heldout"] = "all"
     max_per_label: int | None = Field(default=None, ge=1)  # overrides native_max_per_label
+    # a commissioned delivery checked by `humanintake` (reviewed labels, no per-label cap)
+    intake: bool = False
 
     @model_validator(mode="after")
     def _origins(self) -> Self:
@@ -240,6 +247,13 @@ class Row:
     lid_conf: float | None = None
     code_switch: bool = False
     langs: list[str] = field(default_factory=list)
+    label_status: str = LABEL_STATUS
+    review_status: str = REVIEW_STATUS
+    variant: str | None = None  # human-reviewed language variant (intake rows)
+
+    @property
+    def reviewed(self) -> bool:
+        return self.review_status == REVIEWED
 
     @property
     def example_id(self) -> str:
@@ -523,6 +537,57 @@ RAW_READERS: dict[str, Callable[[SourceEntry, Path, HumanRecipe], list[Row]]] = 
 STAGE3_NATIVE = frozenset({"massive_en_ru", "mangi_kk_support_qa"})
 
 
+def read_intake(
+    entry: SourceEntry, data_dir: Path, recipe: HumanRecipe, tax: Taxonomy
+) -> tuple[list[Row], list[dict[str, Any]], dict[str, Any]]:
+    """Rows of a sealed commissioned delivery; only humanintake-admitted items become rows."""
+    from supportpilot.data import humanintake
+
+    root = _raw_root(entry, data_dir)
+    d = humanintake.load_delivery(root)
+    res = humanintake.assess(d, tax, humanintake.kb_chunk_ids(data_dir, d.batch.kb_version))
+    allowed = set(recipe.authorship[entry.source_id].origin.values())
+    rows: list[Row] = []
+    for a in res.admitted:
+        r = a.request
+        origin = humanintake.ORIGIN[r.method]
+        if origin not in allowed:
+            raise StepError(f"{entry.source_id}: origin {origin} not documented in the recipe")
+        rows.append(
+            Row(
+                f"{entry.source_id}:{r.item_id}",
+                entry.source_id,
+                "kk" if r.variant == "mixed" else r.variant,  # refined by LID (build step 1)
+                origin,
+                clean_text(r.text).text,
+                a.intent,
+                d.batch.batch_id,
+                [t.model_dump() for t in r.context],
+                align=f"{entry.source_id}:{r.scenario_id}",  # variants of one need: one family
+                intent=a.intent,
+                action=a.action,
+                escalation_reason=a.escalation_reason,
+                rule=a.label_status,
+                label_status=a.label_status,
+                review_status=REVIEWED,
+                variant=r.variant,
+            )
+        )
+    excluded = [
+        _excl(
+            f"{entry.source_id}:{x['item_id']}",
+            entry.source_id,
+            "",
+            "",
+            "",
+            x["reason"],
+            x["detail"] or None,
+        )
+        for x in res.excluded
+    ]
+    return rows, excluded, res.report
+
+
 # ----------------------------------------------------------------------------- labels
 
 
@@ -750,7 +815,13 @@ def build_rows(inp: BuildInputs) -> BuildResult:
     for sid in recipe.authorship:
         if sid in RAW_READERS:
             rows += RAW_READERS[sid](by_id[sid], inp.data_dir, recipe)
-    unknown = set(recipe.authorship) - {"abcd", *STAGE3_NATIVE, *RAW_READERS}
+    intake = sorted(sid for sid, a in recipe.authorship.items() if a.intake)
+    intake_reports: dict[str, Any] = {}
+    for sid in intake:
+        i_rows, i_excluded, intake_reports[sid] = read_intake(by_id[sid], inp.data_dir, recipe, tax)
+        rows += i_rows
+        excluded += i_excluded
+    unknown = set(recipe.authorship) - {"abcd", *STAGE3_NATIVE, *RAW_READERS, *intake}
     if unknown:
         raise StepError(f"no reader for recipe sources {sorted(unknown)}")
     read_counts = Counter(r.source_id for r in rows) + Counter(x["source_id"] for x in excluded)
@@ -765,19 +836,32 @@ def build_rows(inp: BuildInputs) -> BuildResult:
     for r, (lang, conf, cs, langs) in zip(rows, lid, strict=True):
         # rounded: the detector can differ in the last float ulp between runs
         r.lid_conf, r.code_switch, r.langs = round(conf, 6), cs, sorted(langs)
-        d = map_label(recipe, tax, r)
-        if d.status != "mapped":
-            excluded.append(
-                _excl(r.record_id, r.source_id, r.source_label, r.lang, r.text, d.status, d.detail)
-            )
-            continue
-        r.intent, r.action, r.rule = d.intent, d.action, d.rule
-        r.escalation_reason = d.escalation_reason
+        if r.reviewed:  # labels and language variant were decided by independent reviewers
+            if r.variant == "mixed":
+                r.lang = lang if lang in ("ru", "kk") else "kk"
+                r.code_switch, r.langs = True, sorted({*r.langs, "ru", "kk"})
+            if lang != r.lang and not r.code_switch:
+                r.flags.append("lid_disagrees_with_review")
+        else:
+            d = map_label(recipe, tax, r)
+            if d.status != "mapped":
+                excluded.append(
+                    _excl(
+                        r.record_id, r.source_id, r.source_label, r.lang, r.text, d.status, d.detail
+                    )
+                )
+                continue
+            r.intent, r.action, r.rule = d.intent, d.action, d.rule
+            r.escalation_reason = d.escalation_reason
         reason = None
         if not recipe.authorship[r.source_id].active:
             reason = "authorship_undocumented"
         elif "�" in r.text or garbled(r.text):
             reason = "corrupted_text"
+        elif r.reviewed and any(p.search(r.text) for p in names):
+            reason = "possible_personal_name"
+        elif r.reviewed:  # reviewers judged length, naturalness and language variant
+            reason = None
         elif word_count(r.text) < recipe.min_words:
             reason = "too_short"
         elif any(p.search(r.text) for p in echo):
@@ -823,7 +907,7 @@ def build_rows(inp: BuildInputs) -> BuildResult:
     for i, r in sorted(
         enumerate(deduped), key=lambda x: sha256_text(f"{recipe.seed}|native|{x[1].record_id}")
     ):
-        if r.source_id != "abcd":
+        if r.source_id != "abcd" and not r.reviewed:
             cap_groups[(r.source_id, r.source_label, r.lang)].append(i)
     native_keep: set[int] = set()
     for _cap, idx in sorted(cap_groups.items()):
@@ -834,7 +918,7 @@ def build_rows(inp: BuildInputs) -> BuildResult:
                 seen.add(comp[i])
     final: list[Row] = []
     for i, r in enumerate(deduped):
-        if r.source_id == "abcd" or i in native_keep:
+        if r.source_id == "abcd" or r.reviewed or i in native_keep:
             final.append(r)
         else:
             excluded.append(
@@ -958,6 +1042,8 @@ def build_rows(inp: BuildInputs) -> BuildResult:
         "semantic_max_cosine_quantiles": sem_q,
         "cross_split_semantic_removed": cross,
     }
+    if intake_reports:
+        report["intake"] = intake_reports
     return BuildResult(active, unverified, excluded, report, history)
 
 
@@ -970,8 +1056,8 @@ def to_record(r: Row, recipe: HumanRecipe, reason: str | None) -> dict[str, Any]
         "source_split": r.source_split,
         "origin": r.origin,
         "authorship_evidence": recipe.authorship[r.source_id].evidence,
-        "label_status": LABEL_STATUS,
-        "review_status": REVIEW_STATUS,
+        "label_status": r.label_status,
+        "review_status": r.review_status,
         "sft_target_status": TARGET_STATUS,
         "lang": r.lang,
         "code_switch": r.code_switch,

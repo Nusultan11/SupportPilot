@@ -358,6 +358,17 @@ and history). An unchanged recipe/content reuses the existing version. A failed 
 as `<version>.failed`. After publishing, set `human.active_corpus`, then back up
 `data/processed/human/<version>` and the raw revisions it reads (§6) and restore-verify them.
 
+Commissioned human deliveries (DATA_CONTRACTS §20.2): register the source with its verified
+rights, copy the delivery to `data/raw/<source_id>/<revision>/`, then seal and assess once:
+
+```powershell
+uv run supportpilot data human-intake --source <source_id> --seal
+uv run supportpilot data human-intake --source <source_id>
+```
+
+Back up the sealed delivery (§5) before adding `authorship.<source_id>.intake: true` to the
+recipe and rebuilding. Never edit a sealed delivery; a corrected delivery is a new revision.
+
 ## 8. Diagnostics
 
 | Symptom | Action |

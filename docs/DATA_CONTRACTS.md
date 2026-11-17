@@ -803,3 +803,50 @@ Gates: `grounded_provenance_namespace` (train policy, schema, origin, status, na
 ids), `grounded_evidence` (non-empty spans/query/target, recall threshold), `grounded_pii`,
 `grounded_split_isolation` (no document in two splits) and `grounded_historical_leakage` (query and
 target exact/lexical/13-gram vs history recomputed; e5 on queries during the build).
+
+### 20.2 Commissioned human deliveries (`human_intake/1`, ADR-044)
+
+A delivery from an approved supplier, volunteer group or owner-run collection is registered in
+`sources.yaml` (rights checked by the owner), placed at `data/raw/<source_id>/<revision>/` and
+sealed once with `supportpilot data human-intake --source <id> --seal` (raw manifest; any
+later change fails `verify_raw`). Module: `supportpilot.data.humanintake`. Files (UTF-8 JSON /
+JSONL, unknown fields and extra files rejected; the last three optional):
+
+| File | Record fields |
+|---|---|
+| batch.json | `schema_version`, `batch_id`, `supplier`, `collection_method`, `rights_evidence`, `consent_evidence`, `kb_version` (pinned KB, e.g. `kb_demo_store-20261113-f3b204a6`), `delivered_at` |
+| contributors.jsonl | opaque `contributor_id` (no names/contacts), `roles` ⊆ author/reviewer/adjudicator/answer_author/answer_reviewer, `languages` {en/ru/kk: native/fluent}, `competence_evidence`, `identity_verified`, `independence_attested`, `no_llm_attested` |
+| requests.jsonl | `item_id`, `author_id`, `scenario_id` (the author-side need; its variants and paraphrases share it), `variant` en/ru/kk/mixed, `preferred_reply_lang`, `method` written/spoken_human_transcript/spoken_asr, `text`, optional `context` turns |
+| label_reviews.jsonl | `item_id`, `reviewer_id`, `natural`, `variant`, `intent`, `action`, `escalation_reason` |
+| adjudications.jsonl | `item_id`, `adjudicator_id`, `accept`, `variant`, `intent`, `action`, `escalation_reason` |
+| answers.jsonl | `item_id`, `author_id`, `lang`, `behaviour` (taxonomy action), `text`, `citations` (KB chunk ids), `tool_calls` [{name, arguments}] |
+| answer_reviews.jsonl | `item_id`, `reviewer_id`, `responsive`, `complete`, `claims_supported`, `citations_correct`, `abstains_when_unsupported`, `language_ok` |
+
+A person counts for a role only if listed with it, all three attestations are true and they
+are native/fluent in the variant (RU and KK for `mixed`). A request is admitted with >= 2 valid
+label reviews by people other than its author: unanimous labels give `human_agreed`;
+otherwise an adjudicator who is neither the author nor a reviewer decides (`human_adjudicated`,
+`accept: false` excludes). Labels must be valid taxonomy values (escalate iff a reason).
+Exclusion reasons: `author_<why>`, `insufficient_independent_review`, `not_natural` (at least
+half of valid reviewers), `unresolved_disagreement`, `adjudication_<why>`,
+`adjudicator_rejected`, `variant_mismatch`. An answer is kept only if its author is an
+independent qualified answer author, its language equals the preferred reply language, its
+behaviour equals the admitted action, every citation is a chunk of the pinned KB version,
+tools are taxonomy tools, `answer_kb` cites and `call_tool` calls, and >= 2 independent
+qualified answer reviews pass every rubric field. Records naming unknown items, duplicate ids
+or duplicate (item, reviewer) pairs fail the whole delivery.
+
+In the corpus build (§20) a recipe `authorship.<id>.intake: true` source contributes admitted
+requests with `label_status` = `human_agreed`/`human_adjudicated`, `review_status` =
+`independently_reviewed`, `rule` = the label status and `source_split` = `batch_id`. Variants
+of one `scenario_id` form one family. The reviewed variant overrides LID (`mixed` sets
+`code_switch` and `ru`+`kk`; a disagreeing LID adds `lid_disagrees_with_review`). Reviewed rows skip
+word-minimum, prompt-echo and per-label caps; corruption, personal-name, PII, duplicate,
+split and historical-leakage checks still apply. Gate `review_provenance`: human label status
+only with `independently_reviewed` from an intake source; all other rows
+`source_label_mapped`/`unreviewed`. `stats.json` adds `independently_reviewed_share` and
+`build.intake.<id>` (the intake report: delivered/admitted, exclusion reasons, variant ×
+intent, missing intents, independent scenarios, agreement raw/Cohen κ per variant for intent,
+action and escalation, answer outcomes and rubric pass rates). Admitted answers stay in the
+sealed delivery and report; intent rows keep `no_human_target` until a store-grounded SFT
+component is defined from real delivered answers.

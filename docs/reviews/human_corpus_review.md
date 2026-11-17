@@ -163,3 +163,56 @@ supplier is asked, and asking needs the owner's approval (AGENTS §4; DECISIONS 
 
 Recommendation: decide B and D first; they are the only routes to KK/mixed coverage and to
 answers grounded in this store's KB. A alone adds RU only.
+
+## 6. Commissioned-data round (ADR-044, 2026-11-17)
+
+Sections 1–5 stay unchanged. This round obtained **no new human data**: every remaining gap
+needs people or vendors outside the project, and each contact, cost or material transfer
+needs a specific owner approval (AGENTS §4). Active corpus stays `human-20261117-fedfa10a`;
+a rebuild with the new code reproduces it byte-identically (no new version was published).
+RWS is excluded by the latest owner instruction and is not part of any option below.
+
+### 6.1 Public search (catalogue/card pages only; nothing downloaded or contacted)
+
+| Source | Verified from the public page | Decision (sources.yaml) |
+|---|---|---|
+| IndecalAI OTS Kazakh speech | ~500 h KK speech incl. customer-service calls (accounts, orders, claims); every speaker consented to commercial AI training; transcripts; written per-customer licence; price per order; custom collection to a brief | candidate, blocked until terms are seen |
+| Pangeanic Kazakh datasets | claims KK–RU code-switching, support messaging, e-commerce, human-reviewed annotation; no size/method/sample | candidate (custom comparator) |
+| AI Data Stock "Диалоги службы поддержки" | 42,000 anonymised RU ticket rows, 48,000 RUB, seller-side "processing agreement"; marketplace disclaims legality; domain and AI-reuse consent unverified | candidate, low priority |
+| FutureBeeAI RU retail chats | unchanged since §5.1 (10K+ chats, 150 native speakers, commercial licence) | candidate (option A) |
+| KazRusCSW, KazNLP mixed reviews | scraped YouTube/Telegram/Kaspi/2GIS texts; LID/sentiment labels | rejected (rights, not requests) |
+| Kaggle RU support tickets, Evgeny168 RU e-commerce QA | no authorship documentation; generated/templated appearance | rejected |
+
+Hugging Face searches for Kazakh intent/customer/code-switching data returned only sources
+already in sources.yaml. No open, documented, human-written KK or mixed RU–KK store-request
+corpus exists; KK-capable vendors and a self-run collection are the only routes.
+
+### 6.2 What is ready for a delivery
+
+`human_intake/1` (DATA_CONTRACTS §20.2) fixes the raw records a supplier or volunteer group
+must hand over: contributor attestations and competence, requests per need and variant, two
+blind label reviews plus adjudication, KB-cited answers and rubric reviews. The intake check
+admits or excludes every item with a reason and reports variant × intent coverage, missing
+intents, independent needs, Cohen's κ, and answer rubric rates. The corpus build reads a sealed delivery
+(gate `review_provenance`). Tested with fixtures only (unit + integration); **no real delivery
+has been checked**, so all quality numbers for new data are NOT_EVALUATED.
+
+### 6.3 Owner request (each item needs a separate explicit yes)
+
+Proposed pilot, identical for every route: 35 intents × 2 needs × {RU, KK, mixed} = 210
+requests by bilingual authors, 2 blind label reviews each (420), adjudication of disagreements,
+one human answer per request written from the public demo-store KB (`kb_sources/`, already in
+the public repository) plus 2 answer reviews. Author/answer/review effort estimate: about
+42 person-hours (2 + 4 author minutes, 4 × 1–2 review minutes per request); an estimate, not a
+quote. Pilot data are development-only; independent evaluation sets come from a later,
+separately frozen delivery.
+
+| # | Action needing approval | Cost / disclosure | What it would close |
+|---|---|---|---|
+| R1 | **Owner-run volunteer pilot** (recommended first): you invite >= 4 KK–RU bilingual adults you know (authors ≠ reviewers ≠ adjudicator); the agent prepares the brief, consent/rights form and JSONL template; you collect signed consent and return the files | USD 0; brief and public KB only; no project code/data | KK + mixed + missing intents, independent labels, store-grounded answers at pilot scale |
+| R2 | **Quotation inquiries** to FutureBeeAI, IndecalAI and Pangeanic from your Gmail with one generic brief (pilot spec above, `human_intake/1` deliverables, no project data) | USD 0; ordinary sender identity only | real prices, KK/mixed staffing, rights and custody terms |
+| R3 | **Purchase/pilot** after a quote: you approve the exact supplier, statement of work, hard cap, rights assignment and data-handling terms | as quoted; nothing approved now | scale beyond the volunteer pilot |
+
+Without R1 or R2 the remaining gaps (KK/mixed natural requests, 15 intents, human review,
+store-grounded answers) stay open and the goal of this task stays PARTIAL. No model was
+trained; no ML quality change is claimed; Stage 10 is not started.
