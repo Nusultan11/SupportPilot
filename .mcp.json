@@ -60,6 +60,29 @@
       "env": {
         "SERENA_USAGE_REPORTING": "false"
       }
+    },
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@0.0.84",
+        "--browser",
+        "msedge",
+        "--headless",
+        "--isolated",
+        "--output-dir",
+        "artifacts/playwright"
+      ]
+    },
+    "shrimp": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["tools/mcp/shrimp.mjs"]
+    },
+    "structurizr": {
+      "type": "http",
+      "url": "http://127.0.0.1:3010/mcp"
     }
   }
 }

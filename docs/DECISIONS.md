@@ -38,7 +38,8 @@ provenance. Revisit: a real shared-tracking need.
 ## ADR-012 — Optional development tools
 MCP is development-only, never runtime. Built-in tools first. Remote servers get minimal public
 queries. GitHub and MLflow MCP are read-only. Local stdio servers are off by default; the owner
-enables them. Secrets stay in the environment. Setup: RUNBOOK §8.
+enables them; on 2026-11-17 the owner enabled Playwright (pinned, headless, isolated),
+Shrimp and Structurizr in `.mcp.json`. Secrets stay in the environment. Setup: RUNBOOK §8.
 Revisit: an actual tool gap or connection cost.
 
 ## ADR-013 — Main branch and ignored backups

@@ -113,7 +113,8 @@ Everything else inside an authorized task: decide and do.
 1. Built-in file, search, Git and CLI tools first.
 2. MCP is optional development tooling, never a runtime dependency.
 3. External tools get only minimal public queries: no code, data, logs, secrets or PII.
-4. GitHub and MLflow MCP are read-only. Local MCP servers are off until the owner enables them.
+4. GitHub and MLflow MCP are read-only. Local servers in `.mcp.json` are owner-enabled
+   (Playwright, Shrimp, Structurizr since 2026-11-17); add new local servers only with owner OK.
 5. Shrimp (task tracking) and Structurizr (architecture model) are optional for large tasks.
    Setup and rules: [RUNBOOK §8](docs/RUNBOOK.md#8-agent-tools). Never use their destructive modes.
 6. Subagents only for independent authorized work. Verify their results yourself.

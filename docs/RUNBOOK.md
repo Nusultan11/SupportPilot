@@ -101,22 +101,24 @@ uv run supportpilot backup prune [--keep N]
 
 ## 8. Agent tools
 
-MCP is optional and development-only (ADR-012). `.mcp.json` holds project servers.
-GitHub MCP reads `GITHUB_MCP_PAT` from the user environment. Local servers (Serena, MLflow)
-stay off until the owner enables them.
+MCP is optional and development-only (ADR-012). `.mcp.json` holds every project server.
+GitHub MCP reads `GITHUB_MCP_PAT` from the user environment. The owner enabled the local
+Playwright, Shrimp and Structurizr servers (2026-11-17); Serena and MLflow are declared too.
 
-Optional Shrimp + Structurizr (ADR-036), Node.js ≥ 20 and Docker Desktop:
+- Playwright: `@playwright/mcp@0.0.84`, headless Edge, isolated profile, output in
+  `artifacts/playwright/`. Use it for pages of this project or public docs only.
+- Shrimp + Structurizr (ADR-036) need Node.js ≥ 20 and Docker Desktop. Before a session:
 
 ```powershell
 npm ci --prefix tools/mcp --ignore-scripts --no-fund --no-audit
-node tools/mcp/configure.mjs
 docker compose --profile engineering up -d structurizr
 node tools/mcp/check.mjs
-claude --mcp-config tools/mcp/claude.json
-docker compose --profile engineering stop structurizr
 ```
 
-- `configure.mjs` adds disabled entries to the ignored `.codex/config.toml`;
+After the work: `docker compose --profile engineering stop structurizr`. Without the container
+the `structurizr` server simply fails to connect; nothing else depends on it.
+
+- Codex: `node tools/mcp/configure.mjs` adds disabled entries to the ignored `.codex/config.toml`;
   enable per session with `codex -c 'mcp_servers.shrimp.enabled=true'`.
 - Without tool reload: `node tools/mcp/client.mjs shrimp list_tasks <args.json> <receipt.json>`.
 - Shrimp store: `artifacts/engineering/shrimp/tasks.json`. One writer only; close the client
