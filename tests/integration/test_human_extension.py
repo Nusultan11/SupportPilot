@@ -197,6 +197,7 @@ def setup(tmp_path: Path) -> BuildInputs:
     keep = ("minds14_ru", "xsid_kk", "clinc150")
     data["authorship"] = {k: data["authorship"][k] for k in keep}
     data["sources"] = {k: data["sources"][k] for k in keep}
+    data["agent_audit"] = {}  # audit IDs name real records, not fixtures
     data["split_ratios"] = {"train": 0.5, "validation": 0.25, "test": 0.25}
     recipe = HumanRecipe.model_validate(data)
     minds = entry("minds14_ru", languages=["ru"], pipelines=["human"])

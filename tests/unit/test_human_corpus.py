@@ -132,6 +132,21 @@ def test_abcd_label_strips_numeric_suffix() -> None:
         ("Do these boots come in black?", "boots_other", "product_info", "clarify"),
         ("I was sent the wrong size", "return_size", "delivery_problem", "clarify"),
         ("The website is so slow", "slow_speed", "technical_issue", "escalate"),
+        # ADR-045 rule fixes
+        ("I need to cancel my order", "manage", "cancel_order", "clarify"),
+        ("Do you have the Guess boots in a 9?", "boots_how", "availability", "call_tool"),
+        ("Are these jeans available in medium?", "jeans_other", "availability", "clarify"),
+        ("I need to change the delivery date", "status_delivery_time", "change_order", "clarify"),
+        ("I still havent recieved my package", "missing", "delivery_problem", "clarify"),
+        ("what is your policy on returns?", "policy", "return_policy", "answer_kb"),
+        ("is the promo code good during the sale?", "timing", "policy_faq", "answer_kb"),
+        ("I want to check on my order status", "recover_password", "track_order", "clarify"),
+        (
+            "I lost my phone so I can't do the autentication",
+            "reset_2fa",
+            "account_help",
+            "answer_kb",
+        ),
     ],
 )
 def test_label_mapping(
@@ -150,6 +165,9 @@ def test_label_mapping(
         ("I am interested in a premium subscription", "status_service_added", "excluded"),
         ("hello there friend", "refund_status", "excluded"),
         ("can you help", "unknown_flow", "not_in_map"),
+        ("I need help with something", "recover_password", "excluded"),
+        ("I want to complain that it is out of stock", "out_of_stock_one_item", "excluded"),
+        ("cancel the second item in my order", "manage", "excluded"),
     ],
 )
 def test_label_mapping_never_guesses(
@@ -286,3 +304,28 @@ def test_project_recipe_caps_placement_and_name_patterns(recipe: HumanRecipe) ->
     assert not hit("встречи между первым и шестнадцатым марта")
     assert recipe.grounded is not None
     assert recipe.grounded.namespace.endswith("_external")
+
+
+@pytest.mark.parametrize(
+    ("text", "leak", "tag"),
+    [
+        ("my order is 263749105", "263749105", "<order_id>"),
+        ("order 2991846 please", "2991846", "<order_id>"),
+        ("my pin is 4821", "4821", "<pin>"),
+        ("PIN number: 004821", "004821", "<pin>"),
+        ("call me at 518 0192780", "0192780", "<phone>"),
+        ("ship to 9218 Kennedy St please", "Kennedy", "<address>"),
+    ],
+)
+def test_mask_text_covers_audited_pii_shapes(text: str, leak: str, tag: str) -> None:
+    out = mask_text(text, [])
+    assert leak not in out
+    assert tag in out
+
+
+def test_mask_text_keeps_prices_and_short_numbers() -> None:
+    assert mask_text("it cost $1234567 or 12 items", []) == "it cost $1234567 or 12 items"
+
+
+def test_mask_text_catches_pin_split_across_joined_turns() -> None:
+    assert mask_text("my username is <username>\nand pin\n238739", []).endswith("<pin>")

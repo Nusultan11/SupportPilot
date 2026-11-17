@@ -46,7 +46,61 @@ GROUNDED_FILES = (
 )
 _TOKEN_RE = re.compile(r"[a-z0-9]{4,}")
 _PLACEHOLDER_RE = re.compile(r"(?i)null|none|n/?a|undefined|-+|\.+")  # export artefacts
-_NANP_RE = re.compile(r"(?<![\w+])(?:\(\d{3}\)\s?|\d{3}[\s.-])\d{3}[\s.-]\d{4}(?!\w)")
+_NANP_RE = re.compile(r"(?<![\w+])(?:\(\d{3}\)\s?|\d{3}\s?[\s.-]\s?)\d{3}\s?[\s.-]\s?\d{4}(?!\w)")
+# ADR-045 structural checks (lexical; they do not prove semantic support)
+_MARKUP_RE = re.compile(r"\[\s*\d+\s*\]|(?i:\bon this page\b)")
+_FUSED_RE = re.compile(r"[a-z]{2,}[A-Z][a-z]{2,}")
+_POLARITY_RE = re.compile(
+    r"(?i)^\W*(?:yes|no|yeah|yep|nope|correct|that'?s (?:right|correct)|i'?m afraid (?:so|not)"
+    r"|of course|absolutely|not always|exactly)\b"
+)
+_EVIDENCE_POLARITY_RE = re.compile(r"(?i)\b(?:yes|no|not|never|cannot|can't|don't|won't)\b|n't\b")
+_REFERRAL_RE = re.compile(r"(?i)^\W*(?:ok(?:ay)?\W*)?(?:great\W*)?(?:please\s+)?see\b")
+_STOP_WORDS = (
+    "that this with your have from will they them their there what when which would "
+    "could should about been were into more also than then only other some such "
+    "these those just here where while does doing make made like want need know very "
+    "much many most each you're youre i'm okay sure please thank thanks great good "
+    "well yeah right"
+)
+_STOP = frozenset(_STOP_WORDS.split())
+_SUFFIXES = ("ings", "ing", "edly", "ed", "es", "s", "ly", "ions", "ion", "ment")
+
+
+def _stem(word: str) -> str:
+    for suf in _SUFFIXES:
+        if word.endswith(suf) and len(word) - len(suf) >= 4:
+            word = word[: -len(suf)]
+            break
+    return word[:-1] if word.endswith("e") and len(word) > 4 else word
+
+
+def novel_tokens(target: str, evidence: Sequence[str], dialogue: Sequence[str]) -> list[str]:
+    """Target content words (>= 4 chars, crude stem) found in neither evidence nor dialogue."""
+    seen = {_stem(w) for w in _TOKEN_RE.findall(" ".join([*evidence, *dialogue]).lower())}
+    return [w for w in _TOKEN_RE.findall(target.lower()) if w not in _STOP and _stem(w) not in seen]
+
+
+def structural_problem(target: str, query: str, behaviour: str, evidence: str) -> str | None:
+    """First structural defect of a grounded target (ADR-045), or None."""
+    t = target.strip()
+    if _MARKUP_RE.search(t) or _MARKUP_RE.search(query):
+        return "markup_artifact"
+    if _FUSED_RE.search(t):
+        return "fused_words"
+    if len(t.split()) < 4:
+        return "fragment"
+    if behaviour == "clarify" and "?" not in t:
+        return "clarify_not_question"
+    if behaviour == "answer" and t.endswith("?"):
+        return "answer_is_question"
+    if _POLARITY_RE.search(t) and not _EVIDENCE_POLARITY_RE.search(evidence):
+        return "unsupported_polarity"
+    if _REFERRAL_RE.search(t):
+        return "referral_only"
+    return None
+
+
 Encoder = Callable[[Sequence[str]], Any]
 
 GROUNDED_ARROW = pa.schema(
@@ -183,6 +237,9 @@ def candidate_rows(
     dials: Sequence[tuple[str, dict[str, Any]]],
     acts: dict[str, str],
     min_recall: float,
+    *,
+    structural: bool = False,
+    max_novel: int | None = None,
 ) -> tuple[list[GroundedRow], list[tuple[GroundedRow, str]], list[dict[str, Any]], int]:
     sid = entry.source_id
     rows: list[GroundedRow] = []
@@ -247,8 +304,25 @@ def candidate_rows(
                 reason = (
                     "contact_pattern"  # e-mail/phone/card pattern; often a public agency contact
                 )
+            elif structural and (
+                problem := structural_problem(
+                    text, query, acts[act], " ".join(e["text"] for e in ev)
+                )
+            ):
+                reason = problem
             elif row.evidence_recall < min_recall:
                 reason = "weak_evidence_overlap"
+            elif max_novel is not None and (
+                len(
+                    novel_tokens(
+                        text,
+                        [e["text"] for e in ev],
+                        [query, *(c["content"] for c in context)],
+                    )
+                )
+                > max_novel
+            ):
+                reason = "novel_content"
             if reason is None:
                 rows.append(row)
             else:
@@ -287,9 +361,13 @@ def build_grounded(
     leak_ngram: int,
     leak_cosine: float,
     encode: Encoder | None,
+    structural: bool = False,
+    max_novel: int | None = None,
 ) -> GroundedResult:
     docs, dials = read_doc2dial(entry, data_dir)
-    rows, unverified, excluded, agent_turns = candidate_rows(entry, docs, dials, acts, min_recall)
+    rows, unverified, excluded, agent_turns = candidate_rows(
+        entry, docs, dials, acts, min_recall, structural=structural, max_novel=max_novel
+    )
     pool = rows + [r for r, _ in unverified]
     hits: dict[int, str] = {}
     detail: dict[int, str] = {}
@@ -335,6 +413,8 @@ def build_grounded(
         "historical_overlap_removed": dict(sorted(Counter(hits.values()).items())),
         "semantic_checked": semantic,
         "min_evidence_recall": min_recall,
+        "structural_checks": structural,
+        "max_novel_tokens": max_novel,
     }
     return GroundedResult(rows, unverified, excluded, report)
 

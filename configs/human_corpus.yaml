@@ -95,9 +95,13 @@ greeting_only: '^\W*(?:(?:<\w+>\W*)+|hiya|good|fine|great|i''m good|i am good|i'
 # ABCD subflow (numeric suffix removed) -> v1 intent.
 sources:
   abcd:
-    recover_password: {intent: account_help}
-    recover_username: {intent: account_help}
-    reset_2fa: {intent: account_help}
+    recover_password: &account_access
+      rules:
+        - {pattern: '\b(?:passw|pass word|username|user name|user id|account name|log ?in|login|logging|sign ?in|signing|sign out|access|locked|2fa|two[- ]?(?:step|factor)|auth|autent|secu|verification|get in|get into|back into|forg[eo]t|lost (?:my |the )?phone|phone (?:i|that i) used|cannot open|can[''’]?t\s*$|cam[''’]?t\s*$)', intent: account_help}
+        - {pattern: '\border status\b|\bstatus of (?:my |an |the )?(?:order|purchase)\b|\bcheck (?:on |up on )?(?:the status of )?(?:my |an )?(?:online )?order\b', intent: track_order}
+        - {pattern: '.', exclude: "account-access subflow but the request states no account-access need"}
+    recover_username: *account_access
+    reset_2fa: *account_access
     manage_change_address:
       rules:
         - {pattern: '\b(?:order|package|parcel|shipment|delivery|shipping)\b', intent: change_order}
@@ -139,7 +143,8 @@ sources:
         - {pattern: '.', exclude: "no order-status cue"}
     status_delivery_time:
       rules:
-        - {pattern: "\\b(?:delivered|don't have it|haven't (?:got|received))\\b", exclude: "status label but the text reports a missing delivery"}
+        - {pattern: "\\b(?:delivered|don't have it|haven't (?:got|received)|didn'?t (?:get|receive)|not received)\\b", exclude: "status label but the text reports a missing delivery"}
+        - {pattern: "\\b(?:change|changed|extend|reschedul\\w*|move)\\b|won'?t be (?:home|able)|will not be home|not be home", intent: change_order}
         - {pattern: '\b(?:status|deliver|arriv|transit|when|where|order)', intent: track_order}
         - {pattern: '.', exclude: "no order-status cue"}
     status_mystery_fee:
@@ -157,12 +162,13 @@ sources:
         - {pattern: '.', exclude: "no quantity cue"}
     refund_initiate:
       rules:
+        - {pattern: '^(?![\s\S]*\b(?:second item|one item|the item|my item|change my order|event is cancel))[\s\S]*\bcancel(?:l?ing|l?ed)?\b[\s\S]{0,40}\border\b|^(?![\s\S]*second item)[\s\S]*\border\b[\s\S]{0,60}\bcancel(?:l?ing)?\s+(?:it|this|that)\b', intent: cancel_order}
         - {pattern: '\brefund|money back\b', intent: request_refund}
         - {pattern: '\breturn\b', intent: return_product}
         - {pattern: '.', exclude: "no refund cue"}
     refund_update:
       rules:
-        - {pattern: '\b(?:status|where|state|process|update|yet|what''s up|what is up|going on|happening|check|know|pending)\b', intent: refund_status}
+        - {pattern: '\b(?:status|where|state|process|update|yet|what''s up|what is up|going on|happening|check|know|pending|stauts|make sure)\b', intent: refund_status}
         - {pattern: '\brefund\b', intent: request_refund}
         - {pattern: '.', exclude: "no refund cue"}
     refund_status:
@@ -201,6 +207,7 @@ sources:
         - {pattern: '.', exclude: "no complaint cue"}
     out_of_stock_one_item:
       rules:
+        - {pattern: '\b(?:complain|complaint)\b', exclude: "explicit complaint about a stock-out: availability and complaint both fit"}
         - {pattern: '\b(?:out of stock|in stock|available|availability|restock|back in stock|sold out)\b', intent: availability}
         - {pattern: '.', exclude: "no stock cue"}
     promo_code_invalid:
@@ -213,22 +220,26 @@ sources:
         - {pattern: '.', exclude: "no promo cue"}
     cost:
       rules:
+        - {pattern: '^(?![\s\S]*\b(?:second item|one item|the item|my item|change my order|event is cancel))[\s\S]*\bcancel(?:l?ing|l?ed)?\b[\s\S]{0,40}\border\b|^(?![\s\S]*second item)[\s\S]*\border\b[\s\S]{0,60}\bcancel(?:l?ing)?\s+(?:it|this|that)\b', intent: cancel_order}
         - {pattern: '\b(?:shipping|delivery)\b', intent: payment_problem}
         - {pattern: '.', exclude: "no shipping-charge cue"}
     manage:
       rules:
+        - {pattern: '^(?![\s\S]*\b(?:second item|one item|the item|my item|change my order|event is cancel))[\s\S]*\bcancel(?:l?ing|l?ed)?\b[\s\S]{0,40}\border\b|^(?![\s\S]*second item)[\s\S]*\border\b[\s\S]{0,60}\bcancel(?:l?ing)?\s+(?:it|this|that)\b', intent: cancel_order}
         - {pattern: '\baddress|moved|move\b', intent: change_order}
         - {pattern: '\bwrong item|change\b', intent: change_order}
         - {pattern: '.', exclude: "no order-change cue"}
     missing:
       rules:
-        - {pattern: "\\b(?:never|haven't|have not|hasn't|not) (?:got|gotten|received|receive|arrived|come|came|delivered)\\b|\\bmissing\\b|\\bstill\\b", intent: delivery_problem}
+        - {pattern: "\\b(?:never|haven'?t|have not|hasn'?t|not|didn'?t|did not) (?:got|gotten|get|rec[ie]{1,2}ved?|arrived|come|came|delivered)\\b|\\bmissing\\b|\\bstill\\b", intent: delivery_problem}
         - {pattern: '\b(?:status|where)\b', intent: track_order}
         - {pattern: '.', exclude: "no missing-delivery cue"}
     status: {exclude: "heterogeneous e-mail-confirmation discrepancies: no single v1 intent"}
     boots_how: &product_query
       rules:
-        - {pattern: '\b(?:in stock|available|availability|sold out)\b', intent: availability}
+        - {pattern: '\b(?:measurements|design) available\b|\bthat you have available\b', intent: product_info}
+        - {pattern: '(?=[\s\S]*(?:\b(?:in stock|(?:un)?available|availability|sold out|my size)\b|\bin (?:a |an )?(?:size )?\d+\b|\bin (?:a |an )?(?:size )?(?:small|medium|large|xs|xl)\b|\bany (?:smalls|mediums|larges)\b))(?=[\s\S]*\b(?:calvin|klein|ck|guess|michael|kors|tommy|hilfiger)\b)', intent: availability, action: call_tool}
+        - {pattern: '\b(?:in stock|(?:un)?available|availability|sold out|my size)\b|\bin (?:a |an )?(?:size )?\d+\b|\bin (?:a |an )?(?:size )?(?:small|medium|large|xs|xl)\b|\bany (?:smalls|mediums|larges)\b', intent: availability}
         - {pattern: '\bwarrant', intent: policy_faq}
         - {pattern: '\b(?:calvin|klein|ck|guess|michael|kors|tommy|hilfiger|\$\d+|\d+ dollars)\b', intent: product_info, action: answer_kb}
         - {pattern: '\b(?:boot|boots|shoe|shoes|jacket|coat|hood|jean|jeans|pants|denim|shirt|t-shirt|collar)\b', intent: product_info}
@@ -247,7 +258,7 @@ sources:
     policy:
       rules:
         - {pattern: '\bsubscription\b', exclude: "premium-subscription service has no v1 intent"}
-        - {pattern: '\b(?:return|refund|exchange)\b', intent: return_policy}
+        - {pattern: '\b(?:return|refund|exchange)s?\b', intent: return_policy}
         - {pattern: '\b(?:policy|rule|warrant)', intent: policy_faq}
         - {pattern: '.', exclude: "no store-rule cue"}
     pricing:
@@ -257,9 +268,9 @@ sources:
         - {pattern: '.', exclude: "no store-service price cue"}
     timing:
       rules:
+        - {pattern: '\b(?:promo|code|coupon)\b', intent: policy_faq}
         - {pattern: '\b(?:open|close|closing|hours)\b', intent: store_info}
         - {pattern: '\b(?:collection|sale|season)\b', intent: store_info}
-        - {pattern: '\b(?:promo|code|coupon)\b', intent: policy_faq}
         - {pattern: '.', exclude: "no store-timing cue"}
     manage_dispute_bill:
       rules:
@@ -352,18 +363,22 @@ sources:
 
   # CLINC150 (plus). In-scope store meanings are capped higher than the out-of-scope domains.
   clinc150:
-    greeting: {intent: greeting, cap: 60}
-    thank_you: {intent: greeting, cap: 60}
+    greeting: &clinc_greeting
+      cap: 60
+      rules:
+        - {pattern: '\b(?:alexa|siri|bandit|ai|wake up)\b|feel like doing', exclude: "addressed to a voice assistant or not a greeting"}
+        - {pattern: '.', intent: greeting}
+    thank_you: *clinc_greeting
     card_declined:
       cap: 60
       rules:
-        - {pattern: '\b(?:at|in|from)\s+\w|\b(?:buy|buying|bought|purchase|purchasing|food|groceries|gas|lunch|dinner|coffee)\b', exclude: "card declined at another merchant/place or for an outside purchase"}
+        - {pattern: '\b(?:at|in|from|by)\s+\w|\b(?:buy|buying|bought|purchase|purchasing|food|groceries|gas|lunch|dinner|coffee|subscription)\b|\b(?:macy|bloomingdale|walgreens|whole foods|starbucks|target|netflix|walmart|costco|amazon)', exclude: "card declined at another merchant/place or for an outside purchase"}
         - {pattern: "\\bdeclin|not (?:get )?accepted|denied|rejected|refused|(?:did not|didn't) go through", intent: payment_problem}
         - {pattern: '.', exclude: "no declined-payment cue"}
     order_status:
       cap: 60
       rules:
-        - {pattern: '\b(?:amazon|ebay|walmart|target|etsy|alibaba)\b', exclude: "order at another shop"}
+        - {pattern: '\b(?:amazon|ebay|walmart|target|etsy|alibaba|nespresso)\b', exclude: "order at another shop"}
         - {pattern: '\b(?:order|package|parcel|purchase|item|shipment|delivery|delivered|track)', intent: track_order}
         - {pattern: '.', exclude: "no order-status cue"}
     # out-of-scope domains: travel, kitchen, auto, utility, work, small talk, assistant media
@@ -533,3 +548,32 @@ grounded:
     respond_solution_negative: answer
     query_condition: clarify
   min_evidence_recall: 0.5
+  structural_checks: true   # ADR-045: markup, fused words, fragments, act/form, polarity, referral
+  max_novel_tokens: 2       # ADR-045: <= 2 target content words absent from evidence and dialogue
+
+# Agent audit (ADR-045, review section 7): rows the implementing agent read and could not trust.
+# They go to `unverified` (reason agent_audit, flag agent_audit:<code>); no label is invented.
+agent_audit:
+  abcd:convo-148: no_request          # only name/phone/address, no request
+  abcd:convo-2798: no_request         # "having trouble with an order I made"
+  abcd:convo-2922: no_request         # "Can you help me with my account?"
+  abcd:convo-3161: no_request         # "My account is wrong"
+  abcd:convo-3440: no_request         # "Hello is anyone there"
+  abcd:convo-3540: no_request         # "I have a shipping question for you today"
+  abcd:convo-4876: no_request         # "I have a question about an order I made"
+  abcd:convo-6680: no_request         # "I am very upset and I need help"
+  abcd:convo-6931: ambiguous_label    # cannot find an item: search fault or product help
+  abcd:convo-9836: no_request         # "really upset with your site | I need help"
+  abcd:convo-2399: no_request         # "Hi I have a question about my account"
+  abcd:convo-7595: no_request         # "I have a shipping question for you"
+  abcd:convo-10094: no_request        # "I have a question regarding shipping"
+  abcd:convo-791: no_request          # "Just has a question about shipping on my order"
+  abcd:convo-6148: no_request         # "I have a question about shipping"
+  abcd:convo-2881: no_request         # "I have a question about shipping"
+  abcd:convo-1389: personal_data      # unmasked surname
+  massive_en_ru:en-US.train.2000: ambiguous_label   # "hey what's today": a date question
+  massive_en_ru:en-US.train.4168: ambiguous_label   # "who are you": identity question
+  minds14_ru:603009795f67b421554f70ea: ambiguous_label  # profile address (account_help?)
+  minds14_ru:603016afbb1e6d0fbce93cf0: ambiguous_label  # app says the account is blocked
+  minds14_ru:603022a2e7059762b8850f35: garbled_asr       # transcription unintelligible
+  minds14_ru:60300e6d963e11ccd901e809: personal_data     # spoken account-number fragment

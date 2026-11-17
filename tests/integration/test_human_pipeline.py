@@ -107,6 +107,7 @@ def setup(tmp_path: Path) -> tuple[BuildInputs, HumanRecipe]:
     data = full.model_dump()
     data["authorship"] = {"abcd": data["authorship"]["abcd"]}
     data["sources"] = {"abcd": data["sources"]["abcd"]}
+    data["agent_audit"] = {}  # audit IDs name real records, not fixtures
     data["grounded"] = None
     data["split_ratios"] = {"train": 0.6, "validation": 0.2, "test": 0.2}
     recipe = HumanRecipe.model_validate(data)
@@ -184,4 +185,30 @@ def test_build_fails_gates_without_semantic_check(setup: tuple[BuildInputs, Huma
     inp, _ = setup
     inp.encode = None
     with pytest.raises(StepError, match="quality gates failed"):
+        build_human(inp, code_commit="abc", recipe_sha256="r", taxonomy_sha256="t", previous=None)
+
+
+def test_agent_audit_moves_named_rows_to_unverified(
+    setup: tuple[BuildInputs, HumanRecipe],
+) -> None:
+    inp, recipe = setup
+    inp.recipe = recipe.model_copy(update={"agent_audit": {"abcd:convo-1": "ambiguous_label"}})
+    res = build_human(inp, code_commit="abc", recipe_sha256="r", taxonomy_sha256="t", previous=None)
+    assert res["gates"] == "pass"
+    out = Path(res["path"])
+    active = pl.concat(
+        [pl.read_parquet(out / f"{s}.parquet") for s in ("train", "validation", "test")]
+    )
+    assert "abcd:convo-1" not in set(active["record_id"])
+    unv = pl.read_parquet(out / "unverified.parquet").filter(pl.col("record_id") == "abcd:convo-1")
+    assert unv["reason"].to_list() == ["agent_audit"]
+    assert "agent_audit:ambiguous_label" in unv["flags"].to_list()[0]
+
+
+def test_agent_audit_rejects_unread_record_ids(setup: tuple[BuildInputs, HumanRecipe]) -> None:
+    from supportpilot.data.steps import StepError
+
+    inp, recipe = setup
+    inp.recipe = recipe.model_copy(update={"agent_audit": {"abcd:convo-999": "no_request"}})
+    with pytest.raises(StepError, match="agent_audit names records that were not read"):
         build_human(inp, code_commit="abc", recipe_sha256="r", taxonomy_sha256="t", previous=None)

@@ -738,7 +738,7 @@ not store KB facts. Their authored expected labels are diagnostic references, no
 ClaimReview records. Object, enum-smoke and constrained-enum attempts retain separate freezes,
 raw replies, failures and executed source archives.
 
-## 20. Human-authored training corpus (`data/processed/human/<dataset_version>/`, ADR-042/043)
+## 20. Human-authored training corpus (`data/processed/human/<dataset_version>/`, ADR-042/043/045)
 
 Recipe: `configs/human_corpus.yaml` (`human_recipe/2`, validated against the frozen taxonomy;
 it never edits `taxonomy.yaml`). Active version: `human.active_corpus` in `configs/base.yaml`.
@@ -762,16 +762,21 @@ Active and unverified rows use `human_example/1`:
 | slots_json | `{"order_id": "<order_id>"}` when the request carries a reference |
 | source_label, rule, intent, action, escalate, escalation_reason | v1 intent/action; `needs_reference` resolves to call_tool/clarify |
 | scenario_id, family_id, split | family = near-copy component (char-5-gram Jaccard >= recipe `family_jaccard`) joined with aligned translations; one scenario per family; split unit |
-| flags, reason | `reason` set only in unverified (e.g. `prompt_echo`, `template_cluster`, `too_short`, `language_mismatch`, `family_label_conflict`, `authorship_undocumented`, `corrupted_text`, `possible_personal_name`) |
+| flags, reason | `reason` set only in unverified (e.g. `prompt_echo`, `template_cluster`, `too_short`, `language_mismatch`, `family_label_conflict`, `authorship_undocumented`, `corrupted_text`, `possible_personal_name`, `agent_audit`) |
 
 `excluded.parquet`: `record_id, source_id, source_label, lang, text, reason, detail` for rows
 without a v1 label (`excluded`, `unlabelled`, `not_in_map`, `no_request`), `exact_duplicate`,
 `label_cap`, `historical_*` overlaps and `cross_split_semantic` train copies (detail = cosine
 and the matched text/record). Every read record appears in exactly one file.
+Recipe `agent_audit` (`record_id: no_request|ambiguous_label|garbled_asr|personal_data`) sends
+rows the agent read and could not trust to unverified (reason `agent_audit`, flag
+`agent_audit:<code>`) without assigning a label; a build fails if it names a record not read.
+Rows already excluded by a label rule stay excluded.
 
 Gates (build fails, output kept as `<version>.failed`): schema/ids; licence/provenance (train
 policy + active documented-human source, no machine/LLM/post-edited origin); labels; PII (e-mail,
-phone incl. North-American format, card); exact duplicates; split isolation (no family/scenario
+phone incl. North-American and split formats, card, PIN, street address; masking also replaces
+7–10-digit order ids and re-masks requests joined from several turns); exact duplicates; split isolation (no family/scenario
 in two splits, no cross-split exact/lexical copy, semantic train copies removed); historical
 leakage against every earlier SFT split, gold and frozen benchmark/confirmation user text
 (exact, char-5-gram Jaccard, 13-gram recomputed; e5 cosine from the build, mandatory);
@@ -797,7 +802,7 @@ of the source appears in exactly one file. `stats.json` → `grounded` holds the
 | target, source_act, behaviour | human agent utterance; source dialogue act; `answer` or `clarify` (recipe `grounded.acts`) |
 | grounding_status, review_status | `source_annotated` (writer's own spans), `unreviewed` |
 | evidence_recall | share of target content tokens (>= 4 alphanumerics) found in the evidence; lexical proxy, not semantic support |
-| split, reason | unverified reasons: `evidence_missing`, `corrupted_text` (incl. placeholder queries such as `Null`), `contact_pattern` (e-mail/phone/card pattern, often a public agency contact), `weak_evidence_overlap` (recall < `min_evidence_recall`) |
+| split, reason | unverified reasons: `evidence_missing`, `corrupted_text` (incl. placeholder queries such as `Null`), `contact_pattern` (e-mail/phone/card pattern, often a public agency contact), `weak_evidence_overlap` (recall < `min_evidence_recall`); with recipe `structural_checks` (ADR-045): `markup_artifact`, `fused_words`, `fragment` (< 4 words), `clarify_not_question`, `answer_is_question`, `unsupported_polarity` (yes/no lead without polarity in the evidence), `referral_only`; with `max_novel_tokens`: `novel_content` (more target content words absent from evidence and dialogue) |
 
 Gates: `grounded_provenance_namespace` (train policy, schema, origin, status, namespace, unique
 ids), `grounded_evidence` (non-empty spans/query/target, recall threshold), `grounded_pii`,

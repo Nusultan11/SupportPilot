@@ -74,6 +74,7 @@ def test_reviewed_delivery_enters_corpus_with_human_label_status(tmp_path: Path)
             "evidence": "Commissioned pilot: screened native authors, two blind reviewers.",
         }
     }
+    data["agent_audit"] = {}  # audit IDs name real records, not fixtures
     data["sources"] = {}
     data["grounded"] = None
     data["split_ratios"] = {"train": 0.5, "validation": 0.25, "test": 0.25}

@@ -652,6 +652,32 @@ before registering a delivery. No delivery exists yet; the active corpus is unch
 Rollback: drop the recipe `intake` source; sealed deliveries stay as raw evidence. Revisit after
 the first pilot delivery or if a supplier's raw-record format makes a field unobtainable.
 
+## ADR-045 — Agent-audited human corpus: rule fixes, audit overrides, grounded structural checks
+
+Accepted 2026-11-17 under the owner's authorization of an autonomous data-quality audit. An
+agent read of the active corpus found rule-level mislabels, request-less rows, unmasked fictional
+identifiers and a grounded defect rate far above the ADR-043 estimate (human corpus review §7).
+The active corpus becomes `human-20261117-9b501421`; `fedfa10a` stays published for rollback.
+Fixes stay in the reviewed recipe, never in data files: ordered rules for cancel requests,
+delivery-time changes, stock lookups and account access; merchant/assistant excludes; and a recipe
+table `agent_audit` that sends named rows the agent could not trust to `unverified` (reason
+`agent_audit`, flag `agent_audit:<code>`). The table never assigns a label, and a build fails if it
+names a record that was not read. Masking and the PII gate cover PINs, 7–10-digit order ids, split
+phone numbers and street addresses. Grounded rows pass `structural_checks` and
+`max_novel_tokens`, which move markup, fused words, fragments, act/form mismatches, unsupported
+yes/no leads, referral-only replies and novel content to grounded `unverified`.
+
+Alternatives: hand-editing parquet rows (breaks reproducibility); relabelling ambiguous rows by
+agent judgement (invents labels); an LLM or NLI support judge (the Stage 9 LLM assessor was
+rejected and no NLI model is installed; downloading one needs approval); dropping the grounded
+component (it still teaches evidence-citing behaviour, but now carries a measured defect rate).
+Verification: unit/integration tests for each rule family, masking, audit routing and grounded
+checks; all ADR-042/043 gates; fresh confirmation samples judged by the agent with Wilson
+intervals (review §7.3). Limits: the structural checks have ~50% precision and leave ~1 in 5
+grounded targets defective, so grounded semantic support stays NOT_EVALUATED.
+Rollback: `human.active_corpus: human-20261117-fedfa10a`. Revisit with an approved NLI model,
+independent human review, or store-grounded human answers.
+
 ## Open decisions
 
 No further Stage 9 local-delivery acceptance is pending. Product-quality criteria remain open

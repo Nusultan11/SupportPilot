@@ -106,7 +106,7 @@ stage4:                            # multilingual SFT dataset (ADR-023..026, DAT
 
 human:                             # human-authored training corpus (ADR-042, ADR-043, DATA_CONTRACTS §20)
   recipe: configs/human_corpus.yaml
-  active_corpus: human-20261117-fedfa10a   # ADR-042/043 active corpus; previous human-20261117-3f1ed9e4
+  active_corpus: human-20261117-9b501421   # ADR-045 audited corpus; previous human-20261117-fedfa10a
   previous_corpus: sft-20261112-b0388c64   # sealed Stage 7 SFT; comparison only, not active
 
 kb:                                # Stage 5 knowledge base (ADR-027, DATA_CONTRACTS §8)

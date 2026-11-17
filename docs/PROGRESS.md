@@ -15,7 +15,7 @@ live in ROADMAP, interpretation in reviews, commands in RUNBOOK and raw evidence
 | Stage 9 9Q2 / real 9Q3 qualification | BLOCKED: external resources/permission | Independent human labels, verified reviewers, real assessor and budget unavailable; resource decision prepared below |
 | Maintenance and engineering MCP integration | COMPLETED: separate owner-authorized tasks | Prior recovery/publication receipts below; MCPs opt-in |
 | Architecture and development-control redesign | COMPLETED: separate engineering task | Product-quality gates remain open; verify delivery receipt below |
-| Human-authored corpus rework (ADR-042/043/044) | PARTIALLY COMPLETED: extended corpus active; reviewed intake contract ready, no delivery | RU natural rows 167 (5 intents); KK 513 held-out out-of-scope only; RU–KK mixed 0; 15 intents absent; no store-grounded human answers; labels source-mapped, unreviewed; needs owner decision R1/R2 |
+| Human-authored corpus rework (ADR-042/043/044/045) | PARTIALLY COMPLETED: agent-audited corpus active; reviewed intake contract ready, no delivery | RU natural rows 163 (5 intents); KK 513 held-out out-of-scope only; RU–KK mixed 0; 14 intents absent; grounded targets ~22% defective (agent sample); labels source-mapped, unreviewed; needs owner decision R1/R2 |
 | Stage 10 | NOT_STARTED | Requires separate explicit owner authorization; Stage 9 acceptance grants none |
 
 On 2026-11-16 the owner explicitly accepted Stage 9's local research, engineering implementation
@@ -137,20 +137,29 @@ Private evidence: `artifacts/reports/architecture/`; final check/recovery/Git in
 `artifacts/reports/architecture_delivery_receipt.json`. Shrimp tracks only this task's internal
 work and preserves the existing quality-continuation task. It never closes a product-quality gate.
 
-## Human-authored training corpus (ADR-042/043)
+## Human-authored training corpus (ADR-042/043/045)
 
-Owner-authorized data rework (2026-11-17), continued under ADR-043. Active training corpus
-`human.active_corpus` = `human-20261117-fedfa10a` (`data/processed/human/`); rollback version
-`human-20261117-3f1ed9e4` stays published and verified. Intent rows: 6,512 (EN 5,103 / RU 896 /
-KK 513), 6,173 family groups, train/validation/test 4,197/1,133/1,182; 20 of 35 intents; all
-gates pass. New sources: MINDS-14 ru-RU (natural spoken RU, ASR text, 167 rows: out_of_scope,
+Owner-authorized data rework (2026-11-17), continued under ADR-043 and audited under ADR-045.
+Active training corpus `human.active_corpus` = `human-20261117-9b501421` (`data/processed/human/`);
+rollback version `human-20261117-fedfa10a` (and `3f1ed9e4`) stays published and verified. Intent
+rows: 6,469 (EN 5,065 / RU 891 / KK 513), 6,133 family groups, train/validation/test
+4,168/1,133/1,168; 21 of 35 intents (`cancel_order` recovered from ABCD); all gates pass.
+ADR-045 audit (agent judgement, not human review; review §7): rule fixes relabelled 103 rows,
+22 untrustworthy rows went to unverified via recipe `agent_audit`, PII masking was extended, and
+grounded structural checks moved 4,603 doc2dial targets to unverified (13,107 trusted remain).
+Fresh confirmation samples: intent defects 2/100 (Wilson 0.6–7.0%); grounded kept 13/60 defective
+(13–34%); the checks' precision is ~50%. Grounded semantic support stays NOT_EVALUATED: treat
+those targets as noisy auxiliary data until an NLI check or human review is approved. Evidence:
+`artifacts/reports/human_audit-20261117/`; recovery index
+`artifacts/reports/human_corpus_audit_delivery_receipt.json` (verify before relying on delivery).
+The ADR-043 extension (`fedfa10a`) added MINDS-14 ru-RU (natural spoken RU, ASR text: out_of_scope,
 technical_issue, change_address, account_help), xSID Kazakh (human translations, validation/test
 only, out_of_scope) and CLINC150 (EN greeting, card-declined, order status, out_of_scope). The
-corpus also carries 17,710 human-written doc2dial responses (EN, answer/clarify) grounded in
+corpus also carries human-written doc2dial responses (EN, answer/clarify) grounded in
 cited government-page spans, in namespace `doc2dial_external`, never in the KB. Mixed RU–KK,
-15 intents and human answers grounded in this store's KB remain gaps; nothing was synthesised.
-Agent audits (not human review): about 2–3% disputable new labels before rule fixes, roughly
-5–10% loosely supported grounded targets. No model was trained; no quality change is claimed.
+14 intents and human answers grounded in this store's KB remain gaps; nothing was synthesised.
+The ADR-043 estimate of 5–10% loosely supported grounded targets was too low (see ADR-045 above).
+No model was trained; no quality change is claimed.
 Interpretation, sources, attempts and the external-resource decision table:
 [human corpus review §5](reviews/human_corpus_review.md#5-extension-adr-043-2026-11-17).
 Snapshots and recovery index: `artifacts/reports/human_corpus_extension_delivery_receipt.json`
@@ -160,7 +169,7 @@ vendor options (IndecalAI KK speech, Pangeanic, AI Data Stock RU tickets) are re
 catalogue pages only, with no contact. `human_intake/1` (DATA_CONTRACTS §20.2,
 `data/humanintake.py`, CLI `data human-intake`) admits only attested, twice independently
 reviewed, variant-competent requests and KB-cited answers; it is fixture-tested, no real
-delivery exists, and the active corpus is unchanged (rebuild reproduces `fedfa10a`). Next action
+delivery exists (ADR-045 later replaced the active corpus with `9b501421`). Next action
 (owner): approve R1 (USD 0 owner-run bilingual volunteer pilot) and/or R2 (USD 0 generic
 quotation inquiries) of review §6.3; R3 purchases need concrete terms. RWS stays excluded.
 A controlled router/SFT experiment on this corpus also needs separate authorization.
@@ -181,6 +190,7 @@ Stage 10 remains NOT_STARTED.
 | Architecture redesign | `artifacts/reports/architecture_delivery_receipt.json` |
 | Human-authored corpus (ADR-042) | `artifacts/reports/human_corpus_delivery_receipt.json` |
 | Human-corpus extension (ADR-043) | `artifacts/reports/human_corpus_extension_delivery_receipt.json` |
+| Human-corpus audit (ADR-045) | `artifacts/reports/human_corpus_audit_delivery_receipt.json` |
 
 Prior stage evidence, selected inference/training checkpoints and pinned backups remain retained.
 Backups are local/same-disk and do not protect against disk loss. No backup deletion is authorized.

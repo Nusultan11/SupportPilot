@@ -478,6 +478,8 @@ def build_human(
             leak_ngram=recipe.leak_ngram,
             leak_cosine=recipe.leak_cosine,
             encode=inp.encode,
+            structural=g.structural_checks,
+            max_novel=g.max_novel_tokens,
         )
         result.report["grounded"] = grounded.report
         inputs.append(f"{g.source_id}@{by_id[g.source_id].revision}")

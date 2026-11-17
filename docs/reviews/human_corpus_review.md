@@ -216,3 +216,72 @@ separately frozen delivery.
 Without R1 or R2 the remaining gaps (KK/mixed natural requests, 15 intents, human review,
 store-grounded answers) stay open and the goal of this task stays PARTIAL. No model was
 trained; no ML quality change is claimed; Stage 10 is not started.
+
+## 7. Data-quality audit (ADR-045, 2026-11-17)
+
+Sections 1–6 stay unchanged. The implementing agent read the actual rows of
+`human-20261117-fedfa10a` across every source, label and language, plus a grounded sample.
+**All judgements below are agent work, not human verification**; semantic support of grounded
+targets remains NOT_EVALUATED by NLI or people. Raw judgements, samples and before/after lists:
+`artifacts/reports/human_audit-20261117/` (`confirmation_summary.json`, `agent_judgements.jsonl`).
+
+### 7.1 Confirmed defects and fixes (`human-20261117-9b501421`)
+
+| Defect found in real rows | Fix | Rows affected |
+|---|---|---|
+| Explicit "cancel my order" requests in shipping-cost, manage and refund subflows got payment/refund/change labels; `cancel_order` absent | ordered cancel rule first in those subflows (excludes "cancel the second item", "event is cancelled") | 33 `cancel_order` rows (31 clarify, 2 call_tool) |
+| "Change my delivery time / won't be home" in `status_delivery_time` labelled `track_order` | change cue → `change_order`; "didn't get / not received" → excluded | 19 relabelled |
+| Size/stock requests ("in a 9", "in medium", "my size", "unavailable") labelled `product_info`; every availability row used `clarify` although a named brand allows a stock lookup | stock-cue rules before product rules; named brand → `call_tool`; "measurements/design available" → `product_info` | 35 rows to availability `call_tool`, 4 to availability, 3 back to `product_info` |
+| Account-recovery subflows labelled pure order-status and contentless texts `account_help` | access cue (incl. misspellings, lost 2FA phone) → `account_help`; order-status phrase → `track_order`; otherwise excluded | 7 → `track_order`, 37 excluded |
+| Misspelt non-delivery ("recieved", "havent", "didn't get") → `track_order`; plural "refunds/returns" policy → `policy_faq`; promo vs sale rule order; "STAUTS" | rule patterns | 7 + 2 + 1 + 2 relabelled, 1 excluded |
+| Card declined at other merchants (Macy's, Target, Netflix…), a Nespresso order, greetings addressed to Alexa/"AI"/"bandit" | merchant/assistant excludes | 8 + 1 + 11 excluded |
+| Stock-out rows that explicitly ask to complain (availability vs complaint) | excluded (one false positive: "I don't want to complain") | 6 |
+| Rows without a request ("I have a question about shipping"), with an ambiguous label, unmasked personal data or garbled ASR | recipe `agent_audit` → unverified (reason `agent_audit`), never relabelled | 22 unverified (+1 already excluded) |
+| Unmasked fictional order ids (7–9 digits), PINs (also split across turns), split phone numbers, a street address | masking/PII gate patterns extended; joined requests re-masked | gate now covers them; 0 hits |
+| Grounded targets with markup (`[3]`, "on this page"), fused words, fragments, clarifications that are not questions, answers ending in "?", unsupported yes/no leads, referral-only replies, > 2 content words absent from evidence and dialogue | recipe `grounded.structural_checks` and `max_novel_tokens` → grounded unverified | 4,603 moved to unverified |
+
+Checks that found no defect: no cross-split near-copy at char-5 Jaccard >= 0.6; MASSIVE and xSID
+out-of-scope labels correct in samples; 24 ABCD rows share one writer's scripted opener (kept).
+
+### 7.2 Measured result
+
+| Measure | `fedfa10a` | `9b501421` |
+|---|---|---|
+| Active intent rows (train / validation / test) | 6,512 (4,197 / 1,133 / 1,182) | 6,469 (4,168 / 1,133 / 1,168) |
+| EN / RU / KK / mixed | 5,103 / 896 / 513 / 0 | 5,065 / 891 / 513 / 0 |
+| Intents covered | 20 | 21 (`cancel_order` added; 14 absent) |
+| Actions answer_kb / call_tool / clarify / escalate / refuse_oos | 1,466 / 41 / 1,711 / 555 / 2,739 | 1,411 / 80 / 1,688 / 554 / 2,736 |
+| Unverified / excluded | 1,515 / 59,586 | 1,570 / 59,574 |
+| Grounded trusted (answer / clarify) | 17,710 (14,292 / 3,418) | 13,107 (10,457 / 2,650) |
+| Grounded unverified | 6,568 | 11,171 |
+
+Row-level delta: 103 active rows changed intent/action, 102 left the active pool and 76 entered
+it; most entries/exits outside the fixed rules are split-decontamination churn (`cross_split_
+semantic`) caused by the changed row set, not new labels. All gates pass; `human-verify` passes.
+
+### 7.3 Confirmation on fresh samples (seeds never used for rule design)
+
+| Sample | Result (agent judgement) | Wilson 95% |
+|---|---|---|
+| Intent rows, n=100, seed 20261119 | 2 defects (a request-less row labelled `change_order`; `answer_kb` for a topic without a question), 3 borderline | defect 0.6–7.0%; with borderline 2.2–11.2% |
+| Grounded kept, n=60, seed 20261120 | 13 defects (7 non-responsive/incomplete, 2 unsupported, 4 corrupted), 4 borderline | 13.1–33.6% |
+| Grounded removed by new checks, n=30, seed 20261121 | 15 correct removals; false positives mostly courteous "Of course"/"Yes" leads that the evidence supports | precision 33–67% |
+| Grounded before checks (development sample, seed 20261118) | 15/60 defects (used to design the checks) | 15.8–37.2% |
+
+The earlier estimate of 5–10% loosely supported grounded targets (§5.3) was too low. The
+structural checks remove roughly as many good rows as defective ones and leave about one target
+in five non-responsive, incomplete, unsupported or corrupted; the confidence intervals of the
+before/after samples overlap, so no significant improvement is claimed. Remaining grounded
+defects are semantic (does the target answer the query from the cited spans?) and need an NLI
+check or human review; until then treat grounded targets as noisy auxiliary data, not
+trusted answers. Known residuals not fixed after confirmation (to keep the sample valid):
+`abcd:convo-8358` (no request) and `abcd:convo-4225` (`answer_kb` without a question).
+
+### 7.4 Limitations
+
+Language imbalance is unchanged: RU natural rows remain few and mostly out-of-scope, KK is
+held-out out-of-scope only, mixed RU–KK is 0, and 14 intents remain absent. A search of every
+open source in the registry found only `cancel_order` (ABCD) cleanly recoverable; `human_agent`
+appears only in ambiguous CLINC "are you a bot" rows. Nothing was synthesised, translated or
+relabelled by guesswork. Labels stay `source_label_mapped`/`unreviewed`. No model was trained or
+evaluated, so no ML quality change is claimed.

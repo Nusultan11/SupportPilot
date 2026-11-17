@@ -64,7 +64,7 @@ from supportpilot.data.textnorm import (
     word_count,
 )
 
-HUMAN_VERSION = 2
+HUMAN_VERSION = 3
 SCHEMA = "human_example/1"
 # `human_spoken_asr`: a person spoke the request; the text is an automatic transcription of
 # that speech (human wording, machine transcription, ASR errors kept). Not a translation.
@@ -82,6 +82,11 @@ TARGET_STATUS = "no_human_target"
 SPLITS = ("train", "validation", "test")
 HELDOUT = ("validation", "test")
 FILES = (*(f"{s}.parquet" for s in SPLITS), "unverified.parquet", "excluded.parquet")
+# Agent audit (ADR-045): a row the implementing agent read and could not trust is routed to
+# `unverified` with reason `agent_audit` and flag `agent_audit:<code>`. This is the agent's
+# own judgement, never independent human review; it never assigns a new label.
+AGENT_AUDIT = "agent_audit"
+AuditCode = Literal["no_request", "ambiguous_label", "garbled_asr", "personal_data"]
 Encoder = Callable[[Sequence[str]], npt.NDArray[np.float32]]
 
 
@@ -150,6 +155,11 @@ class GroundedRecipe(_Model):
     evidence: str = Field(min_length=20)
     acts: dict[str, Literal["answer", "clarify"]] = Field(min_length=1)
     min_evidence_recall: float = Field(gt=0.0, le=1.0)
+    # ADR-045: structural checks (markup, fused words, fragments, act/form mismatch,
+    # unsupported yes/no lead, referral-only) and a cap on target content words found in
+    # neither the evidence nor the dialogue. None/False keeps the ADR-043 behaviour.
+    structural_checks: bool = False
+    max_novel_tokens: int | None = Field(default=None, ge=0)
 
 
 class HumanRecipe(_Model):
@@ -167,6 +177,7 @@ class HumanRecipe(_Model):
     prompt_echo_patterns: list[str]
     personal_name_patterns: list[str] = Field(default_factory=list)
     greeting_only: str
+    agent_audit: dict[str, AuditCode] = Field(default_factory=dict)  # record_id -> code
     sources: dict[str, dict[str, HumanLabel]]
     grounded: GroundedRecipe | None = None
 
@@ -308,7 +319,14 @@ EXCLUDED_SCHEMA = pa.schema(
 # ----------------------------------------------------------------------------- ABCD
 
 _SUFFIX_RE = re.compile(r"_\d+$")
-_ORDER_ID_RE = re.compile(r"(?<!\w)\d{10}(?!\w)")
+# 7-10 digit order numbers (ABCD order ids are 10 digits, customers also type shorter ones)
+_ORDER_ID_RE = re.compile(r"(?<![\w$.,])\d{7,10}(?![\w])")
+PIN_RE = re.compile(r"(?i)\bpin(?:\s+(?:number|code))?(?:\s+is)?[\s:|#-]*\d{4,8}\b")
+SPLIT_PHONE_RE = re.compile(r"(?<!\w)\d{3}[\s.-]\d{7}(?!\w)")
+STREET_RE = re.compile(
+    r"(?<!\w)\d{2,6}\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)?\s+"
+    r"(?:St|Street|Ave|Avenue|Rd|Road|Blvd|Dr|Drive|Ln|Lane|Way|Ct|Court)\b\.?"
+)
 _ACCOUNT_ID_RE = re.compile(r"(?<!\w)(?=[A-Z0-9]*\d)(?=[A-Z0-9]*[A-Z])[A-Z0-9]{10}(?!\w)")
 # North-American numbers with separators, e.g. "(977) 625-2661"; textnorm.PHONE_RE misses them.
 NANP_RE = re.compile(r"(?<![\w+])(?:\(\d{3}\)\s?|\d{3}[\s.-])\d{3}[\s.-]\d{4}(?!\w)")
@@ -370,7 +388,10 @@ def mask_text(text: str, values: Sequence[tuple[str, str]]) -> str:
     out = text
     for value, token in values:
         out = re.sub(rf"(?<!\w){re.escape(value)}(?!\w)", token, out, flags=re.IGNORECASE)
+    out = PIN_RE.sub("<pin>", out)
+    out = STREET_RE.sub("<address>", out)
     out = EMAIL_RE.sub("<email>", out)
+    out = SPLIT_PHONE_RE.sub("<phone>", out)
     out = PHONE_RE.sub("<phone>", out)
     out = NANP_RE.sub("<phone>", out)
     out = _ORDER_ID_RE.sub("<order_id>", out)
@@ -399,7 +420,9 @@ def read_abcd(
             if not request:
                 excluded.append(_excl(rid, entry.source_id, label, "en", "", "no_request", None))
                 continue
-            text = "\n".join(request)
+            # mask again: a value split across customer turns ("pin" | "238739") is only
+            # visible once the turns are joined
+            text = mask_text("\n".join(request), values)
             slots = {"order_id": "<order_id>"} if "<order_id>" in text else {}
             rows.append(Row(rid, entry.source_id, "en", origin, text, label, split, ctx, slots))
     return rows, excluded
@@ -827,6 +850,9 @@ def build_rows(inp: BuildInputs) -> BuildResult:
     read_counts = Counter(r.source_id for r in rows) + Counter(x["source_id"] for x in excluded)
 
     unverified: list[tuple[Row, str]] = []
+    seen_ids = {r.record_id for r in rows} | {x["record_id"] for x in excluded}
+    if unknown_audit := sorted(set(recipe.agent_audit) - seen_ids):
+        raise StepError(f"agent_audit names records that were not read: {unknown_audit[:5]}")
     echo = [re.compile(p, re.IGNORECASE) for p in recipe.prompt_echo_patterns]
     names = [re.compile(p, re.IGNORECASE) for p in recipe.personal_name_patterns]
 
@@ -854,7 +880,10 @@ def build_rows(inp: BuildInputs) -> BuildResult:
             r.intent, r.action, r.rule = d.intent, d.action, d.rule
             r.escalation_reason = d.escalation_reason
         reason = None
-        if not recipe.authorship[r.source_id].active:
+        if r.record_id in recipe.agent_audit:
+            r.flags.append(f"{AGENT_AUDIT}:{recipe.agent_audit[r.record_id]}")
+            reason = AGENT_AUDIT
+        elif not recipe.authorship[r.source_id].active:
             reason = "authorship_undocumented"
         elif "�" in r.text or garbled(r.text):
             reason = "corrupted_text"
@@ -1081,7 +1110,7 @@ def to_record(r: Row, recipe: HumanRecipe, reason: str | None) -> dict[str, Any]
 
 
 def pii_hits(text: str) -> int:
-    patterns = (EMAIL_RE, PHONE_RE, NANP_RE, CARD_RE)
+    patterns = (EMAIL_RE, PHONE_RE, NANP_RE, CARD_RE, PIN_RE, SPLIT_PHONE_RE, STREET_RE)
     return sum(len(p.findall(text)) for p in patterns)
 
 
