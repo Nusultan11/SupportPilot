@@ -11,6 +11,7 @@ paths:
 data:
   registry: configs/sources.yaml   # source registry: licences, revisions, decisions
   taxonomy: configs/taxonomy.yaml  # intent taxonomy v1 (product contract)
+  corpus_recipe: configs/corpus.yaml  # Stage 1 corpus recipe (labels, splits, dedup)
   download_retries: 3              # per file; partial downloads resume
 
 logging:

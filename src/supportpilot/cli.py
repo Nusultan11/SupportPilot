@@ -162,6 +162,8 @@ def cmd_data(args: argparse.Namespace, settings: Settings) -> int:
         tax = load_taxonomy(settings.resolve(settings.data.taxonomy))
         _emit({"version": tax.version, "intents": len(tax.intents), "actions": tax.actions})
         return 0
+    if args.action == "corpus":
+        return _cmd_corpus(args, settings, data_dir)
     entries = _selected_entries(args, settings)
     if args.action == "acquire":
         results = []
@@ -190,6 +192,33 @@ def cmd_data(args: argparse.Namespace, settings: Settings) -> int:
         )
     _emit({"verify": report})
     return 1 if failed else 0
+
+
+def _cmd_corpus(args: argparse.Namespace, settings: Settings, data_dir: Path) -> int:
+    from supportpilot.data.corpus import build_corpus, latest_corpus, load_inputs, verify_corpus
+
+    out_root = data_dir / "corpus"
+    if args.corpus_action == "build":
+        inputs = load_inputs(
+            settings.resolve(settings.data.corpus_recipe),
+            settings.resolve(settings.data.taxonomy),
+            settings.resolve(settings.data.registry),
+        )
+        res = build_corpus(data_dir, out_root, inputs, code_commit(settings.root))
+        _emit(
+            {
+                "version": res.version,
+                "path": str(res.path),
+                "created": res.created,
+                "counts": res.counts,
+                "leakage": res.leakage,
+            }
+        )
+        return 0
+    path = Path(args.path) if args.path else latest_corpus(out_root)
+    problems = verify_corpus(path)
+    _emit({"path": str(path), "ok": not problems, "problems": problems})
+    return 1 if problems else 0
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -243,6 +272,11 @@ def build_parser() -> argparse.ArgumentParser:
         a.add_argument("sources", nargs="*", help="source ids (see `data sources`)")
         a.add_argument("--all", action="store_true", help="all sources with status=selected")
     dsub.add_parser("taxonomy", help="validate configs/taxonomy.yaml")
+    cp = dsub.add_parser("corpus", help="build or verify the versioned Stage 1 corpus")
+    csub = cp.add_subparsers(dest="corpus_action", required=True)
+    csub.add_parser("build", help="raw sources -> data/corpus/<version>/ (reuses identical)")
+    cv = csub.add_parser("verify", help="re-hash a published corpus against its manifest")
+    cv.add_argument("path", nargs="?", help="corpus directory (default: latest)")
     dt.set_defaults(func=cmd_data)
     return p
 
@@ -257,6 +291,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     configure_logging(settings.logging)
     log.debug("start", extra={"command": args.command, "at": datetime.now(UTC).isoformat()})
     from supportpilot.data.acquire import AcquireError
+    from supportpilot.data.corpus import CorpusError
     from supportpilot.data.policy import PolicyError
 
     try:
@@ -264,6 +299,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     except (
         backup.BackupError,
         AcquireError,
+        CorpusError,
         PolicyError,
         FileNotFoundError,
         ValueError,

@@ -1,0 +1,501 @@
+# Stage 1 corpus recipe (ADR-047, DATA_CONTRACTS §6-9). Validated by
+# `supportpilot.data.recipe.Recipe` against taxonomy v1 and the source registry.
+#
+# A label is an authored mapping of the SOURCE's own label (scenario prompt, intent class)
+# to a v1 intent. It is never independent human adjudication (human_review: NOT_EVALUATED).
+#   intent: X            -> mapped_direct: the source label alone fixes the intent
+#   rules: [{cue, ...}]  -> mapped_cue: first rule whose cue (case-insensitive regex) is found
+#                           in the text; no cue found -> `unverified` pool (candidate intent)
+#   exclude: reason      -> the row is excluded with this reason
+#   veto: [{pattern, reason}] -> excluded when the pattern is found (checked first)
+# Texts shorter than `min_words` never enter the core pool.
+schema_version: corpus_recipe/1
+seed: 20261117
+split: {train: 0.8, validation: 0.1, test: 0.1}
+neardup: {shingle: 4, jaccard: 0.7, num_perm: 64, bands: 16}
+min_words: 3
+max_chars: 1000
+review_sample_per_language: 100
+
+sources:
+  # ---------------------------------------------------------------- EN retail support chats
+  abcd:
+    domain: retail_support
+    origin: {en: human_roleplay}
+    evidence: >-
+      Chen et al. 2021 (NAACL, arXiv:2104.00783 §3): crowd workers role-played customers from
+      a scenario prompt with trained agents in live chat (Expert Live Chat, 2020); no text
+      generator. The opening customer request is taken; the subflow is the prompt the customer
+      received.
+    named_product: '\b(?:calvin[ _]?klein|ck|guess|michael[ _]?kors|tommy[ _]?hilfiger|hilfiger)\b'
+    labels:
+      # account_access
+      recover_username: &account_access
+        rules:
+          - {cue: '\b(?:passw\w*|pass word|user ?name|user id|log ?in|login|logging|sign(?:ing)? ?in|locked|access|2fa|two[- ]?(?:step|factor)|authent\w*|verification|get (?:in|into|back)|forg[eo]t\w*)\b|\blost (?:my |the )?phone\b|\bphone (?:i|that i) used\b', intent: account_help}
+      recover_password: *account_access
+      reset_2fa: *account_access
+      # manage_account
+      manage_change_name:
+        rules: [{cue: '\bname\b', intent: account_help}]
+      manage_change_phone:
+        rules: [{cue: '\bphone|number\b', intent: account_help}]
+      manage_change_address:
+        rules:
+          - {cue: '\b(?:order|package|parcel|shipment|delivery)\b', intent: change_order}
+          - {cue: '\b(?:account|profile)\b', intent: account_help}
+          - {cue: '\baddress\b', intent: change_address}
+      manage_payment_method:
+        rules: [{cue: '\b(?:account|primary|profile|default)\b', intent: account_help}]
+      status_shipping_question:
+        rules: [{cue: '\b(?:shipping|ship|delivery)\b', intent: delivery_options_cost}]
+      status_service_added: &no_v1 {exclude: "premium-subscription service: no v1 intent"}
+      status_service_removed: *no_v1
+      status_credit_missing: {exclude: "promotional store credit of a subscription: no v1 intent"}
+      # order_issue
+      status_mystery_fee:
+        rules: [{cue: '\b(?:fee|charged?|bill\w*)\b', intent: payment_problem}]
+      status_delivery_time: &delivery_status
+        rules:
+          - {cue: '\b(?:change|reschedul\w*|extend)\b', intent: change_order}
+          - {cue: '\b(?:status|when|where|arriv\w*|deliver\w*)\b', intent: track_order}
+      status_delivery_date: *delivery_status
+      status_payment_method:
+        rules:
+          - {cue: '\b(?:change|update|switch|correct|fix)\b', intent: change_order}
+          - {cue: '\b(?:payment|paypal|credit card|paid)\b', intent: payment_problem}
+      status_quantity:
+        rules: [{cue: '\b(?:quantity|two|2|twice|extra|one|only ordered|double)\b', intent: change_order}]
+      manage_upgrade: &shipping_change
+        rules: [{cue: '\b(?:ship\w*|deliver\w*|overnight|express|expedite\w*|faster|next week)\b', intent: change_order}]
+      manage_downgrade: *shipping_change
+      manage_create:
+        rules: [{cue: '\badd\w*\b', intent: change_order}]
+      manage_cancel:
+        veto: [{pattern: '\breturn', reason: "source label (remove before shipping) contradicts a return request"}]
+        rules: [{cue: '\b(?:remove|take (?:it )?off|cancel\w*|delete|take out)\b', intent: change_order}]
+      # product_defect
+      refund_initiate:
+        rules:
+          - {cue: '\b(?:refund|money back)\b', intent: request_refund}
+          - {cue: '\breturn\w*\b', intent: return_product}
+      refund_update:
+        rules:
+          - {cue: '\b(?:status|where|state|update|yet|pending|check|owed|haven''?t)\b', intent: refund_status}
+      refund_status:
+        rules: [{cue: '\brefund\w*\b', intent: refund_status}]
+      return_size: &return_item
+        rules:
+          - {cue: '\b(?:sent|received|got|gave) (?:me )?(?:the |a |an )?wrong\b|\bwas sent\b', intent: delivery_problem}
+          - {cue: '\bexchange\w*\b', intent: exchange_product}
+          - {cue: '\breturn\w*\b', intent: return_product}
+      return_color: *return_item
+      return_stain:  # an item damaged on arrival is a delivery problem (taxonomy v1)
+        rules:
+          - {cue: '\b(?:stain\w*|dirty|damaged?|spot)\b', intent: delivery_problem}
+          - {cue: '\breturn\w*\b', intent: return_product}
+      # purchase_dispute
+      bad_price_competitor: {exclude: "price-match request: no v1 intent; needs another store's prices"}
+      bad_price_yesterday: {exclude: "price-adjustment request: no v1 intent"}
+      out_of_stock_general:
+        rules: [{cue: '\b(?:frustrat\w*|upset|annoy\w*|ridiculous|always|every ?time|never|why should i|complain\w*)\b', intent: complaint}]
+      out_of_stock_one_item:
+        veto: [{pattern: '\b(?:complain\w*|frustrat\w*|upset)\b', reason: "stock-out with a complaint: availability and complaint both fit"}]
+        rules: [{cue: '\b(?:out of stock|in stock|available|availability|restock\w*|sold out|back in stock)\b', intent: availability}]
+      promo_code_invalid: &promo
+        rules: [{cue: '\b(?:promo\w*|code|coupon|discount)\b', intent: policy_faq}]
+      promo_code_out_of_date: *promo
+      mistimed_billing_already_returned:
+        # a charge alone is not a refund question: the text must mention the return/refund
+        rules: [{cue: '\b(?:return\w*|refund\w*|revers\w*|money back)\b', intent: refund_status}]
+      mistimed_billing_never_bought:
+        rules:
+          - {cue: '\b(?:never|didn''?t|did not|not) (?:bought|buy|placed|place|made|ordered|order)\b', intent: payment_problem, action: escalate, escalation_reason: payment_dispute}
+      # shipping_issue
+      status: {exclude: "order e-mail discrepancies of several kinds: no single v1 intent"}
+      manage:
+        rules:
+          - {cue: '\b(?:address|moved?|moving|where (?:my|the) package)\b', intent: change_order}
+          - {cue: '\b(?:change|stop)\b', intent: change_order}
+      missing:
+        rules:
+          - {cue: '\b(?:never|not|haven''?t|hasn''?t|didn''?t|still)\b[\w\s]{0,20}\b(?:receiv\w*|get|got|gotten|arriv\w*|come|came|deliver\w*|shown up|show up)\b|\bmissing\b', intent: delivery_problem}
+          - {cue: '\b(?:status|where|shipped|track\w*)\b', intent: track_order}
+      cost:  # shipping charge complaints mix cost questions, refunds and cancellations
+        candidate: delivery_options_cost
+      # single_item_query (numeric suffixes removed by the reader)
+      boots_how: &product_query
+        veto: [{pattern: '\b(?:cheaper|expensive|overpriced|price (?:drop|went|change)|competitor)\b', reason: "price complaint inside a product question"}]
+        rules:
+          - {cue: '\b(?:in stock|(?:un)?available|availability|sold out|in (?:a )?(?:smaller|bigger|larger|different) size|any in)\b', intent: availability}
+          - {cue: '\bwarrant\w*\b', intent: policy_faq}
+          - {cue: '\b(?:boots?|shoes?|jackets?|coats?|hood|jeans?|pants|denim|shirts?|t-shirt|collar|material|wash\w*|size|waterproof|shrink\w*|made of|fabric)\b', intent: product_info}
+      boots_other: *product_query
+      jacket_how: *product_query
+      jacket_other: *product_query
+      jeans_how: *product_query
+      jeans_other: *product_query
+      shirt_how: *product_query
+      shirt_other: *product_query
+      # storewide_query
+      membership:
+        rules: [{cue: '\b(?:member\w*|premium|level|tier|gold|silver|bronze)\b', intent: policy_faq}]
+      policy:
+        veto: [{pattern: '\bsubscription\b', reason: "premium-subscription service: no v1 intent"}]
+        rules:
+          - {cue: '\b(?:return|refund|exchange)s?\b', intent: return_policy}
+          - {cue: '\b(?:polic\w*|rules?|warrant\w*)\b', intent: policy_faq}
+      pricing:
+        rules:
+          - {cue: '\b(?:shipping|delivery|deliver|overnight)\b', intent: delivery_options_cost}
+          - {cue: '\b(?:gift ?wrap\w*|wrapping|monogram\w*|stitch\w*|embroider\w*|personaliz\w*)\b', intent: policy_faq}
+      timing:
+        rules:
+          - {cue: '\b(?:promo\w*|code|coupon)\b', intent: policy_faq}
+          - {cue: '\b(?:open\w*|clos\w*|hours|sale|season|collection|release\w*|come out|drop)\b', intent: store_info}
+      # subscription_inquiry
+      status_active: *no_v1
+      status_due_amount: *no_v1
+      status_due_date: *no_v1
+      status_questions: *no_v1
+      manage_pay_bill: *no_v1
+      manage_extension: *no_v1
+      manage_dispute_bill: {exclude: "subscription bill dispute; double charges for orders are not separable from the subscription case"}
+      # troubleshoot_site
+      credit_card:
+        rules: [{cue: '\b(?:card|declin\w*|reject\w*|payment|pay)\b', intent: payment_problem}]
+      shopping_cart: &site_problem
+        rules: [{cue: '\b(?:cart|basket|button|website|site|page|search\w*|results?|load\w*|spinning|wheel|slow\w*|lag\w*|speed|working|work)\b', intent: technical_issue}]
+      search_results: *site_problem
+      slow_speed: *site_problem
+
+  # ---------------------------------------------------------------- EN/RU virtual-assistant requests
+  massive_en_ru:
+    domain: virtual_assistant
+    origin: {en: human_written, ru: human_localised}
+    evidence: >-
+      FitzGerald et al. 2022 (arXiv:2204.08582 §3): EN utterances written by crowd workers;
+      RU localised by professional translators and validated by workers. EN and RU rows of one
+      id are one parallel family (same split).
+    veto:
+      - {pattern: '\bolly\b|\bолли\b', reason: "addressed to the voice assistant by its wake word"}
+      - &shopping_veto {pattern: '\b(?:shop\w*|store|order\w*|deliver\w*|buy\w*|purchas\w*|магазин\w*|заказ\w*|доставк\w*|куп\w*|покуп\w*)\b', reason: "mentions shopping: out_of_scope is not certain"}
+    labels:
+      general_greet: {intent: greeting, min_words: 1}
+      general_quirky: {exclude: "catch-all class with mixed requests"}
+      lists_createoradd: &shopping_like {exclude: "lists/takeaway/e-mail/social intents overlap shopping or complaints"}
+      lists_query: *shopping_like
+      lists_remove: *shopping_like
+      takeaway_order: *shopping_like
+      takeaway_query: *shopping_like
+      email_addcontact: *shopping_like
+      email_query: *shopping_like
+      email_querycontact: *shopping_like
+      email_sendemail: *shopping_like
+      social_post: *shopping_like
+      social_query: *shopping_like
+      alarm_query: &oos {intent: out_of_scope}
+      alarm_remove: *oos
+      alarm_set: *oos
+      audio_volume_down: *oos
+      audio_volume_mute: *oos
+      audio_volume_other: *oos
+      audio_volume_up: *oos
+      calendar_query: *oos
+      calendar_remove: *oos
+      calendar_set: *oos
+      cooking_query: *oos
+      cooking_recipe: *oos
+      datetime_convert: *oos
+      datetime_query: *oos
+      general_joke: *oos
+      iot_cleaning: *oos
+      iot_coffee: *oos
+      iot_hue_lightchange: *oos
+      iot_hue_lightdim: *oos
+      iot_hue_lightoff: *oos
+      iot_hue_lighton: *oos
+      iot_hue_lightup: *oos
+      iot_wemo_off: *oos
+      iot_wemo_on: *oos
+      music_dislikeness: *oos
+      music_likeness: *oos
+      music_query: *oos
+      music_settings: *oos
+      news_query: *oos
+      play_audiobook: *oos
+      play_game: *oos
+      play_music: *oos
+      play_podcasts: *oos
+      play_radio: *oos
+      qa_currency: *oos
+      qa_definition: *oos
+      qa_factoid: *oos
+      qa_maths: *oos
+      qa_stock: *oos
+      recommendation_events: *oos
+      recommendation_locations: *oos
+      recommendation_movies: *oos
+      transport_query: *oos
+      transport_taxi: *oos
+      transport_ticket: *oos
+      transport_traffic: *oos
+      weather_query: *oos
+
+  # ---------------------------------------------------------------- EN crowd-written assistant queries
+  clinc150:
+    domain: virtual_assistant
+    origin: {en: human_written}
+    evidence: >-
+      Larson et al. 2019 (EMNLP, arXiv:1909.02027 §3): queries written by crowd workers from
+      scenario and paraphrase prompts; no generator.
+    labels:
+      greeting: &clinc_greeting
+        veto: [{pattern: '\b(?:alexa|siri|ai|robot|computer)\b', reason: "addressed to a voice assistant"}]
+        intent: greeting
+        min_words: 1
+      thank_you: *clinc_greeting
+      card_declined:
+        veto:
+          - {pattern: '\b(?:at|in) (?:the |a )?\w+|\b(?:food|groceries|gas|lunch|dinner|coffee|restaurant|hotel|subscription|macy|walgreens|starbucks|target|netflix|walmart|costco|amazon)', reason: "card declined at another merchant or place"}
+        rules: [{cue: '\b(?:declin\w*|not (?:get )?accepted|denied|reject\w*|refused|didn''?t go through|did not go through)\b', intent: payment_problem}]
+      order_status:
+        veto: [{pattern: '\b(?:amazon|ebay|walmart|target|etsy|alibaba|nespresso|pizza|food|checks?)\b', reason: "order at another shop or of another kind"}]
+        rules: [{cue: '\b(?:order\w*|package|parcel|purchase|shipment|deliver\w*|track\w*|arriv\w*)\b', intent: track_order}]
+      # out-of-scope domains: travel, kitchen, auto, home, time, small talk, meta
+      book_flight: &clinc_oos
+        veto: [*shopping_veto]
+        intent: out_of_scope
+      book_hotel: *clinc_oos
+      car_rental: *clinc_oos
+      flight_status: *clinc_oos
+      lost_luggage: *clinc_oos
+      carry_on: *clinc_oos
+      international_visa: *clinc_oos
+      travel_alert: *clinc_oos
+      travel_suggestion: *clinc_oos
+      travel_notification: *clinc_oos
+      plug_type: *clinc_oos
+      exchange_rate: *clinc_oos
+      timezone: *clinc_oos
+      translate: *clinc_oos
+      recipe: *clinc_oos
+      cook_time: *clinc_oos
+      ingredients_list: *clinc_oos
+      ingredient_substitution: *clinc_oos
+      calories: *clinc_oos
+      nutrition_info: *clinc_oos
+      food_last: *clinc_oos
+      meal_suggestion: *clinc_oos
+      restaurant_reviews: *clinc_oos
+      restaurant_reservation: *clinc_oos
+      restaurant_suggestion: *clinc_oos
+      accept_reservations: *clinc_oos
+      confirm_reservation: *clinc_oos
+      cancel_reservation: *clinc_oos
+      how_busy: *clinc_oos
+      oil_change_how: *clinc_oos
+      oil_change_when: *clinc_oos
+      gas: *clinc_oos
+      gas_type: *clinc_oos
+      jump_start: *clinc_oos
+      tire_change: *clinc_oos
+      tire_pressure: *clinc_oos
+      mpg: *clinc_oos
+      last_maintenance: *clinc_oos
+      schedule_maintenance: *clinc_oos
+      uber: *clinc_oos
+      traffic: *clinc_oos
+      directions: *clinc_oos
+      distance: *clinc_oos
+      current_location: *clinc_oos
+      share_location: *clinc_oos
+      weather: *clinc_oos
+      time: *clinc_oos
+      date: *clinc_oos
+      timer: *clinc_oos
+      alarm: *clinc_oos
+      reminder: *clinc_oos
+      reminder_update: *clinc_oos
+      calendar: *clinc_oos
+      calendar_update: *clinc_oos
+      schedule_meeting: *clinc_oos
+      meeting_schedule: *clinc_oos
+      make_call: *clinc_oos
+      text: *clinc_oos
+      find_phone: *clinc_oos
+      smart_home: *clinc_oos
+      play_music: *clinc_oos
+      next_song: *clinc_oos
+      what_song: *clinc_oos
+      update_playlist: *clinc_oos
+      change_volume: *clinc_oos
+      change_speed: *clinc_oos
+      change_accent: *clinc_oos
+      change_language: *clinc_oos
+      change_ai_name: *clinc_oos
+      whisper_mode: *clinc_oos
+      reset_settings: *clinc_oos
+      sync_device: *clinc_oos
+      tell_joke: *clinc_oos
+      fun_fact: *clinc_oos
+      flip_coin: *clinc_oos
+      roll_dice: *clinc_oos
+      meaning_of_life: *clinc_oos
+      what_are_your_hobbies: *clinc_oos
+      do_you_have_pets: *clinc_oos
+      how_old_are_you: *clinc_oos
+      where_are_you_from: *clinc_oos
+      who_made_you: *clinc_oos
+      what_is_your_name: *clinc_oos
+      spelling: *clinc_oos
+      definition: *clinc_oos
+      measurement_conversion: *clinc_oos
+      calculator: *clinc_oos
+      next_holiday: *clinc_oos
+      vaccines: *clinc_oos
+      interest_rate: *clinc_oos
+      credit_score: *clinc_oos
+      improve_credit_score: *clinc_oos
+      routing: *clinc_oos
+      direct_deposit: *clinc_oos
+      rollover_401k: *clinc_oos
+      apr: *clinc_oos
+      income: *clinc_oos
+      taxes: *clinc_oos
+      w2: *clinc_oos
+      payday: *clinc_oos
+      pto_request: *clinc_oos
+      pto_request_status: *clinc_oos
+      pto_balance: *clinc_oos
+      pto_used: *clinc_oos
+      insurance: *clinc_oos
+      insurance_change: *clinc_oos
+      pin_change: *clinc_oos
+      report_lost_card: *clinc_oos
+      new_card: *clinc_oos
+      replacement_card_duration: *clinc_oos
+      credit_limit: *clinc_oos
+      credit_limit_change: *clinc_oos
+      min_payment: *clinc_oos
+      international_fees: *clinc_oos
+      # excluded: context-dependent, account-like or shopping-like in a store chat
+      goodbye: &clinc_ctx {exclude: "context-dependent turn (needs dialogue state)"}
+      cancel: *clinc_ctx
+      repeat: *clinc_ctx
+      "yes": *clinc_ctx
+      "no": *clinc_ctx
+      maybe: *clinc_ctx
+      are_you_a_bot: {exclude: "question about the assistant; no v1 intent"}
+      what_can_i_ask_you: {exclude: "question about the assistant; no v1 intent"}
+      who_do_you_work_for: {exclude: "question about the assistant/company; ambiguous with contact_info"}
+      oos: {exclude: "CLINC catch-all out-of-scope class may contain store requests"}
+      order: &clinc_shop {exclude: "orders/lists/rewards/bills/accounts overlap store intents"}
+      order_checks: *clinc_shop
+      shopping_list: *clinc_shop
+      shopping_list_update: *clinc_shop
+      todo_list: *clinc_shop
+      todo_list_update: *clinc_shop
+      redeem_rewards: *clinc_shop
+      rewards_balance: *clinc_shop
+      bill_balance: *clinc_shop
+      bill_due: *clinc_shop
+      pay_bill: *clinc_shop
+      transactions: *clinc_shop
+      spending_history: *clinc_shop
+      report_fraud: *clinc_shop
+      damaged_card: *clinc_shop
+      expiration_date: *clinc_shop
+      account_blocked: *clinc_shop
+      freeze_account: *clinc_shop
+      balance: *clinc_shop
+      transfer: *clinc_shop
+      user_name: *clinc_shop
+      change_user_name: *clinc_shop
+      application_status: *clinc_shop
+
+  # ---------------------------------------------------------------- RU spoken e-banking requests
+  minds14_ru:
+    domain: banking_voice
+    origin: {ru: human_spoken_asr}
+    evidence: >-
+      Gerz et al. 2021 (arXiv:2104.08524 §2, §4): native Russian speakers spoke new requests
+      after an intent description and three examples; text is the Google ASR 1-best
+      transcription (human wording, machine transcription, ASR errors kept).
+    labels:
+      atm_limit: {intent: out_of_scope}
+      abroad:
+        rules: [{cue: 'карт|банк|сч[её]т|снят|наличн', intent: out_of_scope}]
+      balance:
+        rules: [{cue: 'сч[её]т|банк|карт|кредит', intent: out_of_scope}]
+      business_loan:
+        rules: [{cue: 'бизнес|предпри|банк|кредит', intent: out_of_scope}]
+      cash_deposit:
+        rules: [{cue: 'сч[её]т|банк|банкомат|вклад|депозит', intent: out_of_scope}]
+      joint_account:
+        rules: [{cue: 'сч[её]т|банк', intent: out_of_scope}]
+      app_error:
+        veto: [{pattern: 'банк|сч[её]т|баланс|перевод|карт|транзакц', reason: "bank-specific app problem"}]
+        rules: [{cue: 'приложени|сайт|не работает|не загруж|ошибк|завис|вылета|не открыва', intent: technical_issue}]
+      address:
+        veto: [{pattern: 'банк|карт|сч[её]т|корреспонденц|письм|прописк|официальн', reason: "address held by the bank"}]
+        rules:
+          - {cue: 'личн\w* кабинет|профил|аккаунт|уч[её]тн', intent: account_help}
+          - {cue: 'адрес|мест\w* жительств|переех', intent: change_address}
+      card_issues: {exclude: "card problem: reads as a store payment problem, not separable"}
+      freeze: {exclude: "card/account freeze: ambiguous with fraud on a store account"}
+      direct_debit: {exclude: "direct-debit requests include double charges (payment_problem)"}
+      high_value_payment: {exclude: "bank payment authorisation: ambiguous with a store payment problem"}
+      latest_transactions: {exclude: "transaction history includes unknown charges (payment_problem)"}
+      pay_bill: {exclude: "bill payment: ambiguous with store invoices"}
+
+  # ---------------------------------------------------------------- KK translated assistant requests
+  xsid_kk:
+    domain: virtual_assistant
+    origin: {kk: human_localised}
+    placement: heldout
+    min_words: 2
+    evidence: >-
+      van der Goot et al. 2021 (NAACL §2.2): English Snips/Facebook dev+test utterances
+      translated into Kazakh by native-speaker annotators (not MT). The paper states xSID is
+      evaluation data only, so rows go to validation/test only.
+    veto: [*shopping_veto, {pattern: 'дүкен\w*|тапсырыс\w*|жеткізу\w*|сатып ал\w*', reason: "mentions shopping: out_of_scope is not certain"}]
+    labels:
+      weather/find: &kk_oos {intent: out_of_scope}
+      alarm/set_alarm: *kk_oos
+      alarm/cancel_alarm: *kk_oos
+      alarm/modify_alarm: *kk_oos
+      alarm/show_alarms: *kk_oos
+      alarm/snooze_alarm: *kk_oos
+      alarm/time_left_on_alarm: *kk_oos
+      reminder/set_reminder: *kk_oos
+      reminder/cancel_reminder: *kk_oos
+      reminder/show_reminders: *kk_oos
+      AddToPlaylist: *kk_oos
+      PlayMusic: *kk_oos
+      RateBook: *kk_oos
+      SearchCreativeWork: *kk_oos
+      SearchScreeningEvent: *kk_oos
+      BookRestaurant: *kk_oos
+
+  # ---------------------------------------------------------------- KK support QA (not admitted)
+  mangi_kk_support_qa:
+    active: false
+    inactive_reason: >-
+      authorship_undocumented: the card calls the sample hand-curated but does not state how
+      the questions were written; 406 rows carry 406 distinct intents with polished templated
+      answers. Human authorship is not established (AGENTS §2.6), so no row is admitted.
+    domain: other_industries_support
+    origin: {kk: human_written}
+    evidence: "Card (rev c687381e): community-curated; generation method not documented."
+
+  # ---------------------------------------------------------------- EN document-grounded dialogues
+  doc2dial:
+    kind: grounded
+    domain: government_services
+    origin: {en: human_written}
+    evidence: >-
+      Feng et al. 2020 (EMNLP §2.1): about 70 qualified appen.com contributors wrote every
+      user and agent utterance from a dialogue scene that names the grounding span. Split by
+      document family so a page's dialogues never cross splits. Documents are US government
+      pages: their rules are evidence only inside this component and never store facts.

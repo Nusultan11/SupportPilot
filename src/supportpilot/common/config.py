@@ -48,6 +48,7 @@ class DataSettings(_Section):
     registry: Path = Path("configs/sources.yaml")
     download_retries: int = Field(default=3, ge=1)
     taxonomy: Path = Path("configs/taxonomy.yaml")
+    corpus_recipe: Path = Path("configs/corpus.yaml")
 
 
 class LoggingSettings(_Section):

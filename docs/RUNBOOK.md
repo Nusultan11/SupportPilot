@@ -46,11 +46,17 @@ uv run supportpilot data sources [--status selected]
 uv run supportpilot data acquire <source_id ...> | --all
 uv run supportpilot data verify <source_id ...> | --all
 uv run supportpilot data taxonomy
+uv run supportpilot data corpus build
+uv run supportpilot data corpus verify [<data/corpus/version>]
 ```
 
 - `acquire` downloads pinned revisions to `data/raw/` and skips verified ones. Gated sources need `HF_TOKEN`.
 - `verify` re-hashes raw files against their manifest.
 - A new source: add it to `configs/sources.yaml` with licence evidence first.
+- `corpus build` re-verifies raw data, applies `configs/corpus.yaml` and publishes
+  `data/corpus/<version>/`; identical content reuses the existing version (`"created": false`).
+  It stops on any leakage/PII gate. `corpus verify` re-hashes against the manifest
+  (default: the latest version). Read `REPORT.md` in the version directory.
 
 ## 5. Code backup
 

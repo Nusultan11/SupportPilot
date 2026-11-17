@@ -24,12 +24,13 @@ workspace "SupportPilot" "Engineering foundation after the 2026-11-17 reset (ADR
                 ops = component "Operations" "Snapshots, environment report, MLflow health check; ops/." "Python / tar / SHA256" "Implemented"
             }
             pipeline = container "Data and ML pipeline" "Dataset build, training, evaluation; rebuilt stage by stage (ROADMAP)." "Python" "Planned" {
-                dataset = component "Dataset builder" "Versioned multilingual dataset with family-disjoint splits." "Polars / Parquet" "Planned"
+                dataset = component "Corpus builder" "Stage 1: labels from configs/corpus.yaml, dedup, group splits, leakage gates, reports; data/corpus.py." "Python / NumPy / JSONL" "Implemented"
                 models = component "Model training and evaluation" "Routing and response models with per-language metrics." "PyTorch / MLflow" "Planned"
                 service = component "Support service" "Routing, evidence, tools, clarification and escalation." "Python" "Planned"
             }
-            configs = container "Configuration" "base.yaml, sources.yaml, taxonomy.yaml; in Git." "YAML" "Implemented"
+            configs = container "Configuration" "base.yaml, sources.yaml, taxonomy.yaml, corpus.yaml; in Git." "YAML" "Implemented"
             raw = container "Raw data store" "data/raw/<source>/<revision>/ with manifests; immutable." "Local files" "Implemented"
+            corpus = container "Corpus store" "data/corpus/<version>/ intent and grounded JSONL splits, reports, manifest; immutable." "Local files" "Implemented"
             tracking = container "Experiment tracking" "mlruns/ SQLite and artifacts." "MLflow" "Implemented"
             archives = container "Backups" "backups/ code bundles and data/model snapshots; never deleted without owner permission." "tar / SHA256" "Implemented"
         }
@@ -45,8 +46,12 @@ workspace "SupportPilot" "Engineering foundation after the 2026-11-17 reset (ADR
         sp.cli.common -> sp.tracking "Logs runs" "MLflow / SQLite"
         sp.cli.ops -> sp.archives "Creates, verifies, restores snapshots" "tar / SHA256"
         sp.cli.ops -> sp.cli.common "Uses manifests and settings" "Python call"
-        sp.pipeline.dataset -> sp.raw "Reads raw sources" "Local files"
-        sp.pipeline.models -> sp.pipeline.dataset "Trains and evaluates on versioned splits" "Parquet"
+        sp.pipeline.dataset -> sp.raw "Reads verified raw sources" "Local files"
+        sp.pipeline.dataset -> sp.cli.policy "Checks training use" "Python call"
+        sp.pipeline.dataset -> sp.configs "Reads corpus.yaml, taxonomy and registry" "YAML"
+        sp.pipeline.dataset -> sp.corpus "Publishes versioned corpus" "Atomic rename"
+        sp.cli -> sp.pipeline.dataset "Runs `data corpus build|verify`" "Python call"
+        sp.pipeline.models -> sp.corpus "Trains and evaluates on versioned splits" "JSONL"
         sp.pipeline.models -> sp.tracking "Logs experiments" "MLflow / SQLite"
         sp.pipeline.models -> cloud "Runs larger jobs" "Authorized only"
         sp.pipeline.service -> sp.pipeline.models "Uses selected models" "Python call"

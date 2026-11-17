@@ -92,3 +92,25 @@ verified acquisition, source registry, taxonomy v1, real human-authored raw data
 Why: synthetic data was not used going forward; the old pipelines depended on it.
 Recovery: code in Git (`1561971`), data in `backups/data/`.
 Revisit: never silently; new pipelines get new ADRs.
+
+## ADR-047 — Stage 1 corpus from human-authored sources (2026-11-17)
+Decision: `supportpilot data corpus build` turns the seven selected raw sources into one
+versioned corpus (DATA_CONTRACTS §6–9): an intent dataset (`core` / `unverified` / `excluded`)
+and a separate EN document-grounded dataset (doc2dial). No synthetic, LLM or MT text.
+- Labels: an authored recipe maps each source label to a v1 intent; a row enters `core` only
+  when the label alone decides it or a cue in the text confirms it, else `unverified`.
+  Alternatives: trusting source labels blindly (prompt/scenario noise), LLM labelling
+  (not independent, needs an ADR), human annotation (no reviewer or budget yet).
+- Admission: `mangi_kk_support_qa` is not admitted (authorship undocumented); `xsid_kk` is
+  validation/test only (its paper: evaluation data); translations are flagged
+  (`human_localised`), never presented as native speech.
+- Splits: union-find groups (dialogue, parallel id, near-duplicate cluster) split by a seeded
+  hash (stable when sources are added); doc2dial's 383 document families use a size-aware
+  deterministic assignment because hashing so few large groups skews the ratios.
+- Near duplicates: char-4-gram MinHash/LSH confirmed by exact Jaccard (deterministic, no model)
+  instead of all-pairs (quadratic) or embeddings (model dependency, threshold drift).
+- Format: JSONL (≈50k rows, 77 MB) without Polars (ADR-005: no measured need). `numpy` (MinHash)
+  and `pyarrow` (reading upstream Parquet) became direct dependencies; both were already locked.
+Cost: none. Risk: cue rules are heuristics; label quality is NOT_EVALUATED by humans.
+Rollback: the recipe is data; edit and rebuild (old versions stay immutable).
+Revisit: independent review results, newly licensed KK/RU–KK data, or a purchased/commissioned set.

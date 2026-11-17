@@ -11,6 +11,8 @@
 
 - Split by scenario/paraphrase family. Freeze and decontaminate against training.
 - Count independent needs separately from rows and language slices.
+- Stage 1 corpus (DATA_CONTRACTS §7): use `core` splits only; `unverified` rows are never
+  targets. Report coverage with every metric: KK rows are translated out-of-scope requests only.
 - Gold review levels: `draft` · `llm_reviewed` · `human_reviewed` · `verified`.
   `verified` needs an independent fluent human reviewer (RU/KK fluent for those languages).
   An LLM's own check is never independent review.

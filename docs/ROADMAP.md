@@ -19,6 +19,8 @@ Acceptance:
 - train/validation/test split by scenario or family, leakage checked;
 - per-language quality report, gaps and label provenance stated honestly.
 
+Built by ADR-047 (`data corpus build`); measured state and open gaps: [PROGRESS](PROGRESS.md).
+
 ## Stage 2 — Knowledge and tools
 
 Goal: versioned store-policy knowledge source and mock tools (orders, payments, stock, cancellation).

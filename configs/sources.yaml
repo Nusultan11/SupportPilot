@@ -132,10 +132,10 @@ sources:
       Native Kazakh customer questions from other industries (banking, telecom, billing): the
       out-of-scope (refuse_oos) task in Kazakh, which otherwise exists only as authored text.
     decision: >-
-      The only licensed native-KK support data found. Its domains are not the store's, so
-      only the off-domain subdomains are mapped to out_of_scope (taxonomy `sources:`); the
-      in-domain-looking subdomains (service_center, sales, support) are excluded rather than
-      guessed. Answers are generic bank/telecom advice and are never used as targets.
+      The only licensed native-KK support data found. Stage 1 (ADR-047): NOT admitted. The
+      card calls the sample hand-curated but does not say how the questions were written;
+      406 rows carry 406 distinct intents with templated answers, so human authorship is not
+      established (AGENTS §2.6). Rows are read only to count them as `source_inactive`.
     notes: >-
       Attribution required: "Mäñgi ÜTM (mangi-llm), kazakh-customer-support-qa, CC BY 4.0".
       Curated by a community; the card says answers "appear to be manually written/templated";
@@ -170,6 +170,7 @@ sources:
       Attribution: FitzGerald et al. 2022, "MASSIVE: A 1M-Example Multilingual Natural
       Language Understanding Dataset", arXiv:2204.08582, CC BY 4.0. Lower-case, unpunctuated
       utterances (spoken-assistant style).
+      Stage 1 (ADR-047): out_of_scope and greeting rows; EN/RU rows of one id share a split.
     fetch:
       repo_id: AmazonScience/massive
       include: ["en-US/*/0000.parquet", "ru-RU/*/0000.parquet"]
@@ -204,6 +205,8 @@ sources:
       Attribution: Chen, Chen, Yang, Lin, Yu (2021) "Action-Based Conversations Dataset",
       ASAPP Research, MIT. Scenario `personal` fields are fictional customer profiles. Lowercase
       chat style, typos and multi-sentence turns are kept as written.
+      Stage 1 (ADR-047): the opening customer request of each chat, labelled from the
+      subflow by `configs/corpus.yaml`; profile values are masked.
     fetch:
       type: github_repo
       repo_id: asappresearch/abcd
@@ -237,6 +240,7 @@ sources:
       Attribution: Gerz, Su, Kusztos, Mondal, Lis, Singhal, Mrksic, Wen, Vulic (2021)
       "Multilingual and Cross-Lingual Intent Detection from Spoken Data", PolyAI, CC BY 4.0.
       Only the ru-RU parquet is fetched; audio bytes are stored in the raw revision only.
+      Stage 1 (ADR-047): the only RU in-domain rows (change_address, technical_issue).
     fetch:
       repo_id: PolyAI/minds14
       include: ["ru-RU/train-00000-of-00001.parquet", "README.md"]
@@ -267,6 +271,7 @@ sources:
       Attribution: van der Goot, Sharaf, Imankulova, Ustun, Stepanovic, Ramponi, Khairunnisa,
       Komachi, Plank (2021) "From Masked Language Modeling to Translation", xSID 0.7, CC BY-SA 4.0
       (derived data that is shared must keep the licence).
+      Stage 1 (ADR-047): validation/test only (placement heldout); the only KK rows.
     fetch:
       type: github_repo
       repo_id: mainlp/xsid
@@ -293,6 +298,7 @@ sources:
     notes: >-
       Attribution: Larson et al. (2019) "An Evaluation Dataset for Intent Classification and
       Out-of-Scope Prediction", CC BY 3.0. The `plus` configuration is fetched.
+      Stage 1 (ADR-047): greeting, payment_problem, track_order and out_of_scope rows.
     fetch:
       repo_id: clinc/clinc_oos
       include: ["plus/*.parquet", "README.md"]
@@ -324,6 +330,7 @@ sources:
       Attribution: Feng, Wan, Gunasekara, Patel, Joshi, Lastras (2020) "doc2dial: A
       Goal-Oriented Document-Grounded Dialogue Dataset", IBM Research, CC BY 3.0. Only the
       train/validation dialogues are public; the shared-task test set is not used.
+      Stage 1 (ADR-047): the separate `grounded` dataset, split by document family.
     fetch:
       type: github_repo
       repo_id: doc2dial/sharedtask-dialdoc2021
@@ -685,6 +692,25 @@ sources:
       Rejected: a Russian version of MultiWOZ with the same dialogue counts; the README does not
       document how the Russian text was produced (human or machine translation), and the domains
       would only supply out-of-scope rows.
+
+  # ------------------------------------------------------------------ Stage 1 research (2026-11-17, ADR-047)
+  - source_id: kz_movie_reviews_100k
+    url: https://huggingface.co/datasets/yeshpanovrustem/100k_movie_reviews_from_kz
+    revision: page-2026-11-17
+    licence: cc-by-4.0
+    licence_evidence: "HF card metadata `license: cc-by-4.0`; gated (checked 2026-11-17)"
+    allowed_use: reference_only
+    status: rejected
+    access: gated
+    languages: [kk, ru]
+    size: {rows: 100502}
+    reviewed_at: 2026-11-17
+    purpose: Investigated as natural KK and code-switched RU-KK customer text for Stage 1.
+    decision: >-
+      Rejected: movie reviews collected from websites with sentiment labels (arXiv:2605.08600),
+      not support requests; the curator's licence does not settle the reviewers' or platforms'
+      rights (same reasoning as KazSAnDRA). Not accessed. A Hub search for Kazakh intent or
+      customer-support data (2026-11-17) found no other licensed human-authored source.
 
   # ------------------------------------------------- commercial / custom options (2026-11-17)
   # Catalogue pages only; no contact, account, sample request or purchase. Revisions record the

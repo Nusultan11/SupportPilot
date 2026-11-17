@@ -2494,7 +2494,9 @@ source = { editable = "." }
 dependencies = [
     { name = "huggingface-hub" },
     { name = "mlflow" },
+    { name = "numpy" },
     { name = "psutil" },
+    { name = "pyarrow" },
     { name = "pydantic" },
     { name = "pydantic-settings" },
     { name = "pyyaml" },
@@ -2519,7 +2521,9 @@ gpu = [
 requires-dist = [
     { name = "huggingface-hub", specifier = ">=2.4.0" },
     { name = "mlflow", specifier = ">=3.18.0" },
+    { name = "numpy", specifier = ">=2" },
     { name = "psutil", specifier = ">=7.2.2" },
+    { name = "pyarrow", specifier = ">=20" },
     { name = "pydantic", specifier = ">=2.14.3" },
     { name = "pydantic-settings", specifier = ">=2.16.2" },
     { name = "pyyaml", specifier = ">=6.0.3" },
