@@ -26,6 +26,9 @@ KK_MARKERS = frozenset(
     "бұл осы ол олар үшін деп емес еді болады болса ғой ғана қандай қанша кім неге неліктен "
     "жатыр тұр беру айт көрсет".split()
 )  # no words that are also common Russian words (не, бар, па)
+# Two-letter question particles also occur as Russian typos/ASR noise ("могла ба ты"):
+# one particle inside the clause, without other Kazakh evidence, does not count.
+KK_PARTICLES = frozenset("ма ме ба бе".split())
 # Russian words that do not exist in Kazakh; enough of them in a Kazakh text = code-switch.
 RU_MARKERS = frozenset(
     "и в не на что это как мне я вы у меня по с за из от до когда где почему можно нужно "
@@ -73,17 +76,20 @@ def detect_language(text: str) -> LangSignal:
     kk_letters = sum(1 for c in text if c in KK_LETTERS)
     toks = words(text)
     kk_m = sum(1 for t in toks if t in KK_MARKERS)
+    kk_particles = sum(1 for t in toks if t in KK_PARTICLES)
+    # Kazakh question particles end the clause; a final particle is real evidence
+    final_particle = bool(toks) and toks[-1] in KK_PARTICLES
     ru_m = sum(1 for t in toks if t in RU_MARKERS)
+    kk_side = kk_letters > 0 or kk_m - kk_particles > 0 or kk_particles >= 2 or final_particle
     guess: LangGuess
     if latin == 0 and cyr == 0:
         guess = "unknown"
     elif latin > cyr:
         guess = "en"
-    elif kk_letters or kk_m:
+    elif kk_side:
         guess = "kk"
     else:
         guess = "ru"
-    kk_side = kk_letters > 0 or kk_m > 0
     switch = cyr > 0 and kk_side and ru_m >= 2
     return LangSignal(guess, switch, latin, cyr, kk_letters, kk_m, ru_m)
 

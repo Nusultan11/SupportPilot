@@ -55,8 +55,10 @@ uv run supportpilot data corpus verify [<data/corpus/version>]
 - A new source: add it to `configs/sources.yaml` with licence evidence first.
 - `corpus build` re-verifies raw data, applies `configs/corpus.yaml` and publishes
   `data/corpus/<version>/`; identical content reuses the existing version (`"created": false`).
-  It stops on any leakage/PII gate. `corpus verify` re-hashes against the manifest
-  (default: the latest version). Read `REPORT.md` in the version directory.
+  It stops on any leakage/PII gate, and when a same-hash version exists but fails verification
+  (restore it from backup, or remove it if it is your own unbacked build).
+  `corpus verify` re-hashes against the manifest (default: the latest version).
+  Read `REPORT.md` in the version directory.
 
 ## 5. Code backup
 

@@ -114,3 +114,25 @@ and a separate EN document-grounded dataset (doc2dial). No synthetic, LLM or MT 
 Cost: none. Risk: cue rules are heuristics; label quality is NOT_EVALUATED by humans.
 Rollback: the recipe is data; edit and rebuild (old versions stay immutable).
 Revisit: independent review results, newly licensed KK/RU–KK data, or a purchased/commissioned set.
+
+## ADR-048 — Stage 1 completion round (2026-11-17)
+Decision: Stage 1 stays PARTIALLY COMPLETED; the corpus is corrected and republished as
+`corpus-20261117-26d02054`; closing the remaining gap needs commissioned native-speaker data
+and independent reviewers (owner decision, PROGRESS).
+- Research: 8 more sources investigated beyond the HF Hub (registry section ADR-048). None is
+  usable: oasst2 was measured (0 store requests in 5,710 RU prompts), others lack a data licence,
+  are non-commercial, out of domain, LLM-translated, private or commercial.
+- Labels: a seeded agent review (LLM, not independent) of 307 v1 rows found 36 wrong labels.
+  Recipe fixes, each tied to a taxonomy v1 description: an address on file is `account_help`
+  (profile address), `change_address` only with an order/shipping mention (ABCD account flow,
+  MINDS-14); money back before shipping is `cancel_order`; bare "I have a shipping question" and
+  "an issue with a return" become `unverified`; "who are you" is not a greeting.
+  Alternatives: keep labels and report the error rate (knowingly wrong targets), LLM relabelling
+  (needs an ADR, not independent), drop the sources (loses all RU in-domain rows).
+- Code-switch detector: one in-clause particle (ма/ме/ба/бе) without other Kazakh evidence no
+  longer counts (the only v1 RU–KK row was a Russian typo); a clause-final particle still does.
+- Publishing: a damaged existing version with the same content hash stops the build with a clear
+  error instead of a failed overwrite (found after an interrupted build).
+Cost: none. Risk: cue rules stay heuristics; the audit sample is small and not independent.
+Rollback: the recipe is data; `379aa455` stays published and backed up.
+Revisit: commissioned or newly licensed KK / RU–KK / RU data, or independent review results.

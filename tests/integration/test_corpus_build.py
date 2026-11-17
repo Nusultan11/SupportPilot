@@ -261,6 +261,16 @@ def test_build_is_reproducible_and_leak_free(project: dict[str, Path]) -> None:
     assert verify_corpus(res.path) == []
 
 
+def test_damaged_version_with_same_content_is_not_overwritten(project: dict[str, Path]) -> None:
+    out = project["data"] / "corpus"
+    res = build_corpus(project["data"], out, _inputs(project), "abc")
+    test_file = res.path / "intents" / "test.jsonl"
+    test_file.write_bytes(test_file.read_bytes().replace(b'"', b"'", 1))
+    with pytest.raises(CorpusError, match="fails verification"):
+        build_corpus(project["data"], out, _inputs(project), "abc")
+    assert [p.name for p in out.iterdir() if p.name.startswith(".partial")] == []
+
+
 def test_contents_follow_the_contracts(project: dict[str, Path]) -> None:
     res = build_corpus(project["data"], project["data"] / "corpus", _inputs(project), None)
     core = [

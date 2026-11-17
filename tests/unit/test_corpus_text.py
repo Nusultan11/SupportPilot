@@ -52,6 +52,18 @@ def test_code_switch_needs_both_languages() -> None:
     assert not detect_language("Тапсырысым қайда екенін айтыңызшы").code_switch
 
 
+def test_lone_particle_is_not_kazakh_evidence() -> None:
+    # MASSIVE RU row: "ба" is a typo for "бы" (the only code switch flagged in Stage 1 v1)
+    sig = detect_language("не могла ба ты назвать мне день рождения махатмы ганди")
+    assert sig.guess == "ru"
+    assert not sig.code_switch
+    # two particles, or a particle with other Kazakh evidence, still count
+    assert detect_language("ол келе ме").guess == "kk"
+    # a clause-final particle is a Kazakh question (xSID KK row without special letters)
+    assert detect_language("15 секундта Any Which Way You Can ойнайды ма").guess != "ru"
+    assert detect_language("доставка ма ба").guess == "kk"
+
+
 def test_mojibake() -> None:
     assert has_mojibake("Ð¿Ñ€Ð¸Ð²ÐµÑ‚")
     assert has_mojibake("broken � text")

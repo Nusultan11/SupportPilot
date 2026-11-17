@@ -761,7 +761,13 @@ def build_corpus(
         report["version"] = version
         md = _markdown(report)
         existing = sorted(out_root.glob(f"corpus-*-{content[:8]}"))
-        if existing and verify_corpus(existing[0]) == []:
+        if existing:
+            if problems := verify_corpus(existing[0]):
+                # never publish over a damaged version (e.g. an interrupted earlier publish)
+                raise CorpusError(
+                    f"{existing[0]} has the same content hash but fails verification "
+                    f"({problems[:3]}); restore it from backup or remove it, then rebuild"
+                )
             shutil.rmtree(stage)
             m = read_model_json(existing[0] / MANIFEST, CorpusManifest)
             log.info("unchanged content; existing corpus reused", extra={"version": m.version})

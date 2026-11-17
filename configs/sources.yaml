@@ -838,3 +838,122 @@ sources:
     decision: >-
       Rejected: 500 templated Alpaca pairs with no authorship documentation and invented store
       policies (Moscow delivery, 3,000 RUB free shipping); cannot be shown to be human-written.
+
+  # ------------------------------------------------- Stage 1 completion research (2026-11-17, ADR-048)
+  # Searched: HF Hub (kazakh intent/customer/dialogue, code-switching, russian customer support),
+  # arXiv/ACL/TechRxiv, ISSAI, J. Open Humanities Data, GitHub, Kaggle, vendor catalogues.
+  - source_id: oasst2
+    url: https://huggingface.co/datasets/OpenAssistant/oasst2
+    revision: 179dd21fc55192153d94adb0e0ce8f69e222bf75
+    licence: apache-2.0
+    licence_evidence: "HF card metadata `license: apache-2.0` (checked 2026-11-17)"
+    allowed_use: reference_only
+    status: rejected
+    languages: [ru, en]
+    size: {rows: 135174}
+    reviewed_at: 2026-11-17
+    purpose: Volunteer-written RU prompts as a possible source of natural RU store-support requests.
+    decision: >-
+      Rejected after measurement: 5,710 RU prompter messages, no KK. A keyword scan (заказ,
+      доставк, возврат, оплат, курьер, маркетплейс, ...) over non-synthetic RU prompts found 9 root
+      prompts, none a customer request to a store (bank currency conversion, taxi probability,
+      utility bills). Parquet read once in a temporary directory, not kept in data/raw.
+
+  - source_id: aya_dataset
+    url: https://huggingface.co/datasets/CohereLabs/aya_dataset
+    revision: f9ea04583f02a8f86404ff6c58bf75fe637df8a2
+    licence: apache-2.0
+    licence_evidence: "HF card metadata `license: apache-2.0` (checked 2026-11-17)"
+    allowed_use: reference_only
+    status: rejected
+    languages: [ru]
+    reviewed_at: 2026-11-17
+    purpose: Human-annotated multilingual prompt/completion pairs.
+    decision: >-
+      Rejected: the 65 languages include Russian and Kyrgyz but not Kazakh; general instruction
+      prompts, not support requests. Not downloaded.
+
+  - source_id: xsid_ru_tt
+    url: https://github.com/zaryana223/Text-and-Audio-Corpora-for-Natural-Language-Understanding-in-Russian-and-Tatar
+    revision: page-2026-11-17
+    licence: unknown
+    licence_evidence: "GitHub API reports no licence; paper aclanthology 2026.icnlsp-1.28 (checked 2026-11-17)"
+    allowed_use: blocked
+    status: rejected
+    languages: [ru]
+    reviewed_at: 2026-11-17
+    purpose: Russian xSID (manual translation + cultural adaptation of validation/test).
+    decision: >-
+      Rejected: no licence; the train split is LLM-translated; the domain (alarms, weather,
+      music, restaurants) would only add RU out-of-scope rows, which MASSIVE already supplies.
+
+  - source_id: mcskl_spoken_kazakh
+    url: https://openhumanitiesdata.metajnl.com/articles/10.5334/johd.529
+    revision: module1-2026-02-19
+    licence: cc-by-nc-sa-4.0
+    licence_evidence: "JOHD data paper: dataset licence CC BY-NC-SA 4.0 (checked 2026-11-17)"
+    allowed_use: eval_only
+    status: rejected
+    languages: [kk, ru]
+    reviewed_at: 2026-11-17
+    purpose: Naturally occurring spoken Kazakh conversation with Russian contact phenomena.
+    decision: >-
+      Rejected: 12 h of everyday conversation and narratives (rituals, food preparation), not
+      customer requests; non-commercial. A possible KK/RU-KK language-ID reference later.
+
+  - source_id: comptech_ru_telecom_intents
+    url: https://github.com/CompTech-IntentClassifier/IntentClassifier
+    revision: page-2026-11-17
+    licence: unknown
+    licence_evidence: "Repository code is Apache-2.0; README says the 877 messages were provided by Data Monsters from real chatbot users; no data licence or consent statement (checked 2026-11-17)"
+    allowed_use: blocked
+    status: rejected
+    languages: [ru]
+    size: {rows: 877}
+    reviewed_at: 2026-11-17
+    purpose: RU mobile-operator chatbot requests with 10 intent classes.
+    decision: >-
+      Rejected: real users' messages from a third party without a data licence or consent
+      statement (the code licence does not cover them); telecom domain. Not downloaded.
+
+  - source_id: kaz_roberta_telecom_support
+    url: https://doi.org/10.36227/techrxiv.175942902.25827042/v1
+    revision: techrxiv-v1
+    licence: unknown
+    licence_evidence: "Technical report (2025): telecom support dialogues 2016-2023, ~60k labelled client utterances; data not released (checked 2026-11-17)"
+    allowed_use: blocked
+    status: unavailable
+    languages: [kk, ru]
+    reviewed_at: 2026-11-17
+    purpose: Natural KK and code-switched RU-KK customer-support utterances with 48 intents.
+    decision: >-
+      Closest natural KK/RU-KK support data found, but private operator data; access would need a
+      data-sharing agreement with the authors/operator (owner decision). Telecom, not retail.
+
+  - source_id: ncspeech_kk_banking
+    url: https://ncspeech.org/datasets/kk-banking
+    revision: catalogue-2026-11-17
+    licence: unknown
+    licence_evidence: "Catalogue: commercial/research licence, terms on request (checked 2026-11-17)"
+    allowed_use: blocked
+    status: candidate
+    languages: [kk]
+    reviewed_at: 2026-11-17
+    purpose: Read Kazakh banking customer requests (speech, scripted prompts with paraphrases).
+    decision: >-
+      Commercial; scripted prompts (authorship of the prompt text undocumented), banking domain.
+      Lower priority than a commissioned retail set.
+
+  - source_id: mangi_kk_support_full
+    url: https://huggingface.co/datasets/mangi-llm/kazakh-customer-support-qa
+    revision: card-2026-11-17
+    licence: unknown
+    licence_evidence: "Card: the full ~10K set is offered under a separate paid licence on request (checked 2026-11-17)"
+    allowed_use: blocked
+    status: candidate
+    languages: [kk]
+    reviewed_at: 2026-11-17
+    purpose: Full version of the KK support QA sample (banking/telecom/service centres).
+    decision: >-
+      Same undocumented authorship as the public sample (not admitted, ADR-047); buying it would
+      not settle human authorship. Not pursued.

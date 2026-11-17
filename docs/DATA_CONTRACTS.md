@@ -73,6 +73,7 @@ A selected source missing from the recipe fails a unit test.
 ## 7. Corpus layout (`data/corpus/{version}/`)
 
 Version: `corpus-{yyyymmdd}-{content_sha256[:8]}`. Immutable; built in `.partial-*`, renamed.
+A rebuild with identical content reuses a verified version and never overwrites a damaged one.
 
 | Path | Content |
 |---|---|

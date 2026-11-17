@@ -40,15 +40,15 @@ sources:
         rules: [{cue: '\bname\b', intent: account_help}]
       manage_change_phone:
         rules: [{cue: '\bphone|number\b', intent: account_help}]
-      manage_change_address:
+      manage_change_address:  # account-management flow: the address on file is a profile address
         rules:
-          - {cue: '\b(?:order|package|parcel|shipment|delivery)\b', intent: change_order}
-          - {cue: '\b(?:account|profile)\b', intent: account_help}
-          - {cue: '\baddress\b', intent: change_address}
+          - {cue: '^(?=.*\baddress).*\b(?:order\w*|package|parcel|shipment|delivery|deliver\w*|ship\w*)\b', intent: change_address}
+          - {cue: '\baddress\b', intent: account_help}
       manage_payment_method:
         rules: [{cue: '\b(?:account|primary|profile|default)\b', intent: account_help}]
-      status_shipping_question:
-        rules: [{cue: '\b(?:shipping|ship|delivery)\b', intent: delivery_options_cost}]
+      status_shipping_question:  # "I have a shipping question" alone does not state the question
+        rules:
+          - {cue: '^(?=.*\b(?:shipping|ship|delivery)\b).*\b(?:free|international\w*|overseas|abroad|countr(?:y|ies)|fees?|cost\w*|price|expedite\w*|fast|options?|types?|benefits?|waived?)\b', intent: delivery_options_cost}
       status_service_added: &no_v1 {exclude: "premium-subscription service: no v1 intent"}
       status_service_removed: *no_v1
       status_credit_missing: {exclude: "promotional store credit of a subscription: no v1 intent"}
@@ -77,6 +77,8 @@ sources:
       # product_defect
       refund_initiate:
         rules:
+          # money back before the item ships is a cancellation of the placed order (taxonomy v1)
+          - {cue: '\bbefore (?:\w+ ){0,3}ships?\b|\b(?:hasn''?t|has not|not) (?:yet )?(?:been )?shipped\b|\bshipped yet\b|\bstop the order\b|\bcancel\w*', intent: cancel_order}
           - {cue: '\b(?:refund|money back)\b', intent: request_refund}
           - {cue: '\breturn\w*\b', intent: return_product}
       refund_update:
@@ -106,8 +108,8 @@ sources:
         rules: [{cue: '\b(?:promo\w*|code|coupon|discount)\b', intent: policy_faq}]
       promo_code_out_of_date: *promo
       mistimed_billing_already_returned:
-        # a charge alone is not a refund question: the text must mention the return/refund
-        rules: [{cue: '\b(?:return\w*|refund\w*|revers\w*|money back)\b', intent: refund_status}]
+        # the money side must be stated: "an issue with a return" alone does not fix the intent
+        rules: [{cue: '\b(?:refund\w*|revers\w*|reveres\w*|money|credit\w*|charges?|bill\w*)\b', intent: refund_status}]
       mistimed_billing_never_bought:
         rules:
           - {cue: '\b(?:never|didn''?t|did not|not) (?:bought|buy|placed|place|made|ordered|order)\b', intent: payment_problem, action: escalate, escalation_reason: payment_dispute}
@@ -115,7 +117,7 @@ sources:
       status: {exclude: "order e-mail discrepancies of several kinds: no single v1 intent"}
       manage:
         rules:
-          - {cue: '\b(?:address|moved?|moving|where (?:my|the) package)\b', intent: change_order}
+          - {cue: '\b(?:address|moved?|moving|where (?:my|the) package)\b', intent: change_address}
           - {cue: '\b(?:change|stop)\b', intent: change_order}
       missing:
         rules:
@@ -181,7 +183,10 @@ sources:
       - {pattern: '\bolly\b|\bолли\b', reason: "addressed to the voice assistant by its wake word"}
       - &shopping_veto {pattern: '\b(?:shop\w*|store|order\w*|deliver\w*|buy\w*|purchas\w*|магазин\w*|заказ\w*|доставк\w*|куп\w*|покуп\w*)\b', reason: "mentions shopping: out_of_scope is not certain"}
     labels:
-      general_greet: {intent: greeting, min_words: 1}
+      general_greet:
+        veto: [&who_veto {pattern: '\bwho are you\b|\bты кто\b|\bкто ты\b', reason: "question about the assistant; no v1 intent"}]
+        intent: greeting
+        min_words: 1
       general_quirky: {exclude: "catch-all class with mixed requests"}
       lists_createoradd: &shopping_like {exclude: "lists/takeaway/e-mail/social intents overlap shopping or complaints"}
       lists_query: *shopping_like
@@ -251,7 +256,7 @@ sources:
       scenario and paraphrase prompts; no generator.
     labels:
       greeting: &clinc_greeting
-        veto: [{pattern: '\b(?:alexa|siri|ai|robot|computer)\b', reason: "addressed to a voice assistant"}]
+        veto: [{pattern: '\b(?:alexa|siri|ai|robot|computer)\b', reason: "addressed to a voice assistant"}, *who_veto]
         intent: greeting
         min_words: 1
       thank_you: *clinc_greeting
@@ -437,11 +442,10 @@ sources:
       app_error:
         veto: [{pattern: 'банк|сч[её]т|баланс|перевод|карт|транзакц', reason: "bank-specific app problem"}]
         rules: [{cue: 'приложени|сайт|не работает|не загруж|ошибк|завис|вылета|не открыва', intent: technical_issue}]
-      address:
+      address:  # the address on file (profile address), not the delivery address of an order
         veto: [{pattern: 'банк|карт|сч[её]т|корреспонденц|письм|прописк|официальн', reason: "address held by the bank"}]
         rules:
-          - {cue: 'личн\w* кабинет|профил|аккаунт|уч[её]тн', intent: account_help}
-          - {cue: 'адрес|мест\w* жительств|переех', intent: change_address}
+          - {cue: 'личн\w* кабинет|профил|аккаунт|уч[её]тн|адрес|мест\w* жительств|переех', intent: account_help}
       card_issues: {exclude: "card problem: reads as a store payment problem, not separable"}
       freeze: {exclude: "card/account freeze: ambiguous with fraud on a store account"}
       direct_debit: {exclude: "direct-debit requests include double charges (payment_problem)"}
