@@ -115,6 +115,10 @@ Everything else inside an authorized task: decide and do.
 3. External tools get only minimal public queries: no code, data, logs, secrets or PII.
 4. GitHub and MLflow MCP are read-only. Local servers in `.mcp.json` are owner-enabled
    (Playwright, Shrimp, Structurizr since 2026-11-17); add new local servers only with owner OK.
-5. Shrimp (task tracking) and Structurizr (architecture model) are optional for large tasks.
+5. Use an MCP tool only when built-in tools cannot do the job well. Not for routine work:
+   - Playwright: checking a real web page or UI of this project (e.g. Stage 4 service) in a browser.
+   - Shrimp: a multi-session task with dependencies that needs tracked steps and verification.
+   - Structurizr: validating `docs/architecture/workspace.dsl` after an architecture change.
    Setup and rules: [RUNBOOK §8](docs/RUNBOOK.md#8-agent-tools). Never use their destructive modes.
+   A Shrimp score or a passing tool check never replaces stage acceptance.
 6. Subagents only for independent authorized work. Verify their results yourself.
