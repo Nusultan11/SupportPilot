@@ -130,9 +130,16 @@ def cmd_backup(args: argparse.Namespace, settings: Settings) -> int:
     raise AssertionError(args.action)  # pragma: no cover
 
 
+def _stage3(entries: list[SourceEntry]) -> list[SourceEntry]:
+    """Selected sources read by the Stage 3/4 pipeline (ADR-042: human-only sources excluded)."""
+    return [s for s in entries if s.status is SourceStatus.SELECTED and "stage3" in s.pipelines]
+
+
 def _selected_entries(args: argparse.Namespace, settings: Settings) -> list[SourceEntry]:
     registry = load_source_registry(settings.resolve(settings.data.registry))
     if args.all:
+        if args.action == "convert":
+            return _stage3(registry.sources)
         return [s for s in registry.sources if s.status is SourceStatus.SELECTED]
     if not args.sources:
         raise ValueError("name one or more source ids, or pass --all (all selected sources)")
@@ -143,7 +150,7 @@ def _selected_entries(args: argparse.Namespace, settings: Settings) -> list[Sour
 
 
 def cmd_data(args: argparse.Namespace, settings: Settings) -> int:
-    from supportpilot.data.acquire import HfDatasetRemote, acquire_source, raw_dir, verify_raw
+    from supportpilot.data.acquire import acquire_source, raw_dir, remote_for, verify_raw
     from supportpilot.data.convert import convert_source, records_dir, verify_records
 
     data_dir = settings.resolve(settings.paths.data_dir)
@@ -171,13 +178,23 @@ def cmd_data(args: argparse.Namespace, settings: Settings) -> int:
         return _cmd_stage3(args, settings)
     if args.action in STAGE4_ACTIONS:
         return _cmd_stage4(args, settings)
+    if args.action in ("human", "human-verify"):
+        from supportpilot.data.humanrun import run_human, run_human_verify
+
+        if args.action == "human":
+            res = run_human(settings, semantic=not args.no_semantic)
+            _emit(res)
+            return 0 if res.get("gates", "pass") == "pass" else 1
+        ver = run_human_verify(settings, args.version)
+        _emit(ver)
+        return 0 if ver["checksums_ok"] and ver["gates"] == "pass" else 1
     entries = _selected_entries(args, settings)
     if args.action == "acquire":
         results = []
         for e in entries:
             if e.fetch is None:
                 raise ValueError(f"{e.source_id}: registry entry has no fetch spec")
-            remote = HfDatasetRemote(e.fetch.repo_id, e.revision)
+            remote = remote_for(e)
             r = acquire_source(e, data_dir, remote, retries=settings.data.download_retries)
             results.append(r.model_dump())
         _emit({"acquired": results})
@@ -228,7 +245,7 @@ def _cmd_stage3(args: argparse.Namespace, settings: Settings) -> int:
     from supportpilot.data.build import BuildError
 
     registry = load_source_registry(settings.resolve(settings.data.registry))
-    selected = [s for s in registry.sources if s.status is SourceStatus.SELECTED]
+    selected = _stage3(registry.sources)
     if args.action == "gates":
         report = pipeline.regate(settings, selected)
         _emit(report)
@@ -273,7 +290,7 @@ def _cmd_stage4(args: argparse.Namespace, settings: Settings) -> int:
     from supportpilot.data import stage4
 
     registry = load_source_registry(settings.resolve(settings.data.registry))
-    selected = [s for s in registry.sources if s.status is SourceStatus.SELECTED]
+    selected = _stage3(registry.sources)
     commit = code_commit(settings.root)
     force = getattr(args, "force", False)
     match args.action:
@@ -429,6 +446,12 @@ def build_parser() -> argparse.ArgumentParser:
     rq.add_argument(
         "--no-semantic", action="store_true", help="skip diagnostic semantic comparison"
     )
+    hu = dsub.add_parser(
+        "human", help="ADR-042: build the human-authored corpus -> data/processed/human/<version>"
+    )
+    hu.add_argument("--no-semantic", action="store_true", help="skip e5 (gates then fail)")
+    hv = dsub.add_parser("human-verify", help="checksums + gates of a human corpus version")
+    hv.add_argument("--version", help="human-<date>-<hash> (default: human.active_corpus)")
     dt.set_defaults(func=cmd_data)
 
     from supportpilot.kb.cli import add_parser as add_kb_parser

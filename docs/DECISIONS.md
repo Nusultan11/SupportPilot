@@ -569,6 +569,38 @@ then shared regressions, protected artifact hashes and restore-tested delivery. 
 only the workbench and removes its source/UI additions; preserve receipts and the guarded service.
 Revisit only for a measured inspection need or separately authorized qualification scope.
 
+## ADR-042 — Human-authored active training corpus
+
+Accepted 2026-11-17 under the owner's explicit data-rework authorization. New training and
+router experiments read a versioned human-authored corpus (`human.active_corpus`,
+DATA_CONTRACTS §20) instead of the Stage 4 SFT, whose rows are templated (Bitext),
+machine-translated (MADLAD) or LLM-authored. Historical SFT/gold/benchmarks, the sealed Stage 7
+selection and its cohort stay unchanged and readable; they are excluded from the new active
+configuration, not deleted. Stage 3/4 commands keep reading only `pipelines: [stage3]` sources.
+
+Admission requires both a train-capable registry licence and documented human authorship of
+the customer text in the recipe. ABCD (MIT, 2020 Expert Live Chat crowd role-play) is the EN
+backbone; MASSIVE supplies human EN and professionally human-localised RU for out-of-scope and
+greeting only; mangi's KK questions lack documented authorship and stay unverified. Templated
+pseudo-requests (verbatim prompt echoes, repeated identical openings), corrupted, too-short,
+language-mismatched and label-conflicting rows are routed to an explicit unverified file.
+Labels are authored mappings of source labels (`source_label_mapped`), not human adjudication.
+No grounded human answer exists for this store, so rows carry no SFT target and none is
+synthesised; grounded generation targets, KK and RU–KK data remain an explicit gap.
+
+Alternatives: keeping Bitext/MT/authored rows active contradicts the goal; machine-translating
+ABCD into RU/KK would present MT as natural speech; scraped marketplace questions/reviews
+(wb-questions, KazSAnDRA) have unsettled author/platform rights and possible personal data;
+MINT-E is LLM-generated; MG-ShopDial and NatCS lack verified licences or store intents.
+Extending `taxonomy.yaml` would change the hash recorded by sealed Stage 4 builds, so the
+ABCD map lives in a separate recipe validated against the frozen taxonomy.
+
+Verification: gates for provenance/origin, PII, duplicates, family/scenario split isolation and
+exact/lexical/13-gram/e5 overlap with every earlier SFT/gold/benchmark text; an agent label audit
+is reported as such. Rollback sets `human.active_corpus: null`; published versions stay immutable.
+Revisit when licensed human RU/KK/mixed support requests, independent label review or
+human-written grounded answers become available, or a controlled experiment shows a defect.
+
 ## Open decisions
 
 No further Stage 9 local-delivery acceptance is pending. Product-quality criteria remain open

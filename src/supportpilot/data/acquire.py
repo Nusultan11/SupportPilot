@@ -216,6 +216,70 @@ def acquire_source(
     )
 
 
+class GitHubRepoRemote:
+    """Public GitHub repository at a pinned commit (standard library HTTP only).
+
+    The recursive git tree of the commit supplies each blob's size and git sha1; files are
+    fetched from raw.githubusercontent.com at that commit and verified by `check_remote_file`.
+    Git LFS pointers are rejected because their bytes would not match the upstream data."""
+
+    API = "https://api.github.com"
+    RAW = "https://raw.githubusercontent.com"
+
+    def __init__(self, repo_id: str, revision: str, *, timeout_s: float = 60.0) -> None:
+        self.repo_id = repo_id
+        self.revision = revision
+        self.timeout_s = timeout_s
+
+    def _get(self, url: str) -> bytes:
+        import urllib.request
+
+        if not url.startswith(("https://api.github.com/", "https://raw.githubusercontent.com/")):
+            raise AcquireError(f"refusing non-GitHub URL {url!r}")
+        req = urllib.request.Request(url, headers={"User-Agent": "supportpilot-acquire"})  # noqa: S310
+        with urllib.request.urlopen(req, timeout=self.timeout_s) as resp:  # noqa: S310
+            data: bytes = resp.read()
+        return data
+
+    def list_files(self) -> list[RemoteFile]:
+        import json
+
+        url = f"{self.API}/repos/{self.repo_id}/git/trees/{self.revision}?recursive=1"
+        try:
+            tree = json.loads(self._get(url))
+        except OSError as exc:
+            raise AcquireError(f"{self.repo_id}@{self.revision}: tree unavailable ({exc})") from exc
+        if tree.get("truncated"):
+            raise AcquireError(f"{self.repo_id}@{self.revision}: git tree listing is truncated")
+        return [
+            RemoteFile(path=t["path"], size=int(t["size"]), git_sha1=t["sha"])
+            for t in tree.get("tree", [])
+            if t.get("type") == "blob"
+        ]
+
+    def download(self, file: RemoteFile, dest_root: Path) -> None:
+        from urllib.parse import quote
+
+        target = dest_root / file.path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        url = f"{self.RAW}/{self.repo_id}/{self.revision}/{quote(file.path)}"
+        data = self._get(url)
+        if data.startswith(b"version https://git-lfs.github.com/spec/"):
+            raise AcquireError(f"{file.path}: Git LFS pointer, not data")
+        tmp = target.with_name(target.name + ".part")
+        tmp.write_bytes(data)
+        tmp.replace(target)
+
+
+def remote_for(entry: SourceEntry) -> RemoteSource:
+    """The remote implementation named by the registry fetch spec."""
+    if entry.fetch is None:
+        raise AcquireError(f"{entry.source_id}: no fetch spec in the registry")
+    if entry.fetch.type == "github_repo":
+        return GitHubRepoRemote(entry.fetch.repo_id, entry.revision)
+    return HfDatasetRemote(entry.fetch.repo_id, entry.revision)
+
+
 class HfDatasetRemote:
     """Hugging Face dataset repo at a pinned commit. Uses HF_TOKEN if set (gated repos)."""
 

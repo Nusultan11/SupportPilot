@@ -25,6 +25,11 @@ Group translations/paraphrases by scenario/family. Report independent needs sepa
 from rows and overlapping language slices. Version/freeze inputs and decontaminate against
 training; semantic near-copy flags remain explicit diagnostics, not certificates of absence.
 
+Human-corpus validation/test (DATA_CONTRACTS §20) are family-disjoint and decontaminated
+against all earlier SFT/gold/benchmark inputs, but their labels are `source_label_mapped`, not
+human-adjudicated, and cover only the intents/languages the sources contain. Report results on
+them as source-label agreement; they never replace gold or per-language KK/mixed assessment.
+
 Gold items contain turns, language, intent/action/escalation, required facts/tool fixtures,
 allowed citation references, prohibited claims and review provenance.
 Review levels: draft, llm_reviewed, human_reviewed, verified.

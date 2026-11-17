@@ -124,6 +124,16 @@ class Stage4Settings(_Section):
     leak_cosine: float = Field(default=0.95, gt=0.0, le=1.0)
 
 
+class HumanSettings(_Section):
+    """Human-authored training corpus (ADR-042, DATA_CONTRACTS §20)."""
+
+    recipe: Path = Path("configs/human_corpus.yaml")
+    # The corpus version new training/router experiments read. Historical SFT versions stay
+    # sealed; they are never the active training corpus (ADR-042).
+    active_corpus: str | None = Field(default=None, pattern=r"^human-\d{8}-[0-9a-f]{8}$")
+    previous_corpus: str | None = None  # reported for comparison only
+
+
 class KBSettings(_Section):
     """Stage 5 demo-store knowledge base (ADR-027, DATA_CONTRACTS §8)."""
 
@@ -215,6 +225,7 @@ class Settings(BaseSettings):
     clean: CleanSettings = CleanSettings()
     eda: EdaSettings = EdaSettings()
     stage4: Stage4Settings = Stage4Settings()
+    human: HumanSettings = HumanSettings()
     kb: KBSettings = KBSettings()
     retrieval: RetrievalSettings = RetrievalSettings()
     logging: LoggingSettings = LoggingSettings()

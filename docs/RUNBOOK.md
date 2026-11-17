@@ -341,6 +341,21 @@ After real KB/SFT changes rebuild with leakage/reference gates; do not alter fro
 No training or retrieval inference is performed by data retrieval-set itself.
 Review provenance remains draft/LLM where no fluent independent review exists.
 
+## 7f. Human-authored corpus (ADR-042)
+
+```powershell
+uv run supportpilot data acquire abcd
+uv run supportpilot data human
+uv run supportpilot data human-verify
+```
+
+`data acquire abcd` uses the GitHub fetch type (pinned commit, git blob SHA1 per file).
+`data human` needs the Stage 3 canonical build (MASSIVE/mangi rows), the pinned e5 embedder
+and every historical SFT/gold/benchmark file under data/; `--no-semantic` fails the leakage gate.
+An unchanged recipe/content reuses the existing version. A failed build is kept as
+`<version>.failed`. After publishing, set `human.active_corpus`, then back up
+`data/processed/human/<version>` and the ABCD raw revision (§6) and restore-verify them.
+
 ## 8. Diagnostics
 
 | Symptom | Action |

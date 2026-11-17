@@ -15,6 +15,7 @@ live in ROADMAP, interpretation in reviews, commands in RUNBOOK and raw evidence
 | Stage 9 9Q2 / real 9Q3 qualification | BLOCKED: external resources/permission | Independent human labels, verified reviewers, real assessor and budget unavailable; resource decision prepared below |
 | Maintenance and engineering MCP integration | COMPLETED: separate owner-authorized tasks | Prior recovery/publication receipts below; MCPs opt-in |
 | Architecture and development-control redesign | COMPLETED: separate engineering task | Product-quality gates remain open; verify delivery receipt below |
+| Human-authored corpus rework (ADR-042) | PARTIALLY COMPLETED: EN corpus + EN/RU out-of-scope active | KK and RU–KK mixed 0 rows; 15 intents absent; no grounded human targets; labels source-mapped, unreviewed |
 | Stage 10 | NOT_STARTED | Requires separate explicit owner authorization; Stage 9 acceptance grants none |
 
 On 2026-11-16 the owner explicitly accepted Stage 9's local research, engineering implementation
@@ -136,6 +137,24 @@ Private evidence: `artifacts/reports/architecture/`; final check/recovery/Git in
 `artifacts/reports/architecture_delivery_receipt.json`. Shrimp tracks only this task's internal
 work and preserves the existing quality-continuation task. It never closes a product-quality gate.
 
+## Human-authored training corpus (ADR-042)
+
+Owner-authorized data rework (2026-11-17). Active training corpus `human.active_corpus` =
+`human-20261117-3f1ed9e4` (`data/processed/human/`): 5,083 rows (EN 4,356 / RU 727), 4,743
+family groups, 20 of 35 intents, train/validation/test 3,484/775/824; all gates pass. Sources:
+ABCD human role-play (EN backbone) and MASSIVE (EN/RU human-localised, out-of-scope/greeting only).
+Bitext, MT and LLM-authored Stage 4 rows are out of the active configuration; every historical
+SFT/gold/benchmark/Stage 7/9 artifact is unchanged. KK, RU–KK mixed, 15 intents and human
+grounded answers are explicit gaps; no synthetic substitute was added. Agent label audit: about
+5% residual noise; no human review. No model was trained; no quality change is claimed.
+Interpretation, source comparison and attempts: [human corpus review](reviews/human_corpus_review.md).
+Snapshots (pinned, restore-verified): `data/human_corpus/20261117T042118Z-273d67c2`,
+`data/raw_abcd/20261117T042121Z-6034cc50`; delivery index:
+`artifacts/reports/human_corpus_delivery_receipt.json`. Next action (owner): decide whether to
+seek licensed human RU/KK/mixed data, independent label review or human-written grounded answers
+(paid/gated/external resources need approval) and whether to authorize a controlled router
+experiment on this corpus. Stage 10 remains NOT_STARTED.
+
 ## Recovery and next action
 
 | Delivered scope | Canonical recovery/publication index |
@@ -149,6 +168,7 @@ work and preserves the existing quality-continuation task. It never closes a pro
 | Maintenance | `artifacts/reports/maintenance_delivery_receipt.json` |
 | Engineering MCP integration | `artifacts/reports/engineering_delivery_receipt.json` |
 | Architecture redesign | `artifacts/reports/architecture_delivery_receipt.json` |
+| Human-authored corpus (ADR-042) | `artifacts/reports/human_corpus_delivery_receipt.json` |
 
 Prior stage evidence, selected inference/training checkpoints and pinned backups remain retained.
 Backups are local/same-disk and do not protect against disk loss. No backup deletion is authorized.

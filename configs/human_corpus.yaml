@@ -1,0 +1,256 @@
+# Human-authored corpus recipe (ADR-042, DATA_CONTRACTS §20). Validated by
+# `supportpilot.data.human.HumanRecipe` against configs/taxonomy.yaml (frozen v1 intents).
+#
+# This file deliberately does NOT extend `taxonomy.yaml` `sources:`: the taxonomy hash is a
+# parameter of the sealed Stage 4 builds, which must stay reproducible byte for byte.
+#
+# Admission is strict: a source enters the active corpus only if the registry allows
+# training AND `authorship` below records documented human authorship of the customer text.
+# A label decided here is `source_label_mapped`: an authored mapping of the source's own label,
+# optionally split by the regex rules. It is never reported as independent human adjudication.
+#
+# Rules run in order on the customer request (case-insensitive); the first match decides.
+# A text matching no rule is `unlabelled` (never guessed). `action` overrides the intent's
+# default taxonomy action (needs_reference stays: call_tool with a reference, else clarify).
+schema_version: human_recipe/1
+seed: 20261117
+split_ratios: {train: 0.8, validation: 0.1, test: 0.1}
+family_jaccard: 0.6          # char-5-gram near-copies join one family (split unit with scenario)
+template_cluster_min: 4      # identical normalised request in >= N dialogues = prompt echo
+leak_jaccard: 0.8            # vs historical SFT/gold/benchmark user texts
+leak_ngram: 13
+leak_cosine: 0.95
+min_words: 3                 # a request shorter than this carries no intent on its own
+native_max_per_label: 20     # MASSIVE / mangi: per (source label, language), one per family first
+
+# Documented authorship per admitted source. `active` = may enter train/validation/test.
+authorship:
+  abcd:
+    origin: {en: human_roleplay}
+    active: true
+    evidence: >-
+      Chen et al. 2021 (arXiv:2104.00783 §3): dialogues collected in 2020 by Expert Live Chat
+      between paid crowd workers (customers, from scenario prompts) and trained agents in
+      real time; no text generator in the protocol.
+  massive_en_ru:
+    origin: {en: human_written, ru: human_localised}
+    active: true
+    evidence: >-
+      FitzGerald et al. 2022 (arXiv:2204.08582 §3): EN utterances written by crowd workers;
+      other locales localised by paid professional translators, then validated by workers.
+      RU is a human translation, not a natural Russian customer request.
+  mangi_kk_support_qa:
+    origin: {kk: undocumented}
+    active: false
+    evidence: >-
+      The card does not state how the questions were produced and says answers "appear to be
+      manually written/templated"; human authorship is not established, so the rows go to the
+      unverified pool only.
+
+# Patterns of scenario-prompt text copied into the customer turn (second-person prompt voice).
+prompt_echo_patterns:
+  - '\byou (?:are|were) (?:thinking|considering|planning|looking)\b'
+  - '\b(?:your|you) partner/spouse\b|\bpartner/spouse\b'
+  - '\bfrom your order\b|\bon your order\b'
+  - '\byou (?:never|already) (?:bought|returned|ordered)\b'
+  - '\bwhen you checked\b|\bthe item you want\b|\byou were charged\b'
+  - '\bbecause you (?:want|need|are|bought|ordered)\b'
+
+# A request that is only a greeting / connection check is context, not the request.
+greeting_only: '^\W*(?:(?:<\w+>\W*)+|hiya|good|fine|great|i''m good|i am good|i''m fine|thanks|thank you|hi+|hello+|hey+|hii+|good (?:morning|afternoon|evening|day)|greetings|yes|yeah|ok|okay|hi there|hello there|hey there|am i connected|is anyone there|hello\?|help|hi,? can you help me|can you help me|i need (?:some )?help|i have a question|i need help with something|how are you(?: doing)?(?: today)?)\W*(?:\s+\w+)?\W*$'
+
+# ABCD subflow (numeric suffix removed) -> v1 intent.
+sources:
+  abcd:
+    recover_password: {intent: account_help}
+    recover_username: {intent: account_help}
+    reset_2fa: {intent: account_help}
+    manage_change_address:
+      rules:
+        - {pattern: '\b(?:order|package|parcel|shipment|delivery|shipping)\b', intent: change_order}
+        - {pattern: '\b(?:account|profile)\b', intent: account_help}
+        - {pattern: '\baddress\b', intent: change_address}
+    manage_change_name: {intent: account_help}
+    manage_change_phone: {intent: account_help}
+    manage_payment_method:
+      rules:
+        - {pattern: '\b(?:account|primary|profile|default)\b', intent: account_help}
+        - {pattern: '.', exclude: "payment-method change without account/order scope"}
+    status_credit_missing: {exclude: "promotional store credit of a premium subscription: no v1 intent"}
+    status_service_added: {exclude: "premium-subscription service has no v1 intent"}
+    status_service_removed: {exclude: "premium-subscription service has no v1 intent"}
+    status_shipping_question:
+      rules:
+        - {pattern: '\b(?:shipping|delivery|ship)\b', intent: delivery_options_cost}
+        - {pattern: '.', exclude: "account-status wording without a delivery question"}
+    manage_cancel:
+      rules:
+        - {pattern: '\breturn', exclude: "source label (remove item before shipping) contradicts a return request"}
+        - {pattern: '\b(?:remove|take off|get rid|cancel|delete|take out)\b', intent: change_order}
+        - {pattern: '.', exclude: "no explicit order-change cue"}
+    manage_create:
+      rules:
+        - {pattern: '\badd\b', intent: change_order}
+        - {pattern: '.', exclude: "no explicit add-to-order cue"}
+    manage_downgrade:
+      rules:
+        - {pattern: '\b(?:ship|shipping|deliver|delivery|next week|fee)\b', intent: change_order}
+        - {pattern: '.', exclude: "no delivery-change cue"}
+    manage_upgrade:
+      rules:
+        - {pattern: '\b(?:ship|shipping|deliver|delivery|overnight|express|faster)\b', intent: change_order}
+        - {pattern: '.', exclude: "no delivery-change cue"}
+    status_delivery_date:
+      rules:
+        - {pattern: '\b(?:status|deliver|arriv)', intent: track_order}
+        - {pattern: '.', exclude: "no order-status cue"}
+    status_delivery_time:
+      rules:
+        - {pattern: "\\b(?:delivered|don't have it|haven't (?:got|received))\\b", exclude: "status label but the text reports a missing delivery"}
+        - {pattern: '\b(?:status|deliver|arriv|transit|when|where|order)', intent: track_order}
+        - {pattern: '.', exclude: "no order-status cue"}
+    status_mystery_fee:
+      rules:
+        - {pattern: '\b(?:fee|charge|charged|billing|bill)\b', intent: payment_problem}
+        - {pattern: '.', exclude: "no charge cue"}
+    status_payment_method:
+      rules:
+        - {pattern: '\b(?:change|update|switch|correct|fix)\b', intent: change_order}
+        - {pattern: '\bpayment method|paypal|credit card|paid\b', intent: payment_problem}
+        - {pattern: '.', exclude: "no payment cue"}
+    status_quantity:
+      rules:
+        - {pattern: '\b(?:two|2|one|1|quantity|twice|extra)\b', intent: change_order}
+        - {pattern: '.', exclude: "no quantity cue"}
+    refund_initiate:
+      rules:
+        - {pattern: '\brefund|money back\b', intent: request_refund}
+        - {pattern: '\breturn\b', intent: return_product}
+        - {pattern: '.', exclude: "no refund cue"}
+    refund_update:
+      rules:
+        - {pattern: '\b(?:status|where|state|process|update|yet|what''s up|what is up|going on|happening|check|know|pending)\b', intent: refund_status}
+        - {pattern: '\brefund\b', intent: request_refund}
+        - {pattern: '.', exclude: "no refund cue"}
+    refund_status:
+      rules:
+        - {pattern: '\brefund|return\b', intent: refund_status}
+        - {pattern: '.', exclude: "no refund cue"}
+    return_color:
+      rules:
+        - {pattern: '\b(?:sent|arrived|received|came|delivered|got) (?:me )?(?:the |a |in the )?wrong\b|\bwas sent\b', intent: delivery_problem}
+        - {pattern: '\bexchange\b', intent: exchange_product}
+        - {pattern: '\breturn', intent: return_product}
+        - {pattern: '.', exclude: "no return/exchange cue"}
+    return_size:
+      rules:
+        - {pattern: '\b(?:sent|arrived|received|came|delivered|got) (?:me )?(?:the |a |in the )?wrong\b|\bwas sent\b', intent: delivery_problem}
+        - {pattern: '\bexchange\b', intent: exchange_product}
+        - {pattern: '\breturn', intent: return_product}
+        - {pattern: '.', exclude: "no return/exchange cue"}
+    return_stain:
+      rules:
+        - {pattern: '\bstain|dirty|marked|spot\b', intent: delivery_problem}
+        - {pattern: '.', exclude: "no damage cue"}
+    bad_price_competitor: {exclude: "price-match request: no v1 intent; answers would need another store's prices"}
+    bad_price_yesterday: {exclude: "price-adjustment request: no v1 intent"}
+    mistimed_billing_already_returned:
+      rules:
+        - {pattern: '\b(?:charge|charged|bill|statement|reversed|refund)\b', intent: refund_status}
+        - {pattern: '.', exclude: "no charge/refund cue"}
+    mistimed_billing_never_bought:
+      rules:
+        - {pattern: "\\b(?:never|didn't|did not|not) (?:bought|buy|placed|place|made|ordered|order)\\b|\\bwithout\\b", intent: payment_problem, action: escalate, escalation_reason: payment_dispute}
+        - {pattern: '.', exclude: "charge without an explicit never-ordered cue"}
+    out_of_stock_general:
+      rules:
+        - {pattern: '\b(?:complain|complaint|frustrat|upset|ridiculous|annoy|why should i|always|every time|everytime)\b', intent: complaint}
+        - {pattern: '.', exclude: "no complaint cue"}
+    out_of_stock_one_item:
+      rules:
+        - {pattern: '\b(?:out of stock|in stock|available|availability|restock|back in stock|sold out)\b', intent: availability}
+        - {pattern: '.', exclude: "no stock cue"}
+    promo_code_invalid:
+      rules:
+        - {pattern: '\bpromo|code|coupon|discount\b', intent: policy_faq}
+        - {pattern: '.', exclude: "no promo cue"}
+    promo_code_out_of_date:
+      rules:
+        - {pattern: '\bpromo|code|coupon|discount\b', intent: policy_faq}
+        - {pattern: '.', exclude: "no promo cue"}
+    cost:
+      rules:
+        - {pattern: '\b(?:shipping|delivery)\b', intent: payment_problem}
+        - {pattern: '.', exclude: "no shipping-charge cue"}
+    manage:
+      rules:
+        - {pattern: '\baddress|moved|move\b', intent: change_order}
+        - {pattern: '\bwrong item|change\b', intent: change_order}
+        - {pattern: '.', exclude: "no order-change cue"}
+    missing:
+      rules:
+        - {pattern: "\\b(?:never|haven't|have not|hasn't|not) (?:got|gotten|received|receive|arrived|come|came|delivered)\\b|\\bmissing\\b|\\bstill\\b", intent: delivery_problem}
+        - {pattern: '\b(?:status|where)\b', intent: track_order}
+        - {pattern: '.', exclude: "no missing-delivery cue"}
+    status: {exclude: "heterogeneous e-mail-confirmation discrepancies: no single v1 intent"}
+    boots_how: &product_query
+      rules:
+        - {pattern: '\b(?:in stock|available|availability|sold out)\b', intent: availability}
+        - {pattern: '\bwarrant', intent: policy_faq}
+        - {pattern: '\b(?:calvin|klein|ck|guess|michael|kors|tommy|hilfiger|\$\d+|\d+ dollars)\b', intent: product_info, action: answer_kb}
+        - {pattern: '\b(?:boot|boots|shoe|shoes|jacket|coat|hood|jean|jeans|pants|denim|shirt|t-shirt|collar)\b', intent: product_info}
+        - {pattern: '.', exclude: "no product cue: the request does not name what it is about"}
+    boots_other: *product_query
+    jacket_how: *product_query
+    jacket_other: *product_query
+    jeans_how: *product_query
+    jeans_other: *product_query
+    shirt_how: *product_query
+    shirt_other: *product_query
+    membership:
+      rules:
+        - {pattern: '\bmember|membership|premium|level|tier\b', intent: policy_faq}
+        - {pattern: '.', exclude: "no loyalty cue"}
+    policy:
+      rules:
+        - {pattern: '\bsubscription\b', exclude: "premium-subscription service has no v1 intent"}
+        - {pattern: '\b(?:return|refund|exchange)\b', intent: return_policy}
+        - {pattern: '\b(?:policy|rule|warrant)', intent: policy_faq}
+        - {pattern: '.', exclude: "no store-rule cue"}
+    pricing:
+      rules:
+        - {pattern: '\b(?:shipping|delivery|deliver|overnight)\b', intent: delivery_options_cost}
+        - {pattern: '\b(?:gift wrap|wrapping|monogram|stitch|embroider|tailor)', intent: policy_faq}
+        - {pattern: '.', exclude: "no store-service price cue"}
+    timing:
+      rules:
+        - {pattern: '\b(?:open|close|closing|hours)\b', intent: store_info}
+        - {pattern: '\b(?:collection|sale|season)\b', intent: store_info}
+        - {pattern: '\b(?:promo|code|coupon)\b', intent: policy_faq}
+        - {pattern: '.', exclude: "no store-timing cue"}
+    manage_dispute_bill:
+      rules:
+        - {pattern: '\btwice|double|two times\b', intent: payment_problem, action: escalate, escalation_reason: payment_dispute}
+        - {pattern: '.', exclude: "subscription bill dispute without a double-charge cue"}
+    manage_extension: {exclude: "premium-subscription payment extension: no v1 intent"}
+    manage_pay_bill: {exclude: "premium-subscription bill payment: no v1 intent"}
+    status_due_amount: {exclude: "premium-subscription balance: no v1 intent"}
+    status_due_date: {exclude: "premium-subscription due date: no v1 intent"}
+    status_questions: {exclude: "premium-subscription status: no v1 intent"}
+    status_active: {exclude: "premium-subscription status: no v1 intent"}
+    credit_card:
+      rules:
+        - {pattern: '\b(?:card|declin|reject|payment|pay)', intent: payment_problem}
+        - {pattern: '.', exclude: "no payment cue"}
+    shopping_cart:
+      rules:
+        - {pattern: '\b(?:cart|basket|add|update|button|website|site|page)\b', intent: technical_issue}
+        - {pattern: '.', exclude: "no site-problem cue"}
+    search_results:
+      rules:
+        - {pattern: '\b(?:search|results|find|website|site|loading|spinning)\b', intent: technical_issue}
+        - {pattern: '.', exclude: "no site-problem cue"}
+    slow_speed:
+      rules:
+        - {pattern: '\b(?:slow|load|loading|lag|website|site|speed|forever)\b', intent: technical_issue}
+        - {pattern: '.', exclude: "no site-problem cue"}

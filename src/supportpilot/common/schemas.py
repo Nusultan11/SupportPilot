@@ -111,8 +111,16 @@ class Access(StrEnum):
     GATED = "gated"  # needs an HF account that accepted the terms (HF_TOKEN)
 
 
+class Pipeline(StrEnum):
+    STAGE3 = "stage3"  # convert/clean -> canonical -> Stage 4
+    HUMAN = "human"  # ADR-042 human corpus, read from raw
+
+
 class FetchSpec(_Contract):
-    type: Literal["hf_dataset"] = "hf_dataset"
+    """`hf_dataset`: a Hugging Face dataset repo; `github_repo`: a public GitHub repository.
+    Both are pinned to a full commit sha and verified against upstream git/LFS hashes."""
+
+    type: Literal["hf_dataset", "github_repo"] = "hf_dataset"
     repo_id: Annotated[str, Field(pattern=r"^[\w.-]+/[\w.-]+$")]
     include: list[NonEmptyStr] = Field(min_length=1, description="fnmatch patterns of repo files")
 
@@ -139,6 +147,12 @@ class SourceEntry(_Contract):
     decision: NonEmptyStr
     notes: str = ""
     fetch: FetchSpec | None = None
+    # Which build pipelines read the source: `stage3` (convert/clean -> canonical, Stage 4) or
+    # `human` (ADR-042 human corpus, read from raw). Excluded from serialisation so registry
+    # hashes recorded by sealed Stage 4 builds stay identical.
+    pipelines: list[Pipeline] = Field(
+        default_factory=lambda: [Pipeline.STAGE3], min_length=1, exclude=True
+    )
 
     @model_validator(mode="after")
     def _policy(self) -> Self:
@@ -155,12 +169,10 @@ class SourceEntry(_Contract):
                 raise ValueError("a blocked source cannot be selected")
             if self.fetch is None:
                 raise ValueError("a selected source needs a fetch spec")
-        if (
-            self.fetch is not None
-            and self.fetch.type == "hf_dataset"
-            and not _GIT_SHA_RE.fullmatch(self.revision)
-        ):
-            raise ValueError("HF sources must pin `revision` to a full 40-char commit sha")
+        if self.fetch is not None and not _GIT_SHA_RE.fullmatch(self.revision):
+            raise ValueError(
+                f"{self.fetch.type} sources must pin `revision` to a full 40-char commit sha"
+            )
         return self
 
 

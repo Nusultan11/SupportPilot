@@ -14,6 +14,7 @@ Package paths below are relative to src/supportpilot; configs paths are reposito
 | KB and manifests | 8–9 | common/schemas.py, kb/, ops/backup.py |
 | Gold and retrieval benchmarks | 13–16 | data/gold.py, data/retrievalset.py, retrieval/scale*.py |
 | LLM, sealed selection and routing | 17 | llm/, routing/models.py |
+| Human-authored training corpus | 20 | data/human.py, data/humangates.py, configs/human_corpus.yaml |
 
 ## 1. Conventions
 
@@ -57,7 +58,8 @@ Package paths below are relative to src/supportpilot; configs paths are reposito
 | purpose | str | what it is used for |
 | decision | str | why it is selected or rejected |
 | notes | str | quality, overlaps, caveats |
-| fetch | object? | `{type: hf_dataset, repo_id, include: [fnmatch patterns]}`. Required when `status=selected` |
+| fetch | object? | `{type: hf_dataset \| github_repo, repo_id, include: [fnmatch patterns]}`. Required when `status=selected`; both types pin a 40-char commit and verify upstream git/LFS hashes |
+| pipelines | list | `stage3` (default: convert/clean/Stage 4) and/or `human` (§20). Not serialised, so registry hashes of sealed builds are unchanged |
 
 Which pipeline step may use which level is defined in `supportpilot.data.policy`:
 
@@ -735,3 +737,41 @@ counterfactual, partial, irrelevant, absent and conflicting proof conditions. Th
 not store KB facts. Their authored expected labels are diagnostic references, not human-reviewed
 ClaimReview records. Object, enum-smoke and constrained-enum attempts retain separate freezes,
 raw replies, failures and executed source archives.
+
+## 20. Human-authored training corpus (`data/processed/human/<dataset_version>/`, ADR-042)
+
+Recipe: `configs/human_corpus.yaml` (`human_recipe/1`, validated against the frozen taxonomy;
+it never edits `taxonomy.yaml`). Active version: `human.active_corpus` in `configs/base.yaml`.
+Versions are immutable (`human-<yyyymmdd>-<hash8>`); an existing version is verified and reused.
+
+Files: `train|validation|test.parquet` (active), `unverified.parquet`, `excluded.parquet`,
+`quality_report.json`, `stats.json`, `manifest.json` (`dataset_manifest/1`, file SHA256s).
+Active and unverified rows use `human_example/1`:
+
+| Field | Notes |
+|---|---|
+| example_id, record_id, source_id, source_split | §1 lineage; `record_id` traces to the raw revision (`abcd:convo-<id>`, Stage 3 ids for MASSIVE/mangi) |
+| origin | `human_roleplay`, `human_written`, `human_localised` (active); `undocumented` only in unverified |
+| authorship_evidence | recipe text citing where human authorship is documented |
+| label_status | `source_label_mapped`: source label through the authored table/rules; never human-adjudicated |
+| review_status | `unreviewed` unless an independent reviewer record exists |
+| sft_target_status | `no_human_target`: no grounded human answer exists; none is substituted |
+| lang, code_switch, langs, lid_conf | LID result; RU–KK mixing requires `code_switch` with both `ru` and `kk` in `langs` |
+| text, context_json | customer request (opening customer turns, PII-masked with typed tokens such as `<name>`, `<order_id>`) and the earlier turns as `[{role, content}]` |
+| slots_json | `{"order_id": "<order_id>"}` when the request carries a reference |
+| source_label, rule, intent, action, escalate, escalation_reason | v1 intent/action; `needs_reference` resolves to call_tool/clarify |
+| scenario_id, family_id, split | family = near-copy component (char-5-gram Jaccard >= recipe `family_jaccard`) joined with aligned translations; one scenario per family; split unit |
+| flags, reason | `reason` set only in unverified (e.g. `prompt_echo`, `template_cluster`, `too_short`, `language_mismatch`, `family_label_conflict`, `authorship_undocumented`, `corrupted_text`) |
+
+`excluded.parquet`: `record_id, source_id, source_label, lang, text, reason, detail` for rows
+without a v1 label (`excluded`, `unlabelled`, `not_in_map`, `no_request`), `exact_duplicate`,
+`label_cap`, `historical_*` overlaps and `cross_split_semantic` train copies (detail = cosine
+and the matched text/record). Every read record appears in exactly one file.
+
+Gates (build fails, output kept as `<version>.failed`): schema/ids; licence/provenance (train
+policy + active documented-human source, no machine/LLM/post-edited origin); labels; PII (e-mail,
+phone incl. North-American format, card); exact duplicates; split isolation (no family/scenario
+in two splits, no cross-split exact/lexical copy, semantic train copies removed); historical
+leakage against every earlier SFT split, gold and frozen benchmark/confirmation user text
+(exact, char-5-gram Jaccard, 13-gram recomputed; e5 cosine from the build, mandatory);
+`no_substituted_targets`. Intent and language coverage are reported in `stats.json`, never padded.

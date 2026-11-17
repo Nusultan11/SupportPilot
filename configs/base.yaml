@@ -104,6 +104,11 @@ stage4:                            # multilingual SFT dataset (ADR-023..026, DAT
   leak_ngram: 13                   # word n-gram overlap gold vs train
   leak_cosine: 0.95                # e5 cosine: semantic near-copy across splits
 
+human:                             # human-authored training corpus (ADR-042, DATA_CONTRACTS §20)
+  recipe: configs/human_corpus.yaml
+  active_corpus: human-20261117-3f1ed9e4   # ADR-042 active training corpus (published version)
+  previous_corpus: sft-20261112-b0388c64   # sealed Stage 7 SFT; comparison only, not active
+
 kb:                                # Stage 5 knowledge base (ADR-027, DATA_CONTRACTS §8)
   name: demo_store                 # -> data/kb/demo_store/{sources,versions,current.json}
   source_root: kb_sources/demo_store   # facts.yaml, catalog.yaml, docs/<doc_id>.yaml

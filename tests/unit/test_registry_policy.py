@@ -24,7 +24,8 @@ def test_project_registry_is_valid_and_consistent() -> None:
         assert s.decision.strip()
     for s in selected:
         assert s.fetch is not None
-        assert s.source_id in CONVERTERS, f"selected source {s.source_id} has no converter"
+        if "stage3" in s.pipelines:
+            assert s.source_id in CONVERTERS, f"selected source {s.source_id} has no converter"
     blocked = [s for s in reg.sources if s.licence in {"unknown", "conflicting"}]
     assert all(s.allowed_use is AllowedUse.BLOCKED for s in blocked)
 
