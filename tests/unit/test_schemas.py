@@ -2,17 +2,13 @@ from __future__ import annotations
 
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any
 
 import pytest
 from pydantic import ValidationError
 
-from supportpilot.common.ids import make_example_id, make_record_id
 from supportpilot.common.manifest import load_source_registry
 from supportpilot.common.schemas import (
     AllowedUse,
-    CanonicalExample,
-    DatasetManifest,
     FileEntry,
     RawManifest,
     SourceRegistry,
@@ -20,79 +16,6 @@ from supportpilot.common.schemas import (
 from tests.data_helpers import entry
 
 SHA = "a" * 64
-
-
-def _example(**overrides: Any) -> dict[str, Any]:
-    rid = make_record_id("bitext_retail_ecom", 42)
-    base: dict[str, Any] = {
-        "example_id": make_example_id("bitext_retail_ecom", rid, "kk", "original", "Қайда?"),
-        "record_id": rid,
-        "source_id": "bitext_retail_ecom",
-        "scenario_id": "track_order:001",
-        "family_id": "track_order:001:a",
-        "lang": "kk",
-        "code_switch": False,
-        "text": "Менің тапсырысым қайда?",
-        "intent": "track_order",
-        "action": "call_tool",
-        "escalate": False,
-        "origin": "original",
-        "quality": {"lid_conf": 0.97},
-    }
-    base.update(overrides)
-    return base
-
-
-def test_valid_canonical_example() -> None:
-    ex = CanonicalExample.model_validate(_example())
-    assert ex.schema_version == "canonical/1"
-    assert ex.quality.flags == []
-
-
-def test_valid_escalation_and_translation() -> None:
-    src_id = _example()["example_id"]
-    CanonicalExample.model_validate(
-        _example(
-            action="escalate",
-            escalate=True,
-            escalation_reason="explicit request for operator",
-            intent="human_agent",
-            origin="machine_translated",
-            translation_of=src_id,
-            translation_system="tilmash@rev",
-        )
-    )
-
-
-@pytest.mark.parametrize(
-    ("override", "match"),
-    [
-        ({"lang": "kz"}, "lang"),
-        ({"intent": "where_is_my_parcel"}, "unknown intent"),
-        ({"escalate": True}, "escalation_reason"),
-        ({"escalate": True, "escalation_reason": "  "}, "escalation_reason"),
-        ({"action": "escalate"}, "requires escalate"),
-        ({"origin": "machine_translated"}, "translation_of"),
-        ({"record_id": "other_source:42"}, "record_id must start"),
-        ({"record_id": "Bad Id"}, "record_id"),
-        ({"example_id": "XYZ"}, "example_id"),
-        ({"text": ""}, "text"),
-        ({"text": "Order {{Order Number}}"}, "placeholder"),
-        ({"quality": {"lid_conf": 1.5}}, "lid_conf"),
-        ({"split": "dev"}, "split"),
-        ({"unexpected": 1}, "unexpected"),
-        ({"action": "answer"}, "action"),
-    ],
-)
-def test_invalid_canonical_example(override: dict[str, Any], match: str) -> None:
-    with pytest.raises(ValidationError, match=match):
-        CanonicalExample.model_validate(_example(**override))
-
-
-def test_canonical_example_is_frozen() -> None:
-    ex = CanonicalExample.model_validate(_example())
-    with pytest.raises(ValidationError):
-        ex.lang = "ru"  # type: ignore[misc]
 
 
 def test_source_entry_rules() -> None:
@@ -149,7 +72,7 @@ def test_file_entry_rejects_bad_hash_and_size() -> None:
 
 def test_raw_manifest_requires_aware_time_and_files() -> None:
     f = FileEntry(path="train.csv", bytes=10, sha256=SHA)
-    common = {"source_id": "bitext_retail_ecom", "revision": "r1", "url": "https://x"}
+    common = {"source_id": "abcd", "revision": "r1", "url": "https://x"}
     RawManifest(**common, retrieved_at=datetime.now(UTC), files=[f])
     with pytest.raises(ValidationError):
         RawManifest(**common, retrieved_at=datetime(2026, 1, 1), files=[f])
@@ -157,16 +80,10 @@ def test_raw_manifest_requires_aware_time_and_files() -> None:
         RawManifest(**common, retrieved_at=datetime.now(UTC), files=[])
 
 
-def test_dataset_manifest_version_pattern() -> None:
-    f = FileEntry(path="train.parquet", bytes=10, sha256=SHA)
-    kwargs: dict[str, Any] = {
-        "data_schema_version": "sft/1",
-        "code_commit": "abc",
-        "inputs": ["bitext_retail_ecom@r1"],
-        "row_counts": {"train/kk": 10},
-        "files": [f],
-        "created_at": datetime.now(UTC),
-    }
-    DatasetManifest(dataset_version="sft-20261111-3fa2c1d0", **kwargs)
-    with pytest.raises(ValidationError):
-        DatasetManifest(dataset_version="sft-final", **kwargs)
+def test_taxonomy_config_matches_intents() -> None:
+    from supportpilot.common.config import find_project_root
+    from supportpilot.common.schemas import INTENTS
+    from supportpilot.data.taxonomy import load_taxonomy
+
+    tax = load_taxonomy(find_project_root(Path(__file__).parent) / "configs" / "taxonomy.yaml")
+    assert set(tax.intents) == INTENTS

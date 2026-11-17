@@ -10,7 +10,7 @@ import pytest
 import yaml
 
 from supportpilot.cli import main
-from supportpilot.data.convert import RECORDS, records_dir
+from supportpilot.data.acquire import raw_dir
 from tests.data_helpers import entry, make_raw
 
 CSV = "instruction,intent,category,tags,response\nhi,a,B,C,D\nyo,a,B,C,D\n"
@@ -19,7 +19,7 @@ CSV = "instruction,intent,category,tags,response\nhi,a,B,C,D\nyo,a,B,C,D\n"
 @pytest.fixture
 def setup(tmp_path: Path) -> tuple[list[str], Path]:
     data = tmp_path / "data"
-    good = entry("bitext_retail_ecom")
+    good = entry("abcd")
     rejected = entry("synth_junk", status="rejected", allowed_use="reference_only")
     reg = {
         "schema_version": "sources/1",
@@ -46,33 +46,31 @@ def _run(capsys: pytest.CaptureFixture[str], argv: list[str]) -> tuple[int, dict
     return code, json.loads(out) if out.strip() else {}
 
 
-def test_sources_convert_verify_cycle(
+def test_sources_verify_cycle(
     setup: tuple[list[str], Path], capsys: pytest.CaptureFixture[str]
 ) -> None:
     base, data = setup
     code, out = _run(capsys, [*base, "sources"])
     assert code == 0
     state = {s["source_id"]: s for s in out["sources"]}
-    assert state["bitext_retail_ecom"]["acquired"] is True
-    assert state["bitext_retail_ecom"]["converted"] is False
+    assert state["abcd"]["acquired"] is True
     assert state["synth_junk"]["status"] == "rejected"
-
-    code, out = _run(capsys, [*base, "convert", "--all"])
-    assert code == 0
-    assert out["converted"][0]["rows"] == 2
-    code, out = _run(capsys, [*base, "convert", "bitext_retail_ecom"])
-    assert out["converted"][0]["status"] == "skipped"
 
     code, out = _run(capsys, [*base, "verify", "--all"])
     assert code == 0
     assert out["verify"][0]["raw"]["ok"] is True
-    assert out["verify"][0]["records"]["ok"] is True
 
-    parquet = records_dir(data, entry("bitext_retail_ecom")) / RECORDS
-    parquet.write_bytes(parquet.read_bytes()[:-10])
-    code, out = _run(capsys, [*base, "verify", "bitext_retail_ecom"])
+    f = raw_dir(data, entry("abcd")) / "r.csv"
+    f.write_bytes(f.read_bytes()[:-3])
+    code, out = _run(capsys, [*base, "verify", "abcd"])
     assert code == 1
-    assert out["verify"][0]["records"]["ok"] is False
+    assert out["verify"][0]["raw"]["ok"] is False
+
+
+def test_taxonomy_command(capsys: pytest.CaptureFixture[str]) -> None:
+    code, out = _run(capsys, ["data", "taxonomy"])
+    assert code == 0
+    assert out["version"] == "v1"
 
 
 def test_usage_and_policy_errors_exit_2(

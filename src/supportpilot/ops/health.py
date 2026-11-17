@@ -1,4 +1,4 @@
-"""Round-trip health checks for MLflow and Qdrant (`supportpilot check ...`)."""
+"""Round-trip health check for MLflow (`supportpilot check mlflow`)."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ from typing import Any
 
 from pydantic import BaseModel
 
-from supportpilot.common.config import QdrantSettings, Settings
+from supportpilot.common.config import Settings
 from supportpilot.common.tracking import RunSpec, start_run, tracking_uri
 
 
@@ -65,115 +65,3 @@ def check_mlflow(settings: Settings) -> CheckResult:
         },
         problems=problems,
     )
-
-
-def make_qdrant_client(cfg: QdrantSettings, settings: Settings) -> Any:
-    from qdrant_client import QdrantClient
-
-    if cfg.mode == "memory":
-        return QdrantClient(location=":memory:")
-    if cfg.mode == "embedded":
-        path = settings.resolve(cfg.path)
-        path.mkdir(parents=True, exist_ok=True)
-        return QdrantClient(path=str(path))
-    api_key = cfg.api_key.get_secret_value() if cfg.api_key else None
-    return QdrantClient(url=cfg.url, api_key=api_key, timeout=int(cfg.timeout_s))
-
-
-def check_qdrant(settings: Settings, cfg: QdrantSettings | None = None) -> CheckResult:
-    """Exercise what Stage 5-6 rely on: named dense + IDF sparse vectors, payload filter,
-    prefetch + RRF fusion, delete-by-filter (incremental reindex), then drop the collection."""
-    from qdrant_client import models as qm
-
-    cfg = cfg or settings.qdrant
-    t0 = time.perf_counter()
-    client = make_qdrant_client(cfg, settings)
-    name = f"sp_healthcheck_{uuid.uuid4().hex[:8]}"
-    problems: list[str] = []
-    timings: dict[str, float] = {}
-    details: dict[str, Any] = {"mode": cfg.mode, "collection": name}
-
-    def lap(key: str, start: float) -> None:
-        timings[key] = round((time.perf_counter() - start) * 1000, 1)
-
-    try:
-        if cfg.mode == "server":
-            details["server_version"] = client.info().version
-        s = time.perf_counter()
-        client.create_collection(
-            name,
-            vectors_config={"dense": qm.VectorParams(size=4, distance=qm.Distance.COSINE)},
-            sparse_vectors_config={"sparse": qm.SparseVectorParams(modifier=qm.Modifier.IDF)},
-        )
-        lap("create_ms", s)
-
-        docs = [
-            ("returns_policy", "kk", [1.0, 0.0, 0.0, 0.0], ([1, 2], [1.0, 1.0])),
-            ("returns_policy", "ru", [0.9, 0.1, 0.0, 0.0], ([1, 3], [1.0, 1.0])),
-            ("delivery_faq", "kk", [0.0, 1.0, 0.0, 0.0], ([4, 5], [1.0, 1.0])),
-        ]
-        points = [
-            qm.PointStruct(
-                id=str(uuid.uuid5(uuid.NAMESPACE_URL, f"{doc}:{lang}:{i}")),
-                vector={"dense": dense, "sparse": qm.SparseVector(indices=idx, values=val)},
-                payload={"doc_id": doc, "lang": lang},
-            )
-            for i, (doc, lang, dense, (idx, val)) in enumerate(docs)
-        ]
-        s = time.perf_counter()
-        client.upsert(name, points=points, wait=True)
-        lap("upsert_ms", s)
-
-        s = time.perf_counter()
-        res = client.query_points(
-            name,
-            prefetch=[
-                qm.Prefetch(query=[1.0, 0.05, 0.0, 0.0], using="dense", limit=10),
-                qm.Prefetch(
-                    query=qm.SparseVector(indices=[1, 2], values=[1.0, 1.0]),
-                    using="sparse",
-                    limit=10,
-                ),
-            ],
-            query=qm.FusionQuery(fusion=qm.Fusion.RRF),
-            query_filter=qm.Filter(
-                must=[qm.FieldCondition(key="lang", match=qm.MatchValue(value="kk"))]
-            ),
-            limit=3,
-            with_payload=True,
-        ).points
-        lap("hybrid_query_ms", s)
-        top = [(p.payload or {}).get("doc_id") for p in res]
-        details["hybrid_top"] = top
-        if not top or top[0] != "returns_policy" or len(top) != 2:
-            problems.append(f"unexpected hybrid result {top}")
-
-        s = time.perf_counter()
-        client.delete(
-            name,
-            points_selector=qm.FilterSelector(
-                filter=qm.Filter(
-                    must=[
-                        qm.FieldCondition(key="doc_id", match=qm.MatchValue(value="returns_policy"))
-                    ]
-                )
-            ),
-            wait=True,
-        )
-        lap("delete_by_filter_ms", s)
-        remaining = client.count(name, exact=True).count
-        if remaining != 1:
-            problems.append(f"expected 1 point after delete, got {remaining}")
-    except Exception as exc:
-        problems.append(f"{type(exc).__name__}: {exc}")
-    finally:
-        try:
-            if client.collection_exists(name):
-                client.delete_collection(name)
-        except Exception as exc:
-            problems.append(f"cleanup failed: {type(exc).__name__}: {exc}")
-        client.close()
-
-    details["timings"] = timings
-    details["seconds"] = round(time.perf_counter() - t0, 3)
-    return CheckResult(name="qdrant", ok=not problems, details=details, problems=problems)

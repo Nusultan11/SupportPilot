@@ -8,7 +8,6 @@ from pydantic import ValidationError
 from supportpilot.common.config import find_project_root
 from supportpilot.common.manifest import load_source_registry
 from supportpilot.common.schemas import LICENCE_MAX_USE, AllowedUse, SourceStatus
-from supportpilot.data.converters import CONVERTERS
 from supportpilot.data.policy import PolicyError, Purpose, check_use
 from tests.data_helpers import entry
 
@@ -24,8 +23,6 @@ def test_project_registry_is_valid_and_consistent() -> None:
         assert s.decision.strip()
     for s in selected:
         assert s.fetch is not None
-        if "stage3" in s.pipelines:
-            assert s.source_id in CONVERTERS, f"selected source {s.source_id} has no converter"
     blocked = [s for s in reg.sources if s.licence in {"unknown", "conflicting"}]
     assert all(s.allowed_use is AllowedUse.BLOCKED for s in blocked)
 

@@ -7,7 +7,6 @@ import pytest
 from supportpilot.common.config import (
     BackupSettings,
     MLflowSettings,
-    QdrantSettings,
     Settings,
 )
 
@@ -31,5 +30,4 @@ def settings(tmp_path: Path) -> Settings:
         root=root,
         backup=BackupSettings(root=tmp_path / "backups"),
         mlflow=MLflowSettings(db_path=Path("mlruns/mlflow.db"), artifact_root=Path("mlruns/art")),
-        qdrant=QdrantSettings(mode="memory"),
     )

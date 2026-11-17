@@ -18,7 +18,7 @@ def _yaml(tmp_path: Path, body: str) -> Path:
 
 def test_base_yaml_loads_and_matches_defaults() -> None:
     s = load_settings(REPO / "configs" / "base.yaml")
-    assert s.qdrant.mode == "server"
+    assert s.data.taxonomy == Path("configs/taxonomy.yaml")
     assert s.logging.log_text is False
     assert s.backup.keep_per_name == 3
     assert s.resolve(s.backup.root) == REPO / "backups"
@@ -26,20 +26,20 @@ def test_base_yaml_loads_and_matches_defaults() -> None:
 
 
 def test_yaml_values_applied(tmp_path: Path) -> None:
-    s = load_settings(_yaml(tmp_path, "qdrant:\n  mode: embedded\nlogging:\n  level: DEBUG\n"))
-    assert s.qdrant.mode == "embedded"
-    assert s.qdrant.url == "http://127.0.0.1:6333"  # untouched default
+    s = load_settings(_yaml(tmp_path, "backup:\n  keep_per_name: 5\nlogging:\n  level: DEBUG\n"))
+    assert s.backup.keep_per_name == 5
+    assert s.backup.root == Path("backups")  # untouched default
     assert s.logging.level == "DEBUG"
 
 
 def test_env_overrides_yaml_and_init_overrides_env(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    cfg = _yaml(tmp_path, "qdrant:\n  mode: embedded\n  timeout_s: 3\n")
-    monkeypatch.setenv("SUPPORTPILOT_QDRANT__MODE", "memory")
+    cfg = _yaml(tmp_path, "logging:\n  level: INFO\n  format: console\n")
+    monkeypatch.setenv("SUPPORTPILOT_LOGGING__LEVEL", "DEBUG")
     s = load_settings(cfg)
-    assert s.qdrant.mode == "memory"
-    assert s.qdrant.timeout_s == 3  # yaml value of the same section survives (deep merge)
+    assert s.logging.level == "DEBUG"
+    assert s.logging.format == "console"  # yaml value of the same section survives (deep merge)
     s2 = load_settings(cfg, env="prod")
     assert s2.env == "prod"
 
@@ -58,8 +58,8 @@ def test_missing_explicit_config_is_an_error(tmp_path: Path) -> None:
     "body",
     [
         "unknown_section: 1\n",
-        "qdrant:\n  mode: cloud\n",
-        "qdrant:\n  typo_key: 1\n",
+        "logging:\n  format: xml\n",
+        "logging:\n  typo_key: 1\n",
         "backup:\n  keep_per_name: 0\n",
         "logging:\n  level: verbose\n",
     ],
@@ -67,15 +67,6 @@ def test_missing_explicit_config_is_an_error(tmp_path: Path) -> None:
 def test_invalid_config_rejected(tmp_path: Path, body: str) -> None:
     with pytest.raises(ValidationError):
         load_settings(_yaml(tmp_path, body))
-
-
-def test_secret_never_rendered(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setenv("SUPPORTPILOT_QDRANT__API_KEY", "super-secret-value")
-    s = load_settings(REPO / "configs" / "base.yaml")
-    assert s.qdrant.api_key is not None
-    assert s.qdrant.api_key.get_secret_value() == "super-secret-value"
-    assert "super-secret-value" not in repr(s)
-    assert "super-secret-value" not in s.model_dump_json()
 
 
 def test_resolve_relative_paths(tmp_path: Path) -> None:

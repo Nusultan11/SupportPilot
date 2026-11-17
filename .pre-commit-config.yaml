@@ -34,8 +34,8 @@ repos:
         types: [python]
         pass_filenames: false
       - id: pytest-fast
-        name: pytest (not slow / gpu / qdrant_server)
-        entry: uv run --frozen pytest -q -m "not slow and not gpu and not qdrant_server"
+        name: pytest (not slow / gpu)
+        entry: uv run --frozen pytest -q -m "not slow and not gpu"
         language: system
         types: [python]
         pass_filenames: false

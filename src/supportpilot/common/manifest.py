@@ -1,4 +1,4 @@
-"""Build, write, read and verify file manifests (DATA_CONTRACTS §3, §9)."""
+"""Build, write, read and verify file manifests (DATA_CONTRACTS §3, §5)."""
 
 from __future__ import annotations
 

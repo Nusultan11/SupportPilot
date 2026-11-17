@@ -7,7 +7,13 @@
     "mlflow": {
       "type": "stdio",
       "command": "uv",
-      "args": ["run", "--locked", "mlflow", "mcp", "run"],
+      "args": [
+        "run",
+        "--locked",
+        "mlflow",
+        "mcp",
+        "run"
+      ],
       "env": {
         "MLFLOW_TRACKING_URI": "sqlite:///mlruns/mlflow.db",
         "MLFLOW_MCP_TOOLS": "experiments,runs",
@@ -37,23 +43,23 @@
       "type": "stdio",
       "command": "uvx",
       "args": [
-        "-p", "3.13", "--from", "serena-agent==2.1.0",
-        "serena", "start-mcp-server",
-        "--context", "claude-code", "--project-from-cwd",
-        "--enable-web-dashboard", "false", "--open-web-dashboard", "false"
+        "-p",
+        "3.13",
+        "--from",
+        "serena-agent==2.1.0",
+        "serena",
+        "start-mcp-server",
+        "--context",
+        "claude-code",
+        "--project-from-cwd",
+        "--enable-web-dashboard",
+        "false",
+        "--open-web-dashboard",
+        "false"
       ],
       "env": {
         "SERENA_USAGE_REPORTING": "false"
       }
-    },
-    "playwright": {
-      "type": "stdio",
-      "command": "npx",
-      "args": [
-        "-y", "@playwright/mcp@0.0.84",
-        "--browser", "msedge", "--headless", "--isolated",
-        "--output-dir", "artifacts/playwright"
-      ]
     }
   }
 }

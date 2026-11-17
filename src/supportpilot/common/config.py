@@ -1,7 +1,7 @@
 """Typed settings: defaults < YAML file < .env < environment variables < explicit overrides.
 
 YAML file: `SUPPORTPILOT_CONFIG` or `<root>/configs/base.yaml`.
-Env vars: prefix `SUPPORTPILOT_`, nested with `__`, e.g. `SUPPORTPILOT_QDRANT__MODE=memory`.
+Env vars: prefix `SUPPORTPILOT_`, nested with `__`, e.g. `SUPPORTPILOT_LOGGING__LEVEL=DEBUG`.
 Relative paths are resolved against the project root (`Settings.resolve`).
 """
 
@@ -9,11 +9,10 @@ from __future__ import annotations
 
 import os
 from contextvars import ContextVar
-from datetime import date
 from pathlib import Path
 from typing import Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field, SecretStr
+from pydantic import BaseModel, ConfigDict, Field
 from pydantic_settings import (
     BaseSettings,
     PydanticBaseSettingsSource,
@@ -47,102 +46,8 @@ class PathsSettings(_Section):
 
 class DataSettings(_Section):
     registry: Path = Path("configs/sources.yaml")
-    max_reject_ratio: float = Field(
-        default=0.01, ge=0.0, le=1.0, description="conversion fails above this share of bad rows"
-    )
     download_retries: int = Field(default=3, ge=1)
-
-
-class CleanSettings(_Section):
-    """Stage 3 cleaning, language ID, dedup and quality gates (ADR-020..022)."""
-
-    intent_map: Path = Path("configs/intent_map.yaml")
-    placeholders: Path = Path("configs/placeholders.yaml")
-    # Language ID: a non-supported language wins only when lingua is this confident.
-    lid_other_min_conf: float = Field(default=0.9, gt=0.0, le=1.0)
-    lid_low_conf: float = Field(default=0.5, ge=0.0, le=1.0, description="flag below this")
-    lid_relabel_min_conf: float = Field(
-        default=0.8, ge=0.0, le=1.0, description="detected != declared overrides only above this"
-    )
-    lid_min_letters: int = Field(default=3, ge=1, description="fewer letters -> undetermined")
-    # Near-duplicate detection: char shingles + MinHash/LSH, verified by exact Jaccard.
-    shingle_size: int = Field(default=5, ge=2)
-    minhash_perms: int = Field(default=128, ge=16)
-    lsh_bands: int = Field(default=32, ge=1)
-    family_threshold: float = Field(default=0.8, gt=0.0, le=1.0)
-    pair_report_min: float = Field(
-        default=0.5, gt=0.0, le=1.0, description="verified pairs >= this are kept for EDA"
-    )
-    sim_text_max_chars: int = Field(default=4000, ge=100)
-    seed: int = 20261111
-    # Gates (DATA_CONTRACTS §10)
-    min_validity: float = Field(default=0.995, ge=0.0, le=1.0)
-    min_lid_agreement: float = Field(default=0.99, ge=0.0, le=1.0)
-
-
-class TokenizerSpec(_Section):
-    name: str
-    repo_id: str
-    revision: str = Field(pattern=r"^[0-9a-f]{40}$")
-    sha256: str = Field(pattern=r"^[0-9a-f]{64}$", description="of tokenizer.json")
-
-
-class EdaSettings(_Section):
-    review_random: int = Field(default=100, ge=0)
-    review_flagged: int = Field(default=100, ge=0)
-    seed: int = 20261111
-    review_annotations: Path = Path("docs/reviews/stage3_review.yaml")
-    tokenizers: list[TokenizerSpec] = Field(default_factory=list)
-
-
-class Stage4Settings(_Section):
-    """Stage 4 multilingual SFT dataset and gold benchmark (ADR-023..026)."""
-
     taxonomy: Path = Path("configs/taxonomy.yaml")
-    locale: Path = Path("configs/locale_kz.yaml")
-    authored_dir: Path = Path("authored")
-    demo_facts: Path = Path("kb_sources/demo_store/facts.yaml")
-    seed: int = 20261111
-    max_per_family: int = Field(default=1, ge=1)
-    max_per_label: int = Field(default=260, ge=1)
-    max_profane_share: float = Field(default=0.1, ge=0.0, le=1.0)
-    mt_per_label: int = Field(default=150, ge=0)
-    native_sources: list[str] = Field(default_factory=list)  # ADR-028: no MT, own languages
-    native_max_per_label: dict[str, int] = Field(default_factory=dict)  # per source; default 8
-    mt_selected: dict[str, str] = Field(default_factory=dict)
-    back_translation: dict[str, str] = Field(default_factory=dict)
-    qe_min_bt_chrf: float = Field(default=0.3, ge=0.0, le=1.0)
-    qe_min_emb_sim: float = Field(default=0.8, ge=-1.0, le=1.0)
-    mt_compare_n: int = Field(default=100, ge=1)
-    embedder: dict[str, Any] = Field(default_factory=dict)
-    mt_systems: list[dict[str, Any]] = Field(default_factory=list)
-    split_ratios: dict[str, float] = Field(
-        default_factory=lambda: {"train": 0.7, "validation": 0.15, "test": 0.15}
-    )
-    leak_jaccard: float = Field(default=0.8, gt=0.0, le=1.0)
-    leak_ngram: int = Field(default=13, ge=5)
-    leak_cosine: float = Field(default=0.95, gt=0.0, le=1.0)
-
-
-class HumanSettings(_Section):
-    """Human-authored training corpus (ADR-042, DATA_CONTRACTS §20)."""
-
-    recipe: Path = Path("configs/human_corpus.yaml")
-    # The corpus version new training/router experiments read. Historical SFT versions stay
-    # sealed; they are never the active training corpus (ADR-042).
-    active_corpus: str | None = Field(default=None, pattern=r"^human-\d{8}-[0-9a-f]{8}$")
-    previous_corpus: str | None = None  # reported for comparison only
-
-
-class KBSettings(_Section):
-    """Stage 5 demo-store knowledge base (ADR-027, DATA_CONTRACTS §8)."""
-
-    name: str = Field(default="demo_store", pattern=r"^[a-z0-9]+(?:[_-][a-z0-9]+)*$")
-    source_root: Path = Path("kb_sources/demo_store")
-    gold_dir: Path | None = Path("authored/gold")  # gold references checked by `evidence`
-    max_tokens: int = Field(default=400, ge=16, description="chunk budget (kb.tokenizer)")
-    tokenizer: str = "qwen3"  # a name from eda.tokenizers
-    lid_min_letters: int = Field(default=40, ge=1, description="LID only on longer chunks")
 
 
 class LoggingSettings(_Section):
@@ -165,51 +70,6 @@ class MLflowSettings(_Section):
     experiment_prefix: str = "supportpilot"
 
 
-class QdrantSettings(_Section):
-    mode: Literal["server", "embedded", "memory"] = "server"
-    # 127.0.0.1, not "localhost": on Windows the IPv6-first lookup adds ~2 s to every call.
-    url: str = "http://127.0.0.1:6333"
-    path: Path = Path("data/qdrant_embedded")
-    api_key: SecretStr | None = None
-    timeout_s: float = Field(default=10.0, gt=0)
-
-
-class RetrievalSettings(_Section):
-    namespace: str = Field(default="", pattern=r"^[a-z0-9_]*$")
-    models: Path = Path("configs/retrieval_models.yaml")
-    encoder: str = "bge_m3"
-    reranker: str | None = "bge_reranker"
-    view: Literal["canonical", "window", "adjacent"] = "canonical"
-    window_tokens: int = Field(default=128, ge=16)
-    overlap_tokens: int = Field(default=32, ge=0)
-    sparse: Literal["word", "prefix"] = "word"
-    mode: Literal["dense", "sparse", "hybrid"] = "hybrid"
-    fusion: Literal["rrf", "weighted"] = "weighted"
-    dense_weight: float = Field(default=0.75, ge=0, le=1)
-    candidate_k: int = Field(default=20, ge=1, le=1000)
-    rerank_k: int = Field(default=20, ge=1, le=1000)
-    context_tokens: int = Field(default=1024, ge=0)
-    min_dense_score: float | None = None
-    min_rerank_score: float | None = None
-    evidence_threshold: float | None = Field(default=None, ge=0, le=1)
-    device: Literal["auto", "cpu", "cuda"] = "auto"
-    seed: int = 20261112
-    evaluation_date: date = date(2026, 11, 12)
-
-
-class ServingSettings(_Section):
-    database: Path = Path("data/service/supportpilot.sqlite")
-    # Synthetic principal -> secret bearer token; operator is a reserved principal.
-    tokens: dict[str, SecretStr] = Field(default_factory=dict)
-    router: Path = Path("artifacts/reports/llm/routing/router.json")
-    retrieval_enabled: bool = True
-    generation_enabled: bool = False
-    request_timeout_s: float = Field(default=60, gt=0, le=180)
-    session_ttl_s: int = Field(default=1800, ge=1)
-    memory_turns: int = Field(default=6, ge=1, le=20)
-    max_sessions: int = Field(default=1000, ge=1)
-
-
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_prefix=ENV_PREFIX,
@@ -222,17 +82,9 @@ class Settings(BaseSettings):
     root: Path = Field(default_factory=find_project_root)
     paths: PathsSettings = PathsSettings()
     data: DataSettings = DataSettings()
-    clean: CleanSettings = CleanSettings()
-    eda: EdaSettings = EdaSettings()
-    stage4: Stage4Settings = Stage4Settings()
-    human: HumanSettings = HumanSettings()
-    kb: KBSettings = KBSettings()
-    retrieval: RetrievalSettings = RetrievalSettings()
     logging: LoggingSettings = LoggingSettings()
     backup: BackupSettings = BackupSettings()
     mlflow: MLflowSettings = MLflowSettings()
-    qdrant: QdrantSettings = QdrantSettings()
-    serving: ServingSettings = ServingSettings()
 
     @classmethod
     def settings_customise_sources(

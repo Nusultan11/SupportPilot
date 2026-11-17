@@ -1,33 +1,16 @@
 [project]
 name = "supportpilot"
 version = "0.1.0"
-description = "Multilingual (RU/KK/EN) grounded customer-support assistant for an online store"
+description = "Multilingual (RU/KK/EN) customer-support assistant for an online store"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = [
-    "bm25s>=0.2.14",
-    "fastapi>=0.162.4",
-    "httpx>=0.28.1",
     "huggingface-hub>=2.4.0",
-    "lingua-language-detector>=2.2.0",
-    "matplotlib>=3.11.2",
     "mlflow>=3.18.0",
-    "numpy>=2.5.4",
-    "openpyxl>=3.1.5",
-    "pdfplumber>=0.11.10",
-    "polars>=2.1.0",
     "psutil>=7.2.2",
-    "pyarrow>=26.0.1",
     "pydantic>=2.14.3",
     "pydantic-settings>=2.16.2",
-    "python-docx>=1.2.0",
     "pyyaml>=6.0.3",
-    "qdrant-client>=1.20.0",
-    "reportlab>=5.1.0",
-    "scipy>=1.18.1",
-    "streamlit>=1.67.0",
-    "tokenizers>=0.23.3",
-    "uvicorn>=0.54.0",
 ]
 
 [project.scripts]
@@ -46,18 +29,6 @@ dev = [
 gpu = [
     "torch>=2.14.1",
 ]
-ml = [
-    "accelerate>=1.0",
-    "bitsandbytes>=0.45",
-    "lm-format-enforcer==0.11.3",
-    "peft==0.21.3",
-    "sacremoses>=0.1",
-    "scikit-learn==1.9.1",
-    "sentencepiece>=0.2",
-    "transformers>=4.57",
-    "trl==1.17.1",
-]
-
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
@@ -66,7 +37,7 @@ build-backend = "hatchling.build"
 packages = ["src/supportpilot"]
 
 [tool.uv]
-default-groups = ["dev", "gpu", "ml"]
+default-groups = ["dev", "gpu"]
 
 [[tool.uv.index]]
 name = "pytorch-cu126"
@@ -87,15 +58,6 @@ ignore = ["S101"]  # assert is fine in tests (and only used there)
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["S", "PLR2004", "RUF001", "RUF003"]  # tests hold RU/KK text and unicode on purpose
-# RU/KK linguistic tables (case forms, glossary, function words) are Cyrillic on purpose
-"src/supportpilot/data/{textfmt,qe}.py" = ["RUF001", "RUF002", "RUF003"]
-# KB date lines and RU/KK unit tables (Stage 5) are Cyrillic on purpose
-"src/supportpilot/kb/{blocks,spec,profiles}.py" = ["RUF001", "RUF002", "RUF003"]
-"src/supportpilot/retrieval/scale_author.py" = ["RUF001", "RUF002", "RUF003"]
-"src/supportpilot/service/orchestrator.py" = ["RUF001"]
-"src/supportpilot/service/decisions.py" = ["RUF001"]
-"src/supportpilot/service/workload.py" = ["RUF001"]
-"apps/ui.py" = ["RUF001"]
 
 [tool.mypy]
 python_version = "3.12"
@@ -105,7 +67,7 @@ mypy_path = "src"
 files = ["src", "tests"]
 
 [[tool.mypy.overrides]]
-module = ["mlflow.*", "qdrant_client.*", "pyarrow.*", "scipy.*", "reportlab.*", "openpyxl.*", "pdfplumber.*", "docx.*", "PIL.*", "bm25s.*"]
+module = ["mlflow.*"]
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]
@@ -114,6 +76,5 @@ addopts = "-ra --strict-markers"
 markers = [
     "slow: takes more than a few seconds (MLflow, torch)",
     "gpu: needs a CUDA device",
-    "qdrant_server: needs a running Qdrant server (QDRANT_URL)",
 ]
 filterwarnings = ["ignore::DeprecationWarning:mlflow.*"]

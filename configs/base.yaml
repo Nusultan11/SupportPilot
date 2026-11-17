@@ -1,7 +1,6 @@
-# Base configuration. Every key can be overridden by env vars:
-#   SUPPORTPILOT_<SECTION>__<KEY>, e.g. SUPPORTPILOT_QDRANT__MODE=memory
-# Secrets (e.g. SUPPORTPILOT_QDRANT__API_KEY) belong in .env or the environment, never here.
-# Relative paths are resolved against the project root.
+# Base configuration. Override any key with SUPPORTPILOT_<SECTION>__<KEY>,
+# e.g. SUPPORTPILOT_LOGGING__LEVEL=DEBUG. Secrets go in .env or the environment, never here.
+# Relative paths resolve against the project root.
 env: dev
 
 paths:
@@ -10,41 +9,9 @@ paths:
   reports_dir: artifacts/reports
 
 data:
-  registry: configs/sources.yaml   # source registry (DATA_CONTRACTS §2)
-  max_reject_ratio: 0.01           # conversion fails if more rows than this are rejected
+  registry: configs/sources.yaml   # source registry: licences, revisions, decisions
+  taxonomy: configs/taxonomy.yaml  # intent taxonomy v1 (product contract)
   download_retries: 3              # per file; partial downloads resume
-
-clean:                             # Stage 3 (ADR-020..022, DATA_CONTRACTS §4b-4d, §10)
-  intent_map: configs/intent_map.yaml
-  placeholders: configs/placeholders.yaml
-  lid_other_min_conf: 0.9          # another language wins only when lingua is this confident
-  lid_low_conf: 0.5                # rows below this get the flag lid_low_conf
-  lid_relabel_min_conf: 0.8        # detected != declared replaces the declared lang only above this
-  lid_min_letters: 3               # fewer letters -> language undetermined ("und")
-  shingle_size: 5                  # char 5-grams of the similarity key
-  minhash_perms: 128
-  lsh_bands: 32                    # 32 bands x 4 rows: P(candidate) = 0.87 at J=0.5, >0.999 at J=0.8
-  family_threshold: 0.8            # verified Jaccard for one paraphrase family (calibrated, ADR-022)
-  pair_report_min: 0.5             # verified pairs kept for EDA / threshold calibration
-  sim_text_max_chars: 4000         # long dialogues: similarity on the first 4000 chars
-  seed: 20261111
-  min_validity: 0.995              # post-cleaning validity gate
-  min_lid_agreement: 0.99          # LID(text) == lang gate
-
-eda:
-  review_random: 100               # qualitative review sample per source
-  review_flagged: 100
-  seed: 20261111
-  review_annotations: docs/reviews/stage3_review.yaml
-  tokenizers:                      # token lengths (ADR-008 candidates); pinned, hash-checked
-    - name: qwen3
-      repo_id: Qwen/Qwen3-0.6B
-      revision: c1899de289a04d12100db370d81485cdf75e47ca
-      sha256: aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4
-    - name: qwen3_5
-      repo_id: Qwen/Qwen3.5-0.8B
-      revision: 2fc06364715b967f1860aea9cf38778875588b17
-      sha256: 5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42
 
 logging:
   level: INFO
@@ -52,97 +19,10 @@ logging:
   log_text: false     # true only for local debugging: logs customer text verbatim
 
 backup:
-  root: backups                   # <project>/backups; must stay git-ignored (.gitignore)
-  keep_per_name: 3                # newest N per snapshot name, plus all pinned ones
+  root: backups                   # must stay git-ignored
+  keep_per_name: 3                # newest N per name, plus pinned ones
 
 mlflow:
   db_path: mlruns/mlflow.db
   artifact_root: mlruns/artifacts
   experiment_prefix: supportpilot
-
-qdrant:
-  mode: server        # server (Docker, dev/indexing) | embedded (on-disk, no server) | memory (tests)
-  url: http://127.0.0.1:6333   # not "localhost": IPv6-first lookup adds ~2 s per call on Windows
-  path: data/qdrant_embedded
-  timeout_s: 10
-
-stage4:                            # multilingual SFT dataset (ADR-023..026, DATA_CONTRACTS §5, §11-13)
-  taxonomy: configs/taxonomy.yaml
-  locale: configs/locale_kz.yaml
-  authored_dir: authored           # LLM-agent-authored scenarios, responses, training KB
-  demo_facts: kb_sources/demo_store/facts.yaml
-  seed: 20261111
-  # EN backbone from the Stage 3 canonical build + relabelled pending rows (v1 taxonomy).
-  max_per_family: 1                # one paraphrase per family (J >= 0.8 near-copies)
-  max_per_label: 260               # per source label and action, EN
-  max_profane_share: 0.1           # inserted-profanity register capped (Stage 3: 49% in retail)
-  mt_per_label: 100                # Bitext rows per source label and action translated to RU and KK (GPU time-bound, ADR-024)
-  mt_selected: {ru: madlad400_3b, kk: madlad400_3b}
-  # Native-language sources (ADR-028): relabelled in their own language, never translated.
-  native_sources: [mangi_kk_support_qa, massive_en_ru]
-  # Cap per (source label, language). MASSIVE labels are paraphrase-rich (≈ 400 rows each);
-  # every mangi row is a different question, so the cap only bounds its subdomains.
-  native_max_per_label: {massive_en_ru: 8, mangi_kk_support_qa: 100}
-  back_translation: {ru: opus_ru_en, kk: madlad400_3b}
-  qe_min_bt_chrf: 0.30
-  qe_min_emb_sim: 0.80
-  mt_compare_n: 100                # stratified EN sample for the MT comparison
-  embedder:
-    repo_id: intfloat/multilingual-e5-small
-    revision: 614241f622f53c4eeff9890bdc4f31cfecc418b3
-    licence: mit
-  mt_systems:
-    - {id: opus_en_ru, arch: marian, repo_id: Helsinki-NLP/opus-mt-en-ru, revision: bb09c99d180016eac6819df3dae68edb1690fdee, licence: apache-2.0, pairs: [en-ru], training_use: true}
-    - {id: opus_ru_en, arch: marian, repo_id: Helsinki-NLP/opus-mt-ru-en, revision: fbd6dc73284f95536648512cc21d57f19191961a, licence: apache-2.0, pairs: [ru-en], training_use: true}
-    - {id: opus_en_trk, arch: marian, repo_id: Helsinki-NLP/opus-mt-en-trk, revision: f9d8f6cd9d95d2f8ce34943c1f6cfe610d3bbf92, licence: apache-2.0, pairs: [en-kk], target_prefix: {kk: ">>kaz_Cyrl<< "}, training_use: true}
-    - {id: m2m100_418m, arch: m2m100, repo_id: facebook/m2m100_418M, revision: 55c2e61bbf05dfb8d7abccdc3fae6fc8512fd636, licence: mit, pairs: [en-ru, en-kk], training_use: true}
-    - {id: madlad400_3b, arch: madlad, repo_id: google/madlad400-3b-mt, revision: fa184c675da0b5c9e1c8694fccd4e12e2d422094, licence: apache-2.0, pairs: [en-ru, en-kk, ru-kk, ru-en, kk-en], quant: nf4, beams: 2, batch_size: 8, training_use: true}
-    - {id: madlad400_3b_pivot_ru, arch: pivot, via: [madlad400_3b, madlad400_3b], licence: apache-2.0, pairs: [en-kk], training_use: true}
-  # Splits (ADR-026): Bitext scenarios -> train; authored scenarios split by scenario_id.
-  split_ratios: {train: 0.7, validation: 0.15, test: 0.15}
-  leak_jaccard: 0.8                # char-5-gram near-duplicate threshold across splits
-  leak_ngram: 13                   # word n-gram overlap gold vs train
-  leak_cosine: 0.95                # e5 cosine: semantic near-copy across splits
-
-human:                             # human-authored training corpus (ADR-042, ADR-043, DATA_CONTRACTS §20)
-  recipe: configs/human_corpus.yaml
-  active_corpus: human-20261117-9b501421   # ADR-045 audited corpus; previous human-20261117-fedfa10a
-  previous_corpus: sft-20261112-b0388c64   # sealed Stage 7 SFT; comparison only, not active
-
-kb:                                # Stage 5 knowledge base (ADR-027, DATA_CONTRACTS §8)
-  name: demo_store                 # -> data/kb/demo_store/{sources,versions,current.json}
-  source_root: kb_sources/demo_store   # facts.yaml, catalog.yaml, docs/<doc_id>.yaml
-  gold_dir: authored/gold          # gold `doc.section` references must resolve (evidence gate)
-  max_tokens: 400                  # chunk budget in kb.tokenizer tokens
-  tokenizer: qwen3                 # name from eda.tokenizers (pinned, hash-checked)
-  lid_min_letters: 40              # language gate on prose chunks with at least this many letters
-
-retrieval:
-  namespace: scale_6fab32c16b3a6e05b29f  # Stage 6.1 expanded KB; baseline namespace retained
-  models: configs/retrieval_models.yaml
-  encoder: bge_m3
-  reranker: bge_reranker
-  view: canonical
-  sparse: word
-  mode: hybrid
-  fusion: weighted
-  dense_weight: 0.75
-  candidate_k: 20
-  rerank_k: 20
-  evidence_threshold: null        # score gate failed multilingual recall guard; ADR-030
-  context_tokens: 1024
-  device: auto
-  seed: 20261112
-  evaluation_date: '2026-11-12'
-
-# Stage 8 single-process local prototype. Credentials belong in environment/ignored .env.
-serving:
-  database: data/service/supportpilot.sqlite
-  tokens: {}
-  router: artifacts/reports/llm/routing/router.json
-  retrieval_enabled: true
-  generation_enabled: false
-  request_timeout_s: 60
-  session_ttl_s: 1800
-  memory_turns: 6
-  max_sessions: 1000

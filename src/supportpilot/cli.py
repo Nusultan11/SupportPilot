@@ -53,13 +53,7 @@ def cmd_env(args: argparse.Namespace, settings: Settings) -> int:
 def cmd_check(args: argparse.Namespace, settings: Settings) -> int:
     from supportpilot.ops import health
 
-    if args.target == "mlflow":
-        result = health.check_mlflow(settings)
-    else:
-        cfg = settings.qdrant
-        if args.mode:
-            cfg = cfg.model_copy(update={"mode": args.mode})
-        result = health.check_qdrant(settings, cfg)
+    result = health.check_mlflow(settings)
     _emit(result)
     return 0 if result.ok else 1
 
@@ -130,16 +124,9 @@ def cmd_backup(args: argparse.Namespace, settings: Settings) -> int:
     raise AssertionError(args.action)  # pragma: no cover
 
 
-def _stage3(entries: list[SourceEntry]) -> list[SourceEntry]:
-    """Selected sources read by the Stage 3/4 pipeline (ADR-042: human-only sources excluded)."""
-    return [s for s in entries if s.status is SourceStatus.SELECTED and "stage3" in s.pipelines]
-
-
 def _selected_entries(args: argparse.Namespace, settings: Settings) -> list[SourceEntry]:
     registry = load_source_registry(settings.resolve(settings.data.registry))
     if args.all:
-        if args.action == "convert":
-            return _stage3(registry.sources)
         return [s for s in registry.sources if s.status is SourceStatus.SELECTED]
     if not args.sources:
         raise ValueError("name one or more source ids, or pass --all (all selected sources)")
@@ -151,212 +138,58 @@ def _selected_entries(args: argparse.Namespace, settings: Settings) -> list[Sour
 
 def cmd_data(args: argparse.Namespace, settings: Settings) -> int:
     from supportpilot.data.acquire import acquire_source, raw_dir, remote_for, verify_raw
-    from supportpilot.data.convert import convert_source, records_dir, verify_records
 
     data_dir = settings.resolve(settings.paths.data_dir)
     if args.action == "sources":
         registry = load_source_registry(settings.resolve(settings.data.registry))
-        rows = []
-        for s in registry.sources:
-            if args.status and s.status.value != args.status:
-                continue
-            rows.append(
-                {
-                    "source_id": s.source_id,
-                    "status": s.status.value,
-                    "allowed_use": s.allowed_use.value,
-                    "licence": s.licence,
-                    "languages": s.languages,
-                    "acquired": (raw_dir(data_dir, s) / "manifest.json").is_file(),
-                    "converted": (records_dir(data_dir, s) / "manifest.json").is_file(),
-                }
-            )
+        rows = [
+            {
+                "source_id": s.source_id,
+                "status": s.status.value,
+                "allowed_use": s.allowed_use.value,
+                "licence": s.licence,
+                "languages": s.languages,
+                "acquired": (raw_dir(data_dir, s) / "manifest.json").is_file(),
+            }
+            for s in registry.sources
+            if not args.status or s.status.value == args.status
+        ]
         _emit({"sources": rows})
         return 0
+    if args.action == "taxonomy":
+        from supportpilot.data.taxonomy import load_taxonomy
 
-    if args.action in ("clean", "gates", "eda"):
-        return _cmd_stage3(args, settings)
-    if args.action in STAGE4_ACTIONS:
-        return _cmd_stage4(args, settings)
-    if args.action == "human-intake":
-        from supportpilot.data.humanrun import run_human_intake
-
-        _emit(run_human_intake(settings, args.source, seal=args.seal))
+        tax = load_taxonomy(settings.resolve(settings.data.taxonomy))
+        _emit({"version": tax.version, "intents": len(tax.intents), "actions": tax.actions})
         return 0
-    if args.action in ("human", "human-verify"):
-        from supportpilot.data.humanrun import run_human, run_human_verify
-
-        if args.action == "human":
-            res = run_human(settings, semantic=not args.no_semantic)
-            _emit(res)
-            return 0 if res.get("gates", "pass") == "pass" else 1
-        ver = run_human_verify(settings, args.version)
-        _emit(ver)
-        return 0 if ver["checksums_ok"] and ver["gates"] == "pass" else 1
     entries = _selected_entries(args, settings)
     if args.action == "acquire":
         results = []
         for e in entries:
             if e.fetch is None:
                 raise ValueError(f"{e.source_id}: registry entry has no fetch spec")
-            remote = remote_for(e)
-            r = acquire_source(e, data_dir, remote, retries=settings.data.download_retries)
+            r = acquire_source(e, data_dir, remote_for(e), retries=settings.data.download_retries)
             results.append(r.model_dump())
         _emit({"acquired": results})
         return 0
-    if args.action == "convert":
-        commit = code_commit(settings.root)
-        results = [
-            convert_source(
-                e,
-                data_dir,
-                max_reject_ratio=settings.data.max_reject_ratio,
-                code_commit=commit,
-                force=args.force,
-            ).model_dump()
-            for e in entries
-        ]
-        _emit({"converted": results})
-        return 0
     # verify
-    report = []
+    report: list[dict[str, Any]] = []
     failed = False
     for e in entries:
-        raw, rec = raw_dir(data_dir, e), records_dir(data_dir, e)
-        item: dict[str, Any] = {"source_id": e.source_id, "raw": None, "records": None}
-        if raw.exists():
-            raw_problems = verify_raw(raw)
-            item["raw"] = {
-                "ok": not raw_problems,
-                "problems": [p.model_dump() for p in raw_problems],
+        raw = raw_dir(data_dir, e)
+        if not raw.exists():
+            report.append({"source_id": e.source_id, "raw": "not acquired"})
+            continue
+        problems = verify_raw(raw)
+        failed |= bool(problems)
+        report.append(
+            {
+                "source_id": e.source_id,
+                "raw": {"ok": not problems, "problems": [p.model_dump() for p in problems]},
             }
-            failed |= bool(raw_problems)
-        if rec.exists():
-            rec_problems = verify_records(rec)
-            item["records"] = {
-                "ok": not rec_problems,
-                "problems": [p.model_dump() for p in rec_problems],
-            }
-            failed |= bool(rec_problems)
-        if item["raw"] is None:
-            item["raw"] = "not acquired"
-        report.append(item)
+        )
     _emit({"verify": report})
     return 1 if failed else 0
-
-
-def _cmd_stage3(args: argparse.Namespace, settings: Settings) -> int:
-    from supportpilot.data import pipeline
-    from supportpilot.data.build import BuildError
-
-    registry = load_source_registry(settings.resolve(settings.data.registry))
-    selected = _stage3(registry.sources)
-    if args.action == "gates":
-        report = pipeline.regate(settings, selected)
-        _emit(report)
-        return 0 if report.passed else 1
-    if args.action == "eda":
-        from supportpilot.data.eda import run_eda
-
-        summary = run_eda(settings, selected, tokens=not args.no_tokens)
-        _emit(summary)
-        return 0
-    entries = selected if args.all else _selected_entries(args, settings)
-    try:
-        result = pipeline.prepare(
-            settings,
-            entries,
-            build=args.all,
-            force=args.force,
-            code_commit=code_commit(settings.root),
-        )
-    except BuildError as exc:
-        log.error("build failed", extra={"error": str(exc)})
-        return 1
-    _emit(result)
-    return 0 if result.gates is None or result.gates.passed else 1
-
-
-STAGE4_ACTIONS = (
-    "taxonomy",
-    "select",
-    "native",
-    "kb-train",
-    "mt-compare",
-    "translate",
-    "qe-score",
-    "sft",
-    "gold",
-    "retrieval-set",
-)
-
-
-def _cmd_stage4(args: argparse.Namespace, settings: Settings) -> int:
-    from supportpilot.data import stage4
-
-    registry = load_source_registry(settings.resolve(settings.data.registry))
-    selected = _stage3(registry.sources)
-    commit = code_commit(settings.root)
-    force = getattr(args, "force", False)
-    match args.action:
-        case "taxonomy":
-            _emit(stage4.taxonomy_report(settings))
-            return 0
-        case "select":
-            _emit(stage4.run_select(settings, selected, code_commit=commit, force=force))
-            return 0
-        case "native":
-            _emit(stage4.run_native(settings, selected, code_commit=commit, force=force))
-            return 0
-        case "kb-train":
-            _emit(stage4.run_kb(settings, code_commit=commit, force=force))
-            return 0
-        case "mt-compare":
-            from supportpilot.data.mtrun import run_compare
-
-            _emit(run_compare(settings))
-            return 0
-        case "translate":
-            from supportpilot.data.mtrun import run_translate
-
-            res = run_translate(settings, args.lang, limit=args.limit, back=not args.no_back)
-            _emit({"translated": [r.model_dump() for r in res]})
-            return 0
-        case "qe-score":
-            from supportpilot.data.mtrun import run_score
-
-            _emit(run_score(settings, code_commit=commit, force=force))
-            return 0
-        case "sft":
-            from supportpilot.data.mtrun import run_score
-            from supportpilot.data.sftbuild import build_sft
-
-            steps = {
-                "select": stage4.run_select(settings, selected, code_commit=commit, force=False),
-                "native": stage4.run_native(settings, selected, code_commit=commit, force=False),
-                "kb_train": stage4.run_kb(settings, code_commit=commit, force=False),
-                "qe_score": run_score(settings, code_commit=commit, force=False),
-            }
-            result = build_sft(
-                settings, selected, code_commit=commit, force=force, semantic=not args.no_semantic
-            )
-            _emit({"steps": steps, "sft": result})
-            return 0 if result.get("gates_passed", True) else 1
-        case "gold":
-            from supportpilot.data.gold import build_gold
-
-            report = build_gold(settings, code_commit=commit, semantic=not args.no_semantic)
-            _emit(report)
-            return 0 if report["passed"] else 1
-        case "retrieval-set":
-            from supportpilot.data.retrievalset import build_retrieval_set
-
-            report = build_retrieval_set(
-                settings, code_commit=commit, semantic=not args.no_semantic
-            )
-            _emit(report)
-            return 0 if report["passed"] else 1
-    raise AssertionError(args.action)  # pragma: no cover
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -370,15 +203,14 @@ def build_parser() -> argparse.ArgumentParser:
     env.set_defaults(func=cmd_env)
 
     chk = sub.add_parser("check", help="service round-trip checks")
-    chk.add_argument("target", choices=["mlflow", "qdrant"])
-    chk.add_argument("--mode", choices=["server", "embedded", "memory"], help="qdrant mode")
+    chk.add_argument("target", choices=["mlflow"])
     chk.set_defaults(func=cmd_check)
 
     bk = sub.add_parser("backup", help="data/model snapshots (git-ignored backups/ dir)")
     bsub = bk.add_subparsers(dest="action", required=True)
     c = bsub.add_parser("create", help="snapshot a file or directory")
     c.add_argument("source")
-    c.add_argument("--name", required=True, help="slug, e.g. bitext_raw")
+    c.add_argument("--name", required=True, help="slug, e.g. abcd_raw")
     c.add_argument("--kind", choices=backup.KINDS, required=True)
     c.add_argument("--note")
     c.add_argument("--pin", action="store_true", help="exempt from pruning (stage-end)")
@@ -399,77 +231,19 @@ def build_parser() -> argparse.ArgumentParser:
     pr.add_argument("--yes", action="store_true", help="actually delete")
     bk.set_defaults(func=cmd_backup)
 
-    dt = sub.add_parser("data", help="source registry, acquisition, conversion")
+    dt = sub.add_parser("data", help="source registry, acquisition, verification")
     dsub = dt.add_subparsers(dest="action", required=True)
-    src = dsub.add_parser("sources", help="registry with local acquisition/conversion state")
+    src = dsub.add_parser("sources", help="registry with local acquisition state")
     src.add_argument("--status", choices=[s.value for s in SourceStatus])
     for name, helptext in (
         ("acquire", "download pinned revisions into data/raw (skips verified ones)"),
-        ("verify", "deep-check raw data and records against their manifests"),
-        ("convert", "raw files -> data/interim/records (skips up-to-date ones)"),
+        ("verify", "deep-check raw data against its manifest"),
     ):
         a = dsub.add_parser(name, help=helptext)
         a.add_argument("sources", nargs="*", help="source ids (see `data sources`)")
         a.add_argument("--all", action="store_true", help="all sources with status=selected")
-        if name == "convert":
-            a.add_argument("--force", action="store_true", help="rebuild even if up to date")
-    cl = dsub.add_parser(
-        "clean",
-        help="Stage 3: records -> data/interim/clean; with --all also build "
-        "data/interim/canonical (dedup, groups, canonical/pending/rejected) and run the gates",
-    )
-    cl.add_argument("sources", nargs="*", help="clean only these sources (no build)")
-    cl.add_argument("--all", action="store_true", help="all selected sources + build + gates")
-    cl.add_argument("--force", action="store_true", help="rebuild even if up to date")
-    dsub.add_parser("gates", help="re-run the quality gates on data/interim/canonical")
-    ed = dsub.add_parser("eda", help="EDA report -> artifacts/reports/eda/")
-    ed.add_argument("--no-tokens", action="store_true", help="skip Qwen token counts (offline)")
-    dsub.add_parser("taxonomy", help="Stage 4: validate taxonomy v1 and report the relabelling")
-    for name, helptext in (
-        ("select", "Stage 4: v1 relabel + EN backbone selection -> data/interim/stage4/selected"),
-        ("native", "Stage 4: native-language source rows -> data/interim/stage4/native"),
-        ("kb-train", "Stage 4: training KB variant -> data/processed/kb_train"),
-        ("qe-score", "Stage 4: QE of cached translations -> data/interim/stage4/translated"),
-    ):
-        a = dsub.add_parser(name, help=helptext)
-        a.add_argument("--force", action="store_true", help="rebuild even if up to date")
-    dsub.add_parser("mt-compare", help="Stage 4: compare MT systems on a sample (GPU)")
-    tr = dsub.add_parser("translate", help="Stage 4: translate the backbone queue (GPU, resumable)")
-    tr.add_argument("--lang", choices=["ru", "kk"], required=True)
-    tr.add_argument("--limit", type=int, help="translate at most N new texts")
-    tr.add_argument("--no-back", action="store_true", help="skip back-translation")
-    sf = dsub.add_parser(
-        "sft", help="Stage 4: build the SFT dataset -> data/processed/sft/<version>"
-    )
-    sf.add_argument("--force", action="store_true", help="rebuild even if up to date")
-    sf.add_argument("--no-semantic", action="store_true", help="skip the e5 semantic leakage check")
-    gd = dsub.add_parser("gold", help="Stage 4: build the gold benchmark -> data/gold/<version>")
-    gd.add_argument("--no-semantic", action="store_true", help="skip the e5 semantic leakage check")
-    rq = dsub.add_parser(
-        "retrieval-set", help="build independent KB-bound retrieval queries and qrels"
-    )
-    rq.add_argument(
-        "--no-semantic", action="store_true", help="skip diagnostic semantic comparison"
-    )
-    hu = dsub.add_parser(
-        "human", help="ADR-042: build the human-authored corpus -> data/processed/human/<version>"
-    )
-    hu.add_argument("--no-semantic", action="store_true", help="skip e5 (gates then fail)")
-    hv = dsub.add_parser("human-verify", help="checksums + gates of a human corpus version")
-    hv.add_argument("--version", help="human-<date>-<hash> (default: human.active_corpus)")
-    hi = dsub.add_parser(
-        "human-intake", help="check a commissioned human delivery (DATA_CONTRACTS §20.2)"
-    )
-    hi.add_argument("--source", required=True, help="registered source_id of the delivery")
-    hi.add_argument("--seal", action="store_true", help="write its raw manifest first (once)")
+    dsub.add_parser("taxonomy", help="validate configs/taxonomy.yaml")
     dt.set_defaults(func=cmd_data)
-
-    from supportpilot.kb.cli import add_parser as add_kb_parser
-
-    add_kb_parser(sub)
-    from supportpilot.retrieval.cli import add_parser as add_retrieval_parser
-
-    add_retrieval_parser(sub)
     return p
 
 
@@ -483,20 +257,14 @@ def main(argv: Sequence[str] | None = None) -> int:
     configure_logging(settings.logging)
     log.debug("start", extra={"command": args.command, "at": datetime.now(UTC).isoformat()})
     from supportpilot.data.acquire import AcquireError
-    from supportpilot.data.build import BuildError
-    from supportpilot.data.converters import ConversionError
     from supportpilot.data.policy import PolicyError
-    from supportpilot.data.steps import StepError
 
     try:
         return int(args.func(args, settings))
     except (
         backup.BackupError,
         AcquireError,
-        BuildError,
-        ConversionError,
         PolicyError,
-        StepError,
         FileNotFoundError,
         ValueError,
     ) as exc:

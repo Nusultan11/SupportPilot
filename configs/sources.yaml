@@ -1,4 +1,5 @@
-# Source registry (DATA_CONTRACTS §2, ADR-006, ADR-018). Validated by `SourceRegistry`.
+# Source registry (DATA_CONTRACTS §2, ADR-018). Validated by `SourceRegistry`.
+# Notes that mention Stages / ADR-020..045 describe retired work (ADR-046); licence evidence stays valid.
 # Every source that was investigated is listed, including rejected ones and the reason.
 # status:      selected | candidate | rejected | unavailable
 # allowed_use: train | eval_only | reference_only | blocked  (capped by the licence policy)
@@ -13,12 +14,13 @@ sources:
     licence: cdla-sharing-1.0
     licence_evidence: "HF card metadata `license: cdla-sharing-1.0` (checked 2026-11-11)"
     allowed_use: train
-    status: selected
+    status: rejected
     languages: [en]
     size: {rows: 44884, files: 2, bytes: 42634113}
     reviewed_at: 2026-11-11
     purpose: EN scenario backbone for retail/e-commerce intents (46 intents, 13 categories)
     decision: >-
+      Rejected 2026-11-17 (project reset): synthetic; local raw copy deleted.
       Closest licensed match to the product scope (orders, delivery, returns, payment,
       products, store). Hybrid-synthetic and templated: rows are paraphrase families of few
       scenarios, so unique-scenario count is measured in Stage 3.
@@ -35,12 +37,13 @@ sources:
     licence: cdla-sharing-1.0
     licence_evidence: "HF card metadata `license: cdla-sharing-1.0` (checked 2026-11-11)"
     allowed_use: train
-    status: selected
+    status: rejected
     languages: [en]
     size: {rows: 26872, files: 2, bytes: 19214423}
     reviewed_at: 2026-11-11
     purpose: EN generic customer-support intents (orders, refunds, invoices, shipping address, account)
     decision: >-
+      Rejected 2026-11-17 (project reset): synthetic; local raw copy deleted.
       Complements the retail set with invoice, shipping-address, complaint and account flows.
       Overlaps with retail on cancel/change order and refunds (overlap measured in Stage 3).
     notes: Card text lists fewer intents than the data contains; trust the data (Stage 3).
@@ -54,7 +57,7 @@ sources:
     licence: cc-by-4.0
     licence_evidence: "HF card metadata `license: cc-by-4.0`; README \"machine-generated\" (checked 2026-11-11)"
     allowed_use: train
-    status: selected
+    status: rejected
     languages: [en]
     size: {files: 3, bytes: 77603737}
     reviewed_at: 2026-11-11
@@ -62,6 +65,7 @@ sources:
       Naturalistic (non-templated) EN multi-turn e-commerce payment/refund/billing conversations
       to counter Bitext's template style; intent labels over 7 payment types.
     decision: >-
+      Rejected 2026-11-17 (project reset): machine-generated; local raw copy deleted.
       Selected for Stage 3 EDA; inclusion in SFT depends on measured quality. LLM role-play
       simulation, generator models not named, so it is never used as a source of facts.
     notes: Label set (spend/send/exchange/recur/bill/reverse/none) differs from ours; map in Stage 4.
@@ -75,7 +79,7 @@ sources:
     licence: cc-by-4.0
     licence_evidence: LICENSE.txt "Licensed under Creative Commons Attribution 4.0" + card metadata (checked 2026-11-11)
     allowed_use: reference_only
-    status: selected
+    status: rejected
     languages: [ru]
     size: {rows: 716, files: 6, bytes: 4275284}
     reviewed_at: 2026-11-11
@@ -83,6 +87,7 @@ sources:
       RU reference for policy-conditioned support decisions (message + policies + facts ->
       category, action, reply, escalation): informs our grounded SFT design and RU phrasing.
     decision: >-
+      Rejected 2026-11-17 (project reset): synthetic; local raw copy deleted.
       SaaS domain, not e-commerce, and synthetic; licence would allow training but we keep it
       reference_only until Stage 4 shows a use. Only the `selected` config is fetched: the
       other configs overlap it (card warning).
@@ -97,12 +102,13 @@ sources:
     licence: cc-by-sa-4.0
     licence_evidence: "HF card metadata `license: cc-by-sa-4.0` (checked 2026-11-11)"
     allowed_use: eval_only
-    status: selected
+    status: rejected
     languages: [kk, ru, en]
     size: {rows: 2700, files: 4, bytes: 7803342}
     reviewed_at: 2026-11-11
     purpose: Parallel reading-comprehension benchmark to measure base-model KK/RU/EN competence (Stage 7)
     decision: >-
+      Rejected 2026-11-17 (project reset): unused; local raw copy deleted.
       Public, parallel across our three languages, standard for KK model comparison. The card
       says test-only, so eval_only (never training or tuning).
     fetch:
@@ -198,7 +204,6 @@ sources:
       Attribution: Chen, Chen, Yang, Lin, Yu (2021) "Action-Based Conversations Dataset",
       ASAPP Research, MIT. Scenario `personal` fields are fictional customer profiles. Lowercase
       chat style, typos and multi-sentence turns are kept as written.
-    pipelines: [human]
     fetch:
       type: github_repo
       repo_id: asappresearch/abcd
@@ -232,7 +237,6 @@ sources:
       Attribution: Gerz, Su, Kusztos, Mondal, Lis, Singhal, Mrksic, Wen, Vulic (2021)
       "Multilingual and Cross-Lingual Intent Detection from Spoken Data", PolyAI, CC BY 4.0.
       Only the ru-RU parquet is fetched; audio bytes are stored in the raw revision only.
-    pipelines: [human]
     fetch:
       repo_id: PolyAI/minds14
       include: ["ru-RU/train-00000-of-00001.parquet", "README.md"]
@@ -263,7 +267,6 @@ sources:
       Attribution: van der Goot, Sharaf, Imankulova, Ustun, Stepanovic, Ramponi, Khairunnisa,
       Komachi, Plank (2021) "From Masked Language Modeling to Translation", xSID 0.7, CC BY-SA 4.0
       (derived data that is shared must keep the licence).
-    pipelines: [human]
     fetch:
       type: github_repo
       repo_id: mainlp/xsid
@@ -290,7 +293,6 @@ sources:
     notes: >-
       Attribution: Larson et al. (2019) "An Evaluation Dataset for Intent Classification and
       Out-of-Scope Prediction", CC BY 3.0. The `plus` configuration is fetched.
-    pipelines: [human]
     fetch:
       repo_id: clinc/clinc_oos
       include: ["plus/*.parquet", "README.md"]
@@ -322,7 +324,6 @@ sources:
       Attribution: Feng, Wan, Gunasekara, Patel, Joshi, Lastras (2020) "doc2dial: A
       Goal-Oriented Document-Grounded Dialogue Dataset", IBM Research, CC BY 3.0. Only the
       train/validation dialogues are public; the shared-task test set is not used.
-    pipelines: [human]
     fetch:
       type: github_repo
       repo_id: doc2dial/sharedtask-dialdoc2021
@@ -687,7 +688,7 @@ sources:
 
   # ------------------------------------------------- commercial / custom options (2026-11-17)
   # Catalogue pages only; no contact, account, sample request or purchase. Revisions record the
-  # page check date. Any acquisition needs owner approval (AGENTS §4, human corpus review §6).
+  # page check date. Any acquisition needs owner approval (AGENTS §11).
   - source_id: futurebeeai_ru_retail_chat
     url: https://www.futurebeeai.com/dataset/text-dataset/russian-retail-domain-conversation-text-dataset
     revision: catalogue-2026-11-17

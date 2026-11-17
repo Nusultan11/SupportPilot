@@ -1,9 +1,0 @@
-schema_version: system_quality/1
-seed: 20261115
-bootstrap_samples: 1000
-source: authored/system/quality.yaml
-protocol: docs/reviews/stage9_quality_protocol.md
-baseline_commit: 4b082d371b42feb4e91f85375ad36c0cf8c7ba98
-review_status: draft
-semantic_independence: NOT_CERTIFIED
-independent_human_review: false

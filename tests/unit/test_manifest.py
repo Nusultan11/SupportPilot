@@ -41,7 +41,7 @@ def test_verify_detects_size_change(tmp_path: Path) -> None:
 def test_manifest_json_roundtrip(tmp_path: Path) -> None:
     _tree(tmp_path / "raw")
     m = RawManifest(
-        source_id="bitext_retail_ecom",
+        source_id="abcd",
         revision="r1",
         url="https://example.org",
         retrieved_at=datetime.now(UTC),

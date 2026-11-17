@@ -9,8 +9,7 @@
       "mcp__mlflow__restore_experiment",
       "mcp__mlflow__restore_run",
       "mcp__mlflow__update_experiment",
-      "mcp__mlflow__link_traces_to_run",
-      "mcp__playwright__browser_run_code_unsafe"
+      "mcp__mlflow__link_traces_to_run"
     ]
   }
 }
